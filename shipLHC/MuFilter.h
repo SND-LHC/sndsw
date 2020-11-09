@@ -31,13 +31,26 @@ class MuFilter : public FairDetector
 		void ConstructGeometry();
 
 		/** Other functions **/
-		void SetIronBlockDimensions(Double_t , Double_t, Double_t);
-		void SetTimingPlanesDimensions(Double_t, Double_t, Double_t);
+		void SetIronBlockDimensions(Double_t , Double_t, Double_t);	       
 		void SetMuFilterDimensions(Double_t, Double_t, Double_t);
-		void SetNplanes(Int_t);
 		void SetCenterZ(Double_t);
 		void SetXYDisplacement(Double_t , Double_t );
 		void SetYPlanesDisplacement(Double_t);
+
+		void SetUpstreamPlanesDimensions(Double_t, Double_t, Double_t);
+		void SetNUpstreamPlanes(Int_t);
+		void SetUpstreamBarsDimensions(Double_t, Double_t, Double_t);
+		void SetNUpstreamBars(Int_t);
+		void SetOverlapUpstreamBars(Double_t);
+
+		void SetDownstreamPlanesDimensions(Double_t, Double_t, Double_t);
+		void SetNDownstreamPlanes(Int_t);
+		void SetDownstreamBarsDimensions(Double_t, Double_t, Double_t);
+                void SetDownstreamVerticalBarsDimensions(Double_t, Double_t, Double_t);
+		void SetNDownstreamBars(Int_t);
+		void SetOverlapDownstreamBars(Double_t);
+
+		
 
 
 		/**      Initialization of the detector is done here    */
@@ -74,7 +87,7 @@ class MuFilter : public FairDetector
 		MuFilter(const MuFilter&);
 		MuFilter& operator=(const MuFilter&);
 
-		ClassDef(MuFilter,1)
+		ClassDef(MuFilter,2)
 
 	private:
 
@@ -99,16 +112,40 @@ class MuFilter : public FairDetector
 			Double_t fFeBlockY;     //|
 			Double_t fFeBlockZ;     //|
 
-			Double_t fTDetX;	//|Timing detector planes dimensions
-			Double_t fTDetY;	//|
-			Double_t fTDetZ;	//|
+			Double_t fUpstreamDetX;	//|Upstream muon detector planes dimensions
+			Double_t fUpstreamDetY;	//|
+			Double_t fUpstreamDetZ;	//|
+			Double_t fUpstreamBarOverlap; //|Size of overlap (staggering)
 
-			Double_t fCenterZ;	//Zposition of the muon filter
+			Int_t fNUpstreamPlanes;	//|Number of planes
+
+			Double_t fUpstreamBarX; //|Staggered bars of upstream section
+			Double_t fUpstreamBarY;
+			Double_t fUpstreamBarZ;
+
+		        Int_t fNUpstreamBars;   //|Number of staggered bars
+
+			Double_t fDownstreamDetX;	//|Downstream muon detector planes dimensions
+			Double_t fDownstreamDetY;	//|
+			Double_t fDownstreamDetZ;	//|
+
+			Int_t fNDownstreamPlanes;	//|Number of planes
+
+			Double_t fDownstreamBarX; //|Staggered bars of upstream section
+			Double_t fDownstreamBarY;
+			Double_t fDownstreamBarZ;
+			Double_t fDownstreamBarOverlap; //|Size of overlap (staggering)
+
+		        Int_t fNDownstreamBars;   //|Number of staggered bars
+
+  			Double_t fDownstreamBarX_ver; //|Staggered bars of upstream section, vertical bars for x measurement
+			Double_t fDownstreamBarY_ver;
+			Double_t fDownstreamBarZ_ver;
+
+			Double_t fCenterZ;	//|Zposition of the muon filter
 			Double_t fShiftX;	//|Shift in x-y wrt beam line
 			Double_t fShiftY;	//|
-			Double_t fShiftDY;	//Shift in DY of the first 6 planes (2 cm)
-
-			Int_t fNplanes;		//Number of planes
+			Double_t fShiftDY;	//|Shift in DY of the first 6 planes (2 cm)
 
 			Int_t InitMedium(const char* name);
 };

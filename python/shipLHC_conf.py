@@ -56,8 +56,20 @@ def configure(run,ship_geo,Gfield=''):
  MuFilter = ROOT.MuFilter("MuFilter",ROOT.kTRUE)
  MuFilter.SetMuFilterDimensions(ship_geo.MuFilter.X, ship_geo.MuFilter.Y, ship_geo.MuFilter.Z)
  MuFilter.SetIronBlockDimensions(ship_geo.MuFilter.FeX, ship_geo.MuFilter.FeY, ship_geo.MuFilter.FeZ)
- MuFilter.SetTimingPlanesDimensions(ship_geo.MuFilter.TDetX, ship_geo.MuFilter.TDetY, ship_geo.MuFilter.TDetZ)
- MuFilter.SetNplanes(ship_geo.MuFilter.nplanes)
+ #upstream section
+ MuFilter.SetUpstreamPlanesDimensions(ship_geo.MuFilter.UpstreamDetX, ship_geo.MuFilter.UpstreamDetY, ship_geo.MuFilter.UpstreamDetZ)
+ MuFilter.SetNUpstreamPlanes(ship_geo.MuFilter.NUpstreamPlanes)
+ MuFilter.SetUpstreamBarsDimensions(ship_geo.MuFilter.UpstreamBarX, ship_geo.MuFilter.UpstreamBarY, ship_geo.MuFilter.UpstreamBarZ)
+ MuFilter.SetOverlapUpstreamBars(ship_geo.MuFilter.OverlapUpstreamBars)
+ MuFilter.SetNUpstreamBars(ship_geo.MuFilter.NUpstreamBars)
+ #downstream section
+ MuFilter.SetDownstreamPlanesDimensions(ship_geo.MuFilter.DownstreamDetX, ship_geo.MuFilter.DownstreamDetY, ship_geo.MuFilter.DownstreamDetZ)
+ MuFilter.SetNDownstreamPlanes(ship_geo.MuFilter.NDownstreamPlanes)
+ MuFilter.SetDownstreamBarsDimensions(ship_geo.MuFilter.DownstreamBarX, ship_geo.MuFilter.DownstreamBarY, ship_geo.MuFilter.DownstreamBarZ)
+ MuFilter.SetDownstreamVerticalBarsDimensions(ship_geo.MuFilter.DownstreamBarX_ver, ship_geo.MuFilter.DownstreamBarY_ver, ship_geo.MuFilter.DownstreamBarZ_ver)
+ MuFilter.SetOverlapDownstreamBars(ship_geo.MuFilter.OverlapDownstreamBars)
+ MuFilter.SetNDownstreamBars(ship_geo.MuFilter.NDownstreamBars)
+
  MuFilter.SetCenterZ(ship_geo.MuFilter.Zcenter)
  MuFilter.SetXYDisplacement(ship_geo.MuFilter.ShiftX, ship_geo.MuFilter.ShiftY)
  MuFilter.SetYPlanesDisplacement(ship_geo.MuFilter.ShiftDY)
