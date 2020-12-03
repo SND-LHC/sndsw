@@ -435,14 +435,13 @@ Bool_t GenieGenerator::ReadEvent(FairPrimaryGenerator* cpg)
 	  //pickup corresponding (log10(p),log10(pt)) histogram
           if (fInputFile->FindObjectAny(ts)){
            TH2F* h2tmp = (TH2F*) fInputFile->Get(ts);
-           //printf("HISTID=%d, Title:%s\n",idhnu,h2tmp->GetTitle());
+           printf("HISTID=%d, Title:%s\n",idhnu,h2tmp->GetTitle());
 	   sprintf(ts,"px_%d",idhnu);
           //make its x-projection, to later be able to convert log10(p) to its bin-number
            pxhist[idhnu]=h2tmp->ProjectionX(ts,1,-1);
            Int_t nbinx=h2tmp->GetNbinsX();
           //printf("idhnu=%d  ts=%s  nbinx=%d\n",idhnu,ts,nbinx);
 	  //project all slices on the y-axis
-           //for (Int_t k=1;k<nbinx+1;k+=1){
            for (Int_t k=1;k<nbinx+1;k+=1){
 	    sprintf(ts,"h%d%d",idhnu,k);
             //printf("idnu %d idhnu %d bin%d  ts=%s\n",idnu,idhnu,k,ts);
@@ -456,7 +455,6 @@ Bool_t GenieGenerator::ReadEvent(FairPrimaryGenerator* cpg)
 
     if (fn==fNevents) {fLogger->Warning(MESSAGE_ORIGIN, "End of input file. Rewind.");}
     fTree->GetEntry(fn%fNevents);
-    //cout<<fn%fNevents<<endl;
     fn++;
     if (fn%100==0) {
       cout << "Info GenieGenerator: neutrino event-nr "<< fn << endl;
@@ -482,21 +480,17 @@ Bool_t GenieGenerator::ReadEvent(FairPrimaryGenerator* cpg)
 
       //**NEW** get pt of this neutrino from 2D hists.
       Int_t idhnu=TMath::Abs(neu)+idbase;
-      //cout<<neu<<"   "<< idhnu<<endl;	
       if (neu<0) idhnu+=1000;
       Int_t nbinmx=pxhist[idhnu]->GetNbinsX();
-      //cout<<" nbinmx = "<<nbinmx<<endl;
       Double_t pl10=log10(pzv);
       Int_t nbx=pxhist[idhnu]->FindBin(pl10);
       //printf("idhnu %d, p %f log10(p) %f bin,binmx %d %d \n",idhnu,pzv,pl10,nbx,nbinmx);
       if (nbx<1) nbx=1;
       if (nbx>nbinmx) nbx=nbinmx;
       Double_t ptlog10=pyslice[idhnu][nbx]->GetRandom();
-      //cout<<ptlog10<<endl;
 //hist was filled with: log10(pt+0.01)
       Double_t pt=pow(10.,ptlog10)-0.01;
-      //cout<<" pt: "<< pt<< endl;      
-//rotate pt in phi:
+      //rotate pt in phi:
       Double_t phi=gRandom->Uniform(0.,2*TMath::Pi());
       pout[0] = cos(phi)*pt;
       pout[1] = sin(phi)*pt;
