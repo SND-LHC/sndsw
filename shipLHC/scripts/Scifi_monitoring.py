@@ -192,10 +192,10 @@ class Scifi_residuals(ROOT.FairTask):
                    pq = A-pos
                    uCrossv= (B-A).Cross(mom)
                    doca = pq.Dot(uCrossv)/uCrossv.Mag()
-                   rc = h['resC'+projs[o]+'_Scifi'+str(testPlane)].Fill(doca/u.um,channel)
-                   rc = h['res'+projs[o]+'_Scifi'+str(testPlane)].Fill(doca/u.um)
-                   rc = h['resX'+projs[o]+'_Scifi'+str(testPlane)].Fill(doca/u.um,xEx)
-                   rc = h['resY'+projs[o]+'_Scifi'+str(testPlane)].Fill(doca/u.um,yEx)
+                   rc = h['resC'+self.projs[o]+'_Scifi'+str(testPlane)].Fill(doca/u.um,channel)
+                   rc = h['res'+self.projs[o]+'_Scifi'+str(testPlane)].Fill(doca/u.um)
+                   rc = h['resX'+self.projs[o]+'_Scifi'+str(testPlane)].Fill(doca/u.um,xEx)
+                   rc = h['resY'+self.projs[o]+'_Scifi'+str(testPlane)].Fill(doca/u.um,yEx)
 
             theTrack.Delete()
 
