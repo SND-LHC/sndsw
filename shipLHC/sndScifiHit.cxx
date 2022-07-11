@@ -41,6 +41,7 @@ sndScifiHit::sndScifiHit (int SiPMChan, std::vector<ScifiPoint*> V, std::vector<
      Float_t timeResol = ScifiDet->GetConfParF("Scifi/timeResol");
 
      nSides   = 1;
+     nSiPMs   = 1;
      for (unsigned int j=0; j<16; ++j){
         signals[j] = -1;
         times[j]    =-1;
