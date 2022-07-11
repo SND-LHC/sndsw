@@ -68,7 +68,7 @@ mufiDet.SetConfPar("MuFilter/VandUpSiPMcalibrationS",25.*1000.);
 mufiDet.SetConfPar("MuFilter/VandUpPropSpeed",12.5*u.cm/u.nanosecond);
 mufiDet.SetConfPar("MuFilter/DsPropSpeed",14.3*u.cm/u.nanosecond);
 scifiDet.SetConfPar("Scifi/nphe_min",3.5)   # threshold
-scifiDet.SetConfPar("Scifi/nphe_max ",104) # saturation
+scifiDet.SetConfPar("Scifi/nphe_max",104.) # saturation
 scifiDet.SetConfPar("Scifi/timeResol",150.*u.picosecond) # time resolution in ps
 scifiDet.SetConfPar("MuFilter/timeResol",150.*u.picosecond) # time resolution in ps, first guess
 
