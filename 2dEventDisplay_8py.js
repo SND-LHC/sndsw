@@ -3,7 +3,7 @@ var 2dEventDisplay_8py =
     [ "addTrack", "2dEventDisplay_8py.html#ab6b45944390fff2b18238394c71d7f4e", null ],
     [ "cleanTracks", "2dEventDisplay_8py.html#afbae535de0db64e46e13c18c65e63cb9", null ],
     [ "drawDetectors", "2dEventDisplay_8py.html#a70750148eca7f9c6b1ed6415d2a5281c", null ],
-    [ "drawInfo", "2dEventDisplay_8py.html#a9001eee748229be7c63861cbd63dc660", null ],
+    [ "drawInfo", "2dEventDisplay_8py.html#a519a7c7e7f54f74112b2d8e4e78e8368", null ],
     [ "dumpChannels", "2dEventDisplay_8py.html#abd5a7c7219d827c87b7f5db47ad3b800", null ],
     [ "dumpVeto", "2dEventDisplay_8py.html#a1edda5d92aac1f72aab08f2e6c6f20ea", null ],
     [ "emptyNodes", "2dEventDisplay_8py.html#a8358d297886fbfa80c32b93264e64372", null ],

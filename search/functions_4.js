@@ -121,7 +121,7 @@ var searchData=
   ['drawevent_10609',['drawEvent',['../classgenfit_1_1EventDisplay.html#a294470305559030667e010db718d3f3a',1,'genfit::EventDisplay']]],
   ['drawfittedtracks_10610',['DrawFittedTracks',['../classeventDisplay_1_1DrawTracks.html#a20abcef9052609c8cc5b86ef5f0f53b6',1,'eventDisplay.DrawTracks.DrawFittedTracks()'],['../classeventDisplay__shipLHC_1_1DrawTracks.html#a387314ace4858118043a0ef84b59ead7',1,'eventDisplay_shipLHC.DrawTracks.DrawFittedTracks()'],['../classeventDisplay_1_1DrawTracks.html#a20abcef9052609c8cc5b86ef5f0f53b6',1,'eventDisplay.DrawTracks.DrawFittedTracks()']]],
   ['drawimage_10611',['DrawImage',['../classecalDrawer.html#a957b5ff4d14cd82ceb6b96bc809587d5',1,'ecalDrawer']]],
-  ['drawinfo_10612',['drawInfo',['../namespace2dEventDisplay.html#a9001eee748229be7c63861cbd63dc660',1,'2dEventDisplay']]],
+  ['drawinfo_10612',['drawInfo',['../namespace2dEventDisplay.html#a519a7c7e7f54f74112b2d8e4e78e8368',1,'2dEventDisplay']]],
   ['drawline_10613',['DrawLine',['../classecalDrawer.html#a8237c8833ac2af3ca2dfc86cb6ba3e7e',1,'ecalDrawer::DrawLine(Double_t x, Double_t y, const char *color, Int_t track)'],['../classecalDrawer.html#ab8ec3a5e0b50c0525db37514b1e8a0a2',1,'ecalDrawer::DrawLine(Double_t x1, Double_t y1, Double_t x2, Double_t y2, const char *color)']]],
   ['drawmark_10614',['DrawMark',['../classecalDrawer.html#a407a780cde3accf686268bc58966d20f',1,'ecalDrawer']]],
   ['drawmc_10615',['DrawMC',['../classecalDrawer.html#ab1961dac9658222017415eebf983ce1c',1,'ecalDrawer']]],
