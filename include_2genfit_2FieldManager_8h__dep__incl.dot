@@ -1,0 +1,31 @@
+digraph "genfit/include/genfit/FieldManager.h"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="genfit/include/genfit\l/FieldManager.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="genfit/core/src/FieldManager.cc",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$FieldManager_8cc.html",tooltip=" "];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="genfit/eventDisplay\l/src/EventDisplay.cc",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$EventDisplay_8cc.html",tooltip=" "];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="genfit/GBL/src/GFGbl.cc",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$GFGbl_8cc.html",tooltip=" "];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="genfit/GFRave/src/GFRave\lMagneticField.cc",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$GFRaveMagneticField_8cc.html",tooltip=" "];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="genfit/test/fitterTests\l/main.cc",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$fitterTests_2main_8cc.html",tooltip=" "];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="genfit/test/measurementFactory\lExample/main.cc",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$measurementFactoryExample_2main_8cc.html",tooltip=" "];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="genfit/test/minimalFitting\lExample/main.cc",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$minimalFittingExample_2main_8cc.html",tooltip=" "];
+  Node1 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="genfit/test/streamerTest\l/main.cc",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$streamerTest_2main_8cc.html",tooltip=" "];
+  Node1 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="genfit/test/unitTests\l/main.cc",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$unitTests_2main_8cc.html",tooltip=" "];
+  Node1 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="genfit/test/vertexingTest\l/main.cc",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$vertexingTest_2main_8cc.html",tooltip=" "];
+  Node1 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node12 [label="genfit/trackReps/src\l/RKTrackRep.cc",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$RKTrackRep_8cc.html",tooltip=" "];
+  Node1 -> Node13 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node13 [label="genfit/utilities/src\l/HelixTrackModel.cc",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$HelixTrackModel_8cc.html",tooltip=" "];
+}

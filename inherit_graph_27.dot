@@ -1,0 +1,16 @@
+digraph "Graphical Class Hierarchy"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node168 [label="G4UserTrackingAction",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node168 -> Node0 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node0 [label="g4Ex.MyTrackingAction",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classg4Ex_1_1MyTrackingAction.html",tooltip=" "];
+  Node168 -> Node170 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node170 [label="g4Ex_args.MyTrackingAction",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classg4Ex__args_1_1MyTrackingAction.html",tooltip=" "];
+  Node168 -> Node171 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node171 [label="g4Ex_gap.MyTrackingAction",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classg4Ex__gap_1_1MyTrackingAction.html",tooltip=" "];
+  Node168 -> Node172 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node172 [label="g4Ex_gap.MyTrackingActionD",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classg4Ex__gap_1_1MyTrackingActionD.html",tooltip=" "];
+}

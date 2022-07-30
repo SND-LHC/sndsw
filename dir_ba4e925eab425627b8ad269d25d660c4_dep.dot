@@ -1,0 +1,11 @@
+digraph "genfit/finitePlanes/src" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_88ab23941f10753a72069cdb11e8f345 {
+    graph [ bgcolor="#ddddee", pencolor="black", label="finitePlanes" fontname="Helvetica", fontsize="10", URL="dir_88ab23941f10753a72069cdb11e8f345.html"]
+  dir_ba4e925eab425627b8ad269d25d660c4 [shape=box, label="src", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_ba4e925eab425627b8ad269d25d660c4.html"];
+  }
+  dir_867e4f338b8a8d500d866518d1b56736 [shape=box label="include" URL="dir_867e4f338b8a8d500d866518d1b56736.html"];
+  dir_ba4e925eab425627b8ad269d25d660c4->dir_867e4f338b8a8d500d866518d1b56736 [headlabel="1", labeldistance=1.5 headhref="dir_000042_000041.html"];
+}

@@ -1,0 +1,11 @@
+digraph "genfit/GFRave/include" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_9ce5eb3caabede848a0b04fd0324406f {
+    graph [ bgcolor="#ddddee", pencolor="black", label="GFRave" fontname="Helvetica", fontsize="10", URL="dir_9ce5eb3caabede848a0b04fd0324406f.html"]
+  dir_f4d9f0876db00cb6d13c94fe7566c4d6 [shape=box, label="include", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_f4d9f0876db00cb6d13c94fe7566c4d6.html"];
+  }
+  dir_7a40b7556c10f243ca9453eab1d74876 [shape=box label="core" fillcolor="white" style="filled" color="red" URL="dir_7a40b7556c10f243ca9453eab1d74876.html"];
+  dir_f4d9f0876db00cb6d13c94fe7566c4d6->dir_7a40b7556c10f243ca9453eab1d74876 [headlabel="10", labeldistance=1.5 headhref="dir_000050_000029.html"];
+}

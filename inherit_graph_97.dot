@@ -1,0 +1,22 @@
+digraph "Graphical Class Hierarchy"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node370 [label="with_metaclass",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node370 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 [label="ShipGeoConfig.ConfigRegistry",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classShipGeoConfig_1_1ConfigRegistry.html",tooltip=" "];
+  Node333 [label="dict",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node333 -> Node334 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node334 [label="rootUtils.PyListOfLeaves",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classrootUtils_1_1PyListOfLeaves.html",tooltip=" "];
+  Node333 -> Node335 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node335 [label="ShipGeoConfig.AttrDict",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classShipGeoConfig_1_1AttrDict.html",tooltip=" "];
+  Node335 -> Node336 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node336 [label="ShipGeoConfig.Config",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classShipGeoConfig_1_1Config.html",tooltip=" "];
+  Node333 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="type",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node6 -> Node0 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node0 [label="ShipGeoConfig._SingletonDict",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classShipGeoConfig_1_1__SingletonDict.html",tooltip=" "];
+  Node0 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}

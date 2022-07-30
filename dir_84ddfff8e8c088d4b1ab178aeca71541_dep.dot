@@ -1,0 +1,23 @@
+digraph "genfit/fitters" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_a1ebdee7ea4e629a53aa4045c16b947a {
+    graph [ bgcolor="#ddddee", pencolor="black", label="genfit" fontname="Helvetica", fontsize="10", URL="dir_a1ebdee7ea4e629a53aa4045c16b947a.html"]
+  subgraph clusterdir_84ddfff8e8c088d4b1ab178aeca71541 {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_84ddfff8e8c088d4b1ab178aeca71541.html"];
+    dir_84ddfff8e8c088d4b1ab178aeca71541 [shape=plaintext label="fitters"];
+    dir_e9e6deb62ad8a2aefa28b0b5f1add1b5 [shape=box label="include" color="black" fillcolor="white" style="filled" URL="dir_e9e6deb62ad8a2aefa28b0b5f1add1b5.html"];
+    dir_905b5d2bc3d174e7e34e2b4a1e336892 [shape=box label="src" color="black" fillcolor="white" style="filled" URL="dir_905b5d2bc3d174e7e34e2b4a1e336892.html"];
+  }
+  }
+  dir_9268fb76a242d6fab4cb1d575f1746b1 [shape=box label="measurements" fillcolor="white" style="filled" color="red" URL="dir_9268fb76a242d6fab4cb1d575f1746b1.html"];
+  dir_7a40b7556c10f243ca9453eab1d74876 [shape=box label="core" fillcolor="white" style="filled" color="red" URL="dir_7a40b7556c10f243ca9453eab1d74876.html"];
+  dir_e9e6deb62ad8a2aefa28b0b5f1add1b5->dir_7a40b7556c10f243ca9453eab1d74876 [headlabel="10", labeldistance=1.5 headhref="dir_000044_000029.html"];
+  dir_9268fb76a242d6fab4cb1d575f1746b1->dir_7a40b7556c10f243ca9453eab1d74876 [headlabel="24", labeldistance=1.5 headhref="dir_000054_000029.html"];
+  dir_7a40b7556c10f243ca9453eab1d74876->dir_e9e6deb62ad8a2aefa28b0b5f1add1b5 [headlabel="3", labeldistance=1.5 headhref="dir_000029_000044.html"];
+  dir_7a40b7556c10f243ca9453eab1d74876->dir_9268fb76a242d6fab4cb1d575f1746b1 [headlabel="1", labeldistance=1.5 headhref="dir_000029_000054.html"];
+  dir_905b5d2bc3d174e7e34e2b4a1e336892->dir_e9e6deb62ad8a2aefa28b0b5f1add1b5 [headlabel="17", labeldistance=1.5 headhref="dir_000045_000044.html"];
+  dir_905b5d2bc3d174e7e34e2b4a1e336892->dir_9268fb76a242d6fab4cb1d575f1746b1 [headlabel="1", labeldistance=1.5 headhref="dir_000045_000054.html"];
+  dir_905b5d2bc3d174e7e34e2b4a1e336892->dir_7a40b7556c10f243ca9453eab1d74876 [headlabel="19", labeldistance=1.5 headhref="dir_000045_000029.html"];
+}

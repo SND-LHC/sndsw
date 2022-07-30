@@ -1,0 +1,22 @@
+digraph "shipLHC/sndScifiHit.h"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="shipLHC/sndScifiHit.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="shipLHC/sndCluster.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sndCluster_8h.html",tooltip=" "];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="shipLHC/sndCluster.cxx",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sndCluster_8cxx.html",tooltip=" "];
+  Node2 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="sndFairTasks/ConvRawData.cxx",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$ConvRawData_8cxx.html",tooltip=" "];
+  Node2 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="sndFairTasks/DigiTaskSND.cxx",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$DigiTaskSND_8cxx.html",tooltip=" "];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="shipLHC/sndScifiHit.cxx",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sndScifiHit_8cxx.html",tooltip=" "];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="sndFairTasks/ConvRawData.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$ConvRawData_8h.html",tooltip=" "];
+  Node7 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}

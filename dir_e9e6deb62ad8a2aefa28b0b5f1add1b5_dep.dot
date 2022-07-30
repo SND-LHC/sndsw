@@ -1,0 +1,11 @@
+digraph "genfit/fitters/include" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_84ddfff8e8c088d4b1ab178aeca71541 {
+    graph [ bgcolor="#ddddee", pencolor="black", label="fitters" fontname="Helvetica", fontsize="10", URL="dir_84ddfff8e8c088d4b1ab178aeca71541.html"]
+  dir_e9e6deb62ad8a2aefa28b0b5f1add1b5 [shape=box, label="include", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_e9e6deb62ad8a2aefa28b0b5f1add1b5.html"];
+  }
+  dir_7a40b7556c10f243ca9453eab1d74876 [shape=box label="core" fillcolor="white" style="filled" color="red" URL="dir_7a40b7556c10f243ca9453eab1d74876.html"];
+  dir_e9e6deb62ad8a2aefa28b0b5f1add1b5->dir_7a40b7556c10f243ca9453eab1d74876 [headlabel="10", labeldistance=1.5 headhref="dir_000044_000029.html"];
+}

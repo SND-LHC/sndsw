@@ -1,0 +1,11 @@
+digraph "genfit::ConstField"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="genfit::ConstField",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Constant Magnetic field."];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="genfit::AbsBField",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classgenfit_1_1AbsBField.html",tooltip="Abstract Interface to magnetic fields in GENFIT."];
+  Node3 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" field_" ,fontname="Helvetica"];
+  Node3 [label="TVector3",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+}

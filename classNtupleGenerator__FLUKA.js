@@ -1,0 +1,27 @@
+var classNtupleGenerator__FLUKA =
+[
+    [ "NtupleGenerator_FLUKA", "classNtupleGenerator__FLUKA.html#ae3b98a997de199812b9b761caf12c8e2", null ],
+    [ "~NtupleGenerator_FLUKA", "classNtupleGenerator__FLUKA.html#a4eeec572fdede1536512bcdfc609ab46", null ],
+    [ "ClassDef", "classNtupleGenerator__FLUKA.html#abb3e86a8b269f19233eb9cf1cb2d18bb", null ],
+    [ "GetNevents", "classNtupleGenerator__FLUKA.html#aa56fcb113cdbf1b5ccb7e05561f74f9b", null ],
+    [ "Init", "classNtupleGenerator__FLUKA.html#a0e564c1282b399fdb2beff008697bf60", null ],
+    [ "Init", "classNtupleGenerator__FLUKA.html#ae5c3927d4d3fb056eed83f6b024f4d09", null ],
+    [ "ReadEvent", "classNtupleGenerator__FLUKA.html#af6a91a4c84203626555dd3d21faa3d70", null ],
+    [ "SetZ", "classNtupleGenerator__FLUKA.html#ada56490cda261a9dbc269014d6906e94", null ],
+    [ "E", "classNtupleGenerator__FLUKA.html#a7c2c3b462cc100f640ef9902241c75a0", null ],
+    [ "fInputFile", "classNtupleGenerator__FLUKA.html#a0b9ae0fe894957b7f96ed9b3835bf941", null ],
+    [ "fn", "classNtupleGenerator__FLUKA.html#af928363d999e764c48999224ecc0dbe1", null ],
+    [ "fNevents", "classNtupleGenerator__FLUKA.html#a86db52688b951a70a10bdd67e38ae5da", null ],
+    [ "fTree", "classNtupleGenerator__FLUKA.html#ad39ba2a2aa2be5716372dd7e6edd94b0", null ],
+    [ "generation", "classNtupleGenerator__FLUKA.html#adc460b482e76e9b50f3e7c0313c39637", null ],
+    [ "id", "classNtupleGenerator__FLUKA.html#a676cc1df4afd4e42d14afda7eb4287b2", null ],
+    [ "px", "classNtupleGenerator__FLUKA.html#a3a318fb3b1324b943d48c5f701a08a60", null ],
+    [ "py", "classNtupleGenerator__FLUKA.html#a07e8773e3164fb945eee8d4053c66646", null ],
+    [ "pz", "classNtupleGenerator__FLUKA.html#a05b94531e49c726ed7827bc272e72db7", null ],
+    [ "SND_Z", "classNtupleGenerator__FLUKA.html#ac503fb1cce28a9313d69606df6e6f5f6", null ],
+    [ "t", "classNtupleGenerator__FLUKA.html#a08184d8683a29c05f81e30e36870c98e", null ],
+    [ "w", "classNtupleGenerator__FLUKA.html#a4163d8fecb2588cedd288baad8ed9aa9", null ],
+    [ "x", "classNtupleGenerator__FLUKA.html#a82703789344076eabaa813408d22b8d3", null ],
+    [ "y", "classNtupleGenerator__FLUKA.html#a7a217bea3f3ec6322edb4cee2cf37b7a", null ],
+    [ "z", "classNtupleGenerator__FLUKA.html#ae5e3fa41361a3cd05611f6f62cc1c4b1", null ]
+];

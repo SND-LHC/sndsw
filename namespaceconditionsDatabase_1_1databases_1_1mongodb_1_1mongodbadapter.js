@@ -1,0 +1,4 @@
+var namespaceconditionsDatabase_1_1databases_1_1mongodb_1_1mongodbadapter =
+[
+    [ "MongoToCDBAPIAdapter", "classconditionsDatabase_1_1databases_1_1mongodb_1_1mongodbadapter_1_1MongoToCDBAPIAdapter.html", "classconditionsDatabase_1_1databases_1_1mongodb_1_1mongodbadapter_1_1MongoToCDBAPIAdapter" ]
+];

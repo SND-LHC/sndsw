@@ -1,0 +1,27 @@
+var classSndlhcTracking_1_1Tracking =
+[
+    [ "dsCluster", "classSndlhcTracking_1_1Tracking.html#aa24251d679abce001459cdc22ffd2d70", null ],
+    [ "DStrack", "classSndlhcTracking_1_1Tracking.html#ab1c3365bed04ff88a1372b418ab51a70", null ],
+    [ "ExecuteTask", "classSndlhcTracking_1_1Tracking.html#acd311d49194e44f53ce9614dae324620", null ],
+    [ "FinishEvent", "classSndlhcTracking_1_1Tracking.html#a1d38bf5de25e397f8caa54ae17c018b7", null ],
+    [ "fitTrack", "classSndlhcTracking_1_1Tracking.html#ac98a51ef3199a2706ba72cfa5ae4e0cf", null ],
+    [ "Init", "classSndlhcTracking_1_1Tracking.html#a3156421172309d85c0beeb7dadaaeb44", null ],
+    [ "patternReco", "classSndlhcTracking_1_1Tracking.html#a6792f312f458ffdf2feb51831a1978c1", null ],
+    [ "Scifi_track", "classSndlhcTracking_1_1Tracking.html#a5584eb7a2316e53f53b63ed12d281020", null ],
+    [ "scifiCluster", "classSndlhcTracking_1_1Tracking.html#a4a7f40d7ff0bc28f0f076f82acb10b33", null ],
+    [ "clusMufi", "classSndlhcTracking_1_1Tracking.html#a7e24c6cb62f7748727705262a6db948a", null ],
+    [ "clusScifi", "classSndlhcTracking_1_1Tracking.html#abb5515531da92f572716e7e683265736", null ],
+    [ "Debug", "classSndlhcTracking_1_1Tracking.html#a96c1b17e9de288e29f477e246fae467c", null ],
+    [ "event", "classSndlhcTracking_1_1Tracking.html#a771f23d8e42aea98e6fdf573317e8b6d", null ],
+    [ "fittedTracks", "classSndlhcTracking_1_1Tracking.html#a0c62fcb183b6e84678f8e4612317c878", null ],
+    [ "fitter", "classSndlhcTracking_1_1Tracking.html#a818784e335ffeb82931a1a906613c778", null ],
+    [ "ioman", "classSndlhcTracking_1_1Tracking.html#a98111615918ea8a779a53c8a2af827fc", null ],
+    [ "mufiDet", "classSndlhcTracking_1_1Tracking.html#a89abbd6faa2b63e253ae8da871dfeda4", null ],
+    [ "scifiDet", "classSndlhcTracking_1_1Tracking.html#a446e1044de4bcb4e59dfa165299687db", null ],
+    [ "sigmaMufiDS_spatial", "classSndlhcTracking_1_1Tracking.html#ae4d247159a0bdeeed3b3207b888db84d", null ],
+    [ "sigmaMufiUS_spatial", "classSndlhcTracking_1_1Tracking.html#aa747c378e06bdbe0b0b7ce5798e480fa", null ],
+    [ "sigmaScifi_spatial", "classSndlhcTracking_1_1Tracking.html#aaf477b189f7d5b625498349a0d58a8ef", null ],
+    [ "sink", "classSndlhcTracking_1_1Tracking.html#a35f10af9735985aa63b02d0464097294", null ],
+    [ "systemAndPlanes", "classSndlhcTracking_1_1Tracking.html#ad707bbc04e3127d6ce0ddaf9de314e0b", null ],
+    [ "trackCandidates", "classSndlhcTracking_1_1Tracking.html#afa74961dda27d0be6d5a30cb56874a12", null ]
+];

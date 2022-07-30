@@ -1,0 +1,8 @@
+digraph "UpstreamTagger" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  dir_fad65dc12642af85d79633a04051eba1 [shape=box, label="UpstreamTagger", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_fad65dc12642af85d79633a04051eba1.html"];
+  dir_d32c3015c3e8f785dc4289736c132c3d [shape=box label="shipdata" URL="dir_d32c3015c3e8f785dc4289736c132c3d.html"];
+  dir_fad65dc12642af85d79633a04051eba1->dir_d32c3015c3e8f785dc4289736c132c3d [headlabel="3", labeldistance=1.5 headhref="dir_000019_000012.html"];
+}

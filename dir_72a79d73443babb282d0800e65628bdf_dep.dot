@@ -1,0 +1,11 @@
+digraph "muonShieldOptimization" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  dir_72a79d73443babb282d0800e65628bdf [shape=box, label="muonShieldOptimization", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_72a79d73443babb282d0800e65628bdf.html"];
+  dir_fe24cdf4a9f9ffbe8e86d90b3d49ea5b [shape=box label="veto" URL="dir_fe24cdf4a9f9ffbe8e86d90b3d49ea5b.html"];
+  dir_d32c3015c3e8f785dc4289736c132c3d [shape=box label="shipdata" URL="dir_d32c3015c3e8f785dc4289736c132c3d.html"];
+  dir_72a79d73443babb282d0800e65628bdf->dir_fe24cdf4a9f9ffbe8e86d90b3d49ea5b [headlabel="4", labeldistance=1.5 headhref="dir_000006_000020.html"];
+  dir_72a79d73443babb282d0800e65628bdf->dir_d32c3015c3e8f785dc4289736c132c3d [headlabel="4", labeldistance=1.5 headhref="dir_000006_000012.html"];
+  dir_fe24cdf4a9f9ffbe8e86d90b3d49ea5b->dir_d32c3015c3e8f785dc4289736c132c3d [headlabel="3", labeldistance=1.5 headhref="dir_000020_000012.html"];
+}
