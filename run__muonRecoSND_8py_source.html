@@ -126,29 +126,41 @@ $(document).ready(function(){initNavTree('run__muonRecoSND_8py_source.html','');
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keywordflow">else</span>:</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  outFile = ROOT.TMemFile(outFileName,<span class="stringliteral">&#39;CREATE&#39;</span>)</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#a3ba9f66e44adabb4297e270637f180ce">   42</a></span>&#160;run = ROOT.FairRunAna()</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;print(<span class="stringliteral">&quot;Initialized FairRunAna&quot;</span>)</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#acd5f779c6ceb4cd66b2a31960df83b4d">   45</a></span>&#160;source = ROOT.FairFileSource(F)</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;run.SetSource(source)</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#a5bd3c04aa1ae427c17bf4ca274da37ee">   42</a></span>&#160;treename = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keywordflow">for</span> test_treename <span class="keywordflow">in</span> [<span class="stringliteral">&quot;cbmsim&quot;</span>, <span class="stringliteral">&quot;rawConv&quot;</span>] :</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;     <span class="keywordflow">if</span> hasattr(F, test_treename) :</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;          treename = test_treename</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;          <span class="keywordflow">break</span></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#aded614ba63fe29f75092dbd75676a381">   48</a></span>&#160;sink = ROOT.FairRootFileSink(outFile)</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;run.SetSink(sink)</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keywordflow">if</span> treename <span class="keywordflow">is</span> <span class="keywordtype">None</span> :</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;     <span class="keywordflow">raise</span> RuntimeError(<span class="stringliteral">&quot;File {0} contains no object with a valid SND@LHC TTree name&quot;</span>.format(fullPath))</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#a270144af9c1edbc29abcb104b9ba007b">   51</a></span>&#160;muon_reco_task = <a class="code" href="classSndlhcMuonReco_1_1MuonReco.html">SndlhcMuonReco.MuonReco</a>()</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;run.AddTask(muon_reco_task)</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#a9be8e32d7fa43e4f847b289c93103cdc">   51</a></span>&#160;fairRootManager = ROOT.FairRootManager.Instance()</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;fairRootManager.SetTreeName(treename)</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;run.Init()</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment"># The following lines must be *after* run.Init()</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;muon_reco_task.SetTolerance(options.tolerance)</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;muon_reco_task.SetHitsToFit(options.hits_to_fit)</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;muon_reco_task.SetHitsForTriplet(options.hits_for_triplet)</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;muon_reco_task.SetEventSkip(options.event_skip)</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;run.Run(options.firstEvent, options.firstEvent + options.nEvents)</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;print(<span class="stringliteral">&quot;Done running&quot;</span>)</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#a3ba9f66e44adabb4297e270637f180ce">   54</a></span>&#160;run = ROOT.FairRunAna()</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;print(<span class="stringliteral">&quot;Initialized FairRunAna&quot;</span>)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#acd5f779c6ceb4cd66b2a31960df83b4d">   57</a></span>&#160;source = ROOT.FairFileSource(F)</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;run.SetSource(source)</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#aded614ba63fe29f75092dbd75676a381">   60</a></span>&#160;sink = ROOT.FairRootFileSink(outFile)</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;run.SetSink(sink)</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#a270144af9c1edbc29abcb104b9ba007b">   63</a></span>&#160;muon_reco_task = <a class="code" href="classSndlhcMuonReco_1_1MuonReco.html">SndlhcMuonReco.MuonReco</a>()</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;run.AddTask(muon_reco_task)</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;run.Init()</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment"># The following lines must be *after* run.Init()</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;muon_reco_task.SetTolerance(options.tolerance)</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;muon_reco_task.SetHitsToFit(options.hits_to_fit)</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;muon_reco_task.SetHitsForTriplet(options.hits_for_triplet)</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;muon_reco_task.SetEventSkip(options.event_skip)</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;run.Run(options.firstEvent, options.firstEvent + options.nEvents)</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;print(<span class="stringliteral">&quot;Done running&quot;</span>)</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclassSndlhcMuonReco_1_1MuonReco_html"><div class="ttname"><a href="classSndlhcMuonReco_1_1MuonReco.html">SndlhcMuonReco.MuonReco</a></div><div class="ttdef"><b>Definition:</b> <a href="SndlhcMuonReco_8py_source.html#l00119">SndlhcMuonReco.py:119</a></div></div>

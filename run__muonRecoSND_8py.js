@@ -4,6 +4,7 @@ var run__muonRecoSND_8py =
     [ "default", "run__muonRecoSND_8py.html#a48bd91ca8ac75fcde535750e66d5d856", null ],
     [ "dest", "run__muonRecoSND_8py.html#ae16f6fb9d6e1e9535f5d9fd1d7ae5988", null ],
     [ "F", "run__muonRecoSND_8py.html#a29475037ebd91f3461e173932ce52ae0", null ],
+    [ "fairRootManager", "run__muonRecoSND_8py.html#a9be8e32d7fa43e4f847b289c93103cdc", null ],
     [ "False", "run__muonRecoSND_8py.html#a97bcee72077ae2f929a60fa101b3fead", null ],
     [ "filename", "run__muonRecoSND_8py.html#a9fd594a0ed2fd8b5c885ee34bb84520b", null ],
     [ "float", "run__muonRecoSND_8py.html#a15b0fd028f4b6355fdf05b8707996dcc", null ],
@@ -22,6 +23,7 @@ var run__muonRecoSND_8py =
     [ "sink", "run__muonRecoSND_8py.html#aded614ba63fe29f75092dbd75676a381", null ],
     [ "source", "run__muonRecoSND_8py.html#acd5f779c6ceb4cd66b2a31960df83b4d", null ],
     [ "str", "run__muonRecoSND_8py.html#aa7f412bd48262f67866f616cbf0325d1", null ],
+    [ "treename", "run__muonRecoSND_8py.html#a5bd3c04aa1ae427c17bf4ca274da37ee", null ],
     [ "type", "run__muonRecoSND_8py.html#a2096d58bbd8accca217144e16a8c58c8", null ],
     [ "x", "run__muonRecoSND_8py.html#af12fe3c38e1f55a6467f03e3c9d076f3", null ]
 ];

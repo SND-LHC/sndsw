@@ -1,5 +1,7 @@
 var NAVTREEINDEX64 =
 {
+"study__GammaConv_8py.html#ae7dc52662551ed7788ac46668220e4f5":[13,0,10,24,1],
+"study__GammaConv_8py.html#ae9f62388c418118cb93b9514b1cf9c0d":[13,0,10,24,10],
 "study__GammaConv_8py.html#aebd70fbb6d12627cfa23a813ccf33cc9":[13,0,10,24,4],
 "study__GammaConv_8py.html#aff680131360b4875e5bc81afd58165de":[13,0,10,24,26],
 "study__GammaConv_8py_source.html":[13,0,10,24],
@@ -247,7 +249,5 @@ var NAVTREEINDEX64 =
 "trackReps_2include_2MaterialEffects_8h.html":[13,0,4,10,0,1],
 "trackReps_2include_2MaterialEffects_8h_source.html":[13,0,4,10,0,1],
 "trackReps_2include_2RKTrackRep_8h.html":[13,0,4,10,0,3],
-"trackReps_2include_2RKTrackRep_8h_source.html":[13,0,4,10,0,3],
-"trackReps_2include_2TGeoMaterialInterface_8h.html":[13,0,4,10,0,5],
-"trackReps_2include_2TGeoMaterialInterface_8h_source.html":[13,0,4,10,0,5]
+"trackReps_2include_2RKTrackRep_8h_source.html":[13,0,4,10,0,3]
 };
