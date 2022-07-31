@@ -807,12 +807,12 @@ Static Public Attributes</h2></td></tr>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;      <span class="keywordflow">for</span> x <span class="keywordflow">in</span> orderedCDF:</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;          r = x//10000</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;          <span class="keywordflow">if</span> <span class="keywordflow">not</span> r <span class="keywordflow">in</span> runNrs: runNrs.append(r)</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;      print(runNrs,dqDataFiles)</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;      <span class="keywordflow">for</span> r <span class="keywordflow">in</span> runNrs: </div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;           <span class="keywordflow">if</span> r <span class="keywordflow">in</span> dqDataFiles: <span class="keywordflow">continue</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;           print(<span class="stringliteral">&#39;executing DQ for run %i&#39;</span>%(r))</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;           os.system(monitorCommand + <span class="stringliteral">&quot; -r &quot;</span>+<a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>(r))</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;      <span class="keywordflow">for</span> r <span class="keywordflow">in</span> runNrs: </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;           <span class="keywordflow">if</span> r <span class="keywordflow">in</span> dqDataFiles: <span class="keywordflow">continue</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;           print(<span class="stringliteral">&#39;executing DQ for run %i&#39;</span>%(r))</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;           os.system(monitorCommand + <span class="stringliteral">&quot; -r &quot;</span>+<a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>(r)+<span class="stringliteral">&quot; &amp;&quot;</span>)</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;           <span class="keywordflow">while</span> self.count_python_processes(<span class="stringliteral">&#39;run_Monitoring&#39;</span>)&gt;ncpus : time.sleep(1800)</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
 </div><!-- fragment -->
 </div>
