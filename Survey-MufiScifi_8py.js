@@ -54,6 +54,7 @@ var Survey_MufiScifi_8py =
     [ "A", "Survey-MufiScifi_8py.html#a7c2f7daecf47bf8edcc0ff38d740d5cd", null ],
     [ "B", "Survey-MufiScifi_8py.html#ae16dba6eba030f551779a934170e1d06", null ],
     [ "barColor", "Survey-MufiScifi_8py.html#a0e2a54b3c127d93daf4dd45a1d4e8e9e", null ],
+    [ "Cluster_Scifi", "Survey-MufiScifi_8py.html#affb8c1136bc8595db5a4b036cfdda30b", null ],
     [ "command", "Survey-MufiScifi_8py.html#a7bebb537700e35756e930150be9c4092", null ],
     [ "data", "Survey-MufiScifi_8py.html#af4ad3c5a5ed0e317b71f5ff12f492ca6", null ],
     [ "default", "Survey-MufiScifi_8py.html#a9156c5241cd05442b1a74590c5d4b6f8", null ],

@@ -1,5 +1,6 @@
 var NAVTREEINDEX53 =
 {
+"muonHit_8h_source.html":[13,0,9,5],
 "muonLinkDef_8h.html":[13,0,9,6],
 "muonLinkDef_8h_source.html":[13,0,9,6],
 "muonPoint_8cxx.html":[13,0,9,7],
@@ -34,8 +35,8 @@ var NAVTREEINDEX53 =
 "namespaceMonitor.html":[12,0,15],
 "namespaceMufi__monitoring.html":[11,0,89],
 "namespaceMufi__monitoring.html":[12,0,18],
-"namespaceMufluxDigi.html":[12,0,19],
 "namespaceMufluxDigi.html":[11,0,91],
+"namespaceMufluxDigi.html":[12,0,19],
 "namespaceMufluxDigiReco.html":[11,0,92],
 "namespaceMufluxDigiReco.html":[12,0,20],
 "namespaceMufluxMuonTaggerDrifttubesCombo.html":[11,0,93],
@@ -89,8 +90,8 @@ var NAVTREEINDEX53 =
 "namespaceconditionsDatabase_1_1databases_1_1mongodb.html":[12,0,0,0,0],
 "namespaceconditionsDatabase_1_1databases_1_1mongodb_1_1models.html":[11,0,16,4,0,0],
 "namespaceconditionsDatabase_1_1databases_1_1mongodb_1_1models.html":[12,0,0,0,0,0],
-"namespaceconditionsDatabase_1_1databases_1_1mongodb_1_1models_1_1condition.html":[12,0,0,0,0,0,0],
 "namespaceconditionsDatabase_1_1databases_1_1mongodb_1_1models_1_1condition.html":[11,0,16,4,0,0,0],
+"namespaceconditionsDatabase_1_1databases_1_1mongodb_1_1models_1_1condition.html":[12,0,0,0,0,0,0],
 "namespaceconditionsDatabase_1_1databases_1_1mongodb_1_1models_1_1detector.html":[11,0,16,4,0,0,1],
 "namespaceconditionsDatabase_1_1databases_1_1mongodb_1_1models_1_1detector.html":[12,0,0,0,0,0,1],
 "namespaceconditionsDatabase_1_1databases_1_1mongodb_1_1models_1_1detectorWrapper.html":[11,0,16,4,0,0,2],
@@ -109,8 +110,8 @@ var NAVTREEINDEX53 =
 "namespaceconditionsDatabase_1_1list__conDB.html":[11,0,16,9],
 "namespaceconditionsDatabase_1_1scifi__conDB.html":[11,0,16,10],
 "namespaceconditionsDatabase_1_1snd__conDB.html":[11,0,16,11],
-"namespaceconditionsDatabase_1_1tests.html":[12,0,0,4],
 "namespaceconditionsDatabase_1_1tests.html":[11,0,16,12],
+"namespaceconditionsDatabase_1_1tests.html":[12,0,0,4],
 "namespaceconditionsDatabase_1_1tests_1_1benchmark__api.html":[11,0,16,12,0],
 "namespaceconditionsDatabase_1_1tests_1_1dummydata__generator.html":[11,0,16,12,1],
 "namespaceconditionsDatabase_1_1tests_1_1test__factory.html":[11,0,16,12,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX53 =
 "namespacemembers_vars_i.html":[11,1,2,9],
 "namespacemembers_vars_j.html":[11,1,2,10],
 "namespacemembers_vars_k.html":[11,1,2,11],
-"namespacemembers_vars_l.html":[11,1,2,12],
-"namespacemembers_vars_m.html":[11,1,2,13]
+"namespacemembers_vars_l.html":[11,1,2,12]
 };

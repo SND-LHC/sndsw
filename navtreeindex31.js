@@ -1,5 +1,6 @@
 var NAVTREEINDEX31 =
 {
+"classgenfit_1_1GFRaveTrackParameters.html#af2444202e727c5344b772d0b757c27bc":[12,0,12,25,1],
 "classgenfit_1_1GFRaveVertex.html":[12,0,12,26],
 "classgenfit_1_1GFRaveVertex.html#a05d9e6c5be0a476f526c39e934f28fad":[12,0,12,26,17],
 "classgenfit_1_1GFRaveVertex.html#a0693dfe6ece3a7b7b34f87fa2277e093":[12,0,12,26,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX31 =
 "classgenfit_1_1MaterialEffects.html#a0ba84e751f5c3d4d2983a9e4fb03f8da":[12,0,12,40,31],
 "classgenfit_1_1MaterialEffects.html#a0c492ef1c45e6bce736fb563c7b1e126":[12,0,12,40,62],
 "classgenfit_1_1MaterialEffects.html#a0cab227e2f45bd20ba63cf1b2ad260be":[12,0,12,40,0],
-"classgenfit_1_1MaterialEffects.html#a0cab227e2f45bd20ba63cf1b2ad260be":[12,0,12,40,2],
-"classgenfit_1_1MaterialEffects.html#a16ae3f075355342b8d26bacccaa7e4de":[12,0,12,40,16]
+"classgenfit_1_1MaterialEffects.html#a0cab227e2f45bd20ba63cf1b2ad260be":[12,0,12,40,2]
 };
