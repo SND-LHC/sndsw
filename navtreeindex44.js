@@ -1,5 +1,6 @@
 var NAVTREEINDEX44 =
 {
+"exitHadronAbsorber_8cxx_source.html":[13,0,10,2],
 "exitHadronAbsorber_8h.html":[13,0,10,3],
 "exitHadronAbsorber_8h_source.html":[13,0,10,3],
 "exit_code_page.html":[0,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX44 =
 "g4Ex__args_8py.html#a9e83c359dec2fd39e1ce018f81045540":[13,0,10,7,12],
 "g4Ex__args_8py.html#aa16b290ea2937426b27d61eb66a58f89":[13,0,10,7,43],
 "g4Ex__args_8py.html#aa2c4118a21a696f3f0a53d4fcc396090":[13,0,10,7,35],
-"g4Ex__args_8py.html#aa8e92eaa31dc03a84b844b26de5b8a97":[13,0,10,7,23],
-"g4Ex__args_8py.html#aabbb12a1d7a1b8a72f39076ff4f5fe36":[13,0,10,7,25]
+"g4Ex__args_8py.html#aa8e92eaa31dc03a84b844b26de5b8a97":[13,0,10,7,23]
 };

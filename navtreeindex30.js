@@ -1,5 +1,6 @@
 var NAVTREEINDEX30 =
 {
+"classgenfit_1_1DetPlane.html#a7016bf119b2c2ed31fd3a8eeb016c1a6":[12,0,12,13,7],
 "classgenfit_1_1DetPlane.html#a7ccf1f2621ce7a3577116a65fae9e50d":[12,0,12,13,21],
 "classgenfit_1_1DetPlane.html#a7d03f4507deb5c8a997c773bb1e9795d":[12,0,12,13,29],
 "classgenfit_1_1DetPlane.html#a7dea697d076c4e3bf93eb772660328b7":[12,0,12,13,18],
@@ -248,6 +249,5 @@ var NAVTREEINDEX30 =
 "classgenfit_1_1GFRaveTrackParameters.html#a929956eda936a4b30d25e6e9753a998e":[12,0,12,25,18],
 "classgenfit_1_1GFRaveTrackParameters.html#a9a962c8140634de86d5f4751f27ea3cf":[12,0,12,25,4],
 "classgenfit_1_1GFRaveTrackParameters.html#aa9c7aa4dd199432d8cc42958cac4740f":[12,0,12,25,10],
-"classgenfit_1_1GFRaveTrackParameters.html#abf4047c3395cffa806fad52fcc188ca9":[12,0,12,25,6],
-"classgenfit_1_1GFRaveTrackParameters.html#adca4840ed1830b8e2e32da876af0cef5":[12,0,12,25,2]
+"classgenfit_1_1GFRaveTrackParameters.html#abf4047c3395cffa806fad52fcc188ca9":[12,0,12,25,6]
 };

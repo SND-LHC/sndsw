@@ -1,5 +1,6 @@
 var NAVTREEINDEX53 =
 {
+"muonHit_8h.html":[13,0,9,5],
 "muonHit_8h_source.html":[13,0,9,5],
 "muonLinkDef_8h.html":[13,0,9,6],
 "muonLinkDef_8h_source.html":[13,0,9,6],
@@ -23,8 +24,8 @@ var NAVTREEINDEX53 =
 "namespaceCMBG__conf.html":[11,0,14],
 "namespaceCalibration-TDC.html":[11,0,9],
 "namespaceCalibration.html":[11,0,8],
-"namespaceConvRawData.html":[11,0,25],
 "namespaceConvRawData.html":[12,0,1],
+"namespaceConvRawData.html":[11,0,25],
 "namespaceDAQ__monitoring.html":[11,0,27],
 "namespaceDAQ__monitoring.html":[12,0,2],
 "namespaceDriftTubes.html":[12,0,4],
@@ -147,8 +148,8 @@ var NAVTREEINDEX53 =
 "namespaceextractNeutrinosAndUpdateWeight.html":[11,0,44],
 "namespaceextract__interacting__neutrinos.html":[11,0,42],
 "namespaceflux__map.html":[11,0,45],
-"namespaceg4Ex.html":[11,0,46],
 "namespaceg4Ex.html":[12,0,8],
+"namespaceg4Ex.html":[11,0,46],
 "namespaceg4Ex__args.html":[12,0,9],
 "namespaceg4Ex__args.html":[11,0,47],
 "namespaceg4Ex__gap.html":[11,0,48],
@@ -248,6 +249,5 @@ var NAVTREEINDEX53 =
 "namespacemembers_vars_h.html":[11,1,2,8],
 "namespacemembers_vars_i.html":[11,1,2,9],
 "namespacemembers_vars_j.html":[11,1,2,10],
-"namespacemembers_vars_k.html":[11,1,2,11],
-"namespacemembers_vars_l.html":[11,1,2,12]
+"namespacemembers_vars_k.html":[11,1,2,11]
 };

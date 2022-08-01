@@ -1,5 +1,6 @@
 var NAVTREEINDEX3 =
 {
+"SciFiMapping_8py.html#ab7bdfb039212fd46697debef55df8d67":[13,0,16,37,8],
 "SciFiMapping_8py.html#abf62f929da8b1ca869de3f1331e012be":[13,0,16,37,11],
 "SciFiMapping_8py.html#acea6f06d4bf32a21bafbb9ebf00f2d51":[13,0,16,37,15],
 "SciFiMapping_8py.html#ae7b45f62289f6f7a88b886ce3111eaea":[13,0,16,37,18],
@@ -248,6 +249,5 @@ var NAVTREEINDEX3 =
 "ShipDetectorList_8h.html#a1806da1a0fbae8ab81f7330906f65680a0e8f13788e4cd85703b6ca549927edbc":[13,0,17,3,0,17],
 "ShipDetectorList_8h.html#a1806da1a0fbae8ab81f7330906f65680a26e20c276903443a560e83114ac30bb7":[13,0,17,3,0,15],
 "ShipDetectorList_8h.html#a1806da1a0fbae8ab81f7330906f65680a2f144cb97461008fcd3693cc5555461f":[13,0,17,3,0,23],
-"ShipDetectorList_8h.html#a1806da1a0fbae8ab81f7330906f65680a302708f27685969aea17b84ebf1dc7b5":[13,0,17,3,0,7],
-"ShipDetectorList_8h.html#a1806da1a0fbae8ab81f7330906f65680a32370a0aea43651ef82cddf23d38ee74":[13,0,17,3,0,0]
+"ShipDetectorList_8h.html#a1806da1a0fbae8ab81f7330906f65680a302708f27685969aea17b84ebf1dc7b5":[13,0,17,3,0,7]
 };
