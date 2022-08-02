@@ -1,8 +1,0 @@
-digraph "TimeDet" {
-  compound=true
-  node [ fontsize="10", fontname="Helvetica"];
-  edge [ labelfontsize="10", labelfontname="Helvetica"];
-  dir_14b8127facb850683e99630d6654b886 [shape=box, label="TimeDet", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_14b8127facb850683e99630d6654b886.html"];
-  dir_d32c3015c3e8f785dc4289736c132c3d [shape=box label="shipdata" URL="dir_d32c3015c3e8f785dc4289736c132c3d.html"];
-  dir_14b8127facb850683e99630d6654b886->dir_d32c3015c3e8f785dc4289736c132c3d [headlabel="3", labeldistance=1.5 headhref="dir_000018_000012.html"];
-}

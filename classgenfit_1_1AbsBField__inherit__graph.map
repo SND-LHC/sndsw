@@ -1,0 +1,7 @@
+<map id="genfit::AbsBField" name="genfit::AbsBField">
+<area shape="rect" id="node1" title="Abstract Interface to magnetic fields in GENFIT." alt="" coords="239,5,369,32"/>
+<area shape="rect" id="node2" href="$classgenfit_1_1BellField.html" title="Bell Field for SHiP." alt="" coords="5,80,128,107"/>
+<area shape="rect" id="node3" href="$classgenfit_1_1ConstField.html" title="Constant Magnetic field." alt="" coords="153,80,287,107"/>
+<area shape="rect" id="node4" href="$classgenfit_1_1FairShipFields.html" title="Field for SHiP." alt="" coords="311,80,467,107"/>
+<area shape="rect" id="node5" href="$classgenfit_1_1GoliathField.html" title="Constant Magnetic field." alt="" coords="491,80,637,107"/>
+</map>

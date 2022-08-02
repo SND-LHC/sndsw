@@ -1,0 +1,8 @@
+<map id="genfit::mySpacepointMeasurement" name="genfit::mySpacepointMeasurement">
+<area shape="rect" id="node1" title="Example class for a spacepoint measurement which can be created from mySpacepointDetectorHit via the ..." alt="" coords="5,412,256,439"/>
+<area shape="rect" id="node2" href="$classgenfit_1_1SpacepointMeasurement.html" title="Class for measurements implementing a space point hit geometry." alt="" coords="16,336,245,363"/>
+<area shape="rect" id="node3" href="$classgenfit_1_1AbsMeasurement.html" title="Contains the measurement and covariance in raw detector coordinates." alt="" coords="40,260,221,287"/>
+<area shape="rect" id="node4" title=" " alt="" coords="124,5,196,32"/>
+<area shape="rect" id="node5" href="$classgenfit_1_1TrackPoint.html" title="Object containing AbsMeasurement and AbsFitterInfo objects." alt="" coords="147,171,282,197"/>
+<area shape="rect" id="node6" href="$classgenfit_1_1Track.html" title="Collection of TrackPoint objects, AbsTrackRep objects and FitStatus objects." alt="" coords="197,81,299,108"/>
+</map>

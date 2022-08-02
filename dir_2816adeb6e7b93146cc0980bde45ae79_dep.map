@@ -1,0 +1,10 @@
+<map id="shipLHC" name="shipLHC">
+<area shape="rect" id="node4" href="dir_fe24cdf4a9f9ffbe8e86d90b3d49ea5b.html" title="veto" alt="" coords="188,123,260,171"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000014_000020.html" title="4" alt="" coords="243,102,252,116"/>
+<area shape="rect" id="node5" href="dir_d32c3015c3e8f785dc4289736c132c3d.html" title="shipdata" alt="" coords="221,219,299,267"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000014_000012.html" title="15" alt="" coords="268,195,285,210"/>
+<area shape="rect" id="node2" href="dir_7ae11a12db432e85d99b9dc6c214e46e.html" title="rawData" alt="" coords="123,27,200,75"/>
+<area shape="rect" id="node3" href="dir_689ed8b08a7631fea49f5efd0ffc8d5e.html" title="scripts" alt="" coords="27,27,99,75"/>
+<area shape="rect" id="edge3-headlabel" href="dir_000020_000012.html" title="3" alt="" coords="248,191,257,206"/>
+<area shape="rect" id="clust1" href="dir_2816adeb6e7b93146cc0980bde45ae79.html" alt="" coords="16,16,309,85"/>
+</map>

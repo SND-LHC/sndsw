@@ -1,0 +1,6 @@
+<map id="genfit::AbsMeasurement" name="genfit::AbsMeasurement">
+<area shape="rect" id="node1" title="Contains the measurement and covariance in raw detector coordinates." alt="" coords="5,260,187,287"/>
+<area shape="rect" id="node2" title=" " alt="" coords="89,5,161,32"/>
+<area shape="rect" id="node3" href="$classgenfit_1_1TrackPoint.html" title="Object containing AbsMeasurement and AbsFitterInfo objects." alt="" coords="113,171,247,197"/>
+<area shape="rect" id="node4" href="$classgenfit_1_1Track.html" title="Collection of TrackPoint objects, AbsTrackRep objects and FitStatus objects." alt="" coords="163,81,264,108"/>
+</map>

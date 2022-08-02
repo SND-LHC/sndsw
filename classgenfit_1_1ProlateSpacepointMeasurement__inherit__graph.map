@@ -1,0 +1,6 @@
+<map id="genfit::ProlateSpacepointMeasurement" name="genfit::ProlateSpacepointMeasurement">
+<area shape="rect" id="node1" title="Class for measurements implementing a space point hit geometry with a very prolate form of the covari..." alt="" coords="27,229,213,271"/>
+<area shape="rect" id="node2" href="$classgenfit_1_1SpacepointMeasurement.html" title="Class for measurements implementing a space point hit geometry." alt="" coords="5,155,235,181"/>
+<area shape="rect" id="node3" href="$classgenfit_1_1AbsMeasurement.html" title="Contains the measurement and covariance in raw detector coordinates." alt="" coords="29,80,211,107"/>
+<area shape="rect" id="node4" title=" " alt="" coords="84,5,156,32"/>
+</map>

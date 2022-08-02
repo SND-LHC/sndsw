@@ -1,0 +1,7 @@
+<map id="genfit::AbsFitterInfo" name="genfit::AbsFitterInfo">
+<area shape="rect" id="node1" title="This class collects all information needed and produced by a specific AbsFitter and is specific to on..." alt="" coords="18,272,168,299"/>
+<area shape="rect" id="node2" title=" " alt="" coords="49,5,121,32"/>
+<area shape="rect" id="node3" href="$classgenfit_1_1TrackPoint.html" title="Object containing AbsMeasurement and AbsFitterInfo objects." alt="" coords="26,183,160,209"/>
+<area shape="rect" id="node4" href="$classgenfit_1_1Track.html" title="Collection of TrackPoint objects, AbsTrackRep objects and FitStatus objects." alt="" coords="78,81,180,108"/>
+<area shape="rect" id="node5" href="$classgenfit_1_1AbsTrackRep.html" title="Abstract base class for a track representation." alt="" coords="144,132,295,159"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="genfit::AbsKalmanFitter" name="genfit::AbsKalmanFitter">
+<area shape="rect" id="node1" title="Abstract base class for Kalman fitter and derived fitting algorithms." alt="" coords="5,80,180,107"/>
+<area shape="rect" id="node2" href="$classgenfit_1_1AbsFitter.html" title="Abstract base class for fitters." alt="" coords="30,5,155,32"/>
+</map>

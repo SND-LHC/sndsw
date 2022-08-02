@@ -1,8 +1,0 @@
-digraph "nutaudet" {
-  compound=true
-  node [ fontsize="10", fontname="Helvetica"];
-  edge [ labelfontsize="10", labelfontname="Helvetica"];
-  dir_5fd0c88261ea54d06a04fb3ec84fa31a [shape=box, label="nutaudet", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_5fd0c88261ea54d06a04fb3ec84fa31a.html"];
-  dir_d32c3015c3e8f785dc4289736c132c3d [shape=box label="shipdata" URL="dir_d32c3015c3e8f785dc4289736c132c3d.html"];
-  dir_5fd0c88261ea54d06a04fb3ec84fa31a->dir_d32c3015c3e8f785dc4289736c132c3d [headlabel="18", labeldistance=1.5 headhref="dir_000007_000012.html"];
-}

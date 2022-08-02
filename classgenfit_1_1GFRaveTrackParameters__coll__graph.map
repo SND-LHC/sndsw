@@ -1,0 +1,4 @@
+<map id="genfit::GFRaveTrackParameters" name="genfit::GFRaveTrackParameters">
+<area shape="rect" id="node1" title="GFRaveTrackParameters class Contains a pointer to the original genfit::Track, the weight of the track..." alt="" coords="5,80,232,107"/>
+<area shape="rect" id="node2" title=" " alt="" coords="83,5,155,32"/>
+</map>

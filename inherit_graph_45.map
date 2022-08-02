@@ -1,0 +1,4 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classgenfit_1_1FitStatus.html" title="Class where important numbers and properties of a fit can be stored." alt="" coords="5,5,129,32"/>
+<area shape="rect" id="node2" href="$classgenfit_1_1KalmanFitStatus.html" title="FitStatus for use with AbsKalmanFitter implementations." alt="" coords="177,5,352,32"/>
+</map>

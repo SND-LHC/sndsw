@@ -1,0 +1,13 @@
+<map id="shipdata/SndlhcHit.h" name="shipdata/SndlhcHit.h">
+<area shape="rect" id="node1" title=" " alt="" coords="448,5,604,32"/>
+<area shape="rect" id="node2" href="$SndlhcHit_8cxx.html" title=" " alt="" coords="158,80,328,107"/>
+<area shape="rect" id="node3" href="$MuFilterHit_8h.html" title=" " alt="" coords="352,80,515,107"/>
+<area shape="rect" id="node7" href="$ConvRawData_8cxx.html" title=" " alt="" coords="506,229,732,256"/>
+<area shape="rect" id="node10" href="$sndScifiHit_8h.html" title=" " alt="" coords="539,80,699,107"/>
+<area shape="rect" id="node4" href="$MuFilterHit_8cxx.html" title=" " alt="" coords="26,155,204,181"/>
+<area shape="rect" id="node5" href="$sndCluster_8h.html" title=" " alt="" coords="280,155,438,181"/>
+<area shape="rect" id="node8" href="$DigiTaskSND_8cxx.html" title=" " alt="" coords="46,229,264,256"/>
+<area shape="rect" id="node9" href="$ConvRawData_8h.html" title=" " alt="" coords="513,155,725,181"/>
+<area shape="rect" id="node6" href="$sndCluster_8cxx.html" title=" " alt="" coords="289,229,464,256"/>
+<area shape="rect" id="node11" href="$sndScifiHit_8cxx.html" title=" " alt="" coords="800,155,974,181"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="genfit::MeasurementOnPlane" name="genfit::MeasurementOnPlane">
+<area shape="rect" id="node1" title="Measured coordinates on a plane." alt="" coords="9,229,220,256"/>
+<area shape="rect" id="node2" href="$classgenfit_1_1MeasuredStateOnPlane.html" title="StateOnPlane with additional covariance matrix." alt="" coords="5,155,224,181"/>
+<area shape="rect" id="node3" href="$classgenfit_1_1StateOnPlane.html" title="A state with arbitrary dimension defined in a DetPlane." alt="" coords="37,80,192,107"/>
+<area shape="rect" id="node4" title=" " alt="" coords="79,5,151,32"/>
+</map>

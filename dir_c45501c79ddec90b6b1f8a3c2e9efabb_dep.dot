@@ -1,8 +1,0 @@
-digraph "ecal" {
-  compound=true
-  node [ fontsize="10", fontname="Helvetica"];
-  edge [ labelfontsize="10", labelfontname="Helvetica"];
-  dir_c45501c79ddec90b6b1f8a3c2e9efabb [shape=box, label="ecal", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_c45501c79ddec90b6b1f8a3c2e9efabb.html"];
-  dir_d32c3015c3e8f785dc4289736c132c3d [shape=box label="shipdata" URL="dir_d32c3015c3e8f785dc4289736c132c3d.html"];
-  dir_c45501c79ddec90b6b1f8a3c2e9efabb->dir_d32c3015c3e8f785dc4289736c132c3d [headlabel="4", labeldistance=1.5 headhref="dir_000000_000012.html"];
-}

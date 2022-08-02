@@ -1,0 +1,8 @@
+<map id="genfit::WirePointMeasurement" name="genfit::WirePointMeasurement">
+<area shape="rect" id="node1" title="Class for measurements in wire detectors (Straw tubes and drift chambers) which can measure the coord..." alt="" coords="5,412,225,439"/>
+<area shape="rect" id="node2" href="$classgenfit_1_1WireMeasurement.html" title="Class for measurements in wire detectors (Straw tubes and drift chambers) which do not measure the co..." alt="" coords="22,336,209,363"/>
+<area shape="rect" id="node3" href="$classgenfit_1_1AbsMeasurement.html" title="Contains the measurement and covariance in raw detector coordinates." alt="" coords="25,260,206,287"/>
+<area shape="rect" id="node4" title=" " alt="" coords="109,5,181,32"/>
+<area shape="rect" id="node5" href="$classgenfit_1_1TrackPoint.html" title="Object containing AbsMeasurement and AbsFitterInfo objects." alt="" coords="132,171,267,197"/>
+<area shape="rect" id="node6" href="$classgenfit_1_1Track.html" title="Collection of TrackPoint objects, AbsTrackRep objects and FitStatus objects." alt="" coords="182,81,283,108"/>
+</map>

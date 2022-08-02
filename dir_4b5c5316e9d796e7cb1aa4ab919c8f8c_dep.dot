@@ -1,8 +1,0 @@
-digraph "hcal" {
-  compound=true
-  node [ fontsize="10", fontname="Helvetica"];
-  edge [ labelfontsize="10", labelfontname="Helvetica"];
-  dir_4b5c5316e9d796e7cb1aa4ab919c8f8c [shape=box, label="hcal", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_4b5c5316e9d796e7cb1aa4ab919c8f8c.html"];
-  dir_d32c3015c3e8f785dc4289736c132c3d [shape=box label="shipdata" URL="dir_d32c3015c3e8f785dc4289736c132c3d.html"];
-  dir_4b5c5316e9d796e7cb1aa4ab919c8f8c->dir_d32c3015c3e8f785dc4289736c132c3d [headlabel="1", labeldistance=1.5 headhref="dir_000003_000012.html"];
-}

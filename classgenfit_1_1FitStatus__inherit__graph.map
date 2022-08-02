@@ -1,0 +1,4 @@
+<map id="genfit::FitStatus" name="genfit::FitStatus">
+<area shape="rect" id="node1" title="Class where important numbers and properties of a fit can be stored." alt="" coords="31,5,155,32"/>
+<area shape="rect" id="node2" href="$classgenfit_1_1KalmanFitStatus.html" title="FitStatus for use with AbsKalmanFitter implementations." alt="" coords="5,80,180,107"/>
+</map>

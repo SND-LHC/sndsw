@@ -1,0 +1,5 @@
+<map id="genfit::ThinScatterer" name="genfit::ThinScatterer">
+<area shape="rect" id="node1" title="Thin or thick scatterer." alt="" coords="5,171,160,197"/>
+<area shape="rect" id="node2" title=" " alt="" coords="41,5,113,32"/>
+<area shape="rect" id="node3" href="$classgenfit_1_1MaterialProperties.html" title="Material properties needed e.g. for material effects calculation." alt="" coords="99,81,285,108"/>
+</map>

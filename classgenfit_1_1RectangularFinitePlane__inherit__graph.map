@@ -1,0 +1,4 @@
+<map id="genfit::RectangularFinitePlane" name="genfit::RectangularFinitePlane">
+<area shape="rect" id="node1" title="Rectangular finite plane." alt="" coords="5,80,187,121"/>
+<area shape="rect" id="node2" href="$classgenfit_1_1AbsFinitePlane.html" title="Abstract base class for finite detector planes." alt="" coords="15,5,177,32"/>
+</map>

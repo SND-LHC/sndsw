@@ -1,0 +1,7 @@
+<map id="genfit::RKStep" name="genfit::RKStep">
+<area shape="rect" id="node1" title="Helper for RKTrackRep." alt="" coords="56,260,171,287"/>
+<area shape="rect" id="node2" href="$classgenfit_1_1StepLimits.html" title="Helper to store different limits on the stepsize for the RKTRackRep." alt="" coords="5,171,141,197"/>
+<area shape="rect" id="node3" href="$structgenfit_1_1MatStep.html" title="Simple struct containing MaterialProperties and stepsize in the material." alt="" coords="166,171,287,197"/>
+<area shape="rect" id="node4" href="$classgenfit_1_1MaterialProperties.html" title="Material properties needed e.g. for material effects calculation." alt="" coords="133,81,320,108"/>
+<area shape="rect" id="node5" title=" " alt="" coords="191,5,263,32"/>
+</map>

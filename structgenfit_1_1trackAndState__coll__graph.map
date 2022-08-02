@@ -1,0 +1,8 @@
+<map id="genfit::trackAndState" name="genfit::trackAndState">
+<area shape="rect" id="node1" title="Simple struct containing a Track pointer and a MeasuredStateOnPlane. Used in GFRave." alt="" coords="5,361,164,388"/>
+<area shape="rect" id="node2" href="$classgenfit_1_1Track.html" title="Collection of TrackPoint objects, AbsTrackRep objects and FitStatus objects." alt="" coords="13,132,114,159"/>
+<area shape="rect" id="node3" title=" " alt="" coords="98,5,170,32"/>
+<area shape="rect" id="node5" href="$classgenfit_1_1StateOnPlane.html" title="A state with arbitrary dimension defined in a DetPlane." alt="" coords="133,183,287,209"/>
+<area shape="rect" id="node6" href="$classgenfit_1_1AbsTrackRep.html" title="Abstract base class for a track representation." alt="" coords="172,81,323,108"/>
+<area shape="rect" id="node4" href="$classgenfit_1_1MeasuredStateOnPlane.html" title="StateOnPlane with additional covariance matrix." alt="" coords="101,272,319,299"/>
+</map>

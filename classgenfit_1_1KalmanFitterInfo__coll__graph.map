@@ -1,0 +1,8 @@
+<map id="genfit::KalmanFitterInfo" name="genfit::KalmanFitterInfo">
+<area shape="rect" id="node1" title="Collects information needed and produced by a AbsKalmanFitter implementations and is specific to one ..." alt="" coords="5,348,181,375"/>
+<area shape="rect" id="node2" href="$classgenfit_1_1AbsFitterInfo.html" title="This class collects all information needed and produced by a specific AbsFitter and is specific to on..." alt="" coords="18,272,169,299"/>
+<area shape="rect" id="node3" title=" " alt="" coords="49,5,121,32"/>
+<area shape="rect" id="node4" href="$classgenfit_1_1TrackPoint.html" title="Object containing AbsMeasurement and AbsFitterInfo objects." alt="" coords="26,183,161,209"/>
+<area shape="rect" id="node5" href="$classgenfit_1_1Track.html" title="Collection of TrackPoint objects, AbsTrackRep objects and FitStatus objects." alt="" coords="79,81,180,108"/>
+<area shape="rect" id="node6" href="$classgenfit_1_1AbsTrackRep.html" title="Abstract base class for a track representation." alt="" coords="145,132,295,159"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="genfit::TrackPoint" name="genfit::TrackPoint">
+<area shape="rect" id="node1" title="Object containing AbsMeasurement and AbsFitterInfo objects." alt="" coords="5,171,140,197"/>
+<area shape="rect" id="node2" title=" " alt="" coords="31,5,103,32"/>
+<area shape="rect" id="node3" href="$classgenfit_1_1Track.html" title="Collection of TrackPoint objects, AbsTrackRep objects and FitStatus objects." alt="" coords="89,81,190,108"/>
+</map>

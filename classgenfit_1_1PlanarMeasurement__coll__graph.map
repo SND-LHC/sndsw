@@ -1,0 +1,7 @@
+<map id="genfit::PlanarMeasurement" name="genfit::PlanarMeasurement">
+<area shape="rect" id="node1" title="Measurement class implementing a planar hit geometry (1 or 2D)." alt="" coords="5,336,204,363"/>
+<area shape="rect" id="node2" href="$classgenfit_1_1AbsMeasurement.html" title="Contains the measurement and covariance in raw detector coordinates." alt="" coords="14,260,195,287"/>
+<area shape="rect" id="node3" title=" " alt="" coords="98,5,170,32"/>
+<area shape="rect" id="node4" href="$classgenfit_1_1TrackPoint.html" title="Object containing AbsMeasurement and AbsFitterInfo objects." alt="" coords="121,171,256,197"/>
+<area shape="rect" id="node5" href="$classgenfit_1_1Track.html" title="Collection of TrackPoint objects, AbsTrackRep objects and FitStatus objects." alt="" coords="171,81,273,108"/>
+</map>

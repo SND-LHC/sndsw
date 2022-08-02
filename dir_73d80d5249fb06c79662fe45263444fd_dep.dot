@@ -1,8 +1,0 @@
-digraph "strawtubes" {
-  compound=true
-  node [ fontsize="10", fontname="Helvetica"];
-  edge [ labelfontsize="10", labelfontname="Helvetica"];
-  dir_73d80d5249fb06c79662fe45263444fd [shape=box, label="strawtubes", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_73d80d5249fb06c79662fe45263444fd.html"];
-  dir_d32c3015c3e8f785dc4289736c132c3d [shape=box label="shipdata" URL="dir_d32c3015c3e8f785dc4289736c132c3d.html"];
-  dir_73d80d5249fb06c79662fe45263444fd->dir_d32c3015c3e8f785dc4289736c132c3d [headlabel="5", labeldistance=1.5 headhref="dir_000017_000012.html"];
-}

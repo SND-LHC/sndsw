@@ -1,0 +1,5 @@
+<map id="genfit::FullMeasurement" name="genfit::FullMeasurement">
+<area shape="rect" id="node1" title="Measurement class implementing a measurement of all track parameters." alt="" coords="6,155,186,181"/>
+<area shape="rect" id="node2" href="$classgenfit_1_1AbsMeasurement.html" title="Contains the measurement and covariance in raw detector coordinates." alt="" coords="5,80,187,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="60,5,132,32"/>
+</map>

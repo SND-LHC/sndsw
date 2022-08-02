@@ -1,0 +1,23 @@
+<map id="genfit/measurements/include/WirePointMeasurement.h" name="genfit/measurements/include/WirePointMeasurement.h">
+<area shape="rect" id="node1" title=" " alt="" coords="21,5,264,47"/>
+<area shape="rect" id="node2" href="$WireMeasurement_8h.html" title=" " alt="" coords="65,95,220,121"/>
+<area shape="rect" id="node3" href="$AbsMeasurement_8h.html" title=" " alt="" coords="69,169,217,196"/>
+<area shape="rect" id="node4" href="$MeasurementOnPlane_8h.html" title=" " alt="" coords="169,244,348,271"/>
+<area shape="rect" id="node20" href="$AbsHMatrix_8h.html" title=" " alt="" coords="77,393,187,420"/>
+<area shape="rect" id="node11" title=" " alt="" coords="347,692,431,719"/>
+<area shape="rect" id="node5" href="$MeasuredStateOnPlane_8h.html" title=" " alt="" coords="313,319,500,345"/>
+<area shape="rect" id="node18" title=" " alt="" coords="561,543,655,569"/>
+<area shape="rect" id="node21" title=" " alt="" coords="226,319,289,345"/>
+<area shape="rect" id="node6" href="$StateOnPlane_8h.html" title=" " alt="" coords="444,393,567,420"/>
+<area shape="rect" id="node15" href="$AbsTrackRep_8h.html" title=" " alt="" coords="364,468,481,495"/>
+<area shape="rect" id="node19" title=" " alt="" coords="93,543,216,569"/>
+<area shape="rect" id="node7" href="$SharedPlanePtr_8h.html" title=" " alt="" coords="679,543,811,569"/>
+<area shape="rect" id="node17" title=" " alt="" coords="240,543,333,569"/>
+<area shape="rect" id="node8" href="$DetPlane_8h.html" title=" " alt="" coords="744,617,837,644"/>
+<area shape="rect" id="node14" title=" " alt="" coords="561,617,719,644"/>
+<area shape="rect" id="node9" href="$AbsFinitePlane_8h.html" title=" " alt="" coords="689,692,820,719"/>
+<area shape="rect" id="node12" title=" " alt="" coords="508,692,599,719"/>
+<area shape="rect" id="node13" title=" " alt="" coords="844,692,1004,719"/>
+<area shape="rect" id="node10" title=" " alt="" coords="715,767,794,793"/>
+<area shape="rect" id="node16" href="$MaterialProperties_8h.html" title=" " alt="" coords="229,617,384,644"/>
+</map>
