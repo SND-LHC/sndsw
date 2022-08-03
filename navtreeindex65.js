@@ -1,5 +1,9 @@
 var NAVTREEINDEX65 =
 {
+"trackReps_2include_2AbsMaterialInterface_8h.html":[13,0,4,10,0,0],
+"trackReps_2include_2AbsMaterialInterface_8h_source.html":[13,0,4,10,0,0],
+"trackReps_2include_2MaterialEffects_8h.html":[13,0,4,10,0,1],
+"trackReps_2include_2MaterialEffects_8h_source.html":[13,0,4,10,0,1],
 "trackReps_2include_2RKTrackRep_8h.html":[13,0,4,10,0,3],
 "trackReps_2include_2RKTrackRep_8h_source.html":[13,0,4,10,0,3],
 "trackReps_2include_2TGeoMaterialInterface_8h.html":[13,0,4,10,0,5],

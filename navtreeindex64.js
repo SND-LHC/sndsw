@@ -1,5 +1,9 @@
 var NAVTREEINDEX64 =
 {
+"study__GammaConv_8py.html#ab9cfaa5f3b569429c9f2985cbb33e10e":[13,0,10,24,14],
+"study__GammaConv_8py.html#ad181e52b5865d9874ddea7c3ad47c6b6":[13,0,10,24,8],
+"study__GammaConv_8py.html#ad6d92779a6dbcb89ea8862d0185a8982":[13,0,10,24,21],
+"study__GammaConv_8py.html#ad8e14f47dabd055e0422490317511e26":[13,0,10,24,25],
 "study__GammaConv_8py.html#adaf59a7b3e9ae10bf858a1fc94a9fbb9":[13,0,10,24,2],
 "study__GammaConv_8py.html#ade4e48b9a86cfadba1da8efe7fe47452":[13,0,10,24,9],
 "study__GammaConv_8py.html#ae7dc52662551ed7788ac46668220e4f5":[13,0,10,24,1],
@@ -245,9 +249,5 @@ var NAVTREEINDEX64 =
 "thermalNeutrons_8py.html#af8cd6f6c58c207e78d7e7016b87ee8d9":[13,0,19,34,20],
 "thermalNeutrons_8py_source.html":[13,0,19,34],
 "trackRepsLinkDef_8h.html":[13,0,4,10,1,5],
-"trackRepsLinkDef_8h_source.html":[13,0,4,10,1,5],
-"trackReps_2include_2AbsMaterialInterface_8h.html":[13,0,4,10,0,0],
-"trackReps_2include_2AbsMaterialInterface_8h_source.html":[13,0,4,10,0,0],
-"trackReps_2include_2MaterialEffects_8h.html":[13,0,4,10,0,1],
-"trackReps_2include_2MaterialEffects_8h_source.html":[13,0,4,10,0,1]
+"trackRepsLinkDef_8h_source.html":[13,0,4,10,1,5]
 };
