@@ -254,7 +254,7 @@ $(document).ready(function(){initNavTree('run__Monitoring_8py_source.html',''); 
 <div class="line"><a name="l00167"></a><span class="lineno"><a class="line" href="namespacerun__Monitoring.html#ace6ee2614120ee1eeaf9f2f3c313c1f9">  167</a></span>&#160;   lastPart = 0   <span class="comment">#   reading from second low speed DAQ stream    tmp[len(tmp)-1]</span></div>
 <div class="line"><a name="l00168"></a><span class="lineno"><a class="line" href="namespacerun__Monitoring.html#a51501a5d1c5ff6fc1b3d7081c5254b02">  168</a></span>&#160;   nLast = options.nEvents</div>
 <div class="line"><a name="l00169"></a><span class="lineno"><a class="line" href="namespacerun__Monitoring.html#a64dc868bd13cbaa0624f9fbfd8bae845">  169</a></span>&#160;   nStart = nLast-options.Nlast</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;   M.updateHtml()</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;   <span class="keywordflow">if</span> <span class="keywordflow">not</span> options.interactive <span class="keywordflow">and</span> options.sudo: M.updateHtml()</div>
 <div class="line"><a name="l00171"></a><span class="lineno"><a class="line" href="namespacerun__Monitoring.html#ab45a47f3ad85eb19985f459bfa9d78a6">  171</a></span>&#160;   lastFile = M.converter.fiN.GetName()</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;   M.updateSource(lastFile)</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;   <span class="keywordflow">while</span> 1&gt;0:</div>
@@ -285,7 +285,7 @@ $(document).ready(function(){initNavTree('run__Monitoring_8py_source.html',''); 
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;                   time.sleep(300)</div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;         <span class="keywordflow">if</span> <span class="keywordflow">not</span> curRun == lastRun:</div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;            <span class="keywordflow">for</span> m <span class="keywordflow">in</span> monitorTasks:</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;               monitorTasks[m].Plot()</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;               <span class="keywordflow">if</span> <span class="keywordflow">not</span> options.interactive:  monitorTasks[m].Plot()</div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;            print(<span class="stringliteral">&quot;run &quot;</span>,lastRun,<span class="stringliteral">&quot; has finished.&quot;</span>)</div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;            quit()  <span class="comment"># reinitialize everything with new run number</span></div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;         <span class="keywordflow">if</span> <span class="keywordflow">not</span> curPart == lastPart:</div>
