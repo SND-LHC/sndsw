@@ -1,7 +1,5 @@
 var NAVTREEINDEX26 =
 {
-"classecalDrawer.html#ae3e0216de375345edc46b60f3d7d96d8":[12,0,71,26],
-"classecalDrawer.html#ae9b858023a4be681d0f97766bc7fdac7":[12,0,71,53],
 "classecalDrawer.html#af08d7ce536045345a37753e6b829288b":[12,0,71,49],
 "classecalDrawer.html#af41ebaed1627e9310e3d4e19238962b9":[12,0,71,43],
 "classecalDrawer.html#af4777e8d6bab818022a54cf2fc7afa21":[12,0,71,19],
@@ -249,5 +247,7 @@ var NAVTREEINDEX26 =
 "classecalStructure.html#a01b36d1866ef1f1d058c724ad6b04818":[12,0,84,0],
 "classecalStructure.html#a091d805c6f4760e6eee070445a971e89":[12,0,84,16],
 "classecalStructure.html#a0b303fc74d5cf2db15d2f04abde7c3b9":[12,0,84,30],
-"classecalStructure.html#a0e0174a5851b064f8bfb6acb4100f102":[12,0,84,27]
+"classecalStructure.html#a0e0174a5851b064f8bfb6acb4100f102":[12,0,84,27],
+"classecalStructure.html#a10ea6eee13915b5ee45c1abd081bc10c":[12,0,84,37],
+"classecalStructure.html#a158215c02c8ead12ba65b628f6de8aeb":[12,0,84,25]
 };
