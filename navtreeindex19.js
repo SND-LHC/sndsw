@@ -1,6 +1,5 @@
 var NAVTREEINDEX19 =
 {
-"classScifiPoint.html#a472987272ed6b44c7d76c42727cf9874":[12,0,145,9],
 "classScifiPoint.html#a512c395ab0546697c23568df28569d24":[12,0,145,2],
 "classScifiPoint.html#a51c1eda19b3785bf6da29c7c72c7cc89":[12,0,145,0],
 "classScifiPoint.html#a604ee79c09c830028c2960ab851306a1":[12,0,145,7],
@@ -249,5 +248,6 @@ var NAVTREEINDEX19 =
 "classShipFieldMaker.html#aa9e331f6a407033d03face9ea9ab79f5":[12,0,154,18],
 "classShipFieldMaker.html#aaf3b3aa3a47860e97f72f3c028ba3a30":[12,0,154,16],
 "classShipFieldMaker.html#aaf44333a99dd882247caa811db06e56d":[12,0,154,43],
-"classShipFieldMaker.html#ab664b64d707783cf30521c2ac9bd5192":[12,0,154,28]
+"classShipFieldMaker.html#ab664b64d707783cf30521c2ac9bd5192":[12,0,154,28],
+"classShipFieldMaker.html#abf937564fc0ec2b7acc56f01d0865b59":[12,0,154,8]
 };

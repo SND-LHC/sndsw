@@ -1,6 +1,5 @@
 var NAVTREEINDEX44 =
 {
-"exitHadronAbsorber_8h_source.html":[13,0,10,3],
 "exit_code_page.html":[0,2],
 "extractMuonsAndUpdateWeight_8py.html":[13,0,10,4],
 "extractMuonsAndUpdateWeight_8py.html#a013135e7a636da5a63f8887a358fc737":[13,0,10,4,12],
@@ -95,8 +94,8 @@ var NAVTREEINDEX44 =
 "flux__map_8py.html#a1e7a8c61a88a7cbb36c21af7285ca627":[13,0,7,10,2],
 "flux__map_8py.html#aa4396f692c5693680cc3d484d8f92451":[13,0,7,10,0],
 "flux__map_8py_source.html":[13,0,7,10],
-"functions.html":[12,3,0],
 "functions.html":[12,3,0,0],
+"functions.html":[12,3,0],
 "functions_a.html":[12,3,0,1],
 "functions_b.html":[12,3,0,2],
 "functions_c.html":[12,3,0,3],
@@ -249,5 +248,6 @@ var NAVTREEINDEX44 =
 "g4Ex__args_8py.html#aa2c4118a21a696f3f0a53d4fcc396090":[13,0,10,7,35],
 "g4Ex__args_8py.html#aa8e92eaa31dc03a84b844b26de5b8a97":[13,0,10,7,23],
 "g4Ex__args_8py.html#aabbb12a1d7a1b8a72f39076ff4f5fe36":[13,0,10,7,25],
-"g4Ex__args_8py.html#aac191792dad70e2cd93bbbca9da7cb0a":[13,0,10,7,19]
+"g4Ex__args_8py.html#aac191792dad70e2cd93bbbca9da7cb0a":[13,0,10,7,19],
+"g4Ex__args_8py.html#ab5809f5fbf5e9dfd8a17bc45889bc558":[13,0,10,7,9]
 };
