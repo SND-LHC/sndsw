@@ -1,5 +1,8 @@
 var NAVTREEINDEX64 =
 {
+"study__GammaConv_8py.html#a44a01e2df41768e0929bf937753d45d7":[13,0,10,24,36],
+"study__GammaConv_8py.html#a4537670e1a25c4d52f22ebac4ec6692b":[13,0,10,24,19],
+"study__GammaConv_8py.html#a46d8bcfd00ad1645018ba4ec9b12839a":[13,0,10,24,22],
 "study__GammaConv_8py.html#a48249c4eb38f3ec77516942c84aad0be":[13,0,10,24,6],
 "study__GammaConv_8py.html#a6178e60a012f4ac198fff3a25fb91f78":[13,0,10,24,28],
 "study__GammaConv_8py.html#a6d4855531bd591ee5f7b60226b127b43":[13,0,10,24,3],
@@ -246,8 +249,5 @@ var NAVTREEINDEX64 =
 "thermalNeutrons_8py.html#aaedc929430e41f069b5369ce5850d921":[13,0,19,34,5],
 "thermalNeutrons_8py.html#ab494cfc53aa5d02b3b6f6970199a64c4":[13,0,19,34,38],
 "thermalNeutrons_8py.html#ac882cc6c1679962a8989391a09c10a2f":[13,0,19,34,18],
-"thermalNeutrons_8py.html#acab7f498051da3323cd9f27c53a74f8b":[13,0,19,34,29],
-"thermalNeutrons_8py.html#ad39116d3f143f5a52a534046f720afd2":[13,0,19,34,41],
-"thermalNeutrons_8py.html#ad4d6592a869b13396b835debda9fbf5c":[13,0,19,34,36],
-"thermalNeutrons_8py.html#ad64f40c9b4354b9774e5d836848c2e08":[13,0,19,34,27]
+"thermalNeutrons_8py.html#acab7f498051da3323cd9f27c53a74f8b":[13,0,19,34,29]
 };

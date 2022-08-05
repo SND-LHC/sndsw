@@ -1,5 +1,8 @@
 var NAVTREEINDEX28 =
 {
+"classexitHadronAbsorber.html#af7373cf9b90b71e1ae58ab3d71566ffa":[12,0,90,14],
+"classexitHadronAbsorber.html#afc8ef09ec676c200596267046addf18b":[12,0,90,20],
+"classexitHadronAbsorber.html#aff42c4fe303d55b7dab5a1e218806d49":[12,0,90,22],
 "classg4Ex_1_1MyEventAction.html":[12,0,8,0],
 "classg4Ex_1_1MyEventAction.html#a5f5e269936d8c9db88248f9547bbbd7f":[12,0,8,0,1],
 "classg4Ex_1_1MyEventAction.html#ad5f34b6b9ae8654b5eed4959bb2e3c8a":[12,0,8,0,0],
@@ -246,8 +249,5 @@ var NAVTREEINDEX28 =
 "classgbl_1_1VVector.html#a4b2f0cd31ee86a7d1611ba974c125b2e":[12,0,11,7,13],
 "classgbl_1_1VVector.html#a5b313306f1152d9a73ea7e1fa1e4abfd":[12,0,11,7,4],
 "classgbl_1_1VVector.html#a62b099229832ed7f1c2cc756b1de9dae":[12,0,11,7,7],
-"classgbl_1_1VVector.html#aa059c1b22b772221e4ad6c4ce641911e":[12,0,11,7,11],
-"classgbl_1_1VVector.html#abe841804b288362b5327f20681f04c75":[12,0,11,7,0],
-"classgbl_1_1VVector.html#ac3f1db99a123073a1579235bcab71606":[12,0,11,7,6],
-"classgbl_1_1VVector.html#ac8fe55706b2c48ffe0739c52bdb1e0c8":[12,0,11,7,12]
+"classgbl_1_1VVector.html#aa059c1b22b772221e4ad6c4ce641911e":[12,0,11,7,11]
 };
