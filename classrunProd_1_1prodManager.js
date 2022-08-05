@@ -17,5 +17,6 @@ var classrunProd_1_1prodManager =
     [ "runDataQuality", "classrunProd_1_1prodManager.html#a103db1e869d99ee90b10823841fa36ee", null ],
     [ "runSinglePartition", "classrunProd_1_1prodManager.html#a62d5080d84cd853e2503cea1022d0916", null ],
     [ "Mext", "classrunProd_1_1prodManager.html#ad68803aabbb289ce7aa873e714809c19", null ],
-    [ "options", "classrunProd_1_1prodManager.html#a3daee4f543037ea4bab8b54887419c27", null ]
+    [ "options", "classrunProd_1_1prodManager.html#a3daee4f543037ea4bab8b54887419c27", null ],
+    [ "runNrs", "classrunProd_1_1prodManager.html#aa2a78c4560dcca2e0a4c8017a74fa46e", null ]
 ];

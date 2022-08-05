@@ -174,8 +174,8 @@ $(document).ready(function(){initNavTree('run__Monitoring_8py_source.html',''); 
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordflow">while</span> curRun.find(<span class="stringliteral">&#39;run&#39;</span>) &lt; 0:</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;               curRun,curPart,options.startTime =  <a class="code" href="namespacerun__Monitoring.html#a63dea9bcc5355cd1b6ae89c050131cd6">currentRun</a>()</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;               <span class="keywordflow">if</span> curRun.find(<span class="stringliteral">&#39;run&#39;</span>) &lt; 0:</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                   print(<span class="stringliteral">&quot;sleep 300sec.&quot;</span>,time.ctime())</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                   time.sleep(300)</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                   print(<span class="stringliteral">&quot;no run info, sleep 30sec.&quot;</span>,time.ctime())</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                   time.sleep(30)</div>
 <div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="namespacerun__Monitoring.html#ab06c28a88b6ef352cc9a46fe67b64c93">   92</a></span>&#160;        options.runNumber = <a class="code" href="namespacerun__Monitoring.html#aab90212d20b8d3bdfff1f50dbd4e35c3">int</a>(curRun.split(<span class="stringliteral">&#39;_&#39;</span>)[1])</div>
 <div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="namespacerun__Monitoring.html#a90398f22d91e39d3065d269bb09ec855">   93</a></span>&#160;        lastRun = curRun</div>
 <div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="namespacerun__Monitoring.html#aeed58fa62d2ec7b0be0c8d3dbcbe5204">   94</a></span>&#160;        options.partition = 0   <span class="comment">#   monitoring file set to data_0000.root   int(curPart.split(&#39;_&#39;)[1].split(&#39;.&#39;)[0])</span></div>
@@ -193,111 +193,112 @@ $(document).ready(function(){initNavTree('run__Monitoring_8py_source.html',''); 
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;      exec(<span class="stringliteral">&quot;date = &quot;</span>+jsonStr.decode())</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;      options.startTime = date[<span class="stringliteral">&#39;start_time&#39;</span>]</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;      options.startTime += <span class="stringliteral">&quot; - &quot;</span>+ date[<span class="stringliteral">&#39;stop_time&#39;</span>]</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="comment"># prepare tasks:</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="namespacerun__Monitoring.html#a5bd938418630b9983630646f94754709">  111</a></span>&#160;FairTasks = []</div>
-<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="namespacerun__Monitoring.html#a40d83b0c7029465a825217cf4f2efc4a">  112</a></span>&#160;houghTransform = <span class="keyword">False</span> <span class="comment"># under construction, not yet tested</span></div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="keywordflow">if</span> houghTransform:</div>
-<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="namespacerun__Monitoring.html#a8c8cc84e705e232b457181d1c09a9c5f">  114</a></span>&#160;   muon_reco_task = <a class="code" href="classSndlhcMuonReco_1_1MuonReco.html">SndlhcMuonReco.MuonReco</a>()</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;   muon_reco_task.SetName(<span class="stringliteral">&quot;houghTransform&quot;</span>)</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;   FairTasks.append(muon_reco_task)</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;   <span class="keyword">import</span> SndlhcTracking</div>
-<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="namespacerun__Monitoring.html#afe46a0c5d99a67dd67d52b52c1d19e88">  119</a></span>&#160;   trackTask = <a class="code" href="classSndlhcTracking_1_1Tracking.html">SndlhcTracking.Tracking</a>() </div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;   trackTask.SetName(<span class="stringliteral">&#39;simpleTracking&#39;</span>)</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;   FairTasks.append(trackTask)</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
-<div class="line"><a name="l00123"></a><span class="lineno"><a class="line" href="namespacerun__Monitoring.html#a26a130ae56d200563ad145ffeecdcb2f">  123</a></span>&#160;M = <a class="code" href="classMonitor_1_1Monitoring.html">Monitor.Monitoring</a>(options,FairTasks)</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="keywordflow">if</span> options.nEvents &lt; 0 : </div>
-<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="namespacerun__Monitoring.html#a92b5b34baf6b2f39bd75268b785c7112">  125</a></span>&#160;    <span class="keywordflow">if</span> options.online: options.nEvents = M.converter.fiN.event.GetEntries()</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordflow">else</span>:    options.nEvents = M.eventTree.GetEntries()</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
-<div class="line"><a name="l00128"></a><span class="lineno"><a class="line" href="namespacerun__Monitoring.html#a41ba52894bbd5bd828d1a7b6ec57dedc">  128</a></span>&#160;monitorTasks = {}</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="keywordflow">if</span> <span class="keywordflow">not</span> options.fname:</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;   monitorTasks[<span class="stringliteral">&#39;daq&#39;</span>]     = <a class="code" href="classDAQ__monitoring_1_1DAQ__boards.html">DAQ_monitoring.DAQ_boards</a>()</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;   monitorTasks[<span class="stringliteral">&#39;rates&#39;</span>]   = <a class="code" href="classDAQ__monitoring_1_1Time__evolution.html">DAQ_monitoring.Time_evolution</a>()</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;monitorTasks[<span class="stringliteral">&#39;Scifi_hitMaps&#39;</span>]   = <a class="code" href="classScifi__monitoring_1_1Scifi__hitMaps.html">Scifi_monitoring.Scifi_hitMaps</a>()</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;monitorTasks[<span class="stringliteral">&#39;Mufi_hitMaps&#39;</span>]   = <a class="code" href="classMufi__monitoring_1_1Mufi__hitMaps.html">Mufi_monitoring.Mufi_hitMaps</a>()</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;monitorTasks[<span class="stringliteral">&#39;Mufi_QDCcorellations&#39;</span>]   = <a class="code" href="classMufi__monitoring_1_1Mufi__largeVSsmall.html">Mufi_monitoring.Mufi_largeVSsmall</a>()</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;monitorTasks[<span class="stringliteral">&#39;Scifi_residuals&#39;</span>] = <a class="code" href="classScifi__monitoring_1_1Scifi__residuals.html">Scifi_monitoring.Scifi_residuals</a>()   <span class="comment"># time consuming</span></div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="keywordflow">if</span> options.interactive:  monitorTasks[<span class="stringliteral">&#39;EventDisplay&#39;</span>]   = <a class="code" href="classEventDisplay__Task_1_1twod.html">EventDisplay_Task.twod</a>()</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="keywordflow">for</span> m <span class="keywordflow">in</span> monitorTasks:</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    monitorTasks[m].Init(options,M)</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="keywordflow">if</span> <span class="keywordflow">not</span> options.auto:   <span class="comment"># default online/offline mode</span></div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;   <span class="keywordflow">for</span> n <span class="keywordflow">in</span> range(options.nStart,options.nStart+options.nEvents):</div>
-<div class="line"><a name="l00143"></a><span class="lineno"><a class="line" href="namespacerun__Monitoring.html#a3fca1dee4e6c36e9052b12daf4f80615">  143</a></span>&#160;     event = M.GetEvent(n)</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;     <span class="keywordflow">if</span> <span class="keywordflow">not</span> options.online:</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        <span class="keywordflow">if</span> n%options.heartBeat == 0: print(<span class="stringliteral">&quot;--&gt; run/event nr: %i %i %5.2F%%&quot;</span>%(M.eventTree.EventHeader.GetRunId(),n,n/M.eventTree.GetEntries()*100))</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="comment"># assume for the moment file does not contain fitted tracks</span></div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;     <span class="keywordflow">for</span> m <span class="keywordflow">in</span> monitorTasks:</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        monitorTasks[m].ExecuteEvent(M.eventTree)</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;   <span class="keywordflow">if</span> options.nEvents&gt;0:</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;       <span class="keywordflow">for</span> m <span class="keywordflow">in</span> monitorTasks:</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;          monitorTasks[m].Plot()</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;   <span class="keywordflow">if</span> options.sudo:</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;       print(options.runNumber,options.startTime)</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;       options.startTime += <span class="stringliteral">&quot; #events=&quot;</span>+<a class="code" href="namespacerun__Monitoring.html#a14f0c250cdfffb350ed47fc9c9cabe6b">str</a>(options.nEvents)</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;       M.publishRootFile()</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;       M.updateHtml()</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="keywordflow">else</span>: </div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;   <span class="stringliteral">&quot;&quot;&quot; auto mode</span></div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span class="stringliteral">       check for open data file on the online machine</span></div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="stringliteral">       analyze N events </span></div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="stringliteral">       re-open file and check for new events, </span></div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="stringliteral">       if none available, </span></div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="stringliteral">         check every 5 seconds: if no new file re-open again</span></div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="stringliteral">         if new file, finish run, publish histograms, and restart with new file</span></div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="stringliteral">   &quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00167"></a><span class="lineno"><a class="line" href="namespacerun__Monitoring.html#a416d533ec6216cf0894f7310baead36e">  167</a></span>&#160;   N0 = 0</div>
-<div class="line"><a name="l00168"></a><span class="lineno"><a class="line" href="namespacerun__Monitoring.html#ace6ee2614120ee1eeaf9f2f3c313c1f9">  168</a></span>&#160;   lastPart = 0   <span class="comment">#   reading from second low speed DAQ stream    tmp[len(tmp)-1]</span></div>
-<div class="line"><a name="l00169"></a><span class="lineno"><a class="line" href="namespacerun__Monitoring.html#a51501a5d1c5ff6fc1b3d7081c5254b02">  169</a></span>&#160;   nLast = options.nEvents</div>
-<div class="line"><a name="l00170"></a><span class="lineno"><a class="line" href="namespacerun__Monitoring.html#a64dc868bd13cbaa0624f9fbfd8bae845">  170</a></span>&#160;   nStart = nLast-options.Nlast</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;   <span class="keywordflow">if</span> <span class="keywordflow">not</span> options.interactive <span class="keywordflow">and</span> options.sudo: M.updateHtml()</div>
-<div class="line"><a name="l00172"></a><span class="lineno"><a class="line" href="namespacerun__Monitoring.html#ab45a47f3ad85eb19985f459bfa9d78a6">  172</a></span>&#160;   lastFile = M.converter.fiN.GetName()</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;   M.updateSource(lastFile)</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;   <span class="keywordflow">while</span> 1&gt;0:</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;      <span class="keywordflow">for</span> n <span class="keywordflow">in</span> range(nStart,nLast):</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        event = M.GetEvent(n)</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        N0+=1</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        <span class="comment"># trackTask.event = event</span></div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        <span class="keywordflow">for</span> m <span class="keywordflow">in</span> monitorTasks:</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;           monitorTasks[m].ExecuteEvent(M.eventTree)</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="comment"># update plots</span></div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        <span class="keywordflow">if</span> N0%options.Nupdate==0:</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;           <span class="keywordflow">for</span> m <span class="keywordflow">in</span> monitorTasks:</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;               monitorTasks[m].Plot()</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;           <span class="keywordflow">if</span> options.sudo: M.publishRootFile()</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; </div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;      M.updateSource(lastFile)</div>
-<div class="line"><a name="l00188"></a><span class="lineno"><a class="line" href="namespacerun__Monitoring.html#a7c9c9017660937146f274f4a22db2912">  188</a></span>&#160;      newEntries = M.converter.fiN.Get(<span class="stringliteral">&#39;event&#39;</span>).GetEntries()</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;      <span class="keywordflow">if</span> newEntries&gt;nLast:</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;         nStart = <a class="code" href="namespacegeometry__config.html#a669b957607386750ed2077d789c9434e">max</a>(nLast,newEntries-options.Nlast)</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;         nLast = newEntries</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;      <span class="keywordflow">else</span>:  </div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;      <span class="comment"># check if file has changed</span></div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;         curRun,curPart,options.startTime  =  <a class="code" href="namespacerun__Monitoring.html#a63dea9bcc5355cd1b6ae89c050131cd6">currentRun</a>()</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;         <span class="keywordflow">while</span> curRun.find(<span class="stringliteral">&#39;run&#39;</span>) &lt; 0:</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;               curRun,curPart,options.startTime  =  <a class="code" href="namespacerun__Monitoring.html#a63dea9bcc5355cd1b6ae89c050131cd6">currentRun</a>()</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;               <span class="keywordflow">if</span> curRun.find(<span class="stringliteral">&#39;run&#39;</span>) &lt; 0:  </div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;                   print(<span class="stringliteral">&quot;sleep 300sec.&quot;</span>,time.ctime())</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;                   time.sleep(300)</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;         <span class="keywordflow">if</span> <span class="keywordflow">not</span> curRun == lastRun:</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;            <span class="keywordflow">for</span> m <span class="keywordflow">in</span> monitorTasks:</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;               <span class="keywordflow">if</span> <span class="keywordflow">not</span> options.interactive:  monitorTasks[m].Plot()</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;            print(<span class="stringliteral">&quot;run &quot;</span>,lastRun,<span class="stringliteral">&quot; has finished.&quot;</span>)</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;            quit()  <span class="comment"># reinitialize everything with new run number</span></div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;         <span class="keywordflow">if</span> <span class="keywordflow">not</span> curPart == lastPart <span class="keywordflow">and</span> <span class="keywordflow">not</span> options.slowStream:</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;            lastPart = curPart</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;            lastFile = options.server+options.path+lastRun+<span class="stringliteral">&quot;/&quot;</span>+ lastPart</div>
-<div class="line"><a name="l00208"></a><span class="lineno"><a class="line" href="namespacerun__Monitoring.html#acab80747a425ade9a9b6c4e43279b672">  208</a></span>&#160;            M.converter.fiN = ROOT.TFile.Open(lastFile)</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;         <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;            time.sleep(10) <span class="comment"># sleep 10 seconds and check for new events</span></div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;            print(<span class="stringliteral">&#39;DAQ inactive for 10sec. Last event = &#39;</span>,M.converter.fiN.Get(<span class="stringliteral">&#39;event&#39;</span>).GetEntries(), curRun,curPart,N0)</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;            nStart = nLast</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;      options.startTime.replace(<span class="stringliteral">&#39;Z&#39;</span>,<span class="stringliteral">&#39;&#39;</span>)</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="comment"># prepare tasks:</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="namespacerun__Monitoring.html#a5bd938418630b9983630646f94754709">  112</a></span>&#160;FairTasks = []</div>
+<div class="line"><a name="l00113"></a><span class="lineno"><a class="line" href="namespacerun__Monitoring.html#a40d83b0c7029465a825217cf4f2efc4a">  113</a></span>&#160;houghTransform = <span class="keyword">False</span> <span class="comment"># under construction, not yet tested</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="keywordflow">if</span> houghTransform:</div>
+<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="namespacerun__Monitoring.html#a8c8cc84e705e232b457181d1c09a9c5f">  115</a></span>&#160;   muon_reco_task = <a class="code" href="classSndlhcMuonReco_1_1MuonReco.html">SndlhcMuonReco.MuonReco</a>()</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;   muon_reco_task.SetName(<span class="stringliteral">&quot;houghTransform&quot;</span>)</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;   FairTasks.append(muon_reco_task)</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;   <span class="keyword">import</span> SndlhcTracking</div>
+<div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="namespacerun__Monitoring.html#afe46a0c5d99a67dd67d52b52c1d19e88">  120</a></span>&#160;   trackTask = <a class="code" href="classSndlhcTracking_1_1Tracking.html">SndlhcTracking.Tracking</a>() </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;   trackTask.SetName(<span class="stringliteral">&#39;simpleTracking&#39;</span>)</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;   FairTasks.append(trackTask)</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="namespacerun__Monitoring.html#a26a130ae56d200563ad145ffeecdcb2f">  124</a></span>&#160;M = <a class="code" href="classMonitor_1_1Monitoring.html">Monitor.Monitoring</a>(options,FairTasks)</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="keywordflow">if</span> options.nEvents &lt; 0 : </div>
+<div class="line"><a name="l00126"></a><span class="lineno"><a class="line" href="namespacerun__Monitoring.html#a92b5b34baf6b2f39bd75268b785c7112">  126</a></span>&#160;    <span class="keywordflow">if</span> options.online: options.nEvents = M.converter.fiN.event.GetEntries()</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordflow">else</span>:    options.nEvents = M.eventTree.GetEntries()</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+<div class="line"><a name="l00129"></a><span class="lineno"><a class="line" href="namespacerun__Monitoring.html#a41ba52894bbd5bd828d1a7b6ec57dedc">  129</a></span>&#160;monitorTasks = {}</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="keywordflow">if</span> <span class="keywordflow">not</span> options.fname:</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;   monitorTasks[<span class="stringliteral">&#39;daq&#39;</span>]     = <a class="code" href="classDAQ__monitoring_1_1DAQ__boards.html">DAQ_monitoring.DAQ_boards</a>()</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;   monitorTasks[<span class="stringliteral">&#39;rates&#39;</span>]   = <a class="code" href="classDAQ__monitoring_1_1Time__evolution.html">DAQ_monitoring.Time_evolution</a>()</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;monitorTasks[<span class="stringliteral">&#39;Scifi_hitMaps&#39;</span>]   = <a class="code" href="classScifi__monitoring_1_1Scifi__hitMaps.html">Scifi_monitoring.Scifi_hitMaps</a>()</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;monitorTasks[<span class="stringliteral">&#39;Mufi_hitMaps&#39;</span>]   = <a class="code" href="classMufi__monitoring_1_1Mufi__hitMaps.html">Mufi_monitoring.Mufi_hitMaps</a>()</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;monitorTasks[<span class="stringliteral">&#39;Mufi_QDCcorellations&#39;</span>]   = <a class="code" href="classMufi__monitoring_1_1Mufi__largeVSsmall.html">Mufi_monitoring.Mufi_largeVSsmall</a>()</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;monitorTasks[<span class="stringliteral">&#39;Scifi_residuals&#39;</span>] = <a class="code" href="classScifi__monitoring_1_1Scifi__residuals.html">Scifi_monitoring.Scifi_residuals</a>()   <span class="comment"># time consuming</span></div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="keywordflow">if</span> options.interactive:  monitorTasks[<span class="stringliteral">&#39;EventDisplay&#39;</span>]   = <a class="code" href="classEventDisplay__Task_1_1twod.html">EventDisplay_Task.twod</a>()</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="keywordflow">for</span> m <span class="keywordflow">in</span> monitorTasks:</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    monitorTasks[m].Init(options,M)</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="keywordflow">if</span> <span class="keywordflow">not</span> options.auto:   <span class="comment"># default online/offline mode</span></div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;   <span class="keywordflow">for</span> n <span class="keywordflow">in</span> range(options.nStart,options.nStart+options.nEvents):</div>
+<div class="line"><a name="l00144"></a><span class="lineno"><a class="line" href="namespacerun__Monitoring.html#a3fca1dee4e6c36e9052b12daf4f80615">  144</a></span>&#160;     event = M.GetEvent(n)</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;     <span class="keywordflow">if</span> <span class="keywordflow">not</span> options.online:</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        <span class="keywordflow">if</span> n%options.heartBeat == 0: print(<span class="stringliteral">&quot;--&gt; run/event nr: %i %i %5.2F%%&quot;</span>%(M.eventTree.EventHeader.GetRunId(),n,n/M.eventTree.GetEntries()*100))</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="comment"># assume for the moment file does not contain fitted tracks</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;     <span class="keywordflow">for</span> m <span class="keywordflow">in</span> monitorTasks:</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        monitorTasks[m].ExecuteEvent(M.eventTree)</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;   <span class="keywordflow">if</span> options.nEvents&gt;0:</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;       <span class="keywordflow">for</span> m <span class="keywordflow">in</span> monitorTasks:</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;          monitorTasks[m].Plot()</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;   <span class="keywordflow">if</span> options.sudo:</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;       print(options.runNumber,options.startTime)</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;       options.startTime += <span class="stringliteral">&quot; #events=&quot;</span>+<a class="code" href="namespacerun__Monitoring.html#a14f0c250cdfffb350ed47fc9c9cabe6b">str</a>(options.nEvents)</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;       M.publishRootFile()</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;       M.updateHtml()</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="keywordflow">else</span>: </div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;   <span class="stringliteral">&quot;&quot;&quot; auto mode</span></div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="stringliteral">       check for open data file on the online machine</span></div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="stringliteral">       analyze N events </span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="stringliteral">       re-open file and check for new events, </span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="stringliteral">       if none available, </span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="stringliteral">         check every 5 seconds: if no new file re-open again</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="stringliteral">         if new file, finish run, publish histograms, and restart with new file</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="stringliteral">   &quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00168"></a><span class="lineno"><a class="line" href="namespacerun__Monitoring.html#a416d533ec6216cf0894f7310baead36e">  168</a></span>&#160;   N0 = 0</div>
+<div class="line"><a name="l00169"></a><span class="lineno"><a class="line" href="namespacerun__Monitoring.html#ace6ee2614120ee1eeaf9f2f3c313c1f9">  169</a></span>&#160;   lastPart = 0   <span class="comment">#   reading from second low speed DAQ stream    tmp[len(tmp)-1]</span></div>
+<div class="line"><a name="l00170"></a><span class="lineno"><a class="line" href="namespacerun__Monitoring.html#a51501a5d1c5ff6fc1b3d7081c5254b02">  170</a></span>&#160;   nLast = options.nEvents</div>
+<div class="line"><a name="l00171"></a><span class="lineno"><a class="line" href="namespacerun__Monitoring.html#a64dc868bd13cbaa0624f9fbfd8bae845">  171</a></span>&#160;   nStart = nLast-options.Nlast</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;   <span class="keywordflow">if</span> <span class="keywordflow">not</span> options.interactive <span class="keywordflow">and</span> options.sudo: M.updateHtml()</div>
+<div class="line"><a name="l00173"></a><span class="lineno"><a class="line" href="namespacerun__Monitoring.html#ab45a47f3ad85eb19985f459bfa9d78a6">  173</a></span>&#160;   lastFile = M.converter.fiN.GetName()</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;   M.updateSource(lastFile)</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;   <span class="keywordflow">while</span> 1&gt;0:</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;      <span class="keywordflow">for</span> n <span class="keywordflow">in</span> range(nStart,nLast):</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        event = M.GetEvent(n)</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        N0+=1</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        <span class="comment"># trackTask.event = event</span></div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        <span class="keywordflow">for</span> m <span class="keywordflow">in</span> monitorTasks:</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;           monitorTasks[m].ExecuteEvent(M.eventTree)</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="comment"># update plots</span></div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        <span class="keywordflow">if</span> N0%options.Nupdate==0:</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;           <span class="keywordflow">for</span> m <span class="keywordflow">in</span> monitorTasks:</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;               monitorTasks[m].Plot()</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;           <span class="keywordflow">if</span> options.sudo: M.publishRootFile()</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; </div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;      M.updateSource(lastFile)</div>
+<div class="line"><a name="l00189"></a><span class="lineno"><a class="line" href="namespacerun__Monitoring.html#a7c9c9017660937146f274f4a22db2912">  189</a></span>&#160;      newEntries = M.converter.fiN.Get(<span class="stringliteral">&#39;event&#39;</span>).GetEntries()</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;      <span class="keywordflow">if</span> newEntries&gt;nLast:</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;         nStart = <a class="code" href="namespacegeometry__config.html#a669b957607386750ed2077d789c9434e">max</a>(nLast,newEntries-options.Nlast)</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;         nLast = newEntries</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;      <span class="keywordflow">else</span>:  </div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;      <span class="comment"># check if file has changed</span></div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;         curRun,curPart,options.startTime  =  <a class="code" href="namespacerun__Monitoring.html#a63dea9bcc5355cd1b6ae89c050131cd6">currentRun</a>()</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;         <span class="keywordflow">while</span> curRun.find(<span class="stringliteral">&#39;run&#39;</span>) &lt; 0:</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;               curRun,curPart,options.startTime  =  <a class="code" href="namespacerun__Monitoring.html#a63dea9bcc5355cd1b6ae89c050131cd6">currentRun</a>()</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;               <span class="keywordflow">if</span> curRun.find(<span class="stringliteral">&#39;run&#39;</span>) &lt; 0:  </div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;                   print(<span class="stringliteral">&quot;sleep 300sec.&quot;</span>,time.ctime())</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;                   time.sleep(300)</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;         <span class="keywordflow">if</span> <span class="keywordflow">not</span> curRun == lastRun:</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;            <span class="keywordflow">for</span> m <span class="keywordflow">in</span> monitorTasks:</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;               <span class="keywordflow">if</span> <span class="keywordflow">not</span> options.interactive:  monitorTasks[m].Plot()</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;            print(<span class="stringliteral">&quot;run &quot;</span>,lastRun,<span class="stringliteral">&quot; has finished.&quot;</span>)</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;            quit()  <span class="comment"># reinitialize everything with new run number</span></div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;         <span class="keywordflow">if</span> <span class="keywordflow">not</span> curPart == lastPart <span class="keywordflow">and</span> <span class="keywordflow">not</span> options.slowStream:</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;            lastPart = curPart</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;            lastFile = options.server+options.path+lastRun+<span class="stringliteral">&quot;/&quot;</span>+ lastPart</div>
+<div class="line"><a name="l00209"></a><span class="lineno"><a class="line" href="namespacerun__Monitoring.html#acab80747a425ade9a9b6c4e43279b672">  209</a></span>&#160;            M.converter.fiN = ROOT.TFile.Open(lastFile)</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;         <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;            time.sleep(10) <span class="comment"># sleep 10 seconds and check for new events</span></div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;            print(<span class="stringliteral">&#39;DAQ inactive for 10sec. Last event = &#39;</span>,M.converter.fiN.Get(<span class="stringliteral">&#39;event&#39;</span>).GetEntries(), curRun,curPart,N0)</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;            nStart = nLast</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclassScifi__monitoring_1_1Scifi__hitMaps_html"><div class="ttname"><a href="classScifi__monitoring_1_1Scifi__hitMaps.html">Scifi_monitoring.Scifi_hitMaps</a></div><div class="ttdef"><b>Definition:</b> <a href="Scifi__monitoring_8py_source.html#l00011">Scifi_monitoring.py:11</a></div></div>

@@ -192,7 +192,7 @@ var searchData=
   ['getdensity_3042',['getDensity',['../classgenfit_1_1MaterialProperties.html#ad5318e252c3dd52ec65fd39910a744ae',1,'genfit::MaterialProperties']]],
   ['getderivatives_3043',['getDerivatives',['../classgbl_1_1GblPoint.html#a48aad8212e437feb17642ba157444eab',1,'gbl::GblPoint']]],
   ['getdetectorelementname_3044',['GetDetectorElementName',['../classsplitcalHit.html#a7ad57b863ee8ea45a5eeb2ebd031d1e8',1,'splitcalHit']]],
-  ['getdetectorid_3045',['GetDetectorId',['../structDriftTubes_1_1ChannelId.html#af0b5cd97ba9c38430a1d063123fc0add',1,'DriftTubes::ChannelId::GetDetectorId()'],['../classShipHit.html#ad2dd2afbccd9e5a7fd09f89344f80fab',1,'ShipHit::GetDetectorID()'],['../classSndlhcHit.html#a4e9473a321e1c0caef51c3e51e44f5a8',1,'SndlhcHit::GetDetectorID()']]],
+  ['getdetectorid_3045',['GetDetectorID',['../classShipHit.html#ad2dd2afbccd9e5a7fd09f89344f80fab',1,'ShipHit::GetDetectorID()'],['../classSndlhcHit.html#a4e9473a321e1c0caef51c3e51e44f5a8',1,'SndlhcHit::GetDetectorID()'],['../structDriftTubes_1_1ChannelId.html#af0b5cd97ba9c38430a1d063123fc0add',1,'DriftTubes::ChannelId::GetDetectorId()']]],
   ['getdetectoridcharm_3046',['GetDetectorIdCharm',['../structDriftTubes_1_1ChannelId.html#a3392f944634e7b40c859891767096dd2',1,'DriftTubes::ChannelId']]],
   ['getdetid_3047',['getDetId',['../classgenfit_1_1AbsMeasurement.html#a738d66b97763dad3005bcc2406b8e08d',1,'genfit::AbsMeasurement::getDetId()'],['../classgenfit_1_1TrackCandHit.html#a45b17deb95875ac10f432da876f02886',1,'genfit::TrackCandHit::getDetId()']]],
   ['getdetids_3048',['getDetIDs',['../classgenfit_1_1TrackCand.html#a1265286c480e10e7f949d1945081eda4',1,'genfit::TrackCand']]],
