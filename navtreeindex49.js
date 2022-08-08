@@ -1,5 +1,7 @@
 var NAVTREEINDEX49 =
 {
+"logger_8hxx.html#a9780cccb8bc64317351d97dcce1cfc40":[13,0,26,0,6],
+"logger_8hxx.html#acb23448d4f370a5fbdbe746cfed2287e":[13,0,26,0,5],
 "logger_8hxx.html#acc1c8b1bb1cd5218d0f9c42217adaf73":[13,0,26,0,4],
 "logger_8hxx.html#adb89bd7baffe5ab655a1aa5bcf6f2a2e":[13,0,26,0,1],
 "logger_8hxx_source.html":[13,0,26,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX49 =
 "makeMuonDIS_8py.html#a0baff85fde4aefea404a4f1933e8dcfb":[13,0,10,10,38],
 "makeMuonDIS_8py.html#a0ffbb942174fb3db82b4bbdd7ee684e2":[13,0,10,10,45],
 "makeMuonDIS_8py.html#a167283eebd6aab628dc0adeb258817fb":[13,0,10,10,41],
-"makeMuonDIS_8py.html#a16db02aaa9304108c4806bede18f350e":[13,0,10,10,22],
-"makeMuonDIS_8py.html#a16de65b10d01632918b323be05dea6af":[13,0,10,10,29],
-"makeMuonDIS_8py.html#a1baa1871f9caf8718228af457e8da3b3":[13,0,10,10,9]
+"makeMuonDIS_8py.html#a16db02aaa9304108c4806bede18f350e":[13,0,10,10,22]
 };

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['binpair_17314',['binPair',['../classShipBFieldMap.html#a1f037b96866ce64297220a5065b24aa6',1,'ShipBFieldMap']]]
+  ['binpair_17308',['binPair',['../classShipBFieldMap.html#a1f037b96866ce64297220a5065b24aa6',1,'ShipBFieldMap']]]
 ];

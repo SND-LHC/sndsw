@@ -5,6 +5,7 @@ var classConvRawData_1_1ConvRawDataPY =
     [ "comb_calibration", "classConvRawData_1_1ConvRawDataPY.html#a261398b208e247e987267c76c02e96ae", null ],
     [ "debugMapping", "classConvRawData_1_1ConvRawDataPY.html#ae9597f3520ba539be20ff1341ad01c18", null ],
     [ "executeEvent", "classConvRawData_1_1ConvRawDataPY.html#a3a83b0a9d9bb91ca39685f3a01eb7b7c", null ],
+    [ "executeEventOld", "classConvRawData_1_1ConvRawDataPY.html#ad68e594abddb720ead911e558e4ea424", null ],
     [ "Finalize", "classConvRawData_1_1ConvRawDataPY.html#a3b731f135b765250e53eed1ec3e06e9a", null ],
     [ "Init", "classConvRawData_1_1ConvRawDataPY.html#a4d8bfe54f0e61467cdac44cc269b6101", null ],
     [ "printChannelInfo", "classConvRawData_1_1ConvRawDataPY.html#a17748065c99737b20959a49160aa110a", null ],
@@ -19,6 +20,7 @@ var classConvRawData_1_1ConvRawDataPY =
     [ "Lcrun", "classConvRawData_1_1ConvRawDataPY.html#abfb331ebc4c8faae60ebddcc845645c5", null ],
     [ "monitoring", "classConvRawData_1_1ConvRawDataPY.html#a755c51d35a28c484bdd3791fe5211418", null ],
     [ "nEvents", "classConvRawData_1_1ConvRawDataPY.html#a1ed132caccb1307a0567c9f87ec02ae1", null ],
+    [ "newFormat", "classConvRawData_1_1ConvRawDataPY.html#aad4cd559fa4ef5d301eda47237d78081", null ],
     [ "outFile", "classConvRawData_1_1ConvRawDataPY.html#a3f64fcff857ec34f52d9fab9565ce9a2", null ],
     [ "run", "classConvRawData_1_1ConvRawDataPY.html#aef605e54237307afde6e424f2bbc3453", null ]
 ];

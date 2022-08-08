@@ -1,5 +1,7 @@
 var NAVTREEINDEX36 =
 {
+"classhcalStructure.html#aed746281111bc0dbbf082a62fa6c4c9d":[12,0,102,2],
+"classhcalStructure.html#aee69a1ba60c1e99a848326f202f3101b":[12,0,102,4],
 "classhcalStructure.html#af4ef240ee37e704c9db4fbefe19fdaf0":[12,0,102,14],
 "classhcalStructureFiller.html":[12,0,103],
 "classhcalStructureFiller.html#a052faf2d7af39d1efdfb1e8722cee319":[12,0,103,5],
@@ -247,7 +249,5 @@ var NAVTREEINDEX36 =
 "classpyFairModule.html#afcef95a252f0f6b42bdd3883eee944da":[12,0,132,3],
 "classreverseMapping_1_1reversChannelMapping.html":[12,0,22,0],
 "classreverseMapping_1_1reversChannelMapping.html#a026d6c0818f80054126212a5bb25695f":[12,0,22,0,2],
-"classreverseMapping_1_1reversChannelMapping.html#a033a782964da4f6f402cc9f671abe7c0":[12,0,22,0,4],
-"classreverseMapping_1_1reversChannelMapping.html#a0aeb50bcf3cd9c841d4518643b93cc75":[12,0,22,0,10],
-"classreverseMapping_1_1reversChannelMapping.html#a0de907b2896168210ead40814492eab5":[12,0,22,0,3]
+"classreverseMapping_1_1reversChannelMapping.html#a033a782964da4f6f402cc9f671abe7c0":[12,0,22,0,4]
 };
