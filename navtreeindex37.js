@@ -1,5 +1,6 @@
 var NAVTREEINDEX37 =
 {
+"classpyFairModule.html#afa7e3a718ebb87efbe13ded62e9fc97b":[12,0,132,0],
 "classpyFairModule.html#afcef95a252f0f6b42bdd3883eee944da":[12,0,132,3],
 "classreverseMapping_1_1reversChannelMapping.html":[12,0,22,0],
 "classreverseMapping_1_1reversChannelMapping.html#a026d6c0818f80054126212a5bb25695f":[12,0,22,0,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX37 =
 "classshipVertex_1_1Task.html#a7ee85724944ecae9d2b2fb0e60491d6a":[12,0,36,0,15],
 "classshipVertex_1_1Task.html#a8f47d281152a1520072deb2591b0fca0":[12,0,36,0,7],
 "classshipVertex_1_1Task.html#ab211b231ae71463bed7fd022894cb08d":[12,0,36,0,14],
-"classshipVertex_1_1Task.html#ad9cf3f925cad309ce3b786b975ae1966":[12,0,36,0,1],
-"classshipVertex_1_1Task.html#add02ca1208d2b4b5673ea2bf54392b9d":[12,0,36,0,2]
+"classshipVertex_1_1Task.html#ad9cf3f925cad309ce3b786b975ae1966":[12,0,36,0,1]
 };
