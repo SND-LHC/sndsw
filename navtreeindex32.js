@@ -1,5 +1,9 @@
 var NAVTREEINDEX32 =
 {
+"classgenfit_1_1KalmanFitterRefTrack.html#a7d78d3e6418227ef2930f6137dbc0fdf":[12,0,12,39,17],
+"classgenfit_1_1KalmanFitterRefTrack.html#a966006159f2d3f06a0f18243803a2bb1":[12,0,12,39,19],
+"classgenfit_1_1KalmanFitterRefTrack.html#aa6d55ab98f9082497d8f5b5837f43382":[12,0,12,39,0],
+"classgenfit_1_1KalmanFitterRefTrack.html#aae9337b31132312ef4603b35319a2270":[12,0,12,39,12],
 "classgenfit_1_1KalmanFitterRefTrack.html#ab28798fe239a0577ef7a9c254c235491":[12,0,12,39,3],
 "classgenfit_1_1KalmanFitterRefTrack.html#ab3939e2dc58d9aa531ba89aafdaa1141":[12,0,12,39,8],
 "classgenfit_1_1KalmanFitterRefTrack.html#ae8edaed3ee1838981a90ac26d4e66ab8":[12,0,12,39,22],
@@ -245,9 +249,5 @@ var NAVTREEINDEX32 =
 "classgenfit_1_1RKTrackRep.html#a56e2cafc817e0e489e7a183c9bc8d549":[12,0,12,55,85],
 "classgenfit_1_1RKTrackRep.html#a593518bed9f4385feab1623a66d734a5":[12,0,12,55,37],
 "classgenfit_1_1RKTrackRep.html#a59bd63aa9aa5caabd044129afe399e56":[12,0,12,55,114],
-"classgenfit_1_1RKTrackRep.html#a59bd63aa9aa5caabd044129afe399e56":[12,0,12,55,115],
-"classgenfit_1_1RKTrackRep.html#a5a4f43ee1ff3f76f0f6cdf1b02cfacde":[12,0,12,55,96],
-"classgenfit_1_1RKTrackRep.html#a5e880395d30a6520d8a9aece5f0e36b3":[12,0,12,55,41],
-"classgenfit_1_1RKTrackRep.html#a64a99eb10c8052a950ad68376257e7dd":[12,0,12,55,71],
-"classgenfit_1_1RKTrackRep.html#a64a99eb10c8052a950ad68376257e7dd":[12,0,12,55,72]
+"classgenfit_1_1RKTrackRep.html#a59bd63aa9aa5caabd044129afe399e56":[12,0,12,55,115]
 };

@@ -1,5 +1,9 @@
 var NAVTREEINDEX19 =
 {
+"classScifiCluster_1_1ScifiCluster.html#a963da532cb597cbe58570e9fcc19ecfb":[12,0,29,0,14],
+"classScifiCluster_1_1ScifiCluster.html#a9be789b1f2db440362f371597b142398":[12,0,29,0,16],
+"classScifiCluster_1_1ScifiCluster.html#aa54ee500cb236f01d891388fffd38270":[12,0,29,0,21],
+"classScifiCluster_1_1ScifiCluster.html#aaecc915ea0c5d5821009196d4981c72f":[12,0,29,0,0],
 "classScifiCluster_1_1ScifiCluster.html#ab7782058dec0643aa1b22dfcc02fee08":[12,0,29,0,19],
 "classScifiCluster_1_1ScifiCluster.html#ab92804feabc2a230731d26bdb06806c0":[12,0,29,0,23],
 "classScifiCluster_1_1ScifiCluster.html#abdfa905330f3f50cf9678b798335450a":[12,0,29,0,10],
@@ -245,9 +249,5 @@ var NAVTREEINDEX19 =
 "classShipFieldMaker.html#a6704172970d0c5a787ca4dc5a44aaf13":[12,0,154,3],
 "classShipFieldMaker.html#a6e7d9c110249730e4a725e374c321aee":[12,0,154,34],
 "classShipFieldMaker.html#a701024f675b38d7077540377f371d631":[12,0,154,41],
-"classShipFieldMaker.html#a7216f114250b997e81bea9b25f7c93c4":[12,0,154,51],
-"classShipFieldMaker.html#a7a698a413d7c12014fb5899e4671ffd6":[12,0,154,38],
-"classShipFieldMaker.html#a803162b64774be4b8d5b3ca5ecaff823":[12,0,154,42],
-"classShipFieldMaker.html#a83d9dfa8ec297bd257b128edad3f69f5":[12,0,154,33],
-"classShipFieldMaker.html#a86b97bf8ceebc3cc4f8d02eb72adf245":[12,0,154,49]
+"classShipFieldMaker.html#a7216f114250b997e81bea9b25f7c93c4":[12,0,154,51]
 };

@@ -1,6 +1,7 @@
 var classMonitor_1_1Monitoring =
 [
     [ "__init__", "classMonitor_1_1Monitoring.html#ae312943da7ffd0c3001eccd0a307483e", null ],
+    [ "checkAlarm", "classMonitor_1_1Monitoring.html#a0c4505b153798781f6d995216dfaf978", null ],
     [ "cleanUpHtml", "classMonitor_1_1Monitoring.html#a10dc54ad1fe3556bc93464d3bcdf94a8", null ],
     [ "fit_langau", "classMonitor_1_1Monitoring.html#ad9db897aa13444aa42ea1e30f7519e79", null ],
     [ "getAverageZpositions", "classMonitor_1_1Monitoring.html#a946f4ac356a297cf233837dcfdd26acd", null ],
@@ -10,12 +11,15 @@ var classMonitor_1_1Monitoring =
     [ "MuFilter_PlaneBars", "classMonitor_1_1Monitoring.html#a534ae5c00efcaf73fe169bff431bde5f", null ],
     [ "myPrint", "classMonitor_1_1Monitoring.html#a483c9a7c4b481d2ef769f2c20a96ca27", null ],
     [ "publishRootFile", "classMonitor_1_1Monitoring.html#ab97424a88f3ec963a1bc7a4630493582", null ],
+    [ "purgeMonitorHistos", "classMonitor_1_1Monitoring.html#ad28c42e3e1ef1e3e51e462b5a6789fc3", null ],
     [ "Scifi_xPos", "classMonitor_1_1Monitoring.html#a0fb14e64f73e7448c938e74b098da842", null ],
+    [ "sendAlarm", "classMonitor_1_1Monitoring.html#a2071d38d9ea5fd844e26d02d89d2de9d", null ],
     [ "smallSiPMchannel", "classMonitor_1_1Monitoring.html#a3650054b8b8459d342f20cb688349373", null ],
     [ "systemAndOrientation", "classMonitor_1_1Monitoring.html#aa8850e112d0132db09d3f497d762be94", null ],
     [ "twoLangaufun", "classMonitor_1_1Monitoring.html#a1e9b6ad07c75b6949deea075e3351ede", null ],
     [ "updateHtml", "classMonitor_1_1Monitoring.html#a2517a095196f7a1686f9acc20fcfb702", null ],
     [ "updateSource", "classMonitor_1_1Monitoring.html#a6e61bd6fb3c1947cdbed0ad78d793b4d", null ],
+    [ "alarms", "classMonitor_1_1Monitoring.html#ac55dee89d8ce715cddba1fd5ffda9834", null ],
     [ "clusMufi", "classMonitor_1_1Monitoring.html#ae8a62a34afcf4e3c02460ddb5f44573d", null ],
     [ "clusScifi", "classMonitor_1_1Monitoring.html#a9a5419b901af6cd52e75b0a685d58149", null ],
     [ "converter", "classMonitor_1_1Monitoring.html#a753a4cdaf4d0ab208b1669d91343bb0a", null ],

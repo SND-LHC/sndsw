@@ -111,10 +111,16 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a7ed94487b72e675f6136a94488eadb98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab97424a88f3ec963a1bc7a4630493582"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMonitor_1_1Monitoring.html#ab97424a88f3ec963a1bc7a4630493582">publishRootFile</a> (self)</td></tr>
 <tr class="separator:ab97424a88f3ec963a1bc7a4630493582"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad28c42e3e1ef1e3e51e462b5a6789fc3"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMonitor_1_1Monitoring.html#ad28c42e3e1ef1e3e51e462b5a6789fc3">purgeMonitorHistos</a> (self)</td></tr>
+<tr class="separator:ad28c42e3e1ef1e3e51e462b5a6789fc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2517a095196f7a1686f9acc20fcfb702"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMonitor_1_1Monitoring.html#a2517a095196f7a1686f9acc20fcfb702">updateHtml</a> (self)</td></tr>
 <tr class="separator:a2517a095196f7a1686f9acc20fcfb702"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a10dc54ad1fe3556bc93464d3bcdf94a8"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMonitor_1_1Monitoring.html#a10dc54ad1fe3556bc93464d3bcdf94a8">cleanUpHtml</a> (self, destination=&quot;online&quot;)</td></tr>
 <tr class="separator:a10dc54ad1fe3556bc93464d3bcdf94a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c4505b153798781f6d995216dfaf978"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMonitor_1_1Monitoring.html#a0c4505b153798781f6d995216dfaf978">checkAlarm</a> (self, minEntries=1000)</td></tr>
+<tr class="separator:a0c4505b153798781f6d995216dfaf978"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2071d38d9ea5fd844e26d02d89d2de9d"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMonitor_1_1Monitoring.html#a2071d38d9ea5fd844e26d02d89d2de9d">sendAlarm</a> (self)</td></tr>
+<tr class="separator:a2071d38d9ea5fd844e26d02d89d2de9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa8850e112d0132db09d3f497d762be94"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMonitor_1_1Monitoring.html#aa8850e112d0132db09d3f497d762be94">systemAndOrientation</a> (self, s, plane)</td></tr>
 <tr class="separator:aa8850e112d0132db09d3f497d762be94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a946f4ac356a297cf233837dcfdd26acd"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMonitor_1_1Monitoring.html#a946f4ac356a297cf233837dcfdd26acd">getAverageZpositions</a> (self)</td></tr>
@@ -186,6 +192,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:afa585fd1400f57247fe9a94c9e100fa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8fd2a64900e054959cace9c17def115b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMonitor_1_1Monitoring.html#a8fd2a64900e054959cace9c17def115b">sink</a></td></tr>
 <tr class="separator:a8fd2a64900e054959cace9c17def115b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac55dee89d8ce715cddba1fd5ffda9834"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMonitor_1_1Monitoring.html#ac55dee89d8ce715cddba1fd5ffda9834">alarms</a></td></tr>
+<tr class="separator:ac55dee89d8ce715cddba1fd5ffda9834"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -406,6 +414,80 @@ Static Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a0c4505b153798781f6d995216dfaf978"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c4505b153798781f6d995216dfaf978">&#9670;&nbsp;</a></span>checkAlarm()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def Monitor.Monitoring.checkAlarm </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>minEntries</em> = <code>1000</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00337">337</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;   <span class="keyword">def </span>checkAlarm(self,minEntries=1000):</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;      self.alarms = {<span class="stringliteral">&#39;scifi&#39;</span>:[]}</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;      <span class="comment"># check for empty histograms in scifi signal</span></div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;      entries = {}</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;      <span class="keywordflow">for</span> mat <span class="keywordflow">in</span> range(30):</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;           entries[mat] = self.h[<span class="stringliteral">&#39;scifi-mat_&#39;</span>+<a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>(mat)].GetEntries()</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;      res = sorted(entries.items(), key=operator.itemgetter(1),reverse=<span class="keyword">True</span>)</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;      <span class="keywordflow">if</span> res[0][1]&gt;minEntries: <span class="comment"># choose limit which makes it sensitive to check for empty mats</span></div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;          <span class="keywordflow">for</span> mat <span class="keywordflow">in</span> range(30):</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;              <span class="keywordflow">if</span> entries[mat] &lt; 1:</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;                   s = mat//6 + 1</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;                   <span class="keywordflow">if</span> mat%6 &lt; 3 : p=<span class="stringliteral">&#39;H&#39;</span></div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;                   <span class="keywordflow">else</span> : p=<span class="stringliteral">&#39;V&#39;</span></div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;                   e = <a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>(s)+p+<a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>(mat%3)</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;                   self.alarms[<span class="stringliteral">&#39;scifi&#39;</span>].append(e)</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;      <span class="keywordflow">if</span> len(self.alarms[<span class="stringliteral">&#39;scifi&#39;</span>]) &gt; 0:  self.sendAlarm()</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160; </div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;      self.alarms[<span class="stringliteral">&#39;Veto&#39;</span>]=[]</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;      <span class="comment"># check for empty histograms in veto signal</span></div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;      entries = {}</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;      s = 1</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;      <span class="keywordflow">for</span> p <span class="keywordflow">in</span> range(2):</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;         <span class="keywordflow">for</span> side <span class="keywordflow">in</span> [<span class="stringliteral">&#39;L&#39;</span>,<span class="stringliteral">&#39;R&#39;</span>]:</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;             entries[<a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>(10*s+p)+side] = self.h[<span class="stringliteral">&#39;mufi-sig&#39;</span>+p+<a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>(10*s+p)].GetEntries()</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;      res = sorted(entries.items(), key=operator.itemgetter(1),reverse=<span class="keyword">True</span>)</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;      <span class="keywordflow">if</span> res[0][1]&gt;minEntries: <span class="comment"># choose limit which makes it sensitive to check for empty boards</span></div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;      <span class="keywordflow">for</span> p <span class="keywordflow">in</span> range(2):</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;         <span class="keywordflow">for</span> side <span class="keywordflow">in</span> [<span class="stringliteral">&#39;L&#39;</span>,<span class="stringliteral">&#39;R&#39;</span>]:</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;             <span class="keywordflow">if</span> entries[<a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>(10*s+p)+side] &lt; 1:</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;                self.alarms[<span class="stringliteral">&#39;Veto&#39;</span>].append(<a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>(10*s+p)+side())</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;      <span class="comment"># check for empty histograms in US signal</span></div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;      entries = {}</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;      s = 2</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;      <span class="keywordflow">for</span> p <span class="keywordflow">in</span> range(5):</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;         <span class="keywordflow">for</span> side <span class="keywordflow">in</span> [<span class="stringliteral">&#39;L&#39;</span>,<span class="stringliteral">&#39;R&#39;</span>]:</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;             entries[<a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>(s*10+p)+side] = self.h[<span class="stringliteral">&#39;mufi-sig2&#39;</span>+p+<a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>(s*10+p)].GetEntries()</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;      res = sorted(entries.items(), key=operator.itemgetter(1),reverse=<span class="keyword">True</span>)</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;      <span class="keywordflow">if</span> res[0][1]&gt;1000: <span class="comment"># choose limit which makes it sensitive to check for empty boards</span></div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;      <span class="keywordflow">for</span> p <span class="keywordflow">in</span> range(5):</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;         <span class="keywordflow">for</span> side <span class="keywordflow">in</span> [<span class="stringliteral">&#39;L&#39;</span>,<span class="stringliteral">&#39;R&#39;</span>]:</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;             <span class="keywordflow">if</span> entries[<a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>(s*10+p)+side] &lt; 1:</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;                self.alarms[<span class="stringliteral">&#39;Veto&#39;</span>].append(<a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>(s*10+p)+side())</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160; </div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160; </div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="a10dc54ad1fe3556bc93464d3bcdf94a8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a10dc54ad1fe3556bc93464d3bcdf94a8">&#9670;&nbsp;</a></span>cleanUpHtml()</h2>
 
@@ -432,29 +514,29 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00292">292</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;   <span class="keyword">def </span>cleanUpHtml(self,destination=&quot;online&quot;):</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;      rc = os.system(<span class="stringliteral">&quot;xrdcp -f &quot;</span>+os.environ[<span class="stringliteral">&#39;EOSSHIP&#39;</span>]+<span class="stringliteral">&quot;/eos/experiment/sndlhc/www/&quot;</span>+destination+<span class="stringliteral">&quot;.html  . &quot;</span>)</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;      old = open(destination+<span class="stringliteral">&quot;.html&quot;</span>)</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;      oldL = old.readlines()</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;      old.close()</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;      tmp = open(<span class="stringliteral">&quot;tmp.html&quot;</span>,<span class="stringliteral">&#39;w&#39;</span>)</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;      dirlist  = <a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>( subprocess.check_output(<span class="stringliteral">&quot;xrdfs &quot;</span>+os.environ[<span class="stringliteral">&#39;EOSSHIP&#39;</span>]+<span class="stringliteral">&quot; ls /eos/experiment/sndlhc/www/&quot;</span>+destination+<span class="stringliteral">&quot;/&quot;</span>,shell=<span class="keyword">True</span>) ) </div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;      <span class="keywordflow">for</span> L <span class="keywordflow">in</span> oldL:</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;           OK = <span class="keyword">True</span></div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;           <span class="keywordflow">if</span> L.find(<span class="stringliteral">&quot;https://snd-lhc-monitoring.web.cern.ch/&quot;</span>+destination)&gt;0:</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;              k = L.find(<span class="stringliteral">&quot;file=&quot;</span>)+5</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;              m =  L.find(<span class="stringliteral">&quot;.root&quot;</span>)+5</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;              R = L[k:m]</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;              <span class="keywordflow">if</span> <span class="keywordflow">not</span> R <span class="keywordflow">in</span> dirlist: OK = <span class="keyword">False</span>  </div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;           <span class="keywordflow">if</span> OK: tmp.write(L)</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;      tmp.close()</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;      os.system(<span class="stringliteral">&#39;cp tmp.html &#39;</span>+destination+<span class="stringliteral">&#39;.html&#39;</span>)</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;      <span class="keywordflow">try</span>:</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;            rc = os.system(<span class="stringliteral">&quot;xrdcp -f &quot;</span>+destination+<span class="stringliteral">&quot;.html  &quot;</span>+os.environ[<span class="stringliteral">&#39;EOSSHIP&#39;</span>]+<span class="stringliteral">&quot;/eos/experiment/sndlhc/www/&quot;</span>)</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;      <span class="keywordflow">except</span>:</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;            print(<span class="stringliteral">&quot;copy of html failed. Token expired?&quot;</span>)</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00315">315</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;   <span class="keyword">def </span>cleanUpHtml(self,destination=&quot;online&quot;):</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;      rc = os.system(<span class="stringliteral">&quot;xrdcp -f &quot;</span>+os.environ[<span class="stringliteral">&#39;EOSSHIP&#39;</span>]+<span class="stringliteral">&quot;/eos/experiment/sndlhc/www/&quot;</span>+destination+<span class="stringliteral">&quot;.html  . &quot;</span>)</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;      old = open(destination+<span class="stringliteral">&quot;.html&quot;</span>)</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;      oldL = old.readlines()</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;      old.close()</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;      tmp = open(<span class="stringliteral">&quot;tmp.html&quot;</span>,<span class="stringliteral">&#39;w&#39;</span>)</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;      dirlist  = <a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>( subprocess.check_output(<span class="stringliteral">&quot;xrdfs &quot;</span>+os.environ[<span class="stringliteral">&#39;EOSSHIP&#39;</span>]+<span class="stringliteral">&quot; ls /eos/experiment/sndlhc/www/&quot;</span>+destination+<span class="stringliteral">&quot;/&quot;</span>,shell=<span class="keyword">True</span>) ) </div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;      <span class="keywordflow">for</span> L <span class="keywordflow">in</span> oldL:</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;           OK = <span class="keyword">True</span></div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;           <span class="keywordflow">if</span> L.find(<span class="stringliteral">&quot;https://snd-lhc-monitoring.web.cern.ch/&quot;</span>+destination)&gt;0:</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;              k = L.find(<span class="stringliteral">&quot;file=&quot;</span>)+5</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;              m =  L.find(<span class="stringliteral">&quot;.root&quot;</span>)+5</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;              R = L[k:m]</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;              <span class="keywordflow">if</span> <span class="keywordflow">not</span> R <span class="keywordflow">in</span> dirlist: OK = <span class="keyword">False</span>  </div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;           <span class="keywordflow">if</span> OK: tmp.write(L)</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;      tmp.close()</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;      os.system(<span class="stringliteral">&#39;cp tmp.html &#39;</span>+destination+<span class="stringliteral">&#39;.html&#39;</span>)</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;      <span class="keywordflow">try</span>:</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;            rc = os.system(<span class="stringliteral">&quot;xrdcp -f &quot;</span>+destination+<span class="stringliteral">&quot;.html  &quot;</span>+os.environ[<span class="stringliteral">&#39;EOSSHIP&#39;</span>]+<span class="stringliteral">&quot;/eos/experiment/sndlhc/www/&quot;</span>)</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;      <span class="keywordflow">except</span>:</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;            print(<span class="stringliteral">&quot;copy of html failed. Token expired?&quot;</span>)</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -508,30 +590,30 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00384">384</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;   <span class="keyword">def </span><a class="code" href="namespaceSurvey-MufiScifi.html#a80861877b7215c611a57e44c146cd25a">fit_langau</a>(self,hist,o,bmin,bmax,opt=&#39;&#39;):</div>
-<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;      <span class="keywordflow">if</span> opt == 2:</div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;         params = {0:<span class="stringliteral">&#39;Width(scale)&#39;</span>,1:<span class="stringliteral">&#39;mostProbable&#39;</span>,2:<span class="stringliteral">&#39;norm&#39;</span>,3:<span class="stringliteral">&#39;sigma&#39;</span>,4:<span class="stringliteral">&#39;N2&#39;</span>}</div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;         F = ROOT.TF1(<span class="stringliteral">&#39;langau&#39;</span>,langaufun,0,200,len(params))</div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;      <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;         params = {0:<span class="stringliteral">&#39;Width(scale)&#39;</span>,1:<span class="stringliteral">&#39;mostProbable&#39;</span>,2:<span class="stringliteral">&#39;norm&#39;</span>,3:<span class="stringliteral">&#39;sigma&#39;</span>}</div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;         F = ROOT.TF1(<span class="stringliteral">&#39;langau&#39;</span>,twoLangaufun,0,200,len(params))</div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;      <span class="keywordflow">for</span> p <span class="keywordflow">in</span> params: F.SetParName(p,params[p])</div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;      rc = hist.Fit(<span class="stringliteral">&#39;landau&#39;</span>,<span class="stringliteral">&#39;S&#39;</span>+o,<span class="stringliteral">&#39;&#39;</span>,bmin,bmax)</div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;      res = rc.Get()</div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;      <span class="keywordflow">if</span> <span class="keywordflow">not</span> res: <span class="keywordflow">return</span> res</div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;      F.SetParameter(2,res.Parameter(0))</div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;      F.SetParameter(1,res.Parameter(1))</div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;      F.SetParameter(0,res.Parameter(2))</div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;      F.SetParameter(3,res.Parameter(2))</div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;      F.SetParameter(4,0)</div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;      F.SetParLimits(0,0,100)</div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;      F.SetParLimits(1,0,100)</div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;      F.SetParLimits(3,0,10)</div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;      rc = hist.Fit(F,<span class="stringliteral">&#39;S&#39;</span>+o,<span class="stringliteral">&#39;&#39;</span>,bmin,bmax)</div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;      res = rc.Get()</div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;      <span class="keywordflow">return</span> res</div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00454">454</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;   <span class="keyword">def </span><a class="code" href="namespaceSurvey-MufiScifi.html#a80861877b7215c611a57e44c146cd25a">fit_langau</a>(self,hist,o,bmin,bmax,opt=&#39;&#39;):</div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;      <span class="keywordflow">if</span> opt == 2:</div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;         params = {0:<span class="stringliteral">&#39;Width(scale)&#39;</span>,1:<span class="stringliteral">&#39;mostProbable&#39;</span>,2:<span class="stringliteral">&#39;norm&#39;</span>,3:<span class="stringliteral">&#39;sigma&#39;</span>,4:<span class="stringliteral">&#39;N2&#39;</span>}</div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;         F = ROOT.TF1(<span class="stringliteral">&#39;langau&#39;</span>,langaufun,0,200,len(params))</div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;      <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;         params = {0:<span class="stringliteral">&#39;Width(scale)&#39;</span>,1:<span class="stringliteral">&#39;mostProbable&#39;</span>,2:<span class="stringliteral">&#39;norm&#39;</span>,3:<span class="stringliteral">&#39;sigma&#39;</span>}</div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;         F = ROOT.TF1(<span class="stringliteral">&#39;langau&#39;</span>,twoLangaufun,0,200,len(params))</div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;      <span class="keywordflow">for</span> p <span class="keywordflow">in</span> params: F.SetParName(p,params[p])</div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;      rc = hist.Fit(<span class="stringliteral">&#39;landau&#39;</span>,<span class="stringliteral">&#39;S&#39;</span>+o,<span class="stringliteral">&#39;&#39;</span>,bmin,bmax)</div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;      res = rc.Get()</div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;      <span class="keywordflow">if</span> <span class="keywordflow">not</span> res: <span class="keywordflow">return</span> res</div>
+<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;      F.SetParameter(2,res.Parameter(0))</div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;      F.SetParameter(1,res.Parameter(1))</div>
+<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;      F.SetParameter(0,res.Parameter(2))</div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;      F.SetParameter(3,res.Parameter(2))</div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;      F.SetParameter(4,0)</div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;      F.SetParLimits(0,0,100)</div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;      F.SetParLimits(1,0,100)</div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;      F.SetParLimits(3,0,10)</div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;      rc = hist.Fit(F,<span class="stringliteral">&#39;S&#39;</span>+o,<span class="stringliteral">&#39;&#39;</span>,bmin,bmax)</div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;      res = rc.Get()</div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;      <span class="keywordflow">return</span> res</div>
+<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -551,30 +633,30 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00319">319</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;   <span class="keyword">def </span><a class="code" href="namespaceSurvey-MufiScifi.html#aaca69b1b500a713886dcc27d4bfeba09">getAverageZpositions</a>(self):</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;      zPos={<span class="stringliteral">&#39;MuFilter&#39;</span>:{},<span class="stringliteral">&#39;Scifi&#39;</span>:{}}</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;      <span class="keywordflow">for</span> s <span class="keywordflow">in</span> self.systemAndPlanes:</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;          <span class="keywordflow">for</span> plane <span class="keywordflow">in</span> range(self.systemAndPlanes[s]):</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;             bar = 4</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;             p = plane</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;             <span class="keywordflow">if</span> s==3 <span class="keywordflow">and</span> (plane%2==0 <span class="keywordflow">or</span> plane==7): </div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;                bar = 90</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;                p = plane//2</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;             <span class="keywordflow">elif</span> s==3 <span class="keywordflow">and</span> plane%2==1:</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;                bar = 30</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;                p = plane//2</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;             self.MuFilter.GetPosition(s*10000+p*1000+bar,A,B)</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;             zPos[<span class="stringliteral">&#39;MuFilter&#39;</span>][s*10+plane] = (A.Z()+B.Z())/2.</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;      <span class="keywordflow">for</span> s <span class="keywordflow">in</span> range(1,6):</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;         mat   = 2</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;         sipm = 1</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;         channel = 64</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;         <span class="keywordflow">for</span> o <span class="keywordflow">in</span> range(2):</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;             self.Scifi.GetPosition(channel+1000*sipm+10000*mat+100000*o+1000000*s,A,B)</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;             zPos[<span class="stringliteral">&#39;Scifi&#39;</span>][s*10+o] = (A.Z()+B.Z())/2.</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;      <span class="keywordflow">return</span> zPos</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00389">389</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;   <span class="keyword">def </span><a class="code" href="namespaceSurvey-MufiScifi.html#aaca69b1b500a713886dcc27d4bfeba09">getAverageZpositions</a>(self):</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;      zPos={<span class="stringliteral">&#39;MuFilter&#39;</span>:{},<span class="stringliteral">&#39;Scifi&#39;</span>:{}}</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;      <span class="keywordflow">for</span> s <span class="keywordflow">in</span> self.systemAndPlanes:</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;          <span class="keywordflow">for</span> plane <span class="keywordflow">in</span> range(self.systemAndPlanes[s]):</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;             bar = 4</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;             p = plane</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;             <span class="keywordflow">if</span> s==3 <span class="keywordflow">and</span> (plane%2==0 <span class="keywordflow">or</span> plane==7): </div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;                bar = 90</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;                p = plane//2</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;             <span class="keywordflow">elif</span> s==3 <span class="keywordflow">and</span> plane%2==1:</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;                bar = 30</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;                p = plane//2</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;             self.MuFilter.GetPosition(s*10000+p*1000+bar,A,B)</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;             zPos[<span class="stringliteral">&#39;MuFilter&#39;</span>][s*10+plane] = (A.Z()+B.Z())/2.</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;      <span class="keywordflow">for</span> s <span class="keywordflow">in</span> range(1,6):</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;         mat   = 2</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;         sipm = 1</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;         channel = 64</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;         <span class="keywordflow">for</span> o <span class="keywordflow">in</span> range(2):</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;             self.Scifi.GetPosition(channel+1000*sipm+10000*mat+100000*o+1000000*s,A,B)</div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;             zPos[<span class="stringliteral">&#39;Scifi&#39;</span>][s*10+o] = (A.Z()+B.Z())/2.</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;      <span class="keywordflow">return</span> zPos</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -604,28 +686,28 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00233">233</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;   <span class="keyword">def </span>GetEvent(self,n):</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;      <span class="keywordflow">if</span> <span class="keywordflow">not</span> self.options.online:   <span class="comment"># offline, FairRoot in charge</span></div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;         <span class="keywordflow">if</span> self.eventTree.GetBranchStatus(<span class="stringliteral">&#39;Reco_MuonTracks&#39;</span>):</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;            <span class="keywordflow">for</span> aTrack <span class="keywordflow">in</span> self.eventTree.Reco_MuonTracks:</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;                <span class="keywordflow">if</span> aTrack: aTrack.Delete()</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;            self.eventTree.Reco_MuonTracks.Delete()</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;         <span class="keywordflow">if</span> <span class="stringliteral">&quot;simpleTracking&quot;</span> <span class="keywordflow">in</span> self.FairTasks:</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;            self.Reco_MuonTracks.Delete()</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160; </div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;      <span class="keywordflow">if</span> self.options.online:</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;            online = self.options.online</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;            online.executeEvent(n)</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;            self.Reco_MuonTracks.Delete()</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;            <span class="keywordflow">for</span> t <span class="keywordflow">in</span> self.FairTasks: self.FairTasks[t].ExecuteTask()</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;            self.eventTree = self.options.online.sTree</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;      <span class="keywordflow">else</span>: </div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;            self.eventTree.GetEvent(n)</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;            <span class="keywordflow">for</span> t <span class="keywordflow">in</span> self.FairTasks: self.FairTasks[t].ExecuteTask()</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;      self.EventNumber = n</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;      <span class="keywordflow">return</span> self.eventTree</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00234">234</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;   <span class="keyword">def </span>GetEvent(self,n):</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;      <span class="keywordflow">if</span> <span class="keywordflow">not</span> self.options.online:   <span class="comment"># offline, FairRoot in charge</span></div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;         <span class="keywordflow">if</span> self.eventTree.GetBranchStatus(<span class="stringliteral">&#39;Reco_MuonTracks&#39;</span>):</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;            <span class="keywordflow">for</span> aTrack <span class="keywordflow">in</span> self.eventTree.Reco_MuonTracks:</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;                <span class="keywordflow">if</span> aTrack: aTrack.Delete()</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;            self.eventTree.Reco_MuonTracks.Delete()</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;         <span class="keywordflow">if</span> <span class="stringliteral">&quot;simpleTracking&quot;</span> <span class="keywordflow">in</span> self.FairTasks:</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;            self.Reco_MuonTracks.Delete()</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160; </div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;      <span class="keywordflow">if</span> self.options.online:</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;            online = self.options.online</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;            online.executeEvent(n)</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;            self.Reco_MuonTracks.Delete()</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;            <span class="keywordflow">for</span> t <span class="keywordflow">in</span> self.FairTasks: self.FairTasks[t].ExecuteTask()</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;            self.eventTree = self.options.online.sTree</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;      <span class="keywordflow">else</span>: </div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;            self.eventTree.GetEvent(n)</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;            <span class="keywordflow">for</span> t <span class="keywordflow">in</span> self.FairTasks: self.FairTasks[t].ExecuteTask()</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;      self.EventNumber = n</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;      <span class="keywordflow">return</span> self.eventTree</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -661,8 +743,8 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00413">413</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;   <span class="keyword">def  </span><a class="code" href="namespaceSurvey-MufiScifi.html#acedad8ad6c47e44f6d779d8948059737">langaufun</a>(self,x,par):</div>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00483">483</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;   <span class="keyword">def  </span><a class="code" href="namespaceSurvey-MufiScifi.html#acedad8ad6c47e44f6d779d8948059737">langaufun</a>(self,x,par):</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -704,25 +786,25 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00366">366</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;   <span class="keyword">def </span><a class="code" href="namespaceSurvey-MufiScifi.html#a01cdeb8a7bc5f981ebe5849e735a87d4">map2Dict</a>(self,aHit,T=&#39;GetAllSignals&#39;,mask=True):</div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;      <span class="keywordflow">if</span> T==<span class="stringliteral">&quot;SumOfSignals&quot;</span>:</div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;         key = Tkey</div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;      <span class="keywordflow">elif</span> T==<span class="stringliteral">&quot;GetAllSignals&quot;</span> <span class="keywordflow">or</span> T==<span class="stringliteral">&quot;GetAllTimes&quot;</span>:</div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;         key = Ikey</div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;      <span class="keywordflow">else</span>: </div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;           print(<span class="stringliteral">&#39;use case not known&#39;</span>,T)</div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;           1/0</div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;      key.clear()</div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;      Value.clear()</div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;      <span class="keywordflow">if</span> T==<span class="stringliteral">&quot;GetAllTimes&quot;</span>: ROOT.fixRootT(aHit,key,Value,mask)</div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;      <span class="keywordflow">else</span>:                         ROOT.fixRoot(aHit,key,Value,mask)</div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;      theDict = {}</div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;      <span class="keywordflow">for</span> k <span class="keywordflow">in</span> range(key.size()):</div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;          <span class="keywordflow">if</span> T==<span class="stringliteral">&quot;SumOfSignals&quot;</span>: theDict[key[k].Data()] = Value[k]</div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;          <span class="keywordflow">else</span>: theDict[key[k]] = Value[k]</div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;      <span class="keywordflow">return</span> theDict</div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00436">436</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;   <span class="keyword">def </span><a class="code" href="namespaceSurvey-MufiScifi.html#a01cdeb8a7bc5f981ebe5849e735a87d4">map2Dict</a>(self,aHit,T=&#39;GetAllSignals&#39;,mask=True):</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;      <span class="keywordflow">if</span> T==<span class="stringliteral">&quot;SumOfSignals&quot;</span>:</div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;         key = Tkey</div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;      <span class="keywordflow">elif</span> T==<span class="stringliteral">&quot;GetAllSignals&quot;</span> <span class="keywordflow">or</span> T==<span class="stringliteral">&quot;GetAllTimes&quot;</span>:</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;         key = Ikey</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;      <span class="keywordflow">else</span>: </div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;           print(<span class="stringliteral">&#39;use case not known&#39;</span>,T)</div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;           1/0</div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;      key.clear()</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;      Value.clear()</div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;      <span class="keywordflow">if</span> T==<span class="stringliteral">&quot;GetAllTimes&quot;</span>: ROOT.fixRootT(aHit,key,Value,mask)</div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;      <span class="keywordflow">else</span>:                         ROOT.fixRoot(aHit,key,Value,mask)</div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;      theDict = {}</div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;      <span class="keywordflow">for</span> k <span class="keywordflow">in</span> range(key.size()):</div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;          <span class="keywordflow">if</span> T==<span class="stringliteral">&quot;SumOfSignals&quot;</span>: theDict[key[k].Data()] = Value[k]</div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;          <span class="keywordflow">else</span>: theDict[key[k]] = Value[k]</div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;      <span class="keywordflow">return</span> theDict</div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -752,18 +834,18 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00355">355</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;   <span class="keyword">def </span>MuFilter_PlaneBars(self,detID):</div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;         s = detID//10000</div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;         l  = (detID%10000)//1000  <span class="comment"># plane number</span></div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;         bar = (detID%1000)</div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;         <span class="keywordflow">if</span> s&gt;2:</div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;             l=2*l</div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;             <span class="keywordflow">if</span> bar&gt;59:</div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;                  bar=bar-60</div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;                  <span class="keywordflow">if</span> l&lt;6: l+=1</div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;         <span class="keywordflow">return</span> {<span class="stringliteral">&#39;station&#39;</span>:s,<span class="stringliteral">&#39;plane&#39;</span>:l,<span class="stringliteral">&#39;bar&#39;</span>:bar}</div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00425">425</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;   <span class="keyword">def </span>MuFilter_PlaneBars(self,detID):</div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;         s = detID//10000</div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;         l  = (detID%10000)//1000  <span class="comment"># plane number</span></div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;         bar = (detID%1000)</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;         <span class="keywordflow">if</span> s&gt;2:</div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;             l=2*l</div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;             <span class="keywordflow">if</span> bar&gt;59:</div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;                  bar=bar-60</div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;                  <span class="keywordflow">if</span> l&lt;6: l+=1</div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;         <span class="keywordflow">return</span> {<span class="stringliteral">&#39;station&#39;</span>:s,<span class="stringliteral">&#39;plane&#39;</span>:l,<span class="stringliteral">&#39;bar&#39;</span>:bar}</div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -811,19 +893,19 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00460">460</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;   <span class="keyword">def </span><a class="code" href="namespacethermalNeutrons.html#ade4a86257b5b457a4cdc893f794f16df">myPrint</a>(self,tc,name,subdir=&#39;&#39;,withRootFile=True):</div>
-<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;     srun = <span class="stringliteral">&#39;run&#39;</span>+<a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>(self.options.runNumber)</div>
-<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;     tc.Update()</div>
-<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;     <span class="keywordflow">if</span> withRootFile:</div>
-<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;         self.presenterFile.cd(subdir)</div>
-<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;         tc.Write()</div>
-<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;     <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;         <span class="keywordflow">if</span> <span class="keywordflow">not</span> os.path.isdir(srun): os.system(<span class="stringliteral">&#39;mkdir &#39;</span>+srun)</div>
-<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;         pname = srun+<span class="stringliteral">&#39;/&#39;</span>+name+<span class="stringliteral">&#39;-&#39;</span>+srun</div>
-<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;         tc.Print(pname+<span class="stringliteral">&#39;.png&#39;</span>)</div>
-<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;         tc.Print(pname+<span class="stringliteral">&#39;.pdf&#39;</span>)</div>
-<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00530">530</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;   <span class="keyword">def </span><a class="code" href="namespacethermalNeutrons.html#ade4a86257b5b457a4cdc893f794f16df">myPrint</a>(self,tc,name,subdir=&#39;&#39;,withRootFile=True):</div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;     srun = <span class="stringliteral">&#39;run&#39;</span>+<a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>(self.options.runNumber)</div>
+<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;     tc.Update()</div>
+<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;     <span class="keywordflow">if</span> withRootFile:</div>
+<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;         self.presenterFile.cd(subdir)</div>
+<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;         tc.Write()</div>
+<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;     <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;         <span class="keywordflow">if</span> <span class="keywordflow">not</span> os.path.isdir(srun): os.system(<span class="stringliteral">&#39;mkdir &#39;</span>+srun)</div>
+<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;         pname = srun+<span class="stringliteral">&#39;/&#39;</span>+name+<span class="stringliteral">&#39;-&#39;</span>+srun</div>
+<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;         tc.Print(pname+<span class="stringliteral">&#39;.png&#39;</span>)</div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;         tc.Print(pname+<span class="stringliteral">&#39;.pdf&#39;</span>)</div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -843,8 +925,50 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00254">254</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;   <span class="keyword">def </span>publishRootFile(self):</div>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00255">255</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;   <span class="keyword">def </span>publishRootFile(self):</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ad28c42e3e1ef1e3e51e462b5a6789fc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad28c42e3e1ef1e3e51e462b5a6789fc3">&#9670;&nbsp;</a></span>purgeMonitorHistos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def Monitor.Monitoring.purgeMonitorHistos </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00269">269</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;   <span class="keyword">def </span>purgeMonitorHistos(self):</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;        wwwPath = <span class="stringliteral">&quot;/eos/experiment/sndlhc/www/online/&quot;</span></div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;        <span class="keywordflow">for</span> r <span class="keywordflow">in</span> options.runNumbers.split(<span class="stringliteral">&#39;,&#39;</span>):</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;            <span class="keywordflow">if</span> r!= <span class="stringliteral">&#39;&#39;</span>: runList.append(<a class="code" href="namespacethermalNeutrons.html#a72d40311396ed9c7c554cffe4e3199c6">int</a>(r))</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;        <span class="keywordflow">for</span> r <span class="keywordflow">in</span> runList:</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;              runNr   = <a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>(r).zfill(6)+<span class="stringliteral">&#39;.root&#39;</span></div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;              f = ROOT.TFile.Open(options.server+wwwPath+ runNr)</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;              g = ROOT.TFile(<span class="stringliteral">&#39;tmp.root&#39;</span>,<span class="stringliteral">&#39;recreate&#39;</span>)</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;              <span class="keywordflow">for</span> d <span class="keywordflow">in</span> f.GetListOfKeys():</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;                  D = f.Get(d.GetName())</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;                  D.Purge()</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;              <span class="keywordflow">for</span> d <span class="keywordflow">in</span> f.GetListOfKeys():</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;                name = d.GetName()</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;                s = f.Get(name)</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;                g.mkdir(name)</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;                g.cd(name)</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;                <span class="keywordflow">for</span> x <span class="keywordflow">in</span> s.GetListOfKeys():</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;                    s.Get(x.GetName()).Write()</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;        g.Close()</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;        f.Close()</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;        os.system(<span class="stringliteral">&#39;xrdcp -f tmp.root  &#39;</span>+options.server+options.path+rName)</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -874,15 +998,38 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00347">347</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;   <span class="keyword">def </span><a class="code" href="namespaceSurvey-MufiScifi.html#a22945ced17adf3fafc6d3e7744c767a1">Scifi_xPos</a>(self,detID):</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;        orientation = (detID//100000)%10</div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;        nStation = 2*(detID//1000000-1)+orientation</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;        mat   = (detID%100000)//10000</div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;        X = detID%1000+(detID%10000)//1000*128</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;        <span class="keywordflow">return</span> [nStation,mat,X]   <span class="comment"># even numbers are Y (horizontal plane), odd numbers X (vertical plane)</span></div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160; </div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;<span class="comment"># decode MuFilter detID</span></div>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00417">417</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;   <span class="keyword">def </span><a class="code" href="namespaceSurvey-MufiScifi.html#a22945ced17adf3fafc6d3e7744c767a1">Scifi_xPos</a>(self,detID):</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;        orientation = (detID//100000)%10</div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;        nStation = 2*(detID//1000000-1)+orientation</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;        mat   = (detID%100000)//10000</div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;        X = detID%1000+(detID%10000)//1000*128</div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;        <span class="keywordflow">return</span> [nStation,mat,X]   <span class="comment"># even numbers are Y (horizontal plane), odd numbers X (vertical plane)</span></div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160; </div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;<span class="comment"># decode MuFilter detID</span></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a2071d38d9ea5fd844e26d02d89d2de9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2071d38d9ea5fd844e26d02d89d2de9d">&#9670;&nbsp;</a></span>sendAlarm()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def Monitor.Monitoring.sendAlarm </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00381">381</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;   <span class="keyword">def </span>sendAlarm(self):</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;       print(<span class="stringliteral">&#39;ALARM&#39;</span>,self.alarms)</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -912,12 +1059,12 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00342">342</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;   <span class="keyword">def </span><a class="code" href="namespacemufiHitMaps.html#aa4f418ba90b748ec8340602cae66318b">smallSiPMchannel</a>(self,i):</div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;      <span class="keywordflow">if</span> i==2 <span class="keywordflow">or</span> i==5 <span class="keywordflow">or</span> i==10 <span class="keywordflow">or</span> i==13: <span class="keywordflow">return</span> <span class="keyword">True</span></div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;      <span class="keywordflow">else</span>: <span class="keywordflow">return</span> <span class="keyword">False</span></div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160; </div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;<span class="comment">#  Scifi specific code</span></div>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00412">412</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;   <span class="keyword">def </span><a class="code" href="namespacemufiHitMaps.html#aa4f418ba90b748ec8340602cae66318b">smallSiPMchannel</a>(self,i):</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;      <span class="keywordflow">if</span> i==2 <span class="keywordflow">or</span> i==5 <span class="keywordflow">or</span> i==10 <span class="keywordflow">or</span> i==13: <span class="keywordflow">return</span> <span class="keyword">True</span></div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;      <span class="keywordflow">else</span>: <span class="keywordflow">return</span> <span class="keyword">False</span></div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160; </div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;<span class="comment">#  Scifi specific code</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -953,12 +1100,12 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00314">314</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;   <span class="keyword">def </span><a class="code" href="namespaceSurvey-MufiScifi.html#ab4547cf6819947fcade27ec78e628389">systemAndOrientation</a>(self,s,plane):</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;      <span class="keywordflow">if</span> s==1 <span class="keywordflow">or</span> s==2: <span class="keywordflow">return</span> <span class="stringliteral">&quot;horizontal&quot;</span></div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;      <span class="keywordflow">if</span> plane%2==1 <span class="keywordflow">or</span> plane == 6: <span class="keywordflow">return</span> <span class="stringliteral">&quot;vertical&quot;</span></div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;      <span class="keywordflow">return</span> <span class="stringliteral">&quot;horizontal&quot;</span></div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00384">384</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;   <span class="keyword">def </span><a class="code" href="namespaceSurvey-MufiScifi.html#ab4547cf6819947fcade27ec78e628389">systemAndOrientation</a>(self,s,plane):</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;      <span class="keywordflow">if</span> s==1 <span class="keywordflow">or</span> s==2: <span class="keywordflow">return</span> <span class="stringliteral">&quot;horizontal&quot;</span></div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;      <span class="keywordflow">if</span> plane%2==1 <span class="keywordflow">or</span> plane == 6: <span class="keywordflow">return</span> <span class="stringliteral">&quot;vertical&quot;</span></div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;      <span class="keywordflow">return</span> <span class="stringliteral">&quot;horizontal&quot;</span></div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -994,13 +1141,13 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00407">407</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;   <span class="keyword">def </span><a class="code" href="namespaceSurvey-MufiScifi.html#a678fc1a21dfe5c4cc955266a5a57b3c3">twoLangaufun</a>(self,x,par):</div>
-<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;      N1 = self.langaufun(x,par)</div>
-<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;      par2 = [par[0],par[1]*2,par[4],par[3]]</div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;      N2 = self.langaufun(x,par2)</div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;      <span class="keywordflow">return</span> N1+abs(N2)</div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00477">477</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;   <span class="keyword">def </span><a class="code" href="namespaceSurvey-MufiScifi.html#a678fc1a21dfe5c4cc955266a5a57b3c3">twoLangaufun</a>(self,x,par):</div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;      N1 = self.langaufun(x,par)</div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;      par2 = [par[0],par[1]*2,par[4],par[3]]</div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;      N2 = self.langaufun(x,par2)</div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;      <span class="keywordflow">return</span> N1+abs(N2)</div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1020,31 +1167,31 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00268">268</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;   <span class="keyword">def </span>updateHtml(self):</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;      <span class="keywordflow">if</span> self.options.online: destination=<span class="stringliteral">&quot;online&quot;</span></div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;      <span class="keywordflow">else</span>: destination=<span class="stringliteral">&quot;offline&quot;</span></div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;      rc = os.system(<span class="stringliteral">&quot;xrdcp -f &quot;</span>+os.environ[<span class="stringliteral">&#39;EOSSHIP&#39;</span>]+<span class="stringliteral">&quot;/eos/experiment/sndlhc/www/&quot;</span>+destination+<span class="stringliteral">&quot;.html  . &quot;</span>)</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;      old = open(destination+<span class="stringliteral">&quot;.html&quot;</span>)</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;      oldL = old.readlines()</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;      old.close()</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;      tmp = open(<span class="stringliteral">&quot;tmp.html&quot;</span>,<span class="stringliteral">&#39;w&#39;</span>)</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;      found = <span class="keyword">False</span></div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;      <span class="keywordflow">for</span> L <span class="keywordflow">in</span> oldL:</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;           <span class="keywordflow">if</span> <span class="keywordflow">not</span> L.find(self.runNr)&lt;0: <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;           <span class="keywordflow">if</span> L.find(<span class="stringliteral">&quot;https://snd-lhc-monitoring.web.cern.ch/&quot;</span>+destination)&gt;0 <span class="keywordflow">and</span> <span class="keywordflow">not</span> found:</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;              r = <a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>(self.options.runNumber)</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;              Lnew = <span class="stringliteral">&#39;            &lt;li&gt; &lt;a href=&quot;https://snd-lhc-monitoring.web.cern.ch/&#39;</span>+destination+<span class="stringliteral">&#39;/run.html?file=run&#39;</span></div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;              Lnew+= self.runNr+<span class="stringliteral">&#39;.root&amp;lastcycle&quot;&gt;run &#39;</span>+r+<span class="stringliteral">&#39; &lt;/a&gt;&#39;</span>+self.options.startTime  +<span class="stringliteral">&#39;\n&#39;</span></div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;              tmp.write(Lnew)</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;              found = <span class="keyword">True</span></div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;           tmp.write(L)</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;      tmp.close()</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;      os.system(<span class="stringliteral">&#39;cp tmp.html &#39;</span>+destination+<span class="stringliteral">&#39;.html&#39;</span>)</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;      <span class="keywordflow">try</span>:</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;            rc = os.system(<span class="stringliteral">&quot;xrdcp -f &quot;</span>+destination+<span class="stringliteral">&quot;.html  &quot;</span>+os.environ[<span class="stringliteral">&#39;EOSSHIP&#39;</span>]+<span class="stringliteral">&quot;/eos/experiment/sndlhc/www/&quot;</span>)</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;      <span class="keywordflow">except</span>:</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;            print(<span class="stringliteral">&quot;copy of html failed. Token expired?&quot;</span>)</div>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00291">291</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;   <span class="keyword">def </span>updateHtml(self):</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;      <span class="keywordflow">if</span> self.options.online: destination=<span class="stringliteral">&quot;online&quot;</span></div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;      <span class="keywordflow">else</span>: destination=<span class="stringliteral">&quot;offline&quot;</span></div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;      rc = os.system(<span class="stringliteral">&quot;xrdcp -f &quot;</span>+os.environ[<span class="stringliteral">&#39;EOSSHIP&#39;</span>]+<span class="stringliteral">&quot;/eos/experiment/sndlhc/www/&quot;</span>+destination+<span class="stringliteral">&quot;.html  . &quot;</span>)</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;      old = open(destination+<span class="stringliteral">&quot;.html&quot;</span>)</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;      oldL = old.readlines()</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;      old.close()</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;      tmp = open(<span class="stringliteral">&quot;tmp.html&quot;</span>,<span class="stringliteral">&#39;w&#39;</span>)</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;      found = <span class="keyword">False</span></div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;      <span class="keywordflow">for</span> L <span class="keywordflow">in</span> oldL:</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;           <span class="keywordflow">if</span> <span class="keywordflow">not</span> L.find(self.runNr)&lt;0: <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;           <span class="keywordflow">if</span> L.find(<span class="stringliteral">&quot;https://snd-lhc-monitoring.web.cern.ch/&quot;</span>+destination)&gt;0 <span class="keywordflow">and</span> <span class="keywordflow">not</span> found:</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;              r = <a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>(self.options.runNumber)</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;              Lnew = <span class="stringliteral">&#39;            &lt;li&gt; &lt;a href=&quot;https://snd-lhc-monitoring.web.cern.ch/&#39;</span>+destination+<span class="stringliteral">&#39;/run.html?file=run&#39;</span></div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;              Lnew+= self.runNr+<span class="stringliteral">&#39;.root&amp;lastcycle&quot;&gt;run &#39;</span>+r+<span class="stringliteral">&#39; &lt;/a&gt;&#39;</span>+self.options.startTime  +<span class="stringliteral">&#39;\n&#39;</span></div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;              tmp.write(Lnew)</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;              found = <span class="keyword">True</span></div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;           tmp.write(L)</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;      tmp.close()</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;      os.system(<span class="stringliteral">&#39;cp tmp.html &#39;</span>+destination+<span class="stringliteral">&#39;.html&#39;</span>)</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;      <span class="keywordflow">try</span>:</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;            rc = os.system(<span class="stringliteral">&quot;xrdcp -f &quot;</span>+destination+<span class="stringliteral">&quot;.html  &quot;</span>+os.environ[<span class="stringliteral">&#39;EOSSHIP&#39;</span>]+<span class="stringliteral">&quot;/eos/experiment/sndlhc/www/&quot;</span>)</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;      <span class="keywordflow">except</span>:</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;            print(<span class="stringliteral">&quot;copy of html failed. Token expired?&quot;</span>)</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1080,6 +1227,22 @@ Static Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="ac55dee89d8ce715cddba1fd5ffda9834"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac55dee89d8ce715cddba1fd5ffda9834">&#9670;&nbsp;</a></span>alarms</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Monitor.Monitoring.alarms</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00338">338</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+
+</div>
+</div>
 <a id="ae8a62a34afcf4e3c02460ddb5f44573d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae8a62a34afcf4e3c02460ddb5f44573d">&#9670;&nbsp;</a></span>clusMufi</h2>
 
@@ -1220,7 +1383,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00217">217</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00218">218</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
 
 </div>
 </div>
@@ -1244,7 +1407,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00220">220</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00221">221</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
 
 </div>
 </div>
@@ -1268,7 +1431,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00451">451</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00521">521</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
 
 </div>
 </div>
@@ -1324,7 +1487,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00446">446</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00516">516</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
 
 </div>
 </div>
@@ -1348,7 +1511,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00426">426</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00496">496</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
 
 </div>
 </div>
@@ -1372,7 +1535,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00212">212</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00213">213</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
 
 </div>
 </div>
@@ -1396,7 +1559,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00437">437</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00507">507</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
 
 </div>
 </div>
@@ -1420,7 +1583,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00427">427</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00497">497</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
 
 </div>
 </div>
@@ -1476,7 +1639,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00219">219</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00220">220</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
 
 </div>
 </div>
@@ -1524,7 +1687,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00205">205</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00206">206</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
 
 </div>
 </div>
@@ -1572,7 +1735,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00430">430</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00500">500</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
 
 </div>
 </div>
@@ -1612,7 +1775,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00266">266</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00267">267</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
 
 </div>
 </div>
@@ -1636,7 +1799,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00263">263</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00264">264</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
 
 </div>
 </div>
@@ -1708,7 +1871,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00431">431</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00501">501</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
 
 </div>
 </div>
@@ -1796,7 +1959,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00443">443</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00513">513</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
 
 </div>
 </div>
@@ -1820,7 +1983,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00434">434</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00504">504</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
 
 </div>
 </div>
@@ -1924,7 +2087,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00258">258</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00259">259</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
 
 </div>
 </div>
@@ -1948,7 +2111,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00440">440</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00510">510</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
 
 </div>
 </div>
@@ -1972,7 +2135,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00441">441</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00511">511</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
 
 </div>
 </div>
@@ -1996,7 +2159,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00450">450</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00520">520</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
 
 </div>
 </div>
@@ -2020,7 +2183,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00454">454</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00524">524</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
 
 </div>
 </div>
@@ -2046,6 +2209,7 @@ Static Public Attributes</h2></td></tr>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="anamespaceSurvey-MufiScifi_html_ab4547cf6819947fcade27ec78e628389"><div class="ttname"><a href="namespaceSurvey-MufiScifi.html#ab4547cf6819947fcade27ec78e628389">Survey-MufiScifi.systemAndOrientation</a></div><div class="ttdeci">def systemAndOrientation(s, plane)</div><div class="ttdef"><b>Definition:</b> <a href="Survey-MufiScifi_8py_source.html#l00138">Survey-MufiScifi.py:138</a></div></div>
+<div class="ttc" id="anamespacethermalNeutrons_html_a72d40311396ed9c7c554cffe4e3199c6"><div class="ttname"><a href="namespacethermalNeutrons.html#a72d40311396ed9c7c554cffe4e3199c6">thermalNeutrons.int</a></div><div class="ttdeci">int</div><div class="ttdef"><b>Definition:</b> <a href="thermalNeutrons_8py_source.html#l00026">thermalNeutrons.py:26</a></div></div>
 <div class="ttc" id="anamespaceSurvey-MufiScifi_html_acedad8ad6c47e44f6d779d8948059737"><div class="ttname"><a href="namespaceSurvey-MufiScifi.html#acedad8ad6c47e44f6d779d8948059737">Survey-MufiScifi.langaufun</a></div><div class="ttdeci">def langaufun(x, par)</div><div class="ttdef"><b>Definition:</b> <a href="Survey-MufiScifi_8py_source.html#l00207">Survey-MufiScifi.py:207</a></div></div>
 <div class="ttc" id="anamespaceSurvey-MufiScifi_html_aaca69b1b500a713886dcc27d4bfeba09"><div class="ttname"><a href="namespaceSurvey-MufiScifi.html#aaca69b1b500a713886dcc27d4bfeba09">Survey-MufiScifi.getAverageZpositions</a></div><div class="ttdeci">def getAverageZpositions()</div><div class="ttdef"><b>Definition:</b> <a href="Survey-MufiScifi_8py_source.html#l00151">Survey-MufiScifi.py:151</a></div></div>
 <div class="ttc" id="anamespacethermalNeutrons_html_a775180c2aea7eee74babefb417120f58"><div class="ttname"><a href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">thermalNeutrons.str</a></div><div class="ttdeci">str</div><div class="ttdef"><b>Definition:</b> <a href="thermalNeutrons_8py_source.html#l00029">thermalNeutrons.py:29</a></div></div>

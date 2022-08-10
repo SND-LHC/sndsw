@@ -1,5 +1,9 @@
 var NAVTREEINDEX48 =
 {
+"hcalModule_8h_source.html":[13,0,6,12],
+"hcalPoint_8cxx.html":[13,0,6,15],
+"hcalPoint_8cxx_source.html":[13,0,6,15],
+"hcalPoint_8h.html":[13,0,6,16],
 "hcalPoint_8h_source.html":[13,0,6,16],
 "hcalStructureFiller_8cxx.html":[13,0,6,19],
 "hcalStructureFiller_8cxx_source.html":[13,0,6,19],
@@ -245,9 +249,5 @@ var NAVTREEINDEX48 =
 "list__conDB_8py.html#a8599411044e6264baed0765fd0dbdb1b":[13,0,0,7,6],
 "list__conDB_8py.html#af6d4fcdefc9d506181b23e9d61028979":[13,0,0,7,2],
 "list__conDB_8py_source.html":[13,0,0,7],
-"logger_8hxx.html":[13,0,26,0],
-"logger_8hxx.html#a113b6bb3527bb2ff3507ec12731aaafe":[13,0,26,0,3],
-"logger_8hxx.html#a2a557d803d7b5988f0a19b50443e1169":[13,0,26,0,2],
-"logger_8hxx.html#a83472731771521d366d09a96db58d50f":[13,0,26,0,7],
-"logger_8hxx.html#a8f34527ad339f58b12244b3376248654":[13,0,26,0,0]
+"logger_8hxx.html":[13,0,26,0]
 };
