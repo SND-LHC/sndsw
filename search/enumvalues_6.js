@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['mybuffersize_17398',['myBufferSize',['../classMille.html#a58c69ad901fae1cee220618ec27c99a6a1a8de6b2990503a7805d0dd14f4df929',1,'Mille']]],
-  ['mymaxlabel_17399',['myMaxLabel',['../classMille.html#aa4d7ab7e2d13c1bcaef04319f6964511a676e78045ad80e0f8b9c0893cfd3b245',1,'Mille']]]
+  ['horizontal_17470',['horizontal',['../RPCUnpack_8cxx.html#a224b9163917ac32fc95a60d8c1eec3aaac84387af3365dd0e5cffb2705e68b585',1,'RPCUnpack.cxx']]]
 ];

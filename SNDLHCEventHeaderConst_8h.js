@@ -1,0 +1,46 @@
+var SNDLHCEventHeaderConst_8h =
+[
+    [ "LhcAcceleratorMode", "SNDLHCEventHeaderConst_8h.html#a16bf29bdc4ab4b5a3e37cd549969b042", [
+      [ "Null", "SNDLHCEventHeaderConst_8h.html#a16bf29bdc4ab4b5a3e37cd549969b042abbb93ef26e3c101ff11cdd21cab08a94", null ],
+      [ "Shutdown", "SNDLHCEventHeaderConst_8h.html#a16bf29bdc4ab4b5a3e37cd549969b042a1a4ebb180ba59b067782515ffee6e975", null ],
+      [ "Cooldown", "SNDLHCEventHeaderConst_8h.html#a16bf29bdc4ab4b5a3e37cd549969b042a5b9cca31b21c9c04c3d6f9ecbcc3ffc8", null ],
+      [ "MachineCheckout", "SNDLHCEventHeaderConst_8h.html#a16bf29bdc4ab4b5a3e37cd549969b042a287fc27190e53ed017351bb7959c2e54", null ],
+      [ "Access", "SNDLHCEventHeaderConst_8h.html#a16bf29bdc4ab4b5a3e37cd549969b042abf733d8a933c1601697f364223fc7ecb", null ],
+      [ "MachineTest", "SNDLHCEventHeaderConst_8h.html#a16bf29bdc4ab4b5a3e37cd549969b042a266d802a43c629cb6cfc19bd5767bb4b", null ],
+      [ "Calibration", "SNDLHCEventHeaderConst_8h.html#a16bf29bdc4ab4b5a3e37cd549969b042af6147c9c9b908be9b52803698be57ad2", null ],
+      [ "WarmUp", "SNDLHCEventHeaderConst_8h.html#a16bf29bdc4ab4b5a3e37cd549969b042ad1385daa4b489481954f350e3f226949", null ],
+      [ "Recovery", "SNDLHCEventHeaderConst_8h.html#a16bf29bdc4ab4b5a3e37cd549969b042ad8afbc541b39d23648c823057cffe3a5", null ],
+      [ "SectorDependent", "SNDLHCEventHeaderConst_8h.html#a16bf29bdc4ab4b5a3e37cd549969b042a5a362c7997152b227657de8fa270541f", null ],
+      [ "BeamSetup", "SNDLHCEventHeaderConst_8h.html#a16bf29bdc4ab4b5a3e37cd549969b042ac40c48a1289a5dcf56938d73d0bf828c", null ],
+      [ "ProtonPhysics", "SNDLHCEventHeaderConst_8h.html#a16bf29bdc4ab4b5a3e37cd549969b042a383505fe870af748c64311a869f1b0b7", null ],
+      [ "IonPhysics", "SNDLHCEventHeaderConst_8h.html#a16bf29bdc4ab4b5a3e37cd549969b042a9285917eefa4290abdc04622efa02601", null ],
+      [ "TotemPhysics", "SNDLHCEventHeaderConst_8h.html#a16bf29bdc4ab4b5a3e37cd549969b042a2460cdc217ea67e9058c51115c987cde", null ],
+      [ "SpecialOpticsPhysics", "SNDLHCEventHeaderConst_8h.html#a16bf29bdc4ab4b5a3e37cd549969b042ac0918e06010097b6f78154a0024c2a16", null ],
+      [ "ProtonNucleusPhysics", "SNDLHCEventHeaderConst_8h.html#a16bf29bdc4ab4b5a3e37cd549969b042a01a79010f3cf52bf082b1503f9c75f4e", null ],
+      [ "MachineDevelopment", "SNDLHCEventHeaderConst_8h.html#a16bf29bdc4ab4b5a3e37cd549969b042ace1895e879bd843fcd47456a8bed47a4", null ],
+      [ "Unknown", "SNDLHCEventHeaderConst_8h.html#a16bf29bdc4ab4b5a3e37cd549969b042a88183b946cc5f0e8c96b2e66e1c74a7e", null ]
+    ] ],
+    [ "LhcBeamMode", "SNDLHCEventHeaderConst_8h.html#a1cf780533128a3a465030a41e0f4e90a", [
+      [ "Null", "SNDLHCEventHeaderConst_8h.html#a1cf780533128a3a465030a41e0f4e90aabbb93ef26e3c101ff11cdd21cab08a94", null ],
+      [ "Setup", "SNDLHCEventHeaderConst_8h.html#a1cf780533128a3a465030a41e0f4e90aaad2376beebecdcf7846ba973fa1a005b", null ],
+      [ "Abort", "SNDLHCEventHeaderConst_8h.html#a1cf780533128a3a465030a41e0f4e90aa727b63583e01fa2b3952dab580c84dc2", null ],
+      [ "InjectionProbeBeam", "SNDLHCEventHeaderConst_8h.html#a1cf780533128a3a465030a41e0f4e90aa5a8ba84f4ece7ef5d9bb83cea086d200", null ],
+      [ "InjectionSetupBeam", "SNDLHCEventHeaderConst_8h.html#a1cf780533128a3a465030a41e0f4e90aa5945b01151a1a5cd4a9fa419240884bd", null ],
+      [ "InjectionPhysicsBeam", "SNDLHCEventHeaderConst_8h.html#a1cf780533128a3a465030a41e0f4e90aaaf27bc8afd0116bf9c4ae08a149a480d", null ],
+      [ "PrepareRamp", "SNDLHCEventHeaderConst_8h.html#a1cf780533128a3a465030a41e0f4e90aa21e8ae40a70b0f11c0c36ff7728147f0", null ],
+      [ "Ramp", "SNDLHCEventHeaderConst_8h.html#a1cf780533128a3a465030a41e0f4e90aa99b4c3afc6aaa3ab4de17c90455a55eb", null ],
+      [ "FlatTop", "SNDLHCEventHeaderConst_8h.html#a1cf780533128a3a465030a41e0f4e90aaec0d3a4b775b100efcc3a27ab389182a", null ],
+      [ "Squeeze", "SNDLHCEventHeaderConst_8h.html#a1cf780533128a3a465030a41e0f4e90aa3f5558e095dbdc3bfb0e5a027be47b26", null ],
+      [ "Adjust", "SNDLHCEventHeaderConst_8h.html#a1cf780533128a3a465030a41e0f4e90aa51d7a685e12188ee196670343e1ac2cd", null ],
+      [ "StableBeams", "SNDLHCEventHeaderConst_8h.html#a1cf780533128a3a465030a41e0f4e90aa4b01554508281bc2724d3818f55beef1", null ],
+      [ "UnstableBeams", "SNDLHCEventHeaderConst_8h.html#a1cf780533128a3a465030a41e0f4e90aaefe232e3878f8a0ff74ce895f9625d77", null ],
+      [ "BeamDump", "SNDLHCEventHeaderConst_8h.html#a1cf780533128a3a465030a41e0f4e90aa9cd88ab4cbf6e7c89227a213dbc83eba", null ],
+      [ "RampDown", "SNDLHCEventHeaderConst_8h.html#a1cf780533128a3a465030a41e0f4e90aa3d2640cedc5fac77c0dab65028df8a22", null ],
+      [ "Cycling", "SNDLHCEventHeaderConst_8h.html#a1cf780533128a3a465030a41e0f4e90aa14943f54ebfea38049fe16972c96772e", null ],
+      [ "Recovery", "SNDLHCEventHeaderConst_8h.html#a1cf780533128a3a465030a41e0f4e90aad8afbc541b39d23648c823057cffe3a5", null ],
+      [ "InjectAndDump", "SNDLHCEventHeaderConst_8h.html#a1cf780533128a3a465030a41e0f4e90aadfc0e84072bad14a62f33135adccf61f", null ],
+      [ "CirculateAndDump", "SNDLHCEventHeaderConst_8h.html#a1cf780533128a3a465030a41e0f4e90aa0e3b953e8e19308fccef0e23a21eb324", null ],
+      [ "NoBeam", "SNDLHCEventHeaderConst_8h.html#a1cf780533128a3a465030a41e0f4e90aa86226ab47b5b15c46cf695182f34021c", null ],
+      [ "Unknown", "SNDLHCEventHeaderConst_8h.html#a1cf780533128a3a465030a41e0f4e90aa88183b946cc5f0e8c96b2e66e1c74a7e", null ]
+    ] ]
+];

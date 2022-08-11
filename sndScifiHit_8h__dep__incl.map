@@ -1,9 +1,9 @@
 <map id="shipLHC/sndScifiHit.h" name="shipLHC/sndScifiHit.h">
-<area shape="rect" id="node1" title=" " alt="" coords="439,5,599,32"/>
-<area shape="rect" id="node2" href="$sndCluster_8h.html" title=" " alt="" coords="230,80,389,107"/>
-<area shape="rect" id="node4" href="$ConvRawData_8cxx.html" title=" " alt="" coords="448,155,675,181"/>
-<area shape="rect" id="node5" href="$DigiTaskSND_8cxx.html" title=" " alt="" coords="5,155,224,181"/>
-<area shape="rect" id="node6" href="$sndScifiHit_8cxx.html" title=" " alt="" coords="649,80,823,107"/>
-<area shape="rect" id="node7" href="$ConvRawData_8h.html" title=" " alt="" coords="413,80,625,107"/>
-<area shape="rect" id="node3" href="$sndCluster_8cxx.html" title=" " alt="" coords="249,155,423,181"/>
+<area shape="rect" id="node1" title=" " alt="" coords="359,5,519,32"/>
+<area shape="rect" id="node2" href="$sndCluster_8h.html" title=" " alt="" coords="117,80,276,107"/>
+<area shape="rect" id="node4" href="$DigiTaskSND_8cxx.html" title=" " alt="" coords="205,155,423,181"/>
+<area shape="rect" id="node5" href="$sndScifiHit_8cxx.html" title=" " alt="" coords="352,80,527,107"/>
+<area shape="rect" id="node6" href="$ConvRawData_8h.html" title=" " alt="" coords="551,80,763,107"/>
+<area shape="rect" id="node7" href="$ConvRawData_8cxx.html" title=" " alt="" coords="614,155,841,181"/>
+<area shape="rect" id="node3" href="$sndCluster_8cxx.html" title=" " alt="" coords="5,155,180,181"/>
 </map>

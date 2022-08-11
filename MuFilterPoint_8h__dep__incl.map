@@ -1,12 +1,12 @@
 <map id="shipLHC/MuFilterPoint.h" name="shipLHC/MuFilterPoint.h">
-<area shape="rect" id="node1" title=" " alt="" coords="499,5,677,32"/>
-<area shape="rect" id="node2" href="$MuFilter_8cxx.html" title=" " alt="" coords="197,80,355,107"/>
-<area shape="rect" id="node3" href="$MuFilterHit_8h.html" title=" " alt="" coords="380,80,543,107"/>
-<area shape="rect" id="node8" href="$DigiTaskSND_8cxx.html" title=" " alt="" coords="456,229,675,256"/>
-<area shape="rect" id="node10" href="$MuFilterPoint_8cxx.html" title=" " alt="" coords="752,80,944,107"/>
-<area shape="rect" id="node4" href="$MuFilterHit_8cxx.html" title=" " alt="" coords="499,155,677,181"/>
-<area shape="rect" id="node5" href="$sndCluster_8h.html" title=" " alt="" coords="265,155,423,181"/>
-<area shape="rect" id="node7" href="$ConvRawData_8cxx.html" title=" " alt="" coords="5,229,232,256"/>
-<area shape="rect" id="node9" href="$ConvRawData_8h.html" title=" " alt="" coords="29,155,241,181"/>
-<area shape="rect" id="node6" href="$sndCluster_8cxx.html" title=" " alt="" coords="257,229,431,256"/>
+<area shape="rect" id="node1" title=" " alt="" coords="197,5,375,32"/>
+<area shape="rect" id="node2" href="$MuFilter_8cxx.html" title=" " alt="" coords="5,80,164,107"/>
+<area shape="rect" id="node3" href="$MuFilterHit_8h.html" title=" " alt="" coords="289,80,451,107"/>
+<area shape="rect" id="node7" href="$DigiTaskSND_8cxx.html" title=" " alt="" coords="83,229,302,256"/>
+<area shape="rect" id="node10" href="$MuFilterPoint_8cxx.html" title=" " alt="" coords="475,80,667,107"/>
+<area shape="rect" id="node4" href="$MuFilterHit_8cxx.html" title=" " alt="" coords="761,155,939,181"/>
+<area shape="rect" id="node5" href="$sndCluster_8h.html" title=" " alt="" coords="291,155,449,181"/>
+<area shape="rect" id="node8" href="$ConvRawData_8h.html" title=" " alt="" coords="524,155,736,181"/>
+<area shape="rect" id="node9" href="$ConvRawData_8cxx.html" title=" " alt="" coords="526,229,753,256"/>
+<area shape="rect" id="node6" href="$sndCluster_8cxx.html" title=" " alt="" coords="327,229,501,256"/>
 </map>

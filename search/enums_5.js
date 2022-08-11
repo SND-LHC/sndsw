@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['shipglobals_17361',['ShipGlobals',['../ShipGlobals_8h.html#a789630bf230604bdad6e9ad1c2af7815',1,'ShipGlobals.h']]],
-  ['steplimittype_17362',['StepLimitType',['../namespacegenfit.html#a31706efb8d31465e314243eca3594f6d',1,'genfit']]]
+  ['magicframetime_17451',['MagicFrameTime',['../ShipOnlineDataFormat_8h.html#a587089994f39b3bfbcf79a065a1c893e',1,'ShipOnlineDataFormat.h']]]
 ];

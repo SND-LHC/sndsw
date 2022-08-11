@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['dafref_17364',['DafRef',['../namespacegenfit.html#a4de4f1536357617123509665bf2bafa1adc423ce15665600c867362024cb2d8e1',1,'genfit']]],
-  ['dafsimple_17365',['DafSimple',['../namespacegenfit.html#a4de4f1536357617123509665bf2bafa1ad57ab34c117ea3a06401cdf2f48b1922',1,'genfit']]],
-  ['down_17366',['down',['../ShipMuonShield_8h.html#a7a162bd4e07daf5d23ff100f08d1cb43a74e8333ad11685ff3bdae589c8f6e34d',1,'ShipMuonShield.h']]]
+  ['beamdump_17458',['BeamDump',['../SNDLHCEventHeaderConst_8h.html#a1cf780533128a3a465030a41e0f4e90aa9cd88ab4cbf6e7c89227a213dbc83eba',1,'SNDLHCEventHeaderConst.h']]],
+  ['beamsetup_17459',['BeamSetup',['../SNDLHCEventHeaderConst_8h.html#a16bf29bdc4ab4b5a3e37cd549969b042ac40c48a1289a5dcf56938d73d0bf828c',1,'SNDLHCEventHeaderConst.h']]]
 ];

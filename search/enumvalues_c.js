@@ -1,9 +1,7 @@
 var searchData=
 [
-  ['unweightedaverage_17424',['unweightedAverage',['../namespacegenfit.html#a2243c8ece1acd0220b857eb896791b02af4aec412279533e3300fdee6a658e020',1,'genfit']]],
-  ['unweightedclosesttoprediction_17425',['unweightedClosestToPrediction',['../namespacegenfit.html#a2243c8ece1acd0220b857eb896791b02aaba552568910851c4393b71f98352a0a',1,'genfit']]],
-  ['unweightedclosesttopredictionwire_17426',['unweightedClosestToPredictionWire',['../namespacegenfit.html#a2243c8ece1acd0220b857eb896791b02a6bfe52d0cb76a8c3e92e0e5853957a3c',1,'genfit']]],
-  ['unweightedclosesttoreference_17427',['unweightedClosestToReference',['../namespacegenfit.html#a2243c8ece1acd0220b857eb896791b02a5b076cc35741357922dd03cd86c56bb6',1,'genfit']]],
-  ['unweightedclosesttoreferencewire_17428',['unweightedClosestToReferenceWire',['../namespacegenfit.html#a2243c8ece1acd0220b857eb896791b02ab6c3bf100a3f109cb12bdca3e8573bfe',1,'genfit']]],
-  ['up_17429',['up',['../ShipMuonShield_8h.html#a7a162bd4e07daf5d23ff100f08d1cb43a46c48bec0d282018b9d167eef7711b2c',1,'ShipMuonShield.h']]]
+  ['ramp_17519',['Ramp',['../SNDLHCEventHeaderConst_8h.html#a1cf780533128a3a465030a41e0f4e90aa99b4c3afc6aaa3ab4de17c90455a55eb',1,'SNDLHCEventHeaderConst.h']]],
+  ['rampdown_17520',['RampDown',['../SNDLHCEventHeaderConst_8h.html#a1cf780533128a3a465030a41e0f4e90aa3d2640cedc5fac77c0dab65028df8a22',1,'SNDLHCEventHeaderConst.h']]],
+  ['recovery_17521',['Recovery',['../SNDLHCEventHeaderConst_8h.html#a16bf29bdc4ab4b5a3e37cd549969b042ad8afbc541b39d23648c823057cffe3a5',1,'Recovery():&#160;SNDLHCEventHeaderConst.h'],['../SNDLHCEventHeaderConst_8h.html#a1cf780533128a3a465030a41e0f4e90aad8afbc541b39d23648c823057cffe3a5',1,'Recovery():&#160;SNDLHCEventHeaderConst.h']]],
+  ['refkalman_17522',['RefKalman',['../namespacegenfit.html#a4de4f1536357617123509665bf2bafa1a5d9b51f18f7be30ebad8cd933051e4b9',1,'genfit']]]
 ];

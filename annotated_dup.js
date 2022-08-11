@@ -173,6 +173,7 @@ var annotated_dup =
     [ "ShipUnpack", "classShipUnpack.html", "classShipUnpack" ],
     [ "simpleTarget", "classsimpleTarget.html", "classsimpleTarget" ],
     [ "sndCluster", "classsndCluster.html", "classsndCluster" ],
+    [ "SNDLHCEventHeader", "classSNDLHCEventHeader.html", "classSNDLHCEventHeader" ],
     [ "SndlhcHit", "classSndlhcHit.html", "classSndlhcHit" ],
     [ "sndScifiHit", "classsndScifiHit.html", "classsndScifiHit" ],
     [ "splitcal", "classsplitcal.html", "classsplitcal" ],

@@ -1,9 +1,9 @@
 <map id="shipLHC/MuFilterHit.h" name="shipLHC/MuFilterHit.h">
-<area shape="rect" id="node1" title=" " alt="" coords="376,5,539,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="324,5,487,32"/>
 <area shape="rect" id="node2" href="$MuFilterHit_8cxx.html" title=" " alt="" coords="5,80,184,107"/>
-<area shape="rect" id="node3" href="$sndCluster_8h.html" title=" " alt="" coords="495,80,654,107"/>
-<area shape="rect" id="node5" href="$ConvRawData_8cxx.html" title=" " alt="" coords="219,155,445,181"/>
-<area shape="rect" id="node6" href="$DigiTaskSND_8cxx.html" title=" " alt="" coords="669,155,888,181"/>
-<area shape="rect" id="node7" href="$ConvRawData_8h.html" title=" " alt="" coords="209,80,421,107"/>
-<area shape="rect" id="node4" href="$sndCluster_8cxx.html" title=" " alt="" coords="470,155,645,181"/>
+<area shape="rect" id="node3" href="$sndCluster_8h.html" title=" " alt="" coords="209,80,367,107"/>
+<area shape="rect" id="node5" href="$DigiTaskSND_8cxx.html" title=" " alt="" coords="296,155,515,181"/>
+<area shape="rect" id="node6" href="$ConvRawData_8h.html" title=" " alt="" coords="442,80,654,107"/>
+<area shape="rect" id="node7" href="$ConvRawData_8cxx.html" title=" " alt="" coords="559,155,785,181"/>
+<area shape="rect" id="node4" href="$sndCluster_8cxx.html" title=" " alt="" coords="97,155,271,181"/>
 </map>
