@@ -1,5 +1,6 @@
 var NAVTREEINDEX30 =
 {
+"classgenfit_1_1DAF.html#afed19c645d8b0cbe30f96633796cb2b5":[12,0,12,12,19],
 "classgenfit_1_1DetPlane.html":[12,0,12,13],
 "classgenfit_1_1DetPlane.html#a009393e73538110c694b28552ad4b614":[12,0,12,13,39],
 "classgenfit_1_1DetPlane.html#a04573403961bafd1681a1a2f5f7bfd25":[12,0,12,13,9],
@@ -248,6 +249,5 @@ var NAVTREEINDEX30 =
 "classgenfit_1_1GFRavePropagator.html#a1ae42754bad3e291df85d5616e87684b":[12,0,12,24,2],
 "classgenfit_1_1GFRavePropagator.html#a6534343556ac3b1b2223cb6863200c73":[12,0,12,24,1],
 "classgenfit_1_1GFRavePropagator.html#a882d38b5f498a45c00bd0c11078c7a5a":[12,0,12,24,6],
-"classgenfit_1_1GFRavePropagator.html#a97ef46bcfa6257d86ae29c079b72c895":[12,0,12,24,3],
-"classgenfit_1_1GFRavePropagator.html#ab4a7107e5ef33402499152dd4ca64d95":[12,0,12,24,4]
+"classgenfit_1_1GFRavePropagator.html#a97ef46bcfa6257d86ae29c079b72c895":[12,0,12,24,3]
 };

@@ -1,5 +1,6 @@
 var NAVTREEINDEX37 =
 {
+"classpyFairModule.html#a0335ed6b67d9ae066db7dac53df69459":[12,0,132,1],
 "classpyFairModule.html#a69b27a58c7b59761ce8f783ae110e21c":[12,0,132,2],
 "classpyFairModule.html#afa7e3a718ebb87efbe13ded62e9fc97b":[12,0,132,0],
 "classpyFairModule.html#afcef95a252f0f6b42bdd3883eee944da":[12,0,132,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX37 =
 "classshipVertex_1_1Task.html#a70ad22db45107af549be32527fb1af7c":[12,0,36,0,8],
 "classshipVertex_1_1Task.html#a72ace079d27346ce3372694536b47068":[12,0,36,0,6],
 "classshipVertex_1_1Task.html#a7ee85724944ecae9d2b2fb0e60491d6a":[12,0,36,0,15],
-"classshipVertex_1_1Task.html#a8f47d281152a1520072deb2591b0fca0":[12,0,36,0,7],
-"classshipVertex_1_1Task.html#ab211b231ae71463bed7fd022894cb08d":[12,0,36,0,14]
+"classshipVertex_1_1Task.html#a8f47d281152a1520072deb2591b0fca0":[12,0,36,0,7]
 };

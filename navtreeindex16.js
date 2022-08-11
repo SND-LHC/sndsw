@@ -1,5 +1,6 @@
 var NAVTREEINDEX16 =
 {
+"classMuFilter.html#a9a04bd06aaa02d99269942302d0477f1":[12,0,112,35],
 "classMuFilter.html#a9b5b7f0e5cec8c7cf6fffd7c19dac8ab":[12,0,112,7],
 "classMuFilter.html#a9cc41304924c11985d72025b1575f3f5":[12,0,112,40],
 "classMuFilter.html#a9e8d85364a99bbb88d1a1042b7f76f3a":[12,0,112,29],
@@ -248,6 +249,5 @@ var NAVTREEINDEX16 =
 "classNtupleGenerator.html#a7caa9506516412155222b563f5245983":[12,0,122,14],
 "classNtupleGenerator.html#a8a11e0ec217beb13529a4e43e7360582":[12,0,122,6],
 "classNtupleGenerator.html#a8a6f79ae2d7ed803c06ffc3e3a0107b5":[12,0,122,4],
-"classNtupleGenerator.html#a9752cf55e7822faf0e6bdb7c858eee9d":[12,0,122,9],
-"classNtupleGenerator.html#a99f6acb8763351a65c08a44250d3f0c2":[12,0,122,0]
+"classNtupleGenerator.html#a9752cf55e7822faf0e6bdb7c858eee9d":[12,0,122,9]
 };

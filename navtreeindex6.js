@@ -1,5 +1,6 @@
 var NAVTREEINDEX6 =
 {
+"TimeDet_8h.html":[13,0,24,1],
 "TimeDet_8h_source.html":[13,0,24,1],
 "Tools_8cc.html":[13,0,4,0,1,15],
 "Tools_8cc_source.html":[13,0,4,0,1,15],
@@ -248,6 +249,5 @@ var NAVTREEINDEX6 =
 "boardMappingParser_8h.html#acc4aeb91cb883d557dd067a28dcf3f78":[13,0,20,1,1],
 "boardMappingParser_8h_source.html":[13,0,20,1],
 "boardMappingParser_8py.html":[13,0,19,0,0],
-"boardMappingParser_8py.html#a315860f748e59a5b16e0c236065aae0a":[13,0,19,0,0,1],
-"boardMappingParser_8py.html#a716ac6ad0e725c740a04b14b804083b5":[13,0,19,0,0,0]
+"boardMappingParser_8py.html#a315860f748e59a5b16e0c236065aae0a":[13,0,19,0,0,1]
 };
