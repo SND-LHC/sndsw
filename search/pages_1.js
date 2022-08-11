@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['list_20of_20exit_20codes_18329',['List of exit codes',['../exit_code_page.html',1,'index']]],
-  ['list_20of_20options_20and_20commands_18330',['List of options and commands',['../option_page.html',1,'index']]]
+  ['list_20of_20exit_20codes_18331',['List of exit codes',['../exit_code_page.html',1,'index']]],
+  ['list_20of_20options_20and_20commands_18332',['List of options and commands',['../option_page.html',1,'index']]]
 ];

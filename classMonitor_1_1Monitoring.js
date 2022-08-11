@@ -5,6 +5,7 @@ var classMonitor_1_1Monitoring =
     [ "cleanUpHtml", "classMonitor_1_1Monitoring.html#a10dc54ad1fe3556bc93464d3bcdf94a8", null ],
     [ "fit_langau", "classMonitor_1_1Monitoring.html#ad9db897aa13444aa42ea1e30f7519e79", null ],
     [ "getAverageZpositions", "classMonitor_1_1Monitoring.html#a946f4ac356a297cf233837dcfdd26acd", null ],
+    [ "GetEntries", "classMonitor_1_1Monitoring.html#aa7b97acb76a0027fac143faf0ce67798", null ],
     [ "GetEvent", "classMonitor_1_1Monitoring.html#a7ed94487b72e675f6136a94488eadb98", null ],
     [ "langaufun", "classMonitor_1_1Monitoring.html#a308c78e1417ac2609794d82da471dfd5", null ],
     [ "map2Dict", "classMonitor_1_1Monitoring.html#a8af7faf6019cd9518fc580b1df9d8727", null ],
