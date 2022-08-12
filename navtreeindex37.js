@@ -1,5 +1,16 @@
 var NAVTREEINDEX37 =
 {
+"classmuonHit.html#afa4e17a30606da0487e87fb47bdd5bb0":[12,0,119,9],
+"classmuonPoint.html":[12,0,120],
+"classmuonPoint.html#a10983de4f3be6bc9adbc5e258ce9ad0d":[12,0,120,4],
+"classmuonPoint.html#a22ce0e4e2e7c2edeb516587952135e00":[12,0,120,5],
+"classmuonPoint.html#a4d453f9ef32b867a50f231778f32b0bb":[12,0,120,7],
+"classmuonPoint.html#a8c2b77ff65141ac9f6c59e169c84f660":[12,0,120,2],
+"classmuonPoint.html#aa9bf9ad79720f7022533050c19df0974":[12,0,120,3],
+"classmuonPoint.html#abb727ed59f936f1dbc06fd5616f42485":[12,0,120,1],
+"classmuonPoint.html#accd5165d4bef6b01b08f84aa4b82ba64":[12,0,120,0],
+"classmuonPoint.html#af3e7af6f62ad69e6f6f5493e27b7a05e":[12,0,120,6],
+"classpid.html":[12,0,127],
 "classpid.html#a1dae649e53bebb215b0dae62f8ce7a74":[12,0,127,13],
 "classpid.html#a2438716958033589636381ece8bd2682":[12,0,127,2],
 "classpid.html#a2ad2d1847e80c7fa8fe197d80870a53c":[12,0,127,9],
@@ -238,16 +249,5 @@ var NAVTREEINDEX37 =
 "classshipDigiReco_1_1ShipDigiReco.html#ac7b432cee8d59ae3b79eb62144594702":[12,0,32,0,8],
 "classshipDigiReco_1_1ShipDigiReco.html#acd5933803a7543a234c760157a98ba95":[12,0,32,0,26],
 "classshipDigiReco_1_1ShipDigiReco.html#ad97447822c02564d74033899f9fbd4e0":[12,0,32,0,19],
-"classshipDigiReco_1_1ShipDigiReco.html#adb0f9a6ffec36c45b363a1088b74576b":[12,0,32,0,37],
-"classshipDigiReco_1_1ShipDigiReco.html#ae01541434e3143a7a782e3598c6cf407":[12,0,32,0,25],
-"classshipDigiReco_1_1ShipDigiReco.html#ae1e6aa7954d90ed9608087a89b7297ee":[12,0,32,0,18],
-"classshipDigiReco_1_1ShipDigiReco.html#ae89fc78f1f813b032bd35f478e7bcd09":[12,0,32,0,47],
-"classshipDigiReco_1_1ShipDigiReco.html#aed2fd4f4813c802df6bb99fe583904fc":[12,0,32,0,17],
-"classshipDigiReco_1_1ShipDigiReco.html#aed857f1d645539d28208ce746548533a":[12,0,32,0,35],
-"classshipDigiReco_1_1ShipDigiReco.html#af112d27224bc8a899fba885c762bf87f":[12,0,32,0,39],
-"classshipPid_1_1Task.html":[12,0,35,0],
-"classshipPid_1_1Task.html#a00018aec04d96de8ca4c5a0ece248955":[12,0,35,0,28],
-"classshipPid_1_1Task.html#a02f4ff8358a0b21cbc4518e13a79803d":[12,0,35,0,10],
-"classshipPid_1_1Task.html#a036222e5aed3dc6e4717f0c62b912056":[12,0,35,0,48],
-"classshipPid_1_1Task.html#a0814f2e92d709de2d7f6f158a0798d61":[12,0,35,0,27]
+"classshipDigiReco_1_1ShipDigiReco.html#adb0f9a6ffec36c45b363a1088b74576b":[12,0,32,0,37]
 };

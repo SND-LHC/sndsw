@@ -1,5 +1,16 @@
 var NAVTREEINDEX60 =
 {
+"shipPatRec_8py.html#a9fd6d89ad2e9f13e1365d2f5fafe2f73":[13,0,16,46,14],
+"shipPatRec_8py.html#aa1502e6b609ecdbc4cc4799ef561e059":[13,0,16,46,7],
+"shipPatRec_8py.html#aa601776ac34cd1fd3d2473441566ee86":[13,0,16,46,23],
+"shipPatRec_8py.html#ab918b16f73b7f7db81672a7687ed6a60":[13,0,16,46,5],
+"shipPatRec_8py.html#ac55f40234c384589e9ee20e22acca03e":[13,0,16,46,6],
+"shipPatRec_8py.html#ad625d0c5e27818a8656051f0aa2c309c":[13,0,16,46,12],
+"shipPatRec_8py.html#adfce9c02b7484d86f23478e834e54033":[13,0,16,46,17],
+"shipPatRec_8py.html#ae1997a19b74abdc51235ba0172b6b239":[13,0,16,46,8],
+"shipPatRec_8py.html#aeba0c8265990eab9491beb812a5d2d63":[13,0,16,46,1],
+"shipPatRec_8py.html#af08136d0cd356007c992d7a3a799f8b4":[13,0,16,46,11],
+"shipPatRec_8py.html#afa3471624029a285169b4908bafeaa02":[13,0,16,46,25],
 "shipPatRec_8py.html#aff24a00b92c242522a58fd1f5153a338":[13,0,16,46,2],
 "shipPatRec_8py_source.html":[13,0,16,46],
 "shipPatRec__prev_8py.html":[13,0,16,47],
@@ -238,16 +249,5 @@ var NAVTREEINDEX60 =
 "shipunit_8py.html#aae7afb0c3fe56f11bf0c108802bffafa":[13,0,16,54,14],
 "shipunit_8py.html#aaf8129458b028d3770fbfc859468619b":[13,0,16,54,141],
 "shipunit_8py.html#ab0c5dec01c389daec217230b59ccceda":[13,0,16,54,81],
-"shipunit_8py.html#ab10313e97dbe3f8fa3b7bdb256fd8107":[13,0,16,54,121],
-"shipunit_8py.html#ab32a767f8c0d04f3c2009124022e6fa0":[13,0,16,54,76],
-"shipunit_8py.html#ab385b41a2b93dbce14602718e65cba97":[13,0,16,54,66],
-"shipunit_8py.html#ab4ae6dfca3e804755e48c6c3ffabccbf":[13,0,16,54,92],
-"shipunit_8py.html#ab5bd1c925283ab8ca1bcad2691255c7f":[13,0,16,54,1],
-"shipunit_8py.html#ab6c83e1b9ecadf3678b00ef83ccea397":[13,0,16,54,87],
-"shipunit_8py.html#ab6c88139aa7549ac608083ef2a1e858e":[13,0,16,54,16],
-"shipunit_8py.html#ab7a5597ea36b2e0fb158d23f982bd99e":[13,0,16,54,33],
-"shipunit_8py.html#abb339ac53eafa767540aa3d10d8a3add":[13,0,16,54,107],
-"shipunit_8py.html#abb938194753affd33068b10b0501c4ab":[13,0,16,54,73],
-"shipunit_8py.html#abd72c476ff1023aa85f299e18b7ead54":[13,0,16,54,140],
-"shipunit_8py.html#abdcf265e679efeafa3941b5402a0c7a7":[13,0,16,54,116]
+"shipunit_8py.html#ab10313e97dbe3f8fa3b7bdb256fd8107":[13,0,16,54,121]
 };
