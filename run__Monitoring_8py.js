@@ -21,6 +21,7 @@ var run__Monitoring_8py =
     [ "lastPart", "run__Monitoring_8py.html#ace6ee2614120ee1eeaf9f2f3c313c1f9", null ],
     [ "lastRun", "run__Monitoring_8py.html#a90398f22d91e39d3065d269bb09ec855", null ],
     [ "M", "run__Monitoring_8py.html#a26a130ae56d200563ad145ffeecdcb2f", null ],
+    [ "monitorTag", "run__Monitoring_8py.html#a44d9827c8bd95ca85e8ef3f2bc59fc21", null ],
     [ "monitorTasks", "run__Monitoring_8py.html#a41ba52894bbd5bd828d1a7b6ec57dedc", null ],
     [ "muon_reco_task", "run__Monitoring_8py.html#a8c8cc84e705e232b457181d1c09a9c5f", null ],
     [ "N0", "run__Monitoring_8py.html#a416d533ec6216cf0894f7310baead36e", null ],

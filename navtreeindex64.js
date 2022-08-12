@@ -1,5 +1,6 @@
 var NAVTREEINDEX64 =
 {
+"structDataFrameHeader.html":[12,0,55],
 "structDataFrameHeader.html#a1f27d54dc0128dc2b86695ffd16b1ef2":[12,0,55,4],
 "structDataFrameHeader.html#a594ee8fc088634d16c037ac632979c7e":[12,0,55,1],
 "structDataFrameHeader.html#a9841925b31f56b5807519cf62c71e8bb":[12,0,55,3],
@@ -64,8 +65,8 @@ var NAVTREEINDEX64 =
 "structgenfit_1_1ExtrapStep.html":[12,0,12,16],
 "structgenfit_1_1ExtrapStep.html#a687b426b05da411dc42fa2629dccbdd1":[12,0,12,16,3],
 "structgenfit_1_1ExtrapStep.html#a9dc6889d8afb2564841edc7fac79c4f4":[12,0,12,16,2],
-"structgenfit_1_1ExtrapStep.html#ace3dd7154d264707a7ab92f5dacb9061":[12,0,12,16,1],
 "structgenfit_1_1ExtrapStep.html#ace3dd7154d264707a7ab92f5dacb9061":[12,0,12,16,0],
+"structgenfit_1_1ExtrapStep.html#ace3dd7154d264707a7ab92f5dacb9061":[12,0,12,16,1],
 "structgenfit_1_1MatStep.html":[12,0,12,42],
 "structgenfit_1_1MatStep.html#a61b1a634431ebb71b7fef8d6de309160":[12,0,12,42,0],
 "structgenfit_1_1MatStep.html#a6c2b9e5bcddd3a6fdf105ec10685e8a7":[12,0,12,42,1],
@@ -74,8 +75,8 @@ var NAVTREEINDEX64 =
 "structgenfit_1_1RKStep.html#a4340cf43a2ccdf7d95f965ce01d38887":[12,0,12,54,2],
 "structgenfit_1_1RKStep.html#a5031ba3b89a869a5c733c2dde23d68e7":[12,0,12,54,3],
 "structgenfit_1_1RKStep.html#a5aca22ad48723a9ee41b27329aa9d9a3":[12,0,12,54,4],
-"structgenfit_1_1RKStep.html#a99d6dd2eac81744ad17b140ee9db0e66":[12,0,12,54,1],
 "structgenfit_1_1RKStep.html#a99d6dd2eac81744ad17b140ee9db0e66":[12,0,12,54,0],
+"structgenfit_1_1RKStep.html#a99d6dd2eac81744ad17b140ee9db0e66":[12,0,12,54,1],
 "structgenfit_1_1fieldCache.html":[12,0,12,18],
 "structgenfit_1_1fieldCache.html#a68ab943c56a996f17f372f5db8b45b69":[12,0,12,18,3],
 "structgenfit_1_1fieldCache.html#ab1e642cc0844b54686b45d72987d8e4b":[12,0,12,18,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX64 =
 "study__thinTarget_8py.html#ab1eff8790b42ccca7775a6dabfbfeac7":[13,0,10,27,20],
 "study__thinTarget_8py.html#abaa775c5250e8ce07fadf4e7e30a299b":[13,0,10,27,13],
 "study__thinTarget_8py.html#abab42de4ec96b6e76ef8b5f2320acbf2":[13,0,10,27,29],
-"study__thinTarget_8py.html#abf343d15ac513f7c099b042aa8b8910d":[13,0,10,27,7],
-"study__thinTarget_8py.html#ac3f196cd26ff2630d910b2e92cd43c45":[13,0,10,27,24]
+"study__thinTarget_8py.html#abf343d15ac513f7c099b042aa8b8910d":[13,0,10,27,7]
 };
