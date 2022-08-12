@@ -596,7 +596,7 @@ Static Public Attributes</h2></td></tr>
 <div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;     event = self.fiN.event</div>
 <div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;     rc = event.GetEvent(eventNumber)</div>
 <div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;     <span class="comment"># self.header.SetEventNumber(event.evt_number)  # for new event header</span></div>
-<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;     self.header.SetFlags(event.flags)</div>
+<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;     <span class="comment"># self.header.SetFlags(event.flags)</span></div>
 <div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;     self.header.SetEventTime(event.timestamp)</div>
 <div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;     self.header.SetRunId( self.options.runNumber )</div>
 <div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;     self.header.SetInputFileId(self.geoVersion)</div>
@@ -701,7 +701,7 @@ Static Public Attributes</h2></td></tr>
 <div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;     event.GetEvent(eventNumber)</div>
 <div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;     self.header.SetEventTime(event.evt_timestamp)</div>
 <div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;     <span class="comment"># self.header.SetEventNumber(event.evt_number) #   for new event header</span></div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;     self.header.SetFlags(event.evt_flags)</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;     <span class="comment"># self.header.SetFlags(event.evt_flags)</span></div>
 <div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;     self.header.SetRunId( self.options.runNumber )</div>
 <div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160; </div>
 <div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;     indexSciFi=0</div>
