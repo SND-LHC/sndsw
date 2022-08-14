@@ -235,8 +235,8 @@ $(document).ready(function(){initNavTree('run__Monitoring_8py_source.html',''); 
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; </div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="keywordflow">if</span> <span class="keywordflow">not</span> options.auto:   <span class="comment"># default online/offline mode</span></div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;   <span class="keywordflow">for</span> n <span class="keywordflow">in</span> range(options.nStart,options.nStart+options.nEvents):</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;     <span class="keywordflow">if</span> option.postScale&gt;1:</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        <span class="keywordflow">if</span> ROOT.gRandom.Rndm()&gt;1./option.postScale: <span class="keywordflow">continue</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;     <span class="keywordflow">if</span> options.postScale&gt;1:</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        <span class="keywordflow">if</span> ROOT.gRandom.Rndm()&gt;1./options.postScale: <span class="keywordflow">continue</span></div>
 <div class="line"><a name="l00153"></a><span class="lineno"><a class="line" href="namespacerun__Monitoring.html#a3fca1dee4e6c36e9052b12daf4f80615">  153</a></span>&#160;     event = M.GetEvent(n)</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;     <span class="keywordflow">if</span> <span class="keywordflow">not</span> options.online:</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        <span class="keywordflow">if</span> n%options.heartBeat == 0:</div>
