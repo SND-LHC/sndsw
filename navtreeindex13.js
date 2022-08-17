@@ -1,5 +1,6 @@
 var NAVTREEINDEX13 =
 {
+"classDigiTaskSND.html#a371a8465a51ed8a7adda88b861898d84":[12,0,56,27],
 "classDigiTaskSND.html#a4ce048a055c7f1cbf07e46d5206b81b4":[12,0,56,3],
 "classDigiTaskSND.html#a572c5c29cbbf96b4d16d1af09a43fdaf":[12,0,56,16],
 "classDigiTaskSND.html#a5a8cd84ff3aa0b158308d8c5442cfdf8":[12,0,56,22],
@@ -248,6 +249,5 @@ var NAVTREEINDEX13 =
 "classFixedTargetGenerator.html#a5a2e1af825c09a77573b472b0fba4ec5":[12,0,91,40],
 "classFixedTargetGenerator.html#a5aaf918b3ba68a0a6bed00345df77e6e":[12,0,91,12],
 "classFixedTargetGenerator.html#a5ac1d30be0d2c97f573ba4bba3d3a919":[12,0,91,30],
-"classFixedTargetGenerator.html#a5ae133fb3b2372d21c2d78a8bf24ac1d":[12,0,91,35],
-"classFixedTargetGenerator.html#a5c41df66f567cfaec9b1975609648829":[12,0,91,88]
+"classFixedTargetGenerator.html#a5ae133fb3b2372d21c2d78a8bf24ac1d":[12,0,91,35]
 };

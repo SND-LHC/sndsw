@@ -1,5 +1,6 @@
 var NAVTREEINDEX26 =
 {
+"classecalClusterFinder.html":[12,0,67],
 "classecalClusterFinder.html#a0d0574289b979990d09732531bd74ff4":[12,0,67,10],
 "classecalClusterFinder.html#a13f44a04971d83562bdbcbbab1bb28da":[12,0,67,23],
 "classecalClusterFinder.html#a173dc8a1eeb72ba3baece622736d1793":[12,0,67,11],
@@ -248,6 +249,5 @@ var NAVTREEINDEX26 =
 "classecalMaximumLocator.html#aa3476da437f853246480c1632b5820ca":[12,0,77,1],
 "classecalMaximumLocator.html#aa7b15c5325d7e07900e5f2a7b9495a2f":[12,0,77,2],
 "classecalMaximumLocator.html#aae303cd0761a86f5d8c18b02591312cc":[12,0,77,6],
-"classecalMaximumLocator.html#abf04c85d8fd01b0dca24746c31e57fe5":[12,0,77,12],
-"classecalMaximumLocator.html#ac251e1c356973509e2aeeba2b29f205e":[12,0,77,13]
+"classecalMaximumLocator.html#abf04c85d8fd01b0dca24746c31e57fe5":[12,0,77,12]
 };

@@ -1,5 +1,6 @@
 var NAVTREEINDEX63 =
 {
+"sndLHC__geom__config_8py.html#a2b9837f35472f6d3c980d4b1b7764f0a":[13,0,5,3,212],
 "sndLHC__geom__config_8py.html#a2bde8ebb773d0688b4eff3e2e74a30ca":[13,0,5,3,204],
 "sndLHC__geom__config_8py.html#a2bf160404081188a2a16f0803daf2318":[13,0,5,3,163],
 "sndLHC__geom__config_8py.html#a2c90dc2454a7652714f16782477df321":[13,0,5,3,161],
@@ -248,6 +249,5 @@ var NAVTREEINDEX63 =
 "strawtubes_8cxx.html":[13,0,22,0],
 "strawtubes_8cxx_source.html":[13,0,22,0],
 "strawtubes_8h.html":[13,0,22,1],
-"strawtubes_8h_source.html":[13,0,22,1],
-"strawtubes__single_8cxx.html":[13,0,22,2]
+"strawtubes_8h_source.html":[13,0,22,1]
 };

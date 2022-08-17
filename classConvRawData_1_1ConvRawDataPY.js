@@ -14,6 +14,7 @@ var classConvRawData_1_1ConvRawDataPY =
     [ "qdc_chi2", "classConvRawData_1_1ConvRawDataPY.html#a99e8f1e7e48f0f826c66714f8f2bf53b", null ],
     [ "qdc_sat", "classConvRawData_1_1ConvRawDataPY.html#aad5b80f2a47f6e933dfd8b6442495354", null ],
     [ "Run", "classConvRawData_1_1ConvRawDataPY.html#a3d42e4f59624175a1d3fab077968c5ab", null ],
+    [ "auto", "classConvRawData_1_1ConvRawDataPY.html#a5082c288ea0f8d4f25f30e9967072bef", null ],
     [ "debug", "classConvRawData_1_1ConvRawDataPY.html#a9da7365224f55437014b310d26059430", null ],
     [ "fiN", "classConvRawData_1_1ConvRawDataPY.html#a0c6f27b451d3fe56928c1370f7dc7d26", null ],
     [ "ioman", "classConvRawData_1_1ConvRawDataPY.html#a3d95649e59fcc03946c2e1fccfcc2749", null ],

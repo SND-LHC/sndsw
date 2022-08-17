@@ -1,5 +1,6 @@
 var NAVTREEINDEX24 =
 {
+"classUpstreamTagger.html#a44c1449adbf476151c0dad34d510c7c1":[12,0,195,86],
 "classUpstreamTagger.html#a44ebef7206d0344cf6d1f57358a3df35":[12,0,195,50],
 "classUpstreamTagger.html#a48eac8f58fc38385412d20a6ccf623a2":[12,0,195,17],
 "classUpstreamTagger.html#a5485b7c9a408d54e2bc511d523e027a5":[12,0,195,100],
@@ -248,6 +249,5 @@ var NAVTREEINDEX24 =
 "classecal.html#a1a089740847e4f31e65caa4591362331":[12,0,60,52],
 "classecal.html#a1a7ed32bd451779f17f20a9a27a40509":[12,0,60,79],
 "classecal.html#a1cdddcac94d707e0ff479b2090638802":[12,0,60,72],
-"classecal.html#a1ffbd519ff3d7a1cb30a3af611d1ced1":[12,0,60,26],
-"classecal.html#a248fa6997a6038706146ac98cbfc819a":[12,0,60,14]
+"classecal.html#a1ffbd519ff3d7a1cb30a3af611d1ced1":[12,0,60,26]
 };

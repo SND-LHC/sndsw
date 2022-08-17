@@ -1,5 +1,6 @@
 var NAVTREEINDEX40 =
 {
+"classstrawtubesHit.html#ad978a71455b3774e04f69efb301e0cf9":[12,0,183,11],
 "classstrawtubesHit.html#aec424ae83b883fc4cfbdf41df379e1d1":[12,0,183,12],
 "classstrawtubesHit.html#af522fc0dbb064d4cc700f150f3472cb7":[12,0,183,8],
 "classstrawtubesPoint.html":[12,0,184],
@@ -248,6 +249,5 @@ var NAVTREEINDEX40 =
 "classvetoTimeCalibration_1_1vetoTDCchannelCalibration.html#ab00865fe451f717ecbc5e4c7edea909e":[12,0,46,0,7],
 "classvetoTimeCalibration_1_1vetoTDCchannelCalibration.html#aca8ed01ff127c430fdd906ccec547e75":[12,0,46,0,1],
 "classvetoTimeCalibration_1_1vetoTDCplaneCalibration.html":[12,0,46,1],
-"classvetoTimeCalibration_1_1vetoTDCplaneCalibration.html#a32a21ff803a44adcf28571b72a06bde4":[12,0,46,1,0],
-"classvetoTimeCalibration_1_1vetoTDCplaneCalibration.html#a417797678089d9d74c41c9582192dd10":[12,0,46,1,9]
+"classvetoTimeCalibration_1_1vetoTDCplaneCalibration.html#a32a21ff803a44adcf28571b72a06bde4":[12,0,46,1,0]
 };

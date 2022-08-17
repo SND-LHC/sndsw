@@ -1,5 +1,6 @@
 var NAVTREEINDEX31 =
 {
+"classgenfit_1_1FieldManager.html#a01194f10c4efe8d19286492ba01e104e":[12,0,12,19,0],
 "classgenfit_1_1FieldManager.html#a01194f10c4efe8d19286492ba01e104e":[12,0,12,19,2],
 "classgenfit_1_1FieldManager.html#a0360198b189d2d5acaebfca7a468437e":[12,0,12,19,12],
 "classgenfit_1_1FieldManager.html#a0360198b189d2d5acaebfca7a468437e":[12,0,12,19,13],
@@ -248,6 +249,5 @@ var NAVTREEINDEX31 =
 "classgenfit_1_1KalmanFittedStateOnPlane.html#a380df05cfe4696178c3aaafe6508f9cf":[12,0,12,36,1],
 "classgenfit_1_1KalmanFittedStateOnPlane.html#a65deec0c2e474bc554e0b0b7ffee51f9":[12,0,12,36,0],
 "classgenfit_1_1KalmanFittedStateOnPlane.html#a664b4f9ef830745ade00412301df366f":[12,0,12,36,12],
-"classgenfit_1_1KalmanFittedStateOnPlane.html#a704e4ec7b0a7bbf93bb1cb22c08f12cf":[12,0,12,36,6],
-"classgenfit_1_1KalmanFittedStateOnPlane.html#a8169ef8e3dff2e607c1a4cb040abf952":[12,0,12,36,10]
+"classgenfit_1_1KalmanFittedStateOnPlane.html#a704e4ec7b0a7bbf93bb1cb22c08f12cf":[12,0,12,36,6]
 };

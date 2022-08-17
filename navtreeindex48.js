@@ -1,5 +1,6 @@
 var NAVTREEINDEX48 =
 {
+"globals_func_a.html":[13,1,1,1],
 "globals_func_b.html":[13,1,1,2],
 "globals_func_c.html":[13,1,1,3],
 "globals_func_d.html":[13,1,1,4],
@@ -248,6 +249,5 @@ var NAVTREEINDEX48 =
 "hepunit_8py.html#af485171e36f6ba4ce7ca129910cb3b10":[13,0,16,15,100],
 "hepunit_8py.html#af66017bce0f59baa5a01f3b340d49f59":[13,0,16,15,4],
 "hepunit_8py.html#af74e057d6ece1dd69df2803d1f806187":[13,0,16,15,104],
-"hepunit_8py.html#af7622961512d78dd2816ad7846f1b465":[13,0,16,15,116],
-"hepunit_8py.html#af875140c15decb3950dea5e4b73f9212":[13,0,16,15,25]
+"hepunit_8py.html#af7622961512d78dd2816ad7846f1b465":[13,0,16,15,116]
 };

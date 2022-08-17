@@ -206,10 +206,11 @@ var searchData=
   ['atmosphere_312',['atmosphere',['../namespacehepunit.html#a41625aad1906dca8e9a7e43df9042c65',1,'hepunit.atmosphere()'],['../namespaceshipunit.html#a7fb2582eba822b98fda265569c8dc1ca',1,'shipunit.atmosphere()']]],
   ['atracklet_313',['aTracklet',['../classTracklet.html#aee1366b8fd35ca6e40bd47c9c7796ce8',1,'Tracklet']]],
   ['attrdict_314',['AttrDict',['../classShipGeoConfig_1_1AttrDict.html',1,'ShipGeoConfig']]],
-  ['aux_315',['aux',['../namespacempmod.html#ab40ff975fc09d47aee1f14b1f4ffd31f',1,'mpmod']]],
-  ['auxinfo_5f_316',['auxInfo_',['../classgenfit_1_1StateOnPlane.html#ad2761ff7b7c9bef0827114465a48bd3d',1,'genfit::StateOnPlane']]],
-  ['avogadro_317',['Avogadro',['../namespacehepunit.html#aac81f7b697545424c233d6e9a681de99',1,'hepunit.Avogadro()'],['../namespaceshipunit.html#a8cba2d1f5bccc613355d7856be1c1df1',1,'shipunit.Avogadro()']]],
-  ['avprd0_318',['avprd0',['../pede_8f90.html#a9531a8f5f9a2cde1c04ef76ea1620259',1,'pede.f90']]],
-  ['avprod_319',['avprod',['../pede_8f90.html#ad7828f3b25225915586ac1d5a1a98206',1,'pede.f90']]],
-  ['axs_320',['axs',['../namespaceTTCluster.html#af0758d94f4130a909c5b9f98a236d15d',1,'TTCluster']]]
+  ['auto_315',['auto',['../classConvRawData_1_1ConvRawDataPY.html#a5082c288ea0f8d4f25f30e9967072bef',1,'ConvRawData::ConvRawDataPY']]],
+  ['aux_316',['aux',['../namespacempmod.html#ab40ff975fc09d47aee1f14b1f4ffd31f',1,'mpmod']]],
+  ['auxinfo_5f_317',['auxInfo_',['../classgenfit_1_1StateOnPlane.html#ad2761ff7b7c9bef0827114465a48bd3d',1,'genfit::StateOnPlane']]],
+  ['avogadro_318',['Avogadro',['../namespacehepunit.html#aac81f7b697545424c233d6e9a681de99',1,'hepunit.Avogadro()'],['../namespaceshipunit.html#a8cba2d1f5bccc613355d7856be1c1df1',1,'shipunit.Avogadro()']]],
+  ['avprd0_319',['avprd0',['../pede_8f90.html#a9531a8f5f9a2cde1c04ef76ea1620259',1,'pede.f90']]],
+  ['avprod_320',['avprod',['../pede_8f90.html#ad7828f3b25225915586ac1d5a1a98206',1,'pede.f90']]],
+  ['axs_321',['axs',['../namespaceTTCluster.html#af0758d94f4130a909c5b9f98a236d15d',1,'TTCluster']]]
 ];

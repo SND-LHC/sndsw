@@ -1,5 +1,6 @@
 var NAVTREEINDEX35 =
 {
+"classgenfit_1_1TrackPoint.html#ad468fa28c524e7ac53e318ba4cd71d44":[12,0,12,65,18],
 "classgenfit_1_1TrackPoint.html#ad8da723a1d414b60b1ff1db913a36c15":[12,0,12,65,24],
 "classgenfit_1_1TrackPoint.html#ade4ac9c2ff3611690c6dc34245219857":[12,0,12,65,1],
 "classgenfit_1_1TrackPoint.html#adf7980c6c99b79ea77be6723fc8eddda":[12,0,12,65,31],
@@ -248,6 +249,5 @@ var NAVTREEINDEX35 =
 "classhcalLightMap.html#af76a5005cd456944d89f4df76d5924eb":[12,0,98,2],
 "classhcalModule.html":[12,0,99],
 "classhcalModule.html#a08f8fe13bce90f40fd2f04509ebc97fc":[12,0,99,20],
-"classhcalModule.html#a120fa04838d5678c091603684626c449":[12,0,99,10],
-"classhcalModule.html#a197ea462b9b52e11cf7165c3763a4dc8":[12,0,99,8]
+"classhcalModule.html#a120fa04838d5678c091603684626c449":[12,0,99,10]
 };
