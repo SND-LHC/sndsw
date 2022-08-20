@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['quicktype_9525',['quicktype',['../namespacequicktype.html',1,'']]]
+  ['quicktype_9542',['quicktype',['../namespacequicktype.html',1,'']]]
 ];

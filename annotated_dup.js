@@ -8,6 +8,7 @@ var annotated_dup =
     [ "eventDisplay", "namespaceeventDisplay.html", "namespaceeventDisplay" ],
     [ "eventDisplay_shipLHC", "namespaceeventDisplay__shipLHC.html", "namespaceeventDisplay__shipLHC" ],
     [ "EventDisplay_Task", "namespaceEventDisplay__Task.html", "namespaceEventDisplay__Task" ],
+    [ "FillingScheme", "namespaceFillingScheme.html", "namespaceFillingScheme" ],
     [ "g4Ex", "namespaceg4Ex.html", "namespaceg4Ex" ],
     [ "g4Ex_args", "namespaceg4Ex__args.html", "namespaceg4Ex__args" ],
     [ "g4Ex_gap", "namespaceg4Ex__gap.html", "namespaceg4Ex__gap" ],

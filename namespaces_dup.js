@@ -45,6 +45,7 @@ var namespaces_dup =
     [ "extract_interacting_neutrinos", "namespaceextract__interacting__neutrinos.html", null ],
     [ "extractMuonsAndUpdateWeight", "namespaceextractMuonsAndUpdateWeight.html", null ],
     [ "extractNeutrinosAndUpdateWeight", "namespaceextractNeutrinosAndUpdateWeight.html", null ],
+    [ "FillingScheme", "namespaceFillingScheme.html", null ],
     [ "flux_map", "namespaceflux__map.html", null ],
     [ "g4Ex", "namespaceg4Ex.html", null ],
     [ "g4Ex_args", "namespaceg4Ex__args.html", null ],

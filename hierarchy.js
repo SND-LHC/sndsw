@@ -210,6 +210,7 @@ var hierarchy =
     [ "genfit::fieldCache", "structgenfit_1_1fieldCache.html", null ],
     [ "ShipFieldMaker::fieldInfo", "structShipFieldMaker_1_1fieldInfo.html", null ],
     [ "genfit::FieldManager", "classgenfit_1_1FieldManager.html", null ],
+    [ "FillingScheme.fillingScheme", "classFillingScheme_1_1fillingScheme.html", null ],
     [ "genfit::FitStatus", "classgenfit_1_1FitStatus.html", [
       [ "genfit::KalmanFitStatus", "classgenfit_1_1KalmanFitStatus.html", null ]
     ] ],
