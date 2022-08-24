@@ -282,3 +282,26 @@ with ConfigRegistry.register_config("basic") as c:
         c.Floor.MFeBlockX = c.MuFilter.FeX
         c.Floor.MFeBlockY = c.MuFilter.FeY
         c.Floor.MFeBlockZ = c.MuFilter.FeZ
+
+        # MagnetStructure
+        c.Magnet = AttrDict(z=0*u.cm)
+        c.Magnet.InMagX   =  120 * u.cm
+        c.Magnet.InMagY   =  60 * u.cm
+        c.Magnet.IronYokeX = 30 * u.cm
+        c.Magnet.IronYokeY = 25 * u.cm
+        c.Magnet.CoilX = c.Magnet.InMagX
+        c.Magnet.CoilY = 23 * u.cm
+        c.Magnet.OutMagX = c.Magnet.InMagX + 2*c.Magnet.IronYokeX
+        c.Magnet.OutMagY = c.Magnet.InMagX + 2*(c.Magnet.CoilY+c.Magnet.IronYokeY)
+        c.Magnet.MagZ = 200 * u.cm
+        c.Magnet.Field = 1 * u.tesla
+        
+        # Magnet Tracking stations
+        c.Magnet.TrackerZ = 0.5 * u.cm
+        c.Magnet.TSpacingZ = 2 * u.cm
+        c.Magnet.LevArm = 100 * u.cm
+
+        #shift around the magnetd (numbers tuned by hand)
+        c.Magnet.ShiftX = -42 * u.cm
+        c.Magnet.ShiftY = 42 * u.cm
+        c.Magnet.ShiftZ = 780 * u.cm
