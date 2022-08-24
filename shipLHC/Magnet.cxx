@@ -51,6 +51,7 @@
 #include "TGeoCompositeShape.h"
 
 #include "TGeoUniformMagField.h"
+#include "TGeoGlobalMagField.h"
 #include "TVector3.h"
 #include <stddef.h>                     // for NULL
 #include <iostream>                     // for operator<<, basic_ostream,etc
@@ -75,7 +76,7 @@ Magnet::Magnet()
 }
 
 Magnet::Magnet(const char* name, Bool_t Active,const char* Title)
-: FairDetector(name, true, kTRUE),
+: FairDetector(name, true, kSNDMagnet),
   fTrackID(-1),
   fVolumeID(-1),
   fPos(),
@@ -166,7 +167,9 @@ void Magnet::ConstructGeometry()
   	Double_t fShiftZ     = conf_floats["Magnet/ShiftZ"];
 
     // Magnetic Field
+    LOG(DEBUG)<< "Magnetic field set is " << fField/10 << " Tesla";
     TGeoUniformMagField *magField = new TGeoUniformMagField(-fField,0, 0);
+    TGeoGlobalMagField::Instance()->SetField(magField);
 
     TGeoVolumeAssembly *MagnetVol = new TGeoVolumeAssembly("Magnet");
 
@@ -203,7 +206,7 @@ void Magnet::ConstructGeometry()
     TGeoBBox *TrackPlane = new TGeoBBox("TrackPlane", fInMagX/2., fInMagY/2., fTrackerZ/2.);
 
     // TO BE PROPERLY ADDED
-    TGeoVolume *volTrackPlane = new TGeoVolume("volTrackPlane", TrackPlane, 0);
+    TGeoVolume *volTrackPlane = new TGeoVolume("volTrackPlane", TrackPlane, Cu); // add medium
     volTrackPlane->SetLineColorAlpha(kBlue, 0.4);
     AddSensitiveVolume(volTrackPlane);
 
@@ -251,11 +254,15 @@ Bool_t  Magnet::ProcessHits(FairVolume* vol)
     LOG(DEBUG)<< "MagnetPoint DetID " << detID << " Hit volume name " << name;
     fVolumeID = detID;
     Double_t xmean = (fPos.X()+Pos.X())/2. ;
-	  Double_t ymean = (fPos.Y()+Pos.Y())/2. ;
-	  Double_t zmean = (fPos.Z()+Pos.Z())/2. ;
+	Double_t ymean = (fPos.Y()+Pos.Y())/2. ;
+	Double_t zmean = (fPos.Z()+Pos.Z())/2. ;
     AddHit(fTrackID, detID,  TVector3(xmean, ymean,  zmean),
 			TVector3(fMom.Px(), fMom.Py(), fMom.Pz()), fTime, fLength,
 			fELoss, pdgCode);
+
+    // Increment number of det points in TParticle
+		ShipStack* stack = (ShipStack*) gMC->GetStack();
+		stack->AddPoint(kSNDMagnet);
     }
 
     return kTRUE;
