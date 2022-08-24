@@ -1,5 +1,6 @@
 var NAVTREEINDEX27 =
 {
+"classecalMaximum.html#a295060531c67b288ff1e97c374ec4ab6":[12,0,77,10],
 "classecalMaximum.html#a2c045b46bc0b2667d1036c1c96219569":[12,0,77,14],
 "classecalMaximum.html#a2c2feb9c64059e5548b2bd29394a57f8":[12,0,77,8],
 "classecalMaximum.html#a34bc2779e13ef3415c25aed9291dac31":[12,0,77,17],
@@ -248,6 +249,5 @@ var NAVTREEINDEX27 =
 "classeventDisplay_1_1DrawVetoDigi.html":[12,0,5,3],
 "classeventDisplay_1_1DrawVetoDigi.html#a038c0735201b8fb527ac1708b2237712":[12,0,5,3,2],
 "classeventDisplay_1_1DrawVetoDigi.html#a6b6e07e356eac03b1b15d760f92a33b8":[12,0,5,3,0],
-"classeventDisplay_1_1DrawVetoDigi.html#a7466f9e5d43479c28bfe915599ae6fa0":[12,0,5,3,1],
-"classeventDisplay_1_1DrawVetoDigi.html#a8559a32d4b5a1c9a4f0792a1f40dba39":[12,0,5,3,4]
+"classeventDisplay_1_1DrawVetoDigi.html#a7466f9e5d43479c28bfe915599ae6fa0":[12,0,5,3,1]
 };

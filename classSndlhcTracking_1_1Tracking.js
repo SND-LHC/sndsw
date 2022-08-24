@@ -26,5 +26,6 @@ var classSndlhcTracking_1_1Tracking =
     [ "sigmaScifi_spatial", "classSndlhcTracking_1_1Tracking.html#aaf477b189f7d5b625498349a0d58a8ef", null ],
     [ "sink", "classSndlhcTracking_1_1Tracking.html#a35f10af9735985aa63b02d0464097294", null ],
     [ "systemAndPlanes", "classSndlhcTracking_1_1Tracking.html#ad707bbc04e3127d6ce0ddaf9de314e0b", null ],
+    [ "Tline", "classSndlhcTracking_1_1Tracking.html#a62cde5cf3dc9ac1c66f669b4c6577e3e", null ],
     [ "trackCandidates", "classSndlhcTracking_1_1Tracking.html#afa74961dda27d0be6d5a30cb56874a12", null ]
 ];

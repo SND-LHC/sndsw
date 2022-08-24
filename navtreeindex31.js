@@ -1,5 +1,6 @@
 var NAVTREEINDEX31 =
 {
+"classgenfit_1_1EventDisplay.html#aeab3494a0580b76d1fc3c4e72058ce77":[12,0,13,14,28],
 "classgenfit_1_1EventDisplay.html#aeafc5c226cbc9bb82f2ad655faca0fce":[12,0,13,14,33],
 "classgenfit_1_1EventDisplay.html#af0d742b462e99d44023d56bc1ee7ee79":[12,0,13,14,60],
 "classgenfit_1_1EventDisplay.html#af26af093845ab8a9dd08924ed42929d5":[12,0,13,14,78],
@@ -248,6 +249,5 @@ var NAVTREEINDEX31 =
 "classgenfit_1_1HelixTrackModel.html#ad5a2ad8767eb58e70a049fe921e3390a":[12,0,13,29,8],
 "classgenfit_1_1KalmanFitStatus.html":[12,0,13,35],
 "classgenfit_1_1KalmanFitStatus.html#a05bc9f768a5195204e2648c59a89eb8e":[12,0,13,35,19],
-"classgenfit_1_1KalmanFitStatus.html#a0c799e74eb4e5962a8209befbbf2df77":[12,0,13,35,11],
-"classgenfit_1_1KalmanFitStatus.html#a0de39e1ef288d3d7157a51c877ef620c":[12,0,13,35,17]
+"classgenfit_1_1KalmanFitStatus.html#a0c799e74eb4e5962a8209befbbf2df77":[12,0,13,35,11]
 };

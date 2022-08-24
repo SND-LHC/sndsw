@@ -1,5 +1,6 @@
 var NAVTREEINDEX40 =
 {
+"classstrawtubes.html#adc322b479fbab808aa945bb47b484d69":[12,0,182,3],
 "classstrawtubes.html#ade44dbc629f50927b68fa7ad9f7dfea8":[12,0,182,37],
 "classstrawtubes.html#ae1e11177c147f8affe898f70a0e8a344":[12,0,182,18],
 "classstrawtubes.html#ae72e5586018649c58247fa110bcf0f66":[12,0,182,72],
@@ -248,6 +249,5 @@ var NAVTREEINDEX40 =
 "classvetoHitOnTrack.html#a0269377ae88221e8ed503b22301034f1":[12,0,202,0],
 "classvetoHitOnTrack.html#a03b6392aa730388480b7a0b04bfd5f55":[12,0,202,4],
 "classvetoHitOnTrack.html#a264d0d86ce10318686fb0c68ae11911a":[12,0,202,3],
-"classvetoHitOnTrack.html#a278841fae93a062c3489b1ae3e39d7bf":[12,0,202,2],
-"classvetoHitOnTrack.html#a37d31f07b1868d30d61d865889a65c15":[12,0,202,6]
+"classvetoHitOnTrack.html#a278841fae93a062c3489b1ae3e39d7bf":[12,0,202,2]
 };

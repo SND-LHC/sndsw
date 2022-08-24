@@ -1,5 +1,6 @@
 var NAVTREEINDEX44 =
 {
+"ecalPoint_8cxx.html":[13,0,2,35],
 "ecalPoint_8cxx_source.html":[13,0,2,35],
 "ecalPoint_8h.html":[13,0,2,36],
 "ecalPoint_8h_source.html":[13,0,2,36],
@@ -242,12 +243,11 @@ var NAVTREEINDEX44 =
 "flux__map_8py.html#a1e7a8c61a88a7cbb36c21af7285ca627":[13,0,7,10,2],
 "flux__map_8py.html#aa4396f692c5693680cc3d484d8f92451":[13,0,7,10,0],
 "flux__map_8py_source.html":[13,0,7,10],
-"functions.html":[12,3,0],
 "functions.html":[12,3,0,0],
+"functions.html":[12,3,0],
 "functions_a.html":[12,3,0,1],
 "functions_b.html":[12,3,0,2],
 "functions_c.html":[12,3,0,3],
 "functions_d.html":[12,3,0,4],
-"functions_e.html":[12,3,0,5],
-"functions_enum.html":[12,3,4]
+"functions_e.html":[12,3,0,5]
 };
