@@ -1,5 +1,6 @@
 var NAVTREEINDEX25 =
 {
+"classdarkphoton_1_1DarkPhoton.html":[12,0,3,0],
 "classdarkphoton_1_1DarkPhoton.html#a072bfb5c4c802e007a6b7448c179268c":[12,0,3,0,1],
 "classdarkphoton_1_1DarkPhoton.html#a123a00952bd733843f5044e37868b309":[12,0,3,0,10],
 "classdarkphoton_1_1DarkPhoton.html#a12eb971f9c654199ed012a2c87c6ee27":[12,0,3,0,15],
@@ -248,6 +249,5 @@ var NAVTREEINDEX25 =
 "classecalCluster.html#a774dc5b2eb499d90f956debd3ed09236":[12,0,66,16],
 "classecalCluster.html#a78bb214534690afc7f30ecde2f6bfa46":[12,0,66,20],
 "classecalCluster.html#a7ed488eca2ea134011c71e8d1bb6bf63":[12,0,66,32],
-"classecalCluster.html#a8ca48a91397dbffc19de3b28e05cf644":[12,0,66,28],
-"classecalCluster.html#a959cf6e4a9c377af1e8cc54ce52db3d1":[12,0,66,6]
+"classecalCluster.html#a8ca48a91397dbffc19de3b28e05cf644":[12,0,66,28]
 };

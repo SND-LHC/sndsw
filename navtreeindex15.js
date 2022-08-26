@@ -1,5 +1,6 @@
 var NAVTREEINDEX15 =
 {
+"classHNLPythia8Generator.html#aaa88ae31a032fa9c93aea007b850d0bc":[12,0,107,43],
 "classHNLPythia8Generator.html#aab98f82d429e0062afc36d2e78c99024":[12,0,107,47],
 "classHNLPythia8Generator.html#aaea0a3e2bf81106eaf2c2b06c45f7c7a":[12,0,107,0],
 "classHNLPythia8Generator.html#abc24910befd06faf1dfc2684c2132dbe":[12,0,107,10],
@@ -248,6 +249,5 @@ var NAVTREEINDEX15 =
 "classMonitor_1_1Monitoring.html#a753a4cdaf4d0ab208b1669d91343bb0a":[12,0,16,0,23],
 "classMonitor_1_1Monitoring.html#a7ed94487b72e675f6136a94488eadb98":[12,0,16,0,6],
 "classMonitor_1_1Monitoring.html#a8af7faf6019cd9518fc580b1df9d8727":[12,0,16,0,8],
-"classMonitor_1_1Monitoring.html#a8fd2a64900e054959cace9c17def115b":[12,0,16,0,37],
-"classMonitor_1_1Monitoring.html#a946f4ac356a297cf233837dcfdd26acd":[12,0,16,0,4]
+"classMonitor_1_1Monitoring.html#a8fd2a64900e054959cace9c17def115b":[12,0,16,0,37]
 };
