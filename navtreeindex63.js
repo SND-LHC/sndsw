@@ -1,5 +1,6 @@
 var NAVTREEINDEX63 =
 {
+"sndLHC__TI18geom__config_8py.html#afa05950f423e18b4b5ad4c95668cb8b4":[13,0,5,5,143],
 "sndLHC__TI18geom__config_8py.html#afabf5e80e6df68dd81e893f6349598b9":[13,0,5,5,200],
 "sndLHC__TI18geom__config_8py.html#afb15a6db7f5294e10aa839509fbc9237":[13,0,5,5,169],
 "sndLHC__TI18geom__config_8py.html#afdcdae55d7f04265ad7cd5031c600c67":[13,0,5,5,103],
@@ -248,6 +249,5 @@ var NAVTREEINDEX63 =
 "sndlhcGSimpleNtpConverter_8cxx_source.html":[13,0,18,30],
 "splitcalCluster_8cxx.html":[13,0,21,2],
 "splitcalCluster_8cxx_source.html":[13,0,21,2],
-"splitcalCluster_8h.html":[13,0,21,3],
-"splitcalCluster_8h_source.html":[13,0,21,3]
+"splitcalCluster_8h.html":[13,0,21,3]
 };

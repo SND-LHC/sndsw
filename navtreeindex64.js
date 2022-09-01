@@ -1,5 +1,6 @@
 var NAVTREEINDEX64 =
 {
+"splitcalCluster_8h_source.html":[13,0,21,3],
 "splitcalContFact_8cxx.html":[13,0,21,4],
 "splitcalContFact_8cxx.html#ad6cdf77c5ce8ff9f6619a0389c3ab99c":[13,0,21,4,0],
 "splitcalContFact_8cxx_source.html":[13,0,21,4],
@@ -129,8 +130,8 @@ var NAVTREEINDEX64 =
 "structgenfit_1_1RKStep.html#a4340cf43a2ccdf7d95f965ce01d38887":[12,0,13,54,2],
 "structgenfit_1_1RKStep.html#a5031ba3b89a869a5c733c2dde23d68e7":[12,0,13,54,3],
 "structgenfit_1_1RKStep.html#a5aca22ad48723a9ee41b27329aa9d9a3":[12,0,13,54,4],
-"structgenfit_1_1RKStep.html#a99d6dd2eac81744ad17b140ee9db0e66":[12,0,13,54,1],
 "structgenfit_1_1RKStep.html#a99d6dd2eac81744ad17b140ee9db0e66":[12,0,13,54,0],
+"structgenfit_1_1RKStep.html#a99d6dd2eac81744ad17b140ee9db0e66":[12,0,13,54,1],
 "structgenfit_1_1fieldCache.html":[12,0,13,18],
 "structgenfit_1_1fieldCache.html#a68ab943c56a996f17f372f5db8b45b69":[12,0,13,18,3],
 "structgenfit_1_1fieldCache.html#ab1e642cc0844b54686b45d72987d8e4b":[12,0,13,18,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX64 =
 "study__muMSC_8py.html#a8ec04a002fcb4efffbe30733b7f7b27e":[13,0,10,26,31],
 "study__muMSC_8py.html#a902fd1cf37a073443e93d7840443af1a":[13,0,10,26,5],
 "study__muMSC_8py.html#a93640fe98dd03ad62a0c26f04a9b0d21":[13,0,10,26,6],
-"study__muMSC_8py.html#a9792897a728c951b318e22c7eb66b24a":[13,0,10,26,16],
-"study__muMSC_8py.html#aa6194335db40753e16420c9e66f2da50":[13,0,10,26,19]
+"study__muMSC_8py.html#a9792897a728c951b318e22c7eb66b24a":[13,0,10,26,16]
 };
