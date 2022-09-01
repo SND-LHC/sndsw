@@ -891,7 +891,7 @@ Static Public Attributes</h2></td></tr>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;          <span class="keywordflow">if</span> run.find(<span class="stringliteral">&#39;run&#39;</span>)!=0: <span class="keywordflow">continue</span></div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;          dqDataFiles.append(<a class="code" href="namespacethermalNeutrons.html#a72d40311396ed9c7c554cffe4e3199c6">int</a>(run[3:9]))</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;      convDataFiles = self.getFileList(pathConv,latest,minSize=0)</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;      checkEOS(copy=<span class="keyword">False</span>)</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;      self.checkEOS(copy=<span class="keyword">False</span>)</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;      <span class="comment"># remove directories which are not complete</span></div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;      <span class="keywordflow">for</span> r <span class="keywordflow">in</span> self.missing:</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;             <span class="keywordflow">if</span> r <span class="keywordflow">in</span> convDataFiles: convDataFiles.pop(r)</div>
