@@ -825,47 +825,51 @@ Static Public Attributes</h2></td></tr>
 <div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;      <span class="keywordflow">if</span> theTrack.GetUniqueID()&gt;1: <span class="keywordflow">return</span> <span class="keyword">False</span> <span class="comment"># for the moment, only the scifi is time calibrated</span></div>
 <div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;      fitStatus   = theTrack.getFitStatus()</div>
 <div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;      <span class="keywordflow">if</span> <span class="keywordflow">not</span> fitStatus.isFitConverged() : <span class="keywordflow">return</span> [100,-100]</div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;      <span class="keywordflow">if</span> theTrack.getFitStatus().getNumIterations()&gt;19: <span class="keywordflow">return</span> [100,-100]</div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;      state = theTrack.getFittedState(0)</div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;      pos = state.getPos()</div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;<span class="comment"># start with first measurement</span></div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;      M = theTrack.getPointWithMeasurement(0)</div>
-<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;      W      = M.getRawMeasurement()</div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;      detID = W.getDetId()</div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;      aHit   = self.event.Digi_ScifiHits[ self.DetID2Key[detID] ]</div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;      self.scifiDet.GetSiPMPosition(detID,A,B)</div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;      X = B-pos</div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;      L0 = X.Mag()/self.scifi_vsignal</div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;      <span class="comment"># need to correct for signal propagation along fibre</span></div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;      clkey  = W.getHitId()</div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;      aCl = self.clusScifi[clkey]</div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;      T0track = aCl.GetTime() - L0</div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;      TZero    = aCl.GetTime()</div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;      Z0track = pos[2]</div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;      self.Tline = ROOT.TGraph()</div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;      <span class="keywordflow">for</span> nM <span class="keywordflow">in</span> range(theTrack.getNumPointsWithMeasurement()):</div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;            state   = theTrack.getFittedState(nM)</div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;            posM   = state.getPos()</div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;            M = theTrack.getPointWithMeasurement(nM)</div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;            W = M.getRawMeasurement()</div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;            detID = W.getDetId()</div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;            clkey = W.getHitId()</div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;            aCl = self.clusScifi[clkey]</div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;            aHit = self.event.Digi_ScifiHits[ self.DetID2Key[detID] ]</div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;            self.scifiDet.GetSiPMPosition(detID,A,B)</div>
-<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;            <span class="keywordflow">if</span> aHit.isVertical(): X = B-posM</div>
-<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;            <span class="keywordflow">else</span>: X = A-posM</div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;            L = X.Mag()/self.scifi_vsignal</div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;         <span class="comment"># need to correct for signal propagation along fibre</span></div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;            corTime = self.scifiDet.GetCorrectedTime(detID, aCl.GetTime(), 0)</div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;            dT = corTime - L - T0track - (posM[2] -Z0track)/u.speedOfLight</div>
-<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;            dZ = posM[2] - Z0track</div>
-<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;            self.Tline.AddPoint(dZ,dT)</div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;      rc = self.Tline.Fit(<span class="stringliteral">&#39;pol1&#39;</span>,<span class="stringliteral">&#39;SQ&#39;</span>)</div>
-<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;      fitResult =  rc.Get()</div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;      slope = fitResult.Parameter(1)</div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;      <span class="keywordflow">return</span> [slope,slope/(fitResult.ParError(1)+1E-13)]</div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160; </div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;      state = theTrack.getFittedState(0)</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;      pos = state.getPos()</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;<span class="comment"># start with first measurement</span></div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;      M = theTrack.getPointWithMeasurement(0)</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;      W      = M.getRawMeasurement()</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;      detID = W.getDetId()</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;      aHit   = self.event.Digi_ScifiHits[ self.DetID2Key[detID] ]</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;      self.scifiDet.GetSiPMPosition(detID,A,B)</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;      X = B-pos</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;      L0 = X.Mag()/self.scifi_vsignal</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;      <span class="comment"># need to correct for signal propagation along fibre</span></div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;      clkey  = W.getHitId()</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;      aCl = self.clusScifi[clkey]</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;      T0track = aCl.GetTime() - L0</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;      TZero    = aCl.GetTime()</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;      Z0track = pos[2]</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;      self.Tline = ROOT.TGraph()</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;      <span class="keywordflow">for</span> nM <span class="keywordflow">in</span> range(theTrack.getNumPointsWithMeasurement()):</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;            rep = theTrack.getCardinalRep()</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;            point = theTrack.getPointWithMeasurementAndFitterInfo(nM, rep)</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;            <span class="keywordflow">if</span> point:</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;                state   = point.getFitterInfo(rep).getFittedState(<span class="keyword">True</span>)</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;            <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;                <span class="keywordflow">continue</span></div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;            posM   = state.getPos()</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;            M = theTrack.getPointWithMeasurement(nM)</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;            W = M.getRawMeasurement()</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;            detID = W.getDetId()</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;            clkey = W.getHitId()</div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;            aCl = self.clusScifi[clkey]</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;            aHit = self.event.Digi_ScifiHits[ self.DetID2Key[detID] ]</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;            self.scifiDet.GetSiPMPosition(detID,A,B)</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;            <span class="keywordflow">if</span> aHit.isVertical(): X = B-posM</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;            <span class="keywordflow">else</span>: X = A-posM</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;            L = X.Mag()/self.scifi_vsignal</div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;         <span class="comment"># need to correct for signal propagation along fibre</span></div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;            corTime = self.scifiDet.GetCorrectedTime(detID, aCl.GetTime(), 0)</div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;            dT = corTime - L - T0track - (posM[2] -Z0track)/u.speedOfLight</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;            dZ = posM[2] - Z0track</div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;            self.Tline.AddPoint(dZ,dT)</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;      rc = self.Tline.Fit(<span class="stringliteral">&#39;pol1&#39;</span>,<span class="stringliteral">&#39;SQ&#39;</span>)</div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;      fitResult =  rc.Get()</div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;      slope = fitResult.Parameter(1)</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;      <span class="keywordflow">return</span> [slope,slope/(fitResult.ParError(1)+1E-13)]</div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1162,7 +1166,7 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SndlhcTracking_8py_source.html#l00397">397</a> of file <a class="el" href="SndlhcTracking_8py_source.html">SndlhcTracking.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SndlhcTracking_8py_source.html#l00396">396</a> of file <a class="el" href="SndlhcTracking_8py_source.html">SndlhcTracking.py</a>.</p>
 
 </div>
 </div>

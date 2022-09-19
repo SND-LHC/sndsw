@@ -43,6 +43,8 @@ var classMonitor_1_1Monitoring =
     [ "systemAndChannels", "classMonitor_1_1Monitoring.html#adb239c036a340ac692104383d413f971", null ],
     [ "systemAndPlanes", "classMonitor_1_1Monitoring.html#a46e6069e557df737754a64c2231c6305", null ],
     [ "TDC2ns", "classMonitor_1_1Monitoring.html#a6edbe341c76225ed362daae4782f7651", null ],
+    [ "TEnd", "classMonitor_1_1Monitoring.html#a06ac44c4fadbfb48b47590683164bd01", null ],
     [ "trackTask", "classMonitor_1_1Monitoring.html#a3d7f9af833e62fc2252ff2a1b401f10b", null ],
+    [ "TStart", "classMonitor_1_1Monitoring.html#aebfeb2e2c120ca6c85e589eb8a632518", null ],
     [ "zPos", "classMonitor_1_1Monitoring.html#afba4a279b37a1e3545fa4e4296b86750", null ]
 ];

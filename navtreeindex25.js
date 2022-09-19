@@ -1,5 +1,8 @@
 var NAVTREEINDEX25 =
 {
+"classconditionsDatabase_1_1databases_1_1mongodb_1_1models_1_1detectorWrapper_1_1DetectorWrapper.html":[12,0,0,0,0,0,2,0],
+"classconditionsDatabase_1_1databases_1_1mongodb_1_1models_1_1detector_1_1Detector.html":[12,0,0,0,0,0,1,0],
+"classconditionsDatabase_1_1databases_1_1mongodb_1_1mongodbadapter_1_1MongoToCDBAPIAdapter.html":[12,0,0,0,0,1,0],
 "classconditionsDatabase_1_1databases_1_1mongodb_1_1mongodbadapter_1_1MongoToCDBAPIAdapter.html#a20971dc45f122c9e3736cba168ffc598":[12,0,0,0,0,1,0,7],
 "classconditionsDatabase_1_1databases_1_1mongodb_1_1mongodbadapter_1_1MongoToCDBAPIAdapter.html#a247cc554fb25921b377228a52c4fba9a":[12,0,0,0,0,1,0,17],
 "classconditionsDatabase_1_1databases_1_1mongodb_1_1mongodbadapter_1_1MongoToCDBAPIAdapter.html#a29d9b0593780d8142ed32281e68b8a6e":[12,0,0,0,0,1,0,20],
@@ -246,8 +249,5 @@ var NAVTREEINDEX25 =
 "classecalCell.html#ad5ac16fea1a052db6f8c1b784f34c63d":[12,0,64,26],
 "classecalCell.html#ad990bf8a796bb4fc81c8fd8f2dc43a6c":[12,0,64,16],
 "classecalCell.html#ae1495f3bbe65c22d1589781f3fd305da":[12,0,64,30],
-"classecalCell.html#ae8018fb43f6bb911dee9d67c5f725424":[12,0,64,28],
-"classecalCell.html#aecd2c3dfa855f6accc2077ebecf9df1a":[12,0,64,38],
-"classecalCell.html#aecfd2255d163ea5d9bfac1ef938b9b10":[12,0,64,32],
-"classecalCell.html#af624f270e0674406005ab697ae9f9d92":[12,0,64,3]
+"classecalCell.html#ae8018fb43f6bb911dee9d67c5f725424":[12,0,64,28]
 };

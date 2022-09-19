@@ -1,5 +1,8 @@
 var NAVTREEINDEX32 =
 {
+"classgenfit_1_1HMatrixU.html":[12,0,13,31],
+"classgenfit_1_1HMatrixU.html#a374d3cb66be6258fcb01547d21bf68f0":[12,0,13,31,1],
+"classgenfit_1_1HMatrixU.html#a3fdec7a06e2ccadaa609474468d66005":[12,0,13,31,4],
 "classgenfit_1_1HMatrixU.html#a787cee48d95095a2ee167bff91a81583":[12,0,13,31,7],
 "classgenfit_1_1HMatrixU.html#a845a1129102780fd310b09e20947ce4d":[12,0,13,31,5],
 "classgenfit_1_1HMatrixU.html#a84a00f698d77dc46a640f03ca8eae043":[12,0,13,31,0],
@@ -246,8 +249,5 @@ var NAVTREEINDEX32 =
 "classgenfit_1_1MaterialEffects.html#aeac61e4cbe5d56a1f71327af174c30e0":[12,0,13,40,35],
 "classgenfit_1_1MaterialEffects.html#af56aaa507db7a50993d21142b6ff85f1":[12,0,13,40,56],
 "classgenfit_1_1MaterialEffects.html#af5918231e0dc4c45a4d2af1ec77267a0":[12,0,13,40,48],
-"classgenfit_1_1MaterialEffects.html#af8b1789327ea62e6407e2d672448b323":[12,0,13,40,22],
-"classgenfit_1_1MaterialEffects.html#af8b1789327ea62e6407e2d672448b323":[12,0,13,40,23],
-"classgenfit_1_1MaterialProperties.html":[12,0,13,41],
-"classgenfit_1_1MaterialProperties.html#a01faa4b3ee16611ceb3533b525aaac4f":[12,0,13,41,15]
+"classgenfit_1_1MaterialEffects.html#af8b1789327ea62e6407e2d672448b323":[12,0,13,40,22]
 };

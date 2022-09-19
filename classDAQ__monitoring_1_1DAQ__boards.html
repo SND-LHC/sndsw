@@ -126,7 +126,7 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="DAQ__monitoring_8py_source.html#l00006">6</a> of file <a class="el" href="DAQ__monitoring_8py_source.html">DAQ_monitoring.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DAQ__monitoring_8py_source.html#l00007">7</a> of file <a class="el" href="DAQ__monitoring_8py_source.html">DAQ_monitoring.py</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a55ee76e52490add9fe1aa428b2e820e9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a55ee76e52490add9fe1aa428b2e820e9">&#9670;&nbsp;</a></span>ExecuteEvent()</h2>
@@ -154,33 +154,33 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DAQ__monitoring_8py_source.html#l00021">21</a> of file <a class="el" href="DAQ__monitoring_8py_source.html">DAQ_monitoring.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;   <span class="keyword">def </span>ExecuteEvent(self,event):</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;       h = self.M.h</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;       mult = {<span class="stringliteral">&#39;scifi&#39;</span>: [0]*100,<span class="stringliteral">&#39;mufi&#39;</span>: [0]*100}</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;       <span class="keywordflow">for</span> aHit <span class="keywordflow">in</span> event.Digi_ScifiHits:</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;          daq = self.R.daqChannel(aHit)</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;          boardN = <a class="code" href="namespacethermalNeutrons.html#a72d40311396ed9c7c554cffe4e3199c6">int</a>(daq[<span class="stringliteral">&quot;board&quot;</span>].split(<span class="stringliteral">&#39;_&#39;</span>)[1])</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;          mult[<span class="stringliteral">&#39;scifi&#39;</span>][boardN] += 1</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;       <span class="keywordflow">for</span> aHit <span class="keywordflow">in</span> event.Digi_MuFilterHits:</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;          allChannels = self.M.<a class="code" href="namespaceSurvey-MufiScifi.html#a01cdeb8a7bc5f981ebe5849e735a87d4">map2Dict</a>(aHit,<span class="stringliteral">&#39;GetAllSignals&#39;</span>)</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;          <span class="keywordflow">for</span> c <span class="keywordflow">in</span> allChannels:</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;              daq = self.R.daqChannel(aHit,c)</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;              boardN = <a class="code" href="namespacethermalNeutrons.html#a72d40311396ed9c7c554cffe4e3199c6">int</a>(daq[<span class="stringliteral">&quot;board&quot;</span>][0].split(<span class="stringliteral">&#39;_&#39;</span>)[1])</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;              mult[<span class="stringliteral">&#39;mufi&#39;</span>][boardN] += 1</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;       <span class="comment"># check for a scifi board with more than 10hits to have unbiased info for others</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;       bTriggered = []</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;       <span class="keywordflow">for</span> b <span class="keywordflow">in</span> range(len(mult[<span class="stringliteral">&#39;scifi&#39;</span>])):</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;          <span class="keywordflow">if</span> mult[<span class="stringliteral">&#39;scifi&#39;</span>][b]&gt;10:</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;               bTriggered.append(b)</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;       trigger = -1</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;       <span class="keywordflow">if</span> len(bTriggered)&gt;0: </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            trigger = bTriggered[<a class="code" href="namespacethermalNeutrons.html#a72d40311396ed9c7c554cffe4e3199c6">int</a>(ROOT.gRandom.Rndm()*len(bTriggered))]</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;       <span class="keywordflow">for</span> x <span class="keywordflow">in</span> mult:</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <span class="keywordflow">for</span> b <span class="keywordflow">in</span> range(len(mult[x])):</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;               rc = h[x+<span class="stringliteral">&#39;board&#39;</span>].Fill(b,mult[x][b])</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;               <span class="keywordflow">if</span> trigger &gt;0 <span class="keywordflow">and</span> <span class="keywordflow">not</span> b==trigger:  rc = h[x+<span class="stringliteral">&#39;board0&#39;</span>].Fill(b,mult[x][b])</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="DAQ__monitoring_8py_source.html#l00022">22</a> of file <a class="el" href="DAQ__monitoring_8py_source.html">DAQ_monitoring.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;   <span class="keyword">def </span>ExecuteEvent(self,event):</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;       h = self.M.h</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;       mult = {<span class="stringliteral">&#39;scifi&#39;</span>: [0]*100,<span class="stringliteral">&#39;mufi&#39;</span>: [0]*100}</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;       <span class="keywordflow">for</span> aHit <span class="keywordflow">in</span> event.Digi_ScifiHits:</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;          daq = self.R.daqChannel(aHit)</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;          boardN = <a class="code" href="namespacethermalNeutrons.html#a72d40311396ed9c7c554cffe4e3199c6">int</a>(daq[<span class="stringliteral">&quot;board&quot;</span>].split(<span class="stringliteral">&#39;_&#39;</span>)[1])</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;          mult[<span class="stringliteral">&#39;scifi&#39;</span>][boardN] += 1</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;       <span class="keywordflow">for</span> aHit <span class="keywordflow">in</span> event.Digi_MuFilterHits:</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;          allChannels = self.M.<a class="code" href="namespaceSurvey-MufiScifi.html#a01cdeb8a7bc5f981ebe5849e735a87d4">map2Dict</a>(aHit,<span class="stringliteral">&#39;GetAllSignals&#39;</span>)</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;          <span class="keywordflow">for</span> c <span class="keywordflow">in</span> allChannels:</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;              daq = self.R.daqChannel(aHit,c)</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;              boardN = <a class="code" href="namespacethermalNeutrons.html#a72d40311396ed9c7c554cffe4e3199c6">int</a>(daq[<span class="stringliteral">&quot;board&quot;</span>][0].split(<span class="stringliteral">&#39;_&#39;</span>)[1])</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;              mult[<span class="stringliteral">&#39;mufi&#39;</span>][boardN] += 1</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;       <span class="comment"># check for a scifi board with more than 10hits to have unbiased info for others</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;       bTriggered = []</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;       <span class="keywordflow">for</span> b <span class="keywordflow">in</span> range(len(mult[<span class="stringliteral">&#39;scifi&#39;</span>])):</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;          <span class="keywordflow">if</span> mult[<span class="stringliteral">&#39;scifi&#39;</span>][b]&gt;10:</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;               bTriggered.append(b)</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;       trigger = -1</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;       <span class="keywordflow">if</span> len(bTriggered)&gt;0: </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            trigger = bTriggered[<a class="code" href="namespacethermalNeutrons.html#a72d40311396ed9c7c554cffe4e3199c6">int</a>(ROOT.gRandom.Rndm()*len(bTriggered))]</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;       <span class="keywordflow">for</span> x <span class="keywordflow">in</span> mult:</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <span class="keywordflow">for</span> b <span class="keywordflow">in</span> range(len(mult[x])):</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;               rc = h[x+<span class="stringliteral">&#39;board&#39;</span>].Fill(b,mult[x][b])</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;               <span class="keywordflow">if</span> trigger &gt;0 <span class="keywordflow">and</span> <span class="keywordflow">not</span> b==trigger:  rc = h[x+<span class="stringliteral">&#39;board0&#39;</span>].Fill(b,mult[x][b])</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -216,20 +216,20 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DAQ__monitoring_8py_source.html#l00008">8</a> of file <a class="el" href="DAQ__monitoring_8py_source.html">DAQ_monitoring.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;   <span class="keyword">def </span>Init(self,options,monitor):</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;       self.M = monitor</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;       h = self.M.h</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;       ut.bookHist(h,<span class="stringliteral">&#39;scifiboard&#39;</span>,<span class="stringliteral">&#39;scifi hits per board; n&#39;</span>,100,-0.5,99.5,100,0.5,500.)</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;       ut.bookHist(h,<span class="stringliteral">&#39;mufiboard&#39;</span>,<span class="stringliteral">&#39;mufi hits per board; n&#39;</span>,100,-0.5,99.5,100,0.5,500.)</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;       ut.bookHist(h,<span class="stringliteral">&#39;scifiboard0&#39;</span>,<span class="stringliteral">&#39;scifi hits per board, unbiased; n&#39;</span>,100,-0.5,99.5,100,0.5,500.)</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;       ut.bookHist(h,<span class="stringliteral">&#39;mufiboard0&#39;</span>,<span class="stringliteral">&#39;mufi hits per board, unbiased; n&#39;</span>,100,-0.5,99.5,100,0.5,500.)</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;       self.R = <a class="code" href="classreverseMapping_1_1reversChannelMapping.html">reverseMapping.reversChannelMapping</a>()</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;       runNr = <a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>(options.runNumber).zfill(6)</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;       <span class="keywordflow">if</span> options.online:</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;          self.R.Init(options.server+options.path+<span class="stringliteral">&#39;run_&#39;</span>+ runNr+<span class="stringliteral">&#39;/&#39;</span>)</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;       <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;          self.R.Init(options.server+options.path.replace(<span class="stringliteral">&quot;convertedData&quot;</span>,<span class="stringliteral">&quot;raw_data&quot;</span>)+<span class="stringliteral">&quot;/data/run_&quot;</span>+runNr+<span class="stringliteral">&#39;/&#39;</span>)</div>
+<p class="definition">Definition at line <a class="el" href="DAQ__monitoring_8py_source.html#l00009">9</a> of file <a class="el" href="DAQ__monitoring_8py_source.html">DAQ_monitoring.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;   <span class="keyword">def </span>Init(self,options,monitor):</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;       self.M = monitor</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;       h = self.M.h</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;       ut.bookHist(h,<span class="stringliteral">&#39;scifiboard&#39;</span>,<span class="stringliteral">&#39;scifi hits per board; n&#39;</span>,100,-0.5,99.5,100,0.5,500.)</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;       ut.bookHist(h,<span class="stringliteral">&#39;mufiboard&#39;</span>,<span class="stringliteral">&#39;mufi hits per board; n&#39;</span>,100,-0.5,99.5,100,0.5,500.)</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;       ut.bookHist(h,<span class="stringliteral">&#39;scifiboard0&#39;</span>,<span class="stringliteral">&#39;scifi hits per board, unbiased; n&#39;</span>,100,-0.5,99.5,100,0.5,500.)</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;       ut.bookHist(h,<span class="stringliteral">&#39;mufiboard0&#39;</span>,<span class="stringliteral">&#39;mufi hits per board, unbiased; n&#39;</span>,100,-0.5,99.5,100,0.5,500.)</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;       self.R = <a class="code" href="classreverseMapping_1_1reversChannelMapping.html">reverseMapping.reversChannelMapping</a>()</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;       runNr = <a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>(options.runNumber).zfill(6)</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;       <span class="keywordflow">if</span> options.online:</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;          self.R.Init(options.server+options.path+<span class="stringliteral">&#39;run_&#39;</span>+ runNr+<span class="stringliteral">&#39;/&#39;</span>)</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;       <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;          self.R.Init(options.server+options.path.replace(<span class="stringliteral">&quot;convertedData&quot;</span>,<span class="stringliteral">&quot;raw_data&quot;</span>)+<span class="stringliteral">&quot;/data/run_&quot;</span>+runNr+<span class="stringliteral">&#39;/&#39;</span>)</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -249,24 +249,24 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DAQ__monitoring_8py_source.html#l00047">47</a> of file <a class="el" href="DAQ__monitoring_8py_source.html">DAQ_monitoring.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;   <span class="keyword">def </span>Plot(self):</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;       h = self.M.h</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;       ut.bookCanvas(h,<span class="stringliteral">&#39;boardmaps&#39;</span>,<span class="stringliteral">&#39; &#39;</span>,1024,768,2,3)</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;       h[<span class="stringliteral">&#39;boardmaps&#39;</span>].cd(1)</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;       h[<span class="stringliteral">&#39;scifiboard&#39;</span>].Draw(<span class="stringliteral">&#39;colz&#39;</span>)</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;       h[<span class="stringliteral">&#39;boardmaps&#39;</span>].cd(2)</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;       h[<span class="stringliteral">&#39;mufiboard&#39;</span>].Draw(<span class="stringliteral">&#39;colz&#39;</span>)</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;       h[<span class="stringliteral">&#39;boardmaps&#39;</span>].cd(3)</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;       h[<span class="stringliteral">&#39;scifiboard0&#39;</span>].Draw(<span class="stringliteral">&#39;colz&#39;</span>)</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;       h[<span class="stringliteral">&#39;boardmaps&#39;</span>].cd(4)</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;       h[<span class="stringliteral">&#39;mufiboard0&#39;</span>].Draw(<span class="stringliteral">&#39;colz&#39;</span>)</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;       h[<span class="stringliteral">&#39;boardmaps&#39;</span>].cd(5)</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;       h[<span class="stringliteral">&#39;scifiboard0&#39;</span>].ProfileX().Draw()</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;       h[<span class="stringliteral">&#39;boardmaps&#39;</span>].cd(6)</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;       h[<span class="stringliteral">&#39;mufiboard0&#39;</span>].ProfileX().Draw()</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;       self.M.<a class="code" href="namespacethermalNeutrons.html#ade4a86257b5b457a4cdc893f794f16df">myPrint</a>(h[<span class="stringliteral">&#39;boardmaps&#39;</span>],<span class="stringliteral">&#39;boardmaps&#39;</span>,subdir=<span class="stringliteral">&#39;daq&#39;</span>)</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="DAQ__monitoring_8py_source.html#l00048">48</a> of file <a class="el" href="DAQ__monitoring_8py_source.html">DAQ_monitoring.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;   <span class="keyword">def </span>Plot(self):</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;       h = self.M.h</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;       ut.bookCanvas(h,<span class="stringliteral">&#39;boardmaps&#39;</span>,<span class="stringliteral">&#39; &#39;</span>,1024,768,2,3)</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;       h[<span class="stringliteral">&#39;boardmaps&#39;</span>].cd(1)</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;       h[<span class="stringliteral">&#39;scifiboard&#39;</span>].Draw(<span class="stringliteral">&#39;colz&#39;</span>)</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;       h[<span class="stringliteral">&#39;boardmaps&#39;</span>].cd(2)</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;       h[<span class="stringliteral">&#39;mufiboard&#39;</span>].Draw(<span class="stringliteral">&#39;colz&#39;</span>)</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;       h[<span class="stringliteral">&#39;boardmaps&#39;</span>].cd(3)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;       h[<span class="stringliteral">&#39;scifiboard0&#39;</span>].Draw(<span class="stringliteral">&#39;colz&#39;</span>)</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;       h[<span class="stringliteral">&#39;boardmaps&#39;</span>].cd(4)</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;       h[<span class="stringliteral">&#39;mufiboard0&#39;</span>].Draw(<span class="stringliteral">&#39;colz&#39;</span>)</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;       h[<span class="stringliteral">&#39;boardmaps&#39;</span>].cd(5)</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;       h[<span class="stringliteral">&#39;scifiboard0&#39;</span>].ProfileX().Draw()</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;       h[<span class="stringliteral">&#39;boardmaps&#39;</span>].cd(6)</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;       h[<span class="stringliteral">&#39;mufiboard0&#39;</span>].ProfileX().Draw()</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;       self.M.<a class="code" href="namespacethermalNeutrons.html#ade4a86257b5b457a4cdc893f794f16df">myPrint</a>(h[<span class="stringliteral">&#39;boardmaps&#39;</span>],<span class="stringliteral">&#39;boardmaps&#39;</span>,subdir=<span class="stringliteral">&#39;daq&#39;</span>)</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -283,7 +283,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DAQ__monitoring_8py_source.html#l00009">9</a> of file <a class="el" href="DAQ__monitoring_8py_source.html">DAQ_monitoring.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DAQ__monitoring_8py_source.html#l00010">10</a> of file <a class="el" href="DAQ__monitoring_8py_source.html">DAQ_monitoring.py</a>.</p>
 
 </div>
 </div>
@@ -299,7 +299,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DAQ__monitoring_8py_source.html#l00015">15</a> of file <a class="el" href="DAQ__monitoring_8py_source.html">DAQ_monitoring.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DAQ__monitoring_8py_source.html#l00016">16</a> of file <a class="el" href="DAQ__monitoring_8py_source.html">DAQ_monitoring.py</a>.</p>
 
 </div>
 </div>

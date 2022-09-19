@@ -1,5 +1,8 @@
 var NAVTREEINDEX36 =
 {
+"classhcalAnalysisSimple.html#af8c9e93168c23ead3171a21d726fecd1":[12,0,96,3],
+"classhcalAnalysisSimple.html#afaa66ea4afd259b0d5546b66bb42452a":[12,0,96,5],
+"classhcalContFact.html":[12,0,97],
 "classhcalContFact.html#a48098097bddffdd70671dc45f1c64cbf":[12,0,97,2],
 "classhcalContFact.html#aaf2207a4166b087fc46039e9bac54de1":[12,0,97,3],
 "classhcalContFact.html#acfb6095a79d489f931b3d4ef0ec0e157":[12,0,97,1],
@@ -246,8 +249,5 @@ var NAVTREEINDEX36 =
 "classhnl_1_1HNLbranchings.html#ad0ccc66b383a2a6509655b371fe6555f":[12,0,14,3,21],
 "classhnl_1_1HNLbranchings.html#ad614ca1cc481ee6bc104376991daa329":[12,0,14,3,9],
 "classhnl_1_1HNLbranchings.html#aec6e7b2056448b52103fea963c7b2d4e":[12,0,14,3,4],
-"classhnl_1_1HNLbranchings.html#af6361e4466e032120a991df17628d18c":[12,0,14,3,6],
-"classhnl_1_1HNLbranchings.html#affc308417ca03d06871c3b4dd112801f":[12,0,14,3,17],
-"classhnl_1_1constants.html":[12,0,14,1],
-"classhnl_1_1constants.html#a0474ba9c9b5126f414d0311ed0b37dea":[12,0,14,1,2]
+"classhnl_1_1HNLbranchings.html#af6361e4466e032120a991df17628d18c":[12,0,14,3,6]
 };

@@ -1,5 +1,6 @@
 var NAVTREEINDEX16 =
 {
+"classMagneticSpectrometer.html#afe30ed1eeeaff9bb2b02700fde5659ec":[12,0,110,85],
 "classMagneticSpectrometer.html#afeb6b5d1172cd4ae958d669bcee858c7":[12,0,110,21],
 "classMagneticSpectrometer.html#afedfeb88f40b13b01d59233bf0911086":[12,0,110,71],
 "classMille.html":[12,0,111],
@@ -22,6 +23,7 @@ var NAVTREEINDEX16 =
 "classMille.html#af7a121a17423dbee2a1ee917133ebef8":[12,0,111,8],
 "classMonitor_1_1Monitoring.html":[12,0,16,0],
 "classMonitor_1_1Monitoring.html#a00e35b58ba8de3ea51e4bbc0a7bc32c5":[12,0,16,0,38],
+"classMonitor_1_1Monitoring.html#a06ac44c4fadbfb48b47590683164bd01":[12,0,16,0,43],
 "classMonitor_1_1Monitoring.html#a0c4505b153798781f6d995216dfaf978":[12,0,16,0,1],
 "classMonitor_1_1Monitoring.html#a0fb14e64f73e7448c938e74b098da842":[12,0,16,0,13],
 "classMonitor_1_1Monitoring.html#a10dc54ad1fe3556bc93464d3bcdf94a8":[12,0,16,0,2],
@@ -32,7 +34,7 @@ var NAVTREEINDEX16 =
 "classMonitor_1_1Monitoring.html#a308c78e1417ac2609794d82da471dfd5":[12,0,16,0,7],
 "classMonitor_1_1Monitoring.html#a34be249aae685597def103d7bee7ec18":[12,0,16,0,31],
 "classMonitor_1_1Monitoring.html#a3650054b8b8459d342f20cb688349373":[12,0,16,0,15],
-"classMonitor_1_1Monitoring.html#a3d7f9af833e62fc2252ff2a1b401f10b":[12,0,16,0,43],
+"classMonitor_1_1Monitoring.html#a3d7f9af833e62fc2252ff2a1b401f10b":[12,0,16,0,44],
 "classMonitor_1_1Monitoring.html#a46e6069e557df737754a64c2231c6305":[12,0,16,0,41],
 "classMonitor_1_1Monitoring.html#a483c9a7c4b481d2ef769f2c20a96ca27":[12,0,16,0,10],
 "classMonitor_1_1Monitoring.html#a4937557d83788b71a238ff790da58fd9":[12,0,16,0,25],
@@ -63,9 +65,10 @@ var NAVTREEINDEX16 =
 "classMonitor_1_1Monitoring.html#ae312943da7ffd0c3001eccd0a307483e":[12,0,16,0,0],
 "classMonitor_1_1Monitoring.html#ae64c6e6d5071cf5caf75196ea780aa8e":[12,0,16,0,39],
 "classMonitor_1_1Monitoring.html#ae8a62a34afcf4e3c02460ddb5f44573d":[12,0,16,0,21],
+"classMonitor_1_1Monitoring.html#aebfeb2e2c120ca6c85e589eb8a632518":[12,0,16,0,45],
 "classMonitor_1_1Monitoring.html#af2dc523822864b6e8e270dc2b1c06f38":[12,0,16,0,34],
 "classMonitor_1_1Monitoring.html#afa585fd1400f57247fe9a94c9e100fa7":[12,0,16,0,33],
-"classMonitor_1_1Monitoring.html#afba4a279b37a1e3545fa4e4296b86750":[12,0,16,0,44],
+"classMonitor_1_1Monitoring.html#afba4a279b37a1e3545fa4e4296b86750":[12,0,16,0,46],
 "classMonitor_1_1TrackSelector.html":[12,0,16,1],
 "classMonitor_1_1TrackSelector.html#a2bfa05f97869169c57cdb08d3778239a":[12,0,16,1,20],
 "classMonitor_1_1TrackSelector.html#a2c0d91c887789d78244a819206eddaed":[12,0,16,1,2],
@@ -246,8 +249,5 @@ var NAVTREEINDEX16 =
 "classMufluxDigiReco_1_1MufluxDigiReco.html#ae878e4ede25d14ffa1513cb7d131c53a":[12,0,21,0,12],
 "classMufluxDigiReco_1_1MufluxDigiReco.html#aeed02af644e71fb608c593b8cf228caf":[12,0,21,0,11],
 "classMufluxDigiReco_1_1MufluxDigiReco.html#af2c3890c9b3fcd6f8e620069ba03d9dd":[12,0,21,0,45],
-"classMufluxDigiReco_1_1MufluxDigiReco.html#afb468fcf88d105a7b59e93fd551b27bb":[12,0,21,0,28],
-"classMufluxDigiReco_1_1MufluxDigiReco.html#afbc6eabc7cd09e9bc21562609c5fe3b1":[12,0,21,0,27],
-"classMufluxDigiReco_1_1MufluxDigiReco.html#afc309ed29aafd0d66d9d5c9289df8a04":[12,0,21,0,2],
-"classMufluxDigiReco_1_1MufluxDigiReco.html#afc5832f839ddef5c043a4a31722fc323":[12,0,21,0,0]
+"classMufluxDigiReco_1_1MufluxDigiReco.html#afb468fcf88d105a7b59e93fd551b27bb":[12,0,21,0,28]
 };
