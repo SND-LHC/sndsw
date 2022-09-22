@@ -491,7 +491,7 @@ $(document).ready(function(){initNavTree('DAQ__monitoring_8py_source.html',''); 
 <div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;                     mx = h[<span class="stringliteral">&#39;time&#39;</span>+ty+x].GetMaximum()</div>
 <div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;                     <span class="keywordflow">if</span> mx&gt;hmax: hmax = mx</div>
 <div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;                 <span class="keywordflow">for</span> ty <span class="keywordflow">in</span> [<span class="stringliteral">&#39;&#39;</span>,<span class="stringliteral">&#39;Wt&#39;</span>,<span class="stringliteral">&#39;WtDS&#39;</span>]:</div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;                     h[<span class="stringliteral">&#39;time&#39;</span>+ty+x].SetMaximum(mx)</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;                     h[<span class="stringliteral">&#39;time&#39;</span>+ty+x].SetMaximum(hmax)</div>
 <div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;                     h[<span class="stringliteral">&#39;time&#39;</span>+ty+x].SetStats(0)</div>
 <div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;                 h[<span class="stringliteral">&#39;time&#39;</span>+x].Draw()</div>
 <div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;                 h[<span class="stringliteral">&#39;timeWt&#39;</span>+x].SetLineColor(ROOT.kRed)</div>
