@@ -128,6 +128,8 @@ Variables</h2></td></tr>
 <tr class="separator:a937b6ebf22548b018c4baefa5a208a91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad4c18651bdda9f6d42a179c453a3f0c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceFillingScheme.html#aad4c18651bdda9f6d42a179c453a3f0c">FillingScheme.withIP2</a></td></tr>
 <tr class="separator:aad4c18651bdda9f6d42a179c453a3f0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e4cdf55bb018cc450f7275266439a65"><td class="memItemLeft" align="right" valign="top">dictionary&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceFillingScheme.html#a3e4cdf55bb018cc450f7275266439a65">FillingScheme.problems</a> = {}</td></tr>
+<tr class="separator:a3e4cdf55bb018cc450f7275266439a65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2ca33f55854f32884d8b2f6739d2d5d"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceFillingScheme.html#ab2ca33f55854f32884d8b2f6739d2d5d">FillingScheme.offline</a> = os.environ['EOSSHIP']+&quot;/eos/experiment/sndlhc/www/offline.html&quot;</td></tr>
 <tr class="separator:ab2ca33f55854f32884d8b2f6739d2d5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af847f28067a183b0e832b082ee723312"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceFillingScheme.html#af847f28067a183b0e832b082ee723312">FillingScheme.status</a></td></tr>
@@ -154,14 +156,22 @@ Variables</h2></td></tr>
 <tr class="separator:a2d26941648eee21a90e0d40cfea98715"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5696558457490aa17833c97d22b60976"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceFillingScheme.html#a5696558457490aa17833c97d22b60976">FillingScheme.r</a> = z[0]</td></tr>
 <tr class="separator:a5696558457490aa17833c97d22b60976"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5044f46474d5277ad5de231a7227e7eb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceFillingScheme.html#a5044f46474d5277ad5de231a7227e7eb">FillingScheme.postScale</a></td></tr>
+<tr class="memitem:a5044f46474d5277ad5de231a7227e7eb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceFillingScheme.html#a5044f46474d5277ad5de231a7227e7eb">FillingScheme.postScale</a> = Nevts/FS.h['time'].GetEntries()</td></tr>
 <tr class="separator:a5044f46474d5277ad5de231a7227e7eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a543fd0a8f996384e123a3e1cc270bbd0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceFillingScheme.html#a543fd0a8f996384e123a3e1cc270bbd0">FillingScheme.fillNumbers</a></td></tr>
 <tr class="separator:a543fd0a8f996384e123a3e1cc270bbd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71fd4a1cea01d9f9a1937c250440f0fb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceFillingScheme.html#a71fd4a1cea01d9f9a1937c250440f0fb">FillingScheme.runNumbers</a></td></tr>
 <tr class="separator:a71fd4a1cea01d9f9a1937c250440f0fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a45385d833d94a229d41ca37c9120f823"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceFillingScheme.html#a45385d833d94a229d41ca37c9120f823">FillingScheme.p</a> = open(options.path+&quot;FSdict.pkl&quot;,'wb')</td></tr>
-<tr class="separator:a45385d833d94a229d41ca37c9120f823"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f3834040da5b8524b3df754fef5a0e3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceFillingScheme.html#a3f3834040da5b8524b3df754fef5a0e3">FillingScheme.Nevts</a> = FS.getEntriesPerRun(r)</td></tr>
+<tr class="separator:a3f3834040da5b8524b3df754fef5a0e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3dd5ab0b7e2c0fd3fc1b340d1bbb3497"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceFillingScheme.html#a3dd5ab0b7e2c0fd3fc1b340d1bbb3497">FillingScheme.fillingScheme</a> = &quot;unknown&quot;</td></tr>
+<tr class="separator:a3dd5ab0b7e2c0fd3fc1b340d1bbb3497"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af00a3860a6e3c852a9bf60058d2fc88c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceFillingScheme.html#af00a3860a6e3c852a9bf60058d2fc88c">FillingScheme.x</a> = 1</td></tr>
+<tr class="separator:af00a3860a6e3c852a9bf60058d2fc88c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ce6a7e6f5fd3be3027edc67af3e5f94"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceFillingScheme.html#a0ce6a7e6f5fd3be3027edc67af3e5f94">FillingScheme.fp</a> = ROOT.TFile.Open('FSdict.root','recreate')</td></tr>
+<tr class="separator:a0ce6a7e6f5fd3be3027edc67af3e5f94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad65eaa7a77df2df616719afbbe75cadf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceFillingScheme.html#ad65eaa7a77df2df616719afbbe75cadf">FillingScheme.pkl</a> = Pickler(fp)</td></tr>
+<tr class="separator:ad65eaa7a77df2df616719afbbe75cadf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac4276f14127a03b10e74d49dc15d891e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceFillingScheme.html#ac4276f14127a03b10e74d49dc15d891e">FillingScheme.N</a></td></tr>
 <tr class="separator:ac4276f14127a03b10e74d49dc15d891e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>

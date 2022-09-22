@@ -1,5 +1,14 @@
 var NAVTREEINDEX15 =
 {
+"classGenieGenerator.html#abb250a301b37dd4157199f6cb5d861bb":[12,0,94,61],
+"classGenieGenerator.html#abb3327135face79d630176d066548e4a":[12,0,94,2],
+"classGenieGenerator.html#abc66e4178eddb9b795e6a48922119a07":[12,0,94,50],
+"classGenieGenerator.html#ac21037d4f14020030e9c93f153bf6a08":[12,0,94,18],
+"classGenieGenerator.html#ac24ae233191e58e32ba88bc1a59b672d":[12,0,94,25],
+"classGenieGenerator.html#ac41eff1990b44a13c75c97dfe3e735ea":[12,0,94,36],
+"classGenieGenerator.html#ac4de05620c620d858bf0fa433628b5bf":[12,0,94,19],
+"classGenieGenerator.html#ac7845a34e1ffcc2d59d55f79ed2e90a6":[12,0,94,15],
+"classGenieGenerator.html#ac842a0ee0ecfb7fb8edbd2ee1535ad93":[12,0,94,6],
 "classGenieGenerator.html#ad02010051c3bdef66eb4f82c960ae661":[12,0,94,43],
 "classGenieGenerator.html#ad61c24206bff3dfe2d15a5bd8fdc9973":[12,0,94,4],
 "classGenieGenerator.html#ad86598e00fc6996504671e21a6ed2d1e":[12,0,94,41],
@@ -240,14 +249,5 @@ var NAVTREEINDEX15 =
 "classMagneticSpectrometer.html#ac63ec1138af156cb98f23fd1075eadb6":[12,0,110,52],
 "classMagneticSpectrometer.html#ac6c90493959333e3f371d04796a8a878":[12,0,110,60],
 "classMagneticSpectrometer.html#ac85055dccd5841483ff9ae504fbd7844":[12,0,110,3],
-"classMagneticSpectrometer.html#ad079860a47d92679418131486f00572f":[12,0,110,35],
-"classMagneticSpectrometer.html#adb0627c6fbc0e5496e0cfaf845875156":[12,0,110,44],
-"classMagneticSpectrometer.html#added57ea05f6f4e56e1ed7e4812093f8":[12,0,110,78],
-"classMagneticSpectrometer.html#ae59bf4418bee08f5677edabb75829008":[12,0,110,81],
-"classMagneticSpectrometer.html#aee54771098f51fb3f32be60ba2c858a1":[12,0,110,91],
-"classMagneticSpectrometer.html#af1e926daae408de8fe601b80b3187d40":[12,0,110,40],
-"classMagneticSpectrometer.html#af5a97fa283c98f6be6f23169c234dd80":[12,0,110,22],
-"classMagneticSpectrometer.html#af652300ea35dfc83ec1572a7649b8f2a":[12,0,110,33],
-"classMagneticSpectrometer.html#af6bae9463e7fa075bc26fda9eaf21d79":[12,0,110,61],
-"classMagneticSpectrometer.html#afb3079391982d8a5aa2f30544c33581a":[12,0,110,79]
+"classMagneticSpectrometer.html#ad079860a47d92679418131486f00572f":[12,0,110,35]
 };

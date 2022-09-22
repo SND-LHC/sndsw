@@ -1,5 +1,14 @@
 var NAVTREEINDEX38 =
 {
+"classrpvsusy_1_1RPVSUSYbranchings.html#a9cfa56bd961d55bc91476c4d78b46626":[12,0,26,2,3],
+"classrpvsusy_1_1RPVSUSYbranchings.html#ab1a309ca678acff241daf5b12d1b12f2":[12,0,26,2,13],
+"classrpvsusy_1_1RPVSUSYbranchings.html#abdf1b89e90d00189cc64ed9de0076e26":[12,0,26,2,2],
+"classrpvsusy_1_1RPVSUSYbranchings.html#ac49ad38d0544fb5b5b5722b78e93228e":[12,0,26,2,4],
+"classrpvsusy_1_1RPVSUSYbranchings.html#ad47540ea6c20466ac70422ea4aad9c9b":[12,0,26,2,14],
+"classrpvsusy_1_1RPVSUSYbranchings.html#ae437078cdb34be321f49a65677c99ba9":[12,0,26,2,9],
+"classrpvsusy_1_1constants.html":[12,0,26,0],
+"classrpvsusy_1_1constants.html#a0188fb762c1c6bb7e7968cfd33bf213b":[12,0,26,0,5],
+"classrpvsusy_1_1constants.html#a270ed12590858d6e05ca79d111a7ac10":[12,0,26,0,8],
 "classrpvsusy_1_1constants.html#a28e9768a0c35f18e6ad7a42da1152763":[12,0,26,0,4],
 "classrpvsusy_1_1constants.html#a2b824ca88c465c0b7c26a493e30ede05":[12,0,26,0,9],
 "classrpvsusy_1_1constants.html#a93f72fb92dffdda3c26141271fba02c6":[12,0,26,0,6],
@@ -240,14 +249,5 @@ var NAVTREEINDEX38 =
 "classsimpleTarget.html#ae863ab623c58789c9e3bef31ca078974":[12,0,172,15],
 "classsimpleTarget.html#ae9abc37f73a633d434d21fe161422fa0":[12,0,172,33],
 "classsimpleTarget.html#aea4b317e38925b10544fdd76792e8f26":[12,0,172,11],
-"classsimpleTarget.html#af091ee6370eca7504088d660433e84c9":[12,0,172,5],
-"classsimpleTarget.html#af5f1ba15fe0975137f70aa2213cea419":[12,0,172,21],
-"classsndCluster.html":[12,0,173],
-"classsndCluster.html#a029872e2dd3502b51c29587ea7db8a22":[12,0,173,19],
-"classsndCluster.html#a2a8916026aceca2d68b292b425ee2ebc":[12,0,173,1],
-"classsndCluster.html#a3111d9b59283888bf21c2116a55752af":[12,0,173,3],
-"classsndCluster.html#a34c51e07dc24c15116d3722dd5c05689":[12,0,173,11],
-"classsndCluster.html#a34f2b1d43e5b6aaa49e7b7bf37d6660e":[12,0,173,16],
-"classsndCluster.html#a3cd50e47bc88a8a3bf45ef45077e9563":[12,0,173,14],
-"classsndCluster.html#a46a25686965017386a8e9fcce48c859b":[12,0,173,20]
+"classsimpleTarget.html#af091ee6370eca7504088d660433e84c9":[12,0,172,5]
 };

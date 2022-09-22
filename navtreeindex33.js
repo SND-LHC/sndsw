@@ -1,5 +1,14 @@
 var NAVTREEINDEX33 =
 {
+"classgenfit_1_1MaterialEffects.html#ad846bf2b189c096df79e536dc3421236":[12,0,13,40,46],
+"classgenfit_1_1MaterialEffects.html#ae410adc4c6be158bc3d4597d3ad4fd88":[12,0,13,40,8],
+"classgenfit_1_1MaterialEffects.html#ae410adc4c6be158bc3d4597d3ad4fd88":[12,0,13,40,9],
+"classgenfit_1_1MaterialEffects.html#ae55d4918d7db6a4b45b3f83a9fbe9d60":[12,0,13,40,61],
+"classgenfit_1_1MaterialEffects.html#aeac61e4cbe5d56a1f71327af174c30e0":[12,0,13,40,34],
+"classgenfit_1_1MaterialEffects.html#aeac61e4cbe5d56a1f71327af174c30e0":[12,0,13,40,35],
+"classgenfit_1_1MaterialEffects.html#af56aaa507db7a50993d21142b6ff85f1":[12,0,13,40,56],
+"classgenfit_1_1MaterialEffects.html#af5918231e0dc4c45a4d2af1ec77267a0":[12,0,13,40,48],
+"classgenfit_1_1MaterialEffects.html#af8b1789327ea62e6407e2d672448b323":[12,0,13,40,22],
 "classgenfit_1_1MaterialEffects.html#af8b1789327ea62e6407e2d672448b323":[12,0,13,40,23],
 "classgenfit_1_1MaterialProperties.html":[12,0,13,41],
 "classgenfit_1_1MaterialProperties.html#a01faa4b3ee16611ceb3533b525aaac4f":[12,0,13,41,15],
@@ -240,14 +249,5 @@ var NAVTREEINDEX33 =
 "classgenfit_1_1RKTrackRep.html#adcd6b3f8bd742ea90f3d890ff01452c3":[12,0,13,55,86],
 "classgenfit_1_1RKTrackRep.html#adcd6b3f8bd742ea90f3d890ff01452c3":[12,0,13,55,87],
 "classgenfit_1_1RKTrackRep.html#add04b97a56a22832fed2a96bfa45a597":[12,0,13,55,35],
-"classgenfit_1_1RKTrackRep.html#add04b97a56a22832fed2a96bfa45a597":[12,0,13,55,36],
-"classgenfit_1_1RKTrackRep.html#add17267d625d78c2df112bbf501f5753":[12,0,13,55,32],
-"classgenfit_1_1RKTrackRep.html#adda4fd1cb09adcd30afff0594e24519d":[12,0,13,55,100],
-"classgenfit_1_1RKTrackRep.html#ade2e4cf73880a2df757e9dd372bf7b00":[12,0,13,55,30],
-"classgenfit_1_1RKTrackRep.html#adf4865558fe7b54ffe94c3e145344505":[12,0,13,55,57],
-"classgenfit_1_1RKTrackRep.html#ae498a8cb248b5aa8dffb2555b6ca1925":[12,0,13,55,119],
-"classgenfit_1_1RKTrackRep.html#ae5b17345256ef11df15d571f9237f431":[12,0,13,55,108],
-"classgenfit_1_1RKTrackRep.html#ae5b17345256ef11df15d571f9237f431":[12,0,13,55,109],
-"classgenfit_1_1RKTrackRep.html#ae71e36989f017cc990fdd47e87bc4447":[12,0,13,55,76],
-"classgenfit_1_1RKTrackRep.html#ae76d29daa0524d65ed201eccf69c04f8":[12,0,13,55,121]
+"classgenfit_1_1RKTrackRep.html#add04b97a56a22832fed2a96bfa45a597":[12,0,13,55,36]
 };

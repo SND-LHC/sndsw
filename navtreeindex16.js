@@ -1,5 +1,14 @@
 var NAVTREEINDEX16 =
 {
+"classMagneticSpectrometer.html#adb0627c6fbc0e5496e0cfaf845875156":[12,0,110,44],
+"classMagneticSpectrometer.html#added57ea05f6f4e56e1ed7e4812093f8":[12,0,110,78],
+"classMagneticSpectrometer.html#ae59bf4418bee08f5677edabb75829008":[12,0,110,81],
+"classMagneticSpectrometer.html#aee54771098f51fb3f32be60ba2c858a1":[12,0,110,91],
+"classMagneticSpectrometer.html#af1e926daae408de8fe601b80b3187d40":[12,0,110,40],
+"classMagneticSpectrometer.html#af5a97fa283c98f6be6f23169c234dd80":[12,0,110,22],
+"classMagneticSpectrometer.html#af652300ea35dfc83ec1572a7649b8f2a":[12,0,110,33],
+"classMagneticSpectrometer.html#af6bae9463e7fa075bc26fda9eaf21d79":[12,0,110,61],
+"classMagneticSpectrometer.html#afb3079391982d8a5aa2f30544c33581a":[12,0,110,79],
 "classMagneticSpectrometer.html#afe30ed1eeeaff9bb2b02700fde5659ec":[12,0,110,85],
 "classMagneticSpectrometer.html#afeb6b5d1172cd4ae958d669bcee858c7":[12,0,110,21],
 "classMagneticSpectrometer.html#afedfeb88f40b13b01d59233bf0911086":[12,0,110,71],
@@ -240,14 +249,5 @@ var NAVTREEINDEX16 =
 "classMufluxDigiReco_1_1MufluxDigiReco.html#abd00de473bff5236ec640737139bd1ae":[12,0,21,0,24],
 "classMufluxDigiReco_1_1MufluxDigiReco.html#abfe151d8b5244e6e342334b8f9982136":[12,0,21,0,17],
 "classMufluxDigiReco_1_1MufluxDigiReco.html#ac3a886174856d397ac2a9f9cccb756e5":[12,0,21,0,15],
-"classMufluxDigiReco_1_1MufluxDigiReco.html#ac7581e5b1d124b1a552e3ca3f5d9ce47":[12,0,21,0,37],
-"classMufluxDigiReco_1_1MufluxDigiReco.html#ac7f68d7c4ad49c8c9bdbe88dff59e7a0":[12,0,21,0,6],
-"classMufluxDigiReco_1_1MufluxDigiReco.html#acc9b77abb565b55ff720b3762142efe1":[12,0,21,0,34],
-"classMufluxDigiReco_1_1MufluxDigiReco.html#ad75953c3dbe3e75834b04f4e3da8c800":[12,0,21,0,31],
-"classMufluxDigiReco_1_1MufluxDigiReco.html#adf80bc3bc64745888be7c2ce0be7aa2d":[12,0,21,0,39],
-"classMufluxDigiReco_1_1MufluxDigiReco.html#ae39c72da31ac6374c59bdd88f3457f28":[12,0,21,0,1],
-"classMufluxDigiReco_1_1MufluxDigiReco.html#ae878e4ede25d14ffa1513cb7d131c53a":[12,0,21,0,12],
-"classMufluxDigiReco_1_1MufluxDigiReco.html#aeed02af644e71fb608c593b8cf228caf":[12,0,21,0,11],
-"classMufluxDigiReco_1_1MufluxDigiReco.html#af2c3890c9b3fcd6f8e620069ba03d9dd":[12,0,21,0,45],
-"classMufluxDigiReco_1_1MufluxDigiReco.html#afb468fcf88d105a7b59e93fd551b27bb":[12,0,21,0,28]
+"classMufluxDigiReco_1_1MufluxDigiReco.html#ac7581e5b1d124b1a552e3ca3f5d9ce47":[12,0,21,0,37]
 };

@@ -1,5 +1,14 @@
 var NAVTREEINDEX32 =
 {
+"classgenfit_1_1HMatrixPhi.html#a662de13291934446b5530bb52e1cd80a":[12,0,13,30,0],
+"classgenfit_1_1HMatrixPhi.html#a7d06baf304e18ba532a9a9a1c75c7a1f":[12,0,13,30,6],
+"classgenfit_1_1HMatrixPhi.html#a88bd4dbf0ef920bc2f82c4da11f724a4":[12,0,13,30,8],
+"classgenfit_1_1HMatrixPhi.html#a9714525a5824769dbf6247a85599a513":[12,0,13,30,2],
+"classgenfit_1_1HMatrixPhi.html#aaf104025deafa26a05514999bc097044":[12,0,13,30,5],
+"classgenfit_1_1HMatrixPhi.html#ac34a3946ede1ec142401898e33ba842e":[12,0,13,30,1],
+"classgenfit_1_1HMatrixPhi.html#ae06cc332c6bc0cbd916c2683f1b5b244":[12,0,13,30,7],
+"classgenfit_1_1HMatrixPhi.html#aebdd9a198f28c1b569b36d5442047cdf":[12,0,13,30,3],
+"classgenfit_1_1HMatrixPhi.html#af60c2dae6f7ea0ad3d860ab579e1fd4b":[12,0,13,30,9],
 "classgenfit_1_1HMatrixU.html":[12,0,13,31],
 "classgenfit_1_1HMatrixU.html#a374d3cb66be6258fcb01547d21bf68f0":[12,0,13,31,1],
 "classgenfit_1_1HMatrixU.html#a3fdec7a06e2ccadaa609474468d66005":[12,0,13,31,4],
@@ -240,14 +249,5 @@ var NAVTREEINDEX32 =
 "classgenfit_1_1MaterialEffects.html#ac4c565af1e2b1a4fd41bdd42587c0e6c":[12,0,13,40,50],
 "classgenfit_1_1MaterialEffects.html#acce806f781a893d39b7f4962295bf08d":[12,0,13,40,54],
 "classgenfit_1_1MaterialEffects.html#ad70b89c30449b8603f6585d318696cd5":[12,0,13,40,6],
-"classgenfit_1_1MaterialEffects.html#ad70b89c30449b8603f6585d318696cd5":[12,0,13,40,7],
-"classgenfit_1_1MaterialEffects.html#ad846bf2b189c096df79e536dc3421236":[12,0,13,40,46],
-"classgenfit_1_1MaterialEffects.html#ae410adc4c6be158bc3d4597d3ad4fd88":[12,0,13,40,8],
-"classgenfit_1_1MaterialEffects.html#ae410adc4c6be158bc3d4597d3ad4fd88":[12,0,13,40,9],
-"classgenfit_1_1MaterialEffects.html#ae55d4918d7db6a4b45b3f83a9fbe9d60":[12,0,13,40,61],
-"classgenfit_1_1MaterialEffects.html#aeac61e4cbe5d56a1f71327af174c30e0":[12,0,13,40,34],
-"classgenfit_1_1MaterialEffects.html#aeac61e4cbe5d56a1f71327af174c30e0":[12,0,13,40,35],
-"classgenfit_1_1MaterialEffects.html#af56aaa507db7a50993d21142b6ff85f1":[12,0,13,40,56],
-"classgenfit_1_1MaterialEffects.html#af5918231e0dc4c45a4d2af1ec77267a0":[12,0,13,40,48],
-"classgenfit_1_1MaterialEffects.html#af8b1789327ea62e6407e2d672448b323":[12,0,13,40,22]
+"classgenfit_1_1MaterialEffects.html#ad70b89c30449b8603f6585d318696cd5":[12,0,13,40,7]
 };
