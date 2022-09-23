@@ -305,6 +305,7 @@ void EmulsionDet::ConstructGeometry()
 		volTarget->AddNode(volWall,l,new TGeoTranslation(-dx_survey[l]-XDimension/2., dz_survey[l]+YDimension/2., dy_survey[l]+TotalWallZDim/2.+WallZBorder_offset)); //the survey points refer to the down-left corner
 		d_cl_z += BrickZ + TTrackerZ;
 	  }
+	  LOG(INFO) <<"  EmDet X: "<< -dx_survey[0]-XDimension/2.<<"  Y: "<< dz_survey[0]+YDimension/2.<< "  Z: "<< dy_survey[0]+TotalWallZDim/2.+WallZBorder_offset;
 
 	//adding rows
 	Double_t d_cl_y = -WallYDim/2;
