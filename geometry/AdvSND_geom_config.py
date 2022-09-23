@@ -305,3 +305,15 @@ with ConfigRegistry.register_config("basic") as c:
         c.Magnet.ShiftX = -42 * u.cm
         c.Magnet.ShiftY = 42 * u.cm
         c.Magnet.ShiftZ = 780 * u.cm
+
+        # AdvSND Target & Tracker structure
+        c.AdvTarget = AttrDict(z=0*u.cm)
+        c.AdvTarget.TargetWallX = 100.0 * u.cm
+        c.AdvTarget.TargetWallY = 40.0 * u.cm
+        c.AdvTarget.TargetWallZ = 17.0 * u.cm
+
+        # Target Tracking stations
+        c.AdvTarget.TTX = c.AdvTarget.TargetWallX
+        c.AdvTarget.TTY = c.AdvTarget.TargetWallY
+        c.AdvTarget.TTZ = 3 * u.cm
+        c.AdvTarget.nTT = 5

@@ -41,6 +41,8 @@ sndScifiHit.cxx
 sndCluster.cxx
 Magnet.cxx
 MagnetPoint.cxx
+AdvTarget.cxx
+AdvTargetPoint.cxx
 SNDLHCEventHeader.cxx
 sndRecoTrack.cxx
 )
