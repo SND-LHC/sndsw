@@ -20,4 +20,6 @@
 #pragma link C++ class sndRecoTrack+;
 #pragma link C++ class Magnet+;
 #pragma link C++ class MagnetPoint+;
+#pragma link C++ class AdvTarget+;
+#pragma link C++ class AdvTargetPoint+;
 #endif
