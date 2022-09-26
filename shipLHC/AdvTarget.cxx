@@ -158,7 +158,7 @@ void AdvTarget::ConstructGeometry()
     //Definition of the target box containing tungsten walls + target trackers (TT) 
     TGeoVolumeAssembly *volAdvTarget  = new TGeoVolumeAssembly("volAdvTarget");
 
-    detector->AddNode(volAdvTarget,1,new TGeoTranslation(0,0,0));
+    detector->AddNode(volAdvTarget,1,new TGeoTranslation(-2.4244059999999976,0,0));
 
     // Positioning calculations, to be deleted once the whole AdvSND apparatus
     // will be positioned correctly
