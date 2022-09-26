@@ -144,7 +144,7 @@ void AdvTarget::ConstructGeometry()
     Double_t fTTX = conf_floats["AdvTarget/TTX"];
     Double_t fTTY = conf_floats["AdvTarget/TTY"];
     Double_t fTTZ = conf_floats["AdvTarget/TTZ"];
-    Int_t fnTT = conf_floats["AdvTarget/nTT"];
+    Int_t fnTT = conf_ints["AdvTarget/nTT"];
 
     TGeoBBox *TargetWall = new TGeoBBox("TargetWall", fTargetWallX/2., fTargetWallY/2., fTargetWallZ/2.);
     TGeoBBox *TTracker = new TGeoBBox("TTracker", fTTX/2., fTTY/2., fTTZ/2.);
@@ -160,15 +160,19 @@ void AdvTarget::ConstructGeometry()
 
     detector->AddNode(volAdvTarget,1,new TGeoTranslation(0,0,0));
 
+    // Positioning calculations, to be deleted once the whole AdvSND apparatus
+    // will be positioned correctly
     TVector3 EmWall0_survey(5.35+42.2/2., 17.2+42.2/2., 288.92+10/2.); // cm
+    Double_t TargetDiff = 100. - 63.941980;
     
     // adding walls & trackers
+    LOG(INFO) << " nTT: " << fnTT;
     for(int i=0; i<fnTT; i++)
     {
-        volAdvTarget->AddNode(volTargetWall, i, new TGeoTranslation(-EmWall0_survey.X()-(42.2/2.+fTargetWallX/4.), EmWall0_survey.Y(), EmWall0_survey.Z()+i*(fTargetWallZ+fTTZ)));
-        volAdvTarget->AddNode(volTTracker, i, new TGeoTranslation(-EmWall0_survey.X()-(42.2/2.+fTargetWallX/4.), EmWall0_survey.Y(), EmWall0_survey.Z()+i*(fTargetWallZ+fTTZ)+fTargetWallZ+fTTZ/2.));
+        volAdvTarget->AddNode(volTargetWall, i, new TGeoTranslation(-EmWall0_survey.X()+(fTargetWallX-42.2)/2., EmWall0_survey.Y(), -TargetDiff+EmWall0_survey.Z()+i*(fTargetWallZ+fTTZ)+fTargetWallZ/2.));
+        volAdvTarget->AddNode(volTTracker, i, new TGeoTranslation(-EmWall0_survey.X()+(fTargetWallX-42.2)/2., EmWall0_survey.Y(), -TargetDiff+EmWall0_survey.Z()+i*(fTargetWallZ+fTTZ)+fTargetWallZ+fTTZ/2.));
     }
-    LOG(INFO) <<"  Target X: "<< -EmWall0_survey.X()-(42.2/2.+fTargetWallX/4.)<<"  Y: "<< EmWall0_survey.Y()<< "  Z: "<< EmWall0_survey.Z();
+    LOG(INFO) <<"  Target X: "<< -EmWall0_survey.X()+(fTargetWallX-42.2)/2.<<"  Y: "<< EmWall0_survey.Y()<< "  Z: "<< EmWall0_survey.Z();
 }
 
 Bool_t  AdvTarget::ProcessHits(FairVolume* vol)
