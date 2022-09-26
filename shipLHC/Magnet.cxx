@@ -139,6 +139,9 @@ void Magnet::ConstructGeometry()
     InitMedium("iron");
     TGeoMedium *Fe =gGeoManager->GetMedium("iron");
 
+    InitMedium("CoilCopper");
+    TGeoMedium *Cu  = gGeoManager->GetMedium("CoilCopper");
+
     InitMedium("Polystyrene");
     TGeoMedium *Polystyrene = gGeoManager->GetMedium("Polystyrene");
 
