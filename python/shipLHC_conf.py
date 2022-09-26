@@ -22,27 +22,27 @@ def configure(run,ship_geo,Gfield=''):
 			floor.SetConfPar("Floor/"+parName, parValue)
 		detectorList.append(floor)
 	
-	if "EmulsionDet" in ship_geo:
+	"""if "EmulsionDet" in ship_geo:
 		EmulsionDet = ROOT.EmulsionDet("EmulsionDet",ROOT.kTRUE)
 		for parName in ship_geo.EmulsionDet:
 			parValue = eval('ship_geo.EmulsionDet.'+parName)
 			EmulsionDet.SetConfPar("EmulsionDet/"+parName, parValue)
 		detectorList.append(EmulsionDet)
-     
+	
 	if "Scifi" in ship_geo:
 		Scifi = ROOT.Scifi("Scifi", ROOT.kTRUE)
 		for parName in ship_geo.Scifi:
 			parValue = eval('ship_geo.Scifi.'+parName)
 			Scifi.SetConfPar("Scifi/"+parName, parValue)
 		detectorList.append(Scifi)
-                
+	
 	if "MuFilter" in ship_geo:
 		MuFilter = ROOT.MuFilter("MuFilter",ROOT.kTRUE)
 		for parName in ship_geo.MuFilter:
 			parValue = eval('ship_geo.MuFilter.'+parName)
 			MuFilter.SetConfPar("MuFilter/"+parName, parValue)
 		detectorList.append(MuFilter)
-
+	"""
 	if "Magnet" in ship_geo: #Magnet is only available in advSND geometry files
 		Magnet = ROOT.Magnet("Magnet",ROOT.kTRUE)
 		for parName in ship_geo.Magnet:
@@ -56,6 +56,13 @@ def configure(run,ship_geo,Gfield=''):
 			parValue = eval('ship_geo.AdvTarget.'+parName)
 			AdvTarget.SetConfPar("AdvTarget/"+parName, parValue)
 		detectorList.append(AdvTarget)
+	
+	if "AdvMuFilter" in ship_geo: #AdvMuFilter is only available in advSND geometry files
+		AdvMuFilter = ROOT.AdvMuFilter("AdvMuFilter",ROOT.kTRUE)
+		for parName in ship_geo.AdvMuFilter:
+			parValue = eval('ship_geo.AdvMuFilter.'+parName)
+			AdvMuFilter.SetConfPar("AdvMuFilter/"+parName, parValue)
+		detectorList.append(AdvMuFilter)
 
 	print(detectorList)
 	detElements = {}
