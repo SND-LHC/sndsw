@@ -139,8 +139,8 @@ void Magnet::ConstructGeometry()
     InitMedium("iron");
     TGeoMedium *Fe =gGeoManager->GetMedium("iron");
 
-    InitMedium("CoilCopper");
-    TGeoMedium *Cu  = gGeoManager->GetMedium("CoilCopper");
+    InitMedium("Polystyrene");
+    TGeoMedium *Polystyrene = gGeoManager->GetMedium("Polystyrene");
 
     // MAGNET STRUCTURE
     Double_t fInMagX = conf_floats["Magnet/InMagX"];
@@ -206,7 +206,7 @@ void Magnet::ConstructGeometry()
     TGeoBBox *TrackPlane = new TGeoBBox("TrackPlane", fInMagX/2., fInMagY/2., fTrackerZ/2.);
 
     // TO BE PROPERLY ADDED
-    TGeoVolume *volTrackPlane = new TGeoVolume("volTrackPlane", TrackPlane, Cu); // add medium
+    TGeoVolume *volTrackPlane = new TGeoVolume("volTrackPlane", TrackPlane, Polystyrene); // add medium
     volTrackPlane->SetLineColorAlpha(kBlue, 0.4);
     AddSensitiveVolume(volTrackPlane);
 
