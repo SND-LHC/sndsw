@@ -164,6 +164,8 @@ void AdvTarget::ConstructGeometry()
     // will be positioned correctly
     TVector3 EmWall0_survey(5.35+42.2/2., 17.2+42.2/2., 288.92+10/2.); // cm
     Double_t TargetDiff = 100. - 63.941980;
+
+    AddSensitiveVolume(volTTracker);
     
     // adding walls & trackers
     LOG(INFO) << " nTT: " << fnTT;
