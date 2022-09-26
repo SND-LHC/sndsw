@@ -1117,10 +1117,16 @@ tunnel->AddNode(exitPlane,1, new TGeoTranslation(0,0,1000.));
    displacement =
       TVector3(-37.79 - 1.40082, 44.66,
                367.96); // taken from MuFilter.cxx "edge_Iron[1]-TVector3(FeX, FeY, FeZ)" EDIT: 1.40082 for overlap fix
+
+Int_t fSkipColdBox = conf_ints["Floor/SkipColdBox"];
+
+if(fSkipColdBox !=1)
+{
    tunnel->AddNode(volColdBox, 0,
                    new TGeoTranslation(displacement.X() - (fCBRearWallXDim - fFeBlockX) / 2. + 28.5,
                                        displacement.Y() - (fCBFrontWallYDim - fFeBlockY) / 2. + 121,
                                        displacement.Z() + fAcrylicWidth - fFeBlockZ / 2. - fBPolyWidth + 1.));
+}
 
 if (SND_Z<0.1){ // for H6 and H8 testbeam setup
    top->AddNode(detector, 0);
