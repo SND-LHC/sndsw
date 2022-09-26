@@ -22,4 +22,6 @@
 #pragma link C++ class MagnetPoint+;
 #pragma link C++ class AdvTarget+;
 #pragma link C++ class AdvTargetPoint+;
+#pragma link C++ class AdvMuFilter+;
+#pragma link C++ class AdvMuFilterPoint+;
 #endif
