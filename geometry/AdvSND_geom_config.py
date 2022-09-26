@@ -282,6 +282,7 @@ with ConfigRegistry.register_config("basic") as c:
         c.Floor.MFeBlockX = c.MuFilter.FeX
         c.Floor.MFeBlockY = c.MuFilter.FeY
         c.Floor.MFeBlockZ = c.MuFilter.FeZ
+        c.Floor.SkipColdBox = 1
 
         # MagnetStructure
         c.Magnet = AttrDict(z=0*u.cm)
@@ -302,8 +303,8 @@ with ConfigRegistry.register_config("basic") as c:
         c.Magnet.LevArm = 100 * u.cm
 
         #shift around the magnetd (numbers tuned by hand)
-        c.Magnet.ShiftX = -42 * u.cm
-        c.Magnet.ShiftY = 42 * u.cm
+        c.Magnet.ShiftX = 0. * u.cm
+        c.Magnet.ShiftY = 38.3 * u.cm
         c.Magnet.ShiftZ = 780 * u.cm
 
         # AdvSND Target & Tracker structure
@@ -317,3 +318,13 @@ with ConfigRegistry.register_config("basic") as c:
         c.AdvTarget.TTY = c.AdvTarget.TargetWallY
         c.AdvTarget.TTZ = 3 * u.cm
         c.AdvTarget.nTT = 5
+
+        # AdvSND MuFilter structure
+        c.AdvMuFilter = AttrDict(z=0*u.cm)
+        c.AdvMuFilter.WallX = 120.0 * u.cm
+        c.AdvMuFilter.WallY = 60.0 * u.cm
+        c.AdvMuFilter.WallZ = 8.0 * u.cm
+        c.AdvMuFilter.PlaneX = c.AdvMuFilter.WallX
+        c.AdvMuFilter.PlaneY = c.AdvMuFilter.WallY
+        c.AdvMuFilter.PlaneZ = 2 * u.cm
+        c.AdvMuFilter.nPlanes = 22
