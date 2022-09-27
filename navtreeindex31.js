@@ -1,5 +1,16 @@
 var NAVTREEINDEX31 =
 {
+"classgenfit_1_1EventDisplay.html#a1868a4fc0c76287f5c6b38402659eb82":[12,0,13,14,3],
+"classgenfit_1_1EventDisplay.html#a1a49e5038efa258fbebc4d57ded45e52":[12,0,13,14,59],
+"classgenfit_1_1EventDisplay.html#a1a4be170e34b45b41ab6e1b686ada362":[12,0,13,14,25],
+"classgenfit_1_1EventDisplay.html#a1afb1af1b3294ece542ee3a1e9a279e3":[12,0,13,14,30],
+"classgenfit_1_1EventDisplay.html#a1b1544012896871ee09cdb954ce4dde4":[12,0,13,14,8],
+"classgenfit_1_1EventDisplay.html#a1e74f01489565386c9a5731291e35dbc":[12,0,13,14,75],
+"classgenfit_1_1EventDisplay.html#a1ec91590521d53516671980211683729":[12,0,13,14,49],
+"classgenfit_1_1EventDisplay.html#a23d670fb33e0cbba8ecde0d69463571c":[12,0,13,14,62],
+"classgenfit_1_1EventDisplay.html#a273f0f885e02d740befd1d3b18489a16":[12,0,13,14,4],
+"classgenfit_1_1EventDisplay.html#a294470305559030667e010db718d3f3a":[12,0,13,14,6],
+"classgenfit_1_1EventDisplay.html#a2c68de24ef90acf0d26a69da83619a7e":[12,0,13,14,36],
 "classgenfit_1_1EventDisplay.html#a319fe692e6f16d35a5ec4ab55a0eab27":[12,0,13,14,80],
 "classgenfit_1_1EventDisplay.html#a3997176492fe762ca400d0165bd6ce51":[12,0,13,14,27],
 "classgenfit_1_1EventDisplay.html#a3aa96da8f0486f3420b620cebb6b9f00":[12,0,13,14,0],
@@ -238,16 +249,5 @@ var NAVTREEINDEX31 =
 "classgenfit_1_1GFRaveVertexFactory.html#a64426ebcb0c668186e4968d88ef04c07":[12,0,13,27,10],
 "classgenfit_1_1GFRaveVertexFactory.html#a8ead163cdca2540b605aed3419290e50":[12,0,13,27,2],
 "classgenfit_1_1GFRaveVertexFactory.html#ab7ae62a2e0f2764b6406dc243ba60093":[12,0,13,27,1],
-"classgenfit_1_1GFRaveVertexFactory.html#af910f488d147bd5c640f89b0a261abb2":[12,0,13,27,5],
-"classgenfit_1_1GoliathField.html":[12,0,13,28],
-"classgenfit_1_1GoliathField.html#a47320ab7d3cf4cfe119915f9c0686716":[12,0,13,28,0],
-"classgenfit_1_1GoliathField.html#a84b602bd7d6668c110faf213df0f6c2a":[12,0,13,28,4],
-"classgenfit_1_1GoliathField.html#ac5ca45e76b59e8909620b767f6c1afcd":[12,0,13,28,5],
-"classgenfit_1_1GoliathField.html#ad26da22f76d313f5f34f4fb44aac45fe":[12,0,13,28,6],
-"classgenfit_1_1GoliathField.html#adc17ce41afe1e1f6c43d417bd640a0d8":[12,0,13,28,2],
-"classgenfit_1_1GoliathField.html#ae2e4ac9f1fee1b2508924efd599c1763":[12,0,13,28,7],
-"classgenfit_1_1GoliathField.html#af489e615c3e0031f9396f4339e04b7bc":[12,0,13,28,3],
-"classgenfit_1_1GoliathField.html#afc4d0e5cb2d1a0e809e39c097b930106":[12,0,13,28,1],
-"classgenfit_1_1HMatrixPhi.html":[12,0,13,30],
-"classgenfit_1_1HMatrixPhi.html#a53cdff537c3e1e0e861576ffed6dafb4":[12,0,13,30,4]
+"classgenfit_1_1GFRaveVertexFactory.html#af910f488d147bd5c640f89b0a261abb2":[12,0,13,27,5]
 };

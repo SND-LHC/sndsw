@@ -1,5 +1,16 @@
 var NAVTREEINDEX16 =
 {
+"classMagneticSpectrometer.html#ab50b6b7a75409d1bb507df683bcd5cd8":[12,0,110,56],
+"classMagneticSpectrometer.html#ab592a686fe7d12f6cf52d7ed8c996abc":[12,0,110,28],
+"classMagneticSpectrometer.html#ab867435a585716097e647498a7adbe38":[12,0,110,23],
+"classMagneticSpectrometer.html#abc415c6e518edfbb3b2dbe73c8a666fa":[12,0,110,39],
+"classMagneticSpectrometer.html#ac15983b692cac131f5b3c0e96d49b58d":[12,0,110,68],
+"classMagneticSpectrometer.html#ac27335cb2109522b0fe275f161c69545":[12,0,110,77],
+"classMagneticSpectrometer.html#ac5f88b23e25db565cee8554a6afcb773":[12,0,110,82],
+"classMagneticSpectrometer.html#ac63ec1138af156cb98f23fd1075eadb6":[12,0,110,52],
+"classMagneticSpectrometer.html#ac6c90493959333e3f371d04796a8a878":[12,0,110,60],
+"classMagneticSpectrometer.html#ac85055dccd5841483ff9ae504fbd7844":[12,0,110,3],
+"classMagneticSpectrometer.html#ad079860a47d92679418131486f00572f":[12,0,110,35],
 "classMagneticSpectrometer.html#adb0627c6fbc0e5496e0cfaf845875156":[12,0,110,44],
 "classMagneticSpectrometer.html#added57ea05f6f4e56e1ed7e4812093f8":[12,0,110,78],
 "classMagneticSpectrometer.html#ae59bf4418bee08f5677edabb75829008":[12,0,110,81],
@@ -238,16 +249,5 @@ var NAVTREEINDEX16 =
 "classMufluxDigiReco_1_1MufluxDigiReco.html#a880a87309d74d4ceca3addf27e7a25fa":[12,0,21,0,48],
 "classMufluxDigiReco_1_1MufluxDigiReco.html#a90d648123e6bc08b376cd1a0fb7b2ea7":[12,0,21,0,19],
 "classMufluxDigiReco_1_1MufluxDigiReco.html#a9d7e09c64e3cb251e6c8aab13be51c30":[12,0,21,0,14],
-"classMufluxDigiReco_1_1MufluxDigiReco.html#aa238e1a5d18ddcc2bb3759ae94df2ac8":[12,0,21,0,4],
-"classMufluxDigiReco_1_1MufluxDigiReco.html#aa414704a5189229839442f4557c596fa":[12,0,21,0,42],
-"classMufluxDigiReco_1_1MufluxDigiReco.html#aa922fa810af8bc440339e369a1624a4f":[12,0,21,0,38],
-"classMufluxDigiReco_1_1MufluxDigiReco.html#aa9ab0e43969c66b104b6c51bfdf296a6":[12,0,21,0,30],
-"classMufluxDigiReco_1_1MufluxDigiReco.html#ab92b0217ea1c55bd177fa0056dabffbc":[12,0,21,0,8],
-"classMufluxDigiReco_1_1MufluxDigiReco.html#ab9ae4cbd406731ac82a6a7a7689dd952":[12,0,21,0,46],
-"classMufluxDigiReco_1_1MufluxDigiReco.html#ab9f075ad21c10b444f8f8d875d6fb569":[12,0,21,0,21],
-"classMufluxDigiReco_1_1MufluxDigiReco.html#aba403a0ef288a7c248f86ef397e34764":[12,0,21,0,20],
-"classMufluxDigiReco_1_1MufluxDigiReco.html#abd00de473bff5236ec640737139bd1ae":[12,0,21,0,24],
-"classMufluxDigiReco_1_1MufluxDigiReco.html#abfe151d8b5244e6e342334b8f9982136":[12,0,21,0,17],
-"classMufluxDigiReco_1_1MufluxDigiReco.html#ac3a886174856d397ac2a9f9cccb756e5":[12,0,21,0,15],
-"classMufluxDigiReco_1_1MufluxDigiReco.html#ac7581e5b1d124b1a552e3ca3f5d9ce47":[12,0,21,0,37]
+"classMufluxDigiReco_1_1MufluxDigiReco.html#aa238e1a5d18ddcc2bb3759ae94df2ac8":[12,0,21,0,4]
 };

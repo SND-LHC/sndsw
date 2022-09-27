@@ -1,5 +1,16 @@
 var NAVTREEINDEX20 =
 {
+"classShipBFieldMap.html#a15af42927232f8c6fdba7b80d7a02b75":[12,0,149,25],
+"classShipBFieldMap.html#a18a79ff151a25d3051a0beb0e398cb9a":[12,0,149,75],
+"classShipBFieldMap.html#a1b67158ae179d38d9a21c0aff8a4637a":[12,0,149,17],
+"classShipBFieldMap.html#a1ca6516488c38f8effab03e4b6ef05ab":[12,0,149,64],
+"classShipBFieldMap.html#a1d73fa4ef7f0cf2173d29ce77e40127c":[12,0,149,97],
+"classShipBFieldMap.html#a1f037b96866ce64297220a5065b24aa6":[12,0,149,0],
+"classShipBFieldMap.html#a21ba2ca604f36c99d2f427934ebbd2dc":[12,0,149,1],
+"classShipBFieldMap.html#a23fc5866bcd2e4009b99bc3824f5ee48":[12,0,149,37],
+"classShipBFieldMap.html#a258c7e0e8b3fb6c301a3c07b6ab7f76f":[12,0,149,31],
+"classShipBFieldMap.html#a30473cde240111d345691dc38bbb9088":[12,0,149,92],
+"classShipBFieldMap.html#a308e307e932b4b35ad963ec61593cac5":[12,0,149,3],
 "classShipBFieldMap.html#a33dcb6aa577c8ad204850953dd3d99c9":[12,0,149,58],
 "classShipBFieldMap.html#a352c01b50449bd888308ffe0cc52b860":[12,0,149,7],
 "classShipBFieldMap.html#a376afd5b8219a75317a65976fa8e41b9":[12,0,149,73],
@@ -238,16 +249,5 @@ var NAVTREEINDEX20 =
 "classShipFieldPar.html#a6e22c7e3e2d6e18d1dc3c4ed25ed5abe":[12,0,156,1],
 "classShipFieldPar.html#a74bf8648ba40d80f454b74d06f3bfc5d":[12,0,156,19],
 "classShipFieldPar.html#a794905541da64d153952c2155c901dc3":[12,0,156,17],
-"classShipFieldPar.html#a87d7f48e81bcbf3cd91cde6ba805c998":[12,0,156,6],
-"classShipFieldPar.html#a88318d0dcee5ec9fc3b3ebfaaec431b4":[12,0,156,30],
-"classShipFieldPar.html#a89fb49ba68fd1233518d5ef6138c55a6":[12,0,156,43],
-"classShipFieldPar.html#a923328f792d346bb6ffdcdd8e00167b2":[12,0,156,28],
-"classShipFieldPar.html#a9521c14141d11c262fb61e99f71a17df":[12,0,156,11],
-"classShipFieldPar.html#aa04ed74fbf5893614ede3dae70ccbb32":[12,0,156,39],
-"classShipFieldPar.html#aa2ec7a14aff16186a51379cabea422f5":[12,0,156,2],
-"classShipFieldPar.html#aa5b0859e9ef85800a0ddc4f6bacfcaab":[12,0,156,27],
-"classShipFieldPar.html#ac226277c6be863e441e0606235706d9b":[12,0,156,12],
-"classShipFieldPar.html#ac25a718480defbfd957e31c651f0e272":[12,0,156,10],
-"classShipFieldPar.html#ac36fa2454e00651bdbf7e25caa89cbe2":[12,0,156,38],
-"classShipFieldPar.html#ac62e9de8b015adf47b1776cf6ce8970c":[12,0,156,26]
+"classShipFieldPar.html#a87d7f48e81bcbf3cd91cde6ba805c998":[12,0,156,6]
 };

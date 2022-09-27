@@ -1,5 +1,16 @@
 var NAVTREEINDEX36 =
 {
+"classhcalAnalysisSimple.html#a55205319ff781dfb6dc3e0edb4e4572e":[12,0,96,2],
+"classhcalAnalysisSimple.html#a5736f7a34a41208c19caccc638462796":[12,0,96,12],
+"classhcalAnalysisSimple.html#a5a6c289ad62b386855d6fb5ffd8fb1bc":[12,0,96,1],
+"classhcalAnalysisSimple.html#a5b923b87f6497ee2c94355463bf47092":[12,0,96,10],
+"classhcalAnalysisSimple.html#a71c555183f5dcc8471c7706e125c02dc":[12,0,96,14],
+"classhcalAnalysisSimple.html#a741d6f5b6c9e9401845c9c38964febf5":[12,0,96,22],
+"classhcalAnalysisSimple.html#a7e857d88a7c3c71f31a6f2807c920230":[12,0,96,0],
+"classhcalAnalysisSimple.html#a84370925acec704b75da8c6ca44372cd":[12,0,96,13],
+"classhcalAnalysisSimple.html#a847a5e1342c5cb9cc71b6d51e9af3903":[12,0,96,25],
+"classhcalAnalysisSimple.html#a89bb3ccce2210af5d48c7deb1526d767":[12,0,96,9],
+"classhcalAnalysisSimple.html#a99156bf56559a27aa31f19941850fcfc":[12,0,96,15],
 "classhcalAnalysisSimple.html#aa99a861ebf7fbc10a2da865132f308fc":[12,0,96,6],
 "classhcalAnalysisSimple.html#aab10ad1762b742aa197f6d5a288641d8":[12,0,96,20],
 "classhcalAnalysisSimple.html#ab62809d6b0aa0ea35ba3bea871946cc0":[12,0,96,23],
@@ -238,16 +249,5 @@ var NAVTREEINDEX36 =
 "classhnl_1_1HNLbranchings.html#a0d6420bd704afaa62884c4bf2515a4e3":[12,0,14,3,10],
 "classhnl_1_1HNLbranchings.html#a17ed7ac6840f3cc5b7c05587de9c735a":[12,0,14,3,23],
 "classhnl_1_1HNLbranchings.html#a184a4cd41016b35112af8f80cfe29497":[12,0,14,3,5],
-"classhnl_1_1HNLbranchings.html#a18dd22fbbd89b0589f70994472a1609b":[12,0,14,3,3],
-"classhnl_1_1HNLbranchings.html#a2798673390cd74bfc3744c2189eac8aa":[12,0,14,3,13],
-"classhnl_1_1HNLbranchings.html#a27a2003909d0f973b0e11204f4ea175e":[12,0,14,3,18],
-"classhnl_1_1HNLbranchings.html#a2a2dc72647878d32882dd51df60022b8":[12,0,14,3,8],
-"classhnl_1_1HNLbranchings.html#a33944aa876ee276f81f0d0e139891ee7":[12,0,14,3,12],
-"classhnl_1_1HNLbranchings.html#a37b3fe11bb2e531d8ca1ff9f7b9ce826":[12,0,14,3,22],
-"classhnl_1_1HNLbranchings.html#a39eef612ebacffe703835589a1f29eec":[12,0,14,3,11],
-"classhnl_1_1HNLbranchings.html#a3c9a00b61f6d63bc24ff826ff8fd9fd6":[12,0,14,3,19],
-"classhnl_1_1HNLbranchings.html#a6318d418722ff2d1a49d280bc3d14ecd":[12,0,14,3,7],
-"classhnl_1_1HNLbranchings.html#a82d1ecb0efc6a7dbbd3fbc0a50a426b8":[12,0,14,3,20],
-"classhnl_1_1HNLbranchings.html#a89cbb6c5120602cde4f7a23dd0427927":[12,0,14,3,24],
-"classhnl_1_1HNLbranchings.html#a8b66ab769a15c0d3730f621fb6be268c":[12,0,14,3,25]
+"classhnl_1_1HNLbranchings.html#a18dd22fbbd89b0589f70994472a1609b":[12,0,14,3,3]
 };

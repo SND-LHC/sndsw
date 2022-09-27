@@ -1,5 +1,16 @@
 var NAVTREEINDEX32 =
 {
+"classgenfit_1_1GoliathField.html":[12,0,13,28],
+"classgenfit_1_1GoliathField.html#a47320ab7d3cf4cfe119915f9c0686716":[12,0,13,28,0],
+"classgenfit_1_1GoliathField.html#a84b602bd7d6668c110faf213df0f6c2a":[12,0,13,28,4],
+"classgenfit_1_1GoliathField.html#ac5ca45e76b59e8909620b767f6c1afcd":[12,0,13,28,5],
+"classgenfit_1_1GoliathField.html#ad26da22f76d313f5f34f4fb44aac45fe":[12,0,13,28,6],
+"classgenfit_1_1GoliathField.html#adc17ce41afe1e1f6c43d417bd640a0d8":[12,0,13,28,2],
+"classgenfit_1_1GoliathField.html#ae2e4ac9f1fee1b2508924efd599c1763":[12,0,13,28,7],
+"classgenfit_1_1GoliathField.html#af489e615c3e0031f9396f4339e04b7bc":[12,0,13,28,3],
+"classgenfit_1_1GoliathField.html#afc4d0e5cb2d1a0e809e39c097b930106":[12,0,13,28,1],
+"classgenfit_1_1HMatrixPhi.html":[12,0,13,30],
+"classgenfit_1_1HMatrixPhi.html#a53cdff537c3e1e0e861576ffed6dafb4":[12,0,13,30,4],
 "classgenfit_1_1HMatrixPhi.html#a662de13291934446b5530bb52e1cd80a":[12,0,13,30,0],
 "classgenfit_1_1HMatrixPhi.html#a7d06baf304e18ba532a9a9a1c75c7a1f":[12,0,13,30,6],
 "classgenfit_1_1HMatrixPhi.html#a88bd4dbf0ef920bc2f82c4da11f724a4":[12,0,13,30,8],
@@ -238,16 +249,5 @@ var NAVTREEINDEX32 =
 "classgenfit_1_1MaterialEffects.html#a8bd536070da14d0a868a77ffa9cdaf43":[12,0,13,40,39],
 "classgenfit_1_1MaterialEffects.html#a8d618cfc9ec2695d43497ad211b24b97":[12,0,13,40,49],
 "classgenfit_1_1MaterialEffects.html#a93acc2502e31dcab3526ed1bb883144a":[12,0,13,40,10],
-"classgenfit_1_1MaterialEffects.html#a93acc2502e31dcab3526ed1bb883144a":[12,0,13,40,11],
-"classgenfit_1_1MaterialEffects.html#a9c604002cb66d43e99da8802e3b8918e":[12,0,13,40,14],
-"classgenfit_1_1MaterialEffects.html#a9c604002cb66d43e99da8802e3b8918e":[12,0,13,40,15],
-"classgenfit_1_1MaterialEffects.html#aa4ecb7709e7ec5e39be04ea8ab8a8bd3":[12,0,13,40,51],
-"classgenfit_1_1MaterialEffects.html#aaf71292f777094d1163d47b958c6695b":[12,0,13,40,52],
-"classgenfit_1_1MaterialEffects.html#ac214dbc17882ff7ad2361f3663cda989":[12,0,13,40,59],
-"classgenfit_1_1MaterialEffects.html#ac425ed685c232b8246102df465359e39":[12,0,13,40,36],
-"classgenfit_1_1MaterialEffects.html#ac425ed685c232b8246102df465359e39":[12,0,13,40,37],
-"classgenfit_1_1MaterialEffects.html#ac4c565af1e2b1a4fd41bdd42587c0e6c":[12,0,13,40,50],
-"classgenfit_1_1MaterialEffects.html#acce806f781a893d39b7f4962295bf08d":[12,0,13,40,54],
-"classgenfit_1_1MaterialEffects.html#ad70b89c30449b8603f6585d318696cd5":[12,0,13,40,6],
-"classgenfit_1_1MaterialEffects.html#ad70b89c30449b8603f6585d318696cd5":[12,0,13,40,7]
+"classgenfit_1_1MaterialEffects.html#a93acc2502e31dcab3526ed1bb883144a":[12,0,13,40,11]
 };
