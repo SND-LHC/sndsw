@@ -188,7 +188,12 @@ void Floor::ConstructGeometry()
 
          auto localSND_physCS_rot      = new TGeoRotation("localSND_physCS_rot");
          localSND_physCS_rot ->SetMatrix(M);
-         auto localSND_physCS_comb = new TGeoCombiTrans("localSND_physCS",0.,0.,0.,localSND_physCS_rot);    // origin is 480m downstream of IP1
+         // Moving SND apparatus to fit the AdvMagnet
+         Double_t ShiftX = 0.;
+         Double_t ShiftY = 30.;
+         Double_t ShiftZ = -400.;
+         ////////////////////////////////////////////
+         auto localSND_physCS_comb = new TGeoCombiTrans("localSND_physCS",0.+ShiftX,0.+ShiftY, 0.+ShiftZ,localSND_physCS_rot);    // origin is 480m downstream of IP1, shifting the apparatus 4m upstream
          localSND_physCS_comb->RegisterYourself();
 
          Double_t fTunnelDX = conf_floats["Floor/DX"];
@@ -357,7 +362,13 @@ void Floor::ConstructGeometry()
 
   }
   LOG(DEBUG) << "shapes "<<shapes[0]->GetName()<<" "<<shapes[1]->GetName()<<" "<<shapes[2]->GetName();
-  auto total = new TGeoCompositeShape("Stotal","TI18_1_union+TI18_2_union+TI18_3_union");
+  /**** Hand changes to fit the AdvSND apparatus ****/ 
+  TVector3 detdim(89.998020, 107.989308, 362.541092+2.);
+  auto Detpos = new TGeoTranslation("Detpos", -0.2024000+ShiftX, 30.581334+ShiftY, 620.85947+ShiftZ);
+  Detpos->RegisterYourself();
+  auto DetShape = new TGeoBBox("DetShape", detdim.X(), detdim.Y(), detdim.Z());
+  /////////////////////////////////////////////
+  auto total = new TGeoCompositeShape("Stotal","TI18_1_union+TI18_2_union+TI18_3_union-DetShape:Detpos");
   auto volT = new TGeoVolume("VTI18",total,concrete);
   volT->SetTransparency(0);
   volT->SetLineColor(kGray);
