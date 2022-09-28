@@ -1,5 +1,6 @@
 var NAVTREEINDEX54 =
 {
+"namespaceCMBG__conf.html":[11,0,14],
 "namespaceCalibration-TDC.html":[11,0,9],
 "namespaceCalibration.html":[11,0,8],
 "namespaceConvRawData.html":[11,0,25],
@@ -96,8 +97,8 @@ var NAVTREEINDEX54 =
 "namespaceconditionsDatabase_1_1tests_1_1benchmark__api.html":[11,0,16,12,0],
 "namespaceconditionsDatabase_1_1tests_1_1dummydata__generator.html":[11,0,16,12,1],
 "namespaceconditionsDatabase_1_1tests_1_1test__factory.html":[11,0,16,12,2],
-"namespaceconditionsDatabase_1_1tests_1_1test__mongodb.html":[12,0,0,4,0],
 "namespaceconditionsDatabase_1_1tests_1_1test__mongodb.html":[11,0,16,12,3],
+"namespaceconditionsDatabase_1_1tests_1_1test__mongodb.html":[12,0,0,4,0],
 "namespaceconditionsDatabase_1_1tests_1_1test__mongodb_1_1generate__test__db.html":[11,0,16,12,3,0],
 "namespaceconditionsDatabase_1_1tests_1_1test__mongodb_1_1test__mongodbadapter.html":[11,0,16,12,3,1],
 "namespaceconfigGenieGenerator.html":[11,0,18],
@@ -130,8 +131,8 @@ var NAVTREEINDEX54 =
 "namespaceflux__map.html":[11,0,46],
 "namespaceg4Ex.html":[12,0,9],
 "namespaceg4Ex.html":[11,0,47],
-"namespaceg4Ex__args.html":[11,0,48],
 "namespaceg4Ex__args.html":[12,0,10],
+"namespaceg4Ex__args.html":[11,0,48],
 "namespaceg4Ex__gap.html":[12,0,11],
 "namespaceg4Ex__gap.html":[11,0,49],
 "namespaceg4Ex__gap__mergeFiles.html":[11,0,50],
@@ -248,6 +249,5 @@ var NAVTREEINDEX54 =
 "namespacemembers_w.html":[11,1,0,23],
 "namespacemembers_x.html":[11,1,0,24],
 "namespacemembers_y.html":[11,1,0,25],
-"namespacemembers_z.html":[11,1,0,26],
-"namespacemergeMbias.html":[11,0,73]
+"namespacemembers_z.html":[11,1,0,26]
 };

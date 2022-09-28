@@ -1,5 +1,6 @@
 var NAVTREEINDEX32 =
 {
+"classgenfit_1_1GFRaveVertexFactory.html#a447dee38522fd05c35813aabd83b3cb9":[12,0,13,27,8],
 "classgenfit_1_1GFRaveVertexFactory.html#a64426ebcb0c668186e4968d88ef04c07":[12,0,13,27,10],
 "classgenfit_1_1GFRaveVertexFactory.html#a8ead163cdca2540b605aed3419290e50":[12,0,13,27,2],
 "classgenfit_1_1GFRaveVertexFactory.html#ab7ae62a2e0f2764b6406dc243ba60093":[12,0,13,27,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX32 =
 "classgenfit_1_1MaterialEffects.html#a712961899bbb038025dd7c93f7a1f0a0":[12,0,13,40,55],
 "classgenfit_1_1MaterialEffects.html#a7137c0035a51946cd1bbafe5db0feb26":[12,0,13,40,41],
 "classgenfit_1_1MaterialEffects.html#a747462261565d20ad0592d352a320b58":[12,0,13,40,45],
-"classgenfit_1_1MaterialEffects.html#a7885d1cfa4608f0ed72f087e8fbb04c6":[12,0,13,40,47],
-"classgenfit_1_1MaterialEffects.html#a8bd536070da14d0a868a77ffa9cdaf43":[12,0,13,40,38]
+"classgenfit_1_1MaterialEffects.html#a7885d1cfa4608f0ed72f087e8fbb04c6":[12,0,13,40,47]
 };

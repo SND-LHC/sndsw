@@ -1,5 +1,6 @@
 var NAVTREEINDEX29 =
 {
+"classg4Ex__gap_1_1MySteppingAction.html":[12,0,11,3],
 "classg4Ex__gap_1_1MySteppingAction.html#a5a1116e70bf6529a85b2e9b9134f244e":[12,0,11,3,0],
 "classg4Ex__gap_1_1MyTrackingAction.html":[12,0,11,4],
 "classg4Ex__gap_1_1MyTrackingAction.html#a1adb0009677ccaa46c7cbbcac4040e57":[12,0,11,4,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX29 =
 "classgenfit_1_1AbsFitterInfo.html#a7d8404c3f773530eefc19bb718268cdd":[12,0,13,3,13],
 "classgenfit_1_1AbsFitterInfo.html#a859195c5b44f392d7b0d01b145ed2350":[12,0,13,3,21],
 "classgenfit_1_1AbsFitterInfo.html#a872caeed8988f9d22718dae6d45752af":[12,0,13,3,6],
-"classgenfit_1_1AbsFitterInfo.html#a8c7ee0344a45000d54004721641e703d":[12,0,13,3,22],
-"classgenfit_1_1AbsFitterInfo.html#a985d0203f46dfbd5dc253bb03b21d76f":[12,0,13,3,10]
+"classgenfit_1_1AbsFitterInfo.html#a8c7ee0344a45000d54004721641e703d":[12,0,13,3,22]
 };

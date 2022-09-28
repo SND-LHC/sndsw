@@ -1,5 +1,6 @@
 var NAVTREEINDEX30 =
 {
+"classgenfit_1_1AbsFitterInfo.html#a985d0203f46dfbd5dc253bb03b21d76f":[12,0,13,3,10],
 "classgenfit_1_1AbsFitterInfo.html#a9b0a9a9f888d9241bd12c2d43652a44d":[12,0,13,3,4],
 "classgenfit_1_1AbsFitterInfo.html#aa14d9635b1a8ea12dd82ce20c4c951e8":[12,0,13,3,8],
 "classgenfit_1_1AbsFitterInfo.html#aa402e9e057390d1d53e3d067b9618e3d":[12,0,13,3,9],
@@ -248,6 +249,5 @@ var NAVTREEINDEX30 =
 "classgenfit_1_1DetPlane.html#aff5dd8121aa383d34012677a57cd8119":[12,0,13,13,38],
 "classgenfit_1_1EventDisplay.html":[12,0,13,14],
 "classgenfit_1_1EventDisplay.html#a030466585097e76a6ec344c2c67f7056":[12,0,13,14,29],
-"classgenfit_1_1EventDisplay.html#a077e36982491e92eeaae8bde85b778d1":[12,0,13,14,13],
-"classgenfit_1_1EventDisplay.html#a091ab371e4f870e75d089a01231507f4":[12,0,13,14,45]
+"classgenfit_1_1EventDisplay.html#a077e36982491e92eeaae8bde85b778d1":[12,0,13,14,13]
 };

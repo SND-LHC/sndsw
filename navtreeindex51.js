@@ -1,5 +1,6 @@
 var NAVTREEINDEX51 =
 {
+"makeMuonDIS_8py.html#ae6604713bfdf9f671121f945ee4f102f":[13,0,10,10,40],
 "makeMuonDIS_8py.html#ae846b1aea667ae5d214d5cba58173d17":[13,0,10,10,42],
 "makeMuonDIS_8py.html#ae93c27727c9e814ab01cb2f0cfef948a":[13,0,10,10,26],
 "makeMuonDIS_8py.html#aea03e176ca77c739d4294c1ea8a4009a":[13,0,10,10,18],
@@ -248,6 +249,5 @@ var NAVTREEINDEX51 =
 "mpdef_8f90.html#afe963c43f122c4bee5e863b41c3ea540":[13,0,8,14,3],
 "mpdef_8f90_source.html":[13,0,8,14],
 "mphistab_8f90.html":[13,0,8,15],
-"mphistab_8f90.html#a080a392c68fcea196d331b844ead9ffd":[13,0,8,15,3],
-"mphistab_8f90.html#a0c10636054e5389ae1edf80dc039c03f":[13,0,8,15,6]
+"mphistab_8f90.html#a080a392c68fcea196d331b844ead9ffd":[13,0,8,15,3]
 };
