@@ -9,5 +9,6 @@ var classScifi__monitoring_1_1Scifi__residuals =
     [ "parallelToZ", "classScifi__monitoring_1_1Scifi__residuals.html#a727d9761b0bd65e76e54fcfea3929373", null ],
     [ "projs", "classScifi__monitoring_1_1Scifi__residuals.html#aaa355c6bec3cbf480136e8d489f5a988", null ],
     [ "trackTask", "classScifi__monitoring_1_1Scifi__residuals.html#affe44e956c341819532868d6de7d9025", null ],
-    [ "unbiased", "classScifi__monitoring_1_1Scifi__residuals.html#aba0cb6396c0fa6f88b9a1135cd850ac4", null ]
+    [ "unbiased", "classScifi__monitoring_1_1Scifi__residuals.html#aba0cb6396c0fa6f88b9a1135cd850ac4", null ],
+    [ "xing", "classScifi__monitoring_1_1Scifi__residuals.html#a528702b5cc95610f10d3043a5266fe05", null ]
 ];

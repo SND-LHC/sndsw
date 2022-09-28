@@ -1,5 +1,8 @@
 var NAVTREEINDEX18 =
 {
+"classNuTauMudet.html#a62e12d9f7886a6b06515e8632c14eb7e":[12,0,127,84],
+"classNuTauMudet.html#a62e2e37c43f0dcb35b35325863e0d0d5":[12,0,127,44],
+"classNuTauMudet.html#a631f677d7cbdcf70cde75e21cb5a88fa":[12,0,127,32],
 "classNuTauMudet.html#a6490021b5cdffddab525a86c37bebb6e":[12,0,127,99],
 "classNuTauMudet.html#a64980e3ff36d83d5220409e8e070dfba":[12,0,127,30],
 "classNuTauMudet.html#a659fd5639a30e9a9c19b98c312f4fe31":[12,0,127,3],
@@ -246,8 +249,5 @@ var NAVTREEINDEX18 =
 "classPythia8Generator.html#a6cccef60f9c11c8de3e613df19421a71":[12,0,135,16],
 "classPythia8Generator.html#a766dfaf8723a09de917ffb5cf1006716":[12,0,135,25],
 "classPythia8Generator.html#a7be219b7323a50ac6da295870c2c8eb2":[12,0,135,50],
-"classPythia8Generator.html#a84bca5e9ce97caf243358d5419e3d045":[12,0,135,51],
-"classPythia8Generator.html#aa30d2c72d3db89285c0adf3a7f8a042f":[12,0,135,35],
-"classPythia8Generator.html#aa498e05a635cf167bff206f62ffbee4c":[12,0,135,37],
-"classPythia8Generator.html#aa66765891a7fd1913ef0c20334847dc7":[12,0,135,14]
+"classPythia8Generator.html#a84bca5e9ce97caf243358d5419e3d045":[12,0,135,51]
 };
