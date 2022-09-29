@@ -1188,7 +1188,7 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;        F.Close()</div>
 <div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;        F = ROOT.TFile(<span class="stringliteral">&#39;BunchStructureLHC.root&#39;</span>,<span class="stringliteral">&#39;recreate&#39;</span>)</div>
 <div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;        <span class="keywordflow">for</span> newname <span class="keywordflow">in</span> h:</div>
-<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;                <span class="keywordflow">if</span> <span class="keywordflow">not</span> newname.find(<span class="stringliteral">&#39;lhc-&#39;</span>) == 0:continuee</div>
+<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;                <span class="keywordflow">if</span> <span class="keywordflow">not</span> newname.find(<span class="stringliteral">&#39;lhc-&#39;</span>) == 0:<span class="keywordflow">continue</span></div>
 <div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;                X = {}</div>
 <div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;                <span class="keywordflow">for</span> p <span class="keywordflow">in</span> h[newname].GetListOfPrimitives():</div>
 <div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;                   X[p.GetName()] = p</div>
