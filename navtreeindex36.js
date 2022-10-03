@@ -1,5 +1,6 @@
 var NAVTREEINDEX36 =
 {
+"classhcal.html#af672921f24bfe04a571255b9efc6ae0e":[12,0,95,29],
 "classhcalAnalysisSimple.html":[12,0,96],
 "classhcalAnalysisSimple.html#a0964bf99bbeb3a6356dd967032df60eb":[12,0,96,16],
 "classhcalAnalysisSimple.html#a12dee356a6e89746221c64b1ef83dc41":[12,0,96,8],
@@ -248,6 +249,5 @@ var NAVTREEINDEX36 =
 "classhnl_1_1HNL.html":[12,0,14,2],
 "classhnl_1_1HNL.html#a2c57c92735e2eab104e7120886baf1f4":[12,0,14,2,0],
 "classhnl_1_1HNL.html#ac8b1edf92fab04434a8e8b4d17c3dfa8":[12,0,14,2,1],
-"classhnl_1_1HNL.html#accc040ffc002976230069ee1fa9e7f7c":[12,0,14,2,2],
-"classhnl_1_1HNLbranchings.html":[12,0,14,3]
+"classhnl_1_1HNL.html#accc040ffc002976230069ee1fa9e7f7c":[12,0,14,2,2]
 };

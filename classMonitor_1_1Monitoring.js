@@ -30,6 +30,7 @@ var classMonitor_1_1Monitoring =
     [ "freq", "classMonitor_1_1Monitoring.html#ada9b830a25b8652dae955959dc8ff245", null ],
     [ "fsdict", "classMonitor_1_1Monitoring.html#a1c1b1b9009398faa409a87e7eea5e439", null ],
     [ "h", "classMonitor_1_1Monitoring.html#a5524daec48315ddb2f1a73b7502b3b5a", null ],
+    [ "MonteCarlo", "classMonitor_1_1Monitoring.html#a4217a9f8e39a0bf8be32ed3fd35bdaee", null ],
     [ "MuFilter", "classMonitor_1_1Monitoring.html#a7210ec4478ba8a953c3650efa43faf4d", null ],
     [ "myclient", "classMonitor_1_1Monitoring.html#a1b6a5c3daee94cb4cd7066ee5ec7daf2", null ],
     [ "options", "classMonitor_1_1Monitoring.html#a34be249aae685597def103d7bee7ec18", null ],
@@ -47,6 +48,7 @@ var classMonitor_1_1Monitoring =
     [ "TEnd", "classMonitor_1_1Monitoring.html#a06ac44c4fadbfb48b47590683164bd01", null ],
     [ "trackTask", "classMonitor_1_1Monitoring.html#a3d7f9af833e62fc2252ff2a1b401f10b", null ],
     [ "TStart", "classMonitor_1_1Monitoring.html#aebfeb2e2c120ca6c85e589eb8a632518", null ],
+    [ "Weight", "classMonitor_1_1Monitoring.html#a69b3f4595d5349e0dcc44b8daddb7b3e", null ],
     [ "xing", "classMonitor_1_1Monitoring.html#a1f132aeaa3ba7000ebe78816d916cb2f", null ],
     [ "zPos", "classMonitor_1_1Monitoring.html#afba4a279b37a1e3545fa4e4296b86750", null ]
 ];

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['d_1023',['D',['../namespacescifiSimAna.html#a9e22e2ed53bc0872da99509408af79df',1,'scifiSimAna.D()'],['../namespacescifiSimAna.html#ab64686ffc63755ba75fdd721036059a0',1,'scifiSimAna.d()']]],
+  ['d_1023',['d',['../namespacescifiSimAna.html#ab64686ffc63755ba75fdd721036059a0',1,'scifiSimAna.d()'],['../namespacescifiSimAna.html#a9e22e2ed53bc0872da99509408af79df',1,'scifiSimAna.D()']]],
   ['d0_1024',['d0',['../namespacerunPythia8.html#a0b04bdf8836597be3171571fce868402',1,'runPythia8']]],
   ['d1_1025',['d1',['../namespacerunPythia8.html#adce18c0ee0c83717f9f76bb70903c598',1,'runPythia8']]],
   ['d1long_1026',['D1long',['../namespacecharm-geometry__config.html#a027d06a3ffa6e38a519dad3b7f0635bd',1,'charm-geometry_config.D1long()'],['../namespacecharm-geometry__config.html#acae886bcb82a6fef83d38da8b14cc6e7',1,'charm-geometry_config.D1Long()']]],

@@ -157,19 +157,20 @@ Public Attributes</h2></td></tr>
 <p class="definition">Definition at line <a class="el" href="Scifi__monitoring_8py_source.html#l00032">32</a> of file <a class="el" href="Scifi__monitoring_8py_source.html">Scifi_monitoring.py</a>.</p>
 <div class="fragment"><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;   <span class="keyword">def </span>ExecuteEvent(self,event):</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;       h = self.M.h</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;       mult = [0]*10</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;       <span class="keywordflow">for</span> aHit <span class="keywordflow">in</span> event.Digi_ScifiHits:</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;          <span class="keywordflow">if</span> <span class="keywordflow">not</span> aHit.isValid(): <span class="keywordflow">continue</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;          X =  self.M.<a class="code" href="namespaceSurvey-MufiScifi.html#a22945ced17adf3fafc6d3e7744c767a1">Scifi_xPos</a>(aHit.GetDetectorID())</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;          rc = h[detector+<span class="stringliteral">&#39;mat_&#39;</span>+<a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>(X[0]*3+X[1])].Fill(X[2])</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;          rc = h[detector+<span class="stringliteral">&#39;sig_&#39;</span>+<a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>(X[0]*3+X[1])].Fill(aHit.GetSignal(0))</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;          rc = h[detector+<span class="stringliteral">&#39;tdc_&#39;</span>+<a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>(X[0]*3+X[1])].Fill(aHit.GetTime(0))</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;          self.M.<a class="code" href="classScifi.html#a1b931ff9f46817177b0595f65c1e8f8f">Scifi.GetSiPMPosition</a>(aHit.GetDetectorID(),A,B)</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;          <span class="keywordflow">if</span> aHit.isVertical(): rc = h[detector+<span class="stringliteral">&#39;posX_&#39;</span>+<a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>(X[0])].Fill(A[0])</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;          <span class="keywordflow">else</span>:                     rc = h[detector+<span class="stringliteral">&#39;posY_&#39;</span>+<a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>(X[0])].Fill(A[1])</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;          mult[X[0]]+=1</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;       <span class="keywordflow">for</span> s <span class="keywordflow">in</span> range(10):</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;          rc = h[detector+<span class="stringliteral">&#39;mult_&#39;</span>+<a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>(s)].Fill(mult[s])</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;       W = self.M.Weight</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;       mult = [0]*10</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;       <span class="keywordflow">for</span> aHit <span class="keywordflow">in</span> event.Digi_ScifiHits:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;          <span class="keywordflow">if</span> <span class="keywordflow">not</span> aHit.isValid(): <span class="keywordflow">continue</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;          X =  self.M.<a class="code" href="namespaceSurvey-MufiScifi.html#a22945ced17adf3fafc6d3e7744c767a1">Scifi_xPos</a>(aHit.GetDetectorID())</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;          rc = h[detector+<span class="stringliteral">&#39;mat_&#39;</span>+<a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>(X[0]*3+X[1])].Fill(X[2],W)</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;          rc = h[detector+<span class="stringliteral">&#39;sig_&#39;</span>+<a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>(X[0]*3+X[1])].Fill(aHit.GetSignal(0),W)</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;          rc = h[detector+<span class="stringliteral">&#39;tdc_&#39;</span>+<a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>(X[0]*3+X[1])].Fill(aHit.GetTime(0),W)</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;          self.M.<a class="code" href="classScifi.html#a1b931ff9f46817177b0595f65c1e8f8f">Scifi.GetSiPMPosition</a>(aHit.GetDetectorID(),A,B)</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;          <span class="keywordflow">if</span> aHit.isVertical(): rc = h[detector+<span class="stringliteral">&#39;posX_&#39;</span>+<a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>(X[0])].Fill(A[0],W)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;          <span class="keywordflow">else</span>:                     rc = h[detector+<span class="stringliteral">&#39;posY_&#39;</span>+<a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>(X[0])].Fill(A[1],W)</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;          mult[X[0]]+=1</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;       <span class="keywordflow">for</span> s <span class="keywordflow">in</span> range(10):</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;          rc = h[detector+<span class="stringliteral">&#39;mult_&#39;</span>+<a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>(s)].Fill(mult[s],W)</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -244,39 +245,39 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Scifi__monitoring_8py_source.html#l00047">47</a> of file <a class="el" href="Scifi__monitoring_8py_source.html">Scifi_monitoring.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;   <span class="keyword">def </span>Plot(self):</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;       h = self.M.h</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;       ut.bookCanvas(h,detector+<span class="stringliteral">&#39;hitmaps&#39;</span>,<span class="stringliteral">&#39; &#39;</span>,1024,768,6,5)</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;       ut.bookCanvas(h,detector+<span class="stringliteral">&#39;signal&#39;</span>,<span class="stringliteral">&#39; &#39;</span>,1024,768,6,5)</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;       ut.bookCanvas(h,detector+<span class="stringliteral">&#39;tdc&#39;</span>,<span class="stringliteral">&#39; &#39;</span>,1024,768,6,5)</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;       <span class="keywordflow">for</span> mat <span class="keywordflow">in</span> range(30):</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;           tc = self.M.h[detector+<span class="stringliteral">&#39;hitmaps&#39;</span>].cd(mat+1)</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;           self.M.h[detector+<span class="stringliteral">&#39;mat_&#39;</span>+<a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>(mat)].Draw()</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;           tc = self.M.h[detector+<span class="stringliteral">&#39;signal&#39;</span>].cd(mat+1)</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;           self.M.h[detector+<span class="stringliteral">&#39;sig_&#39;</span>+<a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>(mat)].Draw()</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;           tc = self.M.h[detector+<span class="stringliteral">&#39;tdc&#39;</span>].cd(mat+1)</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;           self.M.h[detector+<span class="stringliteral">&#39;tdc_&#39;</span>+<a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>(mat)].Draw()</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;       ut.bookCanvas(h,detector+<span class="stringliteral">&#39;positions&#39;</span>,<span class="stringliteral">&#39; &#39;</span>,2048,768,5,2)</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;       ut.bookCanvas(h,detector+<span class="stringliteral">&#39;mult&#39;</span>,<span class="stringliteral">&#39; &#39;</span>,2048,768,5,2)</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;       <span class="keywordflow">for</span> s <span class="keywordflow">in</span> range(5):</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;           tc = self.M.h[detector+<span class="stringliteral">&#39;positions&#39;</span>].cd(s+1)</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;           self.M.h[detector+<span class="stringliteral">&#39;posY_&#39;</span>+<a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>(2*s)].Draw()</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;           tc = self.M.h[detector+<span class="stringliteral">&#39;positions&#39;</span>].cd(s+6)</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;           self.M.h[detector+<span class="stringliteral">&#39;posX_&#39;</span>+<a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>(2*s+1)].Draw()</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;           tc = self.M.h[detector+<span class="stringliteral">&#39;mult&#39;</span>].cd(s+1)</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;           tc.SetLogy(1)</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;           self.M.h[detector+<span class="stringliteral">&#39;mult_&#39;</span>+<a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>(2*s)].Draw()</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;           tc = self.M.h[detector+<span class="stringliteral">&#39;mult&#39;</span>].cd(s+6)</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;           tc.SetLogy(1)</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;           self.M.h[detector+<span class="stringliteral">&#39;mult_&#39;</span>+<a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>(2*s+1)].Draw()</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;       <span class="keywordflow">for</span> canvas <span class="keywordflow">in</span> [detector+<span class="stringliteral">&#39;hitmaps&#39;</span>,detector+<span class="stringliteral">&#39;signal&#39;</span>,detector+<span class="stringliteral">&#39;mult&#39;</span>]:</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;           self.M.h[canvas].Update()</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;           self.M.<a class="code" href="namespacethermalNeutrons.html#ade4a86257b5b457a4cdc893f794f16df">myPrint</a>(self.M.h[canvas],<span class="stringliteral">&quot;Scifi-&quot;</span>+canvas,subdir=<span class="stringliteral">&#39;scifi&#39;</span>)</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="Scifi__monitoring_8py_source.html#l00048">48</a> of file <a class="el" href="Scifi__monitoring_8py_source.html">Scifi_monitoring.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;   <span class="keyword">def </span>Plot(self):</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;       h = self.M.h</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;       ut.bookCanvas(h,detector+<span class="stringliteral">&#39;hitmaps&#39;</span>,<span class="stringliteral">&#39; &#39;</span>,1024,768,6,5)</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;       ut.bookCanvas(h,detector+<span class="stringliteral">&#39;signal&#39;</span>,<span class="stringliteral">&#39; &#39;</span>,1024,768,6,5)</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;       ut.bookCanvas(h,detector+<span class="stringliteral">&#39;tdc&#39;</span>,<span class="stringliteral">&#39; &#39;</span>,1024,768,6,5)</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;       <span class="keywordflow">for</span> mat <span class="keywordflow">in</span> range(30):</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;           tc = self.M.h[detector+<span class="stringliteral">&#39;hitmaps&#39;</span>].cd(mat+1)</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;           self.M.h[detector+<span class="stringliteral">&#39;mat_&#39;</span>+<a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>(mat)].Draw()</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;           tc = self.M.h[detector+<span class="stringliteral">&#39;signal&#39;</span>].cd(mat+1)</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;           self.M.h[detector+<span class="stringliteral">&#39;sig_&#39;</span>+<a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>(mat)].Draw()</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;           tc = self.M.h[detector+<span class="stringliteral">&#39;tdc&#39;</span>].cd(mat+1)</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;           self.M.h[detector+<span class="stringliteral">&#39;tdc_&#39;</span>+<a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>(mat)].Draw()</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;       ut.bookCanvas(h,detector+<span class="stringliteral">&#39;positions&#39;</span>,<span class="stringliteral">&#39; &#39;</span>,2048,768,5,2)</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;       ut.bookCanvas(h,detector+<span class="stringliteral">&#39;mult&#39;</span>,<span class="stringliteral">&#39; &#39;</span>,2048,768,5,2)</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;       <span class="keywordflow">for</span> s <span class="keywordflow">in</span> range(5):</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;           tc = self.M.h[detector+<span class="stringliteral">&#39;positions&#39;</span>].cd(s+1)</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;           self.M.h[detector+<span class="stringliteral">&#39;posY_&#39;</span>+<a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>(2*s)].Draw()</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;           tc = self.M.h[detector+<span class="stringliteral">&#39;positions&#39;</span>].cd(s+6)</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;           self.M.h[detector+<span class="stringliteral">&#39;posX_&#39;</span>+<a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>(2*s+1)].Draw()</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;           tc = self.M.h[detector+<span class="stringliteral">&#39;mult&#39;</span>].cd(s+1)</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;           tc.SetLogy(1)</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;           self.M.h[detector+<span class="stringliteral">&#39;mult_&#39;</span>+<a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>(2*s)].Draw()</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;           tc = self.M.h[detector+<span class="stringliteral">&#39;mult&#39;</span>].cd(s+6)</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;           tc.SetLogy(1)</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;           self.M.h[detector+<span class="stringliteral">&#39;mult_&#39;</span>+<a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>(2*s+1)].Draw()</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;       <span class="keywordflow">for</span> canvas <span class="keywordflow">in</span> [detector+<span class="stringliteral">&#39;hitmaps&#39;</span>,detector+<span class="stringliteral">&#39;signal&#39;</span>,detector+<span class="stringliteral">&#39;mult&#39;</span>]:</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;           self.M.h[canvas].Update()</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;           self.M.<a class="code" href="namespacethermalNeutrons.html#ade4a86257b5b457a4cdc893f794f16df">myPrint</a>(self.M.h[canvas],<span class="stringliteral">&quot;Scifi-&quot;</span>+canvas,subdir=<span class="stringliteral">&#39;scifi&#39;</span>)</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>

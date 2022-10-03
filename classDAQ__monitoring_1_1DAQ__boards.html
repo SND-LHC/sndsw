@@ -126,7 +126,7 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="DAQ__monitoring_8py_source.html#l00007">7</a> of file <a class="el" href="DAQ__monitoring_8py_source.html">DAQ_monitoring.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DAQ__monitoring_8py_source.html#l00006">6</a> of file <a class="el" href="DAQ__monitoring_8py_source.html">DAQ_monitoring.py</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a55ee76e52490add9fe1aa428b2e820e9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a55ee76e52490add9fe1aa428b2e820e9">&#9670;&nbsp;</a></span>ExecuteEvent()</h2>
@@ -154,9 +154,10 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DAQ__monitoring_8py_source.html#l00022">22</a> of file <a class="el" href="DAQ__monitoring_8py_source.html">DAQ_monitoring.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;   <span class="keyword">def </span>ExecuteEvent(self,event):</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;       h = self.M.h</div>
+<p class="definition">Definition at line <a class="el" href="DAQ__monitoring_8py_source.html#l00021">21</a> of file <a class="el" href="DAQ__monitoring_8py_source.html">DAQ_monitoring.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;   <span class="keyword">def </span>ExecuteEvent(self,event):</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;       h = self.M.h</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;       W = self.M.Weight</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;       mult = {<span class="stringliteral">&#39;scifi&#39;</span>: [0]*100,<span class="stringliteral">&#39;mufi&#39;</span>: [0]*100}</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;       <span class="keywordflow">for</span> aHit <span class="keywordflow">in</span> event.Digi_ScifiHits:</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;          daq = self.R.daqChannel(aHit)</div>
@@ -179,7 +180,7 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;       <span class="keywordflow">for</span> x <span class="keywordflow">in</span> mult:</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <span class="keywordflow">for</span> b <span class="keywordflow">in</span> range(len(mult[x])):</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;               rc = h[x+<span class="stringliteral">&#39;board&#39;</span>].Fill(b,mult[x][b])</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;               <span class="keywordflow">if</span> trigger &gt;0 <span class="keywordflow">and</span> <span class="keywordflow">not</span> b==trigger:  rc = h[x+<span class="stringliteral">&#39;board0&#39;</span>].Fill(b,mult[x][b])</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;               <span class="keywordflow">if</span> trigger &gt;0 <span class="keywordflow">and</span> <span class="keywordflow">not</span> b==trigger:  rc = h[x+<span class="stringliteral">&#39;board0&#39;</span>].Fill(b,mult[x][b],W)</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
 </div><!-- fragment -->
 </div>
@@ -216,20 +217,20 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DAQ__monitoring_8py_source.html#l00009">9</a> of file <a class="el" href="DAQ__monitoring_8py_source.html">DAQ_monitoring.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;   <span class="keyword">def </span>Init(self,options,monitor):</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;       self.M = monitor</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;       h = self.M.h</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;       ut.bookHist(h,<span class="stringliteral">&#39;scifiboard&#39;</span>,<span class="stringliteral">&#39;scifi hits per board; n&#39;</span>,100,-0.5,99.5,100,0.5,500.)</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;       ut.bookHist(h,<span class="stringliteral">&#39;mufiboard&#39;</span>,<span class="stringliteral">&#39;mufi hits per board; n&#39;</span>,100,-0.5,99.5,100,0.5,500.)</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;       ut.bookHist(h,<span class="stringliteral">&#39;scifiboard0&#39;</span>,<span class="stringliteral">&#39;scifi hits per board, unbiased; n&#39;</span>,100,-0.5,99.5,100,0.5,500.)</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;       ut.bookHist(h,<span class="stringliteral">&#39;mufiboard0&#39;</span>,<span class="stringliteral">&#39;mufi hits per board, unbiased; n&#39;</span>,100,-0.5,99.5,100,0.5,500.)</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;       self.R = <a class="code" href="classreverseMapping_1_1reversChannelMapping.html">reverseMapping.reversChannelMapping</a>()</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;       runNr = <a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>(options.runNumber).zfill(6)</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;       <span class="keywordflow">if</span> options.online:</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;          self.R.Init(options.server+options.path+<span class="stringliteral">&#39;run_&#39;</span>+ runNr+<span class="stringliteral">&#39;/&#39;</span>)</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;       <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;          self.R.Init(options.server+options.path.replace(<span class="stringliteral">&quot;convertedData&quot;</span>,<span class="stringliteral">&quot;raw_data&quot;</span>)+<span class="stringliteral">&quot;/data/run_&quot;</span>+runNr+<span class="stringliteral">&#39;/&#39;</span>)</div>
+<p class="definition">Definition at line <a class="el" href="DAQ__monitoring_8py_source.html#l00008">8</a> of file <a class="el" href="DAQ__monitoring_8py_source.html">DAQ_monitoring.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;   <span class="keyword">def </span>Init(self,options,monitor):</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;       self.M = monitor</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;       h = self.M.h</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;       ut.bookHist(h,<span class="stringliteral">&#39;scifiboard&#39;</span>,<span class="stringliteral">&#39;scifi hits per board; n&#39;</span>,100,-0.5,99.5,100,0.5,500.)</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;       ut.bookHist(h,<span class="stringliteral">&#39;mufiboard&#39;</span>,<span class="stringliteral">&#39;mufi hits per board; n&#39;</span>,100,-0.5,99.5,100,0.5,500.)</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;       ut.bookHist(h,<span class="stringliteral">&#39;scifiboard0&#39;</span>,<span class="stringliteral">&#39;scifi hits per board, unbiased; n&#39;</span>,100,-0.5,99.5,100,0.5,500.)</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;       ut.bookHist(h,<span class="stringliteral">&#39;mufiboard0&#39;</span>,<span class="stringliteral">&#39;mufi hits per board, unbiased; n&#39;</span>,100,-0.5,99.5,100,0.5,500.)</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;       self.R = <a class="code" href="classreverseMapping_1_1reversChannelMapping.html">reverseMapping.reversChannelMapping</a>()</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;       runNr = <a class="code" href="namespacethermalNeutrons.html#a775180c2aea7eee74babefb417120f58">str</a>(options.runNumber).zfill(6)</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;       <span class="keywordflow">if</span> options.online:</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;          self.R.Init(options.server+options.path+<span class="stringliteral">&#39;run_&#39;</span>+ runNr+<span class="stringliteral">&#39;/&#39;</span>)</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;       <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;          self.R.Init(options.server+options.path.replace(<span class="stringliteral">&quot;convertedData&quot;</span>,<span class="stringliteral">&quot;raw_data&quot;</span>)+<span class="stringliteral">&quot;/data/run_&quot;</span>+runNr+<span class="stringliteral">&#39;/&#39;</span>)</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -283,7 +284,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DAQ__monitoring_8py_source.html#l00010">10</a> of file <a class="el" href="DAQ__monitoring_8py_source.html">DAQ_monitoring.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DAQ__monitoring_8py_source.html#l00009">9</a> of file <a class="el" href="DAQ__monitoring_8py_source.html">DAQ_monitoring.py</a>.</p>
 
 </div>
 </div>
@@ -299,7 +300,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="DAQ__monitoring_8py_source.html#l00016">16</a> of file <a class="el" href="DAQ__monitoring_8py_source.html">DAQ_monitoring.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="DAQ__monitoring_8py_source.html#l00015">15</a> of file <a class="el" href="DAQ__monitoring_8py_source.html">DAQ_monitoring.py</a>.</p>
 
 </div>
 </div>

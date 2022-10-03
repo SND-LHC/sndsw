@@ -7,7 +7,7 @@ var classSndlhcTracking_1_1Tracking =
     [ "fitTrack", "classSndlhcTracking_1_1Tracking.html#ac98a51ef3199a2706ba72cfa5ae4e0cf", null ],
     [ "Init", "classSndlhcTracking_1_1Tracking.html#a3156421172309d85c0beeb7dadaaeb44", null ],
     [ "patternReco", "classSndlhcTracking_1_1Tracking.html#a6792f312f458ffdf2feb51831a1978c1", null ],
-    [ "Scifi_track", "classSndlhcTracking_1_1Tracking.html#a5584eb7a2316e53f53b63ed12d281020", null ],
+    [ "Scifi_track", "classSndlhcTracking_1_1Tracking.html#a273c6e3af58aed656eb7692585dbbc85", null ],
     [ "scifiCluster", "classSndlhcTracking_1_1Tracking.html#a4a7f40d7ff0bc28f0f076f82acb10b33", null ],
     [ "trackDir", "classSndlhcTracking_1_1Tracking.html#a98f5f32213a563a33ac04e0982d4d8e2", null ],
     [ "clusMufi", "classSndlhcTracking_1_1Tracking.html#a7e24c6cb62f7748727705262a6db948a", null ],
