@@ -1,5 +1,11 @@
 var NAVTREEINDEX65 =
 {
+"structquicktype_1_1Info.html#aca507e5d9ebbe2b3c8664d04f11a914b":[12,0,22,0,1],
+"structquicktype_1_1Info__scifi.html":[12,0,22,1],
+"structquicktype_1_1Info__scifi.html#a11252613c8431749c0af078fc2d5f014":[12,0,22,1,1],
+"structquicktype_1_1Info__scifi.html#a7a6c3d8907ff853434c6b246abd7e7d7":[12,0,22,1,2],
+"structquicktype_1_1Info__scifi.html#af4b0807882fc0cd9941d2fc6738ddd9f":[12,0,22,1,0],
+"structregression.html":[12,0,140],
 "structregression.html#a3fb8f5015917f4f7bfcaac4ed5131749":[12,0,140,1],
 "structregression.html#addfebfb4bb3557492de61edce69c88c7":[12,0,140,2],
 "structregression.html#af661759bf72b1d326f90c27cacb26512":[12,0,140,0],
@@ -243,11 +249,5 @@ var NAVTREEINDEX65 =
 "thermalNeutrons_8py.html#a371bd587fc8170ac605ba099a1e61f51":[13,0,19,37,7],
 "thermalNeutrons_8py.html#a38ecbc5367dad9ec4f6b044d8af9e342":[13,0,19,37,40],
 "thermalNeutrons_8py.html#a42d71d504e9eaaf9f4a73a2ffa0a86ad":[13,0,19,37,23],
-"thermalNeutrons_8py.html#a43fc9ceb5e04a2f83c7b153854e24532":[13,0,19,37,32],
-"thermalNeutrons_8py.html#a4d664ec4a4d752ea0f0ef767ea85f4e2":[13,0,19,37,26],
-"thermalNeutrons_8py.html#a4d9450e4d8dc9f5a0c53757e42a090f2":[13,0,19,37,9],
-"thermalNeutrons_8py.html#a5dcb290a8eefe2832f06ec34534f184b":[13,0,19,37,3],
-"thermalNeutrons_8py.html#a628a001d0964b33cf6b5b90df4a66a92":[13,0,19,37,33],
-"thermalNeutrons_8py.html#a677f5a84d872cd5623ddd97665a486a5":[13,0,19,37,37],
-"thermalNeutrons_8py.html#a71a994633bd6eda4ccb3a6b4086ef4f9":[13,0,19,37,22]
+"thermalNeutrons_8py.html#a43fc9ceb5e04a2f83c7b153854e24532":[13,0,19,37,32]
 };

@@ -1,5 +1,11 @@
 var NAVTREEINDEX28 =
 {
+"classecalStructure.html#ab05122cf3fea97435b62d1040642bd26":[12,0,85,24],
+"classecalStructure.html#ac60f6c12ee63ccdf8546053374be9323":[12,0,85,6],
+"classecalStructure.html#ac855bf7c93f3622af20ffde3f19a5948":[12,0,85,13],
+"classecalStructure.html#acabc23dad0e1eac9740029a60e8601c0":[12,0,85,32],
+"classecalStructure.html#acd00fbe6c53366b837a7ca9381695dbe":[12,0,85,18],
+"classecalStructure.html#acf5a3b0884475d15bd79d510d00a69c4":[12,0,85,34],
 "classecalStructure.html#ad15d328670247be2c235f43b1dc14aa2":[12,0,85,8],
 "classecalStructure.html#ad8f933bd4e3290a0a735b6f2d826a548":[12,0,85,29],
 "classecalStructure.html#ae2963585d0920545c71f02172d9779d5":[12,0,85,5],
@@ -243,11 +249,5 @@ var NAVTREEINDEX28 =
 "classg4Ex__args_1_1MySteppingAction.html#ab63cbaddc253b1dea5a6d924549b28a8":[12,0,10,3,0],
 "classg4Ex__args_1_1MyTrackingAction.html":[12,0,10,4],
 "classg4Ex__args_1_1MyTrackingAction.html#a6b60920d675c6602ea2c0eb0a1560008":[12,0,10,4,2],
-"classg4Ex__args_1_1MyTrackingAction.html#aa6da908983ca9fe96e831d08d6121c78":[12,0,10,4,0],
-"classg4Ex__args_1_1MyTrackingAction.html#aeb71f98eef0a6e449241b1edccd139d0":[12,0,10,4,1],
-"classg4Ex__args_1_1ScoreSD.html":[12,0,10,5],
-"classg4Ex__args_1_1ScoreSD.html#aa1ea8475b685a499193a69ce430a59c2":[12,0,10,5,1],
-"classg4Ex__args_1_1ScoreSD.html#acbd21390a7073711f2ed4fefb673c1c4":[12,0,10,5,0],
-"classg4Ex__gap_1_1MyEventAction.html":[12,0,11,0],
-"classg4Ex__gap_1_1MyEventAction.html#a493a9d860f1b46ad51dd1097c98ca011":[12,0,11,0,0]
+"classg4Ex__args_1_1MyTrackingAction.html#aa6da908983ca9fe96e831d08d6121c78":[12,0,10,4,0]
 };

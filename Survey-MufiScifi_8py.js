@@ -49,6 +49,7 @@ var Survey_MufiScifi_8py =
     [ "TimeCalibrationNtuple", "Survey-MufiScifi_8py.html#a7d62f51dc90f4e7518a9f99eec982ad6", null ],
     [ "TimeStudy", "Survey-MufiScifi_8py.html#ab4a9c1348d8caf1141fd085e044b79c8", null ],
     [ "twoLangaufun", "Survey-MufiScifi_8py.html#a678fc1a21dfe5c4cc955266a5a57b3c3", null ],
+    [ "TwoTrackFinder", "Survey-MufiScifi_8py.html#a2cd088cbdfb92f993a8eefee4068e7de", null ],
     [ "USDSEnergy", "Survey-MufiScifi_8py.html#abb972e60be1a90f13d839eeb9c2ffa40", null ],
     [ "USshower", "Survey-MufiScifi_8py.html#a461f4cda8fdb44ce344801f0ef01dc3d", null ],
     [ "weightedY", "Survey-MufiScifi_8py.html#a8a293489a64793ee76254b1edda8c685", null ],

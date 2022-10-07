@@ -1,6 +1,7 @@
 var 2dEventDisplay_8py =
 [
     [ "addTrack", "2dEventDisplay_8py.html#ab6b45944390fff2b18238394c71d7f4e", null ],
+    [ "bunchXtype", "2dEventDisplay_8py.html#aca4f4496412086aeb86fa83f9592b87d", null ],
     [ "cleanTracks", "2dEventDisplay_8py.html#afbae535de0db64e46e13c18c65e63cb9", null ],
     [ "drawDetectors", "2dEventDisplay_8py.html#a70750148eca7f9c6b1ed6415d2a5281c", null ],
     [ "drawInfo", "2dEventDisplay_8py.html#a519a7c7e7f54f74112b2d8e4e78e8368", null ],
@@ -14,6 +15,7 @@ var 2dEventDisplay_8py =
     [ "loopEvents", "2dEventDisplay_8py.html#aff6c7d6675f2f7c1336591b7b169f7f5", null ],
     [ "mufiNoise", "2dEventDisplay_8py.html#a6db68eb04225b4643f2cea6ceac3eee5", null ],
     [ "pyExit", "2dEventDisplay_8py.html#acf03047f0a1a9082ddbdb62fc5987467", null ],
+    [ "twoTrackEvent", "2dEventDisplay_8py.html#a32bc7a47f43538338e2bdc544bd97128", null ],
     [ "action", "2dEventDisplay_8py.html#aba68dd27e8e1fcd1a9644c7916c799e8", null ],
     [ "default", "2dEventDisplay_8py.html#a7f8aeb8803750b1968d17ec28074550a", null ],
     [ "dest", "2dEventDisplay_8py.html#a49a1843b75af5e3fadb169cd01a7b30f", null ],
@@ -24,6 +26,8 @@ var 2dEventDisplay_8py =
     [ "False", "2dEventDisplay_8py.html#aa5932d072d15d37527ca64680941e751", null ],
     [ "float", "2dEventDisplay_8py.html#a6578f854d1e4b74c0b9628efc3111c18", null ],
     [ "freq", "2dEventDisplay_8py.html#ab80bbb9f24c402ba770ff8dd527080b3", null ],
+    [ "fsdict", "2dEventDisplay_8py.html#a6b527f563b4e1d86409b6c996f0fc005", null ],
+    [ "FSdict", "2dEventDisplay_8py.html#a4680c3a0fc63cfcee84555532acf0e58", null ],
     [ "geo", "2dEventDisplay_8py.html#a7c11585c9836c5dbde124466317d1fe0", null ],
     [ "h", "2dEventDisplay_8py.html#a1e354e70b2f068bb73d84097157d0ac5", null ],
     [ "help", "2dEventDisplay_8py.html#aec785279f5969655198f2b0426474e16", null ],
@@ -38,6 +42,7 @@ var 2dEventDisplay_8py =
     [ "onlyScifi", "2dEventDisplay_8py.html#adfe39b577ea55ac261d9bf48e72588b2", null ],
     [ "options", "2dEventDisplay_8py.html#a3e5f14ceb315206640d3dd1e69c1e289", null ],
     [ "outFile", "2dEventDisplay_8py.html#affbbc5d16f5a321f2adc48c8424e3718", null ],
+    [ "p", "2dEventDisplay_8py.html#a2918f9cff316f2b18547d74d971f5e0f", null ],
     [ "parser", "2dEventDisplay_8py.html#af808f7035d03eae982a72789eba09e7d", null ],
     [ "required", "2dEventDisplay_8py.html#aa56dbe4d2ceadce99d0609a98eb15729", null ],
     [ "run", "2dEventDisplay_8py.html#a5fb1cb6c475cde014c1d69fa335956e9", null ],
