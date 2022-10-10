@@ -190,7 +190,7 @@ void Floor::ConstructGeometry()
          localSND_physCS_rot ->SetMatrix(M);
          // Moving SND apparatus to fit the AdvMagnet
          Double_t ShiftX = 0.;
-         Double_t ShiftY = 30.;
+         Double_t ShiftY = 0;
          Double_t ShiftZ = -400.;
          ////////////////////////////////////////////
          auto localSND_physCS_comb = new TGeoCombiTrans("localSND_physCS",0.+ShiftX,0.+ShiftY, 0.+ShiftZ,localSND_physCS_rot);    // origin is 480m downstream of IP1, shifting the apparatus 4m upstream
