@@ -1,5 +1,6 @@
 var NAVTREEINDEX37 =
 {
+"classhnl_1_1CKMmatrix.html#a276c1953b6b35919853ad088adc59319":[12,0,14,0,5],
 "classhnl_1_1CKMmatrix.html#a2c1363d8ac06847c250af5bf1e345b0a":[12,0,14,0,4],
 "classhnl_1_1CKMmatrix.html#a7051e86ba7d9a284377e3f937af258a0":[12,0,14,0,7],
 "classhnl_1_1CKMmatrix.html#a77d8c2175fd38ae35caad93b25dfb286":[12,0,14,0,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX37 =
 "classrootpyPickler_1_1ROOT__Proxy.html":[12,0,24,2],
 "classrootpyPickler_1_1ROOT__Proxy.html#a2899b866853e4ea36dd1ca77f2d5ea72":[12,0,24,2,1],
 "classrootpyPickler_1_1ROOT__Proxy.html#a4d3ea8e35bcaa9f243c8fecfc77f26ce":[12,0,24,2,0],
-"classrootpyPickler_1_1ROOT__Proxy.html#a5294e08db7c10b4866e4a77505813a1e":[12,0,24,2,3],
-"classrootpyPickler_1_1ROOT__Proxy.html#a79a96bab0809161d8e65dc5daf6afc96":[12,0,24,2,2]
+"classrootpyPickler_1_1ROOT__Proxy.html#a5294e08db7c10b4866e4a77505813a1e":[12,0,24,2,3]
 };

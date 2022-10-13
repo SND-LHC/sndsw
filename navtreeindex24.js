@@ -1,5 +1,6 @@
 var NAVTREEINDEX24 =
 {
+"classTimeDet.html#a8e66640ad9a9172dbaa3fcd4e82be38e":[12,0,189,51],
 "classTimeDet.html#a92e6713feaf6a5b41e9eeb4fc1ab71ee":[12,0,189,40],
 "classTimeDet.html#a9a3351b9a5430e959ff64e6ef98f5b14":[12,0,189,36],
 "classTimeDet.html#a9bafb2c11f54212aca104a51330e7f1c":[12,0,189,23],
@@ -248,6 +249,5 @@ var NAVTREEINDEX24 =
 "classUpstreamTaggerPoint.html#a534639d6e38961de6a81e8db36e06b9a":[12,0,198,7],
 "classUpstreamTaggerPoint.html#a7576c30753ffd565daaa99a55baa02aa":[12,0,198,2],
 "classUpstreamTaggerPoint.html#a8ff1361e74d7413c5295331e5f83f01e":[12,0,198,10],
-"classUpstreamTaggerPoint.html#aa4c0c215dc0d06b6c70870e5ac0a06a1":[12,0,198,1],
-"classUpstreamTaggerPoint.html#ab31e67267b5d6774bc4225f448f5c396":[12,0,198,8]
+"classUpstreamTaggerPoint.html#aa4c0c215dc0d06b6c70870e5ac0a06a1":[12,0,198,1]
 };

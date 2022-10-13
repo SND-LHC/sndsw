@@ -1,5 +1,6 @@
 var NAVTREEINDEX19 =
 {
+"classPythia8Generator.html#a4b5443ea33d87e4489560c1baf5bbdde":[12,0,135,32],
 "classPythia8Generator.html#a595517ad652ff2458e863287770cdbf0":[12,0,135,47],
 "classPythia8Generator.html#a5c42943975a845596b93d0ce864bbc64":[12,0,135,52],
 "classPythia8Generator.html#a667fa3cbfa0010ff6b95f0287c2d8641":[12,0,135,54],
@@ -248,6 +249,5 @@ var NAVTREEINDEX19 =
 "classScifi__monitoring_1_1Scifi__residuals.html#a727d9761b0bd65e76e54fcfea3929373":[12,0,29,1,6],
 "classScifi__monitoring_1_1Scifi__residuals.html#a79fe359cf74ec9cd9be0d8292e0e2df5":[12,0,29,1,5],
 "classScifi__monitoring_1_1Scifi__residuals.html#aaa355c6bec3cbf480136e8d489f5a988":[12,0,29,1,7],
-"classScifi__monitoring_1_1Scifi__residuals.html#aac183270f78405aad52642c496c82eda":[12,0,29,1,1],
-"classScifi__monitoring_1_1Scifi__residuals.html#aba0cb6396c0fa6f88b9a1135cd850ac4":[12,0,29,1,9]
+"classScifi__monitoring_1_1Scifi__residuals.html#aac183270f78405aad52642c496c82eda":[12,0,29,1,1]
 };

@@ -446,7 +446,7 @@ var searchData=
   ['setverbose_12796',['SetVerbose',['../classPythia6Generator.html#a64187d5c0756ff78a09ed78561b142aa',1,'Pythia6Generator']]],
   ['setvesselstructure_12797',['SetVesselStructure',['../classveto.html#a42e9d7c08b954ea09c928be6e798130a',1,'veto']]],
   ['setvetoydim_12798',['SetVetoYDim',['../classstrawtubes.html#a910413991324adf38e2036246120e7af',1,'strawtubes']]],
-  ['setweight_12799',['SetWeight',['../classShipMCTrack.html#a65915331fb3a53345fe464a92fac6185',1,'ShipMCTrack::SetWeight()'],['../classgenfit_1_1MeasurementOnPlane.html#aa7fe8ce59e9166fc9f88d5bfa43a2840',1,'genfit::MeasurementOnPlane::setWeight()']]],
+  ['setweight_12799',['setWeight',['../classgenfit_1_1MeasurementOnPlane.html#aa7fe8ce59e9166fc9f88d5bfa43a2840',1,'genfit::MeasurementOnPlane::setWeight()'],['../classShipMCTrack.html#a65915331fb3a53345fe464a92fac6185',1,'ShipMCTrack::SetWeight()']]],
   ['setweights_12800',['setWeights',['../classgenfit_1_1KalmanFitterInfo.html#a1bf7c6ec4567e7a38d18e85a27551871',1,'genfit::KalmanFitterInfo']]],
   ['setwiredir_12801',['setWireDir',['../classgenfit_1_1MeasurementCreator.html#a9100e7e87800ac828370005c6e8a7233',1,'genfit::MeasurementCreator']]],
   ['setwirethickness_12802',['SetWireThickness',['../classstrawtubes.html#abffe3638032074980d267544f339530d',1,'strawtubes']]],

@@ -1,5 +1,6 @@
 var NAVTREEINDEX29 =
 {
+"classg4Ex__args_1_1MyTrackingAction.html#aa6da908983ca9fe96e831d08d6121c78":[12,0,10,4,0],
 "classg4Ex__args_1_1MyTrackingAction.html#aeb71f98eef0a6e449241b1edccd139d0":[12,0,10,4,1],
 "classg4Ex__args_1_1ScoreSD.html":[12,0,10,5],
 "classg4Ex__args_1_1ScoreSD.html#aa1ea8475b685a499193a69ce430a59c2":[12,0,10,5,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX29 =
 "classgenfit_1_1AbsFitter.html#aeeba6cadd83d6181cce08d60aee871fe":[12,0,13,2,4],
 "classgenfit_1_1AbsFitter.html#af8db699e65731ea70f918c5f45705cbd":[12,0,13,2,0],
 "classgenfit_1_1AbsFitterInfo.html":[12,0,13,3],
-"classgenfit_1_1AbsFitterInfo.html#a0304623a2c5d943e18f1aee0be5cc436":[12,0,13,3,18],
-"classgenfit_1_1AbsFitterInfo.html#a1e4939d7accd7d64da1426d64f2b2dd0":[12,0,13,3,12]
+"classgenfit_1_1AbsFitterInfo.html#a0304623a2c5d943e18f1aee0be5cc436":[12,0,13,3,18]
 };
