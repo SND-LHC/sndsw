@@ -2,7 +2,7 @@ var classrunProd_1_1prodManager =
 [
     [ "check", "classrunProd_1_1prodManager.html#ab4fda19d485f922ff01ddff503472807", null ],
     [ "check4NewFiles", "classrunProd_1_1prodManager.html#a42c52ccd603675ebe2d22b2683f3c143", null ],
-    [ "checkEOS", "classrunProd_1_1prodManager.html#a06ad2e62356aac34e48817ffa4f5f242", null ],
+    [ "checkEOS", "classrunProd_1_1prodManager.html#a60bf2a173ddead90314377596ae242ba", null ],
     [ "checkFile", "classrunProd_1_1prodManager.html#ad48819d439d5348c525c79ade2c4f7cf", null ],
     [ "convert", "classrunProd_1_1prodManager.html#ada7b2d9e795ed4dd9ee25deb9b6d2460", null ],
     [ "copy2EOS", "classrunProd_1_1prodManager.html#ab32669fa82233d326881de726a44f0aa", null ],
@@ -26,5 +26,6 @@ var classrunProd_1_1prodManager =
     [ "Mext", "classrunProd_1_1prodManager.html#ad68803aabbb289ce7aa873e714809c19", null ],
     [ "missing", "classrunProd_1_1prodManager.html#a1fc3f96e3d8734e434f02654b2319d1e", null ],
     [ "options", "classrunProd_1_1prodManager.html#a3daee4f543037ea4bab8b54887419c27", null ],
+    [ "RawrunNrs", "classrunProd_1_1prodManager.html#ad8c59a8ce25299fb6bcf9015b1dbda9b", null ],
     [ "runNrs", "classrunProd_1_1prodManager.html#aa2a78c4560dcca2e0a4c8017a74fa46e", null ]
 ];

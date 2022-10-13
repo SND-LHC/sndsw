@@ -69,7 +69,7 @@ var searchData=
   ['ncpus_5332',['ncpus',['../namespacerunCharmHadProd.html#a73723768be756b5d2011a4324d357eeb',1,'runCharmHadProd.ncpus()'],['../namespacemuonDis.html#ab2d1753cd8942140e1dba98e151a7fb0',1,'muonDis.ncpus()'],['../namespacerunProd.html#ae1cfe608e0a180a7953bba0c2f7172ca',1,'runProd.ncpus()']]],
   ['ncrate_5333',['ncrate',['../structRawHit.html#ad9eab68a8ef634c771f1130104ffa753',1,'RawHit']]],
   ['ndbits_5334',['ndbits',['../mpbits_8f90.html#afc3196af7a116ae0050f96c940c03ba3',1,'mpbits.f90']]],
-  ['ndecaywidth_5335',['NdecayWidth',['../classrpvsusy_1_1RPVSUSYbranchings.html#a89dfeb0a95083e7ce8b65135e0c5227c',1,'rpvsusy.RPVSUSYbranchings.NdecayWidth()'],['../classhnl_1_1HNLbranchings.html#a184a4cd41016b35112af8f80cfe29497',1,'hnl.HNLbranchings.NDecayWidth()']]],
+  ['ndecaywidth_5335',['NDecayWidth',['../classhnl_1_1HNLbranchings.html#a184a4cd41016b35112af8f80cfe29497',1,'hnl.HNLbranchings.NDecayWidth()'],['../classrpvsusy_1_1RPVSUSYbranchings.html#a89dfeb0a95083e7ce8b65135e0c5227c',1,'rpvsusy.RPVSUSYbranchings.NdecayWidth()']]],
   ['ndefec_5336',['ndefec',['../namespacempmod.html#a934ba105d1133de87b31daaa20415cee',1,'mpmod']]],
   ['ndf_5f_5337',['ndf_',['../classgenfit_1_1FitStatus.html#a55f84cd0f1bf4204a4f7fb25d5138238',1,'genfit::FitStatus::ndf_()'],['../classgenfit_1_1KalmanFittedStateOnPlane.html#a664b4f9ef830745ade00412301df366f',1,'genfit::KalmanFittedStateOnPlane::ndf_()'],['../classgenfit_1_1GFRaveVertex.html#a05d9e6c5be0a476f526c39e934f28fad',1,'genfit::GFRaveVertex::ndf_()']]],
   ['ndfsum_5338',['ndfsum',['../namespacempmod.html#a8f38a22c9a76684594cede594cf9041c',1,'mpmod']]],

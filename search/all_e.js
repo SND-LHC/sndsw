@@ -317,7 +317,7 @@ var searchData=
   ['middlegap_4883',['MiddleGap',['../classShipTAUMagneticSpectrometer.html#aa467ecbbcc6edde152b8483e39611b30',1,'ShipTAUMagneticSpectrometer']]],
   ['midgapout7_4884',['midGapOut7',['../classShipMuonShield.html#a21953fa918831b1a65ca570efcf18439',1,'ShipMuonShield']]],
   ['midgapout8_4885',['midGapOut8',['../classShipMuonShield.html#aaf5a37898eb6b0008fab4a0ddf54ce64',1,'ShipMuonShield']]],
-  ['mille_4886',['Mille',['../classMille.html',1,'Mille'],['../classMille.html#aad70b3c4ad82fb3edc54e07643896788',1,'Mille::mille(int NLC, const float *derLc, int NGL, const float *derGl, const int *label, float rMeas, float sigma)'],['../classMille.html#ac2fcc95c85ec43587711267cf18bdebe',1,'Mille::Mille(const char *outFileName, bool asBinary=true, bool writeZero=false)'],['../mille_8f90.html#a416ecf9882c85fc319a99367ee41b432',1,'mille():&#160;mille.f90']]],
+  ['mille_4886',['Mille',['../classMille.html',1,'Mille'],['../classMille.html#ac2fcc95c85ec43587711267cf18bdebe',1,'Mille::Mille(const char *outFileName, bool asBinary=true, bool writeZero=false)'],['../classMille.html#aad70b3c4ad82fb3edc54e07643896788',1,'Mille::mille(int NLC, const float *derLc, int NGL, const float *derGl, const int *label, float rMeas, float sigma)'],['../mille_8f90.html#a416ecf9882c85fc319a99367ee41b432',1,'mille():&#160;mille.f90']]],
   ['mille_2ecc_4887',['Mille.cc',['../Mille_8cc.html',1,'']]],
   ['mille_2ef90_4888',['mille.f90',['../mille_8f90.html',1,'']]],
   ['mille_2eh_4889',['Mille.h',['../Mille_8h.html',1,'']]],
