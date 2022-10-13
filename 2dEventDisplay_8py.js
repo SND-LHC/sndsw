@@ -12,7 +12,7 @@ var 2dEventDisplay_8py =
     [ "firstTimeStamp", "2dEventDisplay_8py.html#ae26217e9646bfb10d17793fe76787d4c", null ],
     [ "getStartTime", "2dEventDisplay_8py.html#a3dafff329a84397932e245e8e80fb606", null ],
     [ "goodEvent", "2dEventDisplay_8py.html#a7a59e1877d66364c54dcdcb334f75f24", null ],
-    [ "loopEvents", "2dEventDisplay_8py.html#aff6c7d6675f2f7c1336591b7b169f7f5", null ],
+    [ "loopEvents", "2dEventDisplay_8py.html#a1b47e41da5a308ce7d48c08a7c3dca8a", null ],
     [ "mufiNoise", "2dEventDisplay_8py.html#a6db68eb04225b4643f2cea6ceac3eee5", null ],
     [ "pyExit", "2dEventDisplay_8py.html#acf03047f0a1a9082ddbdb62fc5987467", null ],
     [ "twoTrackEvent", "2dEventDisplay_8py.html#a32bc7a47f43538338e2bdc544bd97128", null ],
