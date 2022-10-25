@@ -378,7 +378,7 @@ $(document).ready(function(){initNavTree('run__simSND_8py_source.html',''); init
 <div class="line"><a name="l00291"></a><span class="lineno"><a class="line" href="namespacerun__simSND.html#aca48e16cb74b5a9a3bb26620ae16fce3">  291</a></span>&#160; mygMC = ROOT.TGeant4.GetMC()</div>
 <div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160; mygMC.ProcessGeantCommand(<span class="stringliteral">&quot;/process/inactivate muPairProd&quot;</span>)</div>
 <div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160; mygMC.ProcessGeantCommand(<span class="stringliteral">&quot;/process/inactivate muBrems&quot;</span>)</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160; mygMC.ProcessGeantCommand(<span class="stringliteral">&quot;/process/inactivate muIoni&quot;</span>)</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160; <span class="comment">#mygMC.ProcessGeantCommand(&quot;/process/inactivate muIoni&quot;)  Temporary fix for DIS Simulations (incoming and outgoing muon hits)</span></div>
 <div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160; mygMC.ProcessGeantCommand(<span class="stringliteral">&quot;/process/inactivate muonNuclear&quot;</span>)</div>
 <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160; mygMC.ProcessGeantCommand(<span class="stringliteral">&quot;/particle/select mu+&quot;</span>)</div>
 <div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160; mygMC.ProcessGeantCommand(<span class="stringliteral">&quot;/particle/process/dump&quot;</span>)</div>
