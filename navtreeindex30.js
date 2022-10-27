@@ -1,5 +1,15 @@
 var NAVTREEINDEX30 =
 {
+"classgenfit_1_1AbsFinitePlane.html#addd368d89d991d3181f03458341c7f2a":[12,0,13,1,0],
+"classgenfit_1_1AbsFitter.html":[12,0,13,2],
+"classgenfit_1_1AbsFitter.html#a4943c0e65e7d454f73df49db90e40b81":[12,0,13,2,1],
+"classgenfit_1_1AbsFitter.html#a78e589db9e548b60ad129ec631ce9a8e":[12,0,13,2,3],
+"classgenfit_1_1AbsFitter.html#a7a404039754df832844c41d1fdaf9615":[12,0,13,2,5],
+"classgenfit_1_1AbsFitter.html#ad40e0b73754be87308af27250ab6ae39":[12,0,13,2,2],
+"classgenfit_1_1AbsFitter.html#aeeba6cadd83d6181cce08d60aee871fe":[12,0,13,2,4],
+"classgenfit_1_1AbsFitter.html#af8db699e65731ea70f918c5f45705cbd":[12,0,13,2,0],
+"classgenfit_1_1AbsFitterInfo.html":[12,0,13,3],
+"classgenfit_1_1AbsFitterInfo.html#a0304623a2c5d943e18f1aee0be5cc436":[12,0,13,3,18],
 "classgenfit_1_1AbsFitterInfo.html#a1e4939d7accd7d64da1426d64f2b2dd0":[12,0,13,3,12],
 "classgenfit_1_1AbsFitterInfo.html#a3d3bd02476756158c275d41ed73f5045":[12,0,13,3,23],
 "classgenfit_1_1AbsFitterInfo.html#a3e7049330b3f42478e1593734fd4332c":[12,0,13,3,30],
@@ -74,8 +84,8 @@ var NAVTREEINDEX30 =
 "classgenfit_1_1AbsMaterialInterface.html":[12,0,13,6],
 "classgenfit_1_1AbsMaterialInterface.html#a0bfd94f7bfb878278054420638704cce":[12,0,13,6,1],
 "classgenfit_1_1AbsMaterialInterface.html#a0bfd94f7bfb878278054420638704cce":[12,0,13,6,3],
-"classgenfit_1_1AbsMaterialInterface.html#a215d110eff1cae1f63f8031e01d9ef14":[12,0,13,6,9],
 "classgenfit_1_1AbsMaterialInterface.html#a215d110eff1cae1f63f8031e01d9ef14":[12,0,13,6,8],
+"classgenfit_1_1AbsMaterialInterface.html#a215d110eff1cae1f63f8031e01d9ef14":[12,0,13,6,9],
 "classgenfit_1_1AbsMaterialInterface.html#a70a5a8e16c4ac84d13cebc699aa2d6a1":[12,0,13,6,10],
 "classgenfit_1_1AbsMaterialInterface.html#a70a5a8e16c4ac84d13cebc699aa2d6a1":[12,0,13,6,11],
 "classgenfit_1_1AbsMaterialInterface.html#a7d12966201c33b9a3c70c654b8674efa":[12,0,13,6,4],
@@ -239,15 +249,5 @@ var NAVTREEINDEX30 =
 "classgenfit_1_1DetPlane.html#a7dea697d076c4e3bf93eb772660328b7":[12,0,13,13,18],
 "classgenfit_1_1DetPlane.html#a9e27bf0d58437b8cb2a8306376dfb903":[12,0,13,13,24],
 "classgenfit_1_1DetPlane.html#aa1b51d934db986b87a35fef0a02b299a":[12,0,13,13,3],
-"classgenfit_1_1DetPlane.html#aa6699208a2e3bf16ed098d750c2051d6":[12,0,13,13,34],
-"classgenfit_1_1DetPlane.html#aaab790972c1b88b5fcd181401ce05bfd":[12,0,13,13,31],
-"classgenfit_1_1DetPlane.html#aaecb3c2b82fefd0c74fac66fb995daaa":[12,0,13,13,32],
-"classgenfit_1_1DetPlane.html#ab396b656a4cdb70c827ca6df64276828":[12,0,13,13,20],
-"classgenfit_1_1DetPlane.html#abfb661aa8f7a8c896d1ee05994caabd6":[12,0,13,13,46],
-"classgenfit_1_1DetPlane.html#ac16f72063cc0270ae8cda8eed0757c17":[12,0,13,13,25],
-"classgenfit_1_1DetPlane.html#ac45473e6b64e9acf4fb8e0eac87222ca":[12,0,13,13,15],
-"classgenfit_1_1DetPlane.html#ac98ffa6dfbb46ba26acf37e3bd32daf5":[12,0,13,13,42],
-"classgenfit_1_1DetPlane.html#ad561a50d454039e2c105c63d5ab2a692":[12,0,13,13,44],
-"classgenfit_1_1DetPlane.html#ad6e553cc081f51f7f4569d94e2ae2754":[12,0,13,13,17],
-"classgenfit_1_1DetPlane.html#ad9de0e2ef303f5682a2d0f3374c5effe":[12,0,13,13,23]
+"classgenfit_1_1DetPlane.html#aa6699208a2e3bf16ed098d750c2051d6":[12,0,13,13,34]
 };

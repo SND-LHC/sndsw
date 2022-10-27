@@ -3,6 +3,7 @@ var classDAQ__monitoring_1_1Time__evolution =
     [ "ExecuteEvent", "classDAQ__monitoring_1_1Time__evolution.html#a4c2379be6f8ff9719389c2d5d2ebd21a", null ],
     [ "Init", "classDAQ__monitoring_1_1Time__evolution.html#a8c6b50af8732f0492523e3b3a5977d84", null ],
     [ "Plot", "classDAQ__monitoring_1_1Time__evolution.html#aa55cba3040b8e0fc36ff8a3dd403597b", null ],
+    [ "board0", "classDAQ__monitoring_1_1Time__evolution.html#af7b59e8d48fd92de1f4db624b13c89f1", null ],
     [ "boardsVsTime", "classDAQ__monitoring_1_1Time__evolution.html#ad4f770a56700e1e5f25446ef9156b0ca", null ],
     [ "fsdict", "classDAQ__monitoring_1_1Time__evolution.html#a117b9caa39f0ac6a2460b7afa6a7dcf0", null ],
     [ "gtime", "classDAQ__monitoring_1_1Time__evolution.html#afe06902a2a6e9d590ba1499964f42dd8", null ],

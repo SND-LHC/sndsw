@@ -1,5 +1,6 @@
 var NAVTREEINDEX16 =
 {
+"classMagneticSpectrometer.html#a9b7836559262f0c828eac36ed610bb37":[12,0,110,30],
 "classMagneticSpectrometer.html#a9f48fd8ca2bf2096ee8e4de506bdd3b0":[12,0,110,49],
 "classMagneticSpectrometer.html#a9f77823c564df46f068c65cc5e9930c6":[12,0,110,24],
 "classMagneticSpectrometer.html#a9f804200efb60b322113be4167273cde":[12,0,110,69],
@@ -235,19 +236,18 @@ var NAVTREEINDEX16 =
 "classMufi__monitoring_1_1Mufi__largeVSsmall.html#a93dcc7f63f9011f3e1cb95ecb5f094a2":[12,0,19,1,2],
 "classMufi__monitoring_1_1Mufi__largeVSsmall.html#aa730fad294ae177b2e752e1d80ad0a60":[12,0,19,1,1],
 "classMufi__monitoring_1_1Mufi__largeVSsmall.html#aad79c78f6050fb581360fbdd68dc1484":[12,0,19,1,0],
+"classMufi__monitoring_1_1Veto__Efficiency.html":[12,0,19,2],
+"classMufi__monitoring_1_1Veto__Efficiency.html#a17bcef1debb695c6a97ed716aa898022":[12,0,19,2,5],
+"classMufi__monitoring_1_1Veto__Efficiency.html#a2f5519679a025985b5df4dda2cd8e360":[12,0,19,2,2],
+"classMufi__monitoring_1_1Veto__Efficiency.html#a4a14eea60918c1d95c84de2e3caa211c":[12,0,19,2,7],
+"classMufi__monitoring_1_1Veto__Efficiency.html#a5802ce73a828dd6abf8ecfa3dba47651":[12,0,19,2,3],
+"classMufi__monitoring_1_1Veto__Efficiency.html#a5ab276bece8b77ec770877c8c59f3c73":[12,0,19,2,6],
+"classMufi__monitoring_1_1Veto__Efficiency.html#aa3ec87d3f02edee900532c3fe7fe1ec6":[12,0,19,2,1],
+"classMufi__monitoring_1_1Veto__Efficiency.html#add1819b05ed9c0246e783fb55671bdbd":[12,0,19,2,4],
+"classMufi__monitoring_1_1Veto__Efficiency.html#ae7e00cc5021c4f08d680559258964e75":[12,0,19,2,0],
 "classMufluxDigiReco_1_1MufluxDigiReco.html":[12,0,21,0],
 "classMufluxDigiReco_1_1MufluxDigiReco.html#a0324d44f55cc03eca15721379f19bf46":[12,0,21,0,9],
 "classMufluxDigiReco_1_1MufluxDigiReco.html#a0b3db467ccafcbf42653bb3a0c49daa8":[12,0,21,0,18],
 "classMufluxDigiReco_1_1MufluxDigiReco.html#a124ac6d83c4f6ab5ea661cf59329b031":[12,0,21,0,32],
-"classMufluxDigiReco_1_1MufluxDigiReco.html#a1572d63a23f5d3eebeed357ea6f071d6":[12,0,21,0,44],
-"classMufluxDigiReco_1_1MufluxDigiReco.html#a1a2e1c71b89c1f4f4261d059db967973":[12,0,21,0,35],
-"classMufluxDigiReco_1_1MufluxDigiReco.html#a1dbb188ae5a78cb5d20646c8bb42657c":[12,0,21,0,13],
-"classMufluxDigiReco_1_1MufluxDigiReco.html#a20cac1a762fb4960abc7071125113726":[12,0,21,0,23],
-"classMufluxDigiReco_1_1MufluxDigiReco.html#a3ec2a91d0a2a4a1e9936c34ff1b8b47b":[12,0,21,0,16],
-"classMufluxDigiReco_1_1MufluxDigiReco.html#a3efb297fe09978575fb594559a6e3259":[12,0,21,0,26],
-"classMufluxDigiReco_1_1MufluxDigiReco.html#a456488e38558bd2966c5cb76f15b0621":[12,0,21,0,3],
-"classMufluxDigiReco_1_1MufluxDigiReco.html#a4b2fb74176eac9498ad7d9bcc388953f":[12,0,21,0,43],
-"classMufluxDigiReco_1_1MufluxDigiReco.html#a5479a01eb20a4f7e6ae2edab7685a9f1":[12,0,21,0,36],
-"classMufluxDigiReco_1_1MufluxDigiReco.html#a5755c84f3ceb1422d55992408ea1911e":[12,0,21,0,10],
-"classMufluxDigiReco_1_1MufluxDigiReco.html#a5e36243fca8768994404733ba6e71689":[12,0,21,0,41]
+"classMufluxDigiReco_1_1MufluxDigiReco.html#a1572d63a23f5d3eebeed357ea6f071d6":[12,0,21,0,44]
 };

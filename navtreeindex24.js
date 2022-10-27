@@ -1,5 +1,15 @@
 var NAVTREEINDEX24 =
 {
+"classTimeDet.html#a634e2834facc81472b1e18202937c1a4":[12,0,189,50],
+"classTimeDet.html#a66c6887dc736e9fbca61b2a82c7fef11":[12,0,189,47],
+"classTimeDet.html#a6ec9772fdf8f3c12eed78e48ba64c4e3":[12,0,189,52],
+"classTimeDet.html#a6ecb78e15e1417d072712d48519a7cb4":[12,0,189,27],
+"classTimeDet.html#a74d143c639710516d033c83968c70d16":[12,0,189,48],
+"classTimeDet.html#a803014ade32c6d104059241a88149da9":[12,0,189,32],
+"classTimeDet.html#a85fd537750f9b6b3fee0911f6f2dffa6":[12,0,189,0],
+"classTimeDet.html#a89b5d978d63189952511aacb28d02cb3":[12,0,189,41],
+"classTimeDet.html#a8c3421808056bac96640e98076b6a267":[12,0,189,24],
+"classTimeDet.html#a8d15ed9ada7066259af002fedc2dc87b":[12,0,189,12],
 "classTimeDet.html#a8e66640ad9a9172dbaa3fcd4e82be38e":[12,0,189,51],
 "classTimeDet.html#a92e6713feaf6a5b41e9eeb4fc1ab71ee":[12,0,189,40],
 "classTimeDet.html#a9a3351b9a5430e959ff64e6ef98f5b14":[12,0,189,36],
@@ -239,15 +249,5 @@ var NAVTREEINDEX24 =
 "classUpstreamTaggerHit.html#af209edc7091d3304d4658427785024f4":[12,0,197,30],
 "classUpstreamTaggerHit.html#af666e5aff7ba8157c8743c8a01c59046":[12,0,197,25],
 "classUpstreamTaggerHit.html#af68cf719163717748f7b28d6cd49930e":[12,0,197,7],
-"classUpstreamTaggerHit.html#afd58c6bf039ad1279908a5af014d988f":[12,0,197,26],
-"classUpstreamTaggerHit.html#afe2baef7e2c753979e9e3fde67db65a2":[12,0,197,5],
-"classUpstreamTaggerPoint.html":[12,0,198],
-"classUpstreamTaggerPoint.html#a03f33bdcec2e469297fc46520bd9cdbf":[12,0,198,0],
-"classUpstreamTaggerPoint.html#a0bef21bcc8cf90443317f01e03e9df01":[12,0,198,5],
-"classUpstreamTaggerPoint.html#a10765a6011084493596a12b4dd9903df":[12,0,198,11],
-"classUpstreamTaggerPoint.html#a362aa68d789db83201f8054983a11b46":[12,0,198,3],
-"classUpstreamTaggerPoint.html#a534639d6e38961de6a81e8db36e06b9a":[12,0,198,7],
-"classUpstreamTaggerPoint.html#a7576c30753ffd565daaa99a55baa02aa":[12,0,198,2],
-"classUpstreamTaggerPoint.html#a8ff1361e74d7413c5295331e5f83f01e":[12,0,198,10],
-"classUpstreamTaggerPoint.html#aa4c0c215dc0d06b6c70870e5ac0a06a1":[12,0,198,1]
+"classUpstreamTaggerHit.html#afd58c6bf039ad1279908a5af014d988f":[12,0,197,26]
 };

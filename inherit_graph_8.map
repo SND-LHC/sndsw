@@ -1,5 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" title=" " alt="" coords="5,1024,80,1051"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,1049,80,1076"/>
 <area shape="rect" id="node2" href="$classConvRawData.html" title=" " alt="" coords="191,5,305,32"/>
 <area shape="rect" id="node3" href="$classConvRawData_1_1ConvRawDataPY.html" title=" " alt="" coords="135,56,361,83"/>
 <area shape="rect" id="node4" href="$classDAQ__monitoring_1_1DAQ__boards.html" title=" " alt="" coords="167,107,329,149"/>
@@ -30,14 +30,15 @@
 <area shape="rect" id="node29" href="$classhcalStructureFiller.html" title=" " alt="" coords="178,1420,318,1447"/>
 <area shape="rect" id="node30" href="$classMufi__monitoring_1_1Mufi__hitMaps.html" title=" " alt="" coords="168,1471,328,1513"/>
 <area shape="rect" id="node31" href="$classMufi__monitoring_1_1Mufi__largeVSsmall.html" title=" " alt="" coords="168,1537,328,1578"/>
-<area shape="rect" id="node32" href="$classrun__simSND_1_1MyTask.html" title=" " alt="" coords="171,1603,325,1629"/>
-<area shape="rect" id="node33" href="$classScifi__monitoring_1_1Scifi__hitMaps.html" title=" " alt="" coords="169,1654,327,1695"/>
-<area shape="rect" id="node34" href="$classScifi__monitoring_1_1Scifi__residuals.html" title=" " alt="" coords="169,1719,327,1761"/>
-<area shape="rect" id="node35" href="$classScifiCTR_1_1Scifi__CTR.html" title=" " alt="" coords="179,1785,317,1812"/>
-<area shape="rect" id="node36" href="$classScifiCTR_1_1Scifi__TimeOfTracks.html" title=" " alt="" coords="147,1836,349,1863"/>
-<area shape="rect" id="node37" href="$classSndlhcMuonReco_1_1MuonReco.html" title=" " alt="" coords="145,1887,351,1913"/>
-<area shape="rect" id="node38" href="$classSndlhcTracking_1_1Tracking.html" title=" " alt="" coords="159,1937,337,1964"/>
-<area shape="rect" id="node39" href="$classvetoTimeCalibration_1_1vetoTDCchannelCalibration.html" title=" " alt="" coords="154,1989,342,2030"/>
-<area shape="rect" id="node40" href="$classvetoTimeCalibration_1_1vetoTDCplaneCalibration.html" title=" " alt="" coords="154,2054,342,2095"/>
-<area shape="rect" id="node41" href="$classvetoTimeCalibration_1_1vetoTimeWalk.html" title=" " alt="" coords="154,2119,342,2161"/>
+<area shape="rect" id="node32" href="$classMufi__monitoring_1_1Veto__Efficiency.html" title=" " alt="" coords="167,1602,329,1643"/>
+<area shape="rect" id="node33" href="$classrun__simSND_1_1MyTask.html" title=" " alt="" coords="171,1668,325,1695"/>
+<area shape="rect" id="node34" href="$classScifi__monitoring_1_1Scifi__hitMaps.html" title=" " alt="" coords="169,1719,327,1761"/>
+<area shape="rect" id="node35" href="$classScifi__monitoring_1_1Scifi__residuals.html" title=" " alt="" coords="169,1785,327,1826"/>
+<area shape="rect" id="node36" href="$classScifiCTR_1_1Scifi__CTR.html" title=" " alt="" coords="179,1851,317,1877"/>
+<area shape="rect" id="node37" href="$classScifiCTR_1_1Scifi__TimeOfTracks.html" title=" " alt="" coords="147,1901,349,1928"/>
+<area shape="rect" id="node38" href="$classSndlhcMuonReco_1_1MuonReco.html" title=" " alt="" coords="145,1952,351,1979"/>
+<area shape="rect" id="node39" href="$classSndlhcTracking_1_1Tracking.html" title=" " alt="" coords="159,2003,337,2029"/>
+<area shape="rect" id="node40" href="$classvetoTimeCalibration_1_1vetoTDCchannelCalibration.html" title=" " alt="" coords="154,2054,342,2095"/>
+<area shape="rect" id="node41" href="$classvetoTimeCalibration_1_1vetoTDCplaneCalibration.html" title=" " alt="" coords="154,2119,342,2161"/>
+<area shape="rect" id="node42" href="$classvetoTimeCalibration_1_1vetoTimeWalk.html" title=" " alt="" coords="154,2185,342,2226"/>
 </map>
