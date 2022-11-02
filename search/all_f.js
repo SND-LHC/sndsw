@@ -148,7 +148,7 @@ var searchData=
   ['nhstrips_5413',['NHstrips',['../namespacecharm-geometry__config.html#aff4c310f2379c85f685eaa410fc760f0',1,'charm-geometry_config']]],
   ['niceprintout_5414',['nicePrintout',['../namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a32cf4cbaa1462a499de1d5d70f6af3af',1,'conditionsDatabase::demo::drifttubeMonitoring']]],
   ['ninside_5415',['nInside',['../classCosmicsGenerator.html#ae1acbbd5958aaab299e25a33155d6f9c',1,'CosmicsGenerator']]],
-  ['niter_5416',['nIter',['../classMonitor_1_1Monitoring.html#acd8efede810ae77243d9b1c07724cc48',1,'Monitor.Monitoring.nIter()'],['../classeventDisplay_1_1DrawTracks.html#a02b996393732b98b1c8e1cf994542633',1,'eventDisplay.DrawTracks.niter()']]],
+  ['niter_5416',['niter',['../classeventDisplay_1_1DrawTracks.html#a02b996393732b98b1c8e1cf994542633',1,'eventDisplay.DrawTracks.niter()'],['../classMonitor_1_1Monitoring.html#acd8efede810ae77243d9b1c07724cc48',1,'Monitor.Monitoring.nIter()']]],
   ['njob_5417',['nJob',['../namespacemakeMuonDIS.html#a6d7cbd5b2224f4f5916ce0796e451edc',1,'makeMuonDIS.nJob()'],['../namespacemakeMuonEM.html#a0d9d140e57ebdb6f5d9e3f663f855ac2',1,'makeMuonEM.nJob()']]],
   ['nkeys_5418',['Nkeys',['../classMonitor_1_1Monitoring.html#a8449247c9796713113d336e7a0bacbbf',1,'Monitor::Monitoring']]],
   ['nknots_5419',['nknots',['../namespacemakeSNDGenieEvents.html#a9490783f0dcb7427324f0149e0cf45e4',1,'makeSNDGenieEvents']]],

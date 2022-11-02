@@ -1,5 +1,6 @@
 var NAVTREEINDEX39 =
 {
+"classshipVeto_1_1Task.html#aeb7a0d6b0943afdc40792315ad782813":[12,0,38,0,4],
 "classshipVeto_1_1Task.html#affda3044d11e60c9175e034773816509":[12,0,38,0,6],
 "classsimpleTarget.html":[12,0,172],
 "classsimpleTarget.html#a029035bccb2a7d3edafe6a81bd473ee2":[12,0,172,26],
@@ -248,6 +249,5 @@ var NAVTREEINDEX39 =
 "classsplitcalHit.html#a9be8f4f0b3eca549277920c0a34c667c":[12,0,180,5],
 "classsplitcalHit.html#a9e41296d2c5ee914d83685edb0718e13":[12,0,180,19],
 "classsplitcalHit.html#aa057d163e32e31113909f01b07444724":[12,0,180,52],
-"classsplitcalHit.html#aa0a44994b3c61864c356ae704358b733":[12,0,180,39],
-"classsplitcalHit.html#aa3fadefaeda0e4206b6e2c0244cf31af":[12,0,180,42]
+"classsplitcalHit.html#aa0a44994b3c61864c356ae704358b733":[12,0,180,39]
 };

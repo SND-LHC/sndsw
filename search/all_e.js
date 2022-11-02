@@ -113,7 +113,7 @@ var searchData=
   ['makertrelations_4681',['makeRTrelations',['../namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a5f51fe6aa1747be884be138561ac321e',1,'conditionsDatabase::demo::drifttubeMonitoring']]],
   ['makertrelpersistent_4682',['makeRTrelPersistent',['../namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a6dd3d22aae1d4c254f385dafdd2d92e6',1,'conditionsDatabase::demo::drifttubeMonitoring']]],
   ['makesegments_4683',['MakeSegments',['../classveto.html#ab0997acf4fb3333c94cde5668ca88d7b',1,'veto']]],
-  ['makesensitive_4684',['makeSensitive',['../classstudy__GammaConv_1_1Block.html#a9c95d6b1929e83d21e6ab1806ffbe62c',1,'study_GammaConv.Block.makeSensitive()'],['../classFloor.html#afe80cd6812b13ba619cfce26f0e3ca02',1,'Floor::MakeSensitive()']]],
+  ['makesensitive_4684',['MakeSensitive',['../classFloor.html#afe80cd6812b13ba619cfce26f0e3ca02',1,'Floor::MakeSensitive()'],['../classstudy__GammaConv_1_1Block.html#a9c95d6b1929e83d21e6ab1806ffbe62c',1,'study_GammaConv.Block.makeSensitive()']]],
   ['makesndgenieevents_4685',['makeSNDGenieEvents',['../namespacemakeSNDGenieEvents.html',1,'']]],
   ['makesndgenieevents_2epy_4686',['makeSNDGenieEvents.py',['../makeSNDGenieEvents_8py.html',1,'']]],
   ['makesplines_4687',['makeSplines',['../namespacemakeGenieEvents.html#aa9bb9abb2c3d351cf7661939013c1f76',1,'makeGenieEvents']]],

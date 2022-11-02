@@ -13,6 +13,7 @@ var classMuFilterHit =
     [ "GetEnergy", "classMuFilterHit.html#a6adc5e3d76bd179aa7979f04a6a03061", null ],
     [ "GetFastDeltaT", "classMuFilterHit.html#ae49d41d51b0294479394a6dc4dc00d0e", null ],
     [ "GetImpactT", "classMuFilterHit.html#aeea1b68d6193cdc2777991028ab19d19", null ],
+    [ "GetPlane", "classMuFilterHit.html#a92eeef7d192027351ec7994f74b009e1", null ],
     [ "GetSystem", "classMuFilterHit.html#aa53b551caf7ff397426665e7106e3e15", null ],
     [ "isMasked", "classMuFilterHit.html#aa05a8caabf2b29b3fb737283e0690f4b", null ],
     [ "isShort", "classMuFilterHit.html#a9d2a3ac4e6e75685a50660df7c9de26d", null ],

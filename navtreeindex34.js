@@ -1,5 +1,6 @@
 var NAVTREEINDEX34 =
 {
+"classgenfit_1_1RKTrackRep.html#a93996a7134dfba3449c78bf882de8720":[12,0,13,55,13],
 "classgenfit_1_1RKTrackRep.html#a99e37f2ab61f0473a26725979c94998d":[12,0,13,55,103],
 "classgenfit_1_1RKTrackRep.html#a9a0c5a51469f0400049001c287ddd516":[12,0,13,55,98],
 "classgenfit_1_1RKTrackRep.html#a9e71e74a9542d888e804a02998d25bce":[12,0,13,55,122],
@@ -248,6 +249,5 @@ var NAVTREEINDEX34 =
 "classgenfit_1_1Track.html#a62fd19466916ea9a23f6fc88afe7ddae":[12,0,13,61,30],
 "classgenfit_1_1Track.html#a6ccf4be8b2d8060f3f9d95c22d49ee99":[12,0,13,61,25],
 "classgenfit_1_1Track.html#a710a534194eb973f773b95a913aba03a":[12,0,13,61,68],
-"classgenfit_1_1Track.html#a724f97b70a2d3a2e2c3fb5f447d9b6ef":[12,0,13,61,9],
-"classgenfit_1_1Track.html#a778254384d8a4d5432cf3dda9f94bcf1":[12,0,13,61,11]
+"classgenfit_1_1Track.html#a724f97b70a2d3a2e2c3fb5f447d9b6ef":[12,0,13,61,9]
 };

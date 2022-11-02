@@ -1,5 +1,6 @@
 var NAVTREEINDEX33 =
 {
+"classgenfit_1_1MaterialEffects.html#a27614a842dcb6d5fb92a6490ef175a2d":[12,0,13,40,20],
 "classgenfit_1_1MaterialEffects.html#a27614a842dcb6d5fb92a6490ef175a2d":[12,0,13,40,21],
 "classgenfit_1_1MaterialEffects.html#a27966cce6539542734a7b7b4812a209a":[12,0,13,40,18],
 "classgenfit_1_1MaterialEffects.html#a27966cce6539542734a7b7b4812a209a":[12,0,13,40,19],
@@ -248,6 +249,5 @@ var NAVTREEINDEX33 =
 "classgenfit_1_1RKTrackRep.html#a8cf9535c2cfef5f12915de536941986e":[12,0,13,55,95],
 "classgenfit_1_1RKTrackRep.html#a8f08fa06a70fdb7d6c5fe8b63bbe7c81":[12,0,13,55,112],
 "classgenfit_1_1RKTrackRep.html#a8f08fa06a70fdb7d6c5fe8b63bbe7c81":[12,0,13,55,113],
-"classgenfit_1_1RKTrackRep.html#a93996a7134dfba3449c78bf882de8720":[12,0,13,55,12],
-"classgenfit_1_1RKTrackRep.html#a93996a7134dfba3449c78bf882de8720":[12,0,13,55,13]
+"classgenfit_1_1RKTrackRep.html#a93996a7134dfba3449c78bf882de8720":[12,0,13,55,12]
 };

@@ -1,5 +1,6 @@
 var NAVTREEINDEX23 =
 {
+"classSndlhcTracking_1_1Tracking.html#a4a7f40d7ff0bc28f0f076f82acb10b33":[12,0,42,0,8],
 "classSndlhcTracking_1_1Tracking.html#a62cde5cf3dc9ac1c66f669b4c6577e3e":[12,0,42,0,31],
 "classSndlhcTracking_1_1Tracking.html#a6792f312f458ffdf2feb51831a1978c1":[12,0,42,0,6],
 "classSndlhcTracking_1_1Tracking.html#a771f23d8e42aea98e6fdf573317e8b6d":[12,0,42,0,14],
@@ -248,6 +249,5 @@ var NAVTREEINDEX23 =
 "classTimeDet.html#a43d488eaca507c1ec2948b5e1833029c":[12,0,189,31],
 "classTimeDet.html#a54d12069d3d3112458e9b74431b3f731":[12,0,189,4],
 "classTimeDet.html#a585cd2146800c48c2f61d3ebbab22353":[12,0,189,7],
-"classTimeDet.html#a5e2b8ab4eb38ceea16b94e678ef3d987":[12,0,189,18],
-"classTimeDet.html#a5eba38e6dd2d949a4f7dcfdf402fc02c":[12,0,189,17]
+"classTimeDet.html#a5e2b8ab4eb38ceea16b94e678ef3d987":[12,0,189,18]
 };
