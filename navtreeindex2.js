@@ -1,5 +1,9 @@
 var NAVTREEINDEX2 =
 {
+"MCStackLinkDef_8h_source.html":[13,0,17,2],
+"MagneticSpectrometer_8cxx.html":[13,0,11,6],
+"MagneticSpectrometer_8cxx_source.html":[13,0,11,6],
+"MagneticSpectrometer_8h.html":[13,0,11,7],
 "MagneticSpectrometer_8h_source.html":[13,0,11,7],
 "MaterialEffects_8cc.html":[13,0,4,10,1,0],
 "MaterialEffects_8cc_source.html":[13,0,4,10,1,0],
@@ -245,9 +249,5 @@ var NAVTREEINDEX2 =
 "RKTools_8h.html#a3a66aa71e3109808ef8783809552139d":[13,0,4,10,0,2,9],
 "RKTools_8h.html#a3e8167b2b78ea4a8f7d5f6485640a6cd":[13,0,4,10,0,2,0],
 "RKTools_8h.html#a3f869d5e54cfc225a9300dc25f7b6c06":[13,0,4,10,0,2,2],
-"RKTools_8h.html#a5698115c0f0c2e76c12d753f6346230d":[13,0,4,10,0,2,13],
-"RKTools_8h.html#a5ad8693b4b34e9d016b4bedc7a574800":[13,0,4,10,0,2,19],
-"RKTools_8h.html#a6154edc550af3e20a8b596b9c22e9a6e":[13,0,4,10,0,2,5],
-"RKTools_8h.html#a65fa58888e266d50b8857b6d098377a7":[13,0,4,10,0,2,16],
-"RKTools_8h.html#a6926d213a439fd206b024272b5961ed2":[13,0,4,10,0,2,17]
+"RKTools_8h.html#a5698115c0f0c2e76c12d753f6346230d":[13,0,4,10,0,2,13]
 };

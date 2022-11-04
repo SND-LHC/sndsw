@@ -1,7 +1,7 @@
 var classSndlhcTracking_1_1Tracking =
 [
     [ "dsCluster", "classSndlhcTracking_1_1Tracking.html#aa24251d679abce001459cdc22ffd2d70", null ],
-    [ "DStrack", "classSndlhcTracking_1_1Tracking.html#ab1c3365bed04ff88a1372b418ab51a70", null ],
+    [ "DStrack", "classSndlhcTracking_1_1Tracking.html#a1d9f2fa9d466e52c833774351ad0a9ee", null ],
     [ "ExecuteTask", "classSndlhcTracking_1_1Tracking.html#acd311d49194e44f53ce9614dae324620", null ],
     [ "FinishEvent", "classSndlhcTracking_1_1Tracking.html#a1d38bf5de25e397f8caa54ae17c018b7", null ],
     [ "fitTrack", "classSndlhcTracking_1_1Tracking.html#ac98a51ef3199a2706ba72cfa5ae4e0cf", null ],
@@ -14,6 +14,8 @@ var classSndlhcTracking_1_1Tracking =
     [ "clusScifi", "classSndlhcTracking_1_1Tracking.html#abb5515531da92f572716e7e683265736", null ],
     [ "Debug", "classSndlhcTracking_1_1Tracking.html#a96c1b17e9de288e29f477e246fae467c", null ],
     [ "DetID2Key", "classSndlhcTracking_1_1Tracking.html#ae186f96fc88dd993df5941139ad32ef4", null ],
+    [ "DSnHits", "classSndlhcTracking_1_1Tracking.html#a50f0567a23eea8d1423681146153eccb", null ],
+    [ "DSnPlanes", "classSndlhcTracking_1_1Tracking.html#aaf2a09318fda48318a3640ef73c5d4cb", null ],
     [ "event", "classSndlhcTracking_1_1Tracking.html#a771f23d8e42aea98e6fdf573317e8b6d", null ],
     [ "fittedTracks", "classSndlhcTracking_1_1Tracking.html#a0c62fcb183b6e84678f8e4612317c878", null ],
     [ "fitter", "classSndlhcTracking_1_1Tracking.html#a818784e335ffeb82931a1a906613c778", null ],

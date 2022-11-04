@@ -1,5 +1,11 @@
 var NAVTREEINDEX50 =
 {
+"logger_8py.html#a1af74ca7ca2dabc671b4e0e0a8702e5f":[13,0,16,17,1],
+"logger_8py.html#a415f8541e99d9bae30efd8b0daafcc2c":[13,0,16,17,0],
+"logger_8py_source.html":[13,0,16,17],
+"macro_2eveGlobal_8py.html":[13,0,7,7],
+"macro_2eveGlobal_8py.html#af384e4f875e85dd37b0398e54a393298":[13,0,7,7,0],
+"macro_2eveGlobal_8py_source.html":[13,0,7,7],
 "macro_2eventDisplay_8py.html":[13,0,7,8],
 "macro_2eventDisplay_8py.html#a022933042a763c8e8d9f22d9d1f65dd6":[13,0,7,8,20],
 "macro_2eventDisplay_8py.html#a03c547b4464c9c1e6b71675fd6e7ed48":[13,0,7,8,64],
@@ -243,11 +249,5 @@ var NAVTREEINDEX50 =
 "makeMuonDIS_8py.html#a26aa2d2f4969d3eeb816781e0da12ee0":[13,0,10,10,28],
 "makeMuonDIS_8py.html#a2b4e630f0163fb403afd6440c31de817":[13,0,10,10,50],
 "makeMuonDIS_8py.html#a31069c861ee6564962a537e94c422254":[13,0,10,10,47],
-"makeMuonDIS_8py.html#a3376c7ac13d7058bff30c174977e1d6e":[13,0,10,10,13],
-"makeMuonDIS_8py.html#a46fd07d81c633221657121b3f0589fb3":[13,0,10,10,35],
-"makeMuonDIS_8py.html#a5617f749af576f63d0a7e52d9b085189":[13,0,10,10,21],
-"makeMuonDIS_8py.html#a5f9449552e46b6180d5430471d228330":[13,0,10,10,12],
-"makeMuonDIS_8py.html#a5fcce9439ef68795ae9dbb1e8f55bee5":[13,0,10,10,14],
-"makeMuonDIS_8py.html#a6d7cbd5b2224f4f5916ce0796e451edc":[13,0,10,10,25],
-"makeMuonDIS_8py.html#a6deb68dc080ef810c34fcffdd94b6a57":[13,0,10,10,46]
+"makeMuonDIS_8py.html#a3376c7ac13d7058bff30c174977e1d6e":[13,0,10,10,13]
 };

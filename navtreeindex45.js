@@ -1,5 +1,11 @@
 var NAVTREEINDEX45 =
 {
+"example__api__usage_8py.html":[13,0,0,1,2],
+"example__api__usage_8py.html#a1a5ffa42c18ce4cef9676cbffef6705c":[13,0,0,1,2,2],
+"example__api__usage_8py.html#a1f1bc56150ba03588ee9054c68028f6a":[13,0,0,1,2,0],
+"example__api__usage_8py.html#a4c140b945787beb9f91e6f5b7ca22a90":[13,0,0,1,2,1],
+"example__api__usage_8py.html#a8d768ef1b69e0c6f94a268f3ac99d239":[13,0,0,1,2,3],
+"example__api__usage_8py_source.html":[13,0,0,1,2],
 "exitHadronAbsorber_8cxx.html":[13,0,10,2],
 "exitHadronAbsorber_8cxx.html#a36fc4b47251281f99efceaa80c7877f0":[13,0,10,2,0],
 "exitHadronAbsorber_8cxx.html#a42d42dd2c682d42f11de58e34c89f895":[13,0,10,2,1],
@@ -101,8 +107,8 @@ var NAVTREEINDEX45 =
 "flux__map_8py.html#a1e7a8c61a88a7cbb36c21af7285ca627":[13,0,7,10,2],
 "flux__map_8py.html#aa4396f692c5693680cc3d484d8f92451":[13,0,7,10,0],
 "flux__map_8py_source.html":[13,0,7,10],
-"functions.html":[12,3,0,0],
 "functions.html":[12,3,0],
+"functions.html":[12,3,0,0],
 "functions_a.html":[12,3,0,1],
 "functions_b.html":[12,3,0,2],
 "functions_c.html":[12,3,0,3],
@@ -111,8 +117,8 @@ var NAVTREEINDEX45 =
 "functions_enum.html":[12,3,4],
 "functions_eval.html":[12,3,5],
 "functions_f.html":[12,3,0,6],
-"functions_func.html":[12,3,1],
 "functions_func.html":[12,3,1,0],
+"functions_func.html":[12,3,1],
 "functions_func_a.html":[12,3,1,1],
 "functions_func_b.html":[12,3,1,2],
 "functions_func_c.html":[12,3,1,3],
@@ -243,11 +249,5 @@ var NAVTREEINDEX45 =
 "g4Ex__args_8py.html#a4bea28e3e8ddd4b04e5e992379420a3d":[13,0,10,7,11],
 "g4Ex__args_8py.html#a4e0bdacd2309c8094d53e909fc9f7d08":[13,0,10,7,15],
 "g4Ex__args_8py.html#a4f7a8b66cd100e6ebbafcf0f96494cb7":[13,0,10,7,37],
-"g4Ex__args_8py.html#a663fff7e23500c6a01b1ebe7cd36548f":[13,0,10,7,16],
-"g4Ex__args_8py.html#a66e643a277f0b9f5234a5da6f3bd4049":[13,0,10,7,28],
-"g4Ex__args_8py.html#a6b6ca7616350bb5e4d6cd77a824698ac":[13,0,10,7,13],
-"g4Ex__args_8py.html#a7b9d1acb1c6eef1c284f58648f16378b":[13,0,10,7,7],
-"g4Ex__args_8py.html#a8d87624c9ec47ceec59b5d9e118b9034":[13,0,10,7,42],
-"g4Ex__args_8py.html#a8fd9a0616d1f88f979607fc840d3b92f":[13,0,10,7,38],
-"g4Ex__args_8py.html#a906e84b06341f0498e127ec59ee515e3":[13,0,10,7,32]
+"g4Ex__args_8py.html#a663fff7e23500c6a01b1ebe7cd36548f":[13,0,10,7,16]
 };

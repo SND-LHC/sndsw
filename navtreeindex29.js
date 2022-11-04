@@ -1,5 +1,11 @@
 var NAVTREEINDEX29 =
 {
+"classg4Ex_1_1MyTrackingAction.html#a2a24a88fe58dbefc423513d3b5b6f1cd":[12,0,9,4,2],
+"classg4Ex_1_1MyTrackingAction.html#a4bf4960479d6bc744f218c3aa5bdd0e5":[12,0,9,4,1],
+"classg4Ex_1_1MyTrackingAction.html#ae000711bd1f3cd446cfc86dc4a2a35f6":[12,0,9,4,0],
+"classg4Ex_1_1ScoreSD.html":[12,0,9,5],
+"classg4Ex_1_1ScoreSD.html#a97ca49476d24413b8cb66df118c76dda":[12,0,9,5,0],
+"classg4Ex_1_1ScoreSD.html#aa1c2ed13d116e5455eb70ac2481d4305":[12,0,9,5,1],
 "classg4Ex__args_1_1MyEventAction.html":[12,0,10,0],
 "classg4Ex__args_1_1MyEventAction.html#a1f27bfdb91c06870b7aab3a9a140808b":[12,0,10,0,1],
 "classg4Ex__args_1_1MyEventAction.html#aafd0639d892be4386218ab4df537450f":[12,0,10,0,0],
@@ -243,11 +249,5 @@ var NAVTREEINDEX29 =
 "classgenfit_1_1AbsBField.html#a8f23895f5253a1864f313630e88953db":[12,0,13,0,2],
 "classgenfit_1_1AbsBField.html#a9c8edf3dc8605fcfe1afae62bc22b297":[12,0,13,0,0],
 "classgenfit_1_1AbsBField.html#acdb06a530e06a3956c1071f312920775":[12,0,13,0,1],
-"classgenfit_1_1AbsFinitePlane.html":[12,0,13,1],
-"classgenfit_1_1AbsFinitePlane.html#a0408b6d8cb3f1ab262517cdf95fdffb5":[12,0,13,1,6],
-"classgenfit_1_1AbsFinitePlane.html#a1542c3cbfc4a7e8c4d2fd542dae2402b":[12,0,13,1,4],
-"classgenfit_1_1AbsFinitePlane.html#a465e1b63dd992fcab4b437edb8ea3ad7":[12,0,13,1,7],
-"classgenfit_1_1AbsFinitePlane.html#a571b714fb8b165a6fd3d11c15bc75b57":[12,0,13,1,3],
-"classgenfit_1_1AbsFinitePlane.html#a7a284e8ed03ded91551a64e0a2267531":[12,0,13,1,2],
-"classgenfit_1_1AbsFinitePlane.html#aae9a7335d1eae23b07622220e24611de":[12,0,13,1,1]
+"classgenfit_1_1AbsFinitePlane.html":[12,0,13,1]
 };
