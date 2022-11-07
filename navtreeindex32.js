@@ -1,5 +1,12 @@
 var NAVTREEINDEX32 =
 {
+"classgenfit_1_1GFRaveTrackParameters.html#a670e6885936bdf0cd1902f201006a51b":[12,0,13,25,17],
+"classgenfit_1_1GFRaveTrackParameters.html#a837f5a3a041c0bffbf60b0a37eeecd20":[12,0,13,25,11],
+"classgenfit_1_1GFRaveTrackParameters.html#a86dc4c41ce56560499c34ffb02b2f057":[12,0,13,25,5],
+"classgenfit_1_1GFRaveTrackParameters.html#a929956eda936a4b30d25e6e9753a998e":[12,0,13,25,18],
+"classgenfit_1_1GFRaveTrackParameters.html#a9a962c8140634de86d5f4751f27ea3cf":[12,0,13,25,4],
+"classgenfit_1_1GFRaveTrackParameters.html#aa9c7aa4dd199432d8cc42958cac4740f":[12,0,13,25,10],
+"classgenfit_1_1GFRaveTrackParameters.html#abf4047c3395cffa806fad52fcc188ca9":[12,0,13,25,6],
 "classgenfit_1_1GFRaveTrackParameters.html#adca4840ed1830b8e2e32da876af0cef5":[12,0,13,25,2],
 "classgenfit_1_1GFRaveTrackParameters.html#af2444202e727c5344b772d0b757c27bc":[12,0,13,25,1],
 "classgenfit_1_1GFRaveVertex.html":[12,0,13,26],
@@ -242,12 +249,5 @@ var NAVTREEINDEX32 =
 "classgenfit_1_1KalmanFitterRefTrack.html#af97d76a4b72ce1e80c2a669dd2cd3079":[12,0,13,39,16],
 "classgenfit_1_1KalmanFitterRefTrack.html#affda7c9ad9495fd91828d1b43adcc904":[12,0,13,39,2],
 "classgenfit_1_1MaterialEffects.html":[12,0,13,40],
-"classgenfit_1_1MaterialEffects.html#a0166662564363612e9247e2b0bafb298":[12,0,13,40,1],
-"classgenfit_1_1MaterialEffects.html#a06b5052cb309ffd7ab4d3ac1e1a34cf2":[12,0,13,40,28],
-"classgenfit_1_1MaterialEffects.html#a06b5052cb309ffd7ab4d3ac1e1a34cf2":[12,0,13,40,29],
-"classgenfit_1_1MaterialEffects.html#a0b1864390477ed7e9f3c6ee8f6b68a44":[12,0,13,40,42],
-"classgenfit_1_1MaterialEffects.html#a0ba84e751f5c3d4d2983a9e4fb03f8da":[12,0,13,40,30],
-"classgenfit_1_1MaterialEffects.html#a0ba84e751f5c3d4d2983a9e4fb03f8da":[12,0,13,40,31],
-"classgenfit_1_1MaterialEffects.html#a0c492ef1c45e6bce736fb563c7b1e126":[12,0,13,40,62],
-"classgenfit_1_1MaterialEffects.html#a0cab227e2f45bd20ba63cf1b2ad260be":[12,0,13,40,0]
+"classgenfit_1_1MaterialEffects.html#a0166662564363612e9247e2b0bafb298":[12,0,13,40,1]
 };

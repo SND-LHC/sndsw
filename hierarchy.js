@@ -190,6 +190,7 @@ var hierarchy =
       [ "run_simSND.MyTask", "classrun__simSND_1_1MyTask.html", null ],
       [ "Scifi_monitoring.Scifi_hitMaps", "classScifi__monitoring_1_1Scifi__hitMaps.html", null ],
       [ "Scifi_monitoring.Scifi_residuals", "classScifi__monitoring_1_1Scifi__residuals.html", null ],
+      [ "Scifi_monitoring.Scifi_trackEfficiency", "classScifi__monitoring_1_1Scifi__trackEfficiency.html", null ],
       [ "ScifiCTR.Scifi_CTR", "classScifiCTR_1_1Scifi__CTR.html", null ],
       [ "ScifiCTR.Scifi_TimeOfTracks", "classScifiCTR_1_1Scifi__TimeOfTracks.html", null ],
       [ "SndlhcMuonReco.MuonReco", "classSndlhcMuonReco_1_1MuonReco.html", null ],
@@ -310,9 +311,9 @@ var hierarchy =
     [ "ShipGeo.ShipGeo", "classShipGeo_1_1ShipGeo.html", null ],
     [ "SndlhcDigi.SndlhcDigi", "classSndlhcDigi_1_1SndlhcDigi.html", null ],
     [ "genfit::StepLimits", "classgenfit_1_1StepLimits.html", null ],
+    [ "shipVeto.Task", "classshipVeto_1_1Task.html", null ],
     [ "shipVertex.Task", "classshipVertex_1_1Task.html", null ],
     [ "shipPid.Task", "classshipPid_1_1Task.html", null ],
-    [ "shipVeto.Task", "classshipVeto_1_1Task.html", null ],
     [ "TestCase", null, [
       [ "test_shipGeoConfig.TestInheritance", "classtest__shipGeoConfig_1_1TestInheritance.html", null ],
       [ "test_shipGeoConfig.TestSingleConfig", "classtest__shipGeoConfig_1_1TestSingleConfig.html", null ],

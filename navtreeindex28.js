@@ -1,5 +1,12 @@
 var NAVTREEINDEX28 =
 {
+"classecalReconstructed.html#af15794f668c2b8748d1c6a811109a133":[12,0,84,7],
+"classecalStructure.html":[12,0,85],
+"classecalStructure.html#a01298f89af15a7097c4d8f2f893af417":[12,0,85,17],
+"classecalStructure.html#a01b36d1866ef1f1d058c724ad6b04818":[12,0,85,0],
+"classecalStructure.html#a091d805c6f4760e6eee070445a971e89":[12,0,85,16],
+"classecalStructure.html#a0b303fc74d5cf2db15d2f04abde7c3b9":[12,0,85,30],
+"classecalStructure.html#a0e0174a5851b064f8bfb6acb4100f102":[12,0,85,27],
 "classecalStructure.html#a10ea6eee13915b5ee45c1abd081bc10c":[12,0,85,37],
 "classecalStructure.html#a158215c02c8ead12ba65b628f6de8aeb":[12,0,85,25],
 "classecalStructure.html#a1b6ce9764e661b1c95e71b79b5267e49":[12,0,85,11],
@@ -242,12 +249,5 @@ var NAVTREEINDEX28 =
 "classexitHadronAbsorber.html#aff42c4fe303d55b7dab5a1e218806d49":[12,0,91,22],
 "classg4Ex_1_1MyEventAction.html":[12,0,9,0],
 "classg4Ex_1_1MyEventAction.html#a5f5e269936d8c9db88248f9547bbbd7f":[12,0,9,0,1],
-"classg4Ex_1_1MyEventAction.html#ad5f34b6b9ae8654b5eed4959bb2e3c8a":[12,0,9,0,0],
-"classg4Ex_1_1MyGeneratorAction.html":[12,0,9,1],
-"classg4Ex_1_1MyGeneratorAction.html#afa57e1439117a574da81d58e44e2e886":[12,0,9,1,0],
-"classg4Ex_1_1MyRunAction.html":[12,0,9,2],
-"classg4Ex_1_1MyRunAction.html#aa12c9ec3ea595a451b33790470e54ce6":[12,0,9,2,0],
-"classg4Ex_1_1MySteppingAction.html":[12,0,9,3],
-"classg4Ex_1_1MySteppingAction.html#ab1321ee57ec34f38a1e5154d4daf5dfc":[12,0,9,3,0],
-"classg4Ex_1_1MyTrackingAction.html":[12,0,9,4]
+"classg4Ex_1_1MyEventAction.html#ad5f34b6b9ae8654b5eed4959bb2e3c8a":[12,0,9,0,0]
 };
