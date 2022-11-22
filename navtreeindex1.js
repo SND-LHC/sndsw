@@ -1,6 +1,5 @@
 var NAVTREEINDEX1 =
 {
-"EmulsionMagnet_8cxx.html":[13,0,11,0],
 "EmulsionMagnet_8cxx_source.html":[13,0,11,0],
 "EmulsionMagnet_8h.html":[13,0,11,1],
 "EmulsionMagnet_8h_source.html":[13,0,11,1],
@@ -249,5 +248,6 @@ var NAVTREEINDEX1 =
 "KalmanFitter_8cc_source.html":[13,0,4,4,1,5],
 "KalmanFitter_8h.html":[13,0,4,4,0,4],
 "KalmanFitter_8h_source.html":[13,0,4,4,0,4],
-"MCStackLinkDef_8h.html":[13,0,17,2]
+"MCStackLinkDef_8h.html":[13,0,17,2],
+"MCStackLinkDef_8h_source.html":[13,0,17,2]
 };

@@ -7,7 +7,6 @@ var 2dEventDisplay_8py =
     [ "drawInfo", "2dEventDisplay_8py.html#a519a7c7e7f54f74112b2d8e4e78e8368", null ],
     [ "dumpChannels", "2dEventDisplay_8py.html#abd5a7c7219d827c87b7f5db47ad3b800", null ],
     [ "dumpVeto", "2dEventDisplay_8py.html#a1edda5d92aac1f72aab08f2e6c6f20ea", null ],
-    [ "emptyNodes", "2dEventDisplay_8py.html#a8358d297886fbfa80c32b93264e64372", null ],
     [ "fillNode", "2dEventDisplay_8py.html#accbda24def9957fb9c6a39b50004aafc", null ],
     [ "firstTimeStamp", "2dEventDisplay_8py.html#ae26217e9646bfb10d17793fe76787d4c", null ],
     [ "getStartTime", "2dEventDisplay_8py.html#a3dafff329a84397932e245e8e80fb606", null ],

@@ -35,7 +35,7 @@ var searchData=
   ['efficiencyestimates_10890',['efficiencyEstimates',['../namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#ac41084e5168747410b772cfb9973bf4b',1,'conditionsDatabase::demo::drifttubeMonitoring']]],
   ['elec_5fid_10891',['elec_ID',['../classshipPid_1_1Task.html#a2671b06b458b49930e530213caf29bb1',1,'shipPid::Task']]],
   ['electronid_10892',['ElectronID',['../classpid.html#a2438716958033589636381ece8bd2682',1,'pid']]],
-  ['emptynodes_10893',['emptyNodes',['../classEventDisplay__Task_1_1twod.html#ab84d18379649634bbacf4fd8001edd5f',1,'EventDisplay_Task.twod.emptyNodes()'],['../namespace2dEventDisplay.html#a8358d297886fbfa80c32b93264e64372',1,'2dEventDisplay.emptyNodes()']]],
+  ['emptynodes_10893',['emptyNodes',['../classEventDisplay__Task_1_1twod.html#ab84d18379649634bbacf4fd8001edd5f',1,'EventDisplay_Task::twod']]],
   ['emptytracktest_10894',['emptyTrackTest',['../streamerTest_2main_8cc.html#ab7d2d9fd4d97dd4a01b25b36ef7cc538',1,'main.cc']]],
   ['emulsiondet_10895',['EmulsionDet',['../classEmulsionDet.html#a08d27aeb728e85024efcd151fdd60adf',1,'EmulsionDet::EmulsionDet(const char *name, Bool_t Active, const char *Title=&quot;EmulsionDet&quot;)'],['../classEmulsionDet.html#a0b2b83e7db6aacce7a505a457ced9df6',1,'EmulsionDet::EmulsionDet()'],['../classEmulsionDet.html#a6e245b4a55f6fa66e8440c2e6e712f0e',1,'EmulsionDet::EmulsionDet(const EmulsionDet &amp;)']]],
   ['emulsiondetcontfact_10896',['EmulsionDetContFact',['../classEmulsionDetContFact.html#a0656e1fe8b99b7a4805427c272921930',1,'EmulsionDetContFact']]],

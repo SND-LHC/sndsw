@@ -1,6 +1,5 @@
 var NAVTREEINDEX17 =
 {
-"classMufluxDigiReco_1_1MufluxDigiReco.html":[12,0,21,0],
 "classMufluxDigiReco_1_1MufluxDigiReco.html#a0324d44f55cc03eca15721379f19bf46":[12,0,21,0,9],
 "classMufluxDigiReco_1_1MufluxDigiReco.html#a0b3db467ccafcbf42653bb3a0c49daa8":[12,0,21,0,18],
 "classMufluxDigiReco_1_1MufluxDigiReco.html#a124ac6d83c4f6ab5ea661cf59329b031":[12,0,21,0,32],
@@ -249,5 +248,6 @@ var NAVTREEINDEX17 =
 "classNuTauMudet.html#a320ace9e7aa4043d8872ecc613e2c554":[12,0,127,125],
 "classNuTauMudet.html#a3280a34e88f436ddb26765d33b534694":[12,0,127,40],
 "classNuTauMudet.html#a3519b1c56ef5010bc1399d6d5b34db5b":[12,0,127,105],
-"classNuTauMudet.html#a371d8b00f4898b9fa37a79fdf57cd920":[12,0,127,14]
+"classNuTauMudet.html#a371d8b00f4898b9fa37a79fdf57cd920":[12,0,127,14],
+"classNuTauMudet.html#a3cb6cf07bd497392cec48dea540a5d7a":[12,0,127,10]
 };

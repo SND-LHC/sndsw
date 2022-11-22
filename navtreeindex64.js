@@ -1,6 +1,5 @@
 var NAVTREEINDEX64 =
 {
-"sndLHC__geom__config_8py.html#a9322fc3fdbe40e89b7ebee364d097952":[13,0,5,3,49],
 "sndLHC__geom__config_8py.html#a944f61a71f49ecaba1f7f41f45df0c40":[13,0,5,3,5],
 "sndLHC__geom__config_8py.html#a95a70c2fbffa14cb2e11fd4feba92925":[13,0,5,3,185],
 "sndLHC__geom__config_8py.html#a95fd1e4408f861a924b2f18d3caaefcc":[13,0,5,3,13],
@@ -249,5 +248,6 @@ var NAVTREEINDEX64 =
 "structgenfit_1_1ExtrapStep.html#a9dc6889d8afb2564841edc7fac79c4f4":[12,0,13,16,2],
 "structgenfit_1_1ExtrapStep.html#ace3dd7154d264707a7ab92f5dacb9061":[12,0,13,16,1],
 "structgenfit_1_1ExtrapStep.html#ace3dd7154d264707a7ab92f5dacb9061":[12,0,13,16,0],
-"structgenfit_1_1MatStep.html":[12,0,13,42]
+"structgenfit_1_1MatStep.html":[12,0,13,42],
+"structgenfit_1_1MatStep.html#a61b1a634431ebb71b7fef8d6de309160":[12,0,13,42,0]
 };

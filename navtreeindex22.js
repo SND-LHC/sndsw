@@ -1,6 +1,5 @@
 var NAVTREEINDEX22 =
 {
-"classShipParticle.html#a387d48e7bb536e179e46619188f5f9c4":[12,0,164,7],
 "classShipParticle.html#a5ed2716dce6eff801e3202a1b10f5bbf":[12,0,164,15],
 "classShipParticle.html#a86e7cf3ecfd232fa5a05d299d2b852fa":[12,0,164,12],
 "classShipParticle.html#a974ab5760bcb59484e7121598c707758":[12,0,164,5],
@@ -249,5 +248,6 @@ var NAVTREEINDEX22 =
 "classSndlhcMuonReco_1_1hough.html#a9c483318d00d452c5d8068e64b8f7b6d":[12,0,41,0,5],
 "classSndlhcMuonReco_1_1hough.html#aae04bb8114db8174f406709091b3b74c":[12,0,41,0,13],
 "classSndlhcMuonReco_1_1hough.html#ab424d693bb9185cbf425fe8890398e27":[12,0,41,0,1],
-"classSndlhcMuonReco_1_1hough.html#adaf2a20047475fbd5d6e44f8ee78ad3d":[12,0,41,0,12]
+"classSndlhcMuonReco_1_1hough.html#adaf2a20047475fbd5d6e44f8ee78ad3d":[12,0,41,0,12],
+"classSndlhcMuonReco_1_1hough.html#ae950dfce3795808439b34f5a78eda6eb":[12,0,41,0,9]
 };

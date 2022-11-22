@@ -1,6 +1,5 @@
 var NAVTREEINDEX60 =
 {
-"scifiSimAna_8py.html#a05a3b4b0a8b35c9801da3857746e3254":[13,0,19,1,14,35],
 "scifiSimAna_8py.html#a08335fd8ffce04b230cb9ef4339108f1":[13,0,19,1,14,38],
 "scifiSimAna_8py.html#a0925b5b0fd4bf88195398c958e7a3f65":[13,0,19,1,14,9],
 "scifiSimAna_8py.html#a14a4289802c81e5051877ab7916066ed":[13,0,19,1,14,13],
@@ -249,5 +248,6 @@ var NAVTREEINDEX60 =
 "shipRoot__conf_8py.html#a5e8544883bc78700546fa8c4c116ca7d":[13,0,16,49,0],
 "shipRoot__conf_8py.html#a7f5e35cee75ea5f10f147c798b1694ae":[13,0,16,49,2],
 "shipRoot__conf_8py.html#a8ac4ec1b0a95911241aab320fa33f90f":[13,0,16,49,1],
-"shipRoot__conf_8py_source.html":[13,0,16,49]
+"shipRoot__conf_8py_source.html":[13,0,16,49],
+"shipStrawTracking_8py.html":[13,0,16,50]
 };

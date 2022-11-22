@@ -1,6 +1,5 @@
 var NAVTREEINDEX28 =
 {
-"classecalReconstructed.html#af15794f668c2b8748d1c6a811109a133":[12,0,84,7],
 "classecalStructure.html":[12,0,85],
 "classecalStructure.html#a01298f89af15a7097c4d8f2f893af417":[12,0,85,17],
 "classecalStructure.html#a01b36d1866ef1f1d058c724ad6b04818":[12,0,85,0],
@@ -249,5 +248,6 @@ var NAVTREEINDEX28 =
 "classexitHadronAbsorber.html#aff42c4fe303d55b7dab5a1e218806d49":[12,0,91,22],
 "classg4Ex_1_1MyEventAction.html":[12,0,9,0],
 "classg4Ex_1_1MyEventAction.html#a5f5e269936d8c9db88248f9547bbbd7f":[12,0,9,0,1],
-"classg4Ex_1_1MyEventAction.html#ad5f34b6b9ae8654b5eed4959bb2e3c8a":[12,0,9,0,0]
+"classg4Ex_1_1MyEventAction.html#ad5f34b6b9ae8654b5eed4959bb2e3c8a":[12,0,9,0,0],
+"classg4Ex_1_1MyGeneratorAction.html":[12,0,9,1]
 };
