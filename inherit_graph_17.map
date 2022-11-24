@@ -1,9 +1,92 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" title=" " alt="" coords="5,132,83,159"/>
-<area shape="rect" id="node2" href="$classecalLightMap.html" title=" " alt="" coords="156,5,265,32"/>
-<area shape="rect" id="node3" href="$classecalStructure.html" title=" " alt="" coords="157,56,265,83"/>
-<area shape="rect" id="node4" href="$classgenfit_1_1EventDisplay.html" title="Event display designed to run with Genfit." alt="" coords="134,107,287,133"/>
-<area shape="rect" id="node5" href="$classhcalLightMap.html" title=" " alt="" coords="156,157,265,184"/>
-<area shape="rect" id="node6" href="$classhcalStructure.html" title=" " alt="" coords="157,208,265,235"/>
-<area shape="rect" id="node7" href="$classSNDLHCEventHeader.html" title=" " alt="" coords="131,259,291,285"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,512,107,539"/>
+<area shape="rect" id="node2" href="$classEmulsionDet.html" title=" " alt="" coords="219,5,325,32"/>
+<area shape="rect" id="node3" href="$classFloor.html" title=" " alt="" coords="245,56,299,83"/>
+<area shape="rect" id="node4" href="$classHpt.html" title=" " alt="" coords="249,107,295,133"/>
+<area shape="rect" id="node5" href="$classMagneticSpectrometer.html" title=" " alt="" coords="187,157,357,184"/>
+<area shape="rect" id="node6" href="$classMuFilter.html" title=" " alt="" coords="235,208,309,235"/>
+<area shape="rect" id="node7" href="$classNuTauMudet.html" title=" " alt="" coords="221,259,323,285"/>
+<area shape="rect" id="node8" href="$classScifi.html" title=" " alt="" coords="247,309,297,336"/>
+<area shape="rect" id="node9" href="$classTarget.html" title=" " alt="" coords="241,360,303,387"/>
+<area shape="rect" id="node10" href="$classTargetTracker.html" title=" " alt="" coords="218,411,326,437"/>
+<area shape="rect" id="node11" href="$classTimeDet.html" title=" " alt="" coords="233,461,311,488"/>
+<area shape="rect" id="node12" href="$classUpstreamTagger.html" title=" " alt="" coords="207,512,337,539"/>
+<area shape="rect" id="node14" href="$classboxTarget.html" title=" " alt="" coords="229,563,315,589"/>
+<area shape="rect" id="node15" href="$classecal.html" title=" " alt="" coords="247,613,297,640"/>
+<area shape="rect" id="node16" href="$classexitHadronAbsorber.html" title=" " alt="" coords="196,664,348,691"/>
+<area shape="rect" id="node17" href="$classhcal.html" title=" " alt="" coords="247,715,297,741"/>
+<area shape="rect" id="node18" href="$classmuon.html" title=" " alt="" coords="243,765,301,792"/>
+<area shape="rect" id="node19" href="$classpreshower.html" title=" " alt="" coords="227,816,317,843"/>
+<area shape="rect" id="node20" href="$classsimpleTarget.html" title=" " alt="" coords="219,867,325,893"/>
+<area shape="rect" id="node21" href="$classsplitcal.html" title=" " alt="" coords="237,917,307,944"/>
+<area shape="rect" id="node22" href="$classstrawtubes.html" title=" " alt="" coords="225,968,319,995"/>
+<area shape="rect" id="node23" href="$classveto.html" title=" " alt="" coords="247,1019,297,1045"/>
+<area shape="rect" id="node13" href="$classUpstreamTaggerHit.html" title=" " alt="" coords="478,715,626,741"/>
+<area shape="rect" id="node24" title=" " alt="" coords="20,1956,92,1983"/>
+<area shape="rect" id="node25" href="$classHit2MCPoints.html" title=" " alt="" coords="217,1069,327,1096"/>
+<area shape="rect" id="node26" href="$classShipHit.html" title=" " alt="" coords="237,1120,307,1147"/>
+<area shape="rect" id="node32" href="$classShipMCTrack.html" title=" " alt="" coords="219,1171,325,1197"/>
+<area shape="rect" id="node33" href="$classSndlhcHit.html" title=" " alt="" coords="230,1221,314,1248"/>
+<area shape="rect" id="node36" href="$classTrackInfo.html" title=" " alt="" coords="231,1272,313,1299"/>
+<area shape="rect" id="node37" href="$classTracklet.html" title=" " alt="" coords="235,1323,309,1349"/>
+<area shape="rect" id="node38" href="$classecalCell.html" title=" " alt="" coords="235,1373,309,1400"/>
+<area shape="rect" id="node41" href="$classecalCluster.html" title=" " alt="" coords="225,1424,319,1451"/>
+<area shape="rect" id="node42" href="$classecalInf.html" title=" " alt="" coords="239,1475,305,1501"/>
+<area shape="rect" id="node43" href="$classecalMaximum.html" title=" " alt="" coords="215,1525,329,1552"/>
+<area shape="rect" id="node44" href="$classecalReconstructed.html" title=" " alt="" coords="201,1576,343,1603"/>
+<area shape="rect" id="node45" href="$classgenfit_1_1AbsFitterInfo.html" title="This class collects all information needed and produced by a specific AbsFitter and is specific to on..." alt="" coords="197,1627,347,1653"/>
+<area shape="rect" id="node47" href="$classgenfit_1_1AbsHMatrix.html" title="HMatrix for projecting from AbsTrackRep parameters to measured parameters in a DetPlane." alt="" coords="201,1677,343,1704"/>
+<area shape="rect" id="node53" href="$classgenfit_1_1AbsMaterialInterface.html" title="Abstract base class for geometry interfacing." alt="" coords="171,1728,373,1755"/>
+<area shape="rect" id="node55" href="$classgenfit_1_1AbsMeasurement.html" title="Contains the measurement and covariance in raw detector coordinates." alt="" coords="181,1779,363,1805"/>
+<area shape="rect" id="node63" href="$classgenfit_1_1AbsTrackRep.html" title="Abstract base class for a track representation." alt="" coords="197,1829,347,1856"/>
+<area shape="rect" id="node65" href="$classgenfit_1_1DetPlane.html" title="Detector plane." alt="" coords="209,1880,335,1907"/>
+<area shape="rect" id="node66" href="$classgenfit_1_1Exception.html" title="Exception class for error handling in GENFIT (provides storage for diagnostic information)" alt="" coords="207,1931,337,1957"/>
+<area shape="rect" id="node67" href="$classgenfit_1_1GFRaveTrackParameters.html" title="GFRaveTrackParameters class Contains a pointer to the original genfit::Track, the weight of the track..." alt="" coords="159,1981,385,2008"/>
+<area shape="rect" id="node68" href="$classgenfit_1_1GFRaveVertex.html" title="GFRaveVertex class." alt="" coords="192,2032,352,2059"/>
+<area shape="rect" id="node69" href="$classgenfit_1_1HelixTrackModel.html" title="Helix track model for testing purposes." alt="" coords="185,2083,359,2109"/>
+<area shape="rect" id="node70" href="$classgenfit_1_1MaterialProperties.html" title="Material properties needed e.g. for material effects calculation." alt="" coords="179,2133,365,2160"/>
+<area shape="rect" id="node71" href="$classgenfit_1_1MeasurementCreator.html" title="Create different measurement types along a HelixTrackModel for testing purposes." alt="" coords="169,2184,375,2211"/>
+<area shape="rect" id="node72" href="$classgenfit_1_1StateOnPlane.html" title="A state with arbitrary dimension defined in a DetPlane." alt="" coords="195,2235,349,2261"/>
+<area shape="rect" id="node77" href="$classgenfit_1_1ThinScatterer.html" title="Thin or thick scatterer." alt="" coords="195,2285,349,2312"/>
+<area shape="rect" id="node78" href="$classgenfit_1_1Track.html" title="Collection of TrackPoint objects, AbsTrackRep objects and FitStatus objects." alt="" coords="221,2336,323,2363"/>
+<area shape="rect" id="node79" href="$classgenfit_1_1TrackCand.html" title="Track candidate – seed values and indices." alt="" coords="205,2387,339,2413"/>
+<area shape="rect" id="node80" href="$classgenfit_1_1TrackCandHit.html" title="Hit object for use in TrackCand. Provides IDs and sorting parameters." alt="" coords="195,2437,349,2464"/>
+<area shape="rect" id="node82" href="$classgenfit_1_1TrackPoint.html" title="Object containing AbsMeasurement and AbsFitterInfo objects." alt="" coords="205,2488,339,2515"/>
+<area shape="rect" id="node83" href="$classgenfit_1_1mySpacepointDetectorHit.html" title="Example class for a spacepoint detector hit." alt="" coords="155,2539,389,2565"/>
+<area shape="rect" id="node84" href="$classhcalInf.html" title=" " alt="" coords="239,2589,305,2616"/>
+<area shape="rect" id="node85" href="$classhcalModule.html" title=" " alt="" coords="223,2640,321,2667"/>
+<area shape="rect" id="node87" href="$classpid.html" title=" " alt="" coords="251,2691,293,2717"/>
+<area shape="rect" id="node88" href="$classsndCluster.html" title=" " alt="" coords="227,2741,317,2768"/>
+<area shape="rect" id="node89" href="$classsplitcalCluster.html" title=" " alt="" coords="215,2792,329,2819"/>
+<area shape="rect" id="node90" href="$classvetoHitOnTrack.html" title=" " alt="" coords="211,2843,333,2869"/>
+<area shape="rect" id="node27" href="$classTimeDetHit.html" title=" " alt="" coords="503,968,601,995"/>
+<area shape="rect" id="node28" href="$classmuonHit.html" title=" " alt="" coords="513,1019,591,1045"/>
+<area shape="rect" id="node29" href="$classsplitcalHit.html" title=" " alt="" coords="508,1069,596,1096"/>
+<area shape="rect" id="node30" href="$classstrawtubesHit.html" title=" " alt="" coords="495,1120,609,1147"/>
+<area shape="rect" id="node31" href="$classvetoHit.html" title=" " alt="" coords="517,1171,587,1197"/>
+<area shape="rect" id="node34" href="$classMuFilterHit.html" title=" " alt="" coords="505,1221,599,1248"/>
+<area shape="rect" id="node35" href="$classsndScifiHit.html" title=" " alt="" coords="507,1272,597,1299"/>
+<area shape="rect" id="node39" href="$classecalCellMC.html" title=" " alt="" coords="505,1323,599,1349"/>
+<area shape="rect" id="node40" href="$classecalModule.html" title=" " alt="" coords="503,1373,601,1400"/>
+<area shape="rect" id="node46" href="$classgenfit_1_1KalmanFitterInfo.html" title="Collects information needed and produced by a AbsKalmanFitter implementations and is specific to one ..." alt="" coords="464,1424,640,1451"/>
+<area shape="rect" id="node48" href="$classgenfit_1_1HMatrixPhi.html" title="AbsHMatrix implementation for one&#45;dimensional MeasurementOnPlane and RKTrackRep parameterization." alt="" coords="483,1475,621,1501"/>
+<area shape="rect" id="node49" href="$classgenfit_1_1HMatrixU.html" title="AbsHMatrix implementation for one&#45;dimensional MeasurementOnPlane and RKTrackRep parameterization." alt="" coords="487,1525,617,1552"/>
+<area shape="rect" id="node50" href="$classgenfit_1_1HMatrixUV.html" title="AbsHMatrix implementation for two&#45;dimensional MeasurementOnPlane and RKTrackRep parameterization." alt="" coords="483,1576,621,1603"/>
+<area shape="rect" id="node51" href="$classgenfit_1_1HMatrixUnit.html" title="AbsHMatrix implementation for 5&#45;dimensional MeasurementOnPlane and RKTrackRep parameterization." alt="" coords="479,1627,625,1653"/>
+<area shape="rect" id="node52" href="$classgenfit_1_1HMatrixV.html" title="AbsHMatrix implementation for one&#45;dimensional MeasurementOnPlane and RKTrackRep parameterization." alt="" coords="488,1677,616,1704"/>
+<area shape="rect" id="node54" href="$classgenfit_1_1TGeoMaterialInterface.html" title="AbsMaterialInterface implementation for use with ROOT&#39;s TGeoManager." alt="" coords="445,1728,659,1755"/>
+<area shape="rect" id="node56" href="$classgenfit_1_1FullMeasurement.html" title="Measurement class implementing a measurement of all track parameters." alt="" coords="462,1779,642,1805"/>
+<area shape="rect" id="node57" href="$classgenfit_1_1PlanarMeasurement.html" title="Measurement class implementing a planar hit geometry (1 or 2D)." alt="" coords="453,1829,651,1856"/>
+<area shape="rect" id="node58" href="$classgenfit_1_1SpacepointMeasurement.html" title="Class for measurements implementing a space point hit geometry." alt="" coords="437,1880,667,1907"/>
+<area shape="rect" id="node61" href="$classgenfit_1_1WireMeasurement.html" title="Class for measurements in wire detectors (Straw tubes and drift chambers) which do not measure the co..." alt="" coords="459,1931,645,1957"/>
+<area shape="rect" id="node59" href="$classgenfit_1_1ProlateSpacepointMeasurement.html" title="Class for measurements implementing a space point hit geometry with a very prolate form of the covari..." alt="" coords="747,1814,933,1855"/>
+<area shape="rect" id="node60" href="$classgenfit_1_1mySpacepointMeasurement.html" title="Example class for a spacepoint measurement which can be created from mySpacepointDetectorHit via the ..." alt="" coords="715,1880,965,1907"/>
+<area shape="rect" id="node62" href="$classgenfit_1_1WirePointMeasurement.html" title="Class for measurements in wire detectors (Straw tubes and drift chambers) which can measure the coord..." alt="" coords="730,1931,950,1957"/>
+<area shape="rect" id="node64" href="$classgenfit_1_1RKTrackRep.html" title="AbsTrackRep with 5D track parameterization in plane coordinates: (q/p, u&#39;, v&#39;, u, v)" alt="" coords="481,1981,623,2008"/>
+<area shape="rect" id="node73" href="$classgenfit_1_1MeasuredStateOnPlane.html" title="StateOnPlane with additional covariance matrix." alt="" coords="443,2205,661,2232"/>
+<area shape="rect" id="node76" href="$classgenfit_1_1ReferenceStateOnPlane.html" title="StateOnPlane with linearized transport to that ReferenceStateOnPlane from previous and next Reference..." alt="" coords="459,2257,645,2298"/>
+<area shape="rect" id="node74" href="$classgenfit_1_1KalmanFittedStateOnPlane.html" title="MeasuredStateOnPlane with additional info produced by a Kalman filter or DAF." alt="" coords="746,2169,934,2210"/>
+<area shape="rect" id="node75" href="$classgenfit_1_1MeasurementOnPlane.html" title="Measured coordinates on a plane." alt="" coords="735,2235,945,2261"/>
+<area shape="rect" id="node81" href="$classgenfit_1_1WireTrackCandHit.html" title="Hit object for use in TrackCand. Provides additional left/right parameter." alt="" coords="461,2437,643,2464"/>
+<area shape="rect" id="node86" href="$classhcalModuleMC.html" title=" " alt="" coords="493,2640,611,2667"/>
 </map>

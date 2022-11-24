@@ -1,5 +1,5 @@
 <map id="genfit::Exception" name="genfit::Exception">
-<area shape="rect" id="node1" title="Exception class for error handling in GENFIT (provides storage for diagnostic information)" alt="" coords="20,153,151,180"/>
+<area shape="rect" id="node1" title="Exception class for error handling in GENFIT (provides storage for diagnostic information)" alt="" coords="20,168,151,195"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,5,77,32"/>
 <area shape="rect" id="node3" title=" " alt="" coords="101,5,160,32"/>
 </map>

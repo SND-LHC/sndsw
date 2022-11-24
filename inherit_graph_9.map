@@ -1,3 +1,30 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classdarkphoton_1_1DarkPhoton.html" title=" " alt="" coords="5,5,181,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,785,120,812"/>
+<area shape="rect" id="node2" href="$classConvRawData_1_1ConvRawDataPY.html" title=" " alt="" coords="175,5,401,32"/>
+<area shape="rect" id="node3" href="$classDAQ__monitoring_1_1DAQ__boards.html" title=" " alt="" coords="207,57,369,98"/>
+<area shape="rect" id="node4" href="$classDAQ__monitoring_1_1Time__evolution.html" title=" " alt="" coords="205,122,371,163"/>
+<area shape="rect" id="node5" href="$classEventDisplay__Task_1_1twod.html" title=" " alt="" coords="198,188,378,215"/>
+<area shape="rect" id="node6" href="$classMufi__monitoring_1_1Mufi__hitMaps.html" title=" " alt="" coords="208,239,368,281"/>
+<area shape="rect" id="node7" href="$classMufi__monitoring_1_1Mufi__largeVSsmall.html" title=" " alt="" coords="208,305,368,346"/>
+<area shape="rect" id="node8" href="$classMufi__monitoring_1_1Veto__Efficiency.html" title=" " alt="" coords="207,370,369,411"/>
+<area shape="rect" id="node9" href="$classScifiCTR_1_1Scifi__CTR.html" title=" " alt="" coords="219,436,357,463"/>
+<area shape="rect" id="node10" href="$classScifiCTR_1_1Scifi__TimeOfTracks.html" title=" " alt="" coords="187,487,389,513"/>
+<area shape="rect" id="node11" href="$classScifi__monitoring_1_1Scifi__hitMaps.html" title=" " alt="" coords="209,538,367,579"/>
+<area shape="rect" id="node12" href="$classScifi__monitoring_1_1Scifi__residuals.html" title=" " alt="" coords="209,603,367,645"/>
+<area shape="rect" id="node13" href="$classScifi__monitoring_1_1Scifi__trackEfficiency.html" title=" " alt="" coords="209,669,367,710"/>
+<area shape="rect" id="node14" href="$classSndlhcMuonReco_1_1MuonReco.html" title=" " alt="" coords="185,735,391,761"/>
+<area shape="rect" id="node15" href="$classSndlhcTracking_1_1Tracking.html" title=" " alt="" coords="199,785,377,812"/>
+<area shape="rect" id="node16" href="$classeventDisplay_1_1DrawDigi.html" title=" " alt="" coords="203,836,373,863"/>
+<area shape="rect" id="node17" href="$classeventDisplay_1_1DrawEcalCluster.html" title=" " alt="" coords="179,887,397,913"/>
+<area shape="rect" id="node18" href="$classeventDisplay_1_1DrawTracks.html" title=" " alt="" coords="195,937,381,964"/>
+<area shape="rect" id="node19" href="$classeventDisplay_1_1DrawVetoDigi.html" title=" " alt="" coords="189,988,387,1015"/>
+<area shape="rect" id="node20" href="$classeventDisplay_1_1EventLoop.html" title=" " alt="" coords="199,1039,377,1065"/>
+<area shape="rect" id="node21" href="$classeventDisplay_1_1Rulers.html" title=" " alt="" coords="213,1089,363,1116"/>
+<area shape="rect" id="node22" href="$classeventDisplay__shipLHC_1_1DrawTracks.html" title=" " alt="" coords="185,1141,391,1182"/>
+<area shape="rect" id="node23" href="$classeventDisplay__shipLHC_1_1EventLoop.html" title=" " alt="" coords="168,1207,408,1233"/>
+<area shape="rect" id="node24" href="$classeventDisplay__shipLHC_1_1Rulers.html" title=" " alt="" coords="181,1257,395,1284"/>
+<area shape="rect" id="node25" href="$classrun__simSND_1_1MyTask.html" title=" " alt="" coords="211,1308,365,1335"/>
+<area shape="rect" id="node26" href="$classvetoTimeCalibration_1_1vetoTDCchannelCalibration.html" title=" " alt="" coords="194,1359,382,1401"/>
+<area shape="rect" id="node27" href="$classvetoTimeCalibration_1_1vetoTDCplaneCalibration.html" title=" " alt="" coords="194,1425,382,1466"/>
+<area shape="rect" id="node28" href="$classvetoTimeCalibration_1_1vetoTimeWalk.html" title=" " alt="" coords="194,1490,382,1531"/>
 </map>

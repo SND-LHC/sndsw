@@ -3,6 +3,8 @@ var classMonitor_1_1Monitoring =
     [ "__init__", "classMonitor_1_1Monitoring.html#ae312943da7ffd0c3001eccd0a307483e", null ],
     [ "checkAlarm", "classMonitor_1_1Monitoring.html#a0c4505b153798781f6d995216dfaf978", null ],
     [ "cleanUpHtml", "classMonitor_1_1Monitoring.html#a10dc54ad1fe3556bc93464d3bcdf94a8", null ],
+    [ "fillHist1", "classMonitor_1_1Monitoring.html#a23c052fd167fb42aef4c796860083182", null ],
+    [ "fillHist2", "classMonitor_1_1Monitoring.html#ad7864b74908bf9d26b7a3d49280f3a13", null ],
     [ "fit_langau", "classMonitor_1_1Monitoring.html#ad9db897aa13444aa42ea1e30f7519e79", null ],
     [ "getAverageZpositions", "classMonitor_1_1Monitoring.html#a946f4ac356a297cf233837dcfdd26acd", null ],
     [ "GetEntries", "classMonitor_1_1Monitoring.html#aa7b97acb76a0027fac143faf0ce67798", null ],

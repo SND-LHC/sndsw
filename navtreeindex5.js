@@ -31,7 +31,6 @@ var NAVTREEINDEX5 =
 "ShipStack_8cxx.html":[13,0,17,11],
 "ShipStack_8cxx_source.html":[13,0,17,11],
 "ShipStack_8h.html":[13,0,17,12],
-"ShipStack_8h.html#a99fb83031ce9923c84392b4e92f956b5a12781c855b259e1c96ca6cc950606ffb":[13,0,17,12,1],
 "ShipStack_8h_source.html":[13,0,17,12],
 "ShipStyle_8py.html":[13,0,16,52],
 "ShipStyle_8py.html#a231fa73a995a536e3298ce5cc9073ebd":[13,0,16,52,1],
@@ -249,5 +248,6 @@ var NAVTREEINDEX5 =
 "TTCluster_8py.html#a3035587ff36523f475ed425c47d07323":[13,0,16,63,55],
 "TTCluster_8py.html#a359c70c2411c1eaf973b57a30b112dc8":[13,0,16,63,81],
 "TTCluster_8py.html#a3b41c88e0cfc82541f480cf59387251e":[13,0,16,63,19],
-"TTCluster_8py.html#a3eedf18a5d6f7e2aa908cd50250d38cf":[13,0,16,63,44]
+"TTCluster_8py.html#a3eedf18a5d6f7e2aa908cd50250d38cf":[13,0,16,63,44],
+"TTCluster_8py.html#a42b4435305ad9f3df9bb8ea5c6ceaa45":[13,0,16,63,43]
 };

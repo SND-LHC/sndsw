@@ -1,7 +1,5 @@
 var classMille =
 [
-    [ "myBufferSize", "classMille.html#a58c69ad901fae1cee220618ec27c99a6a1a8de6b2990503a7805d0dd14f4df929", null ],
-    [ "myMaxLabel", "classMille.html#aa4d7ab7e2d13c1bcaef04319f6964511a676e78045ad80e0f8b9c0893cfd3b245", null ],
     [ "Mille", "classMille.html#ac2fcc95c85ec43587711267cf18bdebe", null ],
     [ "~Mille", "classMille.html#a6706fe1f4ad6421dd57fec4fe08edea3", null ],
     [ "checkBufferSize", "classMille.html#a47607c5a474c06a2fe497a05f915f33f", null ],
