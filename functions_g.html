@@ -125,6 +125,11 @@ $(document).ready(function(){initNavTree('functions_g.html',''); initResizable()
 <li>generation
 : <a class="el" href="classNtupleGenerator__FLUKA.html#adc460b482e76e9b50f3e7c0313c39637">NtupleGenerator_FLUKA</a>
 </li>
+<li>genfitTrack
+: <a class="el" href="classMonitor_1_1TrackSelector.html#ac61a1704f1b730b7c3a74dca02a5c33c">Monitor.TrackSelector</a>
+, <a class="el" href="classSndlhcMuonReco_1_1MuonReco.html#ad10657c13f707cb8a9286ae44093ffd4">SndlhcMuonReco.MuonReco</a>
+, <a class="el" href="classSndlhcTracking_1_1Tracking.html#a5e24f30a647ff14b777475969d08a59e">SndlhcTracking.Tracking</a>
+</li>
 <li>GenieGenerator()
 : <a class="el" href="classGenieGenerator.html#a607bebd897ae9909b9326fa6d4572c78">GenieGenerator</a>
 </li>
@@ -260,6 +265,12 @@ $(document).ready(function(){initNavTree('functions_g.html',''); initResizable()
 </li>
 <li>GetAllTimes()
 : <a class="el" href="classMuFilterHit.html#a8071401f68ab4210ec4bdf3287021d30">MuFilterHit</a>
+</li>
+<li>getAngleXZ()
+: <a class="el" href="classsndRecoTrack.html#a2e5e9c26bfeaf7b8d80cc61977116886">sndRecoTrack</a>
+</li>
+<li>getAngleYZ()
+: <a class="el" href="classsndRecoTrack.html#a1c6802464d46db94fd60db4737cc6b1a">sndRecoTrack</a>
 </li>
 <li>getAuxInfo()
 : <a class="el" href="classgenfit_1_1StateOnPlane.html#ad574c9e4ef45aed61bab1f7b99e221db">genfit::StateOnPlane</a>
@@ -398,6 +409,10 @@ $(document).ready(function(){initNavTree('functions_g.html',''); initResizable()
 : <a class="el" href="classgbl_1_1GblData.html#aa246e8c6957c1ace767284313d981650">gbl::GblData</a>
 , <a class="el" href="classgenfit_1_1FitStatus.html#ae8ebf924f1e993731f27c44b87dd9ab1">genfit::FitStatus</a>
 , <a class="el" href="classgenfit_1_1GFRaveVertex.html#a74999ff8af431cf5e70813325730e594">genfit::GFRaveVertex</a>
+, <a class="el" href="classsndRecoTrack.html#a3f0cbe65911f188e22b3af2274a7f03c">sndRecoTrack</a>
+</li>
+<li>getChi2Ndf()
+: <a class="el" href="classsndRecoTrack.html#a28c27054adbe3d26991ac95314696d32">sndRecoTrack</a>
 </li>
 <li>getChiSqu()
 : <a class="el" href="classgenfit_1_1AbsKalmanFitter.html#a44fd5e51fe6ad8291931f34ac2ea7d10">genfit::AbsKalmanFitter</a>
@@ -480,10 +495,13 @@ $(document).ready(function(){initNavTree('functions_g.html',''); initResizable()
 <li>GetCorrectedTime()
 : <a class="el" href="classScifi.html#ad450e9024b424afc7cc0cdeafbe23552">Scifi</a>
 </li>
+<li>getCorrTimes()
+: <a class="el" href="classsndRecoTrack.html#a7ea4634d7fdb9fecb8d253a8fcd86c70">sndRecoTrack</a>
+</li>
 <li>getCov()
 : <a class="el" href="classgenfit_1_1GFRaveTrackParameters.html#a9a962c8140634de86d5f4751f27ea3cf">genfit::GFRaveTrackParameters</a>
 , <a class="el" href="classgenfit_1_1GFRaveVertex.html#a62c8d712faf5147eb875c6b28f021108">genfit::GFRaveVertex</a>
-, <a class="el" href="classgenfit_1_1MeasuredStateOnPlane.html#a35157160d3468e7ff4dc36102de77b5b">genfit::MeasuredStateOnPlane</a>
+, <a class="el" href="classgenfit_1_1MeasuredStateOnPlane.html#ab464c9a71ac66873b624a2797b358afe">genfit::MeasuredStateOnPlane</a>
 , <a class="el" href="classgenfit_1_1mySpacepointDetectorHit.html#aaa6b7cd3af989b70c881b156e7584d86">genfit::mySpacepointDetectorHit</a>
 </li>
 <li>GetCovP()
@@ -941,8 +959,8 @@ $(document).ready(function(){initNavTree('functions_g.html',''); initResizable()
 : <a class="el" href="classgenfit_1_1TrackPoint.html#ae9d82d928508e3973d9645a8b7d33641">genfit::TrackPoint</a>
 </li>
 <li>getMaterialParameters()
-: <a class="el" href="classgenfit_1_1AbsMaterialInterface.html#a70a5a8e16c4ac84d13cebc699aa2d6a1">genfit::AbsMaterialInterface</a>
-, <a class="el" href="classgenfit_1_1TGeoMaterialInterface.html#a3fdf0212196630c8a5a56973431a1708">genfit::TGeoMaterialInterface</a>
+: <a class="el" href="classgenfit_1_1AbsMaterialInterface.html#a215d110eff1cae1f63f8031e01d9ef14">genfit::AbsMaterialInterface</a>
+, <a class="el" href="classgenfit_1_1TGeoMaterialInterface.html#a3151722806c0a2fff8a9d025e1ad2bdc">genfit::TGeoMaterialInterface</a>
 </li>
 <li>getMaterialProperties()
 : <a class="el" href="classgenfit_1_1MaterialProperties.html#a0da175022246d94a24b37cce4ef4f5f2">genfit::MaterialProperties</a>
@@ -992,7 +1010,7 @@ $(document).ready(function(){initNavTree('functions_g.html',''); initResizable()
 </li>
 <li>GetModule()
 : <a class="el" href="classecalStructure.html#a091d805c6f4760e6eee070445a971e89">ecalStructure</a>
-, <a class="el" href="classhcalStructure.html#a68886ac99bb7e3ea9b4578abc0425996">hcalStructure</a>
+, <a class="el" href="classhcalStructure.html#a0a996a5bfa54ba8e8a787020e05495a0">hcalStructure</a>
 , <a class="el" href="classUpstreamTaggerHit.html#a90d2189de4b88c249fcb42f8b0ba4a19">UpstreamTaggerHit</a>
 </li>
 <li>getModuleName()
@@ -1061,6 +1079,7 @@ $(document).ready(function(){initNavTree('functions_g.html',''); initResizable()
 , <a class="el" href="classgenfit_1_1FitStatus.html#a5af64b4106ee194eb6ba3dfe0814f57a">genfit::FitStatus</a>
 , <a class="el" href="classgenfit_1_1GFRaveVertex.html#af5bbf013778d7bb8bafdd3318f482505">genfit::GFRaveVertex</a>
 , <a class="el" href="classgenfit_1_1KalmanFittedStateOnPlane.html#a704e4ec7b0a7bbf93bb1cb22c08f12cf">genfit::KalmanFittedStateOnPlane</a>
+, <a class="el" href="classsndRecoTrack.html#a61bef837e998e236219d7db5304f3375">sndRecoTrack</a>
 </li>
 <li>GetNeighborsList()
 : <a class="el" href="classecalCell.html#a426142dfe3ceae5f12a255cc5e66cdfe">ecalCell</a>
@@ -1316,7 +1335,7 @@ $(document).ready(function(){initNavTree('functions_g.html',''); initResizable()
 <li>getPos()
 : <a class="el" href="classgenfit_1_1HelixTrackModel.html#a7e1c86957392e9a6d287849240a726d2">genfit::HelixTrackModel</a>
 , <a class="el" href="classgenfit_1_1mySpacepointDetectorHit.html#ac2eb82524af4cb3ef1f0789bd7fca4be">genfit::mySpacepointDetectorHit</a>
-, <a class="el" href="classgenfit_1_1RKTrackRep.html#af8043122392aed738fa1596b74cfa957">genfit::RKTrackRep</a>
+, <a class="el" href="classgenfit_1_1RKTrackRep.html#adf4865558fe7b54ffe94c3e145344505">genfit::RKTrackRep</a>
 , <a class="el" href="classgenfit_1_1StateOnPlane.html#a23961b3951b09c5c28beb9d5cb898c88">genfit::StateOnPlane</a>
 , <a class="el" href="classmuonHit.html#a765be7a09c71e7751833db16f7a65639">muonHit</a>
 </li>
@@ -1352,7 +1371,7 @@ $(document).ready(function(){initNavTree('functions_g.html',''); initResizable()
 <li>getPosMomCov()
 : <a class="el" href="classgenfit_1_1AbsTrackRep.html#ae6f4c4eeb3e4fbadcc930f53e2ca4ad7">genfit::AbsTrackRep</a>
 , <a class="el" href="classgenfit_1_1MeasuredStateOnPlane.html#a2bf86c7b1ab9c4a9ad2ac4142c935161">genfit::MeasuredStateOnPlane</a>
-, <a class="el" href="classgenfit_1_1RKTrackRep.html#ad94153c3713eeff5ee143ab21902de62">genfit::RKTrackRep</a>
+, <a class="el" href="classgenfit_1_1RKTrackRep.html#a365af2b96444bab71d5acb3cd75318c3">genfit::RKTrackRep</a>
 </li>
 <li>getPosSeed()
 : <a class="el" href="classgenfit_1_1TrackCand.html#af2a8ce70672c6485b5f34ba14acd1fa3">genfit::TrackCand</a>
@@ -1440,6 +1459,12 @@ $(document).ready(function(){initNavTree('functions_g.html',''); initResizable()
 <li>getRawHitCov()
 : <a class="el" href="classgenfit_1_1AbsMeasurement.html#ab1a9e049db9adfa6afa423b55ce2f3c6">genfit::AbsMeasurement</a>
 </li>
+<li>getRawMeasDetIDs()
+: <a class="el" href="classsndRecoTrack.html#ac592df6a87b0a1e3b4dbd2cfc8157587">sndRecoTrack</a>
+</li>
+<li>getRawMeasTimes()
+: <a class="el" href="classsndRecoTrack.html#af2df5ec4dd10022c2d407445e4efa3f7">sndRecoTrack</a>
+</li>
 <li>getRawMeasurement()
 : <a class="el" href="classgenfit_1_1TrackPoint.html#ac32b6319e9a4e6e3c8d7bba4b2e19577">genfit::TrackPoint</a>
 </li>
@@ -1514,6 +1539,12 @@ $(document).ready(function(){initNavTree('functions_g.html',''); initResizable()
 <li>getSliceCount()
 : <a class="el" href="structScalarFrame.html#a11b8694cc1128ee5e2c016410fafd5f6">ScalarFrame</a>
 </li>
+<li>getSlopeXZ()
+: <a class="el" href="classsndRecoTrack.html#aeea882efca0f316c2263268ed4945ba6">sndRecoTrack</a>
+</li>
+<li>getSlopeYZ()
+: <a class="el" href="classsndRecoTrack.html#aedcfd046dae7c16b274f00eef7390d73">sndRecoTrack</a>
+</li>
 <li>GetSlopeZX()
 : <a class="el" href="classsplitcalCluster.html#a56b01ad7690370b2a3bb434d31de6d62">splitcalCluster</a>
 </li>
@@ -1529,6 +1560,9 @@ $(document).ready(function(){initNavTree('functions_g.html',''); initResizable()
 </li>
 <li>getSpu()
 : <a class="el" href="classgenfit_1_1RKTrackRep.html#a177f273f4dc3d7d1eaa646fe5a70aaf3">genfit::RKTrackRep</a>
+</li>
+<li>getStart()
+: <a class="el" href="classsndRecoTrack.html#a8e1e6021e7b73edbe4d43a161560efa5">sndRecoTrack</a>
 </li>
 <li>GetStartPoint()
 : <a class="el" href="classsplitcalCluster.html#a0b31594df018cbf1a72db8e79265060c">splitcalCluster</a>
@@ -1574,6 +1608,9 @@ $(document).ready(function(){initNavTree('functions_g.html',''); initResizable()
 </li>
 <li>getStepSign()
 : <a class="el" href="classgenfit_1_1StepLimits.html#a86cf95265e990d69f4ad3fa3c94b805a">genfit::StepLimits</a>
+</li>
+<li>getStop()
+: <a class="el" href="classsndRecoTrack.html#a9cf6222d51e2c19beac762cbb051dae4">sndRecoTrack</a>
 </li>
 <li>GetStoreTrackInformation()
 : <a class="el" href="classecalStructureFiller.html#a11b58104c56f55a81b0f3db355161114">ecalStructureFiller</a>
@@ -1666,13 +1703,22 @@ $(document).ready(function(){initNavTree('functions_g.html',''); initResizable()
 <li>GetTrackEnergySlow()
 : <a class="el" href="classecalCellMC.html#a9449d117fcd9c3d0b99215c9062fd5e9">ecalCellMC</a>
 </li>
+<li>getTrackFlag()
+: <a class="el" href="classsndRecoTrack.html#a352cbaf21dfcf630e7a2b2f1296eb69d">sndRecoTrack</a>
+</li>
 <li>getTrackLen()
 : <a class="el" href="classgenfit_1_1KalmanFitStatus.html#aee7eec54ec585ab00728cdd80c7f6a4f">genfit::KalmanFitStatus</a>
 , <a class="el" href="classgenfit_1_1Track.html#af79036f35f4b6e191d9cbe97cf9c2f09">genfit::Track</a>
 </li>
+<li>getTrackMom()
+: <a class="el" href="classsndRecoTrack.html#abb2605ac629c16e5430919b8fb160128">sndRecoTrack</a>
+</li>
 <li>getTrackPoint()
 : <a class="el" href="classgenfit_1_1AbsFitterInfo.html#aba65111c5a93ac0284e01dad01565bbb">genfit::AbsFitterInfo</a>
 , <a class="el" href="classgenfit_1_1AbsMeasurement.html#aef454157d48d5de231b26862c972a10e">genfit::AbsMeasurement</a>
+</li>
+<li>getTrackPoints()
+: <a class="el" href="classsndRecoTrack.html#a292582631f0075f4b04e72a8efede8da">sndRecoTrack</a>
 </li>
 <li>getTrackRep()
 : <a class="el" href="classgenfit_1_1Track.html#aa2f68b52fa98a30c22e8465a810bad26">genfit::Track</a>
@@ -1688,6 +1734,9 @@ $(document).ready(function(){initNavTree('functions_g.html',''); initResizable()
 </li>
 <li>GetTrackTimeSlow()
 : <a class="el" href="classecalCellMC.html#a8feacde9ffad0353a3780d7b2207010f">ecalCellMC</a>
+</li>
+<li>getTrackType()
+: <a class="el" href="classsndRecoTrack.html#a1ae0a02e1fd96d682f2130b7894d3618">sndRecoTrack</a>
 </li>
 <li>getTransformation()
 : <a class="el" href="classShipFieldMaker.html#a6e7d9c110249730e4a725e374c321aee">ShipFieldMaker</a>

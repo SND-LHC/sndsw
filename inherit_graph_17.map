@@ -22,7 +22,7 @@
 <area shape="rect" id="node22" href="$classstrawtubes.html" title=" " alt="" coords="225,968,319,995"/>
 <area shape="rect" id="node23" href="$classveto.html" title=" " alt="" coords="247,1019,297,1045"/>
 <area shape="rect" id="node13" href="$classUpstreamTaggerHit.html" title=" " alt="" coords="478,715,626,741"/>
-<area shape="rect" id="node24" title=" " alt="" coords="20,1956,92,1983"/>
+<area shape="rect" id="node24" title=" " alt="" coords="20,1981,92,2008"/>
 <area shape="rect" id="node25" href="$classHit2MCPoints.html" title=" " alt="" coords="217,1069,327,1096"/>
 <area shape="rect" id="node26" href="$classShipHit.html" title=" " alt="" coords="237,1120,307,1147"/>
 <area shape="rect" id="node32" href="$classShipMCTrack.html" title=" " alt="" coords="219,1171,325,1197"/>
@@ -57,8 +57,9 @@
 <area shape="rect" id="node85" href="$classhcalModule.html" title=" " alt="" coords="223,2640,321,2667"/>
 <area shape="rect" id="node87" href="$classpid.html" title=" " alt="" coords="251,2691,293,2717"/>
 <area shape="rect" id="node88" href="$classsndCluster.html" title=" " alt="" coords="227,2741,317,2768"/>
-<area shape="rect" id="node89" href="$classsplitcalCluster.html" title=" " alt="" coords="215,2792,329,2819"/>
-<area shape="rect" id="node90" href="$classvetoHitOnTrack.html" title=" " alt="" coords="211,2843,333,2869"/>
+<area shape="rect" id="node89" href="$classsndRecoTrack.html" title=" " alt="" coords="217,2792,327,2819"/>
+<area shape="rect" id="node90" href="$classsplitcalCluster.html" title=" " alt="" coords="215,2843,329,2869"/>
+<area shape="rect" id="node91" href="$classvetoHitOnTrack.html" title=" " alt="" coords="211,2893,333,2920"/>
 <area shape="rect" id="node27" href="$classTimeDetHit.html" title=" " alt="" coords="503,968,601,995"/>
 <area shape="rect" id="node28" href="$classmuonHit.html" title=" " alt="" coords="513,1019,591,1045"/>
 <area shape="rect" id="node29" href="$classsplitcalHit.html" title=" " alt="" coords="508,1069,596,1096"/>

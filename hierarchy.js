@@ -420,6 +420,7 @@ var hierarchy =
       ] ],
       [ "pid", "classpid.html", null ],
       [ "sndCluster", "classsndCluster.html", null ],
+      [ "sndRecoTrack", "classsndRecoTrack.html", null ],
       [ "splitcalCluster", "classsplitcalCluster.html", null ],
       [ "vetoHitOnTrack", "classvetoHitOnTrack.html", null ]
     ] ],

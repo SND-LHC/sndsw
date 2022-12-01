@@ -421,6 +421,7 @@ var annotated_dup =
     [ "sndCluster", "classsndCluster.html", "classsndCluster" ],
     [ "SNDLHCEventHeader", "classSNDLHCEventHeader.html", "classSNDLHCEventHeader" ],
     [ "SndlhcHit", "classSndlhcHit.html", "classSndlhcHit" ],
+    [ "sndRecoTrack", "classsndRecoTrack.html", "classsndRecoTrack" ],
     [ "sndScifiHit", "classsndScifiHit.html", "classsndScifiHit" ],
     [ "splitcal", "classsplitcal.html", "classsplitcal" ],
     [ "splitcalCluster", "classsplitcalCluster.html", "classsplitcalCluster" ],
