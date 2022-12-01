@@ -1,5 +1,10 @@
 var NAVTREEINDEX80 =
 {
+"runMufluxDigi_8py.html#a0ebb5227e9f1a0ae37ff842043d20a18":[13,0,7,24,21],
+"runMufluxDigi_8py.html#a0fdbbe0f685635fe43bdf0653a6ac313":[13,0,7,24,10],
+"runMufluxDigi_8py.html#a1021b1f77fd0509e469ba25f6b2e39b3":[13,0,7,24,17],
+"runMufluxDigi_8py.html#a2ccef05e8f35f2073fd3b46435678306":[13,0,7,24,8],
+"runMufluxDigi_8py.html#a4396589a6471a632b41958378cfe29f4":[13,0,7,24,13],
 "runMufluxDigi_8py.html#a470cb79f48ee1891cdd77691ebe725e7":[13,0,7,24,2],
 "runMufluxDigi_8py.html#a490550a9eb226b68d4df938477a38c7b":[13,0,7,24,4],
 "runMufluxDigi_8py.html#a500f2c37dc570bf0c7f293dae38ebf6e":[13,0,7,24,7],
@@ -244,10 +249,5 @@ var NAVTREEINDEX80 =
 "run__MufluxfixedTarget_8py.html#a972a364af804f5d169f8a00c8021f255":[13,0,10,18,34],
 "run__MufluxfixedTarget_8py.html#a9842f7625abbc6401ac57ee13151a847":[13,0,10,18,26],
 "run__MufluxfixedTarget_8py.html#a9b824d99ff2e816b780c5cfdd80541c2":[13,0,10,18,44],
-"run__MufluxfixedTarget_8py.html#a9c8cd634bfa2bdc845eb203ea2a33af0":[13,0,10,18,48],
-"run__MufluxfixedTarget_8py.html#a9e07da9155bce2b8f38fbcfdd183f2bd":[13,0,10,18,23],
-"run__MufluxfixedTarget_8py.html#aa6238cccc4e9988c94f65a6657ce7211":[13,0,10,18,12],
-"run__MufluxfixedTarget_8py.html#aa7077b021d2c92a092ceac3cc0d1c783":[13,0,10,18,52],
-"run__MufluxfixedTarget_8py.html#aa8c55dfb75dd485777269b1035e3316d":[13,0,10,18,1],
-"run__MufluxfixedTarget_8py.html#aa9bf33c978fbc7216ecbe7f027578906":[13,0,10,18,8]
+"run__MufluxfixedTarget_8py.html#a9c8cd634bfa2bdc845eb203ea2a33af0":[13,0,10,18,48]
 };

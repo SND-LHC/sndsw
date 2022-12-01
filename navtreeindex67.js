@@ -1,5 +1,10 @@
 var NAVTREEINDEX67 =
 {
+"namespacemakeGenieEvents.html#a18761af000144b7f8809bd9180d8ab56":[11,0,68,14],
+"namespacemakeGenieEvents.html#a1c1bc39ae89a3c4bc2a0614874a098fc":[11,0,68,7],
+"namespacemakeGenieEvents.html#a3fecd414d948c9a71132e3b581ca57a7":[11,0,68,16],
+"namespacemakeGenieEvents.html#a476323b0ffd41a471db483c6e0168c41":[11,0,68,2],
+"namespacemakeGenieEvents.html#a543cf1b3768c0d56db314a45908efd7c":[11,0,68,1],
 "namespacemakeGenieEvents.html#a628fe9931f64c0ccbdd82040fc36f1cd":[11,0,68,8],
 "namespacemakeGenieEvents.html#a723830cb88ff1f84ac28f1139259ba2c":[11,0,68,13],
 "namespacemakeGenieEvents.html#a944f9fb38b6f3d28c2a8cacd7e919b31":[11,0,68,6],
@@ -244,10 +249,5 @@ var NAVTREEINDEX67 =
 "namespaceminresdatamodule.html#a40b520371150ec723c77c6f2bc5f3ac3":[11,0,75,0],
 "namespaceminresdatamodule.html#ae6643fa347943dc3fce47bc17514178d":[11,0,75,1],
 "namespaceminresmodule.html":[11,0,76],
-"namespaceminresmodule.html#af74c4ebfeaa33584dabc74a700776cb3":[11,0,76,0],
-"namespaceminresqlpblasmodule.html":[11,0,77],
-"namespaceminresqlpblasmodule.html#a05aa6b2fe1fb5ee89bd38d2ee14fbd47":[11,0,77,0],
-"namespaceminresqlpblasmodule.html#ac3978d13b24fe4c125dbe99300366e1d":[11,0,77,1],
-"namespaceminresqlpdatamodule.html":[11,0,78],
-"namespaceminresqlpdatamodule.html#a076ec5bff2ccecd7cbb864c558ebbf33":[11,0,78,2]
+"namespaceminresmodule.html#af74c4ebfeaa33584dabc74a700776cb3":[11,0,76,0]
 };

@@ -1,5 +1,10 @@
 var NAVTREEINDEX70 =
 {
+"namespaceproton__bremsstrahlung.html#a1763f29629de36584cd738955de3f80c":[11,0,101,1],
+"namespaceproton__bremsstrahlung.html#a2b43c8829e3c53c2066d8f50a144f14f":[11,0,101,11],
+"namespaceproton__bremsstrahlung.html#a32d83ebc0b322ea38f08527d3e51e45e":[11,0,101,3],
+"namespaceproton__bremsstrahlung.html#a47e461cd92265e129840b8b3f5e64edb":[11,0,101,22],
+"namespaceproton__bremsstrahlung.html#a5c89ae4d0f0f40c6ea3b33c50edea751":[11,0,101,2],
 "namespaceproton__bremsstrahlung.html#a5e4a2d5a73c0d8c404774c5a3c02627b":[11,0,101,13],
 "namespaceproton__bremsstrahlung.html#a6b37c9dca9e3f9d5843551bb51d35a1e":[11,0,101,9],
 "namespaceproton__bremsstrahlung.html#a7731f93d1bb7a65a1e11120bd3f2734c":[11,0,101,18],
@@ -244,10 +249,5 @@ var NAVTREEINDEX70 =
 "namespacerunPythia8PP.html#a29be0bc3e3773859f576d9ab6540131b":[11,0,133,5],
 "namespacerunPythia8PP.html#a38046e46c1e4de9329dbfaacd063207c":[11,0,133,14],
 "namespacerunPythia8PP.html#a3a5ddb97f1e8bbeebbda9722a236e505":[11,0,133,21],
-"namespacerunPythia8PP.html#a3ebffc0f4e5f544a7aca62548afbeb61":[11,0,133,27],
-"namespacerunPythia8PP.html#a432e02807f774b0f40393584c0c6d772":[11,0,133,36],
-"namespacerunPythia8PP.html#a5eebe31d20d1746262ddb2eccfb545d2":[11,0,133,3],
-"namespacerunPythia8PP.html#a67bdd6655a2b930538021420e2c2e7ce":[11,0,133,9],
-"namespacerunPythia8PP.html#a6c1848eb7611caf5a84dfe51ccaed8a1":[11,0,133,13],
-"namespacerunPythia8PP.html#a7b54f2dbeb6c7c6cc9792219da658a02":[11,0,133,4]
+"namespacerunPythia8PP.html#a3ebffc0f4e5f544a7aca62548afbeb61":[11,0,133,27]
 };
