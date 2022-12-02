@@ -1,5 +1,9 @@
 var NAVTREEINDEX24 =
 {
+"classTargetTracker.html#a89c750525a1ef9f7978a7a6e262aff5d":[12,0,188,9],
+"classTargetTracker.html#aa217565f0fcd6d9254c455968289c96d":[12,0,188,11],
+"classTargetTracker.html#aa2afe326eae366d210147f5cdce1c4db":[12,0,188,34],
+"classTargetTracker.html#aa4bd498212a8fe881218746eb90e20b6":[12,0,188,28],
 "classTargetTracker.html#aa678b2b35a993fad588fb8ded8652629":[12,0,188,19],
 "classTargetTracker.html#aa6b56197e30c3eb5a9c83f74e48b69ba":[12,0,188,24],
 "classTargetTracker.html#aa7c7cc2db34c9aad6593ef10cdaad1aa":[12,0,188,15],
@@ -245,9 +249,5 @@ var NAVTREEINDEX24 =
 "classUpstreamTagger.html#ae7f3470d56f8497e7d9f7a180192b24d":[12,0,196,35],
 "classUpstreamTagger.html#aeb6222c3bc74669a3c77fb211a2936c6":[12,0,196,65],
 "classUpstreamTagger.html#aecf5c04bdbeeee53a25e1d6d3ff8ceac":[12,0,196,3],
-"classUpstreamTagger.html#aef69d21de929e8d1b73035a93e3dcf98":[12,0,196,29],
-"classUpstreamTagger.html#af0178420bfb503a30b6522091cfa6d77":[12,0,196,66],
-"classUpstreamTagger.html#af263cdbdaff47711d2d41790b6f3e43e":[12,0,196,106],
-"classUpstreamTagger.html#af373078936b343f4713211e9b2b64fd9":[12,0,196,31],
-"classUpstreamTagger.html#af4b6d54173b784a1c8b9f460ace1925e":[12,0,196,89]
+"classUpstreamTagger.html#aef69d21de929e8d1b73035a93e3dcf98":[12,0,196,29]
 };

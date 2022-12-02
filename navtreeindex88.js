@@ -1,5 +1,12 @@
 var NAVTREEINDEX88 =
 {
+"structSciFiDataFrame.html":[12,0,144],
+"structSciFiDataFrame.html#a62879805daba2c2fdf06370ed37842f8":[12,0,144,0],
+"structSciFiDataFrame.html#a733851da768c2e80206af2ae747e1a1d":[12,0,144,2],
+"structSciFiDataFrame.html#a95e25a59ba462a7297aa2d5ba1302d7e":[12,0,144,1],
+"structShipFieldMaker_1_1fieldInfo.html":[12,0,154,0],
+"structShipFieldMaker_1_1fieldInfo.html#a407b5fcdc9d336dba1278cbd1ed75036":[12,0,154,0,2],
+"structShipFieldMaker_1_1fieldInfo.html#a4752e530a813faaa66a4eac51a4a39a6":[12,0,154,0,3],
 "structShipFieldMaker_1_1fieldInfo.html#a816598a56ecb7f46b26bc348734290da":[12,0,154,0,0],
 "structShipFieldMaker_1_1fieldInfo.html#aa63ca69b924db536e0c7e0da19e5e02e":[12,0,154,0,1],
 "structShipFieldMaker_1_1fieldInfo.html#ac9a321e62f357da7f2e7c7209688c217":[12,0,154,0,4],
@@ -18,8 +25,8 @@ var NAVTREEINDEX88 =
 "structgenfit_1_1ExtrapStep.html":[12,0,13,50],
 "structgenfit_1_1ExtrapStep.html#a687b426b05da411dc42fa2629dccbdd1":[12,0,13,50,3],
 "structgenfit_1_1ExtrapStep.html#a9dc6889d8afb2564841edc7fac79c4f4":[12,0,13,50,2],
-"structgenfit_1_1ExtrapStep.html#ace3dd7154d264707a7ab92f5dacb9061":[12,0,13,50,0],
 "structgenfit_1_1ExtrapStep.html#ace3dd7154d264707a7ab92f5dacb9061":[12,0,13,50,1],
+"structgenfit_1_1ExtrapStep.html#ace3dd7154d264707a7ab92f5dacb9061":[12,0,13,50,0],
 "structgenfit_1_1MatStep.html":[12,0,13,6],
 "structgenfit_1_1MatStep.html#a61b1a634431ebb71b7fef8d6de309160":[12,0,13,6,0],
 "structgenfit_1_1MatStep.html#a6c2b9e5bcddd3a6fdf105ec10685e8a7":[12,0,13,6,1],
@@ -28,8 +35,8 @@ var NAVTREEINDEX88 =
 "structgenfit_1_1RKStep.html#a4340cf43a2ccdf7d95f965ce01d38887":[12,0,13,49,2],
 "structgenfit_1_1RKStep.html#a5031ba3b89a869a5c733c2dde23d68e7":[12,0,13,49,3],
 "structgenfit_1_1RKStep.html#a5aca22ad48723a9ee41b27329aa9d9a3":[12,0,13,49,4],
-"structgenfit_1_1RKStep.html#a99d6dd2eac81744ad17b140ee9db0e66":[12,0,13,49,1],
 "structgenfit_1_1RKStep.html#a99d6dd2eac81744ad17b140ee9db0e66":[12,0,13,49,0],
+"structgenfit_1_1RKStep.html#a99d6dd2eac81744ad17b140ee9db0e66":[12,0,13,49,1],
 "structgenfit_1_1fieldCache.html":[12,0,13,10],
 "structgenfit_1_1fieldCache.html#a68ab943c56a996f17f372f5db8b45b69":[12,0,13,10,3],
 "structgenfit_1_1fieldCache.html#ab1e642cc0844b54686b45d72987d8e4b":[12,0,13,10,2],
@@ -242,12 +249,5 @@ var NAVTREEINDEX88 =
 "test__mongodbadapter_8py.html#aa9a96ba0e0df1d0f5137ba95be3ace00":[13,0,0,2,0,2,13],
 "test__mongodbadapter_8py.html#ab13c6c3934e0c54fb6014b5319fcaacb":[13,0,0,2,0,2,16],
 "test__mongodbadapter_8py.html#ac05ae3c6d103a358f22ce47dfa5c6dc7":[13,0,0,2,0,2,4],
-"test__mongodbadapter_8py.html#acb3bc8739e146a786eaef31b97f71aad":[13,0,0,2,0,2,6],
-"test__mongodbadapter_8py.html#acddbf91a19702378050c6c81cf9dc3f5":[13,0,0,2,0,2,14],
-"test__mongodbadapter_8py.html#ace66b8fb4bd7c446cbecf838073ac108":[13,0,0,2,0,2,8],
-"test__mongodbadapter_8py.html#aebaf45e433e923305b4d3831ed817d8e":[13,0,0,2,0,2,11],
-"test__mongodbadapter_8py.html#af00510b9a1a86a552f1f6a910e791e42":[13,0,0,2,0,2,12],
-"test__mongodbadapter_8py.html#af137fe70c7e8af86df0b1cdfb18ff109":[13,0,0,2,0,2,17],
-"test__mongodbadapter_8py.html#af1b2c11356e821358d638c583ac92118":[13,0,0,2,0,2,7],
-"test__mongodbadapter_8py.html#aff4bbc98ef5463636b5fe0ea3ec08ec2":[13,0,0,2,0,2,3]
+"test__mongodbadapter_8py.html#acb3bc8739e146a786eaef31b97f71aad":[13,0,0,2,0,2,6]
 };

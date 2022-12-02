@@ -1,9 +1,8 @@
 var searchData=
 [
-  ['r_6668',['r',['../namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#aede22303843a29a0e309f77331129bf9',1,'conditionsDatabase::demo::drifttubeMonitoring']]],
-  ['r_6669',['R',['../namespacemakeMuonDIS.html#a167283eebd6aab628dc0adeb258817fb',1,'makeMuonDIS.R()'],['../namespaceg4Ex__gap.html#a8898f0a5d331af4cb5c494ce818081f7',1,'g4Ex_gap.R()'],['../namespaceg4Ex__args.html#a906e84b06341f0498e127ec59ee515e3',1,'g4Ex_args.R()'],['../namespaceg4Ex.html#a3587e1dfd04c06e9bec82a15ce2f69db',1,'g4Ex.R()'],['../namespacemakeCascade.html#a578d35e800b9f4a15a0c00d693a8de44',1,'makeCascade.R()']]],
-  ['r_6670',['r',['../namespacescifiSimAna.html#ac9f0e8c8dba4701ea92b5a41b8072862',1,'scifiSimAna.r()'],['../namespaceFillingScheme.html#a5696558457490aa17833c97d22b60976',1,'FillingScheme.r()']]],
-  ['r_6671',['R',['../classFillingScheme_1_1fillingScheme.html#a8cf4abc0bd5a0bcdf67e1e98902ef6d6',1,'FillingScheme.fillingScheme.R()'],['../classDAQ__monitoring_1_1DAQ__boards.html#a0e54401b2f24ead7bf2af4e01fde57f6',1,'DAQ_monitoring.DAQ_boards.R()']]],
+  ['r_6669',['R',['../namespaceg4Ex__args.html#a906e84b06341f0498e127ec59ee515e3',1,'g4Ex_args.R()'],['../namespaceg4Ex.html#a3587e1dfd04c06e9bec82a15ce2f69db',1,'g4Ex.R()'],['../namespacemakeCascade.html#a578d35e800b9f4a15a0c00d693a8de44',1,'makeCascade.R()']]],
+  ['r_6670',['r',['../namespacescifiSimAna.html#ac9f0e8c8dba4701ea92b5a41b8072862',1,'scifiSimAna.r()'],['../namespaceFillingScheme.html#a5696558457490aa17833c97d22b60976',1,'FillingScheme.r()'],['../namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#aede22303843a29a0e309f77331129bf9',1,'conditionsDatabase.demo.drifttubeMonitoring.r()']]],
+  ['r_6671',['R',['../namespacemakeMuonDIS.html#a167283eebd6aab628dc0adeb258817fb',1,'makeMuonDIS.R()'],['../namespaceg4Ex__gap.html#a8898f0a5d331af4cb5c494ce818081f7',1,'g4Ex_gap.R()'],['../classFillingScheme_1_1fillingScheme.html#a8cf4abc0bd5a0bcdf67e1e98902ef6d6',1,'FillingScheme.fillingScheme.R()'],['../classDAQ__monitoring_1_1DAQ__boards.html#a0e54401b2f24ead7bf2af4e01fde57f6',1,'DAQ_monitoring.DAQ_boards.R()']]],
   ['r1_6672',['r1',['../namespaceana__ShipMuon.html#aaebf25eb0ed22ac1e88c3566b5f95945',1,'ana_ShipMuon']]],
   ['r2_6673',['r2',['../namespaceana__ShipMuon.html#a9659d4d32a1cb6cfd4a31d22e63b3a06',1,'ana_ShipMuon']]],
   ['r_5f_6674',['R_',['../classgenfit_1_1HelixTrackModel.html#a9cbd1572703fb1389c0c92780fd50e8a',1,'genfit::HelixTrackModel']]],
@@ -208,8 +207,8 @@ var searchData=
   ['rktrackrep_2eh_6873',['RKTrackRep.h',['../trackReps_2include_2RKTrackRep_8h.html',1,'(Global Namespace)'],['../include_2genfit_2RKTrackRep_8h.html',1,'(Global Namespace)']]],
   ['rkutta_6874',['RKutta',['../classgenfit_1_1RKTrackRep.html#a5235db4672bcedc6c78d69470b1cb289',1,'genfit::RKTrackRep::RKutta(const M1x4 &amp;SU, const DetPlane &amp;plane, double charge, M1x7 &amp;state7, M7x7 *jacobianT, double &amp;coveredDistance, bool &amp;checkJacProj, M7x7 &amp;noiseProjection, StepLimits &amp;limits, bool onlyOneStep=false, bool calcOnlyLastRowOfJ=false) const'],['../classgenfit_1_1RKTrackRep.html#a5235db4672bcedc6c78d69470b1cb289',1,'genfit::RKTrackRep::RKutta(const M1x4 &amp;SU, const DetPlane &amp;plane, double charge, M1x7 &amp;state7, M7x7 *jacobianT, double &amp;coveredDistance, bool &amp;checkJacProj, M7x7 &amp;noiseProjection, StepLimits &amp;limits, bool onlyOneStep=false, bool calcOnlyLastRowOfJ=false) const']]],
   ['rltext_6875',['rltext',['../mptext_8f90.html#af6e4dfef4c87d0f39a54dab2f6b210d3',1,'mptext.f90']]],
-  ['rmax_6876',['rMax',['../namespacemuonDis.html#a2b90c87b3b45db8cc871bd4853e1347f',1,'muonDis']]],
-  ['rmax_6877',['Rmax',['../namespacegeometry__config.html#acc47658b55850659d147ad35f4090c8a',1,'geometry_config']]],
+  ['rmax_6876',['Rmax',['../namespacegeometry__config.html#acc47658b55850659d147ad35f4090c8a',1,'geometry_config']]],
+  ['rmax_6877',['rMax',['../namespacemuonDis.html#a2b90c87b3b45db8cc871bd4853e1347f',1,'muonDis']]],
   ['rmesig_6878',['rmesig',['../mphistab_8f90.html#a43e4b787e0e2c4b2fd1e6554a6734800',1,'mphistab.f90']]],
   ['rmin_6879',['Rmin',['../namespacegeometry__config.html#abd07326bf08db0cd152100ea4a5801ca',1,'geometry_config']]],
   ['rmin_6880',['rMin',['../namespacemuonDis.html#aa1fbbfb7091f392696bbdf3be90c74f9',1,'muonDis']]],

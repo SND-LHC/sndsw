@@ -1,5 +1,9 @@
 var NAVTREEINDEX31 =
 {
+"classgenfit_1_1DAF.html":[12,0,13,33],
+"classgenfit_1_1DAF.html#a0a40a99c8cbfe0b6c16e6cf0e02cbb82":[12,0,13,33,16],
+"classgenfit_1_1DAF.html#a11efb3c0e2019b3950e211801e3bdbca":[12,0,13,33,10],
+"classgenfit_1_1DAF.html#a13c89d100046e596ea6442bdd5d6a40c":[12,0,13,33,5],
 "classgenfit_1_1DAF.html#a1405e6c0a928b10c45db5cd4efe4ff3d":[12,0,13,33,9],
 "classgenfit_1_1DAF.html#a312b66e7d49885d9a0d65cf8f8331f24":[12,0,13,33,4],
 "classgenfit_1_1DAF.html#a323ce9e8cef84301b8e0145460e95445":[12,0,13,33,6],
@@ -190,8 +194,8 @@ var NAVTREEINDEX31 =
 "classgenfit_1_1FieldManager.html#a6489369c58bb9fb7003cfe4b201320e3":[12,0,13,11,3],
 "classgenfit_1_1FieldManager.html#a7432ac0fd7ad0d3249ca4546a8ead6cb":[12,0,13,11,10],
 "classgenfit_1_1FieldManager.html#a7432ac0fd7ad0d3249ca4546a8ead6cb":[12,0,13,11,11],
-"classgenfit_1_1FieldManager.html#a962a11af0a79ed6f380f96f35ce3c4e4":[12,0,13,11,5],
 "classgenfit_1_1FieldManager.html#a962a11af0a79ed6f380f96f35ce3c4e4":[12,0,13,11,4],
+"classgenfit_1_1FieldManager.html#a962a11af0a79ed6f380f96f35ce3c4e4":[12,0,13,11,5],
 "classgenfit_1_1FieldManager.html#ae2127405db832936bdacc9c33ad04f1e":[12,0,13,11,16],
 "classgenfit_1_1FieldManager.html#ae2127405db832936bdacc9c33ad04f1e":[12,0,13,11,17],
 "classgenfit_1_1FitStatus.html":[12,0,13,12],
@@ -245,9 +249,5 @@ var NAVTREEINDEX31 =
 "classgenfit_1_1GFGbl.html#a905133c5c6c43bc535f1ddcebd67c130":[12,0,13,40,5],
 "classgenfit_1_1GFGbl.html#a9f9db27a5a8cc602bdbee25e48c48b2d":[12,0,13,40,15],
 "classgenfit_1_1GFGbl.html#a9fb9dafe2b24e3d00f5e24999e358774":[12,0,13,40,3],
-"classgenfit_1_1GFGbl.html#aa9eecbab7359b45a39810487876127b1":[12,0,13,40,4],
-"classgenfit_1_1GFGbl.html#ab420f66312bd40840d67f8e43e04b588":[12,0,13,40,13],
-"classgenfit_1_1GFGbl.html#ab5fc2c7bc7c346628edcf77e6370fd82":[12,0,13,40,8],
-"classgenfit_1_1GFGbl.html#ab722eced897151add31c41e114fc5c97":[12,0,13,40,11],
-"classgenfit_1_1GFGbl.html#abee063185cfa29815bed7f24691ad9c2":[12,0,13,40,2]
+"classgenfit_1_1GFGbl.html#aa9eecbab7359b45a39810487876127b1":[12,0,13,40,4]
 };
