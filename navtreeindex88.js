@@ -1,5 +1,7 @@
 var NAVTREEINDEX88 =
 {
+"structScalarFrame.html#acda844dc1fa6d23e74f38eec69c6eaee":[12,0,141,5],
+"structScalarFrame.html#af17551a636e743818decaa8bd22a07a4":[12,0,141,3],
 "structSciFiDataFrame.html":[12,0,144],
 "structSciFiDataFrame.html#a62879805daba2c2fdf06370ed37842f8":[12,0,144,0],
 "structSciFiDataFrame.html#a733851da768c2e80206af2ae747e1a1d":[12,0,144,2],
@@ -25,8 +27,8 @@ var NAVTREEINDEX88 =
 "structgenfit_1_1ExtrapStep.html":[12,0,13,50],
 "structgenfit_1_1ExtrapStep.html#a687b426b05da411dc42fa2629dccbdd1":[12,0,13,50,3],
 "structgenfit_1_1ExtrapStep.html#a9dc6889d8afb2564841edc7fac79c4f4":[12,0,13,50,2],
-"structgenfit_1_1ExtrapStep.html#ace3dd7154d264707a7ab92f5dacb9061":[12,0,13,50,1],
 "structgenfit_1_1ExtrapStep.html#ace3dd7154d264707a7ab92f5dacb9061":[12,0,13,50,0],
+"structgenfit_1_1ExtrapStep.html#ace3dd7154d264707a7ab92f5dacb9061":[12,0,13,50,1],
 "structgenfit_1_1MatStep.html":[12,0,13,6],
 "structgenfit_1_1MatStep.html#a61b1a634431ebb71b7fef8d6de309160":[12,0,13,6,0],
 "structgenfit_1_1MatStep.html#a6c2b9e5bcddd3a6fdf105ec10685e8a7":[12,0,13,6,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX88 =
 "test__mongodbadapter_8py.html#a92e63851c5a27f27df083fa673fad3c7":[13,0,0,2,0,2,0],
 "test__mongodbadapter_8py.html#aa6fce077bcf933864bd0b2e9031c5a0b":[13,0,0,2,0,2,10],
 "test__mongodbadapter_8py.html#aa9a96ba0e0df1d0f5137ba95be3ace00":[13,0,0,2,0,2,13],
-"test__mongodbadapter_8py.html#ab13c6c3934e0c54fb6014b5319fcaacb":[13,0,0,2,0,2,16],
-"test__mongodbadapter_8py.html#ac05ae3c6d103a358f22ce47dfa5c6dc7":[13,0,0,2,0,2,4],
-"test__mongodbadapter_8py.html#acb3bc8739e146a786eaef31b97f71aad":[13,0,0,2,0,2,6]
+"test__mongodbadapter_8py.html#ab13c6c3934e0c54fb6014b5319fcaacb":[13,0,0,2,0,2,16]
 };

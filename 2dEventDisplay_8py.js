@@ -15,6 +15,7 @@ var 2dEventDisplay_8py =
     [ "mufiNoise", "2dEventDisplay_8py.html#a6db68eb04225b4643f2cea6ceac3eee5", null ],
     [ "pyExit", "2dEventDisplay_8py.html#acf03047f0a1a9082ddbdb62fc5987467", null ],
     [ "twoTrackEvent", "2dEventDisplay_8py.html#a32bc7a47f43538338e2bdc544bd97128", null ],
+    [ "zoom", "2dEventDisplay_8py.html#a12a17fc9781c44f2b1b2141618facec8", null ],
     [ "default", "2dEventDisplay_8py.html#a7f8aeb8803750b1968d17ec28074550a", null ],
     [ "dest", "2dEventDisplay_8py.html#a49a1843b75af5e3fadb169cd01a7b30f", null ],
     [ "detSize", "2dEventDisplay_8py.html#ac595cae4f0449ebb0b9c4668359c83d2", null ],

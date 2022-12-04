@@ -1,5 +1,7 @@
 var NAVTREEINDEX64 =
 {
+"namespacegeomGeant4.html#a0ace84a032bb718bcbb0cfeec0e4b81e":[11,0,55,7],
+"namespacegeomGeant4.html#a17dec5ca1af642cbbf22cd0b154b410c":[11,0,55,3],
 "namespacegeomGeant4.html#a36df9da2e47615161eea91020298ec22":[11,0,55,0],
 "namespacegeomGeant4.html#a779c44016d35bd88db4d389aa04901fa":[11,0,55,2],
 "namespacegeomGeant4.html#a835686e44c80c995170a7a974a9535e6":[11,0,55,5],
@@ -247,7 +249,5 @@ var NAVTREEINDEX64 =
 "namespacegeometry__config.html#a94db184e00517a5d11a3034913fe85ec":[11,0,54,413],
 "namespacegeometry__config.html#a952559425cfd7873ff872d19c3b30604":[11,0,54,118],
 "namespacegeometry__config.html#a9674e9d0d28254eaa9e10660c347c8e1":[11,0,54,194],
-"namespacegeometry__config.html#a96edffd5c8bddc1c5be9ddd91e760c72":[11,0,54,75],
-"namespacegeometry__config.html#a971b644967470b9e7cb7c7ec7c640960":[11,0,54,222],
-"namespacegeometry__config.html#a98ba02d34a1530b451f33d38a5f2cfc5":[11,0,54,69]
+"namespacegeometry__config.html#a96edffd5c8bddc1c5be9ddd91e760c72":[11,0,54,75]
 };

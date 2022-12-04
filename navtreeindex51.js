@@ -1,5 +1,6 @@
 var NAVTREEINDEX51 =
 {
+"makeDecay_8py.html#a5f2262963dbaa87ac97e6bfeb898020f":[13,0,7,15,33],
 "makeDecay_8py.html#a65aea31e5d35b9671f40a2432dcfded2":[13,0,7,15,17],
 "makeDecay_8py.html#a6ca9ee1ac5dd881b42ce74249e60c74b":[13,0,7,15,25],
 "makeDecay_8py.html#a6fe8eaf948b1566b26ae99e59d1f9f16":[13,0,7,15,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX51 =
 "minimalFittingExample_2main_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4":[13,0,4,9,2,0,0],
 "minimalFittingExample_2main_8cc_source.html":[13,0,4,9,2,0],
 "minresDataModule_8f90.html":[13,0,8,7],
-"minresDataModule_8f90.html#a18bd9e58933488ded447a466847d790c":[13,0,8,7,2],
-"minresDataModule_8f90.html#a40b520371150ec723c77c6f2bc5f3ac3":[13,0,8,7,0]
+"minresDataModule_8f90.html#a18bd9e58933488ded447a466847d790c":[13,0,8,7,2]
 };

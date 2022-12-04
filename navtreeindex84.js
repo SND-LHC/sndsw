@@ -1,5 +1,7 @@
 var NAVTREEINDEX84 =
 {
+"shipPatRec__prev_8py.html#aa7263c4e341f02101c3a3db56bd50067":[13,0,16,47,7],
+"shipPatRec__prev_8py.html#aa7d4ef170583a5339c9a0fbb967b0c29":[13,0,16,47,11],
 "shipPatRec__prev_8py.html#aae1cd604027f872550ca84991b755b6e":[13,0,16,47,2],
 "shipPatRec__prev_8py.html#ab4ef0649c22a676b68557a8c55285080":[13,0,16,47,35],
 "shipPatRec__prev_8py.html#abb98a26b65beeef5012507cc3f9f51ec":[13,0,16,47,5],
@@ -247,7 +249,5 @@ var NAVTREEINDEX84 =
 "shipunit_8py_source.html":[13,0,16,54],
 "simpleTarget_8cxx.html":[13,0,10,22],
 "simpleTarget_8cxx_source.html":[13,0,10,22],
-"simpleTarget_8h.html":[13,0,10,23],
-"simpleTarget_8h_source.html":[13,0,10,23],
-"sndCluster_8cxx.html":[13,0,19,30]
+"simpleTarget_8h.html":[13,0,10,23]
 };
