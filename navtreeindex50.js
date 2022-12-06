@@ -1,5 +1,7 @@
 var NAVTREEINDEX50 =
 {
+"include_2genfit_2MaterialEffects_8h.html":[13,0,4,7,0,3],
+"include_2genfit_2MaterialEffects_8h_source.html":[13,0,4,7,0,3],
 "include_2genfit_2RKTrackRep_8h.html":[13,0,4,7,0,4],
 "include_2genfit_2RKTrackRep_8h_source.html":[13,0,4,7,0,4],
 "include_2genfit_2TGeoMaterialInterface_8h.html":[13,0,4,7,0,5],
@@ -247,7 +249,5 @@ var NAVTREEINDEX50 =
 "makeDecay_8py.html#a34c471a92515140a1b663793571deef9":[13,0,7,15,13],
 "makeDecay_8py.html#a38fd23c688b9219d3ed576e6c835f61f":[13,0,7,15,4],
 "makeDecay_8py.html#a3b9cdf91d399faa26acb5473feb280d0":[13,0,7,15,10],
-"makeDecay_8py.html#a50d7faef8c270f2081b8b26e2dcf3abc":[13,0,7,15,3],
-"makeDecay_8py.html#a522dc5811162059c19d2c67a581f9cef":[13,0,7,15,16],
-"makeDecay_8py.html#a536e24d12e5d11a1d2fe5d909140b1e4":[13,0,7,15,5]
+"makeDecay_8py.html#a50d7faef8c270f2081b8b26e2dcf3abc":[13,0,7,15,3]
 };

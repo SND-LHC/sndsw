@@ -1,5 +1,7 @@
 var NAVTREEINDEX49 =
 {
+"globals_func_w.html":[13,1,1,22],
+"globals_func_x.html":[13,1,1,23],
 "globals_func_z.html":[13,1,1,24],
 "globals_g.html":[13,1,0,7],
 "globals_h.html":[13,1,0,8],
@@ -38,10 +40,10 @@ var NAVTREEINDEX49 =
 "group__GFRave.html":[10,2],
 "group__RKTrackRep.html":[10,3],
 "group__genfit.html":[10,0],
-"group__genfit.html#ga43fd55aa78bd891ebbd6a450f5eecce4":[13,0,4,0,0,9,2],
 "group__genfit.html#ga43fd55aa78bd891ebbd6a450f5eecce4":[10,0,0],
-"group__genfit.html#ga43fd55aa78bd891ebbd6a450f5eecce4":[13,0,4,7,0,2,2],
 "group__genfit.html#ga43fd55aa78bd891ebbd6a450f5eecce4":[10,0,1],
+"group__genfit.html#ga43fd55aa78bd891ebbd6a450f5eecce4":[13,0,4,7,0,2,2],
+"group__genfit.html#ga43fd55aa78bd891ebbd6a450f5eecce4":[13,0,4,0,0,9,2],
 "group__utilities.html":[10,4],
 "hcalAnalysisSimple_8cxx.html":[13,0,6,2],
 "hcalAnalysisSimple_8cxx_source.html":[13,0,6,2],
@@ -247,7 +249,5 @@ var NAVTREEINDEX49 =
 "include_2genfit_2BellField_8h.html":[13,0,4,7,0,1],
 "include_2genfit_2BellField_8h_source.html":[13,0,4,7,0,1],
 "include_2genfit_2FieldManager_8h.html":[13,0,4,7,0,2],
-"include_2genfit_2FieldManager_8h_source.html":[13,0,4,7,0,2],
-"include_2genfit_2MaterialEffects_8h.html":[13,0,4,7,0,3],
-"include_2genfit_2MaterialEffects_8h_source.html":[13,0,4,7,0,3]
+"include_2genfit_2FieldManager_8h_source.html":[13,0,4,7,0,2]
 };

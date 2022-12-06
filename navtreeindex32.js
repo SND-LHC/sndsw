@@ -1,5 +1,7 @@
 var NAVTREEINDEX32 =
 {
+"classgenfit_1_1GFGbl.html#a9f9db27a5a8cc602bdbee25e48c48b2d":[12,0,13,40,15],
+"classgenfit_1_1GFGbl.html#a9fb9dafe2b24e3d00f5e24999e358774":[12,0,13,40,3],
 "classgenfit_1_1GFGbl.html#aa9eecbab7359b45a39810487876127b1":[12,0,13,40,4],
 "classgenfit_1_1GFGbl.html#ab420f66312bd40840d67f8e43e04b588":[12,0,13,40,13],
 "classgenfit_1_1GFGbl.html#ab5fc2c7bc7c346628edcf77e6370fd82":[12,0,13,40,8],
@@ -247,7 +249,5 @@ var NAVTREEINDEX32 =
 "classgenfit_1_1KalmanFitterInfo.html#abf3078f86971a9ece51f9e2fd5297cc8":[12,0,13,37,30],
 "classgenfit_1_1KalmanFitterInfo.html#ac3330cd8a8d52721df4a382aac7b3c17":[12,0,13,37,13],
 "classgenfit_1_1KalmanFitterInfo.html#ac59dea194efddd574283e0dd77a070ea":[12,0,13,37,36],
-"classgenfit_1_1KalmanFitterInfo.html#aca8a88be043d28cdc3163b941ad456e7":[12,0,13,37,7],
-"classgenfit_1_1KalmanFitterInfo.html#acd03bf43edc9d67c757706290f6c097a":[12,0,13,37,49],
-"classgenfit_1_1KalmanFitterInfo.html#acdc071cac8f32cb547b74f2abb00cac1":[12,0,13,37,5]
+"classgenfit_1_1KalmanFitterInfo.html#aca8a88be043d28cdc3163b941ad456e7":[12,0,13,37,7]
 };

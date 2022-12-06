@@ -1,5 +1,7 @@
 var NAVTREEINDEX41 =
 {
+"classstudy__thinTarget_1_1Block.html":[12,0,43,0],
+"classstudy__thinTarget_1_1Block.html#a23b356cad20a33e23a7d6126c3e04bdb":[12,0,43,0,2],
 "classstudy__thinTarget_1_1Block.html#a23ff96de6ff50c36fc855af0cd76b36b":[12,0,43,0,0],
 "classstudy__thinTarget_1_1Block.html#a9ca31f2981d295c1e422b772eee90e97":[12,0,43,0,1],
 "classtPythia6Generator.html":[12,0,192],
@@ -247,7 +249,5 @@ var NAVTREEINDEX41 =
 "classvetoTimeCalibration_1_1vetoTimeWalk.html#a9a8a87ecc1d539eac6aa729601dbcb26":[12,0,46,2,1],
 "classvetoTimeCalibration_1_1vetoTimeWalk.html#ac4c737c1cbf99ad3dcae2bf84f3f1d57":[12,0,46,2,9],
 "classvetoTimeCalibration_1_1vetoTimeWalk.html#ad3e446345a490eb0646190db0f88860a":[12,0,46,2,6],
-"classvetoTimeCalibration_1_1vetoTimeWalk.html#af7ad5c730b480d18354e3a94ad96e36b":[12,0,46,2,2],
-"classvetoTimeCalibration_1_1vetoTimeWalk.html#af83d42eeed945bb61867f0e51decfc70":[12,0,46,2,0],
-"compactingBackgroundProduction_8py.html":[13,0,10,1]
+"classvetoTimeCalibration_1_1vetoTimeWalk.html#af7ad5c730b480d18354e3a94ad96e36b":[12,0,46,2,2]
 };

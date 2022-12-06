@@ -1,5 +1,7 @@
 var NAVTREEINDEX16 =
 {
+"classMagneticSpectrometer.html#a824b23caa34f2d821e815ab1dead7547":[12,0,109,70],
+"classMagneticSpectrometer.html#a82eb034a2c2a8e3fdda9268ac05f1166":[12,0,109,9],
 "classMagneticSpectrometer.html#a8d2275d5662b83b6558f8d2203662753":[12,0,109,7],
 "classMagneticSpectrometer.html#a8e19090bb8973ac52fa64fd6ec9baf2a":[12,0,109,42],
 "classMagneticSpectrometer.html#a8e2ab397addb42622c2ef40626428a5a":[12,0,109,32],
@@ -247,7 +249,5 @@ var NAVTREEINDEX16 =
 "classMufi__monitoring_1_1Mufi__largeVSsmall.html":[12,0,19,1],
 "classMufi__monitoring_1_1Mufi__largeVSsmall.html#a7786dd4739098124669cc1aafd423536":[12,0,19,1,3],
 "classMufi__monitoring_1_1Mufi__largeVSsmall.html#a93dcc7f63f9011f3e1cb95ecb5f094a2":[12,0,19,1,2],
-"classMufi__monitoring_1_1Mufi__largeVSsmall.html#aa730fad294ae177b2e752e1d80ad0a60":[12,0,19,1,1],
-"classMufi__monitoring_1_1Mufi__largeVSsmall.html#aad79c78f6050fb581360fbdd68dc1484":[12,0,19,1,0],
-"classMufi__monitoring_1_1Veto__Efficiency.html":[12,0,19,2]
+"classMufi__monitoring_1_1Mufi__largeVSsmall.html#aa730fad294ae177b2e752e1d80ad0a60":[12,0,19,1,1]
 };

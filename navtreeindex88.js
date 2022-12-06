@@ -1,5 +1,9 @@
 var NAVTREEINDEX88 =
 {
+"structScalarFrame.html#a2fbf52df12101b1e86f6ce55d741d904":[12,0,141,6],
+"structScalarFrame.html#a8e2127539e9775a9dd4aa7092dc8f867":[12,0,141,4],
+"structScalarFrame.html#a9e4ce9aeb49bd3c351f52403d42e11b3":[12,0,141,2],
+"structScalarFrame.html#ac892c394a599e795d5ee6b947991649c":[12,0,141,1],
 "structScalarFrame.html#acda844dc1fa6d23e74f38eec69c6eaee":[12,0,141,5],
 "structScalarFrame.html#af17551a636e743818decaa8bd22a07a4":[12,0,141,3],
 "structSciFiDataFrame.html":[12,0,144],
@@ -245,9 +249,5 @@ var NAVTREEINDEX88 =
 "test__mongodbadapter_8py.html#a6b85f463a3710f76133032efe3ea5745":[13,0,0,2,0,2,1],
 "test__mongodbadapter_8py.html#a6d48e6d68682def2d62d49413418a9d2":[13,0,0,2,0,2,5],
 "test__mongodbadapter_8py.html#a7208b0b2e93f80025de7633c97563a6d":[13,0,0,2,0,2,2],
-"test__mongodbadapter_8py.html#a9258ed0fac305dcf4374174c37a30801":[13,0,0,2,0,2,18],
-"test__mongodbadapter_8py.html#a92e63851c5a27f27df083fa673fad3c7":[13,0,0,2,0,2,0],
-"test__mongodbadapter_8py.html#aa6fce077bcf933864bd0b2e9031c5a0b":[13,0,0,2,0,2,10],
-"test__mongodbadapter_8py.html#aa9a96ba0e0df1d0f5137ba95be3ace00":[13,0,0,2,0,2,13],
-"test__mongodbadapter_8py.html#ab13c6c3934e0c54fb6014b5319fcaacb":[13,0,0,2,0,2,16]
+"test__mongodbadapter_8py.html#a9258ed0fac305dcf4374174c37a30801":[13,0,0,2,0,2,18]
 };

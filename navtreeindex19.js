@@ -1,5 +1,7 @@
 var NAVTREEINDEX19 =
 {
+"classPythia6Generator.html#ab58bde8b6a45bd79ebecf0129eeac58f":[12,0,133,1],
+"classPythia6Generator.html#abda7f6509493a605f5e84168df46e02e":[12,0,133,3],
 "classPythia8Generator.html":[12,0,134],
 "classPythia8Generator.html#a025542692d7eb0a1957dfd239ab97bcd":[12,0,134,3],
 "classPythia8Generator.html#a0984fd1613c434f73b9f7933fa0a5552":[12,0,134,41],
@@ -247,7 +249,5 @@ var NAVTREEINDEX19 =
 "classScifiCluster_1_1ScifiCluster.html#af71141348bbd0054be9c3d534e13234a":[12,0,30,0,13],
 "classScifiCluster_1_1ScifiCluster.html#afa950fd2ec54d5f1c805092944710afe":[12,0,30,0,11],
 "classScifiPoint.html":[12,0,145],
-"classScifiPoint.html#a051459575db346306cd05849938aa69e":[12,0,145,6],
-"classScifiPoint.html#a177215f3064270fdaafcfedadc3cb12b":[12,0,145,3],
-"classScifiPoint.html#a472987272ed6b44c7d76c42727cf9874":[12,0,145,9]
+"classScifiPoint.html#a051459575db346306cd05849938aa69e":[12,0,145,6]
 };

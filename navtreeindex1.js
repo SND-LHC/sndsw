@@ -1,5 +1,7 @@
 var NAVTREEINDEX1 =
 {
+"EmulsionMagnet_8h_source.html":[13,0,11,1],
+"EventDisplay_8cc.html":[13,0,4,1,1,0],
 "EventDisplay_8cc.html#aec5217d825d514b0d32cc67a7258cda5":[13,0,4,1,1,0,0],
 "EventDisplay_8cc_source.html":[13,0,4,1,1,0],
 "EventDisplay_8h.html":[13,0,4,1,0,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX1 =
 "MCStackLinkDef_8h_source.html":[13,0,17,2],
 "MagneticSpectrometer_8cxx.html":[13,0,11,6],
 "MagneticSpectrometer_8cxx_source.html":[13,0,11,6],
-"MagneticSpectrometer_8h.html":[13,0,11,7],
-"MagneticSpectrometer_8h_source.html":[13,0,11,7],
-"MaterialEffects_8cc.html":[13,0,4,10,1,0]
+"MagneticSpectrometer_8h.html":[13,0,11,7]
 };

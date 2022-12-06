@@ -1,5 +1,7 @@
 var NAVTREEINDEX45 =
 {
+"evd__nextEvent_8py.html":[13,0,7,5],
+"evd__nextEvent_8py.html#a69c0f2e5a10843d7364dcaa753ecac73":[13,0,7,5,0],
 "evd__nextEvent_8py_source.html":[13,0,7,5],
 "evd__transparentMode_8py.html":[13,0,7,6],
 "evd__transparentMode_8py.html#afeac3b4d7cb3334678bf667700bc0b20":[13,0,7,6,0],
@@ -242,12 +244,10 @@ var NAVTREEINDEX45 =
 "functions_type.html":[12,3,3],
 "functions_u.html":[12,3,0,21],
 "functions_v.html":[12,3,0,22],
-"functions_vars.html":[12,3,2],
 "functions_vars.html":[12,3,2,0],
+"functions_vars.html":[12,3,2],
 "functions_vars_a.html":[12,3,2,1],
 "functions_vars_b.html":[12,3,2,2],
 "functions_vars_c.html":[12,3,2,3],
-"functions_vars_d.html":[12,3,2,4],
-"functions_vars_e.html":[12,3,2,5],
-"functions_vars_f.html":[12,3,2,6]
+"functions_vars_d.html":[12,3,2,4]
 };
