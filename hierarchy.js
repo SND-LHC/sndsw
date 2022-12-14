@@ -29,6 +29,23 @@ var hierarchy =
       [ "genfit::MeasurementProducer< hit_T, measurement_T >", "classgenfit_1_1MeasurementProducer.html", null ]
     ] ],
     [ "conditionsDatabase.factory.APIFactory", "classconditionsDatabase_1_1factory_1_1APIFactory.html", null ],
+    [ "sndAnalysis::baseCut", "classsndAnalysis_1_1baseCut.html", [
+      [ "sndAnalysis::EventHeaderBaseCut", "classsndAnalysis_1_1EventHeaderBaseCut.html", [
+        [ "sndAnalysis::eventDeltatCut", "classsndAnalysis_1_1eventDeltatCut.html", null ]
+      ] ],
+      [ "sndAnalysis::MuFilterBaseCut", "classsndAnalysis_1_1MuFilterBaseCut.html", [
+        [ "sndAnalysis::DSActivityCut", "classsndAnalysis_1_1DSActivityCut.html", null ],
+        [ "sndAnalysis::USQDCCut", "classsndAnalysis_1_1USQDCCut.html", null ],
+        [ "sndAnalysis::avgDSFiducialCut", "classsndAnalysis_1_1avgDSFiducialCut.html", null ],
+        [ "sndAnalysis::vetoCut", "classsndAnalysis_1_1vetoCut.html", null ]
+      ] ],
+      [ "sndAnalysis::sciFiBaseCut", "classsndAnalysis_1_1sciFiBaseCut.html", [
+        [ "sndAnalysis::avgSciFiFiducialCut", "classsndAnalysis_1_1avgSciFiFiducialCut.html", null ],
+        [ "sndAnalysis::minSciFiConsecutivePlanes", "classsndAnalysis_1_1minSciFiConsecutivePlanes.html", null ],
+        [ "sndAnalysis::minSciFiHits", "classsndAnalysis_1_1minSciFiHits.html", null ],
+        [ "sndAnalysis::sciFiStationCut", "classsndAnalysis_1_1sciFiStationCut.html", null ]
+      ] ]
+    ] ],
     [ "std::binary_function", null, [
       [ "ecalClusterSortProcess", "structecalClusterSortProcess.html", null ]
     ] ],

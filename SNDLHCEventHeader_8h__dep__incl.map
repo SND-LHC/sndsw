@@ -1,6 +1,11 @@
 <map id="shipLHC/SNDLHCEventHeader.h" name="shipLHC/SNDLHCEventHeader.h">
-<area shape="rect" id="node1" title=" " alt="" coords="171,5,399,32"/>
-<area shape="rect" id="node2" href="$SNDLHCEventHeader_8cxx.html" title=" " alt="" coords="5,80,248,107"/>
-<area shape="rect" id="node3" href="$ConvRawData_8cxx.html" title=" " alt="" coords="243,155,469,181"/>
-<area shape="rect" id="node4" href="$ConvRawData_8h.html" title=" " alt="" coords="322,80,534,107"/>
+<area shape="rect" id="node1" title=" " alt="" coords="402,5,630,32"/>
+<area shape="rect" id="node2" href="$sndEventHeaderBaseCut_8cxx.html" title=" " alt="" coords="5,169,224,211"/>
+<area shape="rect" id="node3" href="$sndEventHeaderBaseCut_8h.html" title=" " alt="" coords="152,80,371,121"/>
+<area shape="rect" id="node7" href="$SNDLHCEventHeader_8cxx.html" title=" " alt="" coords="395,87,637,114"/>
+<area shape="rect" id="node8" href="$ConvRawData_8cxx.html" title=" " alt="" coords="632,177,859,203"/>
+<area shape="rect" id="node9" href="$ConvRawData_8h.html" title=" " alt="" coords="711,87,923,114"/>
+<area shape="rect" id="node4" href="$sndEventDeltat_8h.html" title=" " alt="" coords="249,177,471,203"/>
+<area shape="rect" id="node5" href="$sndEventDeltat_8cxx.html" title=" " alt="" coords="115,266,354,293"/>
+<area shape="rect" id="node6" href="$neutrinoFilterGoldenSample_8cxx.html" title=" " alt="" coords="379,259,592,300"/>
 </map>

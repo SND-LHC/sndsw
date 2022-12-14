@@ -1,0 +1,13 @@
+<map id="analysis/cuts/sndSciFiBaseCut.h" name="analysis/cuts/sndSciFiBaseCut.h">
+<area shape="rect" id="node1" title=" " alt="" coords="544,5,740,47"/>
+<area shape="rect" id="node2" href="$sndAvgSciFiFiducialCut_8h.html" title=" " alt="" coords="124,95,312,136"/>
+<area shape="rect" id="node5" href="$sndMinSciFiConsecutivePlanes_8h.html" title=" " alt="" coords="336,95,524,136"/>
+<area shape="rect" id="node7" href="$sndMinSciFiHitsCut_8h.html" title=" " alt="" coords="548,95,736,136"/>
+<area shape="rect" id="node9" href="$sndSciFiBaseCut_8cxx.html" title=" " alt="" coords="996,95,1192,136"/>
+<area shape="rect" id="node10" href="$sndSciFiStationCut_8h.html" title=" " alt="" coords="761,95,971,136"/>
+<area shape="rect" id="node3" href="$sndAvgSciFiFiducialCut_8cxx.html" title=" " alt="" coords="5,184,193,225"/>
+<area shape="rect" id="node4" href="$neutrinoFilterGoldenSample_8cxx.html" title=" " alt="" coords="430,184,643,225"/>
+<area shape="rect" id="node6" href="$sndMinSciFiConsecutivePlanes_8cxx.html" title=" " alt="" coords="217,184,405,225"/>
+<area shape="rect" id="node8" href="$sndMinSciFiHitsCut_8cxx.html" title=" " alt="" coords="668,184,856,225"/>
+<area shape="rect" id="node11" href="$sndSciFiStationCut_8cxx.html" title=" " alt="" coords="881,184,1091,225"/>
+</map>
