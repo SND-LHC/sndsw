@@ -55,9 +55,7 @@ var dir_2816adeb6e7b93146cc0980bde45ae79 =
       [ "sndCluster", "classsndCluster.html", "classsndCluster" ]
     ] ],
     [ "SNDLHCEventHeader.cxx", "SNDLHCEventHeader_8cxx.html", "SNDLHCEventHeader_8cxx" ],
-    [ "SNDLHCEventHeader.h", "SNDLHCEventHeader_8h.html", [
-      [ "SNDLHCEventHeader", "classSNDLHCEventHeader.html", "classSNDLHCEventHeader" ]
-    ] ],
+    [ "SNDLHCEventHeader.h", "SNDLHCEventHeader_8h.html", "SNDLHCEventHeader_8h" ],
     [ "SNDLHCEventHeaderConst.h", "SNDLHCEventHeaderConst_8h.html", "SNDLHCEventHeaderConst_8h" ],
     [ "sndRecoTrack.cxx", "sndRecoTrack_8cxx.html", null ],
     [ "sndRecoTrack.h", "sndRecoTrack_8h.html", [

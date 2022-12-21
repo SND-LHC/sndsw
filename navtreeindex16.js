@@ -1,5 +1,9 @@
 var NAVTREEINDEX16 =
 {
+"classMagneticSpectrometer.html#a6ccb6ad88328acc8c3fe10c2a4501873":[12,0,110,12],
+"classMagneticSpectrometer.html#a6efdf99dc5f3c77b45200fe9c3386dd2":[12,0,110,51],
+"classMagneticSpectrometer.html#a7880f0fecbf068b4c9ecc91988728c9a":[12,0,110,58],
+"classMagneticSpectrometer.html#a7d47ae2a8cb6803033be1eb5323777b6":[12,0,110,84],
 "classMagneticSpectrometer.html#a824b23caa34f2d821e815ab1dead7547":[12,0,110,70],
 "classMagneticSpectrometer.html#a82eb034a2c2a8e3fdda9268ac05f1166":[12,0,110,9],
 "classMagneticSpectrometer.html#a8d2275d5662b83b6558f8d2203662753":[12,0,110,7],
@@ -245,9 +249,5 @@ var NAVTREEINDEX16 =
 "classMufi__monitoring_1_1Mufi__hitMaps.html#a9d046b42b54b78b0b132cdfdc9171e73":[12,0,19,0,8],
 "classMufi__monitoring_1_1Mufi__hitMaps.html#ad22da6787fb57dc3cf54edf44654b33c":[12,0,19,0,5],
 "classMufi__monitoring_1_1Mufi__hitMaps.html#ae85e9b90d48610b0fa85c931a5d06fca":[12,0,19,0,4],
-"classMufi__monitoring_1_1Mufi__hitMaps.html#af5f68df040b3db411d02f3a924f4e71f":[12,0,19,0,2],
-"classMufi__monitoring_1_1Mufi__largeVSsmall.html":[12,0,19,1],
-"classMufi__monitoring_1_1Mufi__largeVSsmall.html#a7786dd4739098124669cc1aafd423536":[12,0,19,1,3],
-"classMufi__monitoring_1_1Mufi__largeVSsmall.html#a93dcc7f63f9011f3e1cb95ecb5f094a2":[12,0,19,1,2],
-"classMufi__monitoring_1_1Mufi__largeVSsmall.html#aa730fad294ae177b2e752e1d80ad0a60":[12,0,19,1,1]
+"classMufi__monitoring_1_1Mufi__hitMaps.html#af5f68df040b3db411d02f3a924f4e71f":[12,0,19,0,2]
 };

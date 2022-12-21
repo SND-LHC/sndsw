@@ -166,49 +166,52 @@ $(document).ready(function(){initNavTree('run__digiSND_8py_source.html',''); ini
 <div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#a7d35f6d30c4224da21a8347fb09e9350">   79</a></span>&#160;  ioman = ROOT.FairRootManager.Instance()</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  ioman.RegisterInputObject(<span class="stringliteral">&#39;Scifi&#39;</span>, snd_geo.modules[<span class="stringliteral">&#39;Scifi&#39;</span>])</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  ioman.RegisterInputObject(<span class="stringliteral">&#39;MuFilter&#39;</span>, snd_geo.modules[<span class="stringliteral">&#39;MuFilter&#39;</span>])</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="comment"># Set input</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#acbeade646eb3812f9a19ed1b6d44f11e">   83</a></span>&#160;  fileSource = ROOT.FairFileSource(options.inputFile)</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  run.SetSource(fileSource)</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="comment"># Set output</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#aaa08bbe28a3408b1637437cafd0d821d">   86</a></span>&#160;  outfile = ROOT.FairRootFileSink(outFile.replace(<span class="stringliteral">&#39;.root&#39;</span>,<span class="stringliteral">&#39;CPP.root&#39;</span>))</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  run.SetSink(outfile)</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  <span class="comment"># Set number of events to process</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#aa5fe4b1766171af97236b642c04c6ff8">   90</a></span>&#160;  inRootFile = ROOT.TFile.Open(options.inputFile)</div>
-<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#a68cf6a25ec71ea8281fbfefc425d3bd0">   91</a></span>&#160;  inTree = inRootFile.Get(<span class="stringliteral">&#39;cbmsim&#39;</span>)</div>
-<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#a808d6dcb199c7f6093f3dd851f14d685">   92</a></span>&#160;  nEventsInFile = inTree.GetEntries()</div>
-<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#ae3e6f33bf932ca856f8efc1542d7b718">   93</a></span>&#160;  nEvents = min(nEventsInFile, options.nEvents)</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#aed394027219a3d76ff57e78ba15d0ae2">   95</a></span>&#160;  rtdb = run.GetRuntimeDb()</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  run.AddTask(ROOT.DigiTaskSND())</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  run.Init()</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  run.Run(firstEvent, nEvents)</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment"># Digitization using python code SndlhcDigi</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; <span class="comment"># import digi task</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <span class="keyword">import</span> SndlhcDigi</div>
-<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#ae4257a7315f7cc434e7b7e181d160675">  104</a></span>&#160;  Sndlhc = <a class="code" href="classSndlhcDigi_1_1SndlhcDigi.html">SndlhcDigi.SndlhcDigi</a>(outFile)</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  nEvents   = min(Sndlhc.sTree.GetEntries(),options.nEvents)</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="comment"># main loop</span></div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  <span class="keywordflow">for</span> iEvent <span class="keywordflow">in</span> range(firstEvent, nEvents):</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordflow">if</span> iEvent % 50000 == 0 <span class="keywordflow">or</span> options.debug:</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        print(<span class="stringliteral">&#39;event &#39;</span>, iEvent, nEvents - firstEvent)</div>
-<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#a3e48193d9f647c620aaa32366decf6af">  111</a></span>&#160;    Sndlhc.iEvent = iEvent</div>
-<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#ae8e9da8f9584848cf46f3ae503a00cb2">  112</a></span>&#160;    rc = Sndlhc.sTree.GetEvent(iEvent)</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    Sndlhc.digitize()</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; <span class="comment"># memory monitoring</span></div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; <span class="comment"># mem_monitor()</span></div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  <span class="comment"># end loop over events</span></div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  Sndlhc.finish()</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  </div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;timer.Stop()</div>
-<div class="line"><a name="l00121"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#a78b5e8831ac5a77620d60b8ac35b005f">  121</a></span>&#160;rtime = timer.RealTime()</div>
-<div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#aeec7c35dc7b68d4eae80546432e05585">  122</a></span>&#160;ctime = timer.CpuTime()</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;print(<span class="stringliteral">&#39; &#39;</span>) </div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;print(<span class="stringliteral">&quot;Real time &quot;</span>,rtime, <span class="stringliteral">&quot; s, CPU time &quot;</span>,ctime,<span class="stringliteral">&quot;s&quot;</span>)</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="comment"># Don&#39;t use FairRoot&#39;s default event header settings</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  run.SetEventHeaderPersistence(<span class="keyword">False</span>)</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="comment"># Set input</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#acbeade646eb3812f9a19ed1b6d44f11e">   86</a></span>&#160;  fileSource = ROOT.FairFileSource(options.inputFile)</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  run.SetSource(fileSource)</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <span class="comment"># Set output</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#aaa08bbe28a3408b1637437cafd0d821d">   89</a></span>&#160;  outfile = ROOT.FairRootFileSink(outFile.replace(<span class="stringliteral">&#39;.root&#39;</span>,<span class="stringliteral">&#39;CPP.root&#39;</span>))</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  run.SetSink(outfile)</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  <span class="comment"># Set number of events to process</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#aa5fe4b1766171af97236b642c04c6ff8">   93</a></span>&#160;  inRootFile = ROOT.TFile.Open(options.inputFile)</div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#a68cf6a25ec71ea8281fbfefc425d3bd0">   94</a></span>&#160;  inTree = inRootFile.Get(<span class="stringliteral">&#39;cbmsim&#39;</span>)</div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#a808d6dcb199c7f6093f3dd851f14d685">   95</a></span>&#160;  nEventsInFile = inTree.GetEntries()</div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#ae3e6f33bf932ca856f8efc1542d7b718">   96</a></span>&#160;  nEvents = min(nEventsInFile, options.nEvents)</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#aed394027219a3d76ff57e78ba15d0ae2">   98</a></span>&#160;  rtdb = run.GetRuntimeDb()</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  run.AddTask(ROOT.DigiTaskSND())</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  run.Init()</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  run.Run(firstEvent, nEvents)</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="comment"># Digitization using python code SndlhcDigi</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; <span class="comment"># import digi task</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  <span class="keyword">import</span> SndlhcDigi</div>
+<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#ae4257a7315f7cc434e7b7e181d160675">  107</a></span>&#160;  Sndlhc = <a class="code" href="classSndlhcDigi_1_1SndlhcDigi.html">SndlhcDigi.SndlhcDigi</a>(outFile)</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  nEvents   = min(Sndlhc.sTree.GetEntries(),options.nEvents)</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="comment"># main loop</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  <span class="keywordflow">for</span> iEvent <span class="keywordflow">in</span> range(firstEvent, nEvents):</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordflow">if</span> iEvent % 50000 == 0 <span class="keywordflow">or</span> options.debug:</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        print(<span class="stringliteral">&#39;event &#39;</span>, iEvent, nEvents - firstEvent)</div>
+<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#a3e48193d9f647c620aaa32366decf6af">  114</a></span>&#160;    Sndlhc.iEvent = iEvent</div>
+<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#ae8e9da8f9584848cf46f3ae503a00cb2">  115</a></span>&#160;    rc = Sndlhc.sTree.GetEvent(iEvent)</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    Sndlhc.digitize()</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; <span class="comment"># memory monitoring</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; <span class="comment"># mem_monitor()</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;  <span class="comment"># end loop over events</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;  Sndlhc.finish()</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  </div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;timer.Stop()</div>
+<div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#a78b5e8831ac5a77620d60b8ac35b005f">  124</a></span>&#160;rtime = timer.RealTime()</div>
+<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#aeec7c35dc7b68d4eae80546432e05585">  125</a></span>&#160;ctime = timer.CpuTime()</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;print(<span class="stringliteral">&#39; &#39;</span>) </div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;print(<span class="stringliteral">&quot;Real time &quot;</span>,rtime, <span class="stringliteral">&quot; s, CPU time &quot;</span>,ctime,<span class="stringliteral">&quot;s&quot;</span>)</div>
 <div class="ttc" id="aclassSndlhcDigi_1_1SndlhcDigi_html"><div class="ttname"><a href="classSndlhcDigi_1_1SndlhcDigi.html">SndlhcDigi.SndlhcDigi</a></div><div class="ttdef"><b>Definition:</b> <a href="SndlhcDigi_8py_source.html#l00010">SndlhcDigi.py:10</a></div></div>
 <div class="ttc" id="aclassSndlhcGeo_1_1GeoInterface_html"><div class="ttname"><a href="classSndlhcGeo_1_1GeoInterface.html">SndlhcGeo.GeoInterface</a></div><div class="ttdef"><b>Definition:</b> <a href="SndlhcGeo_8py_source.html#l00007">SndlhcGeo.py:7</a></div></div>
 <div class="ttc" id="anamespaceadd__noise__to__field_html_ac8c461fc99cff345995bf60fcdfefa01"><div class="ttname"><a href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">add_noise_to_field.str</a></div><div class="ttdeci">str</div><div class="ttdef"><b>Definition:</b> <a href="add__noise__to__field_8py_source.html#l00053">add_noise_to_field.py:53</a></div></div>

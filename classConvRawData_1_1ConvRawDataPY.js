@@ -17,6 +17,8 @@ var classConvRawData_1_1ConvRawDataPY =
     [ "auto", "classConvRawData_1_1ConvRawDataPY.html#a5082c288ea0f8d4f25f30e9967072bef", null ],
     [ "debug", "classConvRawData_1_1ConvRawDataPY.html#a9da7365224f55437014b310d26059430", null ],
     [ "fiN", "classConvRawData_1_1ConvRawDataPY.html#a0c6f27b451d3fe56928c1370f7dc7d26", null ],
+    [ "fsdict", "classConvRawData_1_1ConvRawDataPY.html#a0b35e016fff1e52d6d94abb417d2fa3f", null ],
+    [ "FSmap", "classConvRawData_1_1ConvRawDataPY.html#a146d35c6956976e276d1a02b421b9f35", null ],
     [ "ioman", "classConvRawData_1_1ConvRawDataPY.html#a3d95649e59fcc03946c2e1fccfcc2749", null ],
     [ "Lchannel", "classConvRawData_1_1ConvRawDataPY.html#a4f83515ff4b30effc0a3577adb4b1d37", null ],
     [ "Lcrun", "classConvRawData_1_1ConvRawDataPY.html#abfb331ebc4c8faae60ebddcc845645c5", null ],

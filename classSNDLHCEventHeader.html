@@ -115,8 +115,8 @@ Collaboration diagram for SNDLHCEventHeader:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aae14379fe82c35264be5f1e63234dc43"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSNDLHCEventHeader.html#aae14379fe82c35264be5f1e63234dc43">SNDLHCEventHeader</a> ()</td></tr>
 <tr class="separator:aae14379fe82c35264be5f1e63234dc43"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada74ff150b6887fab0e2942b541b52ec"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSNDLHCEventHeader.html#ada74ff150b6887fab0e2942b541b52ec">SNDLHCEventHeader</a> (Int_t runN, uint64_t evtNumber, int64_t timestamp, uint64_t flags)</td></tr>
-<tr class="separator:ada74ff150b6887fab0e2942b541b52ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa97ddeb2652908b9a9fdc9328e1f8e65"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSNDLHCEventHeader.html#aa97ddeb2652908b9a9fdc9328e1f8e65">SNDLHCEventHeader</a> (Int_t runN, uint64_t evtNumber, int64_t timestamp, uint64_t flags, int16_t bunchType)</td></tr>
+<tr class="separator:aa97ddeb2652908b9a9fdc9328e1f8e65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1da60a96f829b02a4446cd47165827af"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSNDLHCEventHeader.html#a1da60a96f829b02a4446cd47165827af">~SNDLHCEventHeader</a> ()</td></tr>
 <tr class="separator:a1da60a96f829b02a4446cd47165827af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5aaf5fe09aa6b5e027dc78761355e806"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSNDLHCEventHeader.html#a5aaf5fe09aa6b5e027dc78761355e806">SetRunId</a> (uint64_t runid)</td></tr>
@@ -131,6 +131,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aae81475caba96484392601a5910b972a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7657ff39f80fada06005038c123cd87f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSNDLHCEventHeader.html#a7657ff39f80fada06005038c123cd87f">SetFlags</a> (uint64_t flags)</td></tr>
 <tr class="separator:a7657ff39f80fada06005038c123cd87f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c10edefdb256f17d6b125975b8240db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSNDLHCEventHeader.html#a3c10edefdb256f17d6b125975b8240db">SetBunchType</a> (int16_t bunchType)</td></tr>
+<tr class="separator:a3c10edefdb256f17d6b125975b8240db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4df7fb0557aa0c33d65257fcb6e21ab0"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSNDLHCEventHeader.html#a4df7fb0557aa0c33d65257fcb6e21ab0">GetRunId</a> ()</td></tr>
 <tr class="separator:a4df7fb0557aa0c33d65257fcb6e21ab0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30124b0200ae710dc86f35264532a660"><td class="memItemLeft" align="right" valign="top">int64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSNDLHCEventHeader.html#a30124b0200ae710dc86f35264532a660">GetEventTime</a> ()</td></tr>
@@ -157,6 +159,24 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aa1a99c9f55d9fe2c536c784a8e83fa6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:accf8c74f97a0e443e9aa3d46023f0cfa"><td class="memItemLeft" align="right" valign="top">vector&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSNDLHCEventHeader.html#accf8c74f97a0e443e9aa3d46023f0cfa">GetPassedAdvNFCriteria</a> ()</td></tr>
 <tr class="separator:accf8c74f97a0e443e9aa3d46023f0cfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fa331da44cbeeb9c0bef528d55fc005"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSNDLHCEventHeader.html#a4fa331da44cbeeb9c0bef528d55fc005">GetBunchType</a> ()</td></tr>
+<tr class="separator:a4fa331da44cbeeb9c0bef528d55fc005"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad333c67d5497d2aee00092e4fbe761be"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSNDLHCEventHeader.html#ad333c67d5497d2aee00092e4fbe761be">isB1</a> ()</td></tr>
+<tr class="separator:ad333c67d5497d2aee00092e4fbe761be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abba0d959b11481f688043ea46e5953ed"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSNDLHCEventHeader.html#abba0d959b11481f688043ea46e5953ed">isB2</a> ()</td></tr>
+<tr class="separator:abba0d959b11481f688043ea46e5953ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbe21ccd979df906e94aa3e11f3fbc9b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSNDLHCEventHeader.html#adbe21ccd979df906e94aa3e11f3fbc9b">isIP1</a> ()</td></tr>
+<tr class="separator:adbe21ccd979df906e94aa3e11f3fbc9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24328082e030487d7014017f3b75cadb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSNDLHCEventHeader.html#a24328082e030487d7014017f3b75cadb">isIP2</a> ()</td></tr>
+<tr class="separator:a24328082e030487d7014017f3b75cadb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49e7a1f3f0c04cc0816537f753384884"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSNDLHCEventHeader.html#a49e7a1f3f0c04cc0816537f753384884">isB1Only</a> ()</td></tr>
+<tr class="separator:a49e7a1f3f0c04cc0816537f753384884"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25ea344fc199f2dae6d0bf3fda0983c7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSNDLHCEventHeader.html#a25ea344fc199f2dae6d0bf3fda0983c7">isB2noB1</a> ()</td></tr>
+<tr class="separator:a25ea344fc199f2dae6d0bf3fda0983c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fbf255ab7f695f20d92ec4f360e7112"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSNDLHCEventHeader.html#a9fbf255ab7f695f20d92ec4f360e7112">isNoBeam</a> ()</td></tr>
+<tr class="separator:a9fbf255ab7f695f20d92ec4f360e7112"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5b8a76b9c7e7e0b78da817e62d02adc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSNDLHCEventHeader.html#ad5b8a76b9c7e7e0b78da817e62d02adc">isNoFSData</a> ()</td></tr>
+<tr class="separator:ad5b8a76b9c7e7e0b78da817e62d02adc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35c7e414fbf27794ca2177c657217b71"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSNDLHCEventHeader.html#a35c7e414fbf27794ca2177c657217b71">Print</a> (const Option_t *opt) const</td></tr>
 <tr class="separator:a35c7e414fbf27794ca2177c657217b71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -187,6 +207,8 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:a4ab059163f74188cc892a3a977100595"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd584a9d2085f908cf5fd4726cfbfce9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSNDLHCEventHeader.html#abd584a9d2085f908cf5fd4726cfbfce9">fBeamMode</a></td></tr>
 <tr class="separator:abd584a9d2085f908cf5fd4726cfbfce9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96c4500de6dc68d4a3ded87c5592226f"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSNDLHCEventHeader.html#a96c4500de6dc68d4a3ded87c5592226f">fBunchType</a></td></tr>
+<tr class="separator:a96c4500de6dc68d4a3ded87c5592226f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Event header class based on FairEventHeader </p>
@@ -219,20 +241,22 @@ Protected Attributes</h2></td></tr>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  , <a class="code" href="classSNDLHCEventHeader.html#a044727b68e6b03b3c269911af12dc8ca">fFillNumber</a>(0)</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  , <a class="code" href="classSNDLHCEventHeader.html#a4ab059163f74188cc892a3a977100595">fAccMode</a>(0)</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  , <a class="code" href="classSNDLHCEventHeader.html#abd584a9d2085f908cf5fd4726cfbfce9">fBeamMode</a>(0)</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{}</div>
-<div class="ttc" id="aclassSNDLHCEventHeader_html_a044727b68e6b03b3c269911af12dc8ca"><div class="ttname"><a href="classSNDLHCEventHeader.html#a044727b68e6b03b3c269911af12dc8ca">SNDLHCEventHeader::fFillNumber</a></div><div class="ttdeci">uint16_t fFillNumber</div><div class="ttdef"><b>Definition:</b> <a href="SNDLHCEventHeader_8h_source.html#l00064">SNDLHCEventHeader.h:64</a></div></div>
-<div class="ttc" id="aclassSNDLHCEventHeader_html_a2f7ab6d26ccc0638cb75edba0c996345"><div class="ttname"><a href="classSNDLHCEventHeader.html#a2f7ab6d26ccc0638cb75edba0c996345">SNDLHCEventHeader::fEventTime</a></div><div class="ttdeci">int64_t fEventTime</div><div class="ttdef"><b>Definition:</b> <a href="SNDLHCEventHeader_8h_source.html#l00059">SNDLHCEventHeader.h:59</a></div></div>
-<div class="ttc" id="aclassSNDLHCEventHeader_html_a309d1e541b74fd5eccb973b8cdc8ee8d"><div class="ttname"><a href="classSNDLHCEventHeader.html#a309d1e541b74fd5eccb973b8cdc8ee8d">SNDLHCEventHeader::fFlags</a></div><div class="ttdeci">uint64_t fFlags</div><div class="ttdef"><b>Definition:</b> <a href="SNDLHCEventHeader_8h_source.html#l00063">SNDLHCEventHeader.h:63</a></div></div>
-<div class="ttc" id="aclassSNDLHCEventHeader_html_a43c5e8f4fa0ec68c538e4f08d2291451"><div class="ttname"><a href="classSNDLHCEventHeader.html#a43c5e8f4fa0ec68c538e4f08d2291451">SNDLHCEventHeader::fRunId</a></div><div class="ttdeci">uint64_t fRunId</div><div class="ttdef"><b>Definition:</b> <a href="SNDLHCEventHeader_8h_source.html#l00058">SNDLHCEventHeader.h:58</a></div></div>
-<div class="ttc" id="aclassSNDLHCEventHeader_html_a4ab059163f74188cc892a3a977100595"><div class="ttname"><a href="classSNDLHCEventHeader.html#a4ab059163f74188cc892a3a977100595">SNDLHCEventHeader::fAccMode</a></div><div class="ttdeci">int fAccMode</div><div class="ttdef"><b>Definition:</b> <a href="SNDLHCEventHeader_8h_source.html#l00065">SNDLHCEventHeader.h:65</a></div></div>
-<div class="ttc" id="aclassSNDLHCEventHeader_html_a5b25ef9d32618a0fab171450a3deaf2a"><div class="ttname"><a href="classSNDLHCEventHeader.html#a5b25ef9d32618a0fab171450a3deaf2a">SNDLHCEventHeader::fEventNumber</a></div><div class="ttdeci">int fEventNumber</div><div class="ttdef"><b>Definition:</b> <a href="SNDLHCEventHeader_8h_source.html#l00061">SNDLHCEventHeader.h:61</a></div></div>
-<div class="ttc" id="aclassSNDLHCEventHeader_html_a5c5cf2c160a3f3c60411828b9cf7efc6"><div class="ttname"><a href="classSNDLHCEventHeader.html#a5c5cf2c160a3f3c60411828b9cf7efc6">SNDLHCEventHeader::fInputFileId</a></div><div class="ttdeci">int fInputFileId</div><div class="ttdef"><b>Definition:</b> <a href="SNDLHCEventHeader_8h_source.html#l00060">SNDLHCEventHeader.h:60</a></div></div>
-<div class="ttc" id="aclassSNDLHCEventHeader_html_abd584a9d2085f908cf5fd4726cfbfce9"><div class="ttname"><a href="classSNDLHCEventHeader.html#abd584a9d2085f908cf5fd4726cfbfce9">SNDLHCEventHeader::fBeamMode</a></div><div class="ttdeci">int fBeamMode</div><div class="ttdef"><b>Definition:</b> <a href="SNDLHCEventHeader_8h_source.html#l00066">SNDLHCEventHeader.h:66</a></div></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  , <a class="code" href="classSNDLHCEventHeader.html#a96c4500de6dc68d4a3ded87c5592226f">fBunchType</a>(-1)</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{}</div>
+<div class="ttc" id="aclassSNDLHCEventHeader_html_a044727b68e6b03b3c269911af12dc8ca"><div class="ttname"><a href="classSNDLHCEventHeader.html#a044727b68e6b03b3c269911af12dc8ca">SNDLHCEventHeader::fFillNumber</a></div><div class="ttdeci">uint16_t fFillNumber</div><div class="ttdef"><b>Definition:</b> <a href="SNDLHCEventHeader_8h_source.html#l00074">SNDLHCEventHeader.h:74</a></div></div>
+<div class="ttc" id="aclassSNDLHCEventHeader_html_a2f7ab6d26ccc0638cb75edba0c996345"><div class="ttname"><a href="classSNDLHCEventHeader.html#a2f7ab6d26ccc0638cb75edba0c996345">SNDLHCEventHeader::fEventTime</a></div><div class="ttdeci">int64_t fEventTime</div><div class="ttdef"><b>Definition:</b> <a href="SNDLHCEventHeader_8h_source.html#l00069">SNDLHCEventHeader.h:69</a></div></div>
+<div class="ttc" id="aclassSNDLHCEventHeader_html_a309d1e541b74fd5eccb973b8cdc8ee8d"><div class="ttname"><a href="classSNDLHCEventHeader.html#a309d1e541b74fd5eccb973b8cdc8ee8d">SNDLHCEventHeader::fFlags</a></div><div class="ttdeci">uint64_t fFlags</div><div class="ttdef"><b>Definition:</b> <a href="SNDLHCEventHeader_8h_source.html#l00073">SNDLHCEventHeader.h:73</a></div></div>
+<div class="ttc" id="aclassSNDLHCEventHeader_html_a43c5e8f4fa0ec68c538e4f08d2291451"><div class="ttname"><a href="classSNDLHCEventHeader.html#a43c5e8f4fa0ec68c538e4f08d2291451">SNDLHCEventHeader::fRunId</a></div><div class="ttdeci">uint64_t fRunId</div><div class="ttdef"><b>Definition:</b> <a href="SNDLHCEventHeader_8h_source.html#l00068">SNDLHCEventHeader.h:68</a></div></div>
+<div class="ttc" id="aclassSNDLHCEventHeader_html_a4ab059163f74188cc892a3a977100595"><div class="ttname"><a href="classSNDLHCEventHeader.html#a4ab059163f74188cc892a3a977100595">SNDLHCEventHeader::fAccMode</a></div><div class="ttdeci">int fAccMode</div><div class="ttdef"><b>Definition:</b> <a href="SNDLHCEventHeader_8h_source.html#l00075">SNDLHCEventHeader.h:75</a></div></div>
+<div class="ttc" id="aclassSNDLHCEventHeader_html_a5b25ef9d32618a0fab171450a3deaf2a"><div class="ttname"><a href="classSNDLHCEventHeader.html#a5b25ef9d32618a0fab171450a3deaf2a">SNDLHCEventHeader::fEventNumber</a></div><div class="ttdeci">int fEventNumber</div><div class="ttdef"><b>Definition:</b> <a href="SNDLHCEventHeader_8h_source.html#l00071">SNDLHCEventHeader.h:71</a></div></div>
+<div class="ttc" id="aclassSNDLHCEventHeader_html_a5c5cf2c160a3f3c60411828b9cf7efc6"><div class="ttname"><a href="classSNDLHCEventHeader.html#a5c5cf2c160a3f3c60411828b9cf7efc6">SNDLHCEventHeader::fInputFileId</a></div><div class="ttdeci">int fInputFileId</div><div class="ttdef"><b>Definition:</b> <a href="SNDLHCEventHeader_8h_source.html#l00070">SNDLHCEventHeader.h:70</a></div></div>
+<div class="ttc" id="aclassSNDLHCEventHeader_html_a96c4500de6dc68d4a3ded87c5592226f"><div class="ttname"><a href="classSNDLHCEventHeader.html#a96c4500de6dc68d4a3ded87c5592226f">SNDLHCEventHeader::fBunchType</a></div><div class="ttdeci">int16_t fBunchType</div><div class="ttdef"><b>Definition:</b> <a href="SNDLHCEventHeader_8h_source.html#l00078">SNDLHCEventHeader.h:78</a></div></div>
+<div class="ttc" id="aclassSNDLHCEventHeader_html_abd584a9d2085f908cf5fd4726cfbfce9"><div class="ttname"><a href="classSNDLHCEventHeader.html#abd584a9d2085f908cf5fd4726cfbfce9">SNDLHCEventHeader::fBeamMode</a></div><div class="ttdeci">int fBeamMode</div><div class="ttdef"><b>Definition:</b> <a href="SNDLHCEventHeader_8h_source.html#l00076">SNDLHCEventHeader.h:76</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="ada74ff150b6887fab0e2942b541b52ec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ada74ff150b6887fab0e2942b541b52ec">&#9670;&nbsp;</a></span>SNDLHCEventHeader() <span class="overload">[2/3]</span></h2>
+<a id="aa97ddeb2652908b9a9fdc9328e1f8e65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa97ddeb2652908b9a9fdc9328e1f8e65">&#9670;&nbsp;</a></span>SNDLHCEventHeader() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -259,7 +283,13 @@ Protected Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint64_t&#160;</td>
-          <td class="paramname"><em>flags</em>&#160;</td>
+          <td class="paramname"><em>flags</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t&#160;</td>
+          <td class="paramname"><em>bunchType</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -270,16 +300,18 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Constructor with arguments </p>
 
-<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8cxx_source.html#l00043">43</a> of file <a class="el" href="SNDLHCEventHeader_8cxx_source.html">SNDLHCEventHeader.cxx</a>.</p>
-<div class="fragment"><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;   <a class="code" href="classSNDLHCEventHeader.html#a5aaf5fe09aa6b5e027dc78761355e806">SetRunId</a>(<a class="code" href="namespacerun__muonRecoSND.html#ac16b6e0653857db1290d2bf0d61d5b55">runN</a>);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;   <a class="code" href="classSNDLHCEventHeader.html#a58842204d9dec550dc9b93ed054b0567">SetEventTime</a>(timestamp);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;   <a class="code" href="classSNDLHCEventHeader.html#ae50acb4111897cba576b55ff07a82df7">SetEventNumber</a>(evtNumber);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;   <a class="code" href="classSNDLHCEventHeader.html#a7657ff39f80fada06005038c123cd87f">SetFlags</a>(flags);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8cxx_source.html#l00044">44</a> of file <a class="el" href="SNDLHCEventHeader_8cxx_source.html">SNDLHCEventHeader.cxx</a>.</p>
+<div class="fragment"><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;{</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;   <a class="code" href="classSNDLHCEventHeader.html#a5aaf5fe09aa6b5e027dc78761355e806">SetRunId</a>(<a class="code" href="namespacerun__muonRecoSND.html#ac16b6e0653857db1290d2bf0d61d5b55">runN</a>);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;   <a class="code" href="classSNDLHCEventHeader.html#a58842204d9dec550dc9b93ed054b0567">SetEventTime</a>(timestamp);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;   <a class="code" href="classSNDLHCEventHeader.html#ae50acb4111897cba576b55ff07a82df7">SetEventNumber</a>(evtNumber);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;   <a class="code" href="classSNDLHCEventHeader.html#a7657ff39f80fada06005038c123cd87f">SetFlags</a>(flags);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;   <a class="code" href="classSNDLHCEventHeader.html#a3c10edefdb256f17d6b125975b8240db">SetBunchType</a>(bunchType);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div>
+<div class="ttc" id="aclassSNDLHCEventHeader_html_a3c10edefdb256f17d6b125975b8240db"><div class="ttname"><a href="classSNDLHCEventHeader.html#a3c10edefdb256f17d6b125975b8240db">SNDLHCEventHeader::SetBunchType</a></div><div class="ttdeci">void SetBunchType(int16_t bunchType)</div><div class="ttdef"><b>Definition:</b> <a href="SNDLHCEventHeader_8h_source.html#l00038">SNDLHCEventHeader.h:38</a></div></div>
 <div class="ttc" id="aclassSNDLHCEventHeader_html_a58842204d9dec550dc9b93ed054b0567"><div class="ttname"><a href="classSNDLHCEventHeader.html#a58842204d9dec550dc9b93ed054b0567">SNDLHCEventHeader::SetEventTime</a></div><div class="ttdeci">void SetEventTime(int64_t time)</div><div class="ttdef"><b>Definition:</b> <a href="SNDLHCEventHeader_8h_source.html#l00033">SNDLHCEventHeader.h:33</a></div></div>
 <div class="ttc" id="aclassSNDLHCEventHeader_html_a5aaf5fe09aa6b5e027dc78761355e806"><div class="ttname"><a href="classSNDLHCEventHeader.html#a5aaf5fe09aa6b5e027dc78761355e806">SNDLHCEventHeader::SetRunId</a></div><div class="ttdeci">void SetRunId(uint64_t runid)</div><div class="ttdef"><b>Definition:</b> <a href="SNDLHCEventHeader_8h_source.html#l00032">SNDLHCEventHeader.h:32</a></div></div>
-<div class="ttc" id="aclassSNDLHCEventHeader_html_a7657ff39f80fada06005038c123cd87f"><div class="ttname"><a href="classSNDLHCEventHeader.html#a7657ff39f80fada06005038c123cd87f">SNDLHCEventHeader::SetFlags</a></div><div class="ttdeci">void SetFlags(uint64_t flags)</div><div class="ttdef"><b>Definition:</b> <a href="SNDLHCEventHeader_8cxx_source.html#l00058">SNDLHCEventHeader.cxx:58</a></div></div>
+<div class="ttc" id="aclassSNDLHCEventHeader_html_a7657ff39f80fada06005038c123cd87f"><div class="ttname"><a href="classSNDLHCEventHeader.html#a7657ff39f80fada06005038c123cd87f">SNDLHCEventHeader::SetFlags</a></div><div class="ttdeci">void SetFlags(uint64_t flags)</div><div class="ttdef"><b>Definition:</b> <a href="SNDLHCEventHeader_8cxx_source.html#l00060">SNDLHCEventHeader.cxx:60</a></div></div>
 <div class="ttc" id="aclassSNDLHCEventHeader_html_ae50acb4111897cba576b55ff07a82df7"><div class="ttname"><a href="classSNDLHCEventHeader.html#ae50acb4111897cba576b55ff07a82df7">SNDLHCEventHeader::SetEventNumber</a></div><div class="ttdeci">void SetEventNumber(int id)</div><div class="ttdef"><b>Definition:</b> <a href="SNDLHCEventHeader_8h_source.html#l00035">SNDLHCEventHeader.h:35</a></div></div>
 <div class="ttc" id="anamespacerun__muonRecoSND_html_ac16b6e0653857db1290d2bf0d61d5b55"><div class="ttname"><a href="namespacerun__muonRecoSND.html#ac16b6e0653857db1290d2bf0d61d5b55">run_muonRecoSND.runN</a></div><div class="ttdeci">runN</div><div class="ttdef"><b>Definition:</b> <a href="run__muonRecoSND_8py_source.html#l00031">run_muonRecoSND.py:31</a></div></div>
 </div><!-- fragment -->
@@ -309,8 +341,8 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Destructor </p>
 
-<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8cxx_source.html#l00054">54</a> of file <a class="el" href="SNDLHCEventHeader_8cxx_source.html">SNDLHCEventHeader.cxx</a>.</p>
-<div class="fragment"><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;{ }</div>
+<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8cxx_source.html#l00056">56</a> of file <a class="el" href="SNDLHCEventHeader_8cxx_source.html">SNDLHCEventHeader.cxx</a>.</p>
+<div class="fragment"><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;{ }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -365,8 +397,8 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8h_source.html#l00047">47</a> of file <a class="el" href="SNDLHCEventHeader_8h_source.html">SNDLHCEventHeader.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="classSNDLHCEventHeader.html#a4ab059163f74188cc892a3a977100595">fAccMode</a>; }</div>
+<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8h_source.html#l00048">48</a> of file <a class="el" href="SNDLHCEventHeader_8h_source.html">SNDLHCEventHeader.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="classSNDLHCEventHeader.html#a4ab059163f74188cc892a3a977100595">fAccMode</a>; }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -385,26 +417,26 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8cxx_source.html#l00091">91</a> of file <a class="el" href="SNDLHCEventHeader_8cxx_source.html">SNDLHCEventHeader.cxx</a>.</p>
-<div class="fragment"><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;{</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;   map&lt;string, bool&gt; AdvNoiseFilters{};</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;   <span class="keyword">auto</span> base = (<a class="code" href="classSNDLHCEventHeader.html#a309d1e541b74fd5eccb973b8cdc8ee8d">fFlags</a> &amp; ADVANCED_FILTER_MASK) &gt;&gt; <a class="code" href="SNDLHCEventHeader_8cxx.html#a32e637444325c344ee622e38b6ed5f40">maskToShift</a>(ADVANCED_FILTER_MASK);</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;   AdvNoiseFilters[<span class="stringliteral">&quot;SciFi_Planes&quot;</span>]  = base &amp; ADVANCED_FILTER_SCIFI_PLANES;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;   AdvNoiseFilters[<span class="stringliteral">&quot;SciFi_Hits&quot;</span>]    = base &amp; ADVANCED_FILTER_SCIFI_HITS;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;   AdvNoiseFilters[<span class="stringliteral">&quot;US_Planes&quot;</span>]     = base &amp; ADVANCED_FILTER_US_PLANES;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;   AdvNoiseFilters[<span class="stringliteral">&quot;US_Hits&quot;</span>]       = base &amp; ADVANCED_FILTER_US_HITS;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;   AdvNoiseFilters[<span class="stringliteral">&quot;DSH_Planes&quot;</span>]    = base &amp; ADVANCED_FILTER_DSH_PLANES;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;   AdvNoiseFilters[<span class="stringliteral">&quot;DSH_Hits&quot;</span>]      = base &amp; ADVANCED_FILTER_DSH_HITS;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;   AdvNoiseFilters[<span class="stringliteral">&quot;DSV_Planes&quot;</span>]    = base &amp; ADVANCED_FILTER_DSV_PLANES;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;   AdvNoiseFilters[<span class="stringliteral">&quot;DSV_Hits&quot;</span>]      = base &amp; ADVANCED_FILTER_DSV_HITS;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;   AdvNoiseFilters[<span class="stringliteral">&quot;DS_Planes&quot;</span>]     = base &amp; ADVANCED_FILTER_DS_PLANES;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;   AdvNoiseFilters[<span class="stringliteral">&quot;VETO_Planes&quot;</span>]   = base &amp; ADVANCED_FILTER_VETO_PLANES;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;   AdvNoiseFilters[<span class="stringliteral">&quot;VETO_Hits&quot;</span>]     = base &amp; ADVANCED_FILTER_VETO_HITS;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;   AdvNoiseFilters[<span class="stringliteral">&quot;GLOBAL_Planes&quot;</span>] = base &amp; ADVANCED_FILTER_GLOBAL_PLANES;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;   <span class="keywordflow">return</span> AdvNoiseFilters;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8cxx_source.html#l00093">93</a> of file <a class="el" href="SNDLHCEventHeader_8cxx_source.html">SNDLHCEventHeader.cxx</a>.</p>
+<div class="fragment"><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;{</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;   map&lt;string, bool&gt; AdvNoiseFilters{};</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;   <span class="keyword">auto</span> base = (<a class="code" href="classSNDLHCEventHeader.html#a309d1e541b74fd5eccb973b8cdc8ee8d">fFlags</a> &amp; ADVANCED_FILTER_MASK) &gt;&gt; <a class="code" href="SNDLHCEventHeader_8cxx.html#a32e637444325c344ee622e38b6ed5f40">maskToShift</a>(ADVANCED_FILTER_MASK);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;   AdvNoiseFilters[<span class="stringliteral">&quot;SciFi_Planes&quot;</span>]  = base &amp; ADVANCED_FILTER_SCIFI_PLANES;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;   AdvNoiseFilters[<span class="stringliteral">&quot;SciFi_Hits&quot;</span>]    = base &amp; ADVANCED_FILTER_SCIFI_HITS;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;   AdvNoiseFilters[<span class="stringliteral">&quot;US_Planes&quot;</span>]     = base &amp; ADVANCED_FILTER_US_PLANES;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;   AdvNoiseFilters[<span class="stringliteral">&quot;US_Hits&quot;</span>]       = base &amp; ADVANCED_FILTER_US_HITS;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;   AdvNoiseFilters[<span class="stringliteral">&quot;DSH_Planes&quot;</span>]    = base &amp; ADVANCED_FILTER_DSH_PLANES;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;   AdvNoiseFilters[<span class="stringliteral">&quot;DSH_Hits&quot;</span>]      = base &amp; ADVANCED_FILTER_DSH_HITS;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;   AdvNoiseFilters[<span class="stringliteral">&quot;DSV_Planes&quot;</span>]    = base &amp; ADVANCED_FILTER_DSV_PLANES;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;   AdvNoiseFilters[<span class="stringliteral">&quot;DSV_Hits&quot;</span>]      = base &amp; ADVANCED_FILTER_DSV_HITS;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;   AdvNoiseFilters[<span class="stringliteral">&quot;DS_Planes&quot;</span>]     = base &amp; ADVANCED_FILTER_DS_PLANES;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;   AdvNoiseFilters[<span class="stringliteral">&quot;VETO_Planes&quot;</span>]   = base &amp; ADVANCED_FILTER_VETO_PLANES;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;   AdvNoiseFilters[<span class="stringliteral">&quot;VETO_Hits&quot;</span>]     = base &amp; ADVANCED_FILTER_VETO_HITS;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;   AdvNoiseFilters[<span class="stringliteral">&quot;GLOBAL_Planes&quot;</span>] = base &amp; ADVANCED_FILTER_GLOBAL_PLANES;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;   <span class="keywordflow">return</span> AdvNoiseFilters;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;}</div>
 <div class="ttc" id="aSNDLHCEventHeader_8cxx_html_a32e637444325c344ee622e38b6ed5f40"><div class="ttname"><a href="SNDLHCEventHeader_8cxx.html#a32e637444325c344ee622e38b6ed5f40">maskToShift</a></div><div class="ttdeci">constexpr int maskToShift(uint64_t mask)</div><div class="ttdef"><b>Definition:</b> <a href="SNDLHCEventHeader_8cxx_source.html#l00014">SNDLHCEventHeader.cxx:14</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -432,8 +464,36 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8h_source.html#l00048">48</a> of file <a class="el" href="SNDLHCEventHeader_8h_source.html">SNDLHCEventHeader.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="classSNDLHCEventHeader.html#abd584a9d2085f908cf5fd4726cfbfce9">fBeamMode</a>; }</div>
+<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8h_source.html#l00049">49</a> of file <a class="el" href="SNDLHCEventHeader_8h_source.html">SNDLHCEventHeader.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="classSNDLHCEventHeader.html#abd584a9d2085f908cf5fd4726cfbfce9">fBeamMode</a>; }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a4fa331da44cbeeb9c0bef528d55fc005"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fa331da44cbeeb9c0bef528d55fc005">&#9670;&nbsp;</a></span>GetBunchType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t SNDLHCEventHeader::GetBunchType </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8h_source.html#l00054">54</a> of file <a class="el" href="SNDLHCEventHeader_8h_source.html">SNDLHCEventHeader.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="classSNDLHCEventHeader.html#a96c4500de6dc68d4a3ded87c5592226f">fBunchType</a>; }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -460,8 +520,8 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8h_source.html#l00043">43</a> of file <a class="el" href="SNDLHCEventHeader_8h_source.html">SNDLHCEventHeader.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="classSNDLHCEventHeader.html#a5b25ef9d32618a0fab171450a3deaf2a">fEventNumber</a>; }</div>
+<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8h_source.html#l00044">44</a> of file <a class="el" href="SNDLHCEventHeader_8h_source.html">SNDLHCEventHeader.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="classSNDLHCEventHeader.html#a5b25ef9d32618a0fab171450a3deaf2a">fEventNumber</a>; }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -488,8 +548,8 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8h_source.html#l00041">41</a> of file <a class="el" href="SNDLHCEventHeader_8h_source.html">SNDLHCEventHeader.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="classSNDLHCEventHeader.html#a2f7ab6d26ccc0638cb75edba0c996345">fEventTime</a>; }</div>
+<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8h_source.html#l00042">42</a> of file <a class="el" href="SNDLHCEventHeader_8h_source.html">SNDLHCEventHeader.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="classSNDLHCEventHeader.html#a2f7ab6d26ccc0638cb75edba0c996345">fEventTime</a>; }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -508,21 +568,21 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8cxx_source.html#l00075">75</a> of file <a class="el" href="SNDLHCEventHeader_8cxx_source.html">SNDLHCEventHeader.cxx</a>.</p>
-<div class="fragment"><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;{</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;   map&lt;string, bool&gt; FastNoiseFilters{};</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;   <span class="keyword">auto</span> base = (<a class="code" href="classSNDLHCEventHeader.html#a309d1e541b74fd5eccb973b8cdc8ee8d">fFlags</a> &amp; FAST_FILTER_MASK) &gt;&gt; <a class="code" href="SNDLHCEventHeader_8cxx.html#a32e637444325c344ee622e38b6ed5f40">maskToShift</a>(FAST_FILTER_MASK);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;   FastNoiseFilters[<span class="stringliteral">&quot;SciFi&quot;</span>]       = base &amp; FAST_FILTER_SCIFI;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;   FastNoiseFilters[<span class="stringliteral">&quot;SciFi_Total&quot;</span>] = base &amp; FAST_FILTER_SCIFI_TOTAL;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;   FastNoiseFilters[<span class="stringliteral">&quot;US&quot;</span>]          = base &amp; FAST_FILTER_US;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;   FastNoiseFilters[<span class="stringliteral">&quot;US_Total&quot;</span>]    = base &amp; FAST_FILTER_US_TOTAL;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;   FastNoiseFilters[<span class="stringliteral">&quot;DS&quot;</span>]          = base &amp; FAST_FILTER_DS;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;   FastNoiseFilters[<span class="stringliteral">&quot;DS_Total&quot;</span>]    = base &amp; FAST_FILTER_DS_TOTAL;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;   FastNoiseFilters[<span class="stringliteral">&quot;Veto_Total&quot;</span>]  = base &amp; FAST_FILTER_VETO_TOTAL;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;   <span class="keywordflow">return</span> FastNoiseFilters;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8cxx_source.html#l00077">77</a> of file <a class="el" href="SNDLHCEventHeader_8cxx_source.html">SNDLHCEventHeader.cxx</a>.</p>
+<div class="fragment"><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;{</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;   map&lt;string, bool&gt; FastNoiseFilters{};</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;   <span class="keyword">auto</span> base = (<a class="code" href="classSNDLHCEventHeader.html#a309d1e541b74fd5eccb973b8cdc8ee8d">fFlags</a> &amp; FAST_FILTER_MASK) &gt;&gt; <a class="code" href="SNDLHCEventHeader_8cxx.html#a32e637444325c344ee622e38b6ed5f40">maskToShift</a>(FAST_FILTER_MASK);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;   FastNoiseFilters[<span class="stringliteral">&quot;SciFi&quot;</span>]       = base &amp; FAST_FILTER_SCIFI;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;   FastNoiseFilters[<span class="stringliteral">&quot;SciFi_Total&quot;</span>] = base &amp; FAST_FILTER_SCIFI_TOTAL;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;   FastNoiseFilters[<span class="stringliteral">&quot;US&quot;</span>]          = base &amp; FAST_FILTER_US;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;   FastNoiseFilters[<span class="stringliteral">&quot;US_Total&quot;</span>]    = base &amp; FAST_FILTER_US_TOTAL;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;   FastNoiseFilters[<span class="stringliteral">&quot;DS&quot;</span>]          = base &amp; FAST_FILTER_DS;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;   FastNoiseFilters[<span class="stringliteral">&quot;DS_Total&quot;</span>]    = base &amp; FAST_FILTER_DS_TOTAL;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;   FastNoiseFilters[<span class="stringliteral">&quot;Veto_Total&quot;</span>]  = base &amp; FAST_FILTER_VETO_TOTAL;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;   <span class="keywordflow">return</span> FastNoiseFilters;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -549,8 +609,8 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8h_source.html#l00046">46</a> of file <a class="el" href="SNDLHCEventHeader_8h_source.html">SNDLHCEventHeader.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="classSNDLHCEventHeader.html#a044727b68e6b03b3c269911af12dc8ca">fFillNumber</a>; }</div>
+<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8h_source.html#l00047">47</a> of file <a class="el" href="SNDLHCEventHeader_8h_source.html">SNDLHCEventHeader.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="classSNDLHCEventHeader.html#a044727b68e6b03b3c269911af12dc8ca">fFillNumber</a>; }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -577,8 +637,8 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8h_source.html#l00042">42</a> of file <a class="el" href="SNDLHCEventHeader_8h_source.html">SNDLHCEventHeader.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="classSNDLHCEventHeader.html#a5c5cf2c160a3f3c60411828b9cf7efc6">fInputFileId</a>; }</div>
+<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8h_source.html#l00043">43</a> of file <a class="el" href="SNDLHCEventHeader_8h_source.html">SNDLHCEventHeader.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="classSNDLHCEventHeader.html#a5c5cf2c160a3f3c60411828b9cf7efc6">fInputFileId</a>; }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -597,16 +657,16 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8cxx_source.html#l00122">122</a> of file <a class="el" href="SNDLHCEventHeader_8cxx_source.html">SNDLHCEventHeader.cxx</a>.</p>
-<div class="fragment"><div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;{</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  map&lt;string, bool&gt; AdvNoiseFilters = <a class="code" href="classSNDLHCEventHeader.html#a8da6b1d175fb0deb6e312206447c35bd">GetAdvNoiseFilters</a>();</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  vector&lt;string&gt; passed;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  <span class="keywordflow">for</span> ( <span class="keyword">auto</span> it : AdvNoiseFilters )</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;      <span class="keywordflow">if</span> ( it.second == <span class="keyword">true</span> ) passed.push_back(it.first);</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;  <span class="keywordflow">return</span> passed;</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;}</div>
-<div class="ttc" id="aclassSNDLHCEventHeader_html_a8da6b1d175fb0deb6e312206447c35bd"><div class="ttname"><a href="classSNDLHCEventHeader.html#a8da6b1d175fb0deb6e312206447c35bd">SNDLHCEventHeader::GetAdvNoiseFilters</a></div><div class="ttdeci">map&lt; string, bool &gt; GetAdvNoiseFilters()</div><div class="ttdef"><b>Definition:</b> <a href="SNDLHCEventHeader_8cxx_source.html#l00091">SNDLHCEventHeader.cxx:91</a></div></div>
+<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8cxx_source.html#l00124">124</a> of file <a class="el" href="SNDLHCEventHeader_8cxx_source.html">SNDLHCEventHeader.cxx</a>.</p>
+<div class="fragment"><div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;{</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  map&lt;string, bool&gt; AdvNoiseFilters = <a class="code" href="classSNDLHCEventHeader.html#a8da6b1d175fb0deb6e312206447c35bd">GetAdvNoiseFilters</a>();</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  vector&lt;string&gt; passed;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;  <span class="keywordflow">for</span> ( <span class="keyword">auto</span> it : AdvNoiseFilters )</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;      <span class="keywordflow">if</span> ( it.second == <span class="keyword">true</span> ) passed.push_back(it.first);</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;  <span class="keywordflow">return</span> passed;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;}</div>
+<div class="ttc" id="aclassSNDLHCEventHeader_html_a8da6b1d175fb0deb6e312206447c35bd"><div class="ttname"><a href="classSNDLHCEventHeader.html#a8da6b1d175fb0deb6e312206447c35bd">SNDLHCEventHeader::GetAdvNoiseFilters</a></div><div class="ttdeci">map&lt; string, bool &gt; GetAdvNoiseFilters()</div><div class="ttdef"><b>Definition:</b> <a href="SNDLHCEventHeader_8cxx_source.html#l00093">SNDLHCEventHeader.cxx:93</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -625,16 +685,16 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8cxx_source.html#l00112">112</a> of file <a class="el" href="SNDLHCEventHeader_8cxx_source.html">SNDLHCEventHeader.cxx</a>.</p>
-<div class="fragment"><div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;{</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  map&lt;string, bool&gt; FastNoiseFilters = <a class="code" href="classSNDLHCEventHeader.html#a4a75752e64578982c2a334070986a41b">GetFastNoiseFilters</a>();</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  vector&lt;string&gt; passed;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  <span class="keywordflow">for</span> ( <span class="keyword">auto</span> it : FastNoiseFilters )</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;      <span class="keywordflow">if</span> ( it.second == <span class="keyword">true</span> ) passed.push_back(it.first);</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  <span class="keywordflow">return</span> passed;</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;}</div>
-<div class="ttc" id="aclassSNDLHCEventHeader_html_a4a75752e64578982c2a334070986a41b"><div class="ttname"><a href="classSNDLHCEventHeader.html#a4a75752e64578982c2a334070986a41b">SNDLHCEventHeader::GetFastNoiseFilters</a></div><div class="ttdeci">map&lt; string, bool &gt; GetFastNoiseFilters()</div><div class="ttdef"><b>Definition:</b> <a href="SNDLHCEventHeader_8cxx_source.html#l00075">SNDLHCEventHeader.cxx:75</a></div></div>
+<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8cxx_source.html#l00114">114</a> of file <a class="el" href="SNDLHCEventHeader_8cxx_source.html">SNDLHCEventHeader.cxx</a>.</p>
+<div class="fragment"><div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;{</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  map&lt;string, bool&gt; FastNoiseFilters = <a class="code" href="classSNDLHCEventHeader.html#a4a75752e64578982c2a334070986a41b">GetFastNoiseFilters</a>();</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  vector&lt;string&gt; passed;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  <span class="keywordflow">for</span> ( <span class="keyword">auto</span> it : FastNoiseFilters )</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;      <span class="keywordflow">if</span> ( it.second == <span class="keyword">true</span> ) passed.push_back(it.first);</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;  <span class="keywordflow">return</span> passed;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;}</div>
+<div class="ttc" id="aclassSNDLHCEventHeader_html_a4a75752e64578982c2a334070986a41b"><div class="ttname"><a href="classSNDLHCEventHeader.html#a4a75752e64578982c2a334070986a41b">SNDLHCEventHeader::GetFastNoiseFilters</a></div><div class="ttdeci">map&lt; string, bool &gt; GetFastNoiseFilters()</div><div class="ttdef"><b>Definition:</b> <a href="SNDLHCEventHeader_8cxx_source.html#l00077">SNDLHCEventHeader.cxx:77</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -662,8 +722,8 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Getters </p>
 
-<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8h_source.html#l00040">40</a> of file <a class="el" href="SNDLHCEventHeader_8h_source.html">SNDLHCEventHeader.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="classSNDLHCEventHeader.html#a43c5e8f4fa0ec68c538e4f08d2291451">fRunId</a>; }</div>
+<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8h_source.html#l00041">41</a> of file <a class="el" href="SNDLHCEventHeader_8h_source.html">SNDLHCEventHeader.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="classSNDLHCEventHeader.html#a43c5e8f4fa0ec68c538e4f08d2291451">fRunId</a>; }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -682,15 +742,15 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8cxx_source.html#l00066">66</a> of file <a class="el" href="SNDLHCEventHeader_8cxx_source.html">SNDLHCEventHeader.cxx</a>.</p>
-<div class="fragment"><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;{</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;   time_t time = <a class="code" href="classSNDLHCEventHeader.html#a0d92982305491d7692e482b2d3414cee">fUTCtimestamp</a>;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;   <span class="keyword">struct </span>tm *GMTtime;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;   GMTtime = gmtime(&amp;time);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;   <span class="keywordflow">return</span> asctime(GMTtime);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}</div>
-<div class="ttc" id="aclassSNDLHCEventHeader_html_a0d92982305491d7692e482b2d3414cee"><div class="ttname"><a href="classSNDLHCEventHeader.html#a0d92982305491d7692e482b2d3414cee">SNDLHCEventHeader::fUTCtimestamp</a></div><div class="ttdeci">int64_t fUTCtimestamp</div><div class="ttdef"><b>Definition:</b> <a href="SNDLHCEventHeader_8h_source.html#l00062">SNDLHCEventHeader.h:62</a></div></div>
+<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8cxx_source.html#l00068">68</a> of file <a class="el" href="SNDLHCEventHeader_8cxx_source.html">SNDLHCEventHeader.cxx</a>.</p>
+<div class="fragment"><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;{</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;   time_t time = <a class="code" href="classSNDLHCEventHeader.html#a0d92982305491d7692e482b2d3414cee">fUTCtimestamp</a>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;   <span class="keyword">struct </span>tm *GMTtime;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;   GMTtime = gmtime(&amp;time);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;   <span class="keywordflow">return</span> asctime(GMTtime);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;}</div>
+<div class="ttc" id="aclassSNDLHCEventHeader_html_a0d92982305491d7692e482b2d3414cee"><div class="ttname"><a href="classSNDLHCEventHeader.html#a0d92982305491d7692e482b2d3414cee">SNDLHCEventHeader::fUTCtimestamp</a></div><div class="ttdeci">int64_t fUTCtimestamp</div><div class="ttdef"><b>Definition:</b> <a href="SNDLHCEventHeader_8h_source.html#l00072">SNDLHCEventHeader.h:72</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -717,8 +777,194 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8h_source.html#l00045">45</a> of file <a class="el" href="SNDLHCEventHeader_8h_source.html">SNDLHCEventHeader.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="classSNDLHCEventHeader.html#a0d92982305491d7692e482b2d3414cee">fUTCtimestamp</a>; }</div>
+<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8h_source.html#l00046">46</a> of file <a class="el" href="SNDLHCEventHeader_8h_source.html">SNDLHCEventHeader.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="classSNDLHCEventHeader.html#a0d92982305491d7692e482b2d3414cee">fUTCtimestamp</a>; }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ad333c67d5497d2aee00092e4fbe761be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad333c67d5497d2aee00092e4fbe761be">&#9670;&nbsp;</a></span>isB1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SNDLHCEventHeader::isB1 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Functions to check bunch xing type </p>
+
+<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8cxx_source.html#l00149">149</a> of file <a class="el" href="SNDLHCEventHeader_8cxx_source.html">SNDLHCEventHeader.cxx</a>.</p>
+<div class="fragment"><div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;{</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;   <span class="keywordflow">return</span> <a class="code" href="classSNDLHCEventHeader.html#a96c4500de6dc68d4a3ded87c5592226f">fBunchType</a>%10==1;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a49e7a1f3f0c04cc0816537f753384884"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49e7a1f3f0c04cc0816537f753384884">&#9670;&nbsp;</a></span>isB1Only()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SNDLHCEventHeader::isB1Only </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8cxx_source.html#l00154">154</a> of file <a class="el" href="SNDLHCEventHeader_8cxx_source.html">SNDLHCEventHeader.cxx</a>.</p>
+<div class="fragment"><div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;{</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;   <span class="comment">/* b1 and not IP1 and not b2 */</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;   <span class="keywordflow">return</span> <a class="code" href="classSNDLHCEventHeader.html#ad333c67d5497d2aee00092e4fbe761be">isB1</a>() &amp;&amp; !<a class="code" href="classSNDLHCEventHeader.html#adbe21ccd979df906e94aa3e11f3fbc9b">isIP1</a>() &amp;&amp; !<a class="code" href="classSNDLHCEventHeader.html#abba0d959b11481f688043ea46e5953ed">isB2</a>();</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;}</div>
+<div class="ttc" id="aclassSNDLHCEventHeader_html_abba0d959b11481f688043ea46e5953ed"><div class="ttname"><a href="classSNDLHCEventHeader.html#abba0d959b11481f688043ea46e5953ed">SNDLHCEventHeader::isB2</a></div><div class="ttdeci">bool isB2()</div><div class="ttdef"><b>Definition:</b> <a href="SNDLHCEventHeader_8cxx_source.html#l00144">SNDLHCEventHeader.cxx:144</a></div></div>
+<div class="ttc" id="aclassSNDLHCEventHeader_html_ad333c67d5497d2aee00092e4fbe761be"><div class="ttname"><a href="classSNDLHCEventHeader.html#ad333c67d5497d2aee00092e4fbe761be">SNDLHCEventHeader::isB1</a></div><div class="ttdeci">bool isB1()</div><div class="ttdef"><b>Definition:</b> <a href="SNDLHCEventHeader_8cxx_source.html#l00149">SNDLHCEventHeader.cxx:149</a></div></div>
+<div class="ttc" id="aclassSNDLHCEventHeader_html_adbe21ccd979df906e94aa3e11f3fbc9b"><div class="ttname"><a href="classSNDLHCEventHeader.html#adbe21ccd979df906e94aa3e11f3fbc9b">SNDLHCEventHeader::isIP1</a></div><div class="ttdeci">bool isIP1()</div><div class="ttdef"><b>Definition:</b> <a href="SNDLHCEventHeader_8cxx_source.html#l00139">SNDLHCEventHeader.cxx:139</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="abba0d959b11481f688043ea46e5953ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abba0d959b11481f688043ea46e5953ed">&#9670;&nbsp;</a></span>isB2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SNDLHCEventHeader::isB2 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8cxx_source.html#l00144">144</a> of file <a class="el" href="SNDLHCEventHeader_8cxx_source.html">SNDLHCEventHeader.cxx</a>.</p>
+<div class="fragment"><div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;{</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;   <span class="keywordflow">return</span> (<a class="code" href="classSNDLHCEventHeader.html#a96c4500de6dc68d4a3ded87c5592226f">fBunchType</a>/10)%10==1;</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a25ea344fc199f2dae6d0bf3fda0983c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25ea344fc199f2dae6d0bf3fda0983c7">&#9670;&nbsp;</a></span>isB2noB1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SNDLHCEventHeader::isB2noB1 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8cxx_source.html#l00160">160</a> of file <a class="el" href="SNDLHCEventHeader_8cxx_source.html">SNDLHCEventHeader.cxx</a>.</p>
+<div class="fragment"><div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;{</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;   <span class="comment">/* b2 and not b1 */</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;   <span class="keywordflow">return</span> <a class="code" href="classSNDLHCEventHeader.html#abba0d959b11481f688043ea46e5953ed">isB2</a>() &amp;&amp; !<a class="code" href="classSNDLHCEventHeader.html#ad333c67d5497d2aee00092e4fbe761be">isB1</a>();</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="adbe21ccd979df906e94aa3e11f3fbc9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbe21ccd979df906e94aa3e11f3fbc9b">&#9670;&nbsp;</a></span>isIP1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SNDLHCEventHeader::isIP1 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8cxx_source.html#l00139">139</a> of file <a class="el" href="SNDLHCEventHeader_8cxx_source.html">SNDLHCEventHeader.cxx</a>.</p>
+<div class="fragment"><div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;{</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;   <span class="keywordflow">return</span> (<a class="code" href="classSNDLHCEventHeader.html#a96c4500de6dc68d4a3ded87c5592226f">fBunchType</a>/100)%10==1;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a24328082e030487d7014017f3b75cadb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24328082e030487d7014017f3b75cadb">&#9670;&nbsp;</a></span>isIP2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SNDLHCEventHeader::isIP2 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8cxx_source.html#l00134">134</a> of file <a class="el" href="SNDLHCEventHeader_8cxx_source.html">SNDLHCEventHeader.cxx</a>.</p>
+<div class="fragment"><div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;{</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;   <span class="keywordflow">return</span> (<a class="code" href="classSNDLHCEventHeader.html#a96c4500de6dc68d4a3ded87c5592226f">fBunchType</a>/1000)%10==1;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a9fbf255ab7f695f20d92ec4f360e7112"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9fbf255ab7f695f20d92ec4f360e7112">&#9670;&nbsp;</a></span>isNoBeam()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SNDLHCEventHeader::isNoBeam </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8cxx_source.html#l00166">166</a> of file <a class="el" href="SNDLHCEventHeader_8cxx_source.html">SNDLHCEventHeader.cxx</a>.</p>
+<div class="fragment"><div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;{</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;   <span class="comment">/* not b1 and not b2</span></div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="comment">      Also, its return must be False in case</span></div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="comment">      no filling scheme data is available (fBunchType=-1) */</span></div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;   <span class="keywordflow">return</span> <a class="code" href="classSNDLHCEventHeader.html#a96c4500de6dc68d4a3ded87c5592226f">fBunchType</a>%10==0 &amp;&amp; (<a class="code" href="classSNDLHCEventHeader.html#a96c4500de6dc68d4a3ded87c5592226f">fBunchType</a>/10)%10==0;</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ad5b8a76b9c7e7e0b78da817e62d02adc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5b8a76b9c7e7e0b78da817e62d02adc">&#9670;&nbsp;</a></span>isNoFSData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SNDLHCEventHeader::isNoFSData </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8cxx_source.html#l00174">174</a> of file <a class="el" href="SNDLHCEventHeader_8cxx_source.html">SNDLHCEventHeader.cxx</a>.</p>
+<div class="fragment"><div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;{</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;   <span class="comment">/* no filling scheme data available (fBunchType=-1) */</span></div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;   <span class="keywordflow">return</span> <a class="code" href="classSNDLHCEventHeader.html#a96c4500de6dc68d4a3ded87c5592226f">fBunchType</a>%10==-1;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -773,16 +1019,45 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Output to screen </p>
 
-<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8cxx_source.html#l00133">133</a> of file <a class="el" href="SNDLHCEventHeader_8cxx_source.html">SNDLHCEventHeader.cxx</a>.</p>
-<div class="fragment"><div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;{</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;  cout &lt;&lt; <span class="stringliteral">&quot;-I- SNDLHCEventHeader: run number &quot;</span> &lt;&lt; <a class="code" href="classSNDLHCEventHeader.html#a43c5e8f4fa0ec68c538e4f08d2291451">fRunId</a></div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;       &lt;&lt; <span class="stringliteral">&quot; event number &quot;</span>    &lt;&lt; <a class="code" href="classSNDLHCEventHeader.html#a5b25ef9d32618a0fab171450a3deaf2a">fEventNumber</a> </div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;       &lt;&lt; <span class="stringliteral">&quot; timestamp &quot;</span>       &lt;&lt; <a class="code" href="classSNDLHCEventHeader.html#a2f7ab6d26ccc0638cb75edba0c996345">fEventTime</a> &lt;&lt; endl</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;       &lt;&lt; <span class="stringliteral">&quot; LHC fill number &quot;</span> &lt;&lt; <a class="code" href="classSNDLHCEventHeader.html#a044727b68e6b03b3c269911af12dc8ca">fFillNumber</a></div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;       &lt;&lt; <span class="stringliteral">&quot; LHC beam mode &quot;</span>   &lt;&lt; <a class="code" href="classSNDLHCEventHeader.html#abd584a9d2085f908cf5fd4726cfbfce9">fBeamMode</a> &lt;&lt; endl;</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8cxx_source.html#l00180">180</a> of file <a class="el" href="SNDLHCEventHeader_8cxx_source.html">SNDLHCEventHeader.cxx</a>.</p>
+<div class="fragment"><div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;{</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160; </div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;  cout &lt;&lt; <span class="stringliteral">&quot;-I- SNDLHCEventHeader: run number &quot;</span> &lt;&lt; <a class="code" href="classSNDLHCEventHeader.html#a43c5e8f4fa0ec68c538e4f08d2291451">fRunId</a></div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;       &lt;&lt; <span class="stringliteral">&quot; event number &quot;</span>    &lt;&lt; <a class="code" href="classSNDLHCEventHeader.html#a5b25ef9d32618a0fab171450a3deaf2a">fEventNumber</a> </div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;       &lt;&lt; <span class="stringliteral">&quot; timestamp &quot;</span>       &lt;&lt; <a class="code" href="classSNDLHCEventHeader.html#a2f7ab6d26ccc0638cb75edba0c996345">fEventTime</a> &lt;&lt; endl</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;       &lt;&lt; <span class="stringliteral">&quot; LHC fill number &quot;</span> &lt;&lt; <a class="code" href="classSNDLHCEventHeader.html#a044727b68e6b03b3c269911af12dc8ca">fFillNumber</a></div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;       &lt;&lt; <span class="stringliteral">&quot; LHC beam mode &quot;</span>   &lt;&lt; <a class="code" href="classSNDLHCEventHeader.html#abd584a9d2085f908cf5fd4726cfbfce9">fBeamMode</a> &lt;&lt; endl;</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; </div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a3c10edefdb256f17d6b125975b8240db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c10edefdb256f17d6b125975b8240db">&#9670;&nbsp;</a></span>SetBunchType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SNDLHCEventHeader::SetBunchType </td>
+          <td>(</td>
+          <td class="paramtype">int16_t&#160;</td>
+          <td class="paramname"><em>bunchType</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8h_source.html#l00038">38</a> of file <a class="el" href="SNDLHCEventHeader_8h_source.html">SNDLHCEventHeader.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{ <a class="code" href="classSNDLHCEventHeader.html#a96c4500de6dc68d4a3ded87c5592226f">fBunchType</a> = bunchType; };</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -861,13 +1136,13 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8cxx_source.html#l00058">58</a> of file <a class="el" href="SNDLHCEventHeader_8cxx_source.html">SNDLHCEventHeader.cxx</a>.</p>
-<div class="fragment"><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;{</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="classSNDLHCEventHeader.html#a309d1e541b74fd5eccb973b8cdc8ee8d">fFlags</a> = flags;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <a class="code" href="classSNDLHCEventHeader.html#a044727b68e6b03b3c269911af12dc8ca">fFillNumber</a> = (<a class="code" href="classSNDLHCEventHeader.html#a309d1e541b74fd5eccb973b8cdc8ee8d">fFlags</a> &amp; FILL_NUMBER_MASK);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <a class="code" href="classSNDLHCEventHeader.html#a4ab059163f74188cc892a3a977100595">fAccMode</a>    = (<a class="code" href="classSNDLHCEventHeader.html#a309d1e541b74fd5eccb973b8cdc8ee8d">fFlags</a> &amp; ACCELERATOR_MODE_MASK) &gt;&gt; <a class="code" href="SNDLHCEventHeader_8cxx.html#a32e637444325c344ee622e38b6ed5f40">maskToShift</a>(ACCELERATOR_MODE_MASK);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <a class="code" href="classSNDLHCEventHeader.html#abd584a9d2085f908cf5fd4726cfbfce9">fBeamMode</a>   = (<a class="code" href="classSNDLHCEventHeader.html#a309d1e541b74fd5eccb973b8cdc8ee8d">fFlags</a> &amp; BEAM_MODE_MASK) &gt;&gt; <a class="code" href="SNDLHCEventHeader_8cxx.html#a32e637444325c344ee622e38b6ed5f40">maskToShift</a>(BEAM_MODE_MASK);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8cxx_source.html#l00060">60</a> of file <a class="el" href="SNDLHCEventHeader_8cxx_source.html">SNDLHCEventHeader.cxx</a>.</p>
+<div class="fragment"><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;{</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <a class="code" href="classSNDLHCEventHeader.html#a309d1e541b74fd5eccb973b8cdc8ee8d">fFlags</a> = flags;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <a class="code" href="classSNDLHCEventHeader.html#a044727b68e6b03b3c269911af12dc8ca">fFillNumber</a> = (<a class="code" href="classSNDLHCEventHeader.html#a309d1e541b74fd5eccb973b8cdc8ee8d">fFlags</a> &amp; FILL_NUMBER_MASK);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <a class="code" href="classSNDLHCEventHeader.html#a4ab059163f74188cc892a3a977100595">fAccMode</a>    = (<a class="code" href="classSNDLHCEventHeader.html#a309d1e541b74fd5eccb973b8cdc8ee8d">fFlags</a> &amp; ACCELERATOR_MODE_MASK) &gt;&gt; <a class="code" href="SNDLHCEventHeader_8cxx.html#a32e637444325c344ee622e38b6ed5f40">maskToShift</a>(ACCELERATOR_MODE_MASK);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <a class="code" href="classSNDLHCEventHeader.html#abd584a9d2085f908cf5fd4726cfbfce9">fBeamMode</a>   = (<a class="code" href="classSNDLHCEventHeader.html#a309d1e541b74fd5eccb973b8cdc8ee8d">fFlags</a> &amp; BEAM_MODE_MASK) &gt;&gt; <a class="code" href="SNDLHCEventHeader_8cxx.html#a32e637444325c344ee622e38b6ed5f40">maskToShift</a>(BEAM_MODE_MASK);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -980,7 +1255,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8h_source.html#l00065">65</a> of file <a class="el" href="SNDLHCEventHeader_8h_source.html">SNDLHCEventHeader.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8h_source.html#l00075">75</a> of file <a class="el" href="SNDLHCEventHeader_8h_source.html">SNDLHCEventHeader.h</a>.</p>
 
 </div>
 </div>
@@ -1004,7 +1279,31 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8h_source.html#l00066">66</a> of file <a class="el" href="SNDLHCEventHeader_8h_source.html">SNDLHCEventHeader.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8h_source.html#l00076">76</a> of file <a class="el" href="SNDLHCEventHeader_8h_source.html">SNDLHCEventHeader.h</a>.</p>
+
+</div>
+</div>
+<a id="a96c4500de6dc68d4a3ded87c5592226f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96c4500de6dc68d4a3ded87c5592226f">&#9670;&nbsp;</a></span>fBunchType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t SNDLHCEventHeader::fBunchType</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8h_source.html#l00078">78</a> of file <a class="el" href="SNDLHCEventHeader_8h_source.html">SNDLHCEventHeader.h</a>.</p>
 
 </div>
 </div>
@@ -1028,7 +1327,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8h_source.html#l00061">61</a> of file <a class="el" href="SNDLHCEventHeader_8h_source.html">SNDLHCEventHeader.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8h_source.html#l00071">71</a> of file <a class="el" href="SNDLHCEventHeader_8h_source.html">SNDLHCEventHeader.h</a>.</p>
 
 </div>
 </div>
@@ -1052,7 +1351,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8h_source.html#l00059">59</a> of file <a class="el" href="SNDLHCEventHeader_8h_source.html">SNDLHCEventHeader.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8h_source.html#l00069">69</a> of file <a class="el" href="SNDLHCEventHeader_8h_source.html">SNDLHCEventHeader.h</a>.</p>
 
 </div>
 </div>
@@ -1076,7 +1375,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8h_source.html#l00064">64</a> of file <a class="el" href="SNDLHCEventHeader_8h_source.html">SNDLHCEventHeader.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8h_source.html#l00074">74</a> of file <a class="el" href="SNDLHCEventHeader_8h_source.html">SNDLHCEventHeader.h</a>.</p>
 
 </div>
 </div>
@@ -1100,7 +1399,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8h_source.html#l00063">63</a> of file <a class="el" href="SNDLHCEventHeader_8h_source.html">SNDLHCEventHeader.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8h_source.html#l00073">73</a> of file <a class="el" href="SNDLHCEventHeader_8h_source.html">SNDLHCEventHeader.h</a>.</p>
 
 </div>
 </div>
@@ -1124,7 +1423,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8h_source.html#l00060">60</a> of file <a class="el" href="SNDLHCEventHeader_8h_source.html">SNDLHCEventHeader.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8h_source.html#l00070">70</a> of file <a class="el" href="SNDLHCEventHeader_8h_source.html">SNDLHCEventHeader.h</a>.</p>
 
 </div>
 </div>
@@ -1148,7 +1447,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8h_source.html#l00058">58</a> of file <a class="el" href="SNDLHCEventHeader_8h_source.html">SNDLHCEventHeader.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8h_source.html#l00068">68</a> of file <a class="el" href="SNDLHCEventHeader_8h_source.html">SNDLHCEventHeader.h</a>.</p>
 
 </div>
 </div>
@@ -1172,7 +1471,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8h_source.html#l00062">62</a> of file <a class="el" href="SNDLHCEventHeader_8h_source.html">SNDLHCEventHeader.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SNDLHCEventHeader_8h_source.html#l00072">72</a> of file <a class="el" href="SNDLHCEventHeader_8h_source.html">SNDLHCEventHeader.h</a>.</p>
 
 </div>
 </div>

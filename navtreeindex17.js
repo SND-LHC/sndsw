@@ -1,5 +1,9 @@
 var NAVTREEINDEX17 =
 {
+"classMufi__monitoring_1_1Mufi__largeVSsmall.html":[12,0,19,1],
+"classMufi__monitoring_1_1Mufi__largeVSsmall.html#a7786dd4739098124669cc1aafd423536":[12,0,19,1,3],
+"classMufi__monitoring_1_1Mufi__largeVSsmall.html#a93dcc7f63f9011f3e1cb95ecb5f094a2":[12,0,19,1,2],
+"classMufi__monitoring_1_1Mufi__largeVSsmall.html#aa730fad294ae177b2e752e1d80ad0a60":[12,0,19,1,1],
 "classMufi__monitoring_1_1Mufi__largeVSsmall.html#aad79c78f6050fb581360fbdd68dc1484":[12,0,19,1,0],
 "classMufi__monitoring_1_1Veto__Efficiency.html":[12,0,19,2],
 "classMufi__monitoring_1_1Veto__Efficiency.html#a17bcef1debb695c6a97ed716aa898022":[12,0,19,2,5],
@@ -245,9 +249,5 @@ var NAVTREEINDEX17 =
 "classNuTauMudet.html#a18fc4018b8fc8ae284e9c3783da12df2":[12,0,127,60],
 "classNuTauMudet.html#a19c25c0657537df26838ba68ea84b0b6":[12,0,127,92],
 "classNuTauMudet.html#a1d8ffa41dbe604f83bcd1285586ea5f7":[12,0,127,97],
-"classNuTauMudet.html#a22aaa0bb8c0cb6ee5b72858729a2b48d":[12,0,127,42],
-"classNuTauMudet.html#a27daf4edeb6cb088bff6bda278de9026":[12,0,127,64],
-"classNuTauMudet.html#a28610b9056d1886c628a9d388343be7b":[12,0,127,119],
-"classNuTauMudet.html#a29ba4c4799a92bbd60604c7da1189b40":[12,0,127,25],
-"classNuTauMudet.html#a29f72a5bfd68aca7beecd0b6de113570":[12,0,127,76]
+"classNuTauMudet.html#a22aaa0bb8c0cb6ee5b72858729a2b48d":[12,0,127,42]
 };
