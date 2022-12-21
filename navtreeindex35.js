@@ -1,5 +1,10 @@
 var NAVTREEINDEX35 =
 {
+"classgenfit_1_1StepLimits.html#a54919218c8361fc10da46ab30f262eed":[12,0,13,65,4],
+"classgenfit_1_1StepLimits.html#a5591eb8510b3a4eea168402546ebb6aa":[12,0,13,65,15],
+"classgenfit_1_1StepLimits.html#a86cf95265e990d69f4ad3fa3c94b805a":[12,0,13,65,6],
+"classgenfit_1_1StepLimits.html#aa0a6ec90f0ed1bf69783a47f919de783":[12,0,13,65,1],
+"classgenfit_1_1StepLimits.html#aaf90a6d2bca3e33da41596e320ff97ce":[12,0,13,65,8],
 "classgenfit_1_1StepLimits.html#ac48803cb46353da8623962176ba2af66":[12,0,13,65,13],
 "classgenfit_1_1StepLimits.html#acb3827c0c9769bf45de766764bb7b891":[12,0,13,65,2],
 "classgenfit_1_1StepLimits.html#acbf48012adb8aa4ae3f6cf23584df71f":[12,0,13,65,16],
@@ -21,8 +26,8 @@ var NAVTREEINDEX35 =
 "classgenfit_1_1TGeoMaterialInterface.html#ab2606ef9facca7dc2491db41cf6100a2":[12,0,13,52,15],
 "classgenfit_1_1TGeoMaterialInterface.html#ace08710ba8aed64b52473b85883d711e":[12,0,13,52,6],
 "classgenfit_1_1TGeoMaterialInterface.html#ace08710ba8aed64b52473b85883d711e":[12,0,13,52,7],
-"classgenfit_1_1TGeoMaterialInterface.html#ad4ad64e058e25a950e2fca4fa21865dc":[12,0,13,52,5],
 "classgenfit_1_1TGeoMaterialInterface.html#ad4ad64e058e25a950e2fca4fa21865dc":[12,0,13,52,4],
+"classgenfit_1_1TGeoMaterialInterface.html#ad4ad64e058e25a950e2fca4fa21865dc":[12,0,13,52,5],
 "classgenfit_1_1ThinScatterer.html":[12,0,13,20],
 "classgenfit_1_1ThinScatterer.html#a2f6668ce91912302ef400c240f637b87":[12,0,13,20,5],
 "classgenfit_1_1ThinScatterer.html#a5976617f503e7c2d78b2515a6f28df27":[12,0,13,20,6],
@@ -244,10 +249,5 @@ var NAVTREEINDEX35 =
 "classgenfit_1_1mySpacepointDetectorHit.html#aa80c0845e3f44ab927c4f1a421a6b722":[12,0,13,68,1],
 "classgenfit_1_1mySpacepointDetectorHit.html#aaa6b7cd3af989b70c881b156e7584d86":[12,0,13,68,2],
 "classgenfit_1_1mySpacepointDetectorHit.html#ac2eb82524af4cb3ef1f0789bd7fca4be":[12,0,13,68,3],
-"classgenfit_1_1mySpacepointDetectorHit.html#ad8b83da02bbc210e91a42e03b4336dcb":[12,0,13,68,0],
-"classgenfit_1_1mySpacepointDetectorHit.html#af13a615daff0d86fb436b293f692a18b":[12,0,13,68,5],
-"classgenfit_1_1mySpacepointMeasurement.html":[12,0,13,69],
-"classgenfit_1_1mySpacepointMeasurement.html#a4c25c907bbec08d1f2e3d0aacc6a17c5":[12,0,13,69,2],
-"classgenfit_1_1mySpacepointMeasurement.html#a620a5e895175258e6346348e7e5797dc":[12,0,13,69,0],
-"classgenfit_1_1mySpacepointMeasurement.html#afc12364373fa28d955463e9bde3cb175":[12,0,13,69,1]
+"classgenfit_1_1mySpacepointDetectorHit.html#ad8b83da02bbc210e91a42e03b4336dcb":[12,0,13,68,0]
 };

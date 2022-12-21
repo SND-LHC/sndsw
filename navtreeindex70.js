@@ -1,5 +1,11 @@
 var NAVTREEINDEX70 =
 {
+"namespacemufiHitMaps.html#aaa1098ee760a234c72324a2788080789":[11,0,91,8],
+"namespacemufiHitMaps.html#aaf61f493002a3f19a5e9384eac1c257e":[11,0,91,3],
+"namespacemufiHitMaps.html#ab06e76997ad0fcccd42bb9181f32f348":[11,0,91,20],
+"namespacemufiHitMaps.html#ab6a04cd6c4d9eb454e0b907dfeea9e3b":[11,0,91,35],
+"namespacemufiHitMaps.html#ac1a4ccfd599266faa17ca79b21b25fc9":[11,0,91,0],
+"namespacemufiHitMaps.html#ad10c70aaffc05c3ba15403f3501aa5e6":[11,0,91,27],
 "namespacemufiHitMaps.html#ae209848e5ba1e4bf1ba861fb04681f99":[11,0,91,31],
 "namespacemufiHitMaps.html#aee2027e10aba413502cbbe61b2b23635":[11,0,91,32],
 "namespacemufiHitMaps.html#af00404f854eb4a56b8c0f3727fe5b60f":[11,0,91,2],
@@ -243,11 +249,5 @@ var NAVTREEINDEX70 =
 "namespacerunCharmHadProd.html#a73723768be756b5d2011a4324d357eeb":[11,0,129,10],
 "namespacerunCharmHadProd.html#ac397bc5f433aeb9dd29e09067dd208d3":[11,0,129,6],
 "namespacerunCharmHadProd.html#acd22a6e60355771230b596fb39f3b638":[11,0,129,12],
-"namespacerunCharmHadProd.html#ad246973bd2723995d27fa06674672800":[11,0,129,14],
-"namespacerunCharmHadProd.html#aeb81e0e18ebbc9d7675568cc76c11aad":[11,0,129,9],
-"namespacerunMufluxDigi.html":[11,0,130],
-"namespacerunMufluxDigi.html#a06467345fec48770c13a9e20e795179b":[11,0,130,1],
-"namespacerunMufluxDigi.html#a0ebb5227e9f1a0ae37ff842043d20a18":[11,0,130,21],
-"namespacerunMufluxDigi.html#a0fdbbe0f685635fe43bdf0653a6ac313":[11,0,130,10],
-"namespacerunMufluxDigi.html#a1021b1f77fd0509e469ba25f6b2e39b3":[11,0,130,17]
+"namespacerunCharmHadProd.html#ad246973bd2723995d27fa06674672800":[11,0,129,14]
 };

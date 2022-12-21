@@ -13,6 +13,7 @@ var classMonitor_1_1TrackSelector =
     [ "fittedTracks", "classMonitor_1_1TrackSelector.html#a0ce879896432c5b34157c94aa89bb4f6", null ],
     [ "fSink", "classMonitor_1_1TrackSelector.html#aba9602f4438fde96e2ebcb4ae98a00eb", null ],
     [ "genfitTrack", "classMonitor_1_1TrackSelector.html#ac61a1704f1b730b7c3a74dca02a5c33c", null ],
+    [ "MonteCarlo", "classMonitor_1_1TrackSelector.html#a083e5056f3869be99525468cdf2ba026", null ],
     [ "MuFilter", "classMonitor_1_1TrackSelector.html#abd4e6776b3b1b9a2a9653d4fbf7d0f57", null ],
     [ "muon_reco_task_DS", "classMonitor_1_1TrackSelector.html#a9ed20474001ae5f9bca5c309007915ac", null ],
     [ "muon_reco_task_Sf", "classMonitor_1_1TrackSelector.html#a56e1aaf940e31f51b68266809e60bf80", null ],

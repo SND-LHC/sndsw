@@ -26,6 +26,8 @@ var classSndlhcTracking_1_1Tracking =
     [ "maxRes", "classSndlhcTracking_1_1Tracking.html#a9fcbbd316f50af5cf5e11fd57030590d", null ],
     [ "mufiDet", "classSndlhcTracking_1_1Tracking.html#a89abbd6faa2b63e253ae8da871dfeda4", null ],
     [ "nClusters", "classSndlhcTracking_1_1Tracking.html#aa07c3e3a9f68716aa15433bc13814e0e", null ],
+    [ "nDSPlanesHor", "classSndlhcTracking_1_1Tracking.html#ab7a71454a97ac3b57f6cf4743e04b037", null ],
+    [ "nDSPlanesVert", "classSndlhcTracking_1_1Tracking.html#a808a060e18d95e3465dbed5b2181d290", null ],
     [ "nPlanes", "classSndlhcTracking_1_1Tracking.html#adc85e997eb4b5da7fcd39441c28a033c", null ],
     [ "scifi_vsignal", "classSndlhcTracking_1_1Tracking.html#a05459c6fcba2332baa16b1d3b675783a", null ],
     [ "scifiDet", "classSndlhcTracking_1_1Tracking.html#a446e1044de4bcb4e59dfa165299687db", null ],

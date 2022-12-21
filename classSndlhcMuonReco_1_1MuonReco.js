@@ -29,6 +29,7 @@ var classSndlhcMuonReco_1_1MuonReco =
     [ "kalman_sigmaMufiUS_spatial", "classSndlhcMuonReco_1_1MuonReco.html#ab8ed6d51cf6209a62c9979e3dfa01873", null ],
     [ "kalman_sigmaScifi_spatial", "classSndlhcMuonReco_1_1MuonReco.html#ae347a7001f5cb67670acdcbbf4691d20", null ],
     [ "kalman_tracks", "classSndlhcMuonReco_1_1MuonReco.html#aa40b158337a15da1e475944864ba3163", null ],
+    [ "logger", "classSndlhcMuonReco_1_1MuonReco.html#ad51b20072850cbdd6ff87cd6c0ae6bb0", null ],
     [ "lsOfGlobals", "classSndlhcMuonReco_1_1MuonReco.html#a4f45ced2994163b834bfadeef5db5976", null ],
     [ "mask_plane", "classSndlhcMuonReco_1_1MuonReco.html#a8f1e3c6c9e083ae9684e100025f57b6d", null ],
     [ "max_reco_muons", "classSndlhcMuonReco_1_1MuonReco.html#a08d1193e72b5778375888c7fc206df0a", null ],

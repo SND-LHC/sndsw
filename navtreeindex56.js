@@ -1,5 +1,11 @@
 var NAVTREEINDEX56 =
 {
+"namespaceScifiCTR.html#a5b8ab17119c0c0ba360ddc7f7615900d":[11,0,137,10],
+"namespaceScifiCTR.html#a6645e7cf8839f0d416f489f479c2b1f5":[11,0,137,8],
+"namespaceScifiCTR.html#a7ab8e9a1962635ad00f41c33adad898a":[11,0,137,19],
+"namespaceScifiCTR.html#a8550e6de7dbf153551c9cb6fde55cd4c":[11,0,137,6],
+"namespaceScifiCTR.html#a87a9336a17ef0557a1090c56e6990797":[11,0,137,7],
+"namespaceScifiCTR.html#a8c72fe2b427fcf010c08ece621123c4d":[11,0,137,12],
 "namespaceScifiCTR.html#a9243c6bb74f38de7234bb8e34d10e7e7":[11,0,137,16],
 "namespaceScifiCTR.html#a932e362d125394863baffd71560597bf":[11,0,137,5],
 "namespaceScifiCTR.html#a97a28609af584851e7ed1901b03e9a8b":[11,0,137,28],
@@ -243,11 +249,5 @@ var NAVTREEINDEX56 =
 "namespaceShipReco.html#af216c8c8b08ff8f49fcb82220bed70c4":[11,0,154,17],
 "namespaceShipReco.html#af29bc13f95d9544b1f56ece16b06a4c6":[11,0,154,31],
 "namespaceShipReco.html#afb5b701e9d769b20a4bf56ac2b4e5600":[11,0,154,22],
-"namespaceShipStyle.html":[11,0,158],
-"namespaceShipStyle.html#a231fa73a995a536e3298ce5cc9073ebd":[11,0,158,1],
-"namespaceShipStyle.html#a2671a3ad1fd53712bdc05ebd4c87b4db":[11,0,158,15],
-"namespaceShipStyle.html#a36a346fe160d2a799d9737e7ff864ca1":[11,0,158,12],
-"namespaceShipStyle.html#a3e07ec150a24cd3f2f198c40da828be7":[11,0,158,14],
-"namespaceShipStyle.html#a3e8032a494a04e778cbc8ea080fe6337":[11,0,158,0],
-"namespaceShipStyle.html#a45335b83a511ba41ea948f5b7c86683c":[11,0,158,11]
+"namespaceShipStyle.html":[11,0,158]
 };

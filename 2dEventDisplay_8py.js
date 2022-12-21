@@ -33,6 +33,7 @@ var 2dEventDisplay_8py =
     [ "HT_tasks", "2dEventDisplay_8py.html#ae92ce80e52475ff75228c619a0ad6f6d", null ],
     [ "int", "2dEventDisplay_8py.html#a5ce5cd6343fd1241ca5c0a5fe833e649", null ],
     [ "ioman", "2dEventDisplay_8py.html#ac73d95ab75aef8b2dc4d9756fd213ac5", null ],
+    [ "logger", "2dEventDisplay_8py.html#aba7093a6d77d3aedd7f00ccd2b52d487", null ],
     [ "lsOfGlobals", "2dEventDisplay_8py.html#a69f88e5a14ad4702d4b5ab31b08f0b4a", null ],
     [ "mc", "2dEventDisplay_8py.html#ae2bd1e7f055c0238c203ed17365907de", null ],
     [ "mi", "2dEventDisplay_8py.html#aef33a49dc3fd85a3648ca540a9752968", null ],
