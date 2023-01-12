@@ -1,5 +1,8 @@
 var NAVTREEINDEX35 =
 {
+"classgenfit_1_1StepLimits.html#a24a223a3dc45f881ff1dd9897cedd56b":[12,0,13,65,12],
+"classgenfit_1_1StepLimits.html#a31ea6f6159529eaa5aca0d52311a309e":[12,0,13,65,7],
+"classgenfit_1_1StepLimits.html#a53d606cfca63873ad0b00993e8045d65":[12,0,13,65,3],
 "classgenfit_1_1StepLimits.html#a54919218c8361fc10da46ab30f262eed":[12,0,13,65,4],
 "classgenfit_1_1StepLimits.html#a5591eb8510b3a4eea168402546ebb6aa":[12,0,13,65,15],
 "classgenfit_1_1StepLimits.html#a86cf95265e990d69f4ad3fa3c94b805a":[12,0,13,65,6],
@@ -14,12 +17,12 @@ var NAVTREEINDEX35 =
 "classgenfit_1_1TGeoMaterialInterface.html":[12,0,13,52],
 "classgenfit_1_1TGeoMaterialInterface.html#a151f9f408eef445e286f5fe085ef0a6d":[12,0,13,52,0],
 "classgenfit_1_1TGeoMaterialInterface.html#a151f9f408eef445e286f5fe085ef0a6d":[12,0,13,52,2],
-"classgenfit_1_1TGeoMaterialInterface.html#a3151722806c0a2fff8a9d025e1ad2bdc":[12,0,13,52,11],
 "classgenfit_1_1TGeoMaterialInterface.html#a3151722806c0a2fff8a9d025e1ad2bdc":[12,0,13,52,10],
+"classgenfit_1_1TGeoMaterialInterface.html#a3151722806c0a2fff8a9d025e1ad2bdc":[12,0,13,52,11],
 "classgenfit_1_1TGeoMaterialInterface.html#a3ebf9d80b0abafb649a50c07825d5567":[12,0,13,52,8],
 "classgenfit_1_1TGeoMaterialInterface.html#a3ebf9d80b0abafb649a50c07825d5567":[12,0,13,52,9],
-"classgenfit_1_1TGeoMaterialInterface.html#a3fdf0212196630c8a5a56973431a1708":[12,0,13,52,12],
 "classgenfit_1_1TGeoMaterialInterface.html#a3fdf0212196630c8a5a56973431a1708":[12,0,13,52,13],
+"classgenfit_1_1TGeoMaterialInterface.html#a3fdf0212196630c8a5a56973431a1708":[12,0,13,52,12],
 "classgenfit_1_1TGeoMaterialInterface.html#a8efab4baa48efa1bcf0cf7e664d4c3cf":[12,0,13,52,1],
 "classgenfit_1_1TGeoMaterialInterface.html#a8efab4baa48efa1bcf0cf7e664d4c3cf":[12,0,13,52,3],
 "classgenfit_1_1TGeoMaterialInterface.html#ab2606ef9facca7dc2491db41cf6100a2":[12,0,13,52,14],
@@ -246,8 +249,5 @@ var NAVTREEINDEX35 =
 "classgenfit_1_1WireTrackCandHit.html#aec9ab300074c5037cdfeb4787f572dd3":[12,0,13,64,2],
 "classgenfit_1_1mySpacepointDetectorHit.html":[12,0,13,68],
 "classgenfit_1_1mySpacepointDetectorHit.html#a31433c4750c6f6cec678d393b3a5c313":[12,0,13,68,4],
-"classgenfit_1_1mySpacepointDetectorHit.html#aa80c0845e3f44ab927c4f1a421a6b722":[12,0,13,68,1],
-"classgenfit_1_1mySpacepointDetectorHit.html#aaa6b7cd3af989b70c881b156e7584d86":[12,0,13,68,2],
-"classgenfit_1_1mySpacepointDetectorHit.html#ac2eb82524af4cb3ef1f0789bd7fca4be":[12,0,13,68,3],
-"classgenfit_1_1mySpacepointDetectorHit.html#ad8b83da02bbc210e91a42e03b4336dcb":[12,0,13,68,0]
+"classgenfit_1_1mySpacepointDetectorHit.html#aa80c0845e3f44ab927c4f1a421a6b722":[12,0,13,68,1]
 };

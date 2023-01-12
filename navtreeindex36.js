@@ -1,5 +1,8 @@
 var NAVTREEINDEX36 =
 {
+"classgenfit_1_1mySpacepointDetectorHit.html#aaa6b7cd3af989b70c881b156e7584d86":[12,0,13,68,2],
+"classgenfit_1_1mySpacepointDetectorHit.html#ac2eb82524af4cb3ef1f0789bd7fca4be":[12,0,13,68,3],
+"classgenfit_1_1mySpacepointDetectorHit.html#ad8b83da02bbc210e91a42e03b4336dcb":[12,0,13,68,0],
 "classgenfit_1_1mySpacepointDetectorHit.html#af13a615daff0d86fb436b293f692a18b":[12,0,13,68,5],
 "classgenfit_1_1mySpacepointMeasurement.html":[12,0,13,69],
 "classgenfit_1_1mySpacepointMeasurement.html#a4c25c907bbec08d1f2e3d0aacc6a17c5":[12,0,13,69,2],
@@ -246,8 +249,5 @@ var NAVTREEINDEX36 =
 "classhcalModuleMC.html#a5ba7b17c17d184ea247b9c85779dc0e7":[12,0,101,8],
 "classhcalModuleMC.html#a66ab0d85ef31fe7eb6fda284418bfa8d":[12,0,101,12],
 "classhcalModuleMC.html#a6bd4081c50915036e1afae0929b0d07f":[12,0,101,15],
-"classhcalModuleMC.html#a709d36c328a11cd34dc1282b3b9bf45d":[12,0,101,4],
-"classhcalModuleMC.html#a8300387240b176f691de35b8cd3e5661":[12,0,101,7],
-"classhcalModuleMC.html#a8f0e7c0c80948a2501631daadc9f1356":[12,0,101,3],
-"classhcalModuleMC.html#aa6f9a436cbc5bda57e7253468116717f":[12,0,101,13]
+"classhcalModuleMC.html#a709d36c328a11cd34dc1282b3b9bf45d":[12,0,101,4]
 };

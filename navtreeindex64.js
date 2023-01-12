@@ -1,5 +1,10 @@
 var NAVTREEINDEX64 =
 {
+"namespacegenfit.html#a0d80e3ef5d443b05e14b33b63a0d3ea9":[11,0,52,80],
+"namespacegenfit.html#a121d0446a011de0ac5a4223b856d7b9e":[11,0,52,99],
+"namespacegenfit.html#a13cb802e03b7ad640485ba2bf9fe12f7":[11,0,52,78],
+"namespacegenfit.html#a16248965fc33843bb4f2d9bd8b0a7ce7":[11,0,52,94],
+"namespacegenfit.html#a2243c8ece1acd0220b857eb896791b02":[11,0,52,88],
 "namespacegenfit.html#a2243c8ece1acd0220b857eb896791b02a30a9fbc482689dfad5b3dc77b8e92756":[11,0,52,88,4],
 "namespacegenfit.html#a2243c8ece1acd0220b857eb896791b02a376c39c4d32b256ce7b844244fa635d1":[11,0,52,88,2],
 "namespacegenfit.html#a2243c8ece1acd0220b857eb896791b02a5a084da617bc74eab22bca320b7847d0":[11,0,52,88,6],
@@ -244,10 +249,5 @@ var NAVTREEINDEX64 =
 "namespacegeometry__config.html#a58b3fede148bd13bb7ea92e8756931f2":[11,0,54,22],
 "namespacegeometry__config.html#a592a563c17c13fadc4d3652d236aaecb":[11,0,54,257],
 "namespacegeometry__config.html#a59a70d79f19c302db5c7461bc0251807":[11,0,54,105],
-"namespacegeometry__config.html#a5bae93523f32b8daf81d450df40f5d0f":[11,0,54,0],
-"namespacegeometry__config.html#a5c46267ed4dfbb78d3dfca673bea0b72":[11,0,54,272],
-"namespacegeometry__config.html#a5c941dc3c53f0e9b42cc1c90f4ac0276":[11,0,54,41],
-"namespacegeometry__config.html#a5cd6350c01dafe5488dc4e792d7d8edd":[11,0,54,398],
-"namespacegeometry__config.html#a5d17378c61b4b0610fabb080b5bcab6b":[11,0,54,210],
-"namespacegeometry__config.html#a5d8ade997b17adce899808142b17513c":[11,0,54,313]
+"namespacegeometry__config.html#a5bae93523f32b8daf81d450df40f5d0f":[11,0,54,0]
 };

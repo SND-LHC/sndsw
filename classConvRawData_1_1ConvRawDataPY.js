@@ -8,6 +8,7 @@ var classConvRawData_1_1ConvRawDataPY =
     [ "executeEvent0", "classConvRawData_1_1ConvRawDataPY.html#a5720ec66b89cd7e2aae3c3ad8864712c", null ],
     [ "executeEvent1", "classConvRawData_1_1ConvRawDataPY.html#a1615541b466fbeda15d26d3a3665e927", null ],
     [ "Finalize", "classConvRawData_1_1ConvRawDataPY.html#a3b731f135b765250e53eed1ec3e06e9a", null ],
+    [ "getStartTime", "classConvRawData_1_1ConvRawDataPY.html#aba9a5c3a5cdb455ee9bbce07265f94ee", null ],
     [ "Init", "classConvRawData_1_1ConvRawDataPY.html#a4d8bfe54f0e61467cdac44cc269b6101", null ],
     [ "printChannelInfo", "classConvRawData_1_1ConvRawDataPY.html#a17748065c99737b20959a49160aa110a", null ],
     [ "printCurrentRun", "classConvRawData_1_1ConvRawDataPY.html#a68f8890839bbd907f22917afa2b460c7", null ],

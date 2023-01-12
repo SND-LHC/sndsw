@@ -1,5 +1,8 @@
 var NAVTREEINDEX23 =
 {
+"classSndlhcMuonReco_1_1MuonReco.html#a5d0a20b18f2063dfbb0f302bd29a0d41":[12,0,41,1,46],
+"classSndlhcMuonReco_1_1MuonReco.html#a5ef83d474cfcfd2c0b43f0f9aa30f0a2":[12,0,41,1,48],
+"classSndlhcMuonReco_1_1MuonReco.html#a6152ee63ae73ac740b81453dbbc7d5e5":[12,0,41,1,13],
 "classSndlhcMuonReco_1_1MuonReco.html#a699da62ff9df6a17d52061f957a5c298":[12,0,41,1,57],
 "classSndlhcMuonReco_1_1MuonReco.html#a6b4160835a639fbb480cc7f98908ce6a":[12,0,41,1,39],
 "classSndlhcMuonReco_1_1MuonReco.html#a6fe3ea4c55937ce3c577b865a03531e1":[12,0,41,1,5],
@@ -246,8 +249,5 @@ var NAVTREEINDEX23 =
 "classTargetPoint.html#aae6de4220c96345c1d9502c8e7fd73ca":[12,0,188,5],
 "classTargetPoint.html#acb394359de85dfcf3890ef2762e60d67":[12,0,188,1],
 "classTargetTracker.html":[12,0,189],
-"classTargetTracker.html#a023792e548fffcc5bcd6de439a756db8":[12,0,189,26],
-"classTargetTracker.html#a1418cbaef2f603fb1704437b7630e7ee":[12,0,189,40],
-"classTargetTracker.html#a1d707827f933648a3009c57b985973d7":[12,0,189,12],
-"classTargetTracker.html#a1eed77b3ce14a25532c36d7393adcec6":[12,0,189,35]
+"classTargetTracker.html#a023792e548fffcc5bcd6de439a756db8":[12,0,189,26]
 };

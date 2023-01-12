@@ -1,5 +1,8 @@
 var NAVTREEINDEX19 =
 {
+"classPythia6Generator.html":[12,0,134],
+"classPythia6Generator.html#a086ec0f2325e990962c47739f4800728":[12,0,134,9],
+"classPythia6Generator.html#a49c40788f16fd90ffcef3f1d2c205b28":[12,0,134,2],
 "classPythia6Generator.html#a4faa0fb4496325507f50d1908bf7155e":[12,0,134,8],
 "classPythia6Generator.html#a64187d5c0756ff78a09ed78561b142aa":[12,0,134,6],
 "classPythia6Generator.html#a66e68809b81680dfb99d129d3a46ff33":[12,0,134,7],
@@ -246,8 +249,5 @@ var NAVTREEINDEX19 =
 "classScifiCluster_1_1ScifiCluster.html#a3cd3a1cafc06faff48afb22f255c3904":[12,0,30,0,4],
 "classScifiCluster_1_1ScifiCluster.html#a5a4599a3c0bc92d746507b40ab3f0d6d":[12,0,30,0,2],
 "classScifiCluster_1_1ScifiCluster.html#a65148efce210166ddfdecb8f7e7ce998":[12,0,30,0,20],
-"classScifiCluster_1_1ScifiCluster.html#a717f715e692244967a82e68528df4d43":[12,0,30,0,28],
-"classScifiCluster_1_1ScifiCluster.html#a7affafec8141875f5039eb88f74661f2":[12,0,30,0,6],
-"classScifiCluster_1_1ScifiCluster.html#a910b6aace7247071becb066a48d1e858":[12,0,30,0,7],
-"classScifiCluster_1_1ScifiCluster.html#a96122c05dbadcf6d87018894f98d6765":[12,0,30,0,18]
+"classScifiCluster_1_1ScifiCluster.html#a717f715e692244967a82e68528df4d43":[12,0,30,0,28]
 };
