@@ -188,7 +188,7 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="comment"># event header</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        self.header  = ROOT.SNDLHCEventHeader()</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        self.eventHeader  = self.sTree.Branch(<span class="stringliteral">&quot;EventHeader&quot;</span>,self.header,32000,1)</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        self.eventHeader  = self.sTree.Branch(<span class="stringliteral">&quot;EventHeader.&quot;</span>,self.header,32000,1)</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="comment">#scifi</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        self.digiScifi   = ROOT.TClonesArray(<span class="stringliteral">&quot;sndScifiHit&quot;</span>)</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        self.digiScifiBranch   = self.sTree.Branch(<span class="stringliteral">&quot;Digi_ScifiHits&quot;</span>,self.digiScifi,32000,1)</div>
