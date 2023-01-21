@@ -20,6 +20,8 @@
  * @{
  */
 
+#pragma once
+
 #ifndef genfit_KalmanFitterInfo_h
 #define genfit_KalmanFitterInfo_h
 
