@@ -217,19 +217,19 @@ called after loading.  hooks[1] is called with the return value of hooks[0]
 as an argument.  This is useful for backwards compatibility in some
 situations.
 </pre> 
-<p class="definition">Definition at line <a class="el" href="rootpyPickler_8py_source.html#l00339">339</a> of file <a class="el" href="rootpyPickler_8py_source.html">rootpyPickler.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;<span class="keyword">def </span><a class="code" href="namespacerootpyPickler.html#ac77f7acc02057f22345b6855dd94a8a9">compat_hooks</a>(hooks):</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    <span class="stringliteral">&quot;&quot;&quot;Set compatibility hooks.</span></div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;<span class="stringliteral">    If this is set, then hooks[0] is called before loading, and hooks[1] is</span></div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;<span class="stringliteral">    called after loading.  hooks[1] is called with the return value of hooks[0]</span></div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;<span class="stringliteral">    as an argument.  This is useful for backwards compatibility in some</span></div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;<span class="stringliteral">    situations.</span></div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;<span class="stringliteral">    &quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    <span class="keyword">global</span> _compat_hooks</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    _compat_hooks = hooks</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160; </div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160; </div>
-<div class="ttc" id="anamespacerootpyPickler_html_ac77f7acc02057f22345b6855dd94a8a9"><div class="ttname"><a href="namespacerootpyPickler.html#ac77f7acc02057f22345b6855dd94a8a9">rootpyPickler.compat_hooks</a></div><div class="ttdeci">def compat_hooks(hooks)</div><div class="ttdef"><b>Definition:</b> <a href="rootpyPickler_8py_source.html#l00339">rootpyPickler.py:339</a></div></div>
+<p class="definition">Definition at line <a class="el" href="rootpyPickler_8py_source.html#l00341">341</a> of file <a class="el" href="rootpyPickler_8py_source.html">rootpyPickler.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;<span class="keyword">def </span><a class="code" href="namespacerootpyPickler.html#ac77f7acc02057f22345b6855dd94a8a9">compat_hooks</a>(hooks):</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    <span class="stringliteral">&quot;&quot;&quot;Set compatibility hooks.</span></div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;<span class="stringliteral">    If this is set, then hooks[0] is called before loading, and hooks[1] is</span></div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;<span class="stringliteral">    called after loading.  hooks[1] is called with the return value of hooks[0]</span></div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;<span class="stringliteral">    as an argument.  This is useful for backwards compatibility in some</span></div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;<span class="stringliteral">    situations.</span></div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;<span class="stringliteral">    &quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    <span class="keyword">global</span> _compat_hooks</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    _compat_hooks = hooks</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160; </div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160; </div>
+<div class="ttc" id="anamespacerootpyPickler_html_ac77f7acc02057f22345b6855dd94a8a9"><div class="ttname"><a href="namespacerootpyPickler.html#ac77f7acc02057f22345b6855dd94a8a9">rootpyPickler.compat_hooks</a></div><div class="ttdeci">def compat_hooks(hooks)</div><div class="ttdef"><b>Definition:</b> <a href="rootpyPickler_8py_source.html#l00341">rootpyPickler.py:341</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -275,25 +275,25 @@ situations.
 `root_file` may be an open ROOT file or directory, or a string path to an
 existing ROOT file.
 </pre> 
-<p class="definition">Definition at line <a class="el" href="rootpyPickler_8py_source.html#l00350">350</a> of file <a class="el" href="rootpyPickler_8py_source.html">rootpyPickler.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;<span class="keyword">def </span><a class="code" href="namespacerootpyPickler.html#a4a2ee768e293c5b380837c2cb3d7198e">dump</a>(obj, root_file, proto=0, key=None):</div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;    <span class="stringliteral">&quot;&quot;&quot;Dump an object into a ROOT TFile.</span></div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;<span class="stringliteral"></span> </div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;<span class="stringliteral">    `root_file` may be an open ROOT file or directory, or a string path to an</span></div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;<span class="stringliteral">    existing ROOT file.</span></div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;<span class="stringliteral">    &quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;    <span class="keywordflow">if</span> isinstance(root_file, string_types):</div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;        root_file = ROOT.TFile.Open(root_file, <span class="stringliteral">&#39;recreate&#39;</span>)</div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;        own_file = <span class="keyword">True</span></div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;        own_file = <span class="keyword">False</span></div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;    ret = Pickler(root_file, proto).<a class="code" href="namespacerootpyPickler.html#a4a2ee768e293c5b380837c2cb3d7198e">dump</a>(obj, key)</div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;    <span class="keywordflow">if</span> own_file:</div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;        root_file.Close()</div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;    <span class="keywordflow">return</span> ret</div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160; </div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160; </div>
-<div class="ttc" id="anamespacerootpyPickler_html_a4a2ee768e293c5b380837c2cb3d7198e"><div class="ttname"><a href="namespacerootpyPickler.html#a4a2ee768e293c5b380837c2cb3d7198e">rootpyPickler.dump</a></div><div class="ttdeci">def dump(obj, root_file, proto=0, key=None)</div><div class="ttdef"><b>Definition:</b> <a href="rootpyPickler_8py_source.html#l00350">rootpyPickler.py:350</a></div></div>
+<p class="definition">Definition at line <a class="el" href="rootpyPickler_8py_source.html#l00352">352</a> of file <a class="el" href="rootpyPickler_8py_source.html">rootpyPickler.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;<span class="keyword">def </span><a class="code" href="namespacerootpyPickler.html#a4a2ee768e293c5b380837c2cb3d7198e">dump</a>(obj, root_file, proto=0, key=None):</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    <span class="stringliteral">&quot;&quot;&quot;Dump an object into a ROOT TFile.</span></div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;<span class="stringliteral"></span> </div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;<span class="stringliteral">    `root_file` may be an open ROOT file or directory, or a string path to an</span></div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;<span class="stringliteral">    existing ROOT file.</span></div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;<span class="stringliteral">    &quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;    <span class="keywordflow">if</span> isinstance(root_file, string_types):</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;        root_file = ROOT.TFile.Open(root_file, <span class="stringliteral">&#39;recreate&#39;</span>)</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;        own_file = <span class="keyword">True</span></div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;    <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;        own_file = <span class="keyword">False</span></div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;    ret = Pickler(root_file, proto).<a class="code" href="namespacerootpyPickler.html#a4a2ee768e293c5b380837c2cb3d7198e">dump</a>(obj, key)</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;    <span class="keywordflow">if</span> own_file:</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;        root_file.Close()</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;    <span class="keywordflow">return</span> ret</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160; </div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160; </div>
+<div class="ttc" id="anamespacerootpyPickler_html_a4a2ee768e293c5b380837c2cb3d7198e"><div class="ttname"><a href="namespacerootpyPickler.html#a4a2ee768e293c5b380837c2cb3d7198e">rootpyPickler.dump</a></div><div class="ttdeci">def dump(obj, root_file, proto=0, key=None)</div><div class="ttdef"><b>Definition:</b> <a href="rootpyPickler_8py_source.html#l00352">rootpyPickler.py:352</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -333,23 +333,23 @@ existing ROOT file.
 `root_file` may be an open ROOT file or directory, or a string path to an
 existing ROOT file.
 </pre> 
-<p class="definition">Definition at line <a class="el" href="rootpyPickler_8py_source.html#l00367">367</a> of file <a class="el" href="rootpyPickler_8py_source.html">rootpyPickler.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;<span class="keyword">def </span><a class="code" href="namespacerootpyPickler.html#a512bac7671f8f0f8505329eae04e5e4d">load</a>(root_file, use_proxy=1, key=None):</div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;    <span class="stringliteral">&quot;&quot;&quot;Load an object from a ROOT TFile.</span></div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;<span class="stringliteral"></span> </div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;<span class="stringliteral">    `root_file` may be an open ROOT file or directory, or a string path to an</span></div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;<span class="stringliteral">    existing ROOT file.</span></div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;<span class="stringliteral">    &quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;    <span class="keywordflow">if</span> isinstance(root_file, string_types):</div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;        root_file = ROOT.TFile.Open(root_file)</div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;        own_file = <span class="keyword">True</span></div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;    <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;        own_file = <span class="keyword">False</span></div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;    obj = Unpickler(root_file, use_proxy).<a class="code" href="namespacerootpyPickler.html#a512bac7671f8f0f8505329eae04e5e4d">load</a>(key)</div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    <span class="keywordflow">if</span> own_file:</div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;        root_file.Close()</div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;    <span class="keywordflow">return</span> obj</div>
-<div class="ttc" id="anamespacerootpyPickler_html_a512bac7671f8f0f8505329eae04e5e4d"><div class="ttname"><a href="namespacerootpyPickler.html#a512bac7671f8f0f8505329eae04e5e4d">rootpyPickler.load</a></div><div class="ttdeci">def load(root_file, use_proxy=1, key=None)</div><div class="ttdef"><b>Definition:</b> <a href="rootpyPickler_8py_source.html#l00367">rootpyPickler.py:367</a></div></div>
+<p class="definition">Definition at line <a class="el" href="rootpyPickler_8py_source.html#l00369">369</a> of file <a class="el" href="rootpyPickler_8py_source.html">rootpyPickler.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;<span class="keyword">def </span><a class="code" href="namespacerootpyPickler.html#a512bac7671f8f0f8505329eae04e5e4d">load</a>(root_file, use_proxy=1, key=None):</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;    <span class="stringliteral">&quot;&quot;&quot;Load an object from a ROOT TFile.</span></div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;<span class="stringliteral"></span> </div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;<span class="stringliteral">    `root_file` may be an open ROOT file or directory, or a string path to an</span></div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;<span class="stringliteral">    existing ROOT file.</span></div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;<span class="stringliteral">    &quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;    <span class="keywordflow">if</span> isinstance(root_file, string_types):</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;        root_file = ROOT.TFile.Open(root_file)</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;        own_file = <span class="keyword">True</span></div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;    <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;        own_file = <span class="keyword">False</span></div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;    obj = Unpickler(root_file, use_proxy).<a class="code" href="namespacerootpyPickler.html#a512bac7671f8f0f8505329eae04e5e4d">load</a>(key)</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;    <span class="keywordflow">if</span> own_file:</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;        root_file.Close()</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;    <span class="keywordflow">return</span> obj</div>
+<div class="ttc" id="anamespacerootpyPickler_html_a512bac7671f8f0f8505329eae04e5e4d"><div class="ttname"><a href="namespacerootpyPickler.html#a512bac7671f8f0f8505329eae04e5e4d">rootpyPickler.load</a></div><div class="ttdeci">def load(root_file, use_proxy=1, key=None)</div><div class="ttdef"><b>Definition:</b> <a href="rootpyPickler_8py_source.html#l00369">rootpyPickler.py:369</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>

@@ -18,6 +18,7 @@ var classSndlhcTracking_1_1Tracking =
     [ "DSnHits", "classSndlhcTracking_1_1Tracking.html#a50f0567a23eea8d1423681146153eccb", null ],
     [ "DSnPlanes", "classSndlhcTracking_1_1Tracking.html#aaf2a09318fda48318a3640ef73c5d4cb", null ],
     [ "event", "classSndlhcTracking_1_1Tracking.html#a771f23d8e42aea98e6fdf573317e8b6d", null ],
+    [ "firstScifi_z", "classSndlhcTracking_1_1Tracking.html#adce71fca2fac6f24267784abdb577a97", null ],
     [ "fittedTracks", "classSndlhcTracking_1_1Tracking.html#a0c62fcb183b6e84678f8e4612317c878", null ],
     [ "fitter", "classSndlhcTracking_1_1Tracking.html#a818784e335ffeb82931a1a906613c778", null ],
     [ "genfitTrack", "classSndlhcTracking_1_1Tracking.html#a5e24f30a647ff14b777475969d08a59e", null ],

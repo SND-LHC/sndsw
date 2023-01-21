@@ -1,5 +1,17 @@
 var NAVTREEINDEX20 =
 {
+"classScifiCluster_1_1ScifiCluster.html":[12,0,30,0],
+"classScifiCluster_1_1ScifiCluster.html#a06f7fd92414180ea31fb3b28092d3e15":[12,0,30,0,22],
+"classScifiCluster_1_1ScifiCluster.html#a0fcb6d7966511a9711449a78a7f2e519":[12,0,30,0,3],
+"classScifiCluster_1_1ScifiCluster.html#a1dcba0a6b5aaeae2b5fe63bd1619e903":[12,0,30,0,8],
+"classScifiCluster_1_1ScifiCluster.html#a233ce0fc2d8d6db9f423344494ef5345":[12,0,30,0,12],
+"classScifiCluster_1_1ScifiCluster.html#a24a643b20283f585b85818871686483c":[12,0,30,0,1],
+"classScifiCluster_1_1ScifiCluster.html#a2bf950ef00d8ea710efeb0ae51828a00":[12,0,30,0,25],
+"classScifiCluster_1_1ScifiCluster.html#a2ce64faae7436072867c7d44dc3e22a3":[12,0,30,0,5],
+"classScifiCluster_1_1ScifiCluster.html#a3cd3a1cafc06faff48afb22f255c3904":[12,0,30,0,4],
+"classScifiCluster_1_1ScifiCluster.html#a5a4599a3c0bc92d746507b40ab3f0d6d":[12,0,30,0,2],
+"classScifiCluster_1_1ScifiCluster.html#a65148efce210166ddfdecb8f7e7ce998":[12,0,30,0,20],
+"classScifiCluster_1_1ScifiCluster.html#a717f715e692244967a82e68528df4d43":[12,0,30,0,28],
 "classScifiCluster_1_1ScifiCluster.html#a7affafec8141875f5039eb88f74661f2":[12,0,30,0,6],
 "classScifiCluster_1_1ScifiCluster.html#a910b6aace7247071becb066a48d1e858":[12,0,30,0,7],
 "classScifiCluster_1_1ScifiCluster.html#a96122c05dbadcf6d87018894f98d6765":[12,0,30,0,18],
@@ -237,17 +249,5 @@ var NAVTREEINDEX20 =
 "classShipFieldCreator.html":[12,0,154],
 "classShipFieldCreator.html#a0caede98110d3e9b3892e8b8aa987997":[12,0,154,6],
 "classShipFieldCreator.html#a4f47ba476258889c9c89840d53bd187c":[12,0,154,7],
-"classShipFieldCreator.html#a66d2a283a700b1d787ae62dd6e07cb1d":[12,0,154,2],
-"classShipFieldCreator.html#a9026d27f3ad73ac5f03569f3f136b226":[12,0,154,0],
-"classShipFieldCreator.html#a91c521fe3b54048443491f24c7f7e851":[12,0,154,1],
-"classShipFieldCreator.html#a98b8dfcf65664040af7063a509426976":[12,0,154,3],
-"classShipFieldCreator.html#ade0040d63c05ba990a1f38f9ea6c9c63":[12,0,154,4],
-"classShipFieldCreator.html#af7242ad950e7b85bb1e1b5d06a0ff3ba":[12,0,154,5],
-"classShipFieldMaker.html":[12,0,155],
-"classShipFieldMaker.html#a0527910b4550556eff12a66984ee06ff":[12,0,155,13],
-"classShipFieldMaker.html#a0a845f73b3c26e2b5c660bcce4dbef4e":[12,0,155,17],
-"classShipFieldMaker.html#a0c5203ee14b827b04a5a7f0c6b000c5d":[12,0,155,47],
-"classShipFieldMaker.html#a17a6b35bad80d92efa102b9427f615e0":[12,0,155,36],
-"classShipFieldMaker.html#a1d779389098e85a4055b5f2da7ed02e9":[12,0,155,29],
-"classShipFieldMaker.html#a1ecd681a7649f6106e96711b7124efab":[12,0,155,12]
+"classShipFieldCreator.html#a66d2a283a700b1d787ae62dd6e07cb1d":[12,0,154,2]
 };

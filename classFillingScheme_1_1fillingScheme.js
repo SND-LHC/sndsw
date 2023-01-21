@@ -1,7 +1,10 @@
 var classFillingScheme_1_1fillingScheme =
 [
     [ "addBunchCurrent", "classFillingScheme_1_1fillingScheme.html#a3113bd89241fe9706f7c33c86adb215a", null ],
+    [ "alternativeFill", "classFillingScheme_1_1fillingScheme.html#a492aa0036d8b95ec399a2248a70e8bfc", null ],
     [ "b1b2", "classFillingScheme_1_1fillingScheme.html#a15940e0443693462282df76fd48d1354", null ],
+    [ "calcMu", "classFillingScheme_1_1fillingScheme.html#ad3a604ecb84970f351cc5c2438465f27", null ],
+    [ "checkSynch", "classFillingScheme_1_1fillingScheme.html#ac1eb41127e4b896d72758a27247123b0", null ],
     [ "Draw", "classFillingScheme_1_1fillingScheme.html#a0fca1fd022718510f736c8dc0282289e", null ],
     [ "drawLumi", "classFillingScheme_1_1fillingScheme.html#a755020762538a77e4098bb0de23a16d9", null ],
     [ "Extract", "classFillingScheme_1_1fillingScheme.html#a78f1032e2cb48df76d1a5362afc53f0e", null ],
@@ -13,6 +16,7 @@ var classFillingScheme_1_1fillingScheme =
     [ "getFillNrFromElog", "classFillingScheme_1_1fillingScheme.html#a5e2822711ac60a9386fde257849d70db", null ],
     [ "getFillNrFromRunNr", "classFillingScheme_1_1fillingScheme.html#a05961846f80f24edebd2454ec26a0417", null ],
     [ "getLumiAtIP1", "classFillingScheme_1_1fillingScheme.html#ab5d0f17f15451e681cd66491e03df3b7", null ],
+    [ "getNameOfFillingscheme", "classFillingScheme_1_1fillingScheme.html#af752d51538651cda1f609ebf9aabebd1", null ],
     [ "getTotalStat", "classFillingScheme_1_1fillingScheme.html#a867dcf048fb3f451b7c1c4b4e8b8564d", null ],
     [ "hitMapsNormalized", "classFillingScheme_1_1fillingScheme.html#af7ea0eca46dbb72634aa56643bc61558", null ],
     [ "Init", "classFillingScheme_1_1fillingScheme.html#accb5ec178cf0e8751e797bef87f34dfd", null ],
@@ -22,6 +26,7 @@ var classFillingScheme_1_1fillingScheme =
     [ "makeLatex", "classFillingScheme_1_1fillingScheme.html#a121a82a82d79e1d49dcef2f24d52ceb0", null ],
     [ "merge", "classFillingScheme_1_1fillingScheme.html#a44f77d286f5cd92d754ca3ba9ab2b8b4", null ],
     [ "mergeLumi", "classFillingScheme_1_1fillingScheme.html#a85b1caeb528fe8241ec795df0c3baa2f", null ],
+    [ "modifyFSdict", "classFillingScheme_1_1fillingScheme.html#ad253f2e8c3d60704d2e62f09c4643c13", null ],
     [ "myPrint", "classFillingScheme_1_1fillingScheme.html#a72bd4e1e04f124eb4ac1f5a5df02e47b", null ],
     [ "plotBunchStructure", "classFillingScheme_1_1fillingScheme.html#a3fe423b1b00688085ece24342e917cf4", null ],
     [ "plotLumiPerTime", "classFillingScheme_1_1fillingScheme.html#aa4c9469ab2427839cce29275ad82c74c", null ],
@@ -29,7 +34,7 @@ var classFillingScheme_1_1fillingScheme =
     [ "runsWithBeam", "classFillingScheme_1_1fillingScheme.html#a9ac9c17cff493fae9efe9d36495694d5", null ],
     [ "storeDict", "classFillingScheme_1_1fillingScheme.html#a56be525491830e2f8713c64313ea1cd3", null ],
     [ "test", "classFillingScheme_1_1fillingScheme.html#aa9abb1844b9eb0a3e07360aa2163bce4", null ],
-    [ "tracksPerLumi", "classFillingScheme_1_1fillingScheme.html#a53b7a25bd843034f3f84a9288fe754f4", null ],
+    [ "tracksPerLumi", "classFillingScheme_1_1fillingScheme.html#acb0843c170cd127fa642cbfc546cfbe8", null ],
     [ "Xbunch", "classFillingScheme_1_1fillingScheme.html#a3e420cce436130a9ae323aa78e4f617a", null ],
     [ "B", "classFillingScheme_1_1fillingScheme.html#a2dddf94425728949611ebd3b0e3a5f63", null ],
     [ "beamCurrent", "classFillingScheme_1_1fillingScheme.html#ac1518a5e135fe20df5e3ae509f6fcedf", null ],
@@ -45,6 +50,7 @@ var classFillingScheme_1_1fillingScheme =
     [ "Lint", "classFillingScheme_1_1fillingScheme.html#a416cb954e223eade59451b5469e4aabc", null ],
     [ "listOfRuns", "classFillingScheme_1_1fillingScheme.html#ac835f82285eca2f17f50e3d713de0f59", null ],
     [ "Lmax", "classFillingScheme_1_1fillingScheme.html#a0affd68099962d851aad73a14490c8a4", null ],
+    [ "lpcFillingscheme", "classFillingScheme_1_1fillingScheme.html#aeda14edb742eeec1aad7819bcc679e92", null ],
     [ "Lsnd", "classFillingScheme_1_1fillingScheme.html#adb0a91479036811f78302b7ae9da2400", null ],
     [ "lumiAtIP1", "classFillingScheme_1_1fillingScheme.html#a31fc34479019903885aadd53e1530169", null ],
     [ "lumiAtlas", "classFillingScheme_1_1fillingScheme.html#ab1cfaef9473b8b93d7695fddd526b004", null ],
@@ -62,5 +68,7 @@ var classFillingScheme_1_1fillingScheme =
     [ "startTime", "classFillingScheme_1_1fillingScheme.html#a7be0b1157f7f430c4db67b4cc362a4f8", null ],
     [ "startTimes", "classFillingScheme_1_1fillingScheme.html#aca7aba9fab61be971fa8d0721c05ed08", null ],
     [ "stats", "classFillingScheme_1_1fillingScheme.html#abd4b729f84a52b41e096728e025dede0", null ],
-    [ "statsPerBunch", "classFillingScheme_1_1fillingScheme.html#adcd02a0c302f3ec3117bc5aef0698b7a", null ]
+    [ "statsPerBunch", "classFillingScheme_1_1fillingScheme.html#adcd02a0c302f3ec3117bc5aef0698b7a", null ],
+    [ "tagi", "classFillingScheme_1_1fillingScheme.html#a967086c0f49a52e775d033816e9eb346", null ],
+    [ "tagj", "classFillingScheme_1_1fillingScheme.html#ad1c1b46e706f4ecff80dd5cbfb0834e6", null ]
 ];

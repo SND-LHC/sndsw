@@ -25,6 +25,7 @@ var namespaceFillingScheme =
     [ "options", "namespaceFillingScheme.html#a6f98dfca098ddc383a7ac59410d1c84b", null ],
     [ "parser", "namespaceFillingScheme.html#ad04f13477ddf1993386b93a7e06f806b", null ],
     [ "partitions", "namespaceFillingScheme.html#ada02deedc7862aba86cff6a72d8175dc", null ],
+    [ "path", "namespaceFillingScheme.html#a16567663ee1d9e0e4a8a97a46adcb72e", null ],
     [ "postScale", "namespaceFillingScheme.html#a5044f46474d5277ad5de231a7227e7eb", null ],
     [ "problems", "namespaceFillingScheme.html#a3e4cdf55bb018cc450f7275266439a65", null ],
     [ "r", "namespaceFillingScheme.html#a5696558457490aa17833c97d22b60976", null ],
@@ -38,6 +39,6 @@ var namespaceFillingScheme =
     [ "tmp", "namespaceFillingScheme.html#aa7d7d6a84c1043c818da4d454a1bb1b2", null ],
     [ "type", "namespaceFillingScheme.html#a2b8ed7babcc34c783af4a8bd8180acbf", null ],
     [ "withIP2", "namespaceFillingScheme.html#aad4c18651bdda9f6d42a179c453a3f0c", null ],
-    [ "www", "namespaceFillingScheme.html#af05a55baac05d96b65ecbbbc0026586b", null ],
+    [ "www", "namespaceFillingScheme.html#ac7bb7cd1cb06f7a71af8dacd19586f55", null ],
     [ "x", "namespaceFillingScheme.html#af00a3860a6e3c852a9bf60058d2fc88c", null ]
 ];

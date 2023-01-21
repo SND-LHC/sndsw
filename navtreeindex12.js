@@ -1,5 +1,6 @@
 var NAVTREEINDEX12 =
 {
+"charm-geometry__config_8py.html#ae11a23206b0d3108b2027543c8657334":[13,0,6,0,211],
 "charm-geometry__config_8py.html#ae14bf25a6dc10990990da2c6c21ce3d6":[13,0,6,0,108],
 "charm-geometry__config_8py.html#ae22a6e84d33830eeb763edf59b995029":[13,0,6,0,194],
 "charm-geometry__config_8py.html#ae24ab3f8bf251b032a13b01cc7201758":[13,0,6,0,13],
@@ -248,6 +249,5 @@ var NAVTREEINDEX12 =
 "classDPPythia8Generator.html#a2fbc6c8ec533bd12f6c37f08574e5343":[12,0,58,40],
 "classDPPythia8Generator.html#a31ea29b3c84e6554163ae50efcbba2fa":[12,0,58,28],
 "classDPPythia8Generator.html#a35a088b1d4361725a8754893213034f6":[12,0,58,56],
-"classDPPythia8Generator.html#a3964d8dc7e41f0612c1c573af108acd5":[12,0,58,61],
-"classDPPythia8Generator.html#a454c2841047f041f11a4e9f4d6e2ab2a":[12,0,58,50]
+"classDPPythia8Generator.html#a3964d8dc7e41f0612c1c573af108acd5":[12,0,58,61]
 };

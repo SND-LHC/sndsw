@@ -16,6 +16,7 @@ var classMuFilter =
     [ "GetConfParF", "classMuFilter.html#aa9da219258ced5302f6daa09671709bf", null ],
     [ "GetConfParI", "classMuFilter.html#aee98c7a29a40aa284f4d214e936efaf0", null ],
     [ "GetConfParS", "classMuFilter.html#a437d7a02c4f313350c137a7f4deff3b5", null ],
+    [ "GetCorrectedTime", "classMuFilter.html#a39fd3e93c025d41e63850afcc503944b", null ],
     [ "GetLocalPosition", "classMuFilter.html#a354088cd9b68f56fafe368433bce3974", null ],
     [ "GetnSides", "classMuFilter.html#a0f3f44997cdd1492304b200407c21401", null ],
     [ "GetnSiPMs", "classMuFilter.html#a815129abcd81b5fd64bd0bfdb3c21f86", null ],

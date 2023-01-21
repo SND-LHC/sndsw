@@ -32,6 +32,7 @@ var classMonitor_1_1Monitoring =
     [ "freq", "classMonitor_1_1Monitoring.html#ada9b830a25b8652dae955959dc8ff245", null ],
     [ "fsdict", "classMonitor_1_1Monitoring.html#a1c1b1b9009398faa409a87e7eea5e439", null ],
     [ "h", "classMonitor_1_1Monitoring.html#a5524daec48315ddb2f1a73b7502b3b5a", null ],
+    [ "hasBunchInfo", "classMonitor_1_1Monitoring.html#ad2daea87c47a904f5a502f57d39fea72", null ],
     [ "MonteCarlo", "classMonitor_1_1Monitoring.html#a4217a9f8e39a0bf8be32ed3fd35bdaee", null ],
     [ "MuFilter", "classMonitor_1_1Monitoring.html#a7210ec4478ba8a953c3650efa43faf4d", null ],
     [ "myclient", "classMonitor_1_1Monitoring.html#a1b6a5c3daee94cb4cd7066ee5ec7daf2", null ],
