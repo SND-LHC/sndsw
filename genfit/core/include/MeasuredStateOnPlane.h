@@ -21,6 +21,8 @@
  * @{
  */
 
+#pragma once
+
 #ifndef genfit_MeasuredStateOnPlane_h
 #define genfit_MeasuredStateOnPlane_h
 
