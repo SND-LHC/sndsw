@@ -21,6 +21,8 @@
  * @{
  */
 
+#pragma once
+
 #ifndef genfit_AbsFitterInfo_h
 #define genfit_AbsFitterInfo_h
 
