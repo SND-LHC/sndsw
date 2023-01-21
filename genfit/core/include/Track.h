@@ -21,6 +21,8 @@
  * @{
  */
 
+#pragma once
+
 #ifndef genfit_Track_h
 #define genfit_Track_h
 
