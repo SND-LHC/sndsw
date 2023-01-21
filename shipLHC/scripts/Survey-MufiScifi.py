@@ -12,22 +12,6 @@ ROOT.gROOT.ProcessLine('typedef std::map<int,double> pede_result_cpp;')
 
 
 # for fixing a root bug,  will be solved in the forthcoming 6.26 release.
-ROOT.gInterpreter.Declare("""
-#include <KalmanFitterInfo.h>
-#include <Track.h>
-#include <MeasuredStateOnPlane.h>
-#include <stddef.h>     
-const genfit::MeasuredStateOnPlane& getFittedState(genfit::Track* theTrack, int nM){
-      try{
-        return theTrack->getFittedState(nM);
-      }
-      catch(genfit::Exception& e){
-        std::cerr<<"Exception,e.what() "<<std::endl;
-        const genfit::MeasuredStateOnPlane* state(NULL);
-        return *state;
-      }
-}
-""")
 
 ROOT.gInterpreter.Declare("""
 #include "MuFilterHit.h"
