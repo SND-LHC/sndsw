@@ -4179,7 +4179,7 @@ def GBL_refit(nEvent=-1,nTot=1000,PR=13,minP=10.,pede_results = None, cpp_pede =
     if not nEvent<0: eventRange = [nEvent,nEvent+nTot]
     for Nr in range(eventRange[0],eventRange[1]):
         getEvent(Nr)
-        if Nr%10000==0:   print "now at event",Nr,' of ',sTree.GetEntries(),sTree.GetCurrentFile().GetName(),time.ctime()
+        if Nr%10000==0:   print("now at event",Nr,' of ',sTree.GetEntries(),sTree.GetCurrentFile().GetName(),time.ctime())
         ### if not findSimpleEvent(sTree): continue
         trackCandidates = TracksforGBL(Nev=options.nEvents,NbinsRes=100,xmin=-2000.,alignPar=False,unbiased = True,minEnergy=False,remakeClusters=options.remakeScifiClusters,nproc=1)
         for aTrack in trackCandidates:
