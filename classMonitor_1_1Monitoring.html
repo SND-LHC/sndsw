@@ -1172,7 +1172,7 @@ Static Public Attributes</h2></td></tr>
 <p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00358">358</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
 <div class="fragment"><div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;   <span class="keyword">def </span>purgeMonitorHistos(self):</div>
 <div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;        wwwPath = <span class="stringliteral">&quot;/eos/experiment/sndlhc/www/online/&quot;</span></div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;        <span class="keywordflow">for</span> r <span class="keywordflow">in</span> options.runNumbers.split(<span class="stringliteral">&#39;,&#39;</span>):</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;        <span class="keywordflow">for</span> r <span class="keywordflow">in</span> self.options.runNumbers.split(<span class="stringliteral">&#39;,&#39;</span>):</div>
 <div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;            <span class="keywordflow">if</span> r!= <span class="stringliteral">&#39;&#39;</span>: runList.append(<a class="code" href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">int</a>(r))</div>
 <div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;        <span class="keywordflow">for</span> r <span class="keywordflow">in</span> runList:</div>
 <div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;              runNr   = <a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(r).zfill(6)+<span class="stringliteral">&#39;.root&#39;</span></div>
@@ -1190,7 +1190,7 @@ Static Public Attributes</h2></td></tr>
 <div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;                    s.Get(x.GetName()).Write()</div>
 <div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;        g.Close()</div>
 <div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;        f.Close()</div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;        os.system(<span class="stringliteral">&#39;xrdcp -f tmp.root  &#39;</span>+options.server+options.path+rName)</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;        os.system(<span class="stringliteral">&#39;xrdcp -f tmp.root  &#39;</span>+self.options.server+options.path+rName)</div>
 <div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160; </div>
 <div class="ttc" id="anamespaceadd__noise__to__field_html_a4aa6f75233f1922a97b2d4c15285c18e"><div class="ttname"><a href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">add_noise_to_field.int</a></div><div class="ttdeci">int</div><div class="ttdef"><b>Definition:</b> <a href="add__noise__to__field_8py_source.html#l00057">add_noise_to_field.py:57</a></div></div>
 </div><!-- fragment -->
@@ -1398,7 +1398,7 @@ Static Public Attributes</h2></td></tr>
 <p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00380">380</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
 <div class="fragment"><div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;   <span class="keyword">def </span>updateHtml(self):</div>
 <div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;      <span class="keywordflow">if</span> self.options.online: destination=<span class="stringliteral">&quot;online&quot;</span></div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;      <span class="keywordflow">elif</span> options.path.find(<span class="stringliteral">&#39;2022&#39;</span>): destination=<span class="stringliteral">&quot;reprocessing&quot;</span></div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;      <span class="keywordflow">elif</span> self.options.path.find(<span class="stringliteral">&#39;2022&#39;</span>): destination=<span class="stringliteral">&quot;reprocessing&quot;</span></div>
 <div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;      <span class="keywordflow">else</span>: destination=<span class="stringliteral">&quot;offline&quot;</span></div>
 <div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;      rc = os.system(<span class="stringliteral">&quot;xrdcp -f &quot;</span>+os.environ[<span class="stringliteral">&#39;EOSSHIP&#39;</span>]+<span class="stringliteral">&quot;/eos/experiment/sndlhc/www/&quot;</span>+destination+<span class="stringliteral">&quot;.html  . &quot;</span>)</div>
 <div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;      old = open(destination+<span class="stringliteral">&quot;.html&quot;</span>)</div>
