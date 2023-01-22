@@ -43,6 +43,7 @@ var run__Monitoring_8py =
     [ "postScale", "run__Monitoring_8py.html#a86404b5d1c504050dab4a4f582133935", null ],
     [ "presenterFile", "run__Monitoring_8py.html#af114384075f117f9a7260291060b49d0", null ],
     [ "process", "run__Monitoring_8py.html#a3c60f878e1f02fc146a42b23b9220941", null ],
+    [ "rawDataPath", "run__Monitoring_8py.html#a96e45a80d00d11350cb8d650384e39b3", null ],
     [ "required", "run__Monitoring_8py.html#a6a92e545ccbe5cdc73736c5296b39975", null ],
     [ "runDir", "run__Monitoring_8py.html#a889e0f1a4875de5c53b274f7211d9d2a", null ],
     [ "runNumber", "run__Monitoring_8py.html#ab06c28a88b6ef352cc9a46fe67b64c93", null ],

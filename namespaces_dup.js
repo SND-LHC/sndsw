@@ -2726,6 +2726,7 @@ var namespaces_dup =
       [ "postScale", "namespacerun__Monitoring.html#a86404b5d1c504050dab4a4f582133935", null ],
       [ "presenterFile", "namespacerun__Monitoring.html#af114384075f117f9a7260291060b49d0", null ],
       [ "process", "namespacerun__Monitoring.html#a3c60f878e1f02fc146a42b23b9220941", null ],
+      [ "rawDataPath", "namespacerun__Monitoring.html#a96e45a80d00d11350cb8d650384e39b3", null ],
       [ "required", "namespacerun__Monitoring.html#a6a92e545ccbe5cdc73736c5296b39975", null ],
       [ "runDir", "namespacerun__Monitoring.html#a889e0f1a4875de5c53b274f7211d9d2a", null ],
       [ "runNumber", "namespacerun__Monitoring.html#ab06c28a88b6ef352cc9a46fe67b64c93", null ],
