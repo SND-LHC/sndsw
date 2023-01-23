@@ -378,7 +378,7 @@ Static Public Attributes</h2></td></tr>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;              self.M.fillHist2(detector+<span class="stringliteral">&#39;resX_&#39;</span>+sdict[s]+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(s*10+l),doca/u.cm,xEx)</div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;              self.M.fillHist2(detector+<span class="stringliteral">&#39;resY_&#39;</span>+sdict[s]+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(s*10+l),doca/u.cm,yEx)</div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="comment"># calculate time difference for DS</span></div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;              <span class="keywordflow">if</span> s==3:</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;              <span class="keywordflow">if</span> s==3 <span class="keywordflow">and</span> abs(doca)&lt;2.5*u.cm:</div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;                 <span class="comment"># horizontal layers have left and right sipms</span></div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;                 <span class="keywordflow">if</span> aHit.isVertical(): nmax = 1</div>
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;                 <span class="keywordflow">else</span>: nmax = 2</div>
@@ -387,8 +387,8 @@ Static Public Attributes</h2></td></tr>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;                 <span class="comment"># correct for flight length</span></div>
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;                   trajLength = (posM-pos1).Mag()</div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;                 <span class="comment"># correct for signal speed, need to know left or right</span></div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;                   <span class="keywordflow">if</span> aHit.isVertical() <span class="keywordflow">or</span> i==1: X = B-posM   <span class="comment"># A is top, B is bottom</span></div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;                   <span class="keywordflow">else</span>:                         X = A-posM   <span class="comment"># A is on the left, B is right</span></div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;                   <span class="keywordflow">if</span> i==1:                      X = B-posM   <span class="comment"># B is right  only horizontal planes have a second readout </span></div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;                   <span class="keywordflow">else</span>:                         X = A-posM   <span class="comment"># A is on the left, or top for vertical planes</span></div>
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;                   L = X.Mag()/self.mufi_vsignal</div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;                   tM = aHit.GetTime(i)*self.M.TDC2ns - L - trajLength/u.speedOfLight</div>
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;                   self.M.fillHist2(detector+<span class="stringliteral">&#39;dT_&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(s*10+l),tM-scifi_time0,bar*2+i)</div>
