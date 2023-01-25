@@ -309,15 +309,15 @@ with ConfigRegistry.register_config("basic") as c:
 
         # AdvSND Target & Tracker structure
         c.AdvTarget = AttrDict(z=0*u.cm)
-        c.AdvTarget.TargetWallX = 100.0 * u.cm
-        c.AdvTarget.TargetWallY = 40.0 * u.cm
-        c.AdvTarget.TargetWallZ = 17.0 * u.cm
+        c.AdvTarget.TargetWallX = 50.0 * u.cm
+        c.AdvTarget.TargetWallY = 50.0 * u.cm
+        c.AdvTarget.TargetWallZ = 7.5 * u.mm
 
         # Target Tracking stations
-        c.AdvTarget.TTX = c.AdvTarget.TargetWallX
-        c.AdvTarget.TTY = c.AdvTarget.TargetWallY
-        c.AdvTarget.TTZ = 3 * u.cm
-        c.AdvTarget.nTT = 5
+        c.AdvTarget.TTX = 49.29 * u.cm
+        c.AdvTarget.TTY = 49.29 * u.cm
+        c.AdvTarget.TTZ = 7.5 * u.mm
+        c.AdvTarget.nTT = 40
 
         # AdvSND MuFilter structure
         c.AdvMuFilter = AttrDict(z=0*u.cm)
