@@ -121,8 +121,8 @@ void AdvTarget::ConstructGeometry()
 
    InitMedium("Polystyrene");
    TGeoMedium *Polystyrene = gGeoManager->GetMedium("Polystyrene");
-   InitMedium("Silicon");
-   TGeoMedium *Silicon = gGeoManager->GetMedium("Silicon");
+   InitMedium("silicon");
+   TGeoMedium *Silicon = gGeoManager->GetMedium("silicon");
 
    Double_t fTargetWallX = conf_floats["AdvTarget/TargetWallX"];
    Double_t fTargetWallY = conf_floats["AdvTarget/TargetWallY"];
