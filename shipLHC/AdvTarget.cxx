@@ -130,7 +130,7 @@ void AdvTarget::ConstructGeometry()
    Double_t fTTX = conf_floats["AdvTarget/TTX"];
    Double_t fTTY = conf_floats["AdvTarget/TTY"];
    Double_t fTTZ = conf_floats["AdvTarget/TTZ"];
-   Int_t fnTT = conf_ints["AdvTarget/nTT"]; // Number of TT stations
+   Int_t stations = conf_ints["AdvTarget/nTT"]; // Number of TT stations
 
    TGeoBBox *TargetWall = new TGeoBBox("TargetWall", fTargetWallX / 2., fTargetWallY / 2., fTargetWallZ / 2.);
    TGeoVolume *volTargetWall = new TGeoVolume("volTargetWall", TargetWall, tungsten);
@@ -152,43 +152,13 @@ void AdvTarget::ConstructGeometry()
    TGeoVolume *SensorVolume = new TGeoVolume("SensorVolume", Sensor, Silicon);
    SensorVolume->SetLineColor(kGreen);
    AddSensitiveVolume(SensorVolume);
-   // Combine into module
-   TGeoVolumeAssembly *SensorModule = new TGeoVolumeAssembly("SensorModule");
-   SensorModule->AddNode(SupportVolume, 1);
-   SensorModule->AddNode(
-      SensorVolume, 1,
-      new TGeoTranslation(-module_length / 2 + 46.95 * mm + 91.5 * mm / 2, 0, +3 * mm / 2 + 0.5 * mm / 2));
+
    double sensor_gap = 3.1 * mm;
-   SensorModule->AddNode(SensorVolume, 2,
-                         new TGeoTranslation(-module_length / 2 + 46.95 * mm + 1.5 * 91.5 * mm + sensor_gap, 0,
-                                             +3 * mm / 2 + 0.5 * mm / 2));
-   // Combine modules into planes
-   TGeoVolumeAssembly *TrackerPlane = new TGeoVolumeAssembly("TrackerPlane");
+
    const int rows = 4;
    const int columns = 2;
    double module_row_gap = 0.5 * mm;
    double module_column_gap = 13.9 * mm;
-   int i = 0;
-   for (auto &&row : TSeq(rows)) {
-      for (auto &&column : TSeq(columns)) {
-         TrackerPlane->AddNode(
-            SensorModule, ++i,
-            new TGeoCombiTrans(
-               // Offset modules as needed by row and column
-               TGeoTranslation((column % 2 ? 1 : -1) * (module_length / 2 + module_column_gap / 2),
-                               (row - 1) * (-module_width - module_row_gap) - module_row_gap / 2 + module_width / 2, 0),
-               // Rotate every module of the second column
-               TGeoRotation(TString::Format("rot%d", i), 0, 0, column * 180)));
-      }
-   }
-   // Combine into tracking stations of X and Y planes
-   TGeoVolumeAssembly *TrackingStation = new TGeoVolumeAssembly("TrackingStation");
-   // X-plane
-   TrackingStation->AddNode(TrackerPlane, 0);
-   // Y-plane
-   TrackingStation->AddNode(
-      TrackerPlane, 1,
-      new TGeoCombiTrans(TGeoTranslation(0, 0, +3.5 * mm + 0.5 * mm), TGeoRotation("y_rot", 0, 0, 90)));
 
    // Definition of the target box containing tungsten walls + silicon tracker
    TGeoVolumeAssembly *volAdvTarget = new TGeoVolumeAssembly("volAdvTarget");
@@ -205,17 +175,55 @@ void AdvTarget::ConstructGeometry()
                         -TargetDiff + EmWall0_survey.Z()
                      ));
 
-   // adding walls & trackers
-   LOG(INFO) << " nTT: " << fnTT;
-   for (auto &&wall : TSeq(fnTT)) {
+   LOG(INFO) << " nTT: " << stations;
+   // For correct detector IDs, the geometry has to be built back to front, from the top-level
+   for (auto &&station : TSeq(stations)) {
+      TGeoVolumeAssembly *TrackingStation = new TGeoVolumeAssembly("TrackingStation");
+      // Each tracking station consists of X and Y planes
+      for (auto &&plane : TSeq(2)) {
+         TGeoVolumeAssembly *TrackerPlane = new TGeoVolumeAssembly("TrackerPlane");
+         int i = 0;
+         // Each plane consists of 4 modules
+         for (auto &&row : TSeq(rows)) {
+            for (auto &&column : TSeq(columns)) {
+               // Each module in turn consists of two sensors on a support
+               TGeoVolumeAssembly *SensorModule = new TGeoVolumeAssembly("SensorModule");
+               SensorModule->AddNode(SupportVolume, 1);
+               SensorModule->AddNode(
+                  SensorVolume, 10000 * station + 1000 * plane + 100 * row + 10 * column + 1,
+                  new TGeoTranslation(-module_length / 2 + 46.95 * mm + 91.5 * mm / 2, 0, +3 * mm / 2 + 0.5 * mm / 2));
+               SensorModule->AddNode(SensorVolume, 10000 * station + 1000 * plane + 100 * row + 10 * column + 2,
+                                     new TGeoTranslation(-module_length / 2 + 46.95 * mm + 1.5 * 91.5 * mm + sensor_gap, 0,
+                                                         +3 * mm / 2 + 0.5 * mm / 2));
+               TrackerPlane->AddNode(
+                  SensorModule, ++i,
+                  new TGeoCombiTrans(
+                     // Offset modules as needed by row and column
+                     TGeoTranslation((column % 2 ? 1 : -1) * (module_length / 2 + module_column_gap / 2),
+                                     (row - 1) * (-module_width - module_row_gap) - module_row_gap / 2 + module_width / 2, 0),
+                     // Rotate every module of the second column
+                     TGeoRotation(TString::Format("rot%d", i), 0, 0, column * 180)));
+            }
+         }
+         if(plane == 0){
+            // X-plane
+            TrackingStation->AddNode(TrackerPlane, plane);
+         } else if (plane == 1) {
+            // Y-plane
+            TrackingStation->AddNode(
+               TrackerPlane, plane,
+               new TGeoCombiTrans(TGeoTranslation(0, 0, +3.5 * mm + 0.5 * mm), TGeoRotation("y_rot", 0, 0, 90)));
+         }
+      }
+
       volAdvTarget->AddNode(
-         volTargetWall, wall,
+         volTargetWall, station,
          new TGeoTranslation(
-            0, 0, -fTargetWallZ / 2 + wall * fTargetWallZ + wall * 7.5 * mm));
-      volAdvTarget->AddNode(TrackingStation, wall,
+            0, 0, -fTargetWallZ / 2 + station * fTargetWallZ + station * 7.5 * mm));
+      volAdvTarget->AddNode(TrackingStation, station,
                             new TGeoTranslation(0, 0,
-                                                (wall + 0.5) * fTargetWallZ +
-                                                (wall - 0.5) * 7.5 * mm));
+                                                (station + 0.5) * fTargetWallZ +
+                                                (station - 0.5) * 7.5 * mm));
    }
 }
 
