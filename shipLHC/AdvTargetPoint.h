@@ -42,6 +42,7 @@ class AdvTargetPoint : public FairMCPoint
     int GetPlane(){return floor(fDetectorID/1000)%10;} // 0 is X-plane, 1 is Y-pane
     int GetRow(){return floor(fDetectorID/100)%10;}
     int GetColumn(){return floor(fDetectorID/10)%10;}
+    int GetSensor(){return floor(fDetectorID%10);}
 
   private:
 
