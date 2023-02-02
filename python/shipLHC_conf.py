@@ -42,14 +42,14 @@ def configure(run,ship_geo,Gfield=''):
 			parValue = eval('ship_geo.MuFilter.'+parName)
 			MuFilter.SetConfPar("MuFilter/"+parName, parValue)
 		detectorList.append(MuFilter)
-	"""
+	
 	if "Magnet" in ship_geo: #Magnet is only available in advSND geometry files
 		Magnet = ROOT.Magnet("Magnet",ROOT.kTRUE)
 		for parName in ship_geo.Magnet:
 			parValue = eval('ship_geo.Magnet.'+parName)
 			Magnet.SetConfPar("Magnet/"+parName, parValue)
 		detectorList.append(Magnet)
-	
+	"""
 	if "AdvTarget" in ship_geo: #AdvTarget is only available in advSND geometry files
 		AdvTarget = ROOT.AdvTarget("AdvTarget",ROOT.kTRUE)
 		for parName in ship_geo.AdvTarget:
