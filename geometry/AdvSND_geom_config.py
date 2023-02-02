@@ -320,6 +320,7 @@ with ConfigRegistry.register_config("basic") as c:
         c.AdvTarget.nTT = 40
 
         # AdvSND MuFilter structure
+        """
         c.AdvMuFilter = AttrDict(z=0*u.cm)
         c.AdvMuFilter.WallX = 120.0 * u.cm
         c.AdvMuFilter.WallY = 60.0 * u.cm
@@ -328,3 +329,17 @@ with ConfigRegistry.register_config("basic") as c:
         c.AdvMuFilter.PlaneY = c.AdvMuFilter.WallY
         c.AdvMuFilter.PlaneZ = 2 * u.cm
         c.AdvMuFilter.nPlanes = 22
+        """
+
+        #AdvSND MuFilter Layout 2 (SQUARED)
+        c.AdvMuFilter = AttrDict(z=0*u.cm)
+        c.AdvMuFilter.MuonSysPlaneX     = 70.0 * u.cm
+        c.AdvMuFilter.MuonSysPlaneY     = 70.0 * u.cm
+        c.AdvMuFilter.CutOffset         = 5.0 * u.cm
+        c.AdvMuFilter.FeX               = 105.0 * u.cm
+        c.AdvMuFilter.FeY               = c.AdvMuFilter.FeX
+        c.AdvMuFilter.FeZ               = 8.0 * u.cm
+        c.AdvMuFilter.FeGap             = 2.0 * u.cm
+        c.AdvMuFilter.Nplanes           = 22
+        c.AdvMuFilter.CoilX             = c.AdvMuFilter.MuonSysPlaneX
+        c.AdvMuFilter.CoilY             = 2.0 *u.cm 
