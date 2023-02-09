@@ -1,5 +1,6 @@
 var NAVTREEINDEX80 =
 {
+"pythia8darkphoton__conf_8py.html#a30ec2a38b1c060549969ba2c6703c113":[13,0,17,29,7],
 "pythia8darkphoton__conf_8py.html#a30fe4b78d1b237f5287aaf5f6dd18557":[13,0,17,29,0],
 "pythia8darkphoton__conf_8py.html#a35dad733a5139c5bdb452ee0d010cdec":[13,0,17,29,3],
 "pythia8darkphoton__conf_8py.html#a4e665f9019e795ebc2533973bbe5a2a1":[13,0,17,29,5],
@@ -248,6 +249,5 @@ var NAVTREEINDEX80 =
 "runPythia8_8py.html#a8a00f7660b8a94ac25c500e8d3c7e7af":[13,0,8,25,15],
 "runPythia8_8py.html#a92b74818d4845c92d20cf34c4802c79d":[13,0,8,25,14],
 "runPythia8_8py.html#a9b3b8bbacb7da11ba1a35f9863dc1be6":[13,0,8,25,22],
-"runPythia8_8py.html#a9f1e93c8a33c19095f5f1616550e0643":[13,0,8,25,43],
-"runPythia8_8py.html#ab2f59acf757b72bb277c0133cd62b7aa":[13,0,8,25,29]
+"runPythia8_8py.html#a9f1e93c8a33c19095f5f1616550e0643":[13,0,8,25,43]
 };

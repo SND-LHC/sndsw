@@ -1,5 +1,6 @@
 var NAVTREEINDEX68 =
 {
+"namespacemakeSNDGenieEvents.html#afc901e4b9f59bb64c7ca303e6798b43a":[11,0,72,12],
 "namespacemembers.html":[11,1,0],
 "namespacemembers.html":[11,1,0,0],
 "namespacemembers_a.html":[11,1,0,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX68 =
 "namespacempmod.html#a35bd9aa2a4c5b99227310b10bf934cc3":[11,0,84,12],
 "namespacempmod.html#a3688e8f65ab58bddfac03c3043166b24":[11,0,84,81],
 "namespacempmod.html#a36a3d618536d1c68b83256502a3f91b8":[11,0,84,110],
-"namespacempmod.html#a376d0f92a8cc5b0dcb21f941c701013e":[11,0,84,147],
-"namespacempmod.html#a3824f538ccd3ce24ae660346329e8ab6":[11,0,84,163]
+"namespacempmod.html#a376d0f92a8cc5b0dcb21f941c701013e":[11,0,84,147]
 };

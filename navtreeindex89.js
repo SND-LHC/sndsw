@@ -1,5 +1,6 @@
 var NAVTREEINDEX89 =
 {
+"structquicktype_1_1Info__scifi.html#af4b0807882fc0cd9941d2fc6738ddd9f":[12,0,22,1,0],
 "structregression.html":[12,0,140],
 "structregression.html#a3fb8f5015917f4f7bfcaac4ed5131749":[12,0,140,1],
 "structregression.html#addfebfb4bb3557492de61edce69c88c7":[12,0,140,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX89 =
 "thermalNeutrons_8py.html#a4d664ec4a4d752ea0f0ef767ea85f4e2":[13,0,20,39,26],
 "thermalNeutrons_8py.html#a4d9450e4d8dc9f5a0c53757e42a090f2":[13,0,20,39,9],
 "thermalNeutrons_8py.html#a5dcb290a8eefe2832f06ec34534f184b":[13,0,20,39,3],
-"thermalNeutrons_8py.html#a628a001d0964b33cf6b5b90df4a66a92":[13,0,20,39,33],
-"thermalNeutrons_8py.html#a677f5a84d872cd5623ddd97665a486a5":[13,0,20,39,37]
+"thermalNeutrons_8py.html#a628a001d0964b33cf6b5b90df4a66a92":[13,0,20,39,33]
 };

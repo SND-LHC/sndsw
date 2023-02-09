@@ -1,5 +1,6 @@
 var NAVTREEINDEX67 =
 {
+"namespacemakeALPACAEvents.html#a06d341ccbdadf2da6ec7e4c5342a1cf2":[11,0,65,10],
 "namespacemakeALPACAEvents.html#a2554e3c375bece96f75ca3e7fe4caf10":[11,0,65,8],
 "namespacemakeALPACAEvents.html#a34def3463772f5f67b0d178bfeae929c":[11,0,65,2],
 "namespacemakeALPACAEvents.html#a47d1481c7da99212f0640cd61e0153e3":[11,0,65,9],
@@ -248,6 +249,5 @@ var NAVTREEINDEX67 =
 "namespacemakeSNDGenieEvents.html#aa05e7ff585c79b1af6c88f1311342e08":[11,0,72,6],
 "namespacemakeSNDGenieEvents.html#ab28a59b572b2ea4dacc1e733119b2dc2":[11,0,72,0],
 "namespacemakeSNDGenieEvents.html#adc25e6a468d9a8460ab02671bbd6c0cf":[11,0,72,19],
-"namespacemakeSNDGenieEvents.html#ae3b540eb7fbb1a8ebc919122c395f283":[11,0,72,7],
-"namespacemakeSNDGenieEvents.html#afc901e4b9f59bb64c7ca303e6798b43a":[11,0,72,12]
+"namespacemakeSNDGenieEvents.html#ae3b540eb7fbb1a8ebc919122c395f283":[11,0,72,7]
 };

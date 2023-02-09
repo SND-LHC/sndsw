@@ -1,5 +1,6 @@
 var NAVTREEINDEX70 =
 {
+"namespacemufiHitMaps.html#a3bb1b24491f44f4dd1d5adb877bb2eb2":[11,0,91,12],
 "namespacemufiHitMaps.html#a3fa1ebbc8a8e2e506f45f1d004b1d71b":[11,0,91,24],
 "namespacemufiHitMaps.html#a44406d132a911dbc782bdcbcaba52630":[11,0,91,13],
 "namespacemufiHitMaps.html#a4614292972e6fc735a1401c7b5870bbf":[11,0,91,7],
@@ -248,6 +249,5 @@ var NAVTREEINDEX70 =
 "namespacerootpyPickler.html#ae429cfd7de5349512a04544726926582":[11,0,112,12],
 "namespacerpvsusy.html":[11,0,114],
 "namespacerpvsusy.html#a235c294533ecd1721f522cef50dd03bd":[11,0,114,3],
-"namespacerpvsusy.html#a44c7a5741fc60c1f8033a2e735536256":[11,0,114,5],
-"namespacerpvsusy.html#a8b5544128495c9d33bee37ddf3210f10":[11,0,114,9]
+"namespacerpvsusy.html#a44c7a5741fc60c1f8033a2e735536256":[11,0,114,5]
 };

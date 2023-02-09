@@ -1,5 +1,6 @@
 var NAVTREEINDEX32 =
 {
+"classgenfit_1_1FitStatus.html#a577876860cae63eb1642275545b83f51":[12,0,13,12,4],
 "classgenfit_1_1FitStatus.html#a5af64b4106ee194eb6ba3dfe0814f57a":[12,0,13,12,6],
 "classgenfit_1_1FitStatus.html#a5c7c9c23faced21b3df66dcdc9198399":[12,0,13,12,28],
 "classgenfit_1_1FitStatus.html#a5ce28e7a58848a0a571881774ad7e573":[12,0,13,12,22],
@@ -248,6 +249,5 @@ var NAVTREEINDEX32 =
 "classgenfit_1_1KalmanFitterInfo.html#a1021a5a7a34acaab77e5be0f136a7cc5":[12,0,13,37,55],
 "classgenfit_1_1KalmanFitterInfo.html#a13eedda4db426adab6bc3a94c96817d3":[12,0,13,37,6],
 "classgenfit_1_1KalmanFitterInfo.html#a1bf7c6ec4567e7a38d18e85a27551871":[12,0,13,37,47],
-"classgenfit_1_1KalmanFitterInfo.html#a1f44bf7870a622e602aecd32e63b301b":[12,0,13,37,3],
-"classgenfit_1_1KalmanFitterInfo.html#a1f53fb36db7dc1c1cb1e413de9ab79d2":[12,0,13,37,42]
+"classgenfit_1_1KalmanFitterInfo.html#a1f44bf7870a622e602aecd32e63b301b":[12,0,13,37,3]
 };

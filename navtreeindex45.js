@@ -1,5 +1,6 @@
 var NAVTREEINDEX45 =
 {
+"ecalClusterFinder_8h.html":[13,0,3,15],
 "ecalClusterFinder_8h_source.html":[13,0,3,15],
 "ecalCluster_8cxx.html":[13,0,3,10],
 "ecalCluster_8cxx_source.html":[13,0,3,10],
@@ -248,6 +249,5 @@ var NAVTREEINDEX45 =
 "extract__interacting__neutrinos_8py.html#a25b556ff44e4795c765e5da341bbf2d6":[13,0,20,11,20],
 "extract__interacting__neutrinos_8py.html#a277d8b91552a03321199f9141bfb4d0d":[13,0,20,11,24],
 "extract__interacting__neutrinos_8py.html#a2e304d7349427f295019fe3ddb8e56da":[13,0,20,11,23],
-"extract__interacting__neutrinos_8py.html#a30f5c8d15fd3160129c732b22b72cfe2":[13,0,20,11,3],
-"extract__interacting__neutrinos_8py.html#a3768f83a2f01175c27c0e959352d02d0":[13,0,20,11,7]
+"extract__interacting__neutrinos_8py.html#a30f5c8d15fd3160129c732b22b72cfe2":[13,0,20,11,3]
 };

@@ -1,5 +1,6 @@
 var NAVTREEINDEX79 =
 {
+"namespacethermalNeutrons.html#a628a001d0964b33cf6b5b90df4a66a92":[11,0,180,33],
 "namespacethermalNeutrons.html#a677f5a84d872cd5623ddd97665a486a5":[11,0,180,37],
 "namespacethermalNeutrons.html#a71a994633bd6eda4ccb3a6b4086ef4f9":[11,0,180,22],
 "namespacethermalNeutrons.html#a72d40311396ed9c7c554cffe4e3199c6":[11,0,180,17],
@@ -248,6 +249,5 @@ var NAVTREEINDEX79 =
 "pythia8__conf__utils_8py.html#ada4402c223453c2df122b01dff054416":[13,0,17,28,17],
 "pythia8__conf__utils_8py.html#afb8d3a95256278c94768f0ea07686b1c":[13,0,17,28,1],
 "pythia8__conf__utils_8py_source.html":[13,0,17,28],
-"pythia8darkphoton__conf_8py.html":[13,0,17,29],
-"pythia8darkphoton__conf_8py.html#a30ec2a38b1c060549969ba2c6703c113":[13,0,17,29,7]
+"pythia8darkphoton__conf_8py.html":[13,0,17,29]
 };

@@ -1,5 +1,6 @@
 var NAVTREEINDEX41 =
 {
+"classstrawtubes.html#a54278dfb2c5f330d3c1b380ef565c984":[12,0,183,20],
 "classstrawtubes.html#a56f0f1ce4b201e065e507c5f0f39c212":[12,0,183,85],
 "classstrawtubes.html#a570ab41a26196a080bb5c10ce47b4462":[12,0,183,13],
 "classstrawtubes.html#a5e83d76bcf2f613a79643de4f9bf5c61":[12,0,183,56],
@@ -248,6 +249,5 @@ var NAVTREEINDEX41 =
 "classveto.html#add3b8c74d24769a2c810e1d7cff38150":[12,0,200,25],
 "classveto.html#ae0a9e740e6a616fdadf9f29c03b90372":[12,0,200,71],
 "classveto.html#ae10cd79391b64a512c8f193a867ed77a":[12,0,200,10],
-"classveto.html#ae1c96ec9630e08025a9b6166ab289147":[12,0,200,19],
-"classveto.html#ae2906f791ef8ceb3c3c22fc98986a83d":[12,0,200,74]
+"classveto.html#ae1c96ec9630e08025a9b6166ab289147":[12,0,200,19]
 };

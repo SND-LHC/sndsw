@@ -1,5 +1,6 @@
 var NAVTREEINDEX56 =
 {
+"namespaceSciFiMapping.html#a7a4f320d2428859fba777e774cc7651d":[11,0,139,12],
 "namespaceSciFiMapping.html#a86d910852eb0694254be1e7512184478":[11,0,139,0],
 "namespaceSciFiMapping.html#a8b33aa310ccab381d7e3d62c728faa8c":[11,0,139,4],
 "namespaceSciFiMapping.html#ab1f910041423eae3a3aa065831990b53":[11,0,139,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX56 =
 "namespaceShipReco.html#a5d79d13160dfaad7ee80f62adb0ee67e":[11,0,154,20],
 "namespaceShipReco.html#a6425d90b37c7ae2428f3b732fc2d03a4":[11,0,154,15],
 "namespaceShipReco.html#a646b2a8b1509b520851460b3d587bedd":[11,0,154,13],
-"namespaceShipReco.html#a663c66d4a22374970fa11dd2a5012dec":[11,0,154,5],
-"namespaceShipReco.html#a7b887bc3d291d74d04fcaae703a657b3":[11,0,154,23]
+"namespaceShipReco.html#a663c66d4a22374970fa11dd2a5012dec":[11,0,154,5]
 };

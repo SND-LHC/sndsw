@@ -1,5 +1,6 @@
 var NAVTREEINDEX36 =
 {
+"classgenfit_1_1WirePointMeasurement.html#afb5645bff39661175a36758a87acc406":[12,0,13,63,0],
 "classgenfit_1_1WireTrackCandHit.html":[12,0,13,64],
 "classgenfit_1_1WireTrackCandHit.html#a1330e33789591f67734e7175e7fbae6e":[12,0,13,64,6],
 "classgenfit_1_1WireTrackCandHit.html#a25dd65f121a1e657daf37c0ca07e992e":[12,0,13,64,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX36 =
 "classhcalModule.html#ab87e3cd79ffb9b18050e16ecbd28f0e0":[12,0,100,17],
 "classhcalModule.html#abf8470befe47a949ea8a32cc39aa2c74":[12,0,100,32],
 "classhcalModule.html#ac12d8acf7d3fcdc89132617e4486df50":[12,0,100,2],
-"classhcalModule.html#ac8104fb88cbe2031a37095d22e384b83":[12,0,100,16],
-"classhcalModule.html#acaa3f80e5e0270b055c488abf5f19d3b":[12,0,100,19]
+"classhcalModule.html#ac8104fb88cbe2031a37095d22e384b83":[12,0,100,16]
 };

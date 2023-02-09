@@ -1,5 +1,6 @@
 var NAVTREEINDEX35 =
 {
+"classgenfit_1_1StateOnPlane.html#ad2761ff7b7c9bef0827114465a48bd3d":[12,0,13,19,41],
 "classgenfit_1_1StateOnPlane.html#ad574c9e4ef45aed61bab1f7b99e221db":[12,0,13,19,14],
 "classgenfit_1_1StateOnPlane.html#ad85db7a7a37081fc4955f62a69443b12":[12,0,13,19,17],
 "classgenfit_1_1StateOnPlane.html#ad93a356012617fff04a557d34bd84ce5":[12,0,13,19,38],
@@ -248,6 +249,5 @@ var NAVTREEINDEX35 =
 "classgenfit_1_1WirePointMeasurement.html#a53c5c544ea897f8bfe5252de92ba037d":[12,0,13,63,2],
 "classgenfit_1_1WirePointMeasurement.html#a70948d05f41acb0ed8d8b813559cd9f8":[12,0,13,63,5],
 "classgenfit_1_1WirePointMeasurement.html#a87972f53ea2c59cf73214085d3461190":[12,0,13,63,1],
-"classgenfit_1_1WirePointMeasurement.html#aa91ae625f7bd26d09f5badc3f8e61634":[12,0,13,63,3],
-"classgenfit_1_1WirePointMeasurement.html#afb5645bff39661175a36758a87acc406":[12,0,13,63,0]
+"classgenfit_1_1WirePointMeasurement.html#aa91ae625f7bd26d09f5badc3f8e61634":[12,0,13,63,3]
 };

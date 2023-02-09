@@ -1,5 +1,6 @@
 var NAVTREEINDEX66 =
 {
+"namespacegeometry__config.html#ae8bcc03d6d98d02e0a4ede70b5af8d26":[11,0,54,46],
 "namespacegeometry__config.html#ae949308a33fbd7f7096e0223cba1e10b":[11,0,54,383],
 "namespacegeometry__config.html#ae9ed4cbae2407539661bd9c6130db588":[11,0,54,178],
 "namespacegeometry__config.html#aea1053022251b05a9bafa739eba62e40":[11,0,54,34],
@@ -248,6 +249,5 @@ var NAVTREEINDEX66 =
 "namespacelogger.html":[11,0,64],
 "namespacelogger.html#a1af74ca7ca2dabc671b4e0e0a8702e5f":[11,0,64,1],
 "namespacelogger.html#a415f8541e99d9bae30efd8b0daafcc2c":[11,0,64,0],
-"namespacemakeALPACAEvents.html":[11,0,65],
-"namespacemakeALPACAEvents.html#a06d341ccbdadf2da6ec7e4c5342a1cf2":[11,0,65,10]
+"namespacemakeALPACAEvents.html":[11,0,65]
 };

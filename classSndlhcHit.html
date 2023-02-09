@@ -136,14 +136,16 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aad9984e3bcd5d106ffe21ee20872452e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4501d40db63396cc45a97e4a8611d668"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSndlhcHit.html#a4501d40db63396cc45a97e4a8611d668">SetDetectorID</a> (Int_t detID)</td></tr>
 <tr class="separator:a4501d40db63396cc45a97e4a8611d668"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aebbf3baed9fe0b7e87222ebf2d6c8400"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSndlhcHit.html#aebbf3baed9fe0b7e87222ebf2d6c8400">SetDaqID</a> (Int_t i, Int_t board_id, Int_t tofpet_id, Int_t tofpet_channel)</td></tr>
-<tr class="separator:aebbf3baed9fe0b7e87222ebf2d6c8400"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a906877294b31b40330f6da2217421085"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSndlhcHit.html#a906877294b31b40330f6da2217421085">SetDaqID</a> (Int_t i, Int_t k, Int_t board_id, Int_t tofpet_id, Int_t tofpet_channel)</td></tr>
+<tr class="separator:a906877294b31b40330f6da2217421085"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6299a6b02384e72f4edbb870cb1e5159"><td class="memItemLeft" align="right" valign="top">Int_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSndlhcHit.html#a6299a6b02384e72f4edbb870cb1e5159">GetBoardID</a> (Int_t i)</td></tr>
 <tr class="separator:a6299a6b02384e72f4edbb870cb1e5159"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28eb20734c7d4024cb435aadab8f55c1"><td class="memItemLeft" align="right" valign="top">Int_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSndlhcHit.html#a28eb20734c7d4024cb435aadab8f55c1">GetTofpetID</a> (Int_t i)</td></tr>
 <tr class="separator:a28eb20734c7d4024cb435aadab8f55c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a58b69f4bcbc10b0310f0171cb3d0992a"><td class="memItemLeft" align="right" valign="top">Int_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSndlhcHit.html#a58b69f4bcbc10b0310f0171cb3d0992a">Getchannel</a> (Int_t i)</td></tr>
 <tr class="separator:a58b69f4bcbc10b0310f0171cb3d0992a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0033e11cc873069e89e03878e68f6b1"><td class="memItemLeft" align="right" valign="top">Int_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSndlhcHit.html#af0033e11cc873069e89e03878e68f6b1">GetRawHitIndex</a> (Int_t i=0)</td></tr>
+<tr class="separator:af0033e11cc873069e89e03878e68f6b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af90ad93eb4a9f4738fe456d1e6b856b4"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSndlhcHit.html#af90ad93eb4a9f4738fe456d1e6b856b4">Print</a> (const Option_t *opt=&quot;&quot;) const</td></tr>
 <tr class="separator:af90ad93eb4a9f4738fe456d1e6b856b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3042b1d7dbd77771bdaf373ad62c3dfb"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSndlhcHit.html#a3042b1d7dbd77771bdaf373ad62c3dfb">GetPosition</a> (TVector3 L, TVector3 R) const</td></tr>
@@ -155,7 +157,7 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a4d3bcbd221d1a79b7e68ebc8b41e9d15"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSndlhcHit.html#a4d3bcbd221d1a79b7e68ebc8b41e9d15">ClassDef</a> (<a class="el" href="classSndlhcHit.html">SndlhcHit</a>, 2)</td></tr>
-<tr class="memdesc:a4d3bcbd221d1a79b7e68ebc8b41e9d15"><td class="mdescLeft">&#160;</td><td class="mdescRight">encodes (board_id * 1000) + (tofpet_id * 100) + tofpet_channel  <a href="classSndlhcHit.html#a4d3bcbd221d1a79b7e68ebc8b41e9d15">More...</a><br /></td></tr>
+<tr class="memdesc:a4d3bcbd221d1a79b7e68ebc8b41e9d15"><td class="mdescLeft">&#160;</td><td class="mdescRight">encodes rawhitindex*100000+(board_id * 1000) + (tofpet_id * 100) + tofpet_channel  <a href="classSndlhcHit.html#a4d3bcbd221d1a79b7e68ebc8b41e9d15">More...</a><br /></td></tr>
 <tr class="separator:a4d3bcbd221d1a79b7e68ebc8b41e9d15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
@@ -209,7 +211,7 @@ Friends</h2></td></tr>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <a class="code" href="classSndlhcHit.html#a836f646fa492caea1cf66ace3444450d">fDetectorID</a>(-1)</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;}</div>
-<div class="ttc" id="aclassSndlhcHit_html_a836f646fa492caea1cf66ace3444450d"><div class="ttname"><a href="classSndlhcHit.html#a836f646fa492caea1cf66ace3444450d">SndlhcHit::fDetectorID</a></div><div class="ttdeci">Int_t fDetectorID</div><div class="ttdoc">Detector unique identifier.</div><div class="ttdef"><b>Definition:</b> <a href="SndlhcHit_8h_source.html#l00071">SndlhcHit.h:71</a></div></div>
+<div class="ttc" id="aclassSndlhcHit_html_a836f646fa492caea1cf66ace3444450d"><div class="ttname"><a href="classSndlhcHit.html#a836f646fa492caea1cf66ace3444450d">SndlhcHit::fDetectorID</a></div><div class="ttdeci">Int_t fDetectorID</div><div class="ttdoc">Detector unique identifier.</div><div class="ttdef"><b>Definition:</b> <a href="SndlhcHit_8h_source.html#l00072">SndlhcHit.h:72</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -258,11 +260,11 @@ Friends</h2></td></tr>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <a class="code" href="classSndlhcHit.html#a85600a31a13cae312965a1ca62863d0e">fDaqID</a>[<a class="code" href="namespaceconditionsDatabase_1_1snd__conDB.html#aefe45588482a96fe32b00d4855c3a4df">j</a>]  =-1;</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;     }</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  }</div>
-<div class="ttc" id="aclassSndlhcHit_html_a037949791245d523b80c7a359f2069ad"><div class="ttname"><a href="classSndlhcHit.html#a037949791245d523b80c7a359f2069ad">SndlhcHit::nSiPMs</a></div><div class="ttdeci">Int_t nSiPMs</div><div class="ttdef"><b>Definition:</b> <a href="SndlhcHit_8h_source.html#l00072">SndlhcHit.h:72</a></div></div>
-<div class="ttc" id="aclassSndlhcHit_html_a2810f9422cde6281c92b612c55faad1c"><div class="ttname"><a href="classSndlhcHit.html#a2810f9422cde6281c92b612c55faad1c">SndlhcHit::times</a></div><div class="ttdeci">Float_t times[16]</div><div class="ttdoc">SiPM signal.</div><div class="ttdef"><b>Definition:</b> <a href="SndlhcHit_8h_source.html#l00075">SndlhcHit.h:75</a></div></div>
-<div class="ttc" id="aclassSndlhcHit_html_a85600a31a13cae312965a1ca62863d0e"><div class="ttname"><a href="classSndlhcHit.html#a85600a31a13cae312965a1ca62863d0e">SndlhcHit::fDaqID</a></div><div class="ttdeci">Int_t fDaqID[16]</div><div class="ttdoc">SiPM time.</div><div class="ttdef"><b>Definition:</b> <a href="SndlhcHit_8h_source.html#l00076">SndlhcHit.h:76</a></div></div>
-<div class="ttc" id="aclassSndlhcHit_html_a8d75216587d37622469f268e29eec728"><div class="ttname"><a href="classSndlhcHit.html#a8d75216587d37622469f268e29eec728">SndlhcHit::nSides</a></div><div class="ttdeci">Int_t nSides</div><div class="ttdoc">number of SiPMs per side</div><div class="ttdef"><b>Definition:</b> <a href="SndlhcHit_8h_source.html#l00073">SndlhcHit.h:73</a></div></div>
-<div class="ttc" id="aclassSndlhcHit_html_a909edea1e089a822a53020c735790bfa"><div class="ttname"><a href="classSndlhcHit.html#a909edea1e089a822a53020c735790bfa">SndlhcHit::signals</a></div><div class="ttdeci">Float_t signals[16]</div><div class="ttdoc">number of sides</div><div class="ttdef"><b>Definition:</b> <a href="SndlhcHit_8h_source.html#l00074">SndlhcHit.h:74</a></div></div>
+<div class="ttc" id="aclassSndlhcHit_html_a037949791245d523b80c7a359f2069ad"><div class="ttname"><a href="classSndlhcHit.html#a037949791245d523b80c7a359f2069ad">SndlhcHit::nSiPMs</a></div><div class="ttdeci">Int_t nSiPMs</div><div class="ttdef"><b>Definition:</b> <a href="SndlhcHit_8h_source.html#l00073">SndlhcHit.h:73</a></div></div>
+<div class="ttc" id="aclassSndlhcHit_html_a2810f9422cde6281c92b612c55faad1c"><div class="ttname"><a href="classSndlhcHit.html#a2810f9422cde6281c92b612c55faad1c">SndlhcHit::times</a></div><div class="ttdeci">Float_t times[16]</div><div class="ttdoc">SiPM signal.</div><div class="ttdef"><b>Definition:</b> <a href="SndlhcHit_8h_source.html#l00076">SndlhcHit.h:76</a></div></div>
+<div class="ttc" id="aclassSndlhcHit_html_a85600a31a13cae312965a1ca62863d0e"><div class="ttname"><a href="classSndlhcHit.html#a85600a31a13cae312965a1ca62863d0e">SndlhcHit::fDaqID</a></div><div class="ttdeci">Int_t fDaqID[16]</div><div class="ttdoc">SiPM time.</div><div class="ttdef"><b>Definition:</b> <a href="SndlhcHit_8h_source.html#l00077">SndlhcHit.h:77</a></div></div>
+<div class="ttc" id="aclassSndlhcHit_html_a8d75216587d37622469f268e29eec728"><div class="ttname"><a href="classSndlhcHit.html#a8d75216587d37622469f268e29eec728">SndlhcHit::nSides</a></div><div class="ttdeci">Int_t nSides</div><div class="ttdoc">number of SiPMs per side</div><div class="ttdef"><b>Definition:</b> <a href="SndlhcHit_8h_source.html#l00074">SndlhcHit.h:74</a></div></div>
+<div class="ttc" id="aclassSndlhcHit_html_a909edea1e089a822a53020c735790bfa"><div class="ttname"><a href="classSndlhcHit.html#a909edea1e089a822a53020c735790bfa">SndlhcHit::signals</a></div><div class="ttdeci">Float_t signals[16]</div><div class="ttdoc">number of sides</div><div class="ttdef"><b>Definition:</b> <a href="SndlhcHit_8h_source.html#l00075">SndlhcHit.h:75</a></div></div>
 <div class="ttc" id="anamespaceconditionsDatabase_1_1snd__conDB_html_aefe45588482a96fe32b00d4855c3a4df"><div class="ttname"><a href="namespaceconditionsDatabase_1_1snd__conDB.html#aefe45588482a96fe32b00d4855c3a4df">conditionsDatabase.snd_conDB.j</a></div><div class="ttdeci">int j</div><div class="ttdef"><b>Definition:</b> <a href="snd__conDB_8py_source.html#l00197">snd_conDB.py:197</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -331,7 +333,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>encodes (board_id * 1000) + (tofpet_id * 100) + tofpet_channel </p>
+<p>encodes rawhitindex*100000+(board_id * 1000) + (tofpet_id * 100) + tofpet_channel </p>
 
 </div>
 </div>
@@ -360,7 +362,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="SndlhcHit_8h_source.html#l00045">45</a> of file <a class="el" href="SndlhcHit_8h_source.html">SndlhcHit.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">int</a>(<a class="code" href="classSndlhcHit.html#a85600a31a13cae312965a1ca62863d0e">fDaqID</a>[<a class="code" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>]/1000);}</div>
+<div class="fragment"><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">int</a>((<a class="code" href="classSndlhcHit.html#a85600a31a13cae312965a1ca62863d0e">fDaqID</a>[<a class="code" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>]%100000)/1000);}</div>
 <div class="ttc" id="anamespaceShipAna_html_aa4bf87f4d17f9d38b1d8f4d009bb54b3"><div class="ttname"><a href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">ShipAna.i</a></div><div class="ttdeci">int i</div><div class="ttdef"><b>Definition:</b> <a href="ShipAna_8py_source.html#l00086">ShipAna.py:86</a></div></div>
 <div class="ttc" id="anamespaceadd__noise__to__field_html_a4aa6f75233f1922a97b2d4c15285c18e"><div class="ttname"><a href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">add_noise_to_field.int</a></div><div class="ttdeci">int</div><div class="ttdef"><b>Definition:</b> <a href="add__noise__to__field_8py_source.html#l00057">add_noise_to_field.py:57</a></div></div>
 </div><!-- fragment -->
@@ -514,8 +516,37 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SndlhcHit_8h_source.html#l00054">54</a> of file <a class="el" href="SndlhcHit_8h_source.html">SndlhcHit.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;{;}</div>
+<p class="definition">Definition at line <a class="el" href="SndlhcHit_8h_source.html#l00055">55</a> of file <a class="el" href="SndlhcHit_8h_source.html">SndlhcHit.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;{;}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="af0033e11cc873069e89e03878e68f6b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0033e11cc873069e89e03878e68f6b1">&#9670;&nbsp;</a></span>GetRawHitIndex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Int_t SndlhcHit::GetRawHitIndex </td>
+          <td>(</td>
+          <td class="paramtype">Int_t&#160;</td>
+          <td class="paramname"><em>i</em> = <code>0</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="SndlhcHit_8h_source.html#l00048">48</a> of file <a class="el" href="SndlhcHit_8h_source.html">SndlhcHit.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">int</a>(<a class="code" href="classSndlhcHit.html#a85600a31a13cae312965a1ca62863d0e">fDaqID</a>[<a class="code" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>]/100000);}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -618,8 +649,8 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SndlhcHit_8h_source.html#l00052">52</a> of file <a class="el" href="SndlhcHit_8h_source.html">SndlhcHit.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;{;}</div>
+<p class="definition">Definition at line <a class="el" href="SndlhcHit_8h_source.html#l00053">53</a> of file <a class="el" href="SndlhcHit_8h_source.html">SndlhcHit.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;{;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -659,18 +690,18 @@ template&lt;class Archive &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SndlhcHit_8h_source.html#l00059">59</a> of file <a class="el" href="SndlhcHit_8h_source.html">SndlhcHit.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        ar&amp; boost::serialization::base_object&lt;TObject&gt;(*<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        ar&amp; <a class="code" href="classSndlhcHit.html#a836f646fa492caea1cf66ace3444450d">fDetectorID</a>;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        ar&amp; <a class="code" href="classSndlhcHit.html#a037949791245d523b80c7a359f2069ad">nSiPMs</a>;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        ar&amp; <a class="code" href="classSndlhcHit.html#a8d75216587d37622469f268e29eec728">nSides</a>;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    }</div>
+<p class="definition">Definition at line <a class="el" href="SndlhcHit_8h_source.html#l00060">60</a> of file <a class="el" href="SndlhcHit_8h_source.html">SndlhcHit.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        ar&amp; boost::serialization::base_object&lt;TObject&gt;(*<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        ar&amp; <a class="code" href="classSndlhcHit.html#a836f646fa492caea1cf66ace3444450d">fDetectorID</a>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        ar&amp; <a class="code" href="classSndlhcHit.html#a037949791245d523b80c7a359f2069ad">nSiPMs</a>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        ar&amp; <a class="code" href="classSndlhcHit.html#a8d75216587d37622469f268e29eec728">nSides</a>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="aebbf3baed9fe0b7e87222ebf2d6c8400"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aebbf3baed9fe0b7e87222ebf2d6c8400">&#9670;&nbsp;</a></span>SetDaqID()</h2>
+<a id="a906877294b31b40330f6da2217421085"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a906877294b31b40330f6da2217421085">&#9670;&nbsp;</a></span>SetDaqID()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -683,6 +714,12 @@ template&lt;class Archive &gt; </div>
           <td>(</td>
           <td class="paramtype">Int_t&#160;</td>
           <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Int_t&#160;</td>
+          <td class="paramname"><em>k</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -716,8 +753,9 @@ template&lt;class Archive &gt; </div>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="SndlhcHit_8h_source.html#l00044">44</a> of file <a class="el" href="SndlhcHit_8h_source.html">SndlhcHit.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{ <a class="code" href="classSndlhcHit.html#a85600a31a13cae312965a1ca62863d0e">fDaqID</a>[<a class="code" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>] = <a class="code" href="namespaceconditionsDatabase_1_1scifi__conDB.html#a9867116b0089e4fd0a453215a7e86042">board_id</a> * 1000 + tofpet_id * 100 + tofpet_channel; }</div>
+<div class="fragment"><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{ <a class="code" href="classSndlhcHit.html#a85600a31a13cae312965a1ca62863d0e">fDaqID</a>[<a class="code" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>] = <a class="code" href="namespacerunPythia8.html#a4cd74a33c53eaeef70fcb6b448b9b285">k</a>*100000 + <a class="code" href="namespaceconditionsDatabase_1_1scifi__conDB.html#a9867116b0089e4fd0a453215a7e86042">board_id</a> * 1000 + tofpet_id * 100 + tofpet_channel; }</div>
 <div class="ttc" id="anamespaceconditionsDatabase_1_1scifi__conDB_html_a9867116b0089e4fd0a453215a7e86042"><div class="ttname"><a href="namespaceconditionsDatabase_1_1scifi__conDB.html#a9867116b0089e4fd0a453215a7e86042">conditionsDatabase.scifi_conDB.board_id</a></div><div class="ttdeci">int board_id</div><div class="ttdef"><b>Definition:</b> <a href="scifi__conDB_8py_source.html#l00026">scifi_conDB.py:26</a></div></div>
+<div class="ttc" id="anamespacerunPythia8_html_a4cd74a33c53eaeef70fcb6b448b9b285"><div class="ttname"><a href="namespacerunPythia8.html#a4cd74a33c53eaeef70fcb6b448b9b285">runPythia8.k</a></div><div class="ttdeci">int k</div><div class="ttdef"><b>Definition:</b> <a href="runPythia8_8py_source.html#l00129">runPythia8.py:129</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -819,7 +857,7 @@ template&lt;class Archive &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SndlhcHit_8h_source.html#l00069">69</a> of file <a class="el" href="SndlhcHit_8h_source.html">SndlhcHit.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SndlhcHit_8h_source.html#l00070">70</a> of file <a class="el" href="SndlhcHit_8h_source.html">SndlhcHit.h</a>.</p>
 
 </div>
 </div>
@@ -846,7 +884,7 @@ template&lt;class Archive &gt; </div>
 
 <p>SiPM time. </p>
 
-<p class="definition">Definition at line <a class="el" href="SndlhcHit_8h_source.html#l00076">76</a> of file <a class="el" href="SndlhcHit_8h_source.html">SndlhcHit.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SndlhcHit_8h_source.html#l00077">77</a> of file <a class="el" href="SndlhcHit_8h_source.html">SndlhcHit.h</a>.</p>
 
 </div>
 </div>
@@ -872,7 +910,7 @@ template&lt;class Archive &gt; </div>
 
 <p>Detector unique identifier. </p>
 
-<p class="definition">Definition at line <a class="el" href="SndlhcHit_8h_source.html#l00071">71</a> of file <a class="el" href="SndlhcHit_8h_source.html">SndlhcHit.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SndlhcHit_8h_source.html#l00072">72</a> of file <a class="el" href="SndlhcHit_8h_source.html">SndlhcHit.h</a>.</p>
 
 </div>
 </div>
@@ -898,7 +936,7 @@ template&lt;class Archive &gt; </div>
 
 <p>number of SiPMs per side </p>
 
-<p class="definition">Definition at line <a class="el" href="SndlhcHit_8h_source.html#l00073">73</a> of file <a class="el" href="SndlhcHit_8h_source.html">SndlhcHit.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SndlhcHit_8h_source.html#l00074">74</a> of file <a class="el" href="SndlhcHit_8h_source.html">SndlhcHit.h</a>.</p>
 
 </div>
 </div>
@@ -922,7 +960,7 @@ template&lt;class Archive &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SndlhcHit_8h_source.html#l00072">72</a> of file <a class="el" href="SndlhcHit_8h_source.html">SndlhcHit.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SndlhcHit_8h_source.html#l00073">73</a> of file <a class="el" href="SndlhcHit_8h_source.html">SndlhcHit.h</a>.</p>
 
 </div>
 </div>
@@ -948,7 +986,7 @@ template&lt;class Archive &gt; </div>
 
 <p>number of sides </p>
 
-<p class="definition">Definition at line <a class="el" href="SndlhcHit_8h_source.html#l00074">74</a> of file <a class="el" href="SndlhcHit_8h_source.html">SndlhcHit.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SndlhcHit_8h_source.html#l00075">75</a> of file <a class="el" href="SndlhcHit_8h_source.html">SndlhcHit.h</a>.</p>
 
 </div>
 </div>
@@ -974,7 +1012,7 @@ template&lt;class Archive &gt; </div>
 
 <p>SiPM signal. </p>
 
-<p class="definition">Definition at line <a class="el" href="SndlhcHit_8h_source.html#l00075">75</a> of file <a class="el" href="SndlhcHit_8h_source.html">SndlhcHit.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SndlhcHit_8h_source.html#l00076">76</a> of file <a class="el" href="SndlhcHit_8h_source.html">SndlhcHit.h</a>.</p>
 
 </div>
 </div>
