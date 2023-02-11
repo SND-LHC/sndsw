@@ -39,10 +39,10 @@ class AdvTargetPoint : public FairMCPoint
 
     Int_t PdgCode() const {return fPdgCode;}
     int GetStation(){return floor(fDetectorID/10000);}
-    int GetPlane(){return floor(fDetectorID/1000)%10;} // 0 is X-plane, 1 is Y-pane
-    int GetRow(){return floor(fDetectorID/100)%10;}
-    int GetColumn(){return floor(fDetectorID/10)%10;}
-    int GetSensor(){return floor(fDetectorID%10);}
+    int GetPlane(){return int(fDetectorID/1000)%10;} // 0 is X-plane, 1 is Y-pane
+    int GetRow(){return int(fDetectorID/100)%10;}
+    int GetColumn(){return int(fDetectorID/10)%10;}
+    int GetSensor(){return int(fDetectorID%10);}
 
   private:
 
