@@ -1392,9 +1392,20 @@ var namespaces_dup =
       [ "top", "namespacegetGeoInformation.html#a817429de989e54975b015c0d9396b452", null ]
     ] ],
     [ "getInteractionAndRadiationLength", "namespacegetInteractionAndRadiationLength.html", [
+      [ "pyExit", "namespacegetInteractionAndRadiationLength.html#ab2af0d623d6c7e9c7524ad450d03f2dd", null ],
+      [ "default", "namespacegetInteractionAndRadiationLength.html#a908d32d1389c11143ada8cf15adf6ad0", null ],
+      [ "dest", "namespacegetInteractionAndRadiationLength.html#afbf17ecbf8cd06af277e986ad28bbb15", null ],
       [ "end", "namespacegetInteractionAndRadiationLength.html#a0bb5e2e407c672fbaca98f5615812e5b", null ],
+      [ "float", "namespacegetInteractionAndRadiationLength.html#a393413409f3430c9f75fe5da26151487", null ],
+      [ "Geniegen", "namespacegetInteractionAndRadiationLength.html#ae567246a7af72ed7ab41a8c06442ef15", null ],
+      [ "geo", "namespacegetInteractionAndRadiationLength.html#a943e8888d7e3eb8f5460c25277bc7365", null ],
+      [ "help", "namespacegetInteractionAndRadiationLength.html#a2b94164983f6b4abc9f93c57186dba31", null ],
       [ "mparam", "namespacegetInteractionAndRadiationLength.html#aa0e9918aaad753c9ae2ef7d1cf39dc05", null ],
-      [ "start", "namespacegetInteractionAndRadiationLength.html#acb156e7c2455b7437dfa7ceb797dc4b8", null ]
+      [ "options", "namespacegetInteractionAndRadiationLength.html#a5383bd19cfda3471189e39b804aee0c6", null ],
+      [ "parser", "namespacegetInteractionAndRadiationLength.html#a20d30a1a5546d31ca231097176634ef2", null ],
+      [ "required", "namespacegetInteractionAndRadiationLength.html#a4db9a9ca63e240fedcd5341ae0f1df49", null ],
+      [ "start", "namespacegetInteractionAndRadiationLength.html#acb156e7c2455b7437dfa7ceb797dc4b8", null ],
+      [ "type", "namespacegetInteractionAndRadiationLength.html#a64731288e2f1b3f8239efe57ddc7123d", null ]
     ] ],
     [ "global_variables", "namespaceglobal__variables.html", null ],
     [ "goliath2root", "namespacegoliath2root.html", [
@@ -2223,6 +2234,20 @@ var namespaces_dup =
       [ "h", "namespacemuDIS__mergeFiles.html#a3d2065b5434e9823f79eef723f972b74", null ]
     ] ],
     [ "Mufi_monitoring", "namespaceMufi__monitoring.html", "namespaceMufi__monitoring" ],
+    [ "MufiCTR", "namespaceMufiCTR.html", [
+      [ "execute", "namespaceMufiCTR.html#aa0d37500c7677c1c9d8fd51e7e33b34d", null ],
+      [ "start", "namespaceMufiCTR.html#afa2741c0e7a4b7f9339bedbac6f0f050", null ],
+      [ "start0", "namespaceMufiCTR.html#aead2879a6f7392caa71662e57c779985", null ],
+      [ "timingOfEvent", "namespaceMufiCTR.html#aaf2393b34084eb3cbfbe6e73f37cb660", null ],
+      [ "xCheck", "namespaceMufiCTR.html#af8acd2945f6fc4ff5b092c862991323c", null ],
+      [ "alignTpar", "namespaceMufiCTR.html#a1ead112cb160c510bfffd7d6a4f54784", null ],
+      [ "alignTparB2", "namespaceMufiCTR.html#a9dac930935e390045ac8cceacdd18363", null ],
+      [ "channelsPerPlane", "namespaceMufiCTR.html#afcb30b727e3f3b7d0fbb9725e4636a28", null ],
+      [ "f", "namespaceMufiCTR.html#aef597613a146970a5b73d0b986a3ac3f", null ],
+      [ "h", "namespaceMufiCTR.html#a10fc23b9c93747d2a683a1d7928d0448", null ],
+      [ "Planes", "namespaceMufiCTR.html#a2e9cda9d28b88d11c25592656c5b023f", null ],
+      [ "S", "namespaceMufiCTR.html#a722154c7f017f1114fd48f12d8b8f3e8", null ]
+    ] ],
     [ "mufiHitMaps", "namespacemufiHitMaps.html", [
       [ "analyze_USefficiency", "namespacemufiHitMaps.html#ac1a4ccfd599266faa17ca79b21b25fc9", null ],
       [ "beamSpot", "namespacemufiHitMaps.html#a2ae7e3ec8b69548cb60b825664520d34", null ],

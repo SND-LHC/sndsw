@@ -585,7 +585,7 @@ $(document).ready(function(){initNavTree('SndlhcTracking_8py_source.html',''); i
 <div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;            detSys  = 1</div>
 <div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;            <span class="keywordflow">if</span> detID&lt;40000: detSys=3</div>
 <div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;            <span class="keywordflow">if</span> detSys==3: self.<a class="code" href="classSndlhcTracking_1_1Tracking.html#a89abbd6faa2b63e253ae8da871dfeda4">mufiDet</a>mufiDet.GetPosition(detID,A,B)</div>
-<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;            <span class="keywordflow">if</span> detSys==1: self.<a class="code" href="classSndlhcTracking_1_1Tracking.html#a446e1044de4bcb4e59dfa165299687db">scifiDet</a>scifiDet.GetPosition(detID,A,B)</div>
+<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;            <span class="keywordflow">if</span> detSys==1: self.<a class="code" href="classSndlhcTracking_1_1Tracking.html#a446e1044de4bcb4e59dfa165299687db">scifiDet</a>scifiDet.GetSiPMPosition(detID,A,B)</div>
 <div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;        distance = 0</div>
 <div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;        tmp = <a class="code" href="namespaceScifiCluster.html#af665f08bc8ac8769c1b0aa7d1cc33041">array</a>(<span class="stringliteral">&#39;d&#39;</span>,[A[0],A[1],A[2],B[0],B[1],B[2],distance])</div>
 <div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;        unSortedList[A[2]] = [ROOT.TVectorD(7,tmp),detID,k,detSys]</div>

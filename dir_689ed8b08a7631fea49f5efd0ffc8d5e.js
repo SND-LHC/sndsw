@@ -12,6 +12,7 @@ var dir_689ed8b08a7631fea49f5efd0ffc8d5e =
     [ "FillingScheme.py", "FillingScheme_8py.html", "FillingScheme_8py" ],
     [ "Monitor.py", "Monitor_8py.html", "Monitor_8py" ],
     [ "Mufi_monitoring.py", "Mufi__monitoring_8py.html", "Mufi__monitoring_8py" ],
+    [ "MufiCTR.py", "MufiCTR_8py.html", "MufiCTR_8py" ],
     [ "run_Calibration-rawTimestamp.py", "run__Calibration-rawTimestamp_8py.html", "run__Calibration-rawTimestamp_8py" ],
     [ "run_Monitoring.py", "run__Monitoring_8py.html", "run__Monitoring_8py" ],
     [ "run_TrackSelections.py", "run__TrackSelections_8py.html", "run__TrackSelections_8py" ],

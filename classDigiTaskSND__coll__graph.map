@@ -1,10 +1,10 @@
 <map id="DigiTaskSND" name="DigiTaskSND">
-<area shape="rect" id="node1" title=" " alt="" coords="195,228,301,255"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,117,80,143"/>
-<area shape="rect" id="node3" href="$classSNDLHCEventHeader.html" title=" " alt="" coords="104,117,264,143"/>
-<area shape="rect" id="node4" title=" " alt="" coords="145,5,223,32"/>
-<area shape="rect" id="node5" href="$classScifi.html" title=" " alt="" coords="289,117,338,143"/>
-<area shape="rect" id="node6" title=" " alt="" coords="255,5,356,32"/>
-<area shape="rect" id="node7" title=" " alt="" coords="381,5,499,32"/>
-<area shape="rect" id="node8" title=" " alt="" coords="460,109,641,151"/>
+<area shape="rect" id="node1" title=" " alt="" coords="278,304,383,331"/>
+<area shape="rect" id="node2" title=" " alt="" coords="79,193,153,219"/>
+<area shape="rect" id="node3" href="$classSNDLHCEventHeader.html" title=" " alt="" coords="284,81,444,108"/>
+<area shape="rect" id="node5" href="$classScifi.html" title=" " alt="" coords="178,193,227,219"/>
+<area shape="rect" id="node4" title=" " alt="" coords="325,5,403,32"/>
+<area shape="rect" id="node6" title=" " alt="" coords="5,81,107,108"/>
+<area shape="rect" id="node7" title=" " alt="" coords="131,81,250,108"/>
+<area shape="rect" id="node8" title=" " alt="" coords="491,185,672,227"/>
 </map>
