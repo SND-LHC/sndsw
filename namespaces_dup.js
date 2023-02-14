@@ -1898,6 +1898,11 @@ var namespaces_dup =
       [ "minresqlp", "namespaceminresqlpmodule.html#ab0e9f6586048493a1e8e01f5f471b2c0", null ],
       [ "symortho", "namespaceminresqlpmodule.html#af827a771499cbe406df432ef1d5d758b", null ]
     ] ],
+    [ "modifyGeoFileDict", "namespacemodifyGeoFileDict.html", [
+      [ "modifyDicts", "namespacemodifyGeoFileDict.html#a7c2d0b6c3eaef6be39e544c612658b6d", null ],
+      [ "path", "namespacemodifyGeoFileDict.html#a9a975b2f71e72370731d35fdc228e0d0", null ],
+      [ "supportedGeoFiles", "namespacemodifyGeoFileDict.html#a96015d348b63ae52c982e1388f7e6f23", null ]
+    ] ],
     [ "Monitor", "namespaceMonitor.html", "namespaceMonitor" ],
     [ "mpbits", "namespacempbits.html", [
       [ "bitfieldcounters", "namespacempbits.html#aea397564ea86fb7fe2b1c114b0871f4f", null ],

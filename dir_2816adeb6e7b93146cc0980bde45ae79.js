@@ -25,6 +25,7 @@ var dir_2816adeb6e7b93146cc0980bde45ae79 =
       [ "Floor", "classFloor.html", "classFloor" ]
     ] ],
     [ "makeGeoFile.py", "makeGeoFile_8py.html", "makeGeoFile_8py" ],
+    [ "modifyGeoFileDict.py", "modifyGeoFileDict_8py.html", "modifyGeoFileDict_8py" ],
     [ "MuFilter.cxx", "MuFilter_8cxx.html", null ],
     [ "MuFilter.h", "MuFilter_8h.html", [
       [ "MuFilter", "classMuFilter.html", "classMuFilter" ]
