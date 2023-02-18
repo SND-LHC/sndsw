@@ -39,6 +39,3 @@ void AdvTargetPoint::Print(const Option_t* opt) const
   cout << "    Time " << fTime << " ns,  Length " << fLength
        << " cm,  Energy loss " << fELoss*1.0e06 << " keV" << endl;
 }
-// -------------------------------------------------------------------------
-
-ClassImp(AdvTargetPoint)
