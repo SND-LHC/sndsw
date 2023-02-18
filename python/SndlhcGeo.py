@@ -16,9 +16,12 @@ class GeoInterface():
    run = "notNeeded"
    self.modules = sndDet_conf.configure(run,self.snd_geo)
    self.sGeo = self.fgeo.FAIRGeom
-   self.modules['Scifi'].SiPMmapping()
+   if self.modules and self.modules['Scifi']:
+    self.modules['Scifi'].SiPMmapping()
    lsOfGlobals = ROOT.gROOT.GetListOfGlobals()
-   for m in self.modules: lsOfGlobals.Add(self.modules[m])
+   if self.modules:
+    for m in self.modules:
+     lsOfGlobals.Add(self.modules[m])
 
    temp = {}
    for o1 in self.snd_geo:
@@ -37,8 +40,10 @@ class GeoInterface():
                    if not  hasattr(z,'items'):        temp[key] = z
    for key in temp:
        if not key.find('MuFilter')<0:
+        if self.modules:
             self.modules['MuFilter'].SetConfPar(key,temp[key])
        if not key.find('Scifi')<0:
+        if self.modules:
             self.modules['Scifi'].SetConfPar(key,temp[key])
 
  def FinishEvent(self):
