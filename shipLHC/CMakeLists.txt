@@ -43,6 +43,7 @@ Magnet.cxx
 MagnetPoint.cxx
 AdvTarget.cxx
 AdvTargetPoint.cxx
+AdvTargetHit.cxx
 AdvMuFilter.cxx
 AdvMuFilterPoint.cxx
 SNDLHCEventHeader.cxx

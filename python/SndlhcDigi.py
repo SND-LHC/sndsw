@@ -21,30 +21,39 @@ class SndlhcDigi:
         # event header
         self.header  = ROOT.SNDLHCEventHeader()
         self.eventHeader  = self.sTree.Branch("EventHeader.",self.header,32000,1)
-        #scifi
-        self.digiScifi   = ROOT.TClonesArray("sndScifiHit")
-        self.digiScifiBranch   = self.sTree.Branch("Digi_ScifiHits",self.digiScifi,32000,1)
-        self.digiScifi2MCPoints =  ROOT.TClonesArray("Hit2MCPoints")
-        self.digiScifi2MCPoints.BypassStreamer(ROOT.kTRUE)
-        self.digiScifi2MCPointsBranch   = self.sTree.Branch("Digi_ScifiHits2MCPoints",self.digiScifi2MCPoints,32000,1)
+        #AdvTarget
+        self.digiTarget   = ROOT.TClonesArray("AdvTargetHit")
+        self.digiTargetBranch   = self.sTree.Branch("Digi_advTargetHits",self.digiTarget, 32000, 1)
+        self.digiTarget2MCPoints =  ROOT.TClonesArray("Hit2MCPoints")
+        self.digiTarget2MCPoints.BypassStreamer(ROOT.kTRUE)
+        self.digiTarget2MCPointsBranch   = self.sTree.Branch("Digi_TargetHits2MCPoints",self.digiTarget2MCPoints, 32000, 1)
         lsOfGlobals  = ROOT.gROOT.GetListOfGlobals()
         self.scifiDet = lsOfGlobals.FindObject('Scifi')
         self.mufiDet = lsOfGlobals.FindObject('MuFilter')
-        if not self.scifiDet or not self.mufiDet: 
-              exit('detector(s) not found, stop')
-# make sipm to fibre mapping
-        self.fibresSiPM = SciFiMapping.getFibre2SiPMCPP(self.scifiDet)
-        self.siPMFibres = SciFiMapping.getSiPM2FibreCPP(self.scifiDet)
-        #scifi clusters
-        self.clusScifi   = ROOT.TClonesArray("sndCluster")
-        self.clusScifiBranch    = self.sTree.Branch("Cluster_Scifi",self.clusScifi,32000,1)
+        # self.targetDet = lsOfGlobals.FindObject('AdvTarget')
+        # if not self.scifiDet or not self.mufiDet:
+        #       exit('detector(s) not found, stop')
+        if self.scifiDet:
+            #scifi
+            self.digiScifi   = ROOT.TClonesArray("sndScifiHit")
+            self.digiScifiBranch   = self.sTree.Branch("Digi_ScifiHits",self.digiScifi,32000,1)
+            self.digiScifi2MCPoints =  ROOT.TClonesArray("Hit2MCPoints")
+            self.digiScifi2MCPoints.BypassStreamer(ROOT.kTRUE)
+            self.digiScifi2MCPointsBranch   = self.sTree.Branch("Digi_ScifiHits2MCPoints",self.digiScifi2MCPoints,32000,1)
+            # make sipm to fibre mapping
+            self.fibresSiPM = SciFiMapping.getFibre2SiPMCPP(self.scifiDet)
+            self.siPMFibres = SciFiMapping.getSiPM2FibreCPP(self.scifiDet)
+            #scifi clusters
+            self.clusScifi   = ROOT.TClonesArray("sndCluster")
+            self.clusScifiBranch    = self.sTree.Branch("Cluster_Scifi",self.clusScifi,32000,1)
 
-        #muonFilter
-        self.digiMuFilter   = ROOT.TClonesArray("MuFilterHit")
-        self.digiMuFilterBranch   = self.sTree.Branch("Digi_MuFilterHits",self.digiMuFilter,32000,1)
-        self.digiMuFilter2MCPoints =  ROOT.TClonesArray("Hit2MCPoints")
-        self.digiMuFilter2MCPoints.BypassStreamer(ROOT.kTRUE)
-        self.digiMuFilter2MCPointsBranch   = self.sTree.Branch("Digi_MuFilterHits2MCPoints",self.digiMuFilter2MCPoints,32000,1)
+        if self.mufiDet:
+            #muonFilter
+            self.digiMuFilter   = ROOT.TClonesArray("MuFilterHit")
+            self.digiMuFilterBranch   = self.sTree.Branch("Digi_MuFilterHits",self.digiMuFilter,32000,1)
+            self.digiMuFilter2MCPoints =  ROOT.TClonesArray("Hit2MCPoints")
+            self.digiMuFilter2MCPoints.BypassStreamer(ROOT.kTRUE)
+            self.digiMuFilter2MCPointsBranch   = self.sTree.Branch("Digi_MuFilterHits2MCPoints",self.digiMuFilter2MCPoints,32000,1)
 
     def digitize(self):
 
@@ -52,20 +61,28 @@ class SndlhcDigi:
         self.header.SetEventNumber( self.sTree.MCEventHeader.GetEventID() )  # counts from 1
         self.header.SetBunchType(101);
         self.eventHeader.Fill()
-        self.digiScifi.Delete()
-        self.digiScifi2MCPoints.Delete()
-        self.digitizeScifi()
-        self.digiScifiBranch.Fill()
-        self.digiScifi2MCPointsBranch.Fill()
-        self.clusScifi.Delete()
-        self.clusterScifi()
-        self.clusScifiBranch.Fill()
+        if self.scifiDet:
+            self.digiScifi.Delete()
+            self.digiScifi2MCPoints.Delete()
+            self.digitizeScifi()
+            self.digiScifiBranch.Fill()
+            self.digiScifi2MCPointsBranch.Fill()
+            self.clusScifi.Delete()
+            self.clusterScifi()
+            self.clusScifiBranch.Fill()
 
-        self.digiMuFilter.Delete()
-        self.digiMuFilter2MCPoints.Delete()
-        self.digitizeMuFilter()
-        self.digiMuFilterBranch.Fill()
-        self.digiMuFilter2MCPointsBranch.Fill()
+        if self.mufiDet:
+            self.digiMuFilter.Delete()
+            self.digiMuFilter2MCPoints.Delete()
+            self.digitizeMuFilter()
+            self.digiMuFilterBranch.Fill()
+            self.digiMuFilter2MCPointsBranch.Fill()
+
+        self.digiTarget.Delete()
+        self.digiTarget2MCPoints.Delete()
+        self.digitizeTarget()
+        self.digiTargetBranch.Fill()
+        self.digiTarget2MCPointsBranch.Fill()
 
     def digitizeScifi(self):
         hitContainer = {}
@@ -135,6 +152,18 @@ class SndlhcDigi:
             for k in mcPoints[detID]:
                 mcLinks.Add(detID,k, mcPoints[detID][k]/norm[detID])
         self.digiMuFilter2MCPoints[0]=mcLinks
+
+    def digitizeTarget(self):
+        mcLinks = ROOT.Hit2MCPoints()
+        for index, point in enumerate(self.sTree.AdvTargetPoint):
+            detID = point.GetDetectorID()
+            aHit = ROOT.AdvTargetHit(detID, point, index)
+
+            if self.digiTarget.GetSize() == index:
+                self.digiTarget.Expand(index+100)
+            self.digiTarget[index] = aHit
+            mcLinks.Add(detID, index, 1.)
+        self.digiTarget2MCPoints[0] = mcLinks
 
     def clusterScifi(self):
         index = 0
