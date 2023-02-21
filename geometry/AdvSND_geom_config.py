@@ -342,4 +342,5 @@ with ConfigRegistry.register_config("basic") as c:
         c.AdvMuFilter.FeGap             = 2.0 * u.cm
         c.AdvMuFilter.Nplanes           = 22
         c.AdvMuFilter.CoilX             = c.AdvMuFilter.MuonSysPlaneX
-        c.AdvMuFilter.CoilY             = 2.0 *u.cm 
+        c.AdvMuFilter.CoilY             = 2.0 *u.cm
+        c.AdvMuFilter.Field             = 1.5 * u.tesla
