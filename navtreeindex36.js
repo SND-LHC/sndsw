@@ -1,5 +1,7 @@
 var NAVTREEINDEX36 =
 {
+"classgenfit_1_1TrackPoint.html#ac32b6319e9a4e6e3c8d7bba4b2e19577":[12,0,13,25,16],
+"classgenfit_1_1TrackPoint.html#ac8dd9655b7323ac50ad8e1c64a3cd23e":[12,0,13,25,17],
 "classgenfit_1_1TrackPoint.html#ad0216402d5648853ee85499939d5c24a":[12,0,13,25,34],
 "classgenfit_1_1TrackPoint.html#ad468fa28c524e7ac53e318ba4cd71d44":[12,0,13,25,18],
 "classgenfit_1_1TrackPoint.html#ad8da723a1d414b60b1ff1db913a36c15":[12,0,13,25,24],
@@ -247,7 +249,5 @@ var NAVTREEINDEX36 =
 "classhcalLightMap.html#ac2c6c47421bea83f1690caf4cb36d401":[12,0,99,3],
 "classhcalLightMap.html#acf03661f2eb212270c4576d0db712005":[12,0,99,10],
 "classhcalLightMap.html#ad8e9f46b5dd475666fc211432f79b8a8":[12,0,99,12],
-"classhcalLightMap.html#af76a5005cd456944d89f4df76d5924eb":[12,0,99,2],
-"classhcalModule.html":[12,0,100],
-"classhcalModule.html#a08f8fe13bce90f40fd2f04509ebc97fc":[12,0,100,20]
+"classhcalLightMap.html#af76a5005cd456944d89f4df76d5924eb":[12,0,99,2]
 };

@@ -1,5 +1,7 @@
 var NAVTREEINDEX46 =
 {
+"extractMuonsAndUpdateWeight_8py_source.html":[13,0,11,4],
+"extractNeutrinosAndUpdateWeight_8py.html":[13,0,11,5],
 "extractNeutrinosAndUpdateWeight_8py.html#a219530ce37f64738a48b1c1f4f1c30e7":[13,0,11,5,17],
 "extractNeutrinosAndUpdateWeight_8py.html#a231600f6d820de2c9820efa1cb8f5cea":[13,0,11,5,13],
 "extractNeutrinosAndUpdateWeight_8py.html#a3539c4107e28dee7803a43188f942ca9":[13,0,11,5,14],
@@ -247,7 +249,5 @@ var NAVTREEINDEX46 =
 "g4Ex__gap_8py.html#a10680ec2795d7acbd16dc8a9a0e351b4":[13,0,11,8,27],
 "g4Ex__gap_8py.html#a10e477d5909dbad4713c514f7d5f69aa":[13,0,11,8,48],
 "g4Ex__gap_8py.html#a122424aea70de88fdea74774a9c9ed5d":[13,0,11,8,42],
-"g4Ex__gap_8py.html#a1357ff7c62d3fd5641c969589ecd0bab":[13,0,11,8,35],
-"g4Ex__gap_8py.html#a193140199de0850fe34db13e5cfb1672":[13,0,11,8,8],
-"g4Ex__gap_8py.html#a1ce5edc8ca8401c30a8489ae39a0c243":[13,0,11,8,15]
+"g4Ex__gap_8py.html#a1357ff7c62d3fd5641c969589ecd0bab":[13,0,11,8,35]
 };

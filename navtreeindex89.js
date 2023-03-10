@@ -1,5 +1,7 @@
 var NAVTREEINDEX89 =
 {
+"structHitData.html#aed1e15cffff3552eebbd2d133ada45dd":[12,0,106,6],
+"structHitData.html#af1f7a19240363a28c25be2b97d7455b6":[12,0,106,7],
 "structRawDataHit.html":[12,0,138],
 "structRawDataHit.html#a0119ea686f846801b56c6c3fe98c4364":[12,0,138,1],
 "structRawDataHit.html#a0ffdb9298194486bfac4f2930419648f":[12,0,138,2],
@@ -247,7 +249,5 @@ var NAVTREEINDEX89 =
 "tPythia6Generator_8cxx.html":[13,0,19,31],
 "tPythia6Generator_8cxx_source.html":[13,0,19,31],
 "tPythia6Generator_8h.html":[13,0,19,32],
-"tPythia6Generator_8h_source.html":[13,0,19,32],
-"test__factory_8py.html":[13,0,1,2,4],
-"test__factory_8py.html#a3654122ad1d093404ea70b1d16fdcd7a":[13,0,1,2,4,1]
+"tPythia6Generator_8h_source.html":[13,0,19,32]
 };

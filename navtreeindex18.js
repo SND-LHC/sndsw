@@ -1,5 +1,6 @@
 var NAVTREEINDEX18 =
 {
+"classNtupleGenerator__FLUKA.html#a07e8773e3164fb945eee8d4053c66646":[12,0,124,16],
 "classNtupleGenerator__FLUKA.html#a08184d8683a29c05f81e30e36870c98e":[12,0,124,19],
 "classNtupleGenerator__FLUKA.html#a0b9ae0fe894957b7f96ed9b3835bf941":[12,0,124,9],
 "classNtupleGenerator__FLUKA.html#a0e564c1282b399fdb2beff008697bf60":[12,0,124,4],
@@ -248,6 +249,5 @@ var NAVTREEINDEX18 =
 "classNuageGenerator.html#af47637670a5e8842426356782fbf3251":[12,0,125,45],
 "classNuageGenerator.html#af55469c51edc7cee2ef4d390785739c4":[12,0,125,85],
 "classNuageGenerator.html#af5a621978787d97422d9559114056d65":[12,0,125,51],
-"classNutaudetContFact.html":[12,0,126],
-"classNutaudetContFact.html#a356203edff7e55a65fd9722b8a5e5fd7":[12,0,126,1]
+"classNutaudetContFact.html":[12,0,126]
 };

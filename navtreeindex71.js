@@ -1,5 +1,7 @@
 var NAVTREEINDEX71 =
 {
+"namespacequicktype.html":[11,0,108],
+"namespacequicktype.html#aaf78a0549686ac1b8791ee9a8f9abb4a":[11,0,108,2],
 "namespaceradio.html":[11,0,109],
 "namespaceradio.html#a2173c1232cd54d49a5435ae267c4f764":[11,0,109,4],
 "namespaceradio.html#a21d612c97d4258591273bae6c081de92":[11,0,109,11],
@@ -247,7 +249,5 @@ var NAVTREEINDEX71 =
 "namespacerun__Calibration-rawTimestamp.html#aaf37a75699beadc01cd836db2fb97ff5":[11,0,118,17],
 "namespacerun__Calibration-rawTimestamp.html#abccdd073424cf3d1d32bf506b95a489a":[11,0,118,18],
 "namespacerun__Calibration-rawTimestamp.html#ada86edca3416cef853c261d75e3b824e":[11,0,118,7],
-"namespacerun__Calibration-rawTimestamp.html#ae30b16cb7a6d3d47c09b420805ec0bad":[11,0,118,0],
-"namespacerun__Calibration-rawTimestamp.html#afd375b43749e86628fdea6f51f6b33c4":[11,0,118,8],
-"namespacerun__Monitoring.html":[11,0,121]
+"namespacerun__Calibration-rawTimestamp.html#ae30b16cb7a6d3d47c09b420805ec0bad":[11,0,118,0]
 };

@@ -1,5 +1,6 @@
 var NAVTREEINDEX20 =
 {
+"classScifiCTR_1_1Scifi__CTR.html#a39420fbf36366c59b92e07c0b81318bc":[12,0,31,0,11],
 "classScifiCTR_1_1Scifi__CTR.html#a58ed3aeb616a035608c44c33a1e50b1f":[12,0,31,0,13],
 "classScifiCTR_1_1Scifi__CTR.html#a5b011c19671a3bcd8b593c896f329a7a":[12,0,31,0,4],
 "classScifiCTR_1_1Scifi__CTR.html#a834276cf0ec05dde3925414aff73f840":[12,0,31,0,10],
@@ -82,11 +83,12 @@ var NAVTREEINDEX20 =
 "classScifi__monitoring_1_1Scifi__residuals.html#af82cce8402d3e03750c4b21e0a0c19e0":[12,0,29,1,2],
 "classScifi__monitoring_1_1Scifi__residuals.html#affe44e956c341819532868d6de7d9025":[12,0,29,1,8],
 "classScifi__monitoring_1_1Scifi__trackEfficiency.html":[12,0,29,2],
-"classScifi__monitoring_1_1Scifi__trackEfficiency.html#a30ef01caf0770ba68602339e9bdf4f2a":[12,0,29,2,6],
-"classScifi__monitoring_1_1Scifi__trackEfficiency.html#a512eb17aeaa4b9da9fc39163f93e2aaf":[12,0,29,2,3],
-"classScifi__monitoring_1_1Scifi__trackEfficiency.html#a713296d26af0b8074007cd8f049876c2":[12,0,29,2,4],
+"classScifi__monitoring_1_1Scifi__trackEfficiency.html#a30ef01caf0770ba68602339e9bdf4f2a":[12,0,29,2,7],
+"classScifi__monitoring_1_1Scifi__trackEfficiency.html#a512eb17aeaa4b9da9fc39163f93e2aaf":[12,0,29,2,4],
+"classScifi__monitoring_1_1Scifi__trackEfficiency.html#a713296d26af0b8074007cd8f049876c2":[12,0,29,2,5],
 "classScifi__monitoring_1_1Scifi__trackEfficiency.html#a747e2a91c89242b8432ed62ea9d4c9e1":[12,0,29,2,0],
-"classScifi__monitoring_1_1Scifi__trackEfficiency.html#a961bf11ff5e803a70c9fa42181327092":[12,0,29,2,5],
+"classScifi__monitoring_1_1Scifi__trackEfficiency.html#a783e52bc45c522278b9fd44aeb49de4d":[12,0,29,2,3],
+"classScifi__monitoring_1_1Scifi__trackEfficiency.html#a961bf11ff5e803a70c9fa42181327092":[12,0,29,2,6],
 "classScifi__monitoring_1_1Scifi__trackEfficiency.html#ae61b93f61cbe969442e9a84cc50fb7d6":[12,0,29,2,1],
 "classScifi__monitoring_1_1Scifi__trackEfficiency.html#ae9a1871692d43e86839e1e68579bd841":[12,0,29,2,2],
 "classShipBFieldMap.html":[12,0,149],
@@ -247,7 +249,5 @@ var NAVTREEINDEX20 =
 "classShipConstField.html#a31729b143121f2b6eb9c0c4132fdbe42":[12,0,153,7],
 "classShipConstField.html#a3466da0b073f6e5ab6a33f31a7f40f87":[12,0,153,21],
 "classShipConstField.html#a37606b850bde316a64bd2a697bf946d6":[12,0,153,24],
-"classShipConstField.html#a42273f58ec4a146c710ef98c2c63e6af":[12,0,153,5],
-"classShipConstField.html#a43b2a20ec1b46b3b3a1142b5b6df494d":[12,0,153,10],
-"classShipConstField.html#a509f57db6395f1a5edbfcef1ff107480":[12,0,153,13]
+"classShipConstField.html#a42273f58ec4a146c710ef98c2c63e6af":[12,0,153,5]
 };
