@@ -1,7 +1,5 @@
 var NAVTREEINDEX89 =
 {
-"structHitData.html#a9b0d9440b09680576b93d09cce9373a4":[12,0,106,3],
-"structHitData.html#ab2c3a8646279b1dfa716496364003986":[12,0,106,4],
 "structHitData.html#aed1e15cffff3552eebbd2d133ada45dd":[12,0,106,6],
 "structHitData.html#af1f7a19240363a28c25be2b97d7455b6":[12,0,106,7],
 "structRawDataHit.html":[12,0,138],
@@ -46,8 +44,8 @@ var NAVTREEINDEX89 =
 "structgenfit_1_1ExtrapStep.html":[12,0,13,50],
 "structgenfit_1_1ExtrapStep.html#a687b426b05da411dc42fa2629dccbdd1":[12,0,13,50,3],
 "structgenfit_1_1ExtrapStep.html#a9dc6889d8afb2564841edc7fac79c4f4":[12,0,13,50,2],
-"structgenfit_1_1ExtrapStep.html#ace3dd7154d264707a7ab92f5dacb9061":[12,0,13,50,0],
 "structgenfit_1_1ExtrapStep.html#ace3dd7154d264707a7ab92f5dacb9061":[12,0,13,50,1],
+"structgenfit_1_1ExtrapStep.html#ace3dd7154d264707a7ab92f5dacb9061":[12,0,13,50,0],
 "structgenfit_1_1MatStep.html":[12,0,13,6],
 "structgenfit_1_1MatStep.html#a61b1a634431ebb71b7fef8d6de309160":[12,0,13,6,0],
 "structgenfit_1_1MatStep.html#a6c2b9e5bcddd3a6fdf105ec10685e8a7":[12,0,13,6,1],
@@ -249,5 +247,7 @@ var NAVTREEINDEX89 =
 "submitPyG4prod_8py.html#aa3d06bba0cad285bacf1c9356f312832":[13,0,11,28,0],
 "submitPyG4prod_8py_source.html":[13,0,11,28],
 "tPythia6Generator_8cxx.html":[13,0,19,31],
-"tPythia6Generator_8cxx_source.html":[13,0,19,31]
+"tPythia6Generator_8cxx_source.html":[13,0,19,31],
+"tPythia6Generator_8h.html":[13,0,19,32],
+"tPythia6Generator_8h_source.html":[13,0,19,32]
 };
