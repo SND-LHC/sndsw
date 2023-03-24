@@ -206,6 +206,12 @@ Variables</h2></td></tr>
 <tr class="separator:ad103f299929607820168cd00f40cbbcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca48e16cb74b5a9a3bb26620ae16fce3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerun__simSND.html#aca48e16cb74b5a9a3bb26620ae16fce3">mygMC</a> = ROOT.TGeant4.GetMC()</td></tr>
 <tr class="separator:aca48e16cb74b5a9a3bb26620ae16fce3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0c684b16c441d9983b9892fadea21c3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerun__simSND.html#ac0c684b16c441d9983b9892fadea21c3">pt</a> = ROOT.G4ParticleTable.GetParticleTable()</td></tr>
+<tr class="separator:ac0c684b16c441d9983b9892fadea21c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbbb6ccc1a0b8fc898c400850554a3a3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerun__simSND.html#abbbb6ccc1a0b8fc898c400850554a3a3">particleG4</a> = pt.FindParticle(<a class="el" href="classpid.html">pid</a>)</td></tr>
+<tr class="separator:abbbb6ccc1a0b8fc898c400850554a3a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f1b45222212331b46cb09ca21005a76"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerun__simSND.html#a2f1b45222212331b46cb09ca21005a76">lt</a> = particleG4.GetPDGLifeTime()</td></tr>
+<tr class="separator:a2f1b45222212331b46cb09ca21005a76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95e502e4ce98a2ecbcb9f7ae512b3a86"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerun__simSND.html#a95e502e4ce98a2ecbcb9f7ae512b3a86">procmu</a> = gProcessTable.FindProcess(ROOT.G4String('muIoni'),ROOT.G4String('mu+'))</td></tr>
 <tr class="separator:a95e502e4ce98a2ecbcb9f7ae512b3a86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afcac533fde963fe0553a85b08dd6d7bc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerun__simSND.html#afcac533fde963fe0553a85b08dd6d7bc">kParameterMerged</a> = ROOT.kTRUE</td></tr>
@@ -246,26 +252,26 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00381">381</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;<span class="keyword">def </span><a class="code" href="namespacerun__simSND.html#a62f5a41886cd5d218708dd8322cbe0b7">checkOverlaps</a>(removeScifi=False):</div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160; sGeo = ROOT.gGeoManager</div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160; <span class="keywordflow">if</span> removeScifi:</div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;    <span class="keywordflow">for</span> n <span class="keywordflow">in</span> range(1,6):</div>
-<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;       Hscifi = sGeo.FindVolumeFast(<span class="stringliteral">&#39;ScifiVolume&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(n))</div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;       removalList = []</div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;       <span class="keywordflow">for</span> x <span class="keywordflow">in</span> Hscifi.GetNodes():</div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;             <span class="keywordflow">if</span> x.GetName().find(<span class="stringliteral">&#39;Scifi&#39;</span>)==0: removalList.append(x)</div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;       <span class="keywordflow">for</span> x <span class="keywordflow">in</span> removalList: Hscifi.RemoveNode(x)</div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160; sGeo.SetNmeshPoints(10000)</div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160; sGeo.CheckOverlaps(0.1)  <span class="comment"># 1 micron takes 5minutes</span></div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160; sGeo.PrintOverlaps()</div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;<span class="comment"># check subsystems in more detail</span></div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160; <span class="keywordflow">for</span> x <span class="keywordflow">in</span> sGeo.GetTopNode().GetNodes(): </div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;   x.CheckOverlaps(0.0001)</div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;   sGeo.PrintOverlaps()</div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00392">392</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;<span class="keyword">def </span><a class="code" href="namespacerun__simSND.html#a62f5a41886cd5d218708dd8322cbe0b7">checkOverlaps</a>(removeScifi=False):</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160; sGeo = ROOT.gGeoManager</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160; <span class="keywordflow">if</span> removeScifi:</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;    <span class="keywordflow">for</span> n <span class="keywordflow">in</span> range(1,6):</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;       Hscifi = sGeo.FindVolumeFast(<span class="stringliteral">&#39;ScifiVolume&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(n))</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;       removalList = []</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;       <span class="keywordflow">for</span> x <span class="keywordflow">in</span> Hscifi.GetNodes():</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;             <span class="keywordflow">if</span> x.GetName().find(<span class="stringliteral">&#39;Scifi&#39;</span>)==0: removalList.append(x)</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;       <span class="keywordflow">for</span> x <span class="keywordflow">in</span> removalList: Hscifi.RemoveNode(x)</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160; sGeo.SetNmeshPoints(10000)</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160; sGeo.CheckOverlaps(0.1)  <span class="comment"># 1 micron takes 5minutes</span></div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160; sGeo.PrintOverlaps()</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;<span class="comment"># check subsystems in more detail</span></div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160; <span class="keywordflow">for</span> x <span class="keywordflow">in</span> sGeo.GetTopNode().GetNodes(): </div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;   x.CheckOverlaps(0.0001)</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;   sGeo.PrintOverlaps()</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160; </div>
 <div class="ttc" id="anamespaceadd__noise__to__field_html_ac8c461fc99cff345995bf60fcdfefa01"><div class="ttname"><a href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">add_noise_to_field.str</a></div><div class="ttdeci">str</div><div class="ttdef"><b>Definition:</b> <a href="add__noise__to__field_8py_source.html#l00053">add_noise_to_field.py:53</a></div></div>
-<div class="ttc" id="anamespacerun__simSND_html_a62f5a41886cd5d218708dd8322cbe0b7"><div class="ttname"><a href="namespacerun__simSND.html#a62f5a41886cd5d218708dd8322cbe0b7">run_simSND.checkOverlaps</a></div><div class="ttdeci">def checkOverlaps(removeScifi=False)</div><div class="ttdef"><b>Definition:</b> <a href="run__simSND_8py_source.html#l00381">run_simSND.py:381</a></div></div>
+<div class="ttc" id="anamespacerun__simSND_html_a62f5a41886cd5d218708dd8322cbe0b7"><div class="ttname"><a href="namespacerun__simSND.html#a62f5a41886cd5d218708dd8322cbe0b7">run_simSND.checkOverlaps</a></div><div class="ttdeci">def checkOverlaps(removeScifi=False)</div><div class="ttdef"><b>Definition:</b> <a href="run__simSND_8py_source.html#l00392">run_simSND.py:392</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -284,16 +290,16 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00398">398</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;<span class="keyword">def </span><a class="code" href="namespacerun__simSND.html#a016dc967a014c3cc759cc1a2f5726203">checkOverlapsWithGeant4</a>():</div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160; <span class="comment"># after /run/initialize, but prints warning messages, problems with TGeo volume</span></div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160; mygMC = ROOT.TGeant4.GetMC()</div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160; mygMC.ProcessGeantCommand(<span class="stringliteral">&quot;/geometry/test/recursion_start 0&quot;</span>)</div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160; mygMC.ProcessGeantCommand(<span class="stringliteral">&quot;/geometry/test/recursion_depth 2&quot;</span>)</div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160; mygMC.ProcessGeantCommand(<span class="stringliteral">&quot;/geometry/test/run&quot;</span>)</div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160; </div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;<span class="comment"># checking for overlaps</span></div>
-<div class="ttc" id="anamespacerun__simSND_html_a016dc967a014c3cc759cc1a2f5726203"><div class="ttname"><a href="namespacerun__simSND.html#a016dc967a014c3cc759cc1a2f5726203">run_simSND.checkOverlapsWithGeant4</a></div><div class="ttdeci">def checkOverlapsWithGeant4()</div><div class="ttdef"><b>Definition:</b> <a href="run__simSND_8py_source.html#l00398">run_simSND.py:398</a></div></div>
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00409">409</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;<span class="keyword">def </span><a class="code" href="namespacerun__simSND.html#a016dc967a014c3cc759cc1a2f5726203">checkOverlapsWithGeant4</a>():</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160; <span class="comment"># after /run/initialize, but prints warning messages, problems with TGeo volume</span></div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160; mygMC = ROOT.TGeant4.GetMC()</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160; mygMC.ProcessGeantCommand(<span class="stringliteral">&quot;/geometry/test/recursion_start 0&quot;</span>)</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160; mygMC.ProcessGeantCommand(<span class="stringliteral">&quot;/geometry/test/recursion_depth 2&quot;</span>)</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160; mygMC.ProcessGeantCommand(<span class="stringliteral">&quot;/geometry/test/run&quot;</span>)</div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160; </div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;<span class="comment"># checking for overlaps</span></div>
+<div class="ttc" id="anamespacerun__simSND_html_a016dc967a014c3cc759cc1a2f5726203"><div class="ttname"><a href="namespacerun__simSND.html#a016dc967a014c3cc759cc1a2f5726203">run_simSND.checkOverlapsWithGeant4</a></div><div class="ttdeci">def checkOverlapsWithGeant4()</div><div class="ttdef"><b>Definition:</b> <a href="run__simSND_8py_source.html#l00409">run_simSND.py:409</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -326,7 +332,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00299">299</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00300">300</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
 
 </div>
 </div>
@@ -342,7 +348,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00066">66</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00067">67</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
 
 </div>
 </div>
@@ -358,7 +364,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00372">372</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00383">383</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
 
 </div>
 </div>
@@ -390,7 +396,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00080">80</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00081">81</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
 
 </div>
 </div>
@@ -422,7 +428,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00161">161</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00162">162</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
 
 </div>
 </div>
@@ -438,7 +444,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00352">352</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00363">363</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
 
 </div>
 </div>
@@ -454,7 +460,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00360">360</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00371">371</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
 
 </div>
 </div>
@@ -486,7 +492,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00243">243</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00244">244</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
 
 </div>
 </div>
@@ -502,7 +508,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00219">219</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00220">220</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
 
 </div>
 </div>
@@ -534,7 +540,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00265">265</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00266">266</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
 
 </div>
 </div>
@@ -550,7 +556,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00297">297</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00298">298</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
 
 </div>
 </div>
@@ -566,7 +572,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00188">188</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00189">189</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
 
 </div>
 </div>
@@ -582,7 +588,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00340">340</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00351">351</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
 
 </div>
 </div>
@@ -598,7 +604,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00264">264</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00265">265</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
 
 </div>
 </div>
@@ -614,7 +620,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00290">290</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00291">291</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
 
 </div>
 </div>
@@ -646,7 +652,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00353">353</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00364">364</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
 
 </div>
 </div>
@@ -662,7 +668,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00363">363</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00374">374</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
 
 </div>
 </div>
@@ -710,7 +716,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00078">78</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00079">79</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
 
 </div>
 </div>
@@ -726,7 +732,23 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00332">332</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00343">343</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+
+</div>
+</div>
+<a id="a2f1b45222212331b46cb09ca21005a76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f1b45222212331b46cb09ca21005a76">&#9670;&nbsp;</a></span>lt</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">run_simSND.lt = particleG4.GetPDGLifeTime()</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00322">322</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
 
 </div>
 </div>
@@ -806,7 +828,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00143">143</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00144">144</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
 
 </div>
 </div>
@@ -822,7 +844,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00162">162</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00163">163</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
 
 </div>
 </div>
@@ -838,7 +860,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00162">162</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00163">163</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
 
 </div>
 </div>
@@ -854,7 +876,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00226">226</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00227">227</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
 
 </div>
 </div>
@@ -870,7 +892,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00301">301</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00302">302</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
 
 </div>
 </div>
@@ -886,7 +908,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00304">304</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00305">305</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
 
 </div>
 </div>
@@ -902,7 +924,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00150">150</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00151">151</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
 
 </div>
 </div>
@@ -918,7 +940,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00199">199</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00200">200</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
 
 </div>
 </div>
@@ -934,7 +956,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00197">197</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00198">198</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
 
 </div>
 </div>
@@ -950,7 +972,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00166">166</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00167">167</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
 
 </div>
 </div>
@@ -966,7 +988,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00211">211</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00212">212</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
 
 </div>
 </div>
@@ -982,7 +1004,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00174">174</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00175">175</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
 
 </div>
 </div>
@@ -998,7 +1020,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00051">51</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00052">52</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
 
 </div>
 </div>
@@ -1014,7 +1036,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00115">115</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00116">116</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
 
 </div>
 </div>
@@ -1030,7 +1052,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00121">121</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00122">122</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
 
 </div>
 </div>
@@ -1046,7 +1068,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00333">333</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00344">344</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
 
 </div>
 </div>
@@ -1066,6 +1088,22 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="abbbb6ccc1a0b8fc898c400850554a3a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbbb6ccc1a0b8fc898c400850554a3a3">&#9670;&nbsp;</a></span>particleG4</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">run_simSND.particleG4 = pt.FindParticle(<a class="el" href="classpid.html">pid</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00321">321</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+
+</div>
+</div>
 <a id="a4e08e00339167e99f40123d8562cffa3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4e08e00339167e99f40123d8562cffa3">&#9670;&nbsp;</a></span>primGen</h2>
 
@@ -1078,7 +1116,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00146">146</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00147">147</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
 
 </div>
 </div>
@@ -1094,7 +1132,23 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00325">325</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00336">336</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+
+</div>
+</div>
+<a id="ac0c684b16c441d9983b9892fadea21c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0c684b16c441d9983b9892fadea21c3">&#9670;&nbsp;</a></span>pt</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">run_simSND.pt = ROOT.G4ParticleTable.GetParticleTable()</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00319">319</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
 
 </div>
 </div>
@@ -1126,7 +1180,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00135">135</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00136">136</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
 
 </div>
 </div>
@@ -1142,7 +1196,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00371">371</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00382">382</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
 
 </div>
 </div>
@@ -1158,7 +1212,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00131">131</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00132">132</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
 
 </div>
 </div>
@@ -1174,7 +1228,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00355">355</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00366">366</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
 
 </div>
 </div>
@@ -1206,7 +1260,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00105">105</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00106">106</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
 
 </div>
 </div>
@@ -1222,7 +1276,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00108">108</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00109">109</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
 
 </div>
 </div>
@@ -1238,7 +1292,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00127">127</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00128">128</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
 
 </div>
 </div>
@@ -1254,7 +1308,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00195">195</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00196">196</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
 
 </div>
 </div>
@@ -1286,7 +1340,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00054">54</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00055">55</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
 
 </div>
 </div>

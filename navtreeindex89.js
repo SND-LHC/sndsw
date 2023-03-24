@@ -1,5 +1,11 @@
 var NAVTREEINDEX89 =
 {
+"structHitData.html#a404d2cb9ea4bdb35df83b063bce85a5e":[12,0,106,2],
+"structHitData.html#a8c1494a3f1cf3de21c65966faa0b0b57":[12,0,106,1],
+"structHitData.html#a8d72eb541e03034e25bdec1e30364e89":[12,0,106,5],
+"structHitData.html#a8ddd3a480432580dd3cc6f2ee39871c3":[12,0,106,0],
+"structHitData.html#a9b0d9440b09680576b93d09cce9373a4":[12,0,106,3],
+"structHitData.html#ab2c3a8646279b1dfa716496364003986":[12,0,106,4],
 "structHitData.html#aed1e15cffff3552eebbd2d133ada45dd":[12,0,106,6],
 "structHitData.html#af1f7a19240363a28c25be2b97d7455b6":[12,0,106,7],
 "structRawDataHit.html":[12,0,138],
@@ -243,11 +249,5 @@ var NAVTREEINDEX89 =
 "submitPyG4prod_8py.html#a2c8beaa3825810f733065f8b7afe52f5":[13,0,11,28,4],
 "submitPyG4prod_8py.html#a3e317041531742ae22e425dbccad6fd2":[13,0,11,28,1],
 "submitPyG4prod_8py.html#a5c6c56d908196e940c8c0004e8f7e150":[13,0,11,28,2],
-"submitPyG4prod_8py.html#a98eb7842c3c61f2a61a32b42b8345e57":[13,0,11,28,3],
-"submitPyG4prod_8py.html#aa3d06bba0cad285bacf1c9356f312832":[13,0,11,28,0],
-"submitPyG4prod_8py_source.html":[13,0,11,28],
-"tPythia6Generator_8cxx.html":[13,0,19,31],
-"tPythia6Generator_8cxx_source.html":[13,0,19,31],
-"tPythia6Generator_8h.html":[13,0,19,32],
-"tPythia6Generator_8h_source.html":[13,0,19,32]
+"submitPyG4prod_8py.html#a98eb7842c3c61f2a61a32b42b8345e57":[13,0,11,28,3]
 };
