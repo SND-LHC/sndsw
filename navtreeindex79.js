@@ -1,5 +1,6 @@
 var NAVTREEINDEX79 =
 {
+"namespacestudy__muMSC.html#af4c81b6e072a548faea9b0fd760732b7":[11,0,176,10],
 "namespacestudy__muMSC.html#afacd47ab4e8855687fa95738b38b4720":[11,0,176,21],
 "namespacestudy__thinTarget.html":[11,0,177],
 "namespacestudy__thinTarget.html#a0163d9dd05e285af2e0d7e6b120d4ff1":[11,0,177,25],
@@ -248,6 +249,5 @@ var NAVTREEINDEX79 =
 "pi0Reco_8py.html#ae4b45fb1818fd3cd2293455bb3f8efd8":[13,0,17,25,3],
 "pi0Reco_8py_source.html":[13,0,17,25],
 "pidLinkDef_8h.html":[13,0,15,2],
-"pidLinkDef_8h_source.html":[13,0,15,2],
-"pid_8cxx.html":[13,0,15,0]
+"pidLinkDef_8h_source.html":[13,0,15,2]
 };
