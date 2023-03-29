@@ -35,15 +35,14 @@ class AdvTargetPoint : public FairMCPoint
 
     /** Output to screen **/
     virtual void Print(const Option_t* opt) const;
-    
 
-    Int_t PdgCode() const {return fPdgCode;}
-    int GetStation(){return floor(fDetectorID >> 15);}
-    int GetPlane(){return int(fDetectorID >> 14) % 2;}  // 0 is X-plane, 1 is Y-pane
-    int GetRow(){return int(fDetectorID >> 12) % 4;}
-    int GetColumn(){return int(fDetectorID >> 11) % 2;}
-    int GetSensor(){return int(fDetectorID >> 10) % 2;}
-    int GetStrip(){return int(fDetectorID % 768);}
+   Int_t PdgCode() const { return fPdgCode; }
+   int GetStation() { return floor(fDetectorID >> 15); }
+   int GetPlane() { return int(fDetectorID >> 14) % 2; } // 0 is X-plane, 1 is Y-pane
+   int GetRow() { return int(fDetectorID >> 12) % 4; }
+   int GetColumn() { return int(fDetectorID >> 11) % 2; }
+   int GetSensor() { return int(fDetectorID >> 10) % 2; }
+   int GetStrip() { return int(fDetectorID % 768); }
 
   private:
 

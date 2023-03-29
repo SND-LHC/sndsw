@@ -156,7 +156,6 @@ void AdvTarget::ConstructGeometry()
    StripVolume->SetLineColor(kGreen);
    AddSensitiveVolume(StripVolume);
 
-
    double sensor_gap = 3.1 * mm;
 
    const int rows = 4;
@@ -169,17 +168,15 @@ void AdvTarget::ConstructGeometry()
    // Definition of the target box containing tungsten walls + silicon tracker
    TGeoVolumeAssembly *volAdvTarget = new TGeoVolumeAssembly("volAdvTarget");
 
-
    // Positioning calculations, TODO delete once the whole AdvSND apparatus is positioned correctly
-   TVector3 EmWall0_survey(5.35 * cm + 42.2 / 2. * cm, 17.2 * cm + 42.2 / 2. * cm, 288.92 * cm + 10 / 2. * cm); // Survey position of the centre of the first emulsion wall
+   TVector3 EmWall0_survey(5.35 * cm + 42.2 / 2. * cm, 17.2 * cm + 42.2 / 2. * cm,
+                           288.92 * cm + 10 / 2. * cm); // Survey position of the centre of the first emulsion wall
    Double_t TargetDiff = 100. * cm - 63.941980 * cm;
 
    double line_of_sight_offset = -2.4244059999999976 * cm;
-   detector->AddNode(volAdvTarget, 1, new TGeoTranslation(
-                        line_of_sight_offset - EmWall0_survey.X() + (fTargetWallX - 42.2 * cm) / 2.,
-                        EmWall0_survey.Y(),
-                        -TargetDiff + EmWall0_survey.Z()
-                     ));
+   detector->AddNode(volAdvTarget, 1,
+                     new TGeoTranslation(line_of_sight_offset - EmWall0_survey.X() + (fTargetWallX - 42.2 * cm) / 2.,
+                                         EmWall0_survey.Y(), -TargetDiff + EmWall0_survey.Z()));
 
    LOG(INFO) << " nTT: " << stations;
    // For correct detector IDs, the geometry has to be built back to front, from the top-level
@@ -198,32 +195,29 @@ void AdvTarget::ConstructGeometry()
                for (auto &&sensor : TSeq(sensors)) {
                   TGeoVolumeAssembly *Sensor = new TGeoVolumeAssembly("Sensor");
                   for (auto &&strip : TSeq(strips)) {
-                     int strip_id = (station << 15) + (plane << 14) + (row << 12) + (column << 11) + (sensor << 10) + strip;
-                     Sensor->AddNode(
-                        StripVolume,
-                        strip_id,
-                        new TGeoTranslation(0, -sensor_width / 2 + strip_width / 2 + strip * (strip_width + strip_gap), 0)
-                     );
+                     int strip_id =
+                        (station << 15) + (plane << 14) + (row << 12) + (column << 11) + (sensor << 10) + strip;
+                     Sensor->AddNode(StripVolume, strip_id,
+                                     new TGeoTranslation(
+                                        0, -sensor_width / 2 + strip_width / 2 + strip * (strip_width + strip_gap), 0));
                   }
-                  SensorModule->AddNode(
-                     Sensor, sensor,
-                     new TGeoTranslation(
-                        -module_length / 2 + 46.95 * mm + sensor_length / 2 + sensor * (sensor_length + sensor_gap),
-                        0,
-                        +3 * mm / 2 + 0.5 * mm / 2)
-                  );
+                  SensorModule->AddNode(Sensor, sensor,
+                                        new TGeoTranslation(-module_length / 2 + 46.95 * mm + sensor_length / 2 +
+                                                               sensor * (sensor_length + sensor_gap),
+                                                            0, +3 * mm / 2 + 0.5 * mm / 2));
                }
                TrackerPlane->AddNode(
                   SensorModule, ++i,
                   new TGeoCombiTrans(
                      // Offset modules as needed by row and column
-                     TGeoTranslation((column % 2 ? 1 : -1) * (module_length / 2 + module_column_gap / 2),
-                                     (row - 1) * (-module_width - module_row_gap) - module_row_gap / 2 + module_width / 2, 0),
+                     TGeoTranslation(
+                        (column % 2 ? 1 : -1) * (module_length / 2 + module_column_gap / 2),
+                        (row - 1) * (-module_width - module_row_gap) - module_row_gap / 2 + module_width / 2, 0),
                      // Rotate every module of the second column
                      TGeoRotation(TString::Format("rot%d", i), 0, 0, column * 180)));
             }
          }
-         if(plane == 0){
+         if (plane == 0) {
             // X-plane
             TrackingStation->AddNode(TrackerPlane, plane);
          } else if (plane == 1) {
@@ -234,14 +228,10 @@ void AdvTarget::ConstructGeometry()
          }
       }
 
-      volAdvTarget->AddNode(
-         volTargetWall, station,
-         new TGeoTranslation(
-            0, 0, -fTargetWallZ / 2 + station * fTargetWallZ + station * 7.5 * mm));
+      volAdvTarget->AddNode(volTargetWall, station,
+                            new TGeoTranslation(0, 0, -fTargetWallZ / 2 + station * fTargetWallZ + station * 7.5 * mm));
       volAdvTarget->AddNode(TrackingStation, station,
-                            new TGeoTranslation(0, 0,
-                                                (station + 0.5) * fTargetWallZ +
-                                                (station - 0.5) * 7.5 * mm));
+                            new TGeoTranslation(0, 0, (station + 0.5) * fTargetWallZ + (station - 0.5) * 7.5 * mm));
    }
 }
 
