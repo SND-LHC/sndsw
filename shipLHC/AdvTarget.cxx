@@ -146,7 +146,6 @@ void AdvTarget::ConstructGeometry()
    TGeoBBox *Support = new TGeoBBox("Support", module_length / 2, module_width / 2, 3.0 * mm / 2);
    TGeoVolume *SupportVolume = new TGeoVolume("SupportVolume", Support, Polystyrene);
    SupportVolume->SetLineColor(kGray);
-   SupportVolume->SetTransparency(100);
    // Active part
    double sensor_width = 93.7 * mm;
    double sensor_length = 91.5 * mm;
