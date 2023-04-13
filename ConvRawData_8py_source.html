@@ -597,7 +597,7 @@ $(document).ready(function(){initNavTree('ConvRawData_8py_source.html',''); init
 <div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;                          digiMuFilterStore[detID] =  ROOT.MuFilterHit(detID,nSiPMs,nSides)</div>
 <div class="line"><a name="l00511"></a><span class="lineno"><a class="line" href="classConvRawData_1_1ConvRawDataPY.html#a063b56086f581bdb516bdc422bf859de">  511</a></span>&#160;                  test = digiMuFilterStore[detID].GetSignal(sipm_number)</div>
 <div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;                  digiMuFilterStore[detID].SetDigi(QDC,TDC,sipm_number)</div>
-<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;                  digiMuFilterStore[detID].SetDaqID(sipm_number, board_id, tofpet_id, tofpet_channel)</div>
+<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;                  digiMuFilterStore[detID].SetDaqID(sipm_number,n,board_id, tofpet_id, tofpet_channel)</div>
 <div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;                  <span class="keywordflow">if</span> mask: digiMuFilterStore[detID].SetMasked(sipm_number)</div>
 <div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160; </div>
 <div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;                  <span class="keywordflow">if</span> self.<a class="code" href="classConvRawData_1_1ConvRawDataPY.html#a992bda22d2924ba579f1e1e5b57b6884">options</a>options.debug:</div>
@@ -616,7 +616,7 @@ $(document).ready(function(){initNavTree('ConvRawData_8py_source.html',''); init
 <div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;                  <span class="keywordflow">if</span> <span class="keywordflow">not</span> sipmID <span class="keywordflow">in</span> digiSciFiStore: </div>
 <div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;                       digiSciFiStore[sipmID] =  ROOT.sndScifiHit(sipmID)</div>
 <div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;                  digiSciFiStore[sipmID].SetDigi(QDC,TDC)</div>
-<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;                  digiSciFiStore[sipmID].SetDaqID(0, board_id, tofpet_id, tofpet_channel)</div>
+<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;                  digiSciFiStore[sipmID].SetDaqID(0,n, board_id, tofpet_id, tofpet_channel)</div>
 <div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;                  <span class="keywordflow">if</span> mask: digiSciFiStore[sipmID].setInvalid()</div>
 <div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;                  <span class="keywordflow">if</span> self.<a class="code" href="classConvRawData_1_1ConvRawDataPY.html#a992bda22d2924ba579f1e1e5b57b6884">options</a>options.debug:</div>
 <div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;                      print(<span class="stringliteral">&#39;create scifi hit: tdc = &#39;</span>,board,sipmID,QDC,TDC)</div>
