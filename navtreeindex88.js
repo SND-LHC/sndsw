@@ -1,5 +1,6 @@
 var NAVTREEINDEX88 =
 {
+"sndLHC__geom__config_8py.html#a84977f1bd2656b839bfa81e9c415c037":[13,0,6,3,188],
 "sndLHC__geom__config_8py.html#a8658239c12eb244144bcae15b5b2f524":[13,0,6,3,179],
 "sndLHC__geom__config_8py.html#a897ce63a20ba612c3df6209eddf5224b":[13,0,6,3,29],
 "sndLHC__geom__config_8py.html#a89d5d7b59f1a87167479a6e64d473f89":[13,0,6,3,113],
@@ -248,6 +249,5 @@ var NAVTREEINDEX88 =
 "structDriftTubes_1_1ChannelId.html#a9d094b82ef09db7c79917061b8671e08":[12,0,4,0,5],
 "structDriftTubes_1_1ChannelId.html#a9f0e2acfe7d24e03c5c25d57023f12e6":[12,0,4,0,3],
 "structDriftTubes_1_1ChannelId.html#ae22d0db464bb87df7f13cfc9ad0d5a53":[12,0,4,0,2],
-"structDriftTubes_1_1ChannelId.html#af0b5cd97ba9c38430a1d063123fc0add":[12,0,4,0,0],
-"structHitData.html":[12,0,106]
+"structDriftTubes_1_1ChannelId.html#af0b5cd97ba9c38430a1d063123fc0add":[12,0,4,0,0]
 };

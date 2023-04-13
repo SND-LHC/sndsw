@@ -8,5 +8,6 @@ var classMufi__monitoring_1_1Veto__Efficiency =
     [ "M", "classMufi__monitoring_1_1Veto__Efficiency.html#add1819b05ed9c0246e783fb55671bdbd", null ],
     [ "noiseCuts", "classMufi__monitoring_1_1Veto__Efficiency.html#a17bcef1debb695c6a97ed716aa898022", null ],
     [ "OT", "classMufi__monitoring_1_1Veto__Efficiency.html#a5ab276bece8b77ec770877c8c59f3c73", null ],
-    [ "trackTask", "classMufi__monitoring_1_1Veto__Efficiency.html#a4a14eea60918c1d95c84de2e3caa211c", null ]
+    [ "trackTask", "classMufi__monitoring_1_1Veto__Efficiency.html#a4a14eea60918c1d95c84de2e3caa211c", null ],
+    [ "zEx", "classMufi__monitoring_1_1Veto__Efficiency.html#a1810de55d1ebcb0aeb2a9888bf894bf5", null ]
 ];

@@ -1,5 +1,6 @@
 var NAVTREEINDEX39 =
 {
+"classshipDigiReco_1_1ShipDigiReco.html#a9bbd1b368dc9bc1cffcb7c0191d91987":[12,0,32,0,33],
 "classshipDigiReco_1_1ShipDigiReco.html#a9e770cda33bbf466e99554839715462a":[12,0,32,0,42],
 "classshipDigiReco_1_1ShipDigiReco.html#aa2394d09be214cea0176e70bf9338e1b":[12,0,32,0,46],
 "classshipDigiReco_1_1ShipDigiReco.html#aaadab32620e60f80b4d6b4bde85ceb29":[12,0,32,0,45],
@@ -248,6 +249,5 @@ var NAVTREEINDEX39 =
 "classsndCluster.html#ac98d07dd8f7b70e16ccb9a01abf56b9c":[12,0,173,13],
 "classsndCluster.html#acac4061654670801b5c26e00c3c31898":[12,0,173,9],
 "classsndCluster.html#acb7635ee744fbc2cfb2678ae8d0be6a8":[12,0,173,0],
-"classsndCluster.html#ad86033842e7e0d7a15611640418ad90e":[12,0,173,18],
-"classsndRecoTrack.html":[12,0,176]
+"classsndCluster.html#ad86033842e7e0d7a15611640418ad90e":[12,0,173,18]
 };

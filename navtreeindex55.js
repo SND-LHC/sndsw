@@ -1,5 +1,6 @@
 var NAVTREEINDEX55 =
 {
+"muonPoint_8cxx.html":[13,0,10,7],
 "muonPoint_8cxx_source.html":[13,0,10,7],
 "muonPoint_8h.html":[13,0,10,8],
 "muonPoint_8h_source.html":[13,0,10,8],
@@ -248,6 +249,5 @@ var NAVTREEINDEX55 =
 "namespaceMufluxMuonTaggerPatRec.html#a9b28ae3977f4c9f9b8852aec0de8913b":[11,0,97,8],
 "namespaceMufluxMuonTaggerPatRec.html#aa4ee959a9821d7c1b18908e0e70df530":[11,0,97,9],
 "namespaceMufluxMuonTaggerPatRec.html#ae187627fb051f02bc385315697cd175e":[11,0,97,5],
-"namespaceMufluxPatRec.html":[11,0,98],
-"namespaceMufluxPatRec.html#a02230fb04014b6c21ed695e1be8ad91f":[11,0,98,9]
+"namespaceMufluxPatRec.html":[11,0,98]
 };

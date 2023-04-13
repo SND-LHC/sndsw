@@ -1,5 +1,6 @@
 var NAVTREEINDEX70 =
 {
+"namespacempmod.html#af5350cf7fe84eb75c5f10f8af37d0acc":[11,0,85,226],
 "namespacempmod.html#af7338d32712bd5917c14fd665b022354":[11,0,85,94],
 "namespacempmod.html#af7d437f9a1210fa3b18c7a1ef5aa8872":[11,0,85,206],
 "namespacempmod.html#af8b1de9d0e46f662b0f521cffd946954":[11,0,85,182],
@@ -248,6 +249,5 @@ var NAVTREEINDEX70 =
 "namespacepythia8darkphoton__conf.html#a4e665f9019e795ebc2533973bbe5a2a1":[11,0,106,5],
 "namespacepythia8darkphoton__conf.html#a7ce8c8aa53e93dfe5afaa43e2f0901b6":[11,0,106,4],
 "namespacepythia8darkphoton__conf.html#a9af34fec6042f47956df112cd7987f6d":[11,0,106,1],
-"namespacepythia8darkphoton__conf.html#abccb344f370f6e347b5df59a7c3dd72c":[11,0,106,2],
-"namespacepythia8darkphoton__conf.html#abf09dd3a8d5afdafed0abf06741d1fed":[11,0,106,6]
+"namespacepythia8darkphoton__conf.html#abccb344f370f6e347b5df59a7c3dd72c":[11,0,106,2]
 };

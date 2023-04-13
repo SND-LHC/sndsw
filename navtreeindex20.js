@@ -1,5 +1,6 @@
 var NAVTREEINDEX20 =
 {
+"classScifiCTR_1_1Scifi__CTR.html#a3568f417e26c64f1a30eaf3685b33a56":[12,0,31,0,2],
 "classScifiCTR_1_1Scifi__CTR.html#a39420fbf36366c59b92e07c0b81318bc":[12,0,31,0,11],
 "classScifiCTR_1_1Scifi__CTR.html#a58ed3aeb616a035608c44c33a1e50b1f":[12,0,31,0,13],
 "classScifiCTR_1_1Scifi__CTR.html#a5b011c19671a3bcd8b593c896f329a7a":[12,0,31,0,4],
@@ -248,6 +249,5 @@ var NAVTREEINDEX20 =
 "classShipConstField.html#a302627229a135620f4dd078cf06b339c":[12,0,153,15],
 "classShipConstField.html#a31729b143121f2b6eb9c0c4132fdbe42":[12,0,153,7],
 "classShipConstField.html#a3466da0b073f6e5ab6a33f31a7f40f87":[12,0,153,21],
-"classShipConstField.html#a37606b850bde316a64bd2a697bf946d6":[12,0,153,24],
-"classShipConstField.html#a42273f58ec4a146c710ef98c2c63e6af":[12,0,153,5]
+"classShipConstField.html#a37606b850bde316a64bd2a697bf946d6":[12,0,153,24]
 };

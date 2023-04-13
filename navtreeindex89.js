@@ -1,5 +1,6 @@
 var NAVTREEINDEX89 =
 {
+"structHitData.html":[12,0,106],
 "structHitData.html#a404d2cb9ea4bdb35df83b063bce85a5e":[12,0,106,2],
 "structHitData.html#a8c1494a3f1cf3de21c65966faa0b0b57":[12,0,106,1],
 "structHitData.html#a8d72eb541e03034e25bdec1e30364e89":[12,0,106,5],
@@ -60,8 +61,8 @@ var NAVTREEINDEX89 =
 "structgenfit_1_1RKStep.html#a4340cf43a2ccdf7d95f965ce01d38887":[12,0,13,49,2],
 "structgenfit_1_1RKStep.html#a5031ba3b89a869a5c733c2dde23d68e7":[12,0,13,49,3],
 "structgenfit_1_1RKStep.html#a5aca22ad48723a9ee41b27329aa9d9a3":[12,0,13,49,4],
-"structgenfit_1_1RKStep.html#a99d6dd2eac81744ad17b140ee9db0e66":[12,0,13,49,1],
 "structgenfit_1_1RKStep.html#a99d6dd2eac81744ad17b140ee9db0e66":[12,0,13,49,0],
+"structgenfit_1_1RKStep.html#a99d6dd2eac81744ad17b140ee9db0e66":[12,0,13,49,1],
 "structgenfit_1_1fieldCache.html":[12,0,13,10],
 "structgenfit_1_1fieldCache.html#a68ab943c56a996f17f372f5db8b45b69":[12,0,13,10,3],
 "structgenfit_1_1fieldCache.html#ab1e642cc0844b54686b45d72987d8e4b":[12,0,13,10,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX89 =
 "submitPyG4prod_8py.html":[13,0,11,28],
 "submitPyG4prod_8py.html#a2c8beaa3825810f733065f8b7afe52f5":[13,0,11,28,4],
 "submitPyG4prod_8py.html#a3e317041531742ae22e425dbccad6fd2":[13,0,11,28,1],
-"submitPyG4prod_8py.html#a5c6c56d908196e940c8c0004e8f7e150":[13,0,11,28,2],
-"submitPyG4prod_8py.html#a98eb7842c3c61f2a61a32b42b8345e57":[13,0,11,28,3]
+"submitPyG4prod_8py.html#a5c6c56d908196e940c8c0004e8f7e150":[13,0,11,28,2]
 };

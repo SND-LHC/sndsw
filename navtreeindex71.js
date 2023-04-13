@@ -1,5 +1,6 @@
 var NAVTREEINDEX71 =
 {
+"namespacepythia8darkphoton__conf.html#abf09dd3a8d5afdafed0abf06741d1fed":[11,0,106,6],
 "namespacequicktype.html":[11,0,108],
 "namespacequicktype.html#aaf78a0549686ac1b8791ee9a8f9abb4a":[11,0,108,2],
 "namespaceradio.html":[11,0,109],
@@ -248,6 +249,5 @@ var NAVTREEINDEX71 =
 "namespacerun__Calibration-rawTimestamp.html#aaf0bf19b95f8e7797a47d165ddeea515":[11,0,118,11],
 "namespacerun__Calibration-rawTimestamp.html#aaf37a75699beadc01cd836db2fb97ff5":[11,0,118,17],
 "namespacerun__Calibration-rawTimestamp.html#abccdd073424cf3d1d32bf506b95a489a":[11,0,118,18],
-"namespacerun__Calibration-rawTimestamp.html#ada86edca3416cef853c261d75e3b824e":[11,0,118,7],
-"namespacerun__Calibration-rawTimestamp.html#ae30b16cb7a6d3d47c09b420805ec0bad":[11,0,118,0]
+"namespacerun__Calibration-rawTimestamp.html#ada86edca3416cef853c261d75e3b824e":[11,0,118,7]
 };
