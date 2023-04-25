@@ -1,5 +1,9 @@
 var NAVTREEINDEX70 =
 {
+"namespacempmod.html#af1c41906f834bd434de691c18df074f8":[11,0,85,207],
+"namespacempmod.html#af3ba16780eb459de8bc936aa70d022dd":[11,0,85,185],
+"namespacempmod.html#af4596bd67153123dc3124aa5067620c3":[11,0,85,221],
+"namespacempmod.html#af4b661118569bdd0c6776a5f76dbf8c0":[11,0,85,30],
 "namespacempmod.html#af5350cf7fe84eb75c5f10f8af37d0acc":[11,0,85,226],
 "namespacempmod.html#af7338d32712bd5917c14fd665b022354":[11,0,85,94],
 "namespacempmod.html#af7d437f9a1210fa3b18c7a1ef5aa8872":[11,0,85,206],
@@ -245,9 +249,5 @@ var NAVTREEINDEX70 =
 "namespacepythia8darkphoton__conf.html":[11,0,106],
 "namespacepythia8darkphoton__conf.html#a30ec2a38b1c060549969ba2c6703c113":[11,0,106,7],
 "namespacepythia8darkphoton__conf.html#a30fe4b78d1b237f5287aaf5f6dd18557":[11,0,106,0],
-"namespacepythia8darkphoton__conf.html#a35dad733a5139c5bdb452ee0d010cdec":[11,0,106,3],
-"namespacepythia8darkphoton__conf.html#a4e665f9019e795ebc2533973bbe5a2a1":[11,0,106,5],
-"namespacepythia8darkphoton__conf.html#a7ce8c8aa53e93dfe5afaa43e2f0901b6":[11,0,106,4],
-"namespacepythia8darkphoton__conf.html#a9af34fec6042f47956df112cd7987f6d":[11,0,106,1],
-"namespacepythia8darkphoton__conf.html#abccb344f370f6e347b5df59a7c3dd72c":[11,0,106,2]
+"namespacepythia8darkphoton__conf.html#a35dad733a5139c5bdb452ee0d010cdec":[11,0,106,3]
 };

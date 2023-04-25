@@ -93,7 +93,7 @@ $(document).ready(function(){initNavTree('run__muonRecoSND_8py_source.html','');
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
 <div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#a66efe3c0aa3a0169860d62b8c32be648">    7</a></span>&#160;parser = ArgumentParser()</div>
 <div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#ae16f6fb9d6e1e9535f5d9fd1d7ae5988">    8</a></span>&#160;parser.add_argument(<span class="stringliteral">&quot;-f&quot;</span>, <span class="stringliteral">&quot;--inputFile&quot;</span>, dest=<span class="stringliteral">&quot;inputFile&quot;</span>, help=<span class="stringliteral">&quot;single input file&quot;</span>, required=<span class="keyword">True</span>)</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;parser.add_argument(<span class="stringliteral">&quot;-g&quot;</span>, <span class="stringliteral">&quot;--geoFile&quot;</span>, dest=<span class="stringliteral">&quot;geoFile&quot;</span>, help=<span class="stringliteral">&quot;geofile&quot;</span>, required=<span class="keyword">True</span>)</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;parser.add_argument(<span class="stringliteral">&quot;-g&quot;</span>, <span class="stringliteral">&quot;--geoFile&quot;</span>, dest=<span class="stringliteral">&quot;geoFile&quot;</span>, help=<span class="stringliteral">&quot;geofile&quot;</span>, required=<span class="keyword">False</span>)</div>
 <div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#ab5151dd33bf9849202d91a845877d086">   10</a></span>&#160;parser.add_argument(<span class="stringliteral">&quot;-o&quot;</span>, <span class="stringliteral">&quot;--withOutput&quot;</span>, dest=<span class="stringliteral">&quot;withOutput&quot;</span>, help=<span class="stringliteral">&quot;persistent output&quot;</span>, action=<span class="stringliteral">&#39;store_true&#39;</span>,default=<span class="keyword">False</span>)</div>
 <div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#aa7f412bd48262f67866f616cbf0325d1">   11</a></span>&#160;parser.add_argument(<span class="stringliteral">&quot;-s&quot;</span>, <span class="stringliteral">&quot;--saveTo&quot;</span>, dest=<span class="stringliteral">&quot;outPath&quot;</span>, help=<span class="stringliteral">&quot;output storage path&quot;</span>, type=str,default=<span class="stringliteral">&quot;&quot;</span>,required=<span class="keyword">False</span>)</div>
 <div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#a97bcee72077ae2f929a60fa101b3fead">   12</a></span>&#160;parser.add_argument(<span class="stringliteral">&quot;-par&quot;</span>, <span class="stringliteral">&quot;--parFile&quot;</span>, dest=<span class="stringliteral">&quot;parFile&quot;</span>, help=<span class="stringliteral">&quot;parameter file&quot;</span>, required=<span class="keyword">False</span>, default=os.environ[<span class="stringliteral">&#39;SNDSW_ROOT&#39;</span>]+<span class="stringliteral">&quot;/python/TrackingParams.xml&quot;</span>)</div>
@@ -105,82 +105,113 @@ $(document).ready(function(){initNavTree('run__muonRecoSND_8py_source.html','');
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
 <div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#a74a7d06e4d1f054a6e7c2d2c3ce76c98">   19</a></span>&#160;options = parser.parse_args()</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">import</span> SndlhcGeo</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#adc80e24087d122d511f3f14abb419403">   22</a></span>&#160;geo = <a class="code" href="classSndlhcGeo_1_1GeoInterface.html">SndlhcGeo.GeoInterface</a>(options.geoFile)</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#adfb59afcae249d3cebf1eb68fb074cb5">   24</a></span>&#160;lsOfGlobals = ROOT.gROOT.GetListOfGlobals()</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;lsOfGlobals.Add(geo.modules[<span class="stringliteral">&#39;Scifi&#39;</span>])</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;lsOfGlobals.Add(geo.modules[<span class="stringliteral">&#39;MuFilter&#39;</span>])</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#af12fe3c38e1f55a6467f03e3c9d076f3">   28</a></span>&#160;x = options.inputFile</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#a9fd594a0ed2fd8b5c885ee34bb84520b">   29</a></span>&#160;filename = x[x.rfind(<span class="stringliteral">&#39;/&#39;</span>)+1:]</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keywordflow">if</span> x.rfind(<span class="stringliteral">&#39;/run_&#39;</span>)&gt;0:</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#ac16b6e0653857db1290d2bf0d61d5b55">   31</a></span>&#160;   runN = x[x.rfind(<span class="stringliteral">&#39;/run_&#39;</span>)+4:x.rfind(<span class="stringliteral">&#39;/run_&#39;</span>)+11]</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keywordflow">else</span>: runN = <span class="stringliteral">&quot;&quot;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#ab4a0744d900246b61f3b0db16d7d0ac8">   33</a></span>&#160;outFileName = options.outPath+filename.replace(<span class="stringliteral">&#39;.root&#39;</span>,runN+<span class="stringliteral">&#39;_muonReco.root&#39;</span>)</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#ad230ecdd45dab946e02e2c09eceab445">   35</a></span>&#160;fullPath = options.inputFile</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keywordflow">if</span> options.inputFile.find(<span class="stringliteral">&#39;/eos&#39;</span>)==0:</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;     fullPath = os.environ[<span class="stringliteral">&#39;EOSSHIP&#39;</span>]+options.inputFile</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#a29475037ebd91f3461e173932ce52ae0">   38</a></span>&#160;F = ROOT.TFile.Open(fullPath)</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keywordflow">if</span> options.withOutput:</div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#aaee058f4c4711b56837f5aecc5bd91de">   41</a></span>&#160;  outFile = ROOT.TFile(outFileName, <span class="stringliteral">&#39;RECREATE&#39;</span>)</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  outFile = ROOT.TMemFile(outFileName,<span class="stringliteral">&#39;CREATE&#39;</span>)</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#a5bd3c04aa1ae427c17bf4ca274da37ee">   45</a></span>&#160;treename = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keywordflow">for</span> test_treename <span class="keywordflow">in</span> [<span class="stringliteral">&quot;rawConv&quot;</span>, <span class="stringliteral">&quot;cbmsim&quot;</span>] :</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;     <span class="keywordflow">if</span> hasattr(F, test_treename) :</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;          treename = test_treename</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;          <span class="keywordflow">break</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keywordflow">if</span> treename <span class="keywordflow">is</span> <span class="keywordtype">None</span> :</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;     <span class="keywordflow">raise</span> RuntimeError(<span class="stringliteral">&quot;File {0} contains no object with a valid SND@LHC TTree name&quot;</span>.format(fullPath))</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#af12fe3c38e1f55a6467f03e3c9d076f3">   21</a></span>&#160;x = options.inputFile</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#a9fd594a0ed2fd8b5c885ee34bb84520b">   22</a></span>&#160;filename = x[x.rfind(<span class="stringliteral">&#39;/&#39;</span>)+1:]</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keywordflow">if</span> x.rfind(<span class="stringliteral">&#39;/run_&#39;</span>)&gt;0:</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#a282391bf27a74b25f5770afdc695c535">   24</a></span>&#160;   runN = x[x.rfind(<span class="stringliteral">&#39;/run_&#39;</span>)+5:x.rfind(<span class="stringliteral">&#39;/run_&#39;</span>)+11]</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#ae067b525c7f01537259bd5423e18507e">   25</a></span>&#160;   path =  x[:x.rfind(<span class="stringliteral">&#39;/run_&#39;</span>)+1]</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;     runN = <span class="stringliteral">&quot;&quot;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;     path =  x[:x.rfind(<span class="stringliteral">&#39;/&#39;</span>)+1]</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#ab4a0744d900246b61f3b0db16d7d0ac8">   29</a></span>&#160;outFileName = options.outPath+filename.replace(<span class="stringliteral">&#39;.root&#39;</span>,<span class="stringliteral">&#39;_&#39;</span>+runN+<span class="stringliteral">&#39;_muonReco.root&#39;</span>)</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment"># Set the geometry file</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">import</span> SndlhcGeo</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keywordflow">if</span> <span class="keywordflow">not</span> options.geoFile:</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;   <span class="keywordflow">if</span> runN == <span class="stringliteral">&quot;&quot;</span> : </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      print(<span class="stringliteral">&#39;\033[91m&#39;</span>+<span class="stringliteral">&#39;Error!&#39;</span>+<span class="stringliteral">&#39;\033[0m&#39;</span>+<span class="stringliteral">&#39; No run number detected. Must provide a geo file then!&#39;</span>)</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;      exit()</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;   <span class="keywordflow">if</span> options.inputFile.find(<span class="stringliteral">&#39;TI18&#39;</span>)&lt;0:</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#a2d4e03f2f1c1a879ed09a33cfc8e983e">   39</a></span>&#160;      <span class="keywordflow">if</span> options.inputFile.find(<span class="stringliteral">&#39;physics/2022&#39;</span>)&gt;=0: options.geoFile =  path+<span class="stringliteral">&quot;geofile_sndlhc_TI18_V0_2022.root&quot;</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;   <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;     <span class="keywordflow">if</span> <a class="code" href="namespacerun__muonRecoSND.html#af5bda2044d2fd4c58e44f4a2550e04f7">int</a>(runN) &lt; 4575:</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;          options.geoFile = <span class="stringliteral">&quot;geofile_sndlhc_TI18_V3_08August2022.root&quot;</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;     <span class="keywordflow">elif</span> <a class="code" href="namespacerun__muonRecoSND.html#af5bda2044d2fd4c58e44f4a2550e04f7">int</a>(runN) &lt; 4855:</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;          options.geoFile = <span class="stringliteral">&quot;geofile_sndlhc_TI18_V5_14August2022.root&quot;</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;     <span class="keywordflow">elif</span> <a class="code" href="namespacerun__muonRecoSND.html#af5bda2044d2fd4c58e44f4a2550e04f7">int</a>(runN) &lt; 5172:</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;          options.geoFile = <span class="stringliteral">&quot;geofile_sndlhc_TI18_V6_08October2022.root&quot;</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;     <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;          options.geoFile = <span class="stringliteral">&quot;geofile_sndlhc_TI18_V7_22November2022.root&quot;</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;     <span class="comment"># Introducing SNDLHCEventHeader in 2022 run 4791, so there will be tag!=&#39;&#39; in the detector classes</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;     <span class="comment"># and one has to use the */physics/2022 geofiles</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;     <span class="keywordflow">if</span> <a class="code" href="namespacerun__muonRecoSND.html#af5bda2044d2fd4c58e44f4a2550e04f7">int</a>(runN) &gt;= 4791 <span class="keywordflow">and</span> <a class="code" href="namespacerun__muonRecoSND.html#af5bda2044d2fd4c58e44f4a2550e04f7">int</a>(runN) &lt;= 5429: path = <span class="stringliteral">&quot;/eos/experiment/sndlhc/convertedData/physics/2022/&quot;</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;     options.geoFile = path + options.geoFile</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#a9be8e32d7fa43e4f847b289c93103cdc">   54</a></span>&#160;fairRootManager = ROOT.FairRootManager.Instance()</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;fairRootManager.SetTreeName(treename)</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#a3ba9f66e44adabb4297e270637f180ce">   57</a></span>&#160;run = ROOT.FairRunAna()</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;print(<span class="stringliteral">&quot;Initialized FairRunAna&quot;</span>)</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#acd5f779c6ceb4cd66b2a31960df83b4d">   60</a></span>&#160;source = ROOT.FairFileSource(F)</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;run.SetSource(source)</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#aded614ba63fe29f75092dbd75676a381">   63</a></span>&#160;sink = ROOT.FairRootFileSink(outFile)</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;run.SetSink(sink)</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment"># Don&#39;t use FairRoot&#39;s default event header settings</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;run.SetEventHeaderPersistence(<span class="keyword">False</span>)</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#a270144af9c1edbc29abcb104b9ba007b">   68</a></span>&#160;muon_reco_task = <a class="code" href="classSndlhcMuonReco_1_1MuonReco.html">SndlhcMuonReco.MuonReco</a>()</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;run.AddTask(muon_reco_task)</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment"># Check geo file is a match for the data</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keywordflow">if</span> (options.inputFile.find(<span class="stringliteral">&#39;/TI18&#39;</span>)&gt;=0 <span class="keywordflow">and</span> options.geoFile.find(<span class="stringliteral">&#39;V0_2022&#39;</span>)&gt;=0 ) <span class="keywordflow">or</span> \</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;   (options.inputFile.find(<span class="stringliteral">&#39;physics/2022&#39;</span>)&gt;=0 <span class="keywordflow">and</span> options.geoFile.find(<span class="stringliteral">&#39;/TI18&#39;</span>)&gt;=0 ) <span class="keywordflow">or</span> \</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;   (options.inputFile.find(<span class="stringliteral">&#39;/TI18&#39;</span>)&gt;=0 <span class="keywordflow">and</span> options.geoFile.find(<span class="stringliteral">&#39;/TI18&#39;</span>)&gt;=0 <span class="keywordflow">and</span> <a class="code" href="namespacerun__muonRecoSND.html#af5bda2044d2fd4c58e44f4a2550e04f7">int</a>(runN) &gt;= 4791 <span class="keywordflow">and</span> <a class="code" href="namespacerun__muonRecoSND.html#af5bda2044d2fd4c58e44f4a2550e04f7">int</a>(runN) &lt;= 5429 ):</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;     print(<span class="stringliteral">&#39;\033[91m&#39;</span>+<span class="stringliteral">&#39;Error!&#39;</span>+<span class="stringliteral">&#39;\033[0m&#39;</span>+<span class="stringliteral">&#39; Consider a different geo file for that input file! Exitting..&#39;</span>)</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;     exit()</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#adc80e24087d122d511f3f14abb419403">   61</a></span>&#160;geo = <a class="code" href="classSndlhcGeo_1_1GeoInterface.html">SndlhcGeo.GeoInterface</a>(options.geoFile)</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#adfb59afcae249d3cebf1eb68fb074cb5">   62</a></span>&#160;lsOfGlobals = ROOT.gROOT.GetListOfGlobals()</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;lsOfGlobals.Add(geo.modules[<span class="stringliteral">&#39;Scifi&#39;</span>])</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;lsOfGlobals.Add(geo.modules[<span class="stringliteral">&#39;MuFilter&#39;</span>])</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#ad230ecdd45dab946e02e2c09eceab445">   66</a></span>&#160;fullPath = options.inputFile</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keywordflow">if</span> options.inputFile.find(<span class="stringliteral">&#39;/eos&#39;</span>)==0:</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;     fullPath = os.environ[<span class="stringliteral">&#39;EOSSHIP&#39;</span>]+options.inputFile</div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#a29475037ebd91f3461e173932ce52ae0">   69</a></span>&#160;F = ROOT.TFile.Open(fullPath)</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment"># Start timer</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#a0f982ebb89b061d0f91959a3f0ce1a1d">   72</a></span>&#160;w = ROOT.TStopwatch()</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment"># Set the parameter file - must be called before Init()</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;muon_reco_task.SetParFile(options.parFile)</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;muon_reco_task.SetTrackingCase(options.trackingCase)</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;muon_reco_task.SetHoughSpaceFormat(options.HspaceFormat)</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment"># setting a flag to let the task know which manager called it</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment"># needed as output handling differs for this manager and run_TrackSelections.</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;muon_reco_task.SetStandalone()</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;run.Init()</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment"># Set the scale factor - must be after Init()</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;print(<span class="stringliteral">&quot;Setting a scale factor to:&quot;</span>, options.scaleFactor)</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;muon_reco_task.SetScaleFactor(options.scaleFactor)</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment"># Set number of events to process</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#a13e311fa46cbfef53c8634e3a241e3d7">   88</a></span>&#160;nEvents = min( options.nEvents, source.GetEntries())</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;run.Run(options.firstEvent, options.firstEvent + nEvents)</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;w.Stop()</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;print(<span class="stringliteral">&#39;Real Time:&#39;</span>, w.RealTime(), <span class="stringliteral">&#39; CPU time: &#39;</span>, w.CpuTime())</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;print(<span class="stringliteral">&quot;Done running&quot;</span>)</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keywordflow">if</span> options.withOutput:</div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#aaee058f4c4711b56837f5aecc5bd91de">   72</a></span>&#160;  outFile = ROOT.TFile(outFileName, <span class="stringliteral">&#39;RECREATE&#39;</span>)</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  outFile = ROOT.TMemFile(outFileName,<span class="stringliteral">&#39;CREATE&#39;</span>)</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#a5bd3c04aa1ae427c17bf4ca274da37ee">   76</a></span>&#160;treename = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keywordflow">for</span> test_treename <span class="keywordflow">in</span> [<span class="stringliteral">&quot;rawConv&quot;</span>, <span class="stringliteral">&quot;cbmsim&quot;</span>] :</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;     <span class="keywordflow">if</span> hasattr(F, test_treename) :</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;          treename = test_treename</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;          <span class="keywordflow">break</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keywordflow">if</span> treename <span class="keywordflow">is</span> <span class="keywordtype">None</span> :</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;     <span class="keywordflow">raise</span> RuntimeError(<span class="stringliteral">&quot;File {0} contains no object with a valid SND@LHC TTree name&quot;</span>.format(fullPath))</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#a9be8e32d7fa43e4f847b289c93103cdc">   85</a></span>&#160;fairRootManager = ROOT.FairRootManager.Instance()</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;fairRootManager.SetTreeName(treename)</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#a3ba9f66e44adabb4297e270637f180ce">   88</a></span>&#160;run = ROOT.FairRunAna()</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;print(<span class="stringliteral">&quot;Initialized FairRunAna&quot;</span>)</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#acd5f779c6ceb4cd66b2a31960df83b4d">   91</a></span>&#160;source = ROOT.FairFileSource(F)</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;run.SetSource(source)</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#aded614ba63fe29f75092dbd75676a381">   94</a></span>&#160;sink = ROOT.FairRootFileSink(outFile)</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;run.SetSink(sink)</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="comment"># Don&#39;t use FairRoot&#39;s default event header settings</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;run.SetEventHeaderPersistence(<span class="keyword">False</span>)</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#a270144af9c1edbc29abcb104b9ba007b">   99</a></span>&#160;muon_reco_task = <a class="code" href="classSndlhcMuonReco_1_1MuonReco.html">SndlhcMuonReco.MuonReco</a>()</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;run.AddTask(muon_reco_task)</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="comment"># Start timer</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#a0f982ebb89b061d0f91959a3f0ce1a1d">  103</a></span>&#160;w = ROOT.TStopwatch()</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="comment"># Set the parameter file - must be called before Init()</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;muon_reco_task.SetParFile(options.parFile)</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;muon_reco_task.SetTrackingCase(options.trackingCase)</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;muon_reco_task.SetHoughSpaceFormat(options.HspaceFormat)</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="comment"># setting a flag to let the task know which manager called it</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="comment"># needed as output handling differs for this manager and run_TrackSelections.</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;muon_reco_task.SetStandalone()</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;run.Init()</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="comment"># Set the scale factor - must be after Init()</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;print(<span class="stringliteral">&quot;Setting a scale factor to:&quot;</span>, options.scaleFactor)</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;muon_reco_task.SetScaleFactor(options.scaleFactor)</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="comment"># Set number of events to process</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#a13e311fa46cbfef53c8634e3a241e3d7">  119</a></span>&#160;nEvents = min( options.nEvents, source.GetEntries())</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;run.Run(options.firstEvent, options.firstEvent + nEvents)</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;w.Stop()</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;print(<span class="stringliteral">&#39;Real Time:&#39;</span>, w.RealTime(), <span class="stringliteral">&#39; CPU time: &#39;</span>, w.CpuTime())</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;print(<span class="stringliteral">&quot;Done running&quot;</span>)</div>
 <div class="ttc" id="aclassSndlhcGeo_1_1GeoInterface_html"><div class="ttname"><a href="classSndlhcGeo_1_1GeoInterface.html">SndlhcGeo.GeoInterface</a></div><div class="ttdef"><b>Definition:</b> <a href="SndlhcGeo_8py_source.html#l00007">SndlhcGeo.py:7</a></div></div>
 <div class="ttc" id="aclassSndlhcMuonReco_1_1MuonReco_html"><div class="ttname"><a href="classSndlhcMuonReco_1_1MuonReco.html">SndlhcMuonReco.MuonReco</a></div><div class="ttdef"><b>Definition:</b> <a href="SndlhcMuonReco_8py_source.html#l00217">SndlhcMuonReco.py:217</a></div></div>
+<div class="ttc" id="anamespacerun__muonRecoSND_html_af5bda2044d2fd4c58e44f4a2550e04f7"><div class="ttname"><a href="namespacerun__muonRecoSND.html#af5bda2044d2fd4c58e44f4a2550e04f7">run_muonRecoSND.int</a></div><div class="ttdeci">int</div><div class="ttdef"><b>Definition:</b> <a href="run__muonRecoSND_8py_source.html#l00015">run_muonRecoSND.py:15</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

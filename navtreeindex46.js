@@ -1,5 +1,9 @@
 var NAVTREEINDEX46 =
 {
+"extractMuonsAndUpdateWeight_8py.html#ab3c9a31bc5b3ad170e8193c30162c32f":[13,0,11,4,2],
+"extractMuonsAndUpdateWeight_8py.html#ab50c20957508cefd8553c3bb14d181ee":[13,0,11,4,8],
+"extractMuonsAndUpdateWeight_8py.html#ac9582651ec4e947af2270e97738b6f02":[13,0,11,4,4],
+"extractMuonsAndUpdateWeight_8py.html#adfec8af16ddc9104b3a740bc14d0759f":[13,0,11,4,13],
 "extractMuonsAndUpdateWeight_8py.html#af0572c865a6a0ab67917684941af4457":[13,0,11,4,1],
 "extractMuonsAndUpdateWeight_8py_source.html":[13,0,11,4],
 "extractNeutrinosAndUpdateWeight_8py.html":[13,0,11,5],
@@ -132,8 +136,8 @@ var NAVTREEINDEX46 =
 "functions_type.html":[12,3,3],
 "functions_u.html":[12,3,0,21],
 "functions_v.html":[12,3,0,22],
-"functions_vars.html":[12,3,2],
 "functions_vars.html":[12,3,2,0],
+"functions_vars.html":[12,3,2],
 "functions_vars_a.html":[12,3,2,1],
 "functions_vars_b.html":[12,3,2,2],
 "functions_vars_c.html":[12,3,2,3],
@@ -245,9 +249,5 @@ var NAVTREEINDEX46 =
 "g4Ex__args_8py_source.html":[13,0,11,7],
 "g4Ex__gap_8py.html":[13,0,11,8],
 "g4Ex__gap_8py.html#a00c9a8c5e07cc4cf0092850f721fbf0c":[13,0,11,8,53],
-"g4Ex__gap_8py.html#a0125e075ee6e0eae9f5fbd00bc30ab24":[13,0,11,8,24],
-"g4Ex__gap_8py.html#a0ee82c2282f43a7d8ebdd337bd8a9b11":[13,0,11,8,28],
-"g4Ex__gap_8py.html#a10680ec2795d7acbd16dc8a9a0e351b4":[13,0,11,8,27],
-"g4Ex__gap_8py.html#a10e477d5909dbad4713c514f7d5f69aa":[13,0,11,8,48],
-"g4Ex__gap_8py.html#a122424aea70de88fdea74774a9c9ed5d":[13,0,11,8,42]
+"g4Ex__gap_8py.html#a0125e075ee6e0eae9f5fbd00bc30ab24":[13,0,11,8,24]
 };

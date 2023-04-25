@@ -1,5 +1,9 @@
 var NAVTREEINDEX59 =
 {
+"namespacecharm-geometry__config.html#a2d4c17dadce87a1ea6235a28781534d3":[11,0,10,87],
+"namespacecharm-geometry__config.html#a2d60f9fbb900b4ebc473008477f31606":[11,0,10,111],
+"namespacecharm-geometry__config.html#a2eef1596f79b70562806d52e6424db36":[11,0,10,96],
+"namespacecharm-geometry__config.html#a3237b548b42d0a827d2649e953cc6933":[11,0,10,188],
 "namespacecharm-geometry__config.html#a32dc33ced52369b966f5a365f96be9bf":[11,0,10,270],
 "namespacecharm-geometry__config.html#a33ba01b3f83ca1e341275441e075114f":[11,0,10,137],
 "namespacecharm-geometry__config.html#a33d982ea4a2d67461d4edda0bc53c085":[11,0,10,34],
@@ -245,9 +249,5 @@ var NAVTREEINDEX59 =
 "namespacecharmDet__conf.html#a6cd41951f05c9d7015dca6e9be6e051b":[11,0,11,2],
 "namespacecharmDet__conf.html#a813f4a4d4b724d289551054a026a71ad":[11,0,11,0],
 "namespacecheckMagFields.html":[11,0,12],
-"namespacecheckMagFields.html#a0196382f89d12b558da99628915f0161":[11,0,12,0],
-"namespacecheckZpositions.html":[11,0,13],
-"namespacecheckZpositions.html#a0070d4bd74e3b9a7ed335c4abcff51ef":[11,0,13,9],
-"namespacecheckZpositions.html#a0b40a172c1990bcb4e77bfad3643fc91":[11,0,13,3],
-"namespacecheckZpositions.html#a14704aefad1faf37b6fc0cdab58c7abc":[11,0,13,5]
+"namespacecheckMagFields.html#a0196382f89d12b558da99628915f0161":[11,0,12,0]
 };

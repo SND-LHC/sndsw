@@ -1,5 +1,9 @@
 var NAVTREEINDEX55 =
 {
+"muonHit_8h.html":[13,0,10,5],
+"muonHit_8h_source.html":[13,0,10,5],
+"muonLinkDef_8h.html":[13,0,10,6],
+"muonLinkDef_8h_source.html":[13,0,10,6],
 "muonPoint_8cxx.html":[13,0,10,7],
 "muonPoint_8cxx_source.html":[13,0,10,7],
 "muonPoint_8h.html":[13,0,10,8],
@@ -245,9 +249,5 @@ var NAVTREEINDEX55 =
 "namespaceMufluxMuonTaggerPatRec.html#a75f4506be4763ed8f952afa874fda134":[11,0,97,4],
 "namespaceMufluxMuonTaggerPatRec.html#a7add9c9de79cf64b4935661951eadd41":[11,0,97,3],
 "namespaceMufluxMuonTaggerPatRec.html#a9037486782fdcadc4c212096e880dbf4":[11,0,97,2],
-"namespaceMufluxMuonTaggerPatRec.html#a92f01a62c5ab9de73a2ee568e5199b57":[11,0,97,7],
-"namespaceMufluxMuonTaggerPatRec.html#a9b28ae3977f4c9f9b8852aec0de8913b":[11,0,97,8],
-"namespaceMufluxMuonTaggerPatRec.html#aa4ee959a9821d7c1b18908e0e70df530":[11,0,97,9],
-"namespaceMufluxMuonTaggerPatRec.html#ae187627fb051f02bc385315697cd175e":[11,0,97,5],
-"namespaceMufluxPatRec.html":[11,0,98]
+"namespaceMufluxMuonTaggerPatRec.html#a92f01a62c5ab9de73a2ee568e5199b57":[11,0,97,7]
 };
