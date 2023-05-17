@@ -161,11 +161,17 @@ Variables</h2></td></tr>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    status = subprocess.check_output(callstring,shell=<span class="keyword">True</span>)</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordflow">for</span> x <span class="keywordflow">in</span> <a class="code" href="namespacerunProd.html#af3cc085c5dacc882bde1089e688d1f47">str</a>(status).split(<span class="stringliteral">&quot;\\n&quot;</span>):</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;         <span class="keywordflow">if</span> <span class="keywordflow">not</span> x.find(pname)&lt;0:</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            pid = x.split(<span class="stringliteral">&#39; &#39;</span>)[2]</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            os.system(<span class="stringliteral">&#39;kill &#39;</span>+pid)</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;         </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            first = <span class="keyword">True</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            <span class="keywordflow">for</span> pid <span class="keywordflow">in</span> x.split(<span class="stringliteral">&#39; &#39;</span>):</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;              <span class="keywordflow">if</span> first:</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                  first = <span class="keyword">False</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                  <span class="keywordflow">continue</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;              <span class="keywordflow">if</span> pid==<span class="stringliteral">&#39;&#39;</span>:<span class="keywordflow">continue</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;              os.system(<span class="stringliteral">&#39;kill &#39;</span>+pid)</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;              <span class="keywordflow">break</span> </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;         </div>
 <div class="ttc" id="anamespacerunProd_html_a0dbc19dda43a2c1b2915be71cc55c5c8"><div class="ttname"><a href="namespacerunProd.html#a0dbc19dda43a2c1b2915be71cc55c5c8">runProd.delProcesses</a></div><div class="ttdeci">def delProcesses(pname)</div><div class="ttdef"><b>Definition:</b> <a href="runProd_8py_source.html#l00014">runProd.py:14</a></div></div>
-<div class="ttc" id="anamespacerunProd_html_af3cc085c5dacc882bde1089e688d1f47"><div class="ttname"><a href="namespacerunProd.html#af3cc085c5dacc882bde1089e688d1f47">runProd.str</a></div><div class="ttdeci">str</div><div class="ttdef"><b>Definition:</b> <a href="runProd_8py_source.html#l00355">runProd.py:355</a></div></div>
+<div class="ttc" id="anamespacerunProd_html_af3cc085c5dacc882bde1089e688d1f47"><div class="ttname"><a href="namespacerunProd.html#af3cc085c5dacc882bde1089e688d1f47">runProd.str</a></div><div class="ttdeci">str</div><div class="ttdef"><b>Definition:</b> <a href="runProd_8py_source.html#l00362">runProd.py:362</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -182,7 +188,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runProd_8py_source.html#l00358">358</a> of file <a class="el" href="runProd_8py_source.html">runProd.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runProd_8py_source.html#l00365">365</a> of file <a class="el" href="runProd_8py_source.html">runProd.py</a>.</p>
 
 </div>
 </div>
@@ -198,7 +204,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runProd_8py_source.html#l00427">427</a> of file <a class="el" href="runProd_8py_source.html">runProd.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runProd_8py_source.html#l00434">434</a> of file <a class="el" href="runProd_8py_source.html">runProd.py</a>.</p>
 
 </div>
 </div>
@@ -214,7 +220,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runProd_8py_source.html#l00355">355</a> of file <a class="el" href="runProd_8py_source.html">runProd.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runProd_8py_source.html#l00362">362</a> of file <a class="el" href="runProd_8py_source.html">runProd.py</a>.</p>
 
 </div>
 </div>
@@ -230,7 +236,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runProd_8py_source.html#l00355">355</a> of file <a class="el" href="runProd_8py_source.html">runProd.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runProd_8py_source.html#l00362">362</a> of file <a class="el" href="runProd_8py_source.html">runProd.py</a>.</p>
 
 </div>
 </div>
@@ -246,7 +252,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runProd_8py_source.html#l00355">355</a> of file <a class="el" href="runProd_8py_source.html">runProd.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runProd_8py_source.html#l00362">362</a> of file <a class="el" href="runProd_8py_source.html">runProd.py</a>.</p>
 
 </div>
 </div>
@@ -262,7 +268,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runProd_8py_source.html#l00355">355</a> of file <a class="el" href="runProd_8py_source.html">runProd.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runProd_8py_source.html#l00362">362</a> of file <a class="el" href="runProd_8py_source.html">runProd.py</a>.</p>
 
 </div>
 </div>
@@ -278,7 +284,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runProd_8py_source.html#l00373">373</a> of file <a class="el" href="runProd_8py_source.html">runProd.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runProd_8py_source.html#l00380">380</a> of file <a class="el" href="runProd_8py_source.html">runProd.py</a>.</p>
 
 </div>
 </div>
@@ -310,7 +316,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runProd_8py_source.html#l00372">372</a> of file <a class="el" href="runProd_8py_source.html">runProd.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runProd_8py_source.html#l00379">379</a> of file <a class="el" href="runProd_8py_source.html">runProd.py</a>.</p>
 
 </div>
 </div>
@@ -326,7 +332,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runProd_8py_source.html#l00353">353</a> of file <a class="el" href="runProd_8py_source.html">runProd.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runProd_8py_source.html#l00360">360</a> of file <a class="el" href="runProd_8py_source.html">runProd.py</a>.</p>
 
 </div>
 </div>
@@ -342,7 +348,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runProd_8py_source.html#l00379">379</a> of file <a class="el" href="runProd_8py_source.html">runProd.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runProd_8py_source.html#l00386">386</a> of file <a class="el" href="runProd_8py_source.html">runProd.py</a>.</p>
 
 </div>
 </div>
@@ -358,7 +364,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runProd_8py_source.html#l00382">382</a> of file <a class="el" href="runProd_8py_source.html">runProd.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runProd_8py_source.html#l00389">389</a> of file <a class="el" href="runProd_8py_source.html">runProd.py</a>.</p>
 
 </div>
 </div>
@@ -374,7 +380,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runProd_8py_source.html#l00355">355</a> of file <a class="el" href="runProd_8py_source.html">runProd.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runProd_8py_source.html#l00362">362</a> of file <a class="el" href="runProd_8py_source.html">runProd.py</a>.</p>
 
 </div>
 </div>
@@ -390,7 +396,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runProd_8py_source.html#l00376">376</a> of file <a class="el" href="runProd_8py_source.html">runProd.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runProd_8py_source.html#l00383">383</a> of file <a class="el" href="runProd_8py_source.html">runProd.py</a>.</p>
 
 </div>
 </div>
@@ -406,7 +412,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runProd_8py_source.html#l00355">355</a> of file <a class="el" href="runProd_8py_source.html">runProd.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runProd_8py_source.html#l00362">362</a> of file <a class="el" href="runProd_8py_source.html">runProd.py</a>.</p>
 
 </div>
 </div>
@@ -422,7 +428,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runProd_8py_source.html#l00426">426</a> of file <a class="el" href="runProd_8py_source.html">runProd.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runProd_8py_source.html#l00433">433</a> of file <a class="el" href="runProd_8py_source.html">runProd.py</a>.</p>
 
 </div>
 </div>
@@ -438,7 +444,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runProd_8py_source.html#l00355">355</a> of file <a class="el" href="runProd_8py_source.html">runProd.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runProd_8py_source.html#l00362">362</a> of file <a class="el" href="runProd_8py_source.html">runProd.py</a>.</p>
 
 </div>
 </div>
