@@ -282,7 +282,7 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160;           T0 = event.EventHeader.GetEventTime()</div>
 <div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160;           rc = event.GetEvent(N1+1)</div>
 <div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;           T2 = event.EventHeader.GetEventTime()</div>
-<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160;           <span class="keywordflow">if</span> (T1-T0)&lt;100 <span class="keywordflow">and</span> self.M.options.postScale &lt; 2:: </div>
+<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160;           <span class="keywordflow">if</span> (T1-T0)&lt;100 <span class="keywordflow">and</span> self.M.options.postScale &lt; 2:</div>
 <div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160;               <span class="keywordflow">if</span> <span class="keywordflow">not</span> prevEvent: print(<span class="stringliteral">&#39;what is going on?&#39;</span>,N1,T1,T0,N1-1,tmpN,tmpT)</div>
 <div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160;               prevEvent = <span class="keyword">True</span></div>
 <div class="line"><a name="l00827"></a><span class="lineno">  827</span>&#160;           s = 1</div>
