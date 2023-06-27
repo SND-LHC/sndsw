@@ -705,6 +705,7 @@ class Veto_Efficiency(ROOT.FairTask):
        ut.bookHist(h,'X/Y','xy matching of scifi DS',100,-20.0,20.,100,-20.0,20.)
 
    def ExecuteEvent(self,event):
+       scifiCorTest = False
        systemAndPlanes = self.M.systemAndPlanes
        sdict = self.M.sdict
        s = 1
@@ -717,10 +718,12 @@ class Veto_Efficiency(ROOT.FairTask):
        # special treatment for first 10fb-1 in 2023, wrong time alignment, again!
        N1 = event.EventHeader.GetEventNumber()
        dT = abs(event.EventHeader.GetEventTime()-self.eventBefore['T'])
+       prevAdded = False
        for j in [0,-1]:
          if j<0: 
               if dT > vetoHitsFromPrev: continue
               rc = event.GetEvent(N1-1)  # add veto hits from prev event
+              prevAdded = True
          for aHit in event.Digi_MuFilterHits:
            if not aHit.isValid(): continue
            Minfo = self.M.MuFilter_PlaneBars(aHit.GetDetectorID())
@@ -736,7 +739,12 @@ class Veto_Efficiency(ROOT.FairTask):
            allChannels.clear()
          if j<0: event.GetEvent(N1)
        prevEvent = False
-       dT = abs(event.EventHeader.GetEventTime()-self.eventBefore['T'])
+       if prevAdded:
+         rc = event.GetEvent(N1-2)
+         Tprevprev = event.EventHeader.GetEventTime()
+         rc = event.GetEvent(N1)
+         dT = abs(event.EventHeader.GetEventTime()-Tprevprev)
+       else: dT = abs(event.EventHeader.GetEventTime()-self.eventBefore['T'])
        if dT < 100 and dT > vetoHitsFromPrev: prevEvent = True
        tmpT = self.eventBefore['T'] 
        tmpN = self.eventBefore['N'] 
@@ -761,7 +769,9 @@ class Veto_Efficiency(ROOT.FairTask):
               detID = W.getDetId()
               planes[detID//100000] = 1
        rc = h['scaler'].Fill(10)
-       if not len(planes)==10: return
+       scifiOneEff = 10 in planes or 11 in planes or not scifiCorTest
+       if not scifiOneEff  and len(planes) < 8: return
+       if scifiOneEff and len(planes) < 10: return
        rc = h['scaler'].Fill(0)
        if not prevEvent: rc = h['scaler'].Fill(1)
 
@@ -827,12 +837,13 @@ class Veto_Efficiency(ROOT.FairTask):
            #look for previous event time
            T1 = event.EventHeader.GetEventTime()
            N1 = event.EventHeader.GetEventNumber()
-           rc = event.GetEvent(N1-1)
+           if prevAdded: rc = event.GetEvent(N1-2)
+           else:         rc = event.GetEvent(N1-1)
            T0 = event.EventHeader.GetEventTime()
            rc = event.GetEvent(N1+1)
            T2 = event.EventHeader.GetEventTime()
            rc = event.GetEvent(N1)
-           if (T1-T0) < 100 and (T1-T0) > vetoHitsFromPrev and self.M.options.postScale < 2:
+           if (T1-T0) < 100 and self.M.options.postScale < 2:
                if not prevEvent: print('what is going on?',N1,T1,T0,N1-1,tmpN,tmpT)
                prevEvent = True
            s = 1
@@ -870,7 +881,7 @@ class Veto_Efficiency(ROOT.FairTask):
                           rc = h['XtimeDiffPrev_'+str(noiseCut)].Fill(T1-T0)
                           rc = h['XtimeDiffNext_'+str(noiseCut)].Fill(T2-T1)
                           if not prevEvent:
-                            if self.debug: print('no hits',noiseCut,prevEvent,beam,N1)
+                            if self.debug: print('no hits',noiseCut,prevEvent,beam,N1,scifiOneEff)
                         rc = h[nc+'XPosVeto_11'].Fill(xEx[l],yEx[l])
                         rc = h[nc+'XPosVeto_111'].Fill(xEx[1],yEx[1])
                         if beam: rc = h[nc+'beamXPosVeto_11'].Fill(xEx[l],yEx[l])
