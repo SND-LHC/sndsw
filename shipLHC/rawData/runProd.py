@@ -148,7 +148,8 @@ class prodManager():
            if   r  < 4575:  geoFile =  "../geofile_sndlhc_TI18_V3_08August2022.root"
            elif r  < 4855:   geoFile =  "../geofile_sndlhc_TI18_V5_14August2022.root"
            elif r  < 5172:  geoFile =  "../geofile_sndlhc_TI18_V6_08October2022.root"
-           else: geoFile =  "../geofile_sndlhc_TI18_V7_22November2022.root"
+           elif r  < 5485: geoFile =  "../geofile_sndlhc_TI18_V7_22November2022.root"
+           else: geoFile =  "../geofile_sndlhc_TI18_V1_2023.root"
            os.system(monitorCommand.replace('XXXX',str(r)).replace('GGGG',geoFile)+" &")
            time.sleep(20)
            while self.count_python_processes('run_Monitoring')>(ncpus-5) or psutil.virtual_memory()[2]>90 : time.sleep(300)
