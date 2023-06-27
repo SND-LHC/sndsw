@@ -105,6 +105,7 @@ parser.add_argument('-x', '--nMult',      dest='nMult',     type=int,  help="opt
 parser.add_argument('-N', '--nucleon',      dest='nucleon',     type=str,  help="nucleon for muon DIS pythia6",      default="p+")
 parser.add_argument('-z', '--zextrap',      dest='z',     type=float,  help="muon extrapolation",      default=-5*u.m)
 parser.add_argument('-P', '--pythia6',      dest='pythia6',     type=int,  help="pythia6 or not pythia6",      default=1)
+parser.add_argument('-X', '--PDFpSet',dest="PDFpSet",  type=str,  help="PDF pSet to use", default="13")
 
 options = parser.parse_args()
 
@@ -223,15 +224,30 @@ def rotate(ctheta,stheta,cphi,sphi,px,py,pz):
   return pxr,pyr,pzr
 
 import sys
-def getPythiaCrossSec(nstat,pmom=[]):
+def getPythia6CrossSec(nstat,pmom=[]):
     if len(pmom)==0:
        pmom=[5.,10.,15.,20.,25.,50.,75.,100.,150.,200.,250,300.,400.,500.,750.,1000.,1500.,2500.,5000.,7500.,10000.]
     mutype = {-13:'gamma/mu+',13:'gamma/mu-'}
+    target = ['p+','n']
     for pid in mutype:
-       h['g_'+str(pid)] = ROOT.TGraph()
-       h['g_'+str(pid)].SetName('g_'+str(pid))
+     for t in target:
+       h['g_'+str(pid)+t] = ROOT.TGraph()
+       h['g_'+str(pid)+t].SetName('g_'+str(pid)+t)
        np = 0
        for P in pmom:
+          print('run pythia6 for ',pid,' on ',t,'with p=',P)
+  # Histograms.
+          tag = str(pid)+t+str(P)
+          ut.bookHist(h,"Qhist"+tag,"Q;[GeV]", 100, 0., 50.)
+          ut.bookHist(h,"pTehist"+tag,"pT of scattered muon;[GeV]", 100, 0., 50.)
+          ut.bookHist(h,"xhist"+tag,"x", 100, 0., 1.)
+          ut.bookHist(h,"yhist"+tag,"y", 100, 0., 1.)
+          ut.bookHist(h,"pTrhist"+tag,"pT of radiated parton; [GeV]", 100, 0., 50.)
+          ut.bookHist(h,"pTdhist"+tag,"ratio pT_parton/pT_muon", 100, 0., 5.)
+          ut.bookHist(h,"nMult"+tag,"particle multiplicity", 50, -0.5, 49.5)
+          ut.bookHist(h,"nMultcha"+tag,"charged particle multiplicity", 50, -0.5, 49.5)
+          ut.bookHist(h,"nMultneu"+tag,"neutral particle multiplicity", 50, -0.5, 49.5)
+#
           myPythia = ROOT.TPythia6()
           myPythia.SetMSEL(2)       # msel 2 includes diffractive parts
           myPythia.SetPARP(2,2)     # To get below 10 GeV, you have to change PARP(2)
@@ -239,17 +255,181 @@ def getPythiaCrossSec(nstat,pmom=[]):
           myPythia.SetMRPY(1,R)
 # stop pythia printout during loop
           myPythia.SetMSTU(11, 11)
-          myPythia.Initialize('FIXT',mutype[pid],'p+',P)
+          myPythia.Initialize('FIXT',mutype[pid],t,P)
           for n in range(nstat):
               myPythia.GenerateEvent()
+              if 0>1:
+                for i in range(1,myPythia.GetN()+1):
+                     tmp = ROOT.Pythia8.Vec4(myPythia.GetP(i,1),myPythia.GetP(i,2),myPythia.GetP(i,3),myPythia.GetP(i,4))
+                     print(i,myPythia.GetK(i,2),tmp.pAbs())
+              pProton = ROOT.Pythia8.Vec4(myPythia.GetP(2,1),myPythia.GetP(2,2),myPythia.GetP(2,3),myPythia.GetP(2,4))
+              peIn    = ROOT.Pythia8.Vec4(myPythia.GetP(1,1),myPythia.GetP(1,2),myPythia.GetP(1,3),myPythia.GetP(1,4))
+              peOut   = ROOT.Pythia8.Vec4(myPythia.GetP(3,1),myPythia.GetP(3,2),myPythia.GetP(3,3),myPythia.GetP(3,4))
+              pPhoton = peIn - peOut
+            # Q2, W2, Bjorken x, y.
+              Q2    = - pPhoton.m2Calc()
+              W2    = (pProton + pPhoton).m2Calc()
+              x     = Q2 / (2. * (pProton * pPhoton))
+              y     = (pProton * pPhoton) / (pProton * peIn)
+              h['Qhist'+tag].Fill( ROOT.TMath.Sqrt(Q2) )
+              h['xhist'+tag].Fill( x )
+              h['yhist'+tag].Fill( y )
+              h['pTehist'+tag].Fill( peOut.pT() )
+            # pT spectrum of partons being radiated in shower.
+              nMult = [0,0,0]
+              myPythia.Pyedit(2)
+              for i in range(1,myPythia.GetN()+1):
+                      nMult[0]+=1
+                      pidCode = myPythia.GetK(i,2) # gives the particle code
+                      ch  = myPythia.Pychge(pidCode)
+                      if abs( ch )>0  : nMult[1]+=1
+                      elif pidCode != 22 :  nMult[2]+=1
+                      tmp = ROOT.Pythia8.Vec4(myPythia.GetP(i,1),myPythia.GetP(i,2),myPythia.GetP(i,3),myPythia.GetP(i,4))
+                      h['pTrhist'+tag].Fill( tmp.pT() )
+                      h['pTdhist'+tag].Fill( tmp.pT() / peOut.pT() )
+              h['nMult'+tag].Fill(nMult[0])
+              h['nMultcha'+tag].Fill(nMult[1])
+              h['nMultneu'+tag].Fill(nMult[2])
+
 # very ugly procedure, but myPythia.GetPyint5() does not work!
           myPythia.Pystat(0)
-          myPythia.Pystat(0)
+          myPythia.Pystat(4)
           xsec = readXsec(myPythia)
-          h['g_'+str(pid)].SetPoint(np,P,xsec)
+          # print('sigma',xsec,ROOT.fixXsec(myPythia))
+          h['g_'+str(pid)+t].SetPoint(np,P,xsec)
           np+=1
-    fout = ROOT.TFile('muDIScrossSec.root','RECREATE')
-    for pid in mutype: h['g_'+str(pid)].Write()
+    fout = ROOT.TFile('muDIScrossSec_Pythia6.root','RECREATE')
+    for pid in mutype: 
+     for t in target:
+        h['g_'+str(pid)+t].Write()
+        for P in pmom:
+            tag = str(pid)+t+str(P)
+            for x in [ "nMult"+tag,"nMultcha"+tag,"nMultneu"+tag,"Qhist"+tag,"pTehist"+tag,
+                      "xhist"+tag,"yhist"+tag,"pTrhist"+tag,"pTdhist"+tag]:
+              h[x].Write()
+
+ROOT.gInterpreter.Declare("""
+#include "Pythia8/Pythia.h"
+
+Float_t fixInfo(Pythia8::Pythia& g) {
+    g.info.list();
+    return g.info.sigmaGen();
+}
+""")
+
+ROOT.gInterpreter.Declare("""
+#include "TPythia6.h"
+// XSEC(0,3) the estimated total cross
+// section for all subprocesses included (all in mb)
+
+Float_t fixXsec(TPythia6& g) {
+    Pyint5_t* p5 = g.GetPyint5();
+    return p5->XSEC[0][3];
+}
+""")
+
+def getPythia8CrossSec(nstat,pmom=[]):
+    if len(pmom)==0:
+       # pmom=[15.,20.,25.,50.,75.,100.,150.,200.,250,300.,400.,500.,750.,1000.,1500.,2500.,5000.,7500.,10000.]
+       pmom=[50.,75.,100.,150.,200.,250,300.,400.,500.,750.,1000.,1500.,2500.,5000.,7500.,10000.]
+    mutype = {-13:'mu+',13:'mu-'}
+    generators = {}
+    Q2min = 0. # 25.
+    for pid in mutype:
+     for g in ['p','n']:
+       h['g_'+str(pid)+g] = ROOT.TGraph()
+       h['g_'+str(pid)+g].SetName('g_'+str(pid)+g)
+       np = 0
+       for P in pmom:
+             generators[g]=ROOT.Pythia8.Pythia()
+             if g=='p': generators[g].settings.mode("Beams:idB",  2212)
+             else:      generators[g].settings.mode("Beams:idB",  2112)
+             generators[g].settings.mode("Next:numberCount",options.heartbeat)
+             generators[g].settings.mode("Beams:frameType",  2)
+             generators[g].settings.parm("Beams:eA",P)
+             generators[g].settings.mode("Beams:idA", pid)
+             generators[g].settings.parm("Beams:eB",0.)
+             generators[g].readString("PDF:pSet = "+options.PDFpSet)
+#
+             # Neutral current (with gamma/Z interference).
+             generators[g].readString("WeakBosonExchange:ff2ff(t:gmZ) = on")
+#
+             # charged current.
+             generators[g].readString("WeakBosonExchange:ff2ff(t:W) = on")
+#
+             # Phase-space cut: minimal Q2 of process.
+             generators[g].settings.parm("PhaseSpace:Q2Min", Q2min)
+#
+             # Set dipole recoil on. Necessary for DIS + shower.
+             generators[g].readString("SpaceShower:dipoleRecoil = on")
+#
+             # Allow emissions up to the kinematical limit,
+             # since rate known to match well to matrix elements everywhere.
+             generators[g].readString("SpaceShower:pTmaxMatch = 2")
+#
+             # QED radiation off lepton not handled yet by the new procedure.
+             generators[g].readString("PDF:lepton = off")
+             generators[g].readString("TimeShower:QEDshowerByL = off")
+#
+             generators[g].init()
+  # Histograms.
+             tag = str(pid)+g+str(P)
+             ut.bookHist(h,"Qhist"+tag,"Q;[GeV]", 100, 0., 50.)
+             ut.bookHist(h,"pTehist"+tag,"pT of scattered muon;[GeV]", 100, 0., 50.)
+             ut.bookHist(h,"xhist"+tag,"x", 100, 0., 1.)
+             ut.bookHist(h,"yhist"+tag,"y", 100, 0., 1.)
+             ut.bookHist(h,"pTrhist"+tag,"pT of radiated parton; [GeV]", 100, 0., 50.)
+             ut.bookHist(h,"pTdhist"+tag,"ratio pT_parton/pT_muon", 100, 0., 5.)
+             ut.bookHist(h,"nMult"+tag,"particle multiplicity", 50, -0.5, 49.5)
+             ut.bookHist(h,"nMultcha"+tag,"charged particle multiplicity", 50, -0.5, 49.5)
+             ut.bookHist(h,"nMultneu"+tag,"neutral particle multiplicity", 50, -0.5, 49.5)
+#
+             for n in range(nstat):
+                 rc = generators[g].next()
+                 if not rc: continue
+                 event = generators[g].event
+            # Four-momenta of proton, electron, virtual photon/Z^0/W^+-.
+                 pProton = event[2].p()
+                 peIn    = event[1].p()
+                 peOut   = event[3].p()
+                 pPhoton = peIn - peOut
+            # Q2, W2, Bjorken x, y.
+                 Q2    = - pPhoton.m2Calc()
+                 W2    = (pProton + pPhoton).m2Calc()
+                 x     = Q2 / (2. * (pProton * pPhoton))
+                 y     = (pProton * pPhoton) / (pProton * peIn)
+                 h['Qhist'+tag].Fill( ROOT.TMath.Sqrt(Q2) )
+                 h['xhist'+tag].Fill( x )
+                 h['yhist'+tag].Fill( y )
+                 h['pTehist'+tag].Fill( event[6].pT() )
+            # pT spectrum of partons being radiated in shower.
+                 nMult = [0,0,0]
+                 for i in range(event.size()):
+                   # print(i,event[i].statusAbs(),event[i].id(), event[i].status())
+                   if (event[i].status()>0): 
+                      nMult[0]+=1
+                      if abs( event[i].chargeType() )>0  : nMult[1]+=1
+                      elif event[i].id() != 22 :  nMult[2]+=1
+                   if (event[i].statusAbs() == 43):
+                      h['pTrhist'+tag].Fill( event[i].pT() )
+                      h['pTdhist'+tag].Fill( event[i].pT() / event[6].pT() )
+                 h['nMult'+tag].Fill(nMult[0])
+                 h['nMultcha'+tag].Fill(nMult[1])
+                 h['nMultneu'+tag].Fill(nMult[2])
+             generators[g].stat()
+             xsec = ROOT.fixInfo(generators[g])
+             h['g_'+str(pid)+g].SetPoint(np,P,xsec)
+             np+=1
+    fout = ROOT.TFile('muDIScrossSec_Pythia8.root','RECREATE')
+    for pid in mutype: 
+     for g in ['p','n']:
+         h['g_'+str(pid)+g].Write()
+         for P in pmom:
+            tag = str(pid)+g+str(P)
+            for x in ["nMult"+tag,"nMultcha"+tag,"nMultneu"+tag,"Qhist"+tag,"pTehist"+tag,
+                      "xhist"+tag,"yhist"+tag,"pTrhist"+tag,"pTdhist"+tag]:
+              h[x].Write()
+
 
 def readXsec(p):
    f = open("fort.11")
@@ -366,6 +546,97 @@ def checkProdofMuDIS():
        h["xy_mu_"+x].Draw('colz')
        c=h['muDIS_inMu'].cd(2)
    myPrint(h['muDIS_SND2'],'inMu_XY')
+
+def compMuDIS_P6withP8():
+    f = {}
+    for x in ['6','8']: 
+       h['p'+x] = {}
+       ut.readHists(h['p'+x],'muDIScrossSec_Pythia'+x+'.root')
+       for aHist in h['p'+x]:
+         for t in ["nMult","Qhist","pTehist","xhist","yhist","pTrhist","pTdhist"]:
+            if aHist.find(t)<0:continue
+            h['p'+x][aHist].Scale(1./h['p'+x][aHist].GetEntries())
+    f['p6'] = ROOT.TFile('muDIScrossSec_Pythia6.root')
+    f['p8'] = ROOT.TFile('muDIScrossSec_Pythia8.root')
+    ROOT.gROOT.cd()
+    for pid in ['13','-13']:
+       for t in ['p','n']:
+          for g in ['p6','p8']:
+            tx = t
+            if t=='p' and g=='p6': tx='p+'
+            h['g_'+g+pid+t] = f[g].Get('g_'+pid+tx).Clone('g_'+g+pid+t)
+            h['g_'+g+pid+t].SetLineWidth(4)
+            if g=='p6': 
+                h['g_'+g+pid+t].SetLineColor(ROOT.kBlue)
+                h['g_'+g+pid+t].SetMarkerColor(ROOT.kBlue)
+            if g=='p8': 
+                h['g_'+g+pid+t].SetLineColor(ROOT.kGreen)
+                h['g_'+g+pid+t].SetMarkerColor(ROOT.kGreen)
+            if pid=='13': h['g_'+g+pid+t].SetMarkerStyle(23)
+            if pid=='-13': h['g_'+g+pid+t].SetMarkerStyle(22)
+    ut.bookCanvas(h,'sec','xsec',900,600,1,1)
+    ut.bookHist(h,'muDISXsec',';E  [GeV];#sigma [mb]',100,0.,10000.)
+    h['sec'].cd(1)
+    h['muDISXsec'].SetMinimum(5E-5)
+    h['muDISXsec'].SetMaximum(30.E-3)
+    h['muDISXsec'].SetStats(0)
+    h['muDISXsec'].Draw()
+    for pid in ['13','-13']:
+       for t in ['p','n']:
+          for g in ['p6','p8']:
+            h['g_'+g+pid+t].Draw('same')
+    T=ROOT.TLatex()
+    T.DrawLatex(2000,0.007,'Pythia6')
+    T.SetLineColor(ROOT.kBlue)
+    T.DrawLatex(4000,0.0003,'Pythia8')
+    T.SetLineColor(ROOT.kBlue)
+    h['sec'].Print('muonXsecP6P8.png')
+    
+    E = str(500.0)
+    ut.bookCanvas(h,'mul',E,1200,600,3,1)
+    h['mul'].cd(1)
+    h['p6']['nMult13p+'+E].SetStats(0)
+    h['p6']['nMult13p+'+E].SetLineColor(ROOT.kBlue)
+    h['p6']['nMult13p+'+E].Draw()
+    h['p8']['nMult13p'+E].SetStats(0)
+    h['p8']['nMult13p'+E].SetLineColor(ROOT.kGreen)
+    h['p8']['nMult13p'+E].Draw('same')
+    T.SetLineColor(ROOT.kRed)
+    T.DrawLatexNDC(0.5,0.45,'mean P6: %5.2F'%(h['p6']['nMult13p+'+E].GetMean()))
+    T.DrawLatexNDC(0.5,0.5,'mean P8: %5.2F'%(h['p8']['nMult13p'+E].GetMean()))
+    h['mul'].cd(2)
+    h['p6']['nMultcha13p+'+E].SetStats(0)
+    h['p6']['nMultcha13p+'+E].SetLineColor(ROOT.kBlue)
+    h['p6']['nMultcha13p+'+E].GetXaxis().SetRangeUser(-0.5,30.5)
+    h['p6']['nMultcha13p+'+E].Draw()
+    h['p8']['nMultneu13p'+E].SetStats(0)
+    h['p8']['nMultcha13p'+E].SetLineColor(ROOT.kGreen)
+    h['p8']['nMultcha13p'+E].Draw('same')
+    T.DrawLatexNDC(0.5,0.45,'mean P6: %5.2F'%(h['p6']['nMultcha13p+'+E].GetMean()))
+    T.DrawLatexNDC(0.5,0.5,'mean P8: %5.2F'%(h['p8']['nMultcha13p'+E].GetMean()))
+    h['mul'].cd(3)
+    h['p6']['nMultneu13p+'+E].SetStats(0)
+    h['p6']['nMultneu13p+'+E].SetLineColor(ROOT.kBlue)
+    h['p6']['nMultneu13p+'+E].GetXaxis().SetRangeUser(-0.5,8.5)
+    h['p6']['nMultneu13p+'+E].Draw()
+    h['p8']['nMultneu13p'+E].SetStats(0)
+    h['p8']['nMultneu13p'+E].SetLineColor(ROOT.kGreen)
+    h['p8']['nMultneu13p'+E].Draw('same')
+    T.DrawLatexNDC(0.5,0.45,'mean P6: %5.2F'%(h['p6']['nMultneu13p+'+E].GetMean()))
+    T.DrawLatexNDC(0.5,0.5,'mean P8: %5.2F'%(h['p8']['nMultneu13p'+E].GetMean()))
+    h['mul'].Print('muonXsecP6P8_nMult'+E+'.png')
+    ut.bookCanvas(h,'Q2',E,900,600,1,1)
+    rc = h['Q2'].cd()
+    rc.SetLogy(1)
+    h['p6']['Qhist13p+500.0'].SetLineColor(ROOT.kBlue)
+    h['p6']['Qhist13p+500.0'].GetXaxis().SetRangeUser(0.,12.)
+    h['p6']['Qhist13p+500.0'].SetMaximum(1)
+    h['p6']['Qhist13p+500.0'].SetStats(0)
+    h['p6']['Qhist13p+500.0'].Draw()
+    h['p8']['Qhist13p500.0'].SetLineColor(ROOT.kGreen)
+    h['p8']['Qhist13p500.0'].SetStats(0)
+    h['p8']['Qhist13p500.0'].Draw('same')
+    h['Q2'].Print('muonXsecP6P8_Q2'+E+'.png')
 
 def analyze(inFile):
     NinteractionLength = 3
@@ -1529,8 +1800,9 @@ def thermNeutron():
                    m.Get4Momentum(L)
                    logE = ROOT.TMath.Log10( 1000.*(L.Energy()-L.M()))
                    rc = h['n_'+str(m.GetPdgCode())].Fill(logE,W)
-def analyzeDIS(NsubJobs=0,delta=13,hists="muonDISfull.root",runCoverage=6.):
-    pathToPlots = "/mnt/hgfs/microDisk/CERNBOX/SND@LHC/MuonDis/"
+def analyzeDIS(NsubJobs=0,delta=13,hists="../Muons Extended Scoring Plane/muonDISfull.root",runCoverage=6.):
+#    pathToPlots = "/mnt/hgfs/microDisk/CERNBOX/SND@LHC/MuonDis/"
+    pathToPlots = "/mnt/hgfs/microDisk/SND@LHC/MuonDis/reMake2022"
     latex = 'latex.txt'
     if options.pythia6<0:
           pathToPlots =  "/mnt/hgfs/microDisk/CERNBOX/SND@LHC/MuonGeant4/"
@@ -1811,6 +2083,39 @@ def analyzeDIS(NsubJobs=0,delta=13,hists="muonDISfull.root",runCoverage=6.):
       h['I-'+hname].GetXaxis().SetRangeUser(0.,1000.)
       h['I-'+hname].SetMinimum(1E-6)
       ut.makeIntegralDistrib(h,"Esnd"+o+"_all_"+str(pid))
+
+    ut.bookCanvas(h,'muDIS_SNDwithVeto','neutrals arriving at SND',1800,1200,3,3)
+    for k in range(len(parts)):
+        tc=h['muDIS_SNDwithVeto'].cd(k+1)
+        tc.SetLogy(1)
+        pname = PDG.GetParticle(parts[k]).GetName()
+        hnameScaled       = "Esnd_"+str(parts[k])+"_fb150"
+        h[hnameScaled] = h["Esnd_"+str(parts[k])].Clone(hnameScaled)
+        h[hnameScaled].Scale(150.*fbScale/runCoverage)
+        h[hnameScaled].GetXaxis().SetRangeUser(0,500)
+        h[hnameScaled].SetStats(0)
+        h[hnameScaled].SetMaximum(4E6)
+        h[hnameScaled].SetTitle(pname+'; E [GeV/c];N/10GeV /150 fb^{-1}')
+        h[hnameScaled].SetLineWidth(3)
+        h[hnameScaled].Draw('hist')
+    myPrint(h['muDIS_SNDwithVeto'],'EofNeutralsInSND_vetoApplied',pathToPlots=pathToPlots)
+
+    ut.bookCanvas(h,'muDIS_SNDnoVetoRequired','neutrals arriving at SND',1800,1200,3,3)
+    for k in range(len(parts)):
+        tc=h['muDIS_SNDnoVetoRequired'].cd(k+1)
+        tc.SetLogy(1)
+        pname = PDG.GetParticle(parts[k]).GetName()
+        hnameScaled       = "Esnd_all_"+str(parts[k])+"_fb150"
+        h[hnameScaled] = h["Esnd_all_"+str(parts[k])].Clone(hnameScaled)
+        h[hnameScaled].Scale(150.*fbScale/runCoverage)
+        h[hnameScaled].GetXaxis().SetRangeUser(0,500)
+        h[hnameScaled].SetStats(0)
+        h[hnameScaled].SetMaximum(4E6)
+        h[hnameScaled].SetTitle(pname+'; E [GeV/c];N/10GeV /150 fb^{-1}')
+        h[hnameScaled].SetLineWidth(3)
+        h[hnameScaled].Draw('hist')
+    myPrint(h['muDIS_SNDnoVetoRequired'],'EofNeutralsInSND_NoVetoApplied',pathToPlots=pathToPlots)
+
     for  o in ["","prim"]:
      ut.bookCanvas(h,'muDIS_SND'+o,'neutrals arriving at SND',1800,1200,3,3)
      for k in range(len(parts)):
