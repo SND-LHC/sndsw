@@ -1,5 +1,11 @@
 var NAVTREEINDEX84 =
 {
+"scifiHitMaps_8py.html#af6da5c8b8c09ad3d283552bfd98c3954":[13,0,20,0,7,16],
+"scifiHitMaps_8py_source.html":[13,0,20,0,7],
+"scifiSimAna_8py.html":[13,0,20,1,15],
+"scifiSimAna_8py.html#a05a3b4b0a8b35c9801da3857746e3254":[13,0,20,1,15,35],
+"scifiSimAna_8py.html#a08335fd8ffce04b230cb9ef4339108f1":[13,0,20,1,15,38],
+"scifiSimAna_8py.html#a0925b5b0fd4bf88195398c958e7a3f65":[13,0,20,1,15,9],
 "scifiSimAna_8py.html#a14a4289802c81e5051877ab7916066ed":[13,0,20,1,15,13],
 "scifiSimAna_8py.html#a16c8d8e3993221a0c4bf4acb292f8bc1":[13,0,20,1,15,43],
 "scifiSimAna_8py.html#a185c072fc8a763e1a039a62f595be14a":[13,0,20,1,15,44],
@@ -243,11 +249,5 @@ var NAVTREEINDEX84 =
 "shipPid_8py.html":[13,0,17,48],
 "shipPid_8py_source.html":[13,0,17,48],
 "shipRoot__conf_8py.html":[13,0,17,49],
-"shipRoot__conf_8py.html#a5e8544883bc78700546fa8c4c116ca7d":[13,0,17,49,0],
-"shipRoot__conf_8py.html#a7f5e35cee75ea5f10f147c798b1694ae":[13,0,17,49,2],
-"shipRoot__conf_8py.html#a8ac4ec1b0a95911241aab320fa33f90f":[13,0,17,49,1],
-"shipRoot__conf_8py_source.html":[13,0,17,49],
-"shipStrawTracking_8py.html":[13,0,17,50],
-"shipStrawTracking_8py.html#a03e3f8cffae772aca9d1eb4b5bc0c43e":[13,0,17,50,16],
-"shipStrawTracking_8py.html#a1280afb3753c321a0e60405c802d191a":[13,0,17,50,14]
+"shipRoot__conf_8py.html#a5e8544883bc78700546fa8c4c116ca7d":[13,0,17,49,0]
 };
