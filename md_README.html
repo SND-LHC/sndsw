@@ -136,7 +136,7 @@ On lxplus or systems with CVMFS</h2>
 <p>On <code>lxplus</code> or any CC7/CC8 machine with access to CVMFS, you can do the following:</p>
 <ol type="1">
 <li>Make sure you can access the SNDLHC CVMFS Repository ```bash ls /cvmfs/sndlhc.cern.ch ``<code></code></li>
-<li><code>Source the</code>setUp.sh&lt;tt&gt;script ``bash source /cvmfs/sndlhc.cern.ch/latest/setUp.sh ```</li>
+<li><code>Source the</code>setUp.sh&lt;tt&gt;script ``bash source /cvmfs/sndlhc.cern.ch/SNDLHC-2023/Jan22/setUp.sh (recommended latest version) ```</li>
 <li>If you don't want to modify the sndsw package, skip step 3: ```bash git clone <a href="https://github.com/SND-LHC/sndsw">https://github.com/SND-LHC/sndsw</a> ``` This gives you by default the master branch of the software. In case, you want to use a specific branch: ```bash cd sndsw git checkout &lt;branch&gt; cd .. ``<code></code></li>
 <li><code>Build the software using</code>aliBuild<code> </code>``bash aliBuild build sndsw -c $SNDDIST &ndash;always-prefer-system ``` If you exit your shell session and you want to go back working on it, make sure to re-execute the second step.</li>
 </ol>
