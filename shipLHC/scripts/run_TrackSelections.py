@@ -24,7 +24,7 @@ parser.add_argument("-n", "--nEvents", dest="nEvents", help="number of events", 
 parser.add_argument("-s", "--nStart", dest="nStart", help="first event", default=0,type=int)
 parser.add_argument("-st", "--simpleTracking", dest="simpleTracking", action='store_true', default=False)
 parser.add_argument("-genfitFormat", "--genfitFormat", dest='genfitFormat', action='store_true', help="output track format for simple tracking when only it is run", default=False)
-parser.add_argument("-t", "--trackType", dest="trackType", help="DS, Scifi, ScifiDS", default="ScifiDS")
+parser.add_argument("-t", "--trackType", choices=["DS", "Scifi", "ScifiDS"], help="Type of tracks to use", default="ScifiDS")
 
 parser.add_argument("--ScifiNbinsRes", dest="ScifiNbinsRes", default=100)
 parser.add_argument("--Scifixmin", dest="Scifixmin", default=-2000.)
