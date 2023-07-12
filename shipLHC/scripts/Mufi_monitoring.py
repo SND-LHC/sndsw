@@ -682,7 +682,7 @@ class Veto_Efficiency(ROOT.FairTask):
         ut.bookHist(h,'XtimeDiffPrev_'+str(noiseCut),'time diff no hits; [clock cycles] ',100,-0.5,999.5)
         ut.bookHist(h,'timeDiffNext_'+str(noiseCut),'time diff next; [clock cycles] ',100,-0.5,999.5)
         ut.bookHist(h,'XtimeDiffNext_'+str(noiseCut),'time diff next no hits; [clock cycles] ',100,-0.5,999.5)
-        for c in ['','NoPrev']:
+        for c in ['','NoPrev','LoNoFi']:
          for b in ['','beam']:
           nc = 'T'+c+str(noiseCut)+b
           for l in range(monitor.systemAndPlanes[s]):
@@ -738,14 +738,34 @@ class Veto_Efficiency(ROOT.FairTask):
                     hits[str(l)+'R']+=1
            allChannels.clear()
          if j<0: event.GetEvent(N1)
-       prevEvent = False
        if prevAdded:
          rc = event.GetEvent(N1-2)
          Tprevprev = event.EventHeader.GetEventTime()
          rc = event.GetEvent(N1)
          dT = abs(event.EventHeader.GetEventTime()-Tprevprev)
        else: dT = abs(event.EventHeader.GetEventTime()-self.eventBefore['T'])
-       if dT < 100 and dT > vetoHitsFromPrev: prevEvent = True
+       prevEvent = False
+       tightNoiseFilter = True
+       noiseFilter0 = None
+       noiseFilter1 = None
+       if dT < 100 and dT > vetoHitsFromPrev: 
+           prevEvent = True
+           # check type of prev event, if it would pass tight noise filter, run 6568 ++ 
+           if event.EventHeader.GetRunId() > 6567:
+              rc = event.GetEvent(N1-1)
+              for aHit in event.Digi_MuFilterHits:
+                 Minfo = self.M.MuFilter_PlaneBars(aHit.GetDetectorID())
+                 s,l,bar = Minfo['station'],Minfo['plane'],Minfo['bar']
+                 if s>1: continue
+                 allChannels = self.M.map2Dict(aHit,'GetAllSignals')
+                 hits[l]+=len(allChannels)
+                 allChannels.clear()
+              noiseFilter0 = (hits[0]+hits[1])>4.5
+              noiseFilter1 = hits[0]>0 and hits[1]>0
+              if noiseFilter0 and noiseFilter1: tightNoiseFilter = True
+              else: tightNoiseFilter = False
+              rc = event.GetEvent(N1)
+
        tmpT = self.eventBefore['T'] 
        tmpN = self.eventBefore['N'] 
        self.eventBefore['T'] = event.EventHeader.GetEventTime()
@@ -859,11 +879,14 @@ class Veto_Efficiency(ROOT.FairTask):
                  c=''
                  if not prevEvent: c='NoPrev'
                  nc = 'T'+c+str(noiseCut)
+                 ncL = 'T'+'LoNoFi'+str(noiseCut)
                  if hits[l] > noiseCut: 
                       rc = h[nc+'PosVeto_'+str(l)].Fill(xEx[l],yEx[l])
+                      if tightNoiseFilter: rc = h[ncL+'PosVeto_'+str(l)].Fill(xEx[l],yEx[l])
                       if beam: rc = h[nc+'beamPosVeto_'+str(l)].Fill(xEx[l],yEx[l])
                  else:                        
                       rc = h[nc+'XPosVeto_'+str(l)].Fill(xEx[l],yEx[l])
+                      if tightNoiseFilter: h[ncL+'XPosVeto_'+str(l)].Fill(xEx[l],yEx[l])
                       if beam: rc = h[nc+'beamXPosVeto_'+str(l)].Fill(xEx[l],yEx[l])
                  if l==0:
                     if -45<xEx[l] and xEx[l]<-10 and 27<yEx[l] and yEx[l]<54:
@@ -872,19 +895,26 @@ class Veto_Efficiency(ROOT.FairTask):
                     if hits[0] > noiseCut and hits[1] > noiseCut: 
                       rc = h[nc+'PosVeto_11'].Fill(xEx[l],yEx[l])
                       rc = h[nc+'PosVeto_111'].Fill(xEx[1],yEx[1])
+                      if tightNoiseFilter: 
+                        rc = h[ncL+'PosVeto_11'].Fill(xEx[l],yEx[l])
+                        rc = h[ncL+'PosVeto_111'].Fill(xEx[1],yEx[1])
                       if beam: rc = h[nc+'beamPosVeto_11'].Fill(xEx[l],yEx[l])
                     if hits[0] > noiseCut or hits[1] > noiseCut:    
                       rc = h[nc+'PosVeto_00'].Fill(xEx[l],yEx[l])
+                      if tightNoiseFilter: h[ncL+'PosVeto_00'].Fill(xEx[l],yEx[l])
                       if beam: rc = h[nc+'beamPosVeto_00'].Fill(xEx[l],yEx[l])
                     else:
                         if -45<xEx[l] and xEx[l]<-10 and 27<yEx[l] and yEx[l]<54:
                           rc = h['XtimeDiffPrev_'+str(noiseCut)].Fill(T1-T0)
                           rc = h['XtimeDiffNext_'+str(noiseCut)].Fill(T2-T1)
                           if not prevEvent:
-                            if self.debug: print('no hits',noiseCut,prevEvent,beam,N1,scifiOneEff)
+                            if self.debug: print('no hits',noiseCut,prevEvent,beam,N1,tightNoiseFilter,noiseFilter0,noiseFilter1)
                         rc = h[nc+'XPosVeto_11'].Fill(xEx[l],yEx[l])
                         rc = h[nc+'XPosVeto_111'].Fill(xEx[1],yEx[1])
                         if beam: rc = h[nc+'beamXPosVeto_11'].Fill(xEx[l],yEx[l])
+                        if tightNoiseFilter: 
+                           rc = h[ncL+'XPosVeto_11'].Fill(xEx[l],yEx[l])
+                           rc = h[ncL+'XPosVeto_111'].Fill(xEx[1],yEx[1])
 
    def Plot(self,beamOnly=False):
      h = self.M.h
