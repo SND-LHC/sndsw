@@ -22,12 +22,73 @@ AdvTargetHit::AdvTargetHit(Int_t detID)
  flag = true;
 }
 
+void AdvTargetHit::GetPosition(TVector3& vLeft, TVector3& vRight) {
+    if (!gGeoManager) LOG(FATAL) << "Geofile required to get the position of AdvTargetHits.";
+    TGeoNavigator* nav = gGeoManager->GetCurrentNavigator();
+    auto path = TString::Format(
+        "/cave_1/"
+        "Detector_0/"
+        "volAdvTarget_1/"
+        "TrackingStation_%d/"
+        "TrackerPlane_%d/"
+        "SensorModule_%d/"
+        "Sensor_%d/"
+        "StripVolume_%d",
+        GetStation(),
+        GetPlane(),
+        2 * GetRow() + 1 + GetColumn(),
+        GetSensor(),
+        fDetectorID
+    );
+    nav->cd(path);
+    auto *node = nav->GetCurrentNode();
+    auto* S = dynamic_cast<TGeoBBox*>(node->GetVolume()->GetShape());
+    Double_t short_side = S->GetDY();
+    Double_t long_side = S->GetDX();
+    Double_t top[3] = {long_side, short_side, S->GetDZ()};
+    Double_t bot[3] = {-long_side, -short_side, -S->GetDZ()};
+    Double_t Gtop[3], Gbot[3];
+    if (short_side > 100) {
+        LOG(INFO) << nav->GetPath();
+        LOG(INFO) << fDetectorID;
+    }
+    nav->LocalToMaster(top, Gtop);
+    nav->LocalToMaster(bot, Gbot);
+    if (
+        !(
+            (Gtop[0] < fX && fX < Gbot[0]) ||
+            (Gbot[0] < fX && fX < Gtop[0])
+        )
+    ){
+        LOG(WARN) << "fX not between Gtop and Gbot!";
+        LOG(INFO) << "True:\t" << fX;
+        LOG(INFO) << "Gtop\t" << Gtop[0];
+        LOG(INFO) << "Gbot\t" << Gbot[0];
+        LOG(INFO) << path;
+    }
+    if (
+        !(
+            (Gtop[1] < fY && fY < Gbot[1]) ||
+            (Gbot[1] < fY && fY < Gtop[1])
+        )
+    ){
+        LOG(WARN) << "fY not between Gtop and Gbot!";
+        LOG(INFO) << "True:\t" << fY;
+        LOG(INFO) << "Gtop\t" << Gtop[1];
+        LOG(INFO) << "Gbot\t" << Gbot[1];
+        LOG(INFO) << path;
+    }
+    vLeft.SetXYZ(Gtop[0], Gtop[1], Gtop[2]);
+    vRight.SetXYZ(Gbot[0], Gbot[1], Gbot[2]);
+}
+
 
 // -----   constructor from AdvTargetPoint   ------------------------------------------
 AdvTargetHit::AdvTargetHit(Int_t detID, std::vector<AdvTargetPoint*> V)
   : SndlhcHit()
 {
-     AdvTarget* AdvTargetDet = dynamic_cast<AdvTarget*> (gROOT->GetListOfGlobals()->FindObject("AdvTarget"));
+     // AdvTarget* AdvTargetDet = dynamic_cast<AdvTarget*> (gROOT->GetListOfGlobals()->FindObject("AdvTarget"));
+
      // // get parameters from the AdvTarget detector for simulating the digitized information
      // nSiPMs  = AdvTargetDet->GetnSiPMs(detID);
      // if (floor(detID/10000)==3&&detID%1000>59) nSides = AdvTargetDet->GetnSides(detID) - 1;
@@ -35,18 +96,11 @@ AdvTargetHit::AdvTargetHit(Int_t detID, std::vector<AdvTargetPoint*> V)
 
      fDetectorID = detID;
 
-     Float_t position_resolution = 35 * ShipUnit::um;
-
      for (auto* point : V) {
-          auto plane = point->GetPlane();
-          if (plane == 0) {
-               fX = point->GetX() + position_resolution * gRandom->Gaus();
-               fY = -500;
-          } else if (plane == 1) {
-               fX = -500;
-               fY = point->GetY() + position_resolution * gRandom->Gaus();
-          }
+          fX = point->GetX();
+          fY = point->GetY();
           fZ = point->GetZ();
+          times[0] = point->GetTime();
      }
 
      if (V.size() > 1) {
@@ -122,23 +176,6 @@ AdvTargetHit::AdvTargetHit(Int_t detID, std::vector<AdvTargetPoint*> V)
      // flag = true;
      // for (Int_t i=0;i<16;i++){fMasked[i]=kFALSE;}
      // LOG(DEBUG) << "signal created";
-}
-
-// Constructor from AdvTargetPoint
-AdvTargetHit::AdvTargetHit(Int_t detID, AdvTargetPoint* point, Int_t index)
-     : SndlhcHit(), fMCPoint{index} {
-     fDetectorID = detID;
-     Float_t position_resolution = 35 * ShipUnit::um;
-     auto plane = point->GetPlane();
-     if (plane == 0) {
-          fX = point->GetX() + position_resolution * gRandom->Gaus();
-          fY = -500;
-     } else if (plane == 1) {
-          fX = -500;
-          fY = point->GetY() + position_resolution * gRandom->Gaus();
-     }
-     fZ = point->GetZ();
-     flag = true;
 }
 
 // -----   Destructor   ----------------------------------------------------

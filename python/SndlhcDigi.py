@@ -27,6 +27,7 @@ class SndlhcDigi:
         self.digiTarget2MCPoints =  ROOT.TClonesArray("Hit2MCPoints")
         self.digiTarget2MCPoints.BypassStreamer(ROOT.kTRUE)
         self.digiTarget2MCPointsBranch   = self.sTree.Branch("Digi_TargetHits2MCPoints",self.digiTarget2MCPoints, 32000, 1)
+
         lsOfGlobals  = ROOT.gROOT.GetListOfGlobals()
         self.scifiDet = lsOfGlobals.FindObject('Scifi')
         self.mufiDet = lsOfGlobals.FindObject('MuFilter')
@@ -148,15 +149,30 @@ class SndlhcDigi:
         self.digiMuFilter2MCPoints[0]=mcLinks
 
     def digitizeTarget(self):
+        hitContainer = {}
         mcLinks = ROOT.Hit2MCPoints()
-        for index, point in enumerate(self.sTree.AdvTargetPoint):
-            detID = point.GetDetectorID()
-            aHit = ROOT.AdvTargetHit(detID, point, index)
+        mcPoints = {}
+        norm = {}
+        for k, p in enumerate(self.sTree.AdvTargetPoint):
+            #  collect all hits in same detector element
+            detID = p.GetDetectorID()
+            if not detID in hitContainer:
+                  hitContainer[detID] = []
+                  mcPoints[detID] = {}
+                  norm[detID] = 0
+            hitContainer[detID].append(p)
+            mcPoints[detID][k] = p.GetEnergyLoss()
+            norm[detID] += p.GetEnergyLoss()
+        for index, detID in enumerate(hitContainer):
+            allPoints = ROOT.std.vector('AdvTargetPoint*')()
+            for p in hitContainer[detID]:
+                 allPoints.push_back(p)
+            aHit = ROOT.AdvTargetHit(detID, allPoints)
 
-            if self.digiTarget.GetSize() == index:
-                self.digiTarget.Expand(index+100)
+            if self.digiTarget.GetSize() == index: self.digiTarget.Expand(index + 100)
             self.digiTarget[index] = aHit
-            mcLinks.Add(detID, index, 1.)
+            for k in mcPoints[detID]:
+                mcLinks.Add(detID, k, mcPoints[detID][k] / norm[detID])
         self.digiTarget2MCPoints[0] = mcLinks
 
     def finish(self):
