@@ -16,10 +16,7 @@ class AdvTargetHit : public SndlhcHit
     AdvTargetHit(Int_t detID);
 
     // Constructor from vector of AdvTargetPoint
-    AdvTargetHit(Int_t detID,std::vector<AdvTargetPoint*>);
-
-    // Constructor from AdvTargetPoint
-    AdvTargetHit(Int_t detID, AdvTargetPoint* point, Int_t index);
+    AdvTargetHit(Int_t detID, std::vector<AdvTargetPoint*>);
 
  /** Destructor **/
     virtual ~AdvTargetHit();
@@ -31,7 +28,17 @@ class AdvTargetHit : public SndlhcHit
     Double_t GetX() {return fX;}
     Double_t GetY() {return fY;}
     Double_t GetZ() {return fZ;}
-        Int_t GetMCPoint() {return fMCPoint;}
+    void GetPosition(TVector3& vLeft, TVector3& vRight);
+    int constexpr GetStation() { return floor(fDetectorID >> 15); }
+    int constexpr GetPlane() { return int(fDetectorID >> 14) % 2; } // 0 is X-plane, 1 is Y-pane
+    int constexpr GetRow() { return int(fDetectorID >> 12) % 4; }
+    int constexpr GetColumn() { return int(fDetectorID >> 11) % 2; }
+    int constexpr GetSensor() { return int(fDetectorID >> 10) % 2; }
+    int constexpr GetStrip() { return int(fDetectorID % 768); }
+    bool constexpr isVertical(){
+        return GetPlane() == 0;
+    };
+
   private:
     /** Copy constructor **/
     AdvTargetHit(const AdvTargetHit& hit);
@@ -41,11 +48,9 @@ class AdvTargetHit : public SndlhcHit
     Double_t fX;   ///< fX
     Double_t fY;   ///< fY
     Double_t fZ;   ///< fZ
-    Int_t fMCPoint;  ///< fMCPoint
 
-    ClassDef(AdvTargetHit,1);
+    ClassDef(AdvTargetHit,2);
     
-
 };
 
 #endif
