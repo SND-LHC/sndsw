@@ -24,7 +24,7 @@
            and [ds] is Downstream Muon Filter. -->
      <hits_to_fit> sfusds </hits_to_fit>
      <!--  Which detectors to use to validate a track fit attempt. Format as above.
-           Detectors specified here are automatically used in the cathegory above. -->
+           Detectors specified here are automatically used in the category above. -->
      <hits_to_validate> ds </hits_to_validate>
      <!--  Use SciFi hits, value 0, or clusters, value 1  -->
      <use_Scifi_clust> 0 </use_Scifi_clust>
@@ -118,7 +118,7 @@
            and [ds] is Downstream Muon Filter. -->
      <hits_to_fit> sf </hits_to_fit>
      <!--  Which detectors to use to validate a track fit attempt. Format as above.
-           Detectors specified here are automatically used in the cathegory above. -->
+           Detectors specified here are automatically used in the category above. -->
      <hits_to_validate> sf </hits_to_validate>
      <!--  Use SciFi hits, value 0, or clusters, value 1 -->
      <use_Scifi_clust> 0 </use_Scifi_clust>
@@ -211,7 +211,7 @@
            and [ds] is Downstream Muon Filter. -->
      <hits_to_fit> ds </hits_to_fit>
      <!--  Which detectors to use to validate a track fit attempt. Format as above.
-           Detectors specified here are automatically used in the cathegory above. -->
+           Detectors specified here are automatically used in the category above. -->
      <hits_to_validate> ds </hits_to_validate>
      <!--  Use SciFi hits, value 0, or clusters, value 1  -->
      <use_Scifi_clust> 0 </use_Scifi_clust>
