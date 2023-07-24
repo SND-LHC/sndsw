@@ -671,8 +671,8 @@ class TrackSelector():
 # setup geometry
         if (options.geoFile).find('../')<0: self.snd_geo = SndlhcGeo.GeoInterface(path+options.geoFile)
         else:                                         self.snd_geo = SndlhcGeo.GeoInterface(options.geoFile[3:])
-        self.MuFilter = self.snd_geo.modules['MuFilter']
-        self.Scifi       = self.snd_geo.modules['Scifi']
+        # self.MuFilter = self.snd_geo.modules['MuFilter']
+        # self.Scifi       = self.snd_geo.modules['Scifi']
 
         self.runNr   = str(options.runNumber).zfill(6)
         if options.runNumber > 0:
@@ -733,6 +733,10 @@ class TrackSelector():
               self.muon_reco_task_DS = options.FairTasks["houghTransform_DS"]
               self.muon_reco_task_DS.Init()
               self.genfitTrack = self.muon_reco_task_DS.genfitTrack
+           if self.options.trackType == 'AdvTracker':
+              self.muon_reco_task_advtracker = options.FairTasks["houghTransform_advtracker"]
+              self.muon_reco_task_advtracker.Init()
+              self.genfitTrack = self.muon_reco_task_advtracker.genfitTrack
         if self.options.simpleTracking:
            self.trackTask = options.FairTasks["simpleTracking"]
            if not self.options.HoughTracking:
@@ -809,6 +813,15 @@ class TrackSelector():
               if self.options.simpleTracking:
                  self.trackTask.ExecuteTask(option='DS')
                  track_container_list.append(self.trackTask.fittedTracks)
+
+           elif self.options.trackType == 'AdvTracker':
+              if self.options.HoughTracking:
+                 self.muon_reco_task_advtracker.Exec(0)
+                 track_container_list.append(self.muon_reco_task_advtracker.kalman_tracks)
+              if self.options.simpleTracking:
+                 self.trackTask.ExecuteTask(option='AdvTracker')
+                 track_container_list.append(self.trackTask.fittedTracks)
+
 
            i_muon = -1
            for item in track_container_list:

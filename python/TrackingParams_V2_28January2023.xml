@@ -112,6 +112,102 @@
      <HT_space_scale> 1 </HT_space_scale>
   </tracking_case>
 
+  <tracking_case name = "advtracker">
+     <!--  Which detectors to use in the tracks fit, in the format: vesfusds,
+           where [ve] is Veto, [sf] is SciFi, [us] is Upstream Muon Filter,
+           [at] is the AdvSND target tracker,
+           and [ds] is Downstream Muon Filter. -->
+     <hits_to_fit> at </hits_to_fit>
+     <!--  Which detectors to use to validate a track fit attempt. Format as above.
+           Detectors specified here are automatically used in the category above. -->
+     <hits_to_validate> at </hits_to_validate>
+     <!--  Use SciFi hits, value 0, or clusters, value 1  -->
+     <use_Scifi_clust> 0 </use_Scifi_clust>
+     <!--  Minumum number of planes with measurement
+           to start pattern recognition.
+           Also, the required minimum number of planes intersected by
+           the Hough line prediction to proceed to track fitting. -->
+     <min_planes_hit> 3 </min_planes_hit>
+     <!--  Mask a detector plane if its number of hits is larger than Nhits_per_plane.
+           Masking is only applied to detectors used for Hough transform.
+           Plane masking always leaves at least <min_planes_hit> active planes
+           Plane masking will only be applied if solely Scifi hits are used in HT. -->
+     <mask_plane> 0 </mask_plane>
+     <!-- It is lower limit in a sense that if a plane has more than Nhits_per_plane and masking is on, the plane will be masked unless there are not enough planes(typically  one needs 3) with lower Nhits. -->
+     <Nhits_per_plane> 4 </Nhits_per_plane>
+     <!--  Maximum number of fitted tracks per event  -->
+     <max_reco_muons> 50 </max_reco_muons>
+     <!--  Maximum absolute value of reconstructed angle
+           (+/- 1 rad is the maximum angle to form a triplet in the SciFi) -->
+     <max_angle unit="rad"> 1. </max_angle>
+     <!--  Number of random throws per measurement  -->
+     <n_random> 5 </n_random>
+     <!--  How many more times muon filter hits are thrown compared to SciFi measurements?  -->
+     <mufi_weight> 100 </mufi_weight>
+     <!-- How far away from Hough line hits assigned to the muon can be.  -->
+     <tolerance unit="cm"> 0. </tolerance>
+     <!-- Enable Gaussian smoothing of the Hough-space image.
+          For 'ds' HT prediction, do a full accumulator smoothing.  -->
+     <smooth_full> 1 </smooth_full>
+     <!-- Gaussian filtering parameters.
+          The kernel size is determined as 2*int(truncate*sigma+0.5)+1.  -->
+     <sigma> 3 </sigma>
+     <truncate> 4 </truncate>
+     <!--  Define the chosen Hough parameter space -->
+     <!--  Choose parametrization. Options are
+           normal (rho, theta) representation, or
+           linear (slope, intecept), or
+           linear (intercept@1st, intercept@last syb-system plane) -->
+     <!-- FIXME TO BE TUNED for this tracking case! -->
+     <Hough_space_format name = "normal">
+           <N_yH_bins> 1000 </N_yH_bins>
+           <yH_min_xz unit="cm"> -80. </yH_min_xz>
+           <yH_max_xz unit="cm">  0.  </yH_max_xz>
+           <yH_min_yz unit="cm">  0.  </yH_min_yz>
+           <yH_max_yz unit="cm">  80. </yH_max_yz>
+           <N_xH_bins> 2500 </N_xH_bins>
+           <xH_min_xz unit="rad"> -1.57 </xH_min_xz>
+           <xH_max_xz unit="rad">  1.57 </xH_max_xz>
+           <xH_min_yz unit="rad"> -1.57 </xH_min_yz>
+           <xH_max_yz unit="rad">  1.57 </xH_max_yz>
+     </Hough_space_format>
+     <Hough_space_format name = "linearSlopeIntercept">
+           <N_yH_bins> 610 </N_yH_bins>
+           <yH_min_xz unit="cm"> -105. </yH_min_xz>
+           <yH_max_xz unit="cm">  17.  </yH_max_xz>
+           <yH_min_yz unit="cm">  0.  </yH_min_yz>
+           <yH_max_yz unit="cm">  122. </yH_max_yz>
+           <N_xH_bins> 220 </N_xH_bins>
+           <xH_min_xz unit="rad"> -1.1 </xH_min_xz>
+           <xH_max_xz unit="rad">  1.1 </xH_max_xz>
+           <xH_min_yz unit="rad"> -1.1 </xH_min_yz>
+           <xH_max_yz unit="rad">  1.1 </xH_max_yz>
+     </Hough_space_format>
+     <Hough_space_format name = "linearIntercepts">
+           <N_yH_bins> 610 </N_yH_bins>
+           <yH_min_xz unit="cm"> -105. </yH_min_xz>
+           <yH_max_xz unit="cm">  17.  </yH_max_xz>
+           <yH_min_yz unit="cm">  0.  </yH_min_yz>
+           <yH_max_yz unit="cm">  122. </yH_max_yz>
+           <N_xH_bins> 610 </N_xH_bins>
+           <xH_min_xz unit="cm"> -105. </xH_min_xz>
+           <xH_max_xz unit="cm">  17.  </xH_max_xz>
+           <xH_min_yz unit="cm">  0.  </xH_min_yz>
+           <xH_max_yz unit="cm">  122. </xH_max_yz>
+     </Hough_space_format>
+     <!-- Helpers to select one HT space maxima among many.
+          The n-th quantile of found peaks along 'slope' axis(yH axis) must enlose
+          n_quantile portion of all maxima 'slope' bins within a res range.
+          If smoothing is active, n_quantile and res are not used!  -->
+     <n_quantile> 0 </n_quantile>
+     <!-- It is advisable to have res consistent with detector angular resolution.
+          The unit is Hough-space pixels -->
+     <res> 0 </res>
+     <!-- A back-up Hough space with 'space_scale'*Nbins in xH and yH axes.
+          It is used in events where the above-defined common HT space is not optimal.  -->
+     <HT_space_scale> 1 </HT_space_scale>
+  </tracking_case>
+
   <tracking_case name = "passing_mu_Sf">
      <!--  Which detectors to use in the tracks fit, in the format: vesfusds, 
            where [ve] is Veto, [sf] is SciFi, [us] is Upstream Muon Filter,

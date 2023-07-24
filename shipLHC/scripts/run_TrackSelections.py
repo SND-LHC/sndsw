@@ -24,7 +24,7 @@ parser.add_argument("-n", "--nEvents", dest="nEvents", help="number of events", 
 parser.add_argument("-s", "--nStart", dest="nStart", help="first event", default=0,type=int)
 parser.add_argument("-st", "--simpleTracking", dest="simpleTracking", action='store_true', default=False)
 parser.add_argument("-genfitFormat", "--genfitFormat", dest='genfitFormat', action='store_true', help="output track format for simple tracking when only it is run", default=False)
-parser.add_argument("-t", "--trackType", choices=["DS", "Scifi", "ScifiDS"], help="Type of tracks to use", default="ScifiDS")
+parser.add_argument("-t", "--trackType", choices=["DS", "Scifi", "ScifiDS", "AdvTracker"], help="Type of tracks to use", default="ScifiDS")
 
 parser.add_argument("--ScifiNbinsRes", dest="ScifiNbinsRes", default=100)
 parser.add_argument("--Scifixmin", dest="Scifixmin", default=-2000.)
@@ -60,6 +60,12 @@ if options.HoughTracking:
       muon_reco_task_DS.SetName("houghTransform_DS")
       options.FairTasks["houghTransform_DS"] = muon_reco_task_DS
       HT_tasks.append(muon_reco_task_DS)
+   if options.trackType == 'AdvTracker':
+      muon_reco_task_advtracker = SndlhcMuonReco.MuonReco()
+      muon_reco_task_advtracker.SetTrackingCase('advtracker')
+      muon_reco_task_advtracker.SetName("houghTransform_advtracker")
+      options.FairTasks["houghTransform_advtracker"] = muon_reco_task_advtracker
+      HT_tasks.append(muon_reco_task_advtracker)
    for ht_task in HT_tasks:
        ht_task.SetParFile(options.parFile)
        ht_task.SetHoughSpaceFormat(options.HspaceFormat)

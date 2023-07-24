@@ -33,6 +33,7 @@ class Tracking(ROOT.FairTask):
    lsOfGlobals  = ROOT.gROOT.GetListOfGlobals()
    self.scifiDet = lsOfGlobals.FindObject('Scifi')
    self.mufiDet = lsOfGlobals.FindObject('MuFilter')
+   self.advTarget = lsOfGlobals.FindObject('AdvTarget')
    
    # internal storage of clusters
    self.clusScifi   = ROOT.TObjArray(100)
@@ -54,6 +55,7 @@ class Tracking(ROOT.FairTask):
    self.sigmaScifi_spatial = 2*150.*u.um
    self.sigmaMufiUS_spatial = 2.*u.cm
    self.sigmaMufiDS_spatial = 0.3*u.cm
+   self.sigmaAdvTarget_spatial = 35 * u.um
    self.scifi_vsignal = 15.*u.cm/u.ns
    self.firstScifi_z = 300*u.cm
    self.Debug = False
@@ -72,8 +74,9 @@ class Tracking(ROOT.FairTask):
    # for DS tracking
    self.DSnPlanes = 3
    self.DSnHits = 5
-   self.nDSPlanesVert  = self.mufiDet.GetConfParI("MuFilter/NDownstreamPlanes")
-   self.nDSPlanesHor = self.nDSPlanesVert-1
+   if self.mufiDet:
+    self.nDSPlanesVert  = self.mufiDet.GetConfParI("MuFilter/NDownstreamPlanes")
+    self.nDSPlanesHor = self.nDSPlanesVert - 1
 
    if online:
       self.event = self.sink.GetOutTree()
