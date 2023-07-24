@@ -249,7 +249,7 @@ class Scifi_residuals(ROOT.FairTask):
                     for x in sortedClusters[so]:
                        hitlist[k] = x
                        k+=1
-                if Nproj[0]<3 or Nproj[0]<3: continue
+                if Nproj[0]<3 or Nproj[1]<3: continue
                 theTrack = self.trackTask.fitTrack(hitlist)
                 if not hasattr(theTrack,"getFittedState"): continue
 # check residuals
