@@ -665,6 +665,7 @@ class Veto_Efficiency(ROOT.FairTask):
    " calculate Veto efficiency against Scifi tracks "
    def Init(self,options,monitor):
        self.debug = True
+       self.deadTime = 100
        self.M = monitor
        sdict = self.M.sdict
        self.eventBefore={'T':-1,'N':-1,'hits':{1:0,0:0,'0L':0,'0R':0,'1L':0,'1R':0}}
@@ -682,7 +683,7 @@ class Veto_Efficiency(ROOT.FairTask):
         ut.bookHist(h,'XtimeDiffPrev_'+str(noiseCut),'time diff no hits; [clock cycles] ',100,-0.5,999.5)
         ut.bookHist(h,'timeDiffNext_'+str(noiseCut),'time diff next; [clock cycles] ',100,-0.5,999.5)
         ut.bookHist(h,'XtimeDiffNext_'+str(noiseCut),'time diff next no hits; [clock cycles] ',100,-0.5,999.5)
-        for c in ['','NoPrev','LoNoFi']:
+        for c in ['','NoPrev','TiNoFi']:
          for b in ['','beam']:
           nc = 'T'+c+str(noiseCut)+b
           for l in range(monitor.systemAndPlanes[s]):
@@ -745,36 +746,14 @@ class Veto_Efficiency(ROOT.FairTask):
          dT = abs(event.EventHeader.GetEventTime()-Tprevprev)
        else: dT = abs(event.EventHeader.GetEventTime()-self.eventBefore['T'])
        prevEvent = False
-       tightNoiseFilter = True
-       noiseFilter0 = None
-       noiseFilter1 = None
-       otherAdvTrigger = None
+       tightNoiseFilter = None
+       otherAdvTrigger  = None
        otherFastTrigger = None
-       if dT < 100 and dT > vetoHitsFromPrev: 
+       if dT < self.deadTime and dT > vetoHitsFromPrev:
            prevEvent = True
            # check type of prev event, if it would pass tight noise filter, run 6568 ++ 
            if event.EventHeader.GetRunId() > 6567:
-              rc = event.GetEvent(N1-1)
-              # check if event passed only because of VETO
-              otherFastTrigger = False
-              for x in event.EventHeader.GetFastNoiseFilters():
-                 if x.second and not x.first == 'Veto_Total': otherFastTrigger = True
-              otherAdvTrigger = False
-              for x in event.EventHeader.GetAdvNoiseFilters():
-                 if x.second and not x.first == 'VETO_Planes': otherAdvTrigger = True
-              if not otherFastTrigger or not otherAdvTrigger:
-                for aHit in event.Digi_MuFilterHits:
-                   Minfo = self.M.MuFilter_PlaneBars(aHit.GetDetectorID())
-                   s,l,bar = Minfo['station'],Minfo['plane'],Minfo['bar']
-                   if s>1: continue
-                   allChannels = self.M.map2Dict(aHit,'GetAllSignals')
-                   hits[l]+=len(allChannels)
-                   allChannels.clear()
-                noiseFilter0 = (hits[0]+hits[1])>4.5
-                noiseFilter1 = hits[0]>0 and hits[1]>0
-                if noiseFilter0 and noiseFilter1: tightNoiseFilter = True
-                else: tightNoiseFilter = False
-              rc = event.GetEvent(N1)
+              tightNoiseFilter, otherFastTrigger, otherAdvTrigger,Nprev,dt = self.checkOtherTriggers(event)
 
        tmpT = self.eventBefore['T'] 
        tmpN = self.eventBefore['N'] 
@@ -889,7 +868,7 @@ class Veto_Efficiency(ROOT.FairTask):
                  c=''
                  if not prevEvent: c='NoPrev'
                  nc = 'T'+c+str(noiseCut)
-                 ncL = 'T'+'LoNoFi'+str(noiseCut)
+                 ncL = 'T'+'TiNoFi'+str(noiseCut)
                  if hits[l] > noiseCut: 
                       rc = h[nc+'PosVeto_'+str(l)].Fill(xEx[l],yEx[l])
                       if tightNoiseFilter: rc = h[ncL+'PosVeto_'+str(l)].Fill(xEx[l],yEx[l])
@@ -918,13 +897,65 @@ class Veto_Efficiency(ROOT.FairTask):
                           rc = h['XtimeDiffPrev_'+str(noiseCut)].Fill(T1-T0)
                           rc = h['XtimeDiffNext_'+str(noiseCut)].Fill(T2-T1)
                           if not prevEvent or (prevEvent and not tightNoiseFilter):
-                            if self.debug: print('no hits',noiseCut,prevEvent,beam,N1,tightNoiseFilter,noiseFilter0,noiseFilter1,otherFastTrigger,otherAdvTrigger)
+                            if self.debug: print('no hits',noiseCut,prevEvent,beam,N1,tightNoiseFilter,otherFastTrigger,otherAdvTrigger)
                         rc = h[nc+'XPosVeto_11'].Fill(xEx[l],yEx[l])
                         rc = h[nc+'XPosVeto_111'].Fill(xEx[1],yEx[1])
                         if beam: rc = h[nc+'beamXPosVeto_11'].Fill(xEx[l],yEx[l])
                         if tightNoiseFilter: 
                            rc = h[ncL+'XPosVeto_11'].Fill(xEx[l],yEx[l])
                            rc = h[ncL+'XPosVeto_111'].Fill(xEx[1],yEx[1])
+
+   def checkOtherTriggers(event,debug=False):
+      T0 = event.EventHeader.GetEventTime()
+      N = event.EventHeader.GetEventNumber()
+      Nprev = 1
+      rc = event.GetEvent(N-Nprev)
+      dt = T0 - event.EventHeader.GetEventTime()
+      otherFastTrigger = False
+      otherAdvTrigger = False
+      tightNoiseFilter = False
+      while dt < self.deadTime:
+         otherFastTrigger = False
+         for x in event.EventHeader.GetFastNoiseFilters():
+             if debug: print('fast:', x.first, x.second )
+             if x.second and not x.first == 'Veto_Total': otherFastTrigger = True
+         otherAdvTrigger = False
+         for x in event.EventHeader.GetAdvNoiseFilters():
+             if debug: print('adv:', x.first, x.second )
+             if x.second and not x.first == 'VETO_Planes': otherAdvTrigger = True
+         if debug: print('pre event ',Nprev,dt,otherFastTrigger,otherAdvTrigger)
+         if otherFastTrigger and otherAdvTrigger:
+             rc = event.GetEvent(N)
+             return otherFastTrigger, otherAdvTrigger, tightNoiseFilter, Nprev, dt
+         Nprev+=1
+         rc = event.GetEvent(N-Nprev)
+         dt = T0 - event.EventHeader.GetEventTime()
+      Nprev = 1
+      rc = event.GetEvent(N-Nprev)
+      dt = T0 - event.EventHeader.GetEventTime()
+      while dt < self.deadTime:
+         hits = {1:0,0:0}
+         for aHit in event.Digi_MuFilterHits:
+            Minfo = self.M.MuFilter_PlaneBars(aHit.GetDetectorID())
+            s,l,bar = Minfo['station'],Minfo['plane'],Minfo['bar']
+            if s>1: continue
+            allChannels = aHit.GetAllSignals(False,False)
+            hits[l]+=len(allChannels)
+         noiseFilter0 = (hits[0]+hits[1])>4.5
+         noiseFilter1 = hits[0]>0 and hits[1]>0
+         if debug: print('veto hits:',hits)
+         if noiseFilter0 and noiseFilter1: 
+            tightNoiseFilter = True
+            rc = event.GetEvent(N)
+            return otherFastTrigger, otherAdvTrigger, tightNoiseFilter, Nprev-1, dt
+         Nprev+=1
+         rc = event.GetEvent(N-Nprev)
+         dt = T0 - event.EventHeader.GetEventTime()
+      if Nprev>1: 
+            rc = event.GetEvent(N-Nprev+1)
+            dt = T0 - event.EventHeader.GetEventTime()
+      rc = event.GetEvent(N)
+      return otherFastTrigger, otherAdvTrigger, tightNoiseFilter, Nprev-1, dt
 
    def Plot(self,beamOnly=False):
      h = self.M.h
