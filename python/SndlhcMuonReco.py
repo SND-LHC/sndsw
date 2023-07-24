@@ -330,7 +330,7 @@ class MuonReco(ROOT.FairTask) :
 
                    else: continue
                if not Hspace_format_exists:
-                  raise RuntimeError("Unknown Hough space format, check naming in parameter xml file.") 
+                  raise RuntimeError("Unknown Hough space format, check naming in parameter xml file.")
 
                # A scale factor for a back-up Hough space having more/less bins than the default one
                # It is useful when fitting some low-E muon tracks, which are curved due to mult. scattering.
