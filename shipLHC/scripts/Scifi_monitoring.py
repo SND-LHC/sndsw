@@ -449,7 +449,6 @@ class Scifi_trackEfficiency(ROOT.FairTask):
        self.zEx = self.M.zPos['Scifi'][10]
        self.zExVeto = self.M.zPos['MuFilter'][10]
        self.res = 10.
-
    def ExecuteEvent(self,event):
        h = self.M.h
        W = self.M.Weight
@@ -475,7 +474,7 @@ class Scifi_trackEfficiency(ROOT.FairTask):
            X = aHit.GetAllSignals()
            if len(X)<5: continue   # number of fired SiPMs
            vetoHits.append(k)
-           
+       xExTag, yExTag = -10000,-10000
        for kMu in MufiTracks:
           theTrack = self.M.Reco_MuonTracks[kMu]
           fstate =  theTrack.getFittedState()
@@ -515,7 +514,6 @@ class Scifi_trackEfficiency(ROOT.FairTask):
              rc = h['Xdy'].Fill(dy)
              if abs(dy)<self.res and abs(dx)<self.res:
                   rc = h['scifiTrack'].Fill(xExTag,yExTag)
-                  rc = h['XscifiTrack_0'].Fill(xEx,yEx)
                   rc = h['USQDC'].Fill(USQDC)
              sortedClusters={}
              NscifiTot = 0
@@ -526,24 +524,51 @@ class Scifi_trackEfficiency(ROOT.FairTask):
                 rc = h['clSize'].Fill(aCl.GetN())
              for s in sortedClusters:
                  rc = h['hitPerPlane'].Fill(sortedClusters[s])
-             for s in range(1,6):
-              if abs(dy)<self.res and abs(dx)<self.res:
-              # s is test station, check that there are enough clusters in the other planes:
-                nProj = [0,0]
-                for so in range(1,6):
-                   if so==s: continue
-                   for po in range(2):
-                      if  (so*10+po) in sortedClusters: nProj[po]+=1
-                if nProj[0]<3 or nProj[1]<3: continue
+       if xExTag< -9000: return
+       
+       sortedClusters={}
+       for aCl in self.M.trackTask.clusScifi:
+          so = aCl.GetFirst()//100000
+          if not so in sortedClusters: sortedClusters[so]=[]
+          sortedClusters[so].append(aCl)
+       for s in range(1,6):
+             # s is test station
+             # build trackCandidate without s
+             hitlist = {}
+             k=0
+             Nproj = {0:0,1:0}
+             for so in sortedClusters:
+                 if so//10 == s: continue
+                 Nproj[so%2]+=1
+                 for x in sortedClusters[so]:
+                     hitlist[k] = x
+                     k+=1
+             if Nproj[0]<3 or Nproj[1]<3: continue
+             theTrack = self.M.trackTask.fitTrack(hitlist)
+             if not hasattr(theTrack,"getFittedState"): continue
+             fstate   = theTrack.getFittedState()
+             pos,mom  = fstate.getPos(),fstate.getMom()
+             lam      = (self.zEx-pos.z())/mom.z()
+             yEx      = pos.y()+lam*mom.y()
+             xEx      = pos.x()+lam*mom.x()
+             dx = xExTag-xEx
+             dy = yExTag-yEx
+             if abs(dy)>self.res and abs(dx)>self.res: 
+                testPlane = 10*s
+                z = self.M.zPos['Scifi'][testPlane]
+                lam      = (z-pos.z())/mom.z()
+                yEx      = pos.y()+lam*mom.y()
+                xEx      = pos.x()+lam*mom.x()
                 rc = h['XscifiTrack_0'+str(s)].Fill(xEx,yEx)
                 if not ( (s*10 in sortedClusters) or ( (s*10+1)  in sortedClusters) ):
-                     rc = h['XscifiTrack_'+str(s)].Fill(xEx,yEx)
-                     if -40<xEx and xEx<-12 and 18<yEx and yEx<47 and self.debug:
+                   rc = h['XscifiTrack_'+str(s)].Fill(xEx,yEx)
+                   if -40<xEx and xEx<-12 and 18<yEx and yEx<47 and self.debug:
                         print('inefficient scifi detector ',s,self.M.EventNumber,xEx,yEx,len(vetoHits))
                 if not (s*10 in sortedClusters):
                      rc = h['XscifiTrack_'+str(s*10)].Fill(xEx,yEx)
                 if not ((s*10+1) in sortedClusters):
                      rc = h['XscifiTrack_'+str(s*10+1)].Fill(xEx,yEx)
+             theTrack.Delete()
 
 # analysis and plots 
    def Plot(self):
