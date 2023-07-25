@@ -222,7 +222,7 @@ class Scifi_residuals(ROOT.FairTask):
            sortedClusters[so].append(aCl)
        goodEvent = True
        for s in sortedClusters:
-          if len(sortedClusters[s])>1:
+          if len(sortedClusters[s])>2:
              goodEvent=False
              break
        if not goodEvent: return
