@@ -222,7 +222,7 @@ class Scifi_residuals(ROOT.FairTask):
            sortedClusters[so].append(aCl)
        goodEvent = True
        for s in sortedClusters:
-          if len(sortedClusters[s])>2:
+          if len(sortedClusters[s])>5:
              goodEvent=False
              break
        if not goodEvent: return
@@ -553,7 +553,7 @@ class Scifi_trackEfficiency(ROOT.FairTask):
              xEx      = pos.x()+lam*mom.x()
              dx = xExTag-xEx
              dy = yExTag-yEx
-             if abs(dy)>self.res and abs(dx)>self.res: 
+             if abs(dy)<self.res and abs(dx)<self.res: 
                 testPlane = 10*s
                 z = self.M.zPos['Scifi'][testPlane]
                 lam      = (z-pos.z())/mom.z()
