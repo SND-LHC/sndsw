@@ -905,7 +905,7 @@ class Veto_Efficiency(ROOT.FairTask):
                            rc = h[ncL+'XPosVeto_11'].Fill(xEx[l],yEx[l])
                            rc = h[ncL+'XPosVeto_111'].Fill(xEx[1],yEx[1])
 
-   def checkOtherTriggers(event,debug=False):
+   def checkOtherTriggers(self,event,debug=False):
       T0 = event.EventHeader.GetEventTime()
       N = event.EventHeader.GetEventNumber()
       Nprev = 1

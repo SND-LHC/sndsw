@@ -111,11 +111,6 @@ class Scifi_residuals(ROOT.FairTask):
                ut.bookHist(h,'resY'+proj+'_Scifi'+str(s*10+o),'residual '+proj+str(s*10+o)+'; [#mum]',NbinsRes,xmin,xmax,100,10.,60.)
                ut.bookHist(h,'resC'+proj+'_Scifi'+str(s*10+o),'residual '+proj+str(s*10+o)+'; [#mum]',NbinsRes,xmin,xmax,128*4*3,-0.5,128*4*3-0.5)
                ut.bookHist(h,'track_Scifi'+str(s*10+o),'track x/y '+str(s*10+o)+'; x [cm]; y [cm]',80,-70.,10.,80,0.,80.)
-# ineff
-          ut.bookHist(h,'scifiTrack_'+str(s),'missing hits X/Y at test station '+str(s)+'; X[cm]; Y[cm]',100,-50,0.,100,10,60)
-          ut.bookHist(h,'scifiTrack_0'+str(s),'scifi track X/Y at test station '+str(s)+'; X[cm]; Y[cm]',100,-50,0.,100,10,60)
-          for proj in range(2):
-               ut.bookHist(h,'scifiTrack_'+str(10*s+proj),'missing hits X/Y at test plane '+str(s*10+proj)+'; X[cm]; Y[cm]',100,-50,0.,100,10,60)
        ut.bookHist(h,'dx','DS track X - scifi X; X[cm]',100,-20.,20.)
        ut.bookHist(h,'dy','DS track Y - scifi Y; Y[cm]',100,-20.,20.)
 
@@ -213,28 +208,21 @@ class Scifi_residuals(ROOT.FairTask):
                  if abs(slopeX)<0.1 and abs(slopeY)<0.1:  self.M.fillHist2(detector+'trackPosBeam',pos.X(),pos.Y())
 
 
-       if not self.unbiased and not theTrack: return
+       if not theTrack: return
 
        sortedClusters={}
        for aCl in clusters:
            so = aCl.GetFirst()//100000
            if not so in sortedClusters: sortedClusters[so]=[]
            sortedClusters[so].append(aCl)
+# select events with clusters in each plane for making residuals
+       if len(sortedClusters)<10: return
        goodEvent = True
        for s in sortedClusters:
-          if len(sortedClusters[s])>5:
+          if len(sortedClusters[s])>3:
              goodEvent=False
              break
        if not goodEvent: return
-# select events with clusters in each plane for making residuals
-       fullTrack = True
-       if len(sortedClusters)<10:
-           fullTrack = False
-           Nproj = {0:0,1:0}
-           for s in range(1,6):
-             for p in range(2):
-                if (s*10+p) in sortedClusters: Nproj[p]+=1
-           if Nproj[0]<3 or Nproj[1]<3: return
 
        for s in range(1,6):
             if self.unbiased:
@@ -297,15 +285,7 @@ class Scifi_residuals(ROOT.FairTask):
                 rep.extrapolateToPlane(state, NewPosition, parallelToZ )
                 pos = state.getPos()
                 xEx,yEx = pos.x(),pos.y()
-                if fullTrack: rc = h['track_Scifi'+str(testPlane)].Fill(xEx,yEx,W)
-# add code for inefficiency
-                if o==0: 
-                    rc = h['scifiTrack_0'+str(s)].Fill(xEx,yEx,W)
-                    if not (s*10) in sortedClusters and not (s*10+1) in sortedClusters:
-                        rc = h['scifiTrack_'+str(s)].Fill(xEx,yEx,W)
-                if not testPlane in sortedClusters: rc = h['scifiTrack_'+str(testPlane)].Fill(xEx,yEx,W)
-#
-                if not fullTrack: continue
+                rc = h['track_Scifi'+str(testPlane)].Fill(xEx,yEx,W)
                 for aCl in sortedClusters[testPlane]:
                    aCl.GetPosition(A,B)
                    detID = aCl.GetFirst()
@@ -441,6 +421,7 @@ class Scifi_trackEfficiency(ROOT.FairTask):
        ut.bookHist(h,'USQDC','US QDC for matched tracks; qdc',220,-10,2190.)
        ut.bookHist(h,'clSize','Scifi cluster size for matched tracks; n hits',10,-0.5,9.5)
        ut.bookHist(h,'hitPerPlane','Scifi hits per detector ; n hits',50,-0.5,49.5)
+       ut.bookHist(h,'flightDir','flight direction',100,-20.,20.)
        for s in range(0,6): 
            ut.bookHist(h,'XscifiTrack_'+str(s),'scifi track X/Y at scifi 1 missing station '+str(s)+'; X[cm]; Y[cm]',100,-50,0.,100,10,60)
            ut.bookHist(h,'XscifiTrack_0'+str(s),'scifi track X/Y at scifi 1 missing station '+str(s)+'; X[cm]; Y[cm]',100,-50,0.,100,10,60)
@@ -449,6 +430,9 @@ class Scifi_trackEfficiency(ROOT.FairTask):
        self.zEx = self.M.zPos['Scifi'][10]
        self.zExVeto = self.M.zPos['MuFilter'][10]
        self.res = 10.
+       self.unbiased = options.ScifiResUnbiased
+       self.masked = options.ScifiStationMasked
+
    def ExecuteEvent(self,event):
        h = self.M.h
        W = self.M.Weight
@@ -524,52 +508,83 @@ class Scifi_trackEfficiency(ROOT.FairTask):
                 rc = h['clSize'].Fill(aCl.GetN())
              for s in sortedClusters:
                  rc = h['hitPerPlane'].Fill(sortedClusters[s])
-       if xExTag< -9000: return
-       
+# finished for Scifi track efficiency
+# start of Scifi plane inefficiency
+       if len(ScifiTracks) < 1: return
+       if xExTag< -9000 or not ok: return
        sortedClusters={}
        for aCl in self.M.trackTask.clusScifi:
           so = aCl.GetFirst()//100000
-          if not so in sortedClusters: sortedClusters[so]=[]
-          sortedClusters[so].append(aCl)
-       for s in range(1,6):
-             # s is test station
-             # build trackCandidate without s
-             hitlist = {}
-             k=0
-             Nproj = {0:0,1:0}
-             for so in sortedClusters:
-                 if so//10 == s: continue
-                 Nproj[so%2]+=1
-                 for x in sortedClusters[so]:
-                     hitlist[k] = x
-                     k+=1
-             if Nproj[0]<3 or Nproj[1]<3: continue
-             theTrack = self.M.trackTask.fitTrack(hitlist)
-             if not hasattr(theTrack,"getFittedState"): continue
-             fstate   = theTrack.getFittedState()
-             pos,mom  = fstate.getPos(),fstate.getMom()
-             lam      = (self.zEx-pos.z())/mom.z()
-             yEx      = pos.y()+lam*mom.y()
-             xEx      = pos.x()+lam*mom.x()
-             dx = xExTag-xEx
-             dy = yExTag-yEx
-             if abs(dy)<self.res and abs(dx)<self.res: 
-                testPlane = 10*s
-                z = self.M.zPos['Scifi'][testPlane]
-                lam      = (z-pos.z())/mom.z()
-                yEx      = pos.y()+lam*mom.y()
-                xEx      = pos.x()+lam*mom.x()
-                rc = h['XscifiTrack_0'+str(s)].Fill(xEx,yEx)
-                if not ( (s*10 in sortedClusters) or ( (s*10+1)  in sortedClusters) ):
-                   rc = h['XscifiTrack_'+str(s)].Fill(xEx,yEx)
-                   if -40<xEx and xEx<-12 and 18<yEx and yEx<47 and self.debug:
-                        print('inefficient scifi detector ',s,self.M.EventNumber,xEx,yEx,len(vetoHits))
-                if not (s*10 in sortedClusters):
-                     rc = h['XscifiTrack_'+str(s*10)].Fill(xEx,yEx)
-                if not ((s*10+1) in sortedClusters):
-                     rc = h['XscifiTrack_'+str(s*10+1)].Fill(xEx,yEx)
-             theTrack.Delete()
+          if not so in sortedClusters: sortedClusters[so]=0
+          sortedClusters[so]+=1
+       trackClusters = {}
+       for x in self.M.trackTask.trackCandidates['Scifi'][0]:
+          aCl = self.M.trackTask.trackCandidates['Scifi'][0][x]
+          so = aCl.GetFirst()//100000
+          if not so in trackClusters: trackClusters[so]=0
+          trackClusters[so]+=1
 
+       for s in range(1,6):
+       # s is test station
+          if self.unbiased:
+             # build trackCandidate without s
+             self.M.trackTask.maskPlane = s
+             self.M.trackTask.fittedTracks.Delete()
+             self.M.trackTask.ExecuteTask(option='Scifi')
+             if self.M.trackTask.fittedTracks.GetEntries()==0: continue
+             theTrack = self.M.trackTask.fittedTracks[0]
+             if not hasattr(theTrack,"getFittedState"): continue
+             if not theTrack.getFitStatus().isFitConverged():
+                self.M.trackTask.fittedTracks.Delete()
+                continue
+          else:
+         # check that test station not required for making track
+             nproj = {0:0,1:0}
+             for aCl in trackClusters:
+                sq = aCl//10
+                if sq==s or sq==masked: continue
+                nproj[aCl%10]+=1
+             if nproj[0]<3 or nproj[1]<3: continue
+             theTrack = self.M.Reco_MuonTracks[ScifiTracks[0]]
+             
+          flightDir = self.M.trackTask.trackDir(theTrack)
+          rc = h['flightDir'].Fill(flightDir[0])
+          if flightDir[0] < -100:
+              if self.unbiased: self.M.trackTask.fittedTracks.Delete()
+              continue
+          fstate   = theTrack.getFittedState()
+          pos,mom  = fstate.getPos(),fstate.getMom()
+          lam      = (self.zEx-pos.z())/mom.z()
+          yEx      = pos.y()+lam*mom.y()
+          xEx      = pos.x()+lam*mom.x()
+          dx = xExTag-xEx
+          dy = yExTag-yEx
+          slopeX = mom.X()/mom.Z()
+          slopeY = mom.Y()/mom.Z()
+          if not abs(slopeX)<0.1 or not abs(slopeY)<0.1: 
+              if self.unbiased: self.M.trackTask.fittedTracks.Delete()
+              continue
+          if abs(dy)>self.res or abs(dx)>self.res:
+              if self.unbiased: self.M.trackTask.fittedTracks.Delete()
+              continue
+          testPlane = 10*s
+          z = self.M.zPos['Scifi'][testPlane]
+          lam      = (z-pos.z())/mom.z()
+          yEx      = pos.y()+lam*mom.y()
+          xEx      = pos.x()+lam*mom.x()
+          rc = h['XscifiTrack_0'+str(s)].Fill(xEx,yEx)
+          if not ( (s*10 in sortedClusters) or ( (s*10+1)  in sortedClusters) ):
+              rc = h['XscifiTrack_'+str(s)].Fill(xEx,yEx)
+              if -39<xEx and xEx<-16 and 22<yEx and yEx<47 and self.debug:
+                        print('inefficient scifi detector ',s,self.M.EventNumber,xEx,yEx,len(vetoHits))
+          if not (s*10 in sortedClusters):
+              rc = h['XscifiTrack_'+str(s*10)].Fill(xEx,yEx)
+          if not ((s*10+1) in sortedClusters):
+              rc = h['XscifiTrack_'+str(s*10+1)].Fill(xEx,yEx)
+       if self.unbiased:
+# restore original track
+           self.M.trackTask.maskPlane = -1
+           self.M.trackTask.fittedTracks.Delete()
 # analysis and plots 
    def Plot(self):
        h = self.M.h
