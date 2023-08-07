@@ -48,6 +48,7 @@ parser.add_argument("--Scifixmin", dest="Scifixmin", default=-2000.)
 parser.add_argument("--ScifialignPar", dest="ScifialignPar", default=False)
 parser.add_argument("--ScifiResUnbiased", dest="ScifiResUnbiased", default=False)
 parser.add_argument("--Mufixmin", dest="Mufixmin", default=-10.)
+parser.add_argument("--ScifiStationMasked", dest="ScifiStationMasked", default=-1)
 
 parser.add_argument("--goodEvents", dest="goodEvents", action='store_true',default=False)
 parser.add_argument("--withTrack", dest="withTrack", action='store_true',default=False)
