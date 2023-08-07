@@ -542,7 +542,7 @@ class Scifi_trackEfficiency(ROOT.FairTask):
              nproj = {0:0,1:0}
              for aCl in trackClusters:
                 sq = aCl//10
-                if sq==s or sq==masked: continue
+                if sq==s or sq==self.masked: continue
                 nproj[aCl%10]+=1
              if nproj[0]<3 or nproj[1]<3: continue
              theTrack = self.M.Reco_MuonTracks[ScifiTracks[0]]
