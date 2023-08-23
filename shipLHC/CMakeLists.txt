@@ -52,7 +52,7 @@ sndRecoTrack.cxx
 Set(HEADERS )
 Set(LINKDEF shipLHCLinkDef.h)
 Set(LIBRARY_NAME shipLHC)
-Set(DEPENDENCIES Base ShipData GeoBase ParBase Geom Core genfit2)
+Set(DEPENDENCIES Base ShipData GeoBase ParBase Geom Core genfit2 ROOTVecOps)
 
 include(FindPythonInterp)
 list(APPEND PYTHONPATH  "${CMAKE_SOURCE_DIR}/shipLHC/scripts")
