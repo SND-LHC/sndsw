@@ -22,11 +22,13 @@ class SndlhcDigi:
         self.header  = ROOT.SNDLHCEventHeader()
         self.eventHeader  = self.sTree.Branch("EventHeader.",self.header,32000,1)
         #AdvTarget
-        self.digiTarget   = ROOT.TClonesArray("AdvTargetHit")
-        self.digiTargetBranch   = self.sTree.Branch("Digi_advTargetHits",self.digiTarget, 32000, 1)
-        self.digiTarget2MCPoints =  ROOT.TClonesArray("Hit2MCPoints")
+        self.digiTarget = ROOT.TClonesArray("AdvTargetHit")
+        self.digiTargetBranch = self.sTree.Branch("Digi_advTargetHits",self.digiTarget, 32000, 1)
+        self.digiTarget2MCPoints = ROOT.TClonesArray("Hit2MCPoints")
         self.digiTarget2MCPoints.BypassStreamer(ROOT.kTRUE)
-        self.digiTarget2MCPointsBranch   = self.sTree.Branch("Digi_TargetHits2MCPoints",self.digiTarget2MCPoints, 32000, 1)
+        self.digiTarget2MCPointsBranch = self.sTree.Branch("Digi_TargetHits2MCPoints",self.digiTarget2MCPoints, 32000, 1)
+        self.digiTargetCluster = ROOT.TClonesArray("AdvTargetHit")
+        self.digiTargetClusterBranch = self.sTree.Branch("Digi_advTargetClusters", self.digiTargetCluster, 32000, 1)
 
         lsOfGlobals  = ROOT.gROOT.GetListOfGlobals()
         self.scifiDet = lsOfGlobals.FindObject('Scifi')
@@ -84,6 +86,9 @@ class SndlhcDigi:
         self.digitizeTarget()
         self.digiTargetBranch.Fill()
         self.digiTarget2MCPointsBranch.Fill()
+        self.digiTargetCluster.Delete()
+        self.clusterTarget()
+        self.digiTargetClusterBranch.Fill()
 
     def digitizeScifi(self):
         hitContainer = {}
@@ -215,6 +220,45 @@ class SndlhcDigi:
                              tmp = [c]
                    cprev = c
 
+    def clusterTarget(self):
+        index = 0
+        hitDict = {}
+        for k, p in enumerate(self.sTree.Digi_advTargetHits):
+            if not p.isValid():
+                continue
+            hitDict[p.GetDetectorID()] = k
+        hitList = list(hitDict.keys())
+        if hitList:
+              hitList.sort()
+              tmp = [hitList[0]]
+              cprev = hitList[0]
+              ncl = 0
+              last = len(hitList) - 1
+              hits = ROOT.RVec("AdvTargetHit*")()
+              for i in range(len(hitList)):
+                   if i == 0 and len(hitList) > 1:
+                       continue
+                   c = hitList[i]
+                   if (c-cprev) == 1:
+                        tmp.append(c)
+                   if (c-cprev) != 1 or c == hitList[last]:
+                        first = tmp[0]
+                        N = len(tmp)
+                        hits.clear()
+                        for hit in tmp:
+                            hits.push_back(self.sTree.Digi_advTargetHits[hitDict[hit]],)
+                        # Take leading hit of each cluster, discard all other
+                        signals = ROOT.RVec("double")([h.GetSignal() for h in hits])
+                        leading_hit = hits[ROOT.VecOps.ArgMax(signals)]
+                        if self.digiTargetCluster.GetSize() == index:
+                            self.digiTargetCluster.Expand(index + 10)
+                        # TODO Improvement: sum energies and copy links from discarded hits
+                        self.digiTargetCluster[index] = leading_hit
+                        index += 1
+                        if c != hitList[last]:
+                             ncl += 1
+                             tmp = [c]
+                   cprev = c
             
     def finish(self):
         print('finished writing tree')
