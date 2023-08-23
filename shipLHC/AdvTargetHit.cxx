@@ -8,6 +8,7 @@
 #include <TRandom.h>
 #include <iomanip>
 #include "ShipUnit.h"
+#include "ROOT/RVec.hxx"
 
 // -----   Default constructor   -------------------------------------------
 AdvTargetHit::AdvTargetHit()
@@ -36,7 +37,7 @@ void AdvTargetHit::GetPosition(TVector3& vLeft, TVector3& vRight) {
         "StripVolume_%d",
         GetStation(),
         GetPlane(),
-        2 * GetRow() + 1 + GetColumn(),
+        GetModule(),
         GetSensor(),
         fDetectorID
     );
@@ -95,13 +96,17 @@ AdvTargetHit::AdvTargetHit(Int_t detID, std::vector<AdvTargetPoint*> V)
      // else nSides = AdvTargetDet->GetnSides(detID);
 
      fDetectorID = detID;
+     ROOT::VecOps::RVec<double> _signals;
 
      for (auto* point : V) {
           fX = point->GetX();
           fY = point->GetY();
           fZ = point->GetZ();
           times[0] = point->GetTime();
+          _signals.push_back(point->GetEnergyLoss());
      }
+
+     signals[0] = ROOT::VecOps::Sum(_signals);
 
      if (V.size() > 1) {
           LOG(WARN) << "Multiple hits for detector ID" << detID;
