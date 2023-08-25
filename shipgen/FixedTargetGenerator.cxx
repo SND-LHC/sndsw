@@ -166,7 +166,15 @@ Bool_t FixedTargetGenerator::Init()
    Int_t n = 1;
    while(n!=0){
     n = fPythia->particleData.nextId(n);
+#ifndef PYTHIA8_V
+    ParticleDataEntry* p = fPythia->particleData.particleDataEntryPtr(n);
+#else
+#if PYTHIA8_V<8309
+    ParticleDataEntry* p = fPythia->particleData.particleDataEntryPtr(n);
+#else
     Pythia8::ParticleDataEntryPtr p = fPythia->particleData.particleDataEntryPtr(n);
+#endif
+#endif
     if (p->tau0()>1){
      std::string particle = std::to_string(n)+":mayDecay = false";
      fPythia->readString(particle);
@@ -178,7 +186,15 @@ Bool_t FixedTargetGenerator::Init()
    if (fBoost != 1.){
     LOG(INFO) << "FixedTargetGenerator::Init Rescale BRs of dimuon decays in Pythia: "<<fBoost;
     for (unsigned int i=0; i<r.size(); ++i) {  
+#ifndef PYTHIA8_V
+     Pythia8::ParticleDataEntry* V = fPythia->particleData.particleDataEntryPtr(r[i]);
+#else
+#if PYTHIA8_V<8309
+     Pythia8::ParticleDataEntry* V = fPythia->particleData.particleDataEntryPtr(r[i]);
+#else
      Pythia8::ParticleDataEntryPtr V = fPythia->particleData.particleDataEntryPtr(r[i]);
+#endif
+#endif     
      Pythia8::DecayChannel ch = V->channel(c[i]);
      if (TMath::Abs(ch.product(0))!=13 || TMath::Abs(ch.product(1))!=13){
       LOG(INFO) << "FixedTargetGenerator::Init this is not the right decay channel:"<<r[i] << " "<<c[i];
