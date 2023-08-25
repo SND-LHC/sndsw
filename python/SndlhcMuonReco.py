@@ -246,15 +246,19 @@ class MuonReco(ROOT.FairTask) :
         else:
             eventTree = self.ioman.GetInTree()
         if eventTree:
+            print("Found eventTree")
             # self.MuFilterHits = eventTree.Digi_MuFilterHits
             # self.ScifiHits       = eventTree.Digi_ScifiHits
-            self.advTargetHits = eventTree.Digi_advTargetHits
-            self.EventHeader        = eventTree.EventHeader
+            self.advTargetHits = eventTree.Digi_advTargetClusters
+            self.Digi_TargetHits2MCPoints = eventTree.Digi_TargetClusterHits2MCPoints
+            self.AdvTargetPoint = eventTree.AdvTargetPoint
+            self.MCTrack = eventTree.MCTrack
+            self.EventHeader  = eventTree.EventHeader
         else:
         # Try the FairRoot way 
             # self.MuFilterHits = self.ioman.GetObject("Digi_MuFilterHits")
             # self.ScifiHits = self.ioman.GetObject("Digi_ScifiHits")
-            self.advTargetHits = self.ioman.GetObject("Digi_advTargetHits")
+            self.advTargetHits = self.ioman.GetObject("Digi_advTargetClusters")
             self.EventHeader = self.ioman.GetObject("EventHeader")
 
         # If that doesn't work, try using standard ROOT
@@ -268,8 +272,8 @@ class MuonReco(ROOT.FairTask) :
             #    self.ScifiHits = self.ioman.GetInTree().Digi_ScifiHits
             if self.advTargetHits == None :
                if self.logger.IsLogNeeded(ROOT.fair.Severity.info):
-                  print("Digi_advTargetHits not in branch list")
-               self.advTargetHits = self.ioman.GetInTree().Digi_advTargetHits
+                  print("Digi_advTargetClusters not in branch list")
+               self.advTargetHits = self.ioman.GetInTree().Digi_AdvTargetClusters
             if self.EventHeader == None :
                if self.logger.IsLogNeeded(ROOT.fair.Severity.info):
                   print("EventHeader not in branch list")
@@ -280,14 +284,14 @@ class MuonReco(ROOT.FairTask) :
         # if self.ScifiHits == None :
         #     raise RuntimeError("Digi_ScifiHits not found in input file.")
         if self.advTargetHits == None :
-            raise RuntimeError("Digi_advTargetHits not found in input file.")
+            raise RuntimeError("Digi_advTargetClusters not found in input file.")
         if self.EventHeader == None :
             raise RuntimeError("EventHeader not found in input file.")
         
         # Initialize event counters in case scaling of events is required
         self.scale = 1
         self.events_run = 0
-        
+
         # Initialize hough transform - reading parameter xml file
         tree = ET.parse(self.par_file)
         root = tree.getroot()
@@ -466,7 +470,7 @@ class MuonReco(ROOT.FairTask) :
               if hasattr(self, "standalone") and self.standalone:
                  self.ioman.Register("Reco_MuonTracks", self.ioman.GetFolderName(), self.kalman_tracks, ROOT.kTRUE)
            else:
-              self.kalman_tracks = ROOT.TClonesArray("sndRecoTrack", 10)
+              self.kalman_tracks = ROOT.TClonesArray("sndRecoTrack")
               if hasattr(self, "standalone") and self.standalone:
                  self.ioman.Register("Reco_MuonTracks", "", self.kalman_tracks, ROOT.kTRUE)
 
@@ -548,14 +552,14 @@ class MuonReco(ROOT.FairTask) :
                           "time": [],
                           "mask": []}
 
+        truths = []
+
         if "at" in self.hits_to_fit:
             # Loop through AdvTarget hits
+            link = self.Digi_TargetHits2MCPoints[0]
             for i_hit, hit in enumerate(self.advTargetHits) :
                 detID = hit.GetDetectorID()
                 vert = hit.isVertical()
-                x = hit.GetX() if vert else None
-                y = hit.GetY() if not vert else None
-                z = hit.GetZ()
                 times = [hit.GetTime(),]
 
                 hit.GetPosition(self.a, self.b)
@@ -581,6 +585,10 @@ class MuonReco(ROOT.FairTask) :
                 hit_collection["mask"].append(False)
 
                 hit_collection["time"].append(times)
+
+                truths.append(link.wList(detID))
+
+        truth_array = np.array(truths, dtype=object)
 
         if ("us" in self.hits_to_fit) or ("ds" in self.hits_to_fit) or ("ve" in self.hits_to_fit) :
             # Loop through muon filter hits
@@ -772,6 +780,8 @@ class MuonReco(ROOT.FairTask) :
         if "at" in self.hits_for_triplet :
             triplet_condition_system.append(4)
 
+        tracks_tried = []
+
         # Reconstruct muons until there are not enough hits in downstream muon filter
         for i_muon in range(self.max_reco_muons) :
 
@@ -929,51 +939,107 @@ class MuonReco(ROOT.FairTask) :
                                            hit_collection["detectorID"][triplet_hits_vertical][track_hits_for_triplet_ZX])
 
             # For failed SciFi track fits, in events with little hit activity, try using less Hough-space bins
-            if (self.hits_to_fit == 'sf' and len(hit_collection["detectorID"]) <= self.max_n_Scifi_hits and \
-                (n_planes_hit_ZY < self.min_planes_hit or n_planes_hit_ZX < self.min_planes_hit)):
+            # if (self.hits_to_fit == 'sf' and len(hit_collection["detectorID"]) <= self.max_n_Scifi_hits and \
+            #     (n_planes_hit_ZY < self.min_planes_hit or n_planes_hit_ZX < self.min_planes_hit)):
 
-                is_scaled = True
-                ZY_hough = self.h_ZY.fit_randomize(ZY, d_ZY, self.n_random, is_scaled, self.draw)
-                ZX_hough = self.h_ZX.fit_randomize(ZX, d_ZX, self.n_random, is_scaled, self.draw)
+            #     is_scaled = True
+            #     ZY_hough = self.h_ZY.fit_randomize(ZY, d_ZY, self.n_random, is_scaled, self.draw)
+            #     ZX_hough = self.h_ZX.fit_randomize(ZX, d_ZX, self.n_random, is_scaled, self.draw)
 
-                # Check if track intersects minimum number of hits in each plane.
-                track_hits_for_triplet_ZY = hit_finder(ZY_hough[0], ZY_hough[1],
-                                                np.dstack([hit_collection["pos"][2][triplet_hits_horizontal],
-                                                           hit_collection["pos"][1][triplet_hits_horizontal]]),
-                                                np.dstack([hit_collection["d"][2][triplet_hits_horizontal],
-                                                           hit_collection["d"][1][triplet_hits_horizontal]]), tol)
+            #     # Check if track intersects minimum number of hits in each plane.
+            #     track_hits_for_triplet_ZY = hit_finder(ZY_hough[0], ZY_hough[1],
+            #                                     np.dstack([hit_collection["pos"][2][triplet_hits_horizontal],
+            #                                                hit_collection["pos"][1][triplet_hits_horizontal]]),
+            #                                     np.dstack([hit_collection["d"][2][triplet_hits_horizontal],
+            #                                                hit_collection["d"][1][triplet_hits_horizontal]]), tol)
 
-                n_planes_hit_ZY = numPlanesHit(hit_collection["system"][triplet_hits_horizontal][track_hits_for_triplet_ZY],
-                                               hit_collection["detectorID"][triplet_hits_horizontal][track_hits_for_triplet_ZY])
-                if n_planes_hit_ZY < self.min_planes_hit: 
-                   break
+            #     n_planes_hit_ZY = numPlanesHit(hit_collection["system"][triplet_hits_horizontal][track_hits_for_triplet_ZY],
+            #                                    hit_collection["detectorID"][triplet_hits_horizontal][track_hits_for_triplet_ZY])
+            #     if n_planes_hit_ZY < self.min_planes_hit:
+            #         print(f"Break as {n_planes_hit_ZY=} < {self.min_planes_hit=}")
+            #         self.counters[f"n_planes_hit_ZY < {self.min_planes_hit}"] += 1
+            #         break
 
-                track_hits_for_triplet_ZX = hit_finder(ZX_hough[0], ZX_hough[1],
-                                                np.dstack([hit_collection["pos"][2][triplet_hits_vertical],
-                                                           hit_collection["pos"][0][triplet_hits_vertical]]),
-                                                np.dstack([hit_collection["d"][2][triplet_hits_vertical],
-                                                           hit_collection["d"][0][triplet_hits_vertical]]), tol)
-                n_planes_hit_ZX = numPlanesHit(hit_collection["system"][triplet_hits_vertical][track_hits_for_triplet_ZX],
-                                               hit_collection["detectorID"][triplet_hits_vertical][track_hits_for_triplet_ZX])
+            #     track_hits_for_triplet_ZX = hit_finder(ZX_hough[0], ZX_hough[1],
+            #                                     np.dstack([hit_collection["pos"][2][triplet_hits_vertical],
+            #                                                hit_collection["pos"][0][triplet_hits_vertical]]),
+            #                                     np.dstack([hit_collection["d"][2][triplet_hits_vertical],
+            #                                                hit_collection["d"][0][triplet_hits_vertical]]), tol)
+            #     n_planes_hit_ZX = numPlanesHit(hit_collection["system"][triplet_hits_vertical][track_hits_for_triplet_ZX],
+            #                                    hit_collection["detectorID"][triplet_hits_vertical][track_hits_for_triplet_ZX])   #
 
-            if n_planes_hit_ZY < self.min_planes_hit or n_planes_hit_ZX < self.min_planes_hit: 
-               break
+            # if n_planes_hit_ZY < self.min_planes_hit or n_planes_hit_ZX < self.min_planes_hit:
+            #    print(f"Break as {n_planes_hit_ZY=} or {n_planes_hit_ZX=} < {self.min_planes_hit=}")
+            #    self.counters[f"n_planes_hit_ZY < {self.min_planes_hit} or n_planes_hit_ZX < {self.min_planes_hit}"] += 1
+            #    break
 
 #                print("Found {0} downstream ZX planes associated to muon track".format(n_planes_ds_ZX))
 #                print("Found {0} downstream ZY planes associated to muon track".format(n_planes_ds_ZY))
-            
-            # This time with all the hits, not just triplet condition.
-            track_hits_ZY = hit_finder(ZY_hough[0], ZY_hough[1], 
-                                       np.dstack([hit_collection["pos"][2][~hit_collection["vert"]], 
-                                                  hit_collection["pos"][1][~hit_collection["vert"]]]), 
-                                       np.dstack([hit_collection["d"][2][~hit_collection["vert"]],
-                                                  hit_collection["d"][1][~hit_collection["vert"]]]), tol)
 
-            track_hits_ZX = hit_finder(ZX_hough[0], ZX_hough[1], 
-                                       np.dstack([hit_collection["pos"][2][hit_collection["vert"]], 
-                                                  hit_collection["pos"][0][hit_collection["vert"]]]), 
-                                       np.dstack([hit_collection["d"][2][hit_collection["vert"]], 
-                                                  hit_collection["d"][0][hit_collection["vert"]]]), tol)
+            # Sort in z
+            candidate_hit_z = np.concatenate([hit_collection["pos"][2][hit_collection["vert"]],
+                                             hit_collection["pos"][2][~hit_collection["vert"]]])
+            indices_by_z_descending = candidate_hit_z.argsort()[::-1]
+            # Find MC Track
+            candidate_hit_truth = np.concatenate([truth_array[hit_collection["vert"]],
+                                                 truth_array[~hit_collection["vert"]]])
+            wlist = candidate_hit_truth[indices_by_z_descending[0]]
+            print(wlist)
+            trackIDs = []
+            current_trackID = None
+            current_weight = 0
+            for index, weight in wlist:
+                point = self.AdvTargetPoint[index]
+                trackID = point.GetTrackID()
+                if weight > current_weight and trackID not in tracks_tried:
+                    # Take track from point with heighest weight
+                    current_trackID = trackID
+                    current_weight = weight
+                trackIDs.append(trackID)
+            assert current_trackID not in tracks_tried
+            if current_trackID is None:
+                break
+            if current_trackID in tracks_tried:
+                print(f"Already tried track {current_trackID}.")
+                break
+            tracks_tried.append(current_trackID)
+            current_track = self.MCTrack[current_trackID]
+            # Filter hits to only those with a point belonging to same track
+            candidate_hit_mask = np.zeros_like(candidate_hit_z, dtype=int)
+            candidate_hit_mask[indices_by_z_descending[0]] = 1
+            for i in indices_by_z_descending[1:]:
+                wlist = candidate_hit_truth[i]
+                trackIDs = []
+                for index, weight in wlist:
+                    point = self.AdvTargetPoint[index]
+                    trackID = point.GetTrackID()
+                    trackIDs.append(trackID)
+                if current_trackID in trackIDs:
+                    candidate_hit_mask[i] = 1
+                    print(f"Found hit for {current_trackID=}.")
+                else:
+                    print(f"Discard hit with {trackIDs=}.")
+            print(f"Found {np.sum(candidate_hit_mask)} hits for track {current_trackID}.")
+            if np.sum(candidate_hit_mask[hit_collection["vert"]]) < self.min_planes_hit or np.sum(candidate_hit_mask[~hit_collection["vert"]]) < self.min_planes_hit:
+                self.counters[f"n_planes_hit_ZY < {self.min_planes_hit} or n_planes_hit_ZX < {self.min_planes_hit}"] += 1
+                print("Not enough hits for track fit")
+                break
+
+            # This time with all the hits, not just triplet condition.
+            # track_hits_ZY = hit_finder(ZY_hough[0], ZY_hough[1],
+            #                            np.dstack([hit_collection["pos"][2][~hit_collection["vert"]],
+            #                                       hit_collection["pos"][1][~hit_collection["vert"]]]),
+            #                            np.dstack([hit_collection["d"][2][~hit_collection["vert"]],
+            #                                       hit_collection["d"][1][~hit_collection["vert"]]]), tol)
+
+            # track_hits_ZX = hit_finder(ZX_hough[0], ZX_hough[1],
+            #                            np.dstack([hit_collection["pos"][2][hit_collection["vert"]],
+            #                                       hit_collection["pos"][0][hit_collection["vert"]]]),
+            #                            np.dstack([hit_collection["d"][2][hit_collection["vert"]],
+            #                                       hit_collection["d"][0][hit_collection["vert"]]]), tol)
+            track_hits_ZY = candidate_hit_mask
+            track_hits_ZX = candidate_hit_mask
+
             # Onto Kalman fitter (based on SndlhcTracking.py)
             posM    = ROOT.TVector3(0, 0, 0.)
             momM = ROOT.TVector3(0,0,100.)  # default track with high momentum
@@ -1022,6 +1088,9 @@ class MuonReco(ROOT.FairTask) :
 
             hit_detid = np.concatenate([hit_collection["detectorID"][hit_collection["vert"]][track_hits_ZX],
                                         hit_collection["detectorID"][~hit_collection["vert"]][track_hits_ZY]])
+
+            hit_vert = np.concatenate([hit_collection["vert"][hit_collection["vert"]][track_hits_ZX],
+                                        hit_collection["vert"][~hit_collection["vert"]][track_hits_ZY]])
 
             kalman_spatial_sigma = np.concatenate([hit_collection["d"][0][hit_collection["vert"]][track_hits_ZX] / 12**0.5,
                                                    hit_collection["d"][1][~hit_collection["vert"]][track_hits_ZY] / 12**0.5])
@@ -1092,6 +1161,8 @@ class MuonReco(ROOT.FairTask) :
                   this_track.setRawMeasTimes(pointTimes)
                   this_track.setTrackType(self.track_type)
                   # Save the track in sndRecoTrack format
+                  if self.kalman_tracks.GetSize() == i_muon:
+                      self.kalman_tracks.Expand(i_muon * 2)
                   self.kalman_tracks[i_muon] = this_track
 
             # Remove track hits and try to find an additional track
@@ -1109,6 +1180,7 @@ class MuonReco(ROOT.FairTask) :
                     hit_collection[key] = np.delete(hit_collection[key], index_to_remove, axis = 1)
                 else :
                     raise Exception("Wrong number of dimensions found when deleting hits in iterative muon identification algorithm.")
+            truth_array = np.delete(truth_array, index_to_remove)
 
     def FinishTask(self) :
         print("Processed" ,self.events_run)
