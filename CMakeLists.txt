@@ -175,6 +175,12 @@ ENDIF(DEFINED $ENV{GSL_ROOT})
   Message("-- Setting basic variables ...")
 SetBasicVariables()
 
+string(FIND "${PYTHIA8DATA}" "/pythia/" pos1)
+string(SUBSTRING "${PYTHIA8DATA}" ${pos1} -1 reminder)
+string(FIND "${reminder}" "8" pos2)
+string(SUBSTRING "${reminder}" ${pos2} 4 ver)
+add_compile_definitions(PYTHIA8_V=${ver})
+
 # Add the FairRoot include directories to the list of libraries which are
 # external to the Ship project. For include directories in this list the
 # compiler will not generate any warnings. This is usefull since one is only
