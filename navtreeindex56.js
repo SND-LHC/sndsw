@@ -1,5 +1,14 @@
 var NAVTREEINDEX56 =
 {
+"namespaceMufluxMuonTaggerDrifttubesCombo.html#ae6d3690fc6b11b2c0822c9cdf6478364":[11,0,96,0],
+"namespaceMufluxMuonTaggerPatRec.html":[11,0,97],
+"namespaceMufluxMuonTaggerPatRec.html#a43083b055c4387745441909f4ce33a0a":[11,0,97,0],
+"namespaceMufluxMuonTaggerPatRec.html#a4947b16f5a979473428d4c245946bb49":[11,0,97,6],
+"namespaceMufluxMuonTaggerPatRec.html#a63db7e00f8d6237ea4cf81e1d338cf8b":[11,0,97,1],
+"namespaceMufluxMuonTaggerPatRec.html#a75f4506be4763ed8f952afa874fda134":[11,0,97,4],
+"namespaceMufluxMuonTaggerPatRec.html#a7add9c9de79cf64b4935661951eadd41":[11,0,97,3],
+"namespaceMufluxMuonTaggerPatRec.html#a9037486782fdcadc4c212096e880dbf4":[11,0,97,2],
+"namespaceMufluxMuonTaggerPatRec.html#a92f01a62c5ab9de73a2ee568e5199b57":[11,0,97,7],
 "namespaceMufluxMuonTaggerPatRec.html#a9b28ae3977f4c9f9b8852aec0de8913b":[11,0,97,8],
 "namespaceMufluxMuonTaggerPatRec.html#aa4ee959a9821d7c1b18908e0e70df530":[11,0,97,9],
 "namespaceMufluxMuonTaggerPatRec.html#ae187627fb051f02bc385315697cd175e":[11,0,97,5],
@@ -240,14 +249,5 @@ var NAVTREEINDEX56 =
 "namespaceShipAna.html#a99fd8cd193a89a21849411e5ab8511bf":[11,0,145,3],
 "namespaceShipAna.html#a9ef6cd917c9c0bb683c75ff15ad0f264":[11,0,145,44],
 "namespaceShipAna.html#aa3c51b90659f758713d2f7958b846614":[11,0,145,73],
-"namespaceShipAna.html#aa40bbd5f8f4f0e62f249be88720f8de6":[11,0,145,60],
-"namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3":[11,0,145,54],
-"namespaceShipAna.html#aa4c23cfad61e9ccae6f79cbe3a4952e4":[11,0,145,68],
-"namespaceShipAna.html#aa562066275387d3486f9bdf4d479b4bc":[11,0,145,0],
-"namespaceShipAna.html#ab29a46af8f4a8b3c07f7b2df80ba0376":[11,0,145,23],
-"namespaceShipAna.html#ab3d6f30f52033bf7b1555d56d728b925":[11,0,145,69],
-"namespaceShipAna.html#ab441839b9fbec1357c26d875b300d796":[11,0,145,56],
-"namespaceShipAna.html#ab4f95f453e706530a8b314e96f413c0a":[11,0,145,74],
-"namespaceShipAna.html#ab843345ca91cf96b585fd14577f7f947":[11,0,145,25],
-"namespaceShipAna.html#abbbdac27ae6776dd26702ff0bcb2c7a3":[11,0,145,31]
+"namespaceShipAna.html#aa40bbd5f8f4f0e62f249be88720f8de6":[11,0,145,60]
 };

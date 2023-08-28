@@ -1,5 +1,14 @@
 var NAVTREEINDEX60 =
 {
+"namespacecharm-geometry__config.html#afd7de5701bcf7a6ee51d63676cdae1ef":[11,0,10,214],
+"namespacecharm-geometry__config.html#aff0b25484924f8f6dcebc10f051f7be8":[11,0,10,262],
+"namespacecharm-geometry__config.html#aff4c310f2379c85f685eaa410fc760f0":[11,0,10,135],
+"namespacecharmDet__conf.html":[11,0,11],
+"namespacecharmDet__conf.html#a449327aa8702f0cb39905e367a7d7832":[11,0,11,1],
+"namespacecharmDet__conf.html#a6cd41951f05c9d7015dca6e9be6e051b":[11,0,11,2],
+"namespacecharmDet__conf.html#a813f4a4d4b724d289551054a026a71ad":[11,0,11,0],
+"namespacecheckMagFields.html":[11,0,12],
+"namespacecheckMagFields.html#a0196382f89d12b558da99628915f0161":[11,0,12,0],
 "namespacecheckZpositions.html":[11,0,13],
 "namespacecheckZpositions.html#a0070d4bd74e3b9a7ed335c4abcff51ef":[11,0,13,9],
 "namespacecheckZpositions.html#a0b40a172c1990bcb4e77bfad3643fc91":[11,0,13,3],
@@ -240,14 +249,5 @@ var NAVTREEINDEX60 =
 "namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#aa0d1e64db089b1ac12b4bd0b07b2ae1d":[11,0,16,1,0,205],
 "namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#aa1851b5dcb59ea8a5ae2c4c8c0fdd55a":[11,0,16,1,0,109],
 "namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#aa34c23f15e1b70035ba2b39b664991f3":[11,0,16,1,0,2],
-"namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#aa3b91f2e2ac5b00bc57ac53b1083e248":[11,0,16,1,0,62],
-"namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#aa3f62080215b700885607c495feee4a9":[11,0,16,1,0,122],
-"namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#aa5e6258fbec2cb098fdff6af658da8df":[11,0,16,1,0,18],
-"namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#aa637ec4ffb6630393516a61144595642":[11,0,16,1,0,293],
-"namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#aa745e9ba3ed7794bba358bebbc24cd43":[11,0,16,1,0,218],
-"namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#aa78604b26aef9732f3e98346f172bc8e":[11,0,16,1,0,166],
-"namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#aa79c9d27849d7136d4ad64cdf38510f5":[11,0,16,1,0,59],
-"namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#aa8636073e52f80776a64a3961dcf0c41":[11,0,16,1,0,41],
-"namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#aa8c33fdf1a9b1e2dfdd08b46c6aecddd":[11,0,16,1,0,253],
-"namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#aab66bd350f54d8bc28ad029674e30257":[11,0,16,1,0,12]
+"namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#aa3b91f2e2ac5b00bc57ac53b1083e248":[11,0,16,1,0,62]
 };

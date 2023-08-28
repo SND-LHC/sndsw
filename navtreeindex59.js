@@ -1,5 +1,14 @@
 var NAVTREEINDEX59 =
 {
+"namespacecharm-geometry__config.html#a24e8ec56ad914c376cd6f1ae4da80b57":[11,0,10,237],
+"namespacecharm-geometry__config.html#a2530072bb5e42f71695625b979cd9beb":[11,0,10,212],
+"namespacecharm-geometry__config.html#a258e3efd14b1e82e7b0e384e8f9d979c":[11,0,10,118],
+"namespacecharm-geometry__config.html#a25aa5fa95a240e8de1fdddb96db7285b":[11,0,10,30],
+"namespacecharm-geometry__config.html#a25cccd5dbba3c512a9fe76908f84a39d":[11,0,10,119],
+"namespacecharm-geometry__config.html#a27629e050bcf282c43300313d40c303d":[11,0,10,86],
+"namespacecharm-geometry__config.html#a287e735a5f80521eedbad10049e38869":[11,0,10,144],
+"namespacecharm-geometry__config.html#a288b5d149caa0c9cdec4d181e6443411":[11,0,10,149],
+"namespacecharm-geometry__config.html#a2b836f98e51361357e56241b12729824":[11,0,10,133],
 "namespacecharm-geometry__config.html#a2d4c17dadce87a1ea6235a28781534d3":[11,0,10,87],
 "namespacecharm-geometry__config.html#a2d60f9fbb900b4ebc473008477f31606":[11,0,10,111],
 "namespacecharm-geometry__config.html#a2eef1596f79b70562806d52e6424db36":[11,0,10,96],
@@ -240,14 +249,5 @@ var NAVTREEINDEX59 =
 "namespacecharm-geometry__config.html#af9e8e39b82894de1e5010e640eced84d":[11,0,10,206],
 "namespacecharm-geometry__config.html#afab339d1e5468192bc35eb2388f056ea":[11,0,10,69],
 "namespacecharm-geometry__config.html#afbdba11a848e4dc73a486cd901ec8fe3":[11,0,10,268],
-"namespacecharm-geometry__config.html#afc7414cf02c57b2981b64fbb9bb40b62":[11,0,10,284],
-"namespacecharm-geometry__config.html#afd7de5701bcf7a6ee51d63676cdae1ef":[11,0,10,214],
-"namespacecharm-geometry__config.html#aff0b25484924f8f6dcebc10f051f7be8":[11,0,10,262],
-"namespacecharm-geometry__config.html#aff4c310f2379c85f685eaa410fc760f0":[11,0,10,135],
-"namespacecharmDet__conf.html":[11,0,11],
-"namespacecharmDet__conf.html#a449327aa8702f0cb39905e367a7d7832":[11,0,11,1],
-"namespacecharmDet__conf.html#a6cd41951f05c9d7015dca6e9be6e051b":[11,0,11,2],
-"namespacecharmDet__conf.html#a813f4a4d4b724d289551054a026a71ad":[11,0,11,0],
-"namespacecheckMagFields.html":[11,0,12],
-"namespacecheckMagFields.html#a0196382f89d12b558da99628915f0161":[11,0,12,0]
+"namespacecharm-geometry__config.html#afc7414cf02c57b2981b64fbb9bb40b62":[11,0,10,284]
 };

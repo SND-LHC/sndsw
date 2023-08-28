@@ -1,9 +1,10 @@
 var muonDis_8py =
 [
     [ "analyze", "muonDis_8py.html#a8109a4ed9a17fc7f33b97648f4f50135", null ],
-    [ "analyzeDIS", "muonDis_8py.html#adf33e21543a8dfb32fb0b24c30f66c91", null ],
+    [ "analyzeDIS", "muonDis_8py.html#a1845f9e084aba6edbb255f4674d989be", null ],
     [ "boundaries", "muonDis_8py.html#a09ffce8e2baa286ce766001599eea3a7", null ],
     [ "checkProdofMuDIS", "muonDis_8py.html#af325cba88ab6fb24cd979e2e96864b84", null ],
+    [ "compMuDIS_P6withP8", "muonDis_8py.html#a6739daf743873df5d9a44ad2fdcb8a70", null ],
     [ "convertAscii2Root", "muonDis_8py.html#a231e543a6912c22444cc425738f6a2a7", null ],
     [ "count_python_processes", "muonDis_8py.html#ad1b94f41539f3c553c52a771be25b4c9", null ],
     [ "drawMuon3D", "muonDis_8py.html#adf4fcee9ea9526d210a0bcb23674f6ed", null ],
@@ -11,7 +12,8 @@ var muonDis_8py =
     [ "flukaMuons", "muonDis_8py.html#a9d72ad13e9851b87de218b14cb0b9bf0", null ],
     [ "G", "muonDis_8py.html#a7c29f0068276a0dbf738e51232f19a2e", null ],
     [ "getMasssq", "muonDis_8py.html#a5b4d4f5447c3ce0236e3942431fb30c9", null ],
-    [ "getPythiaCrossSec", "muonDis_8py.html#a86b31de5583033bed85e41f5c56b1067", null ],
+    [ "getPythia6CrossSec", "muonDis_8py.html#aa6460192c802f7269618559578031bbb", null ],
+    [ "getPythia8CrossSec", "muonDis_8py.html#a31c9a9ce57d4abaaebad9bdce945a95b", null ],
     [ "makeMuDISEvents", "muonDis_8py.html#ae8fd5cba025913c0f2110434eb5cb4c3", null ],
     [ "missing3Dproj", "muonDis_8py.html#a6c5ebb30d4973222063e7b0e5f519c36", null ],
     [ "muInterGeant4", "muonDis_8py.html#a52c9cdc8092a4a316dce5196df7d8fde", null ],

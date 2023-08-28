@@ -1,5 +1,14 @@
 var NAVTREEINDEX68 =
 {
+"namespacemakeMuonDIS.html#a46fd07d81c633221657121b3f0589fb3":[11,0,70,35],
+"namespacemakeMuonDIS.html#a5617f749af576f63d0a7e52d9b085189":[11,0,70,21],
+"namespacemakeMuonDIS.html#a5f9449552e46b6180d5430471d228330":[11,0,70,12],
+"namespacemakeMuonDIS.html#a5fcce9439ef68795ae9dbb1e8f55bee5":[11,0,70,14],
+"namespacemakeMuonDIS.html#a6d7cbd5b2224f4f5916ce0796e451edc":[11,0,70,25],
+"namespacemakeMuonDIS.html#a6deb68dc080ef810c34fcffdd94b6a57":[11,0,70,46],
+"namespacemakeMuonDIS.html#a7044979ae7d4b5f9a8cddea3300307e4":[11,0,70,30],
+"namespacemakeMuonDIS.html#a727205ecfa4b92c88595ade1bb6f8c7d":[11,0,70,5],
+"namespacemakeMuonDIS.html#a733fd53aa252e7e2d8d7eb70d6c37edb":[11,0,70,31],
 "namespacemakeMuonDIS.html#a7f6ba08a95beb7f0e233c7cc840c7f53":[11,0,70,1],
 "namespacemakeMuonDIS.html#a820b4fb7438d85f2cf1c7b6e808a07a5":[11,0,70,32],
 "namespacemakeMuonDIS.html#a89bb5da26bfd8081f9e2c9cca9bcf2eb":[11,0,70,39],
@@ -134,8 +143,8 @@ var NAVTREEINDEX68 =
 "namespacemembers_type.html":[11,1,3],
 "namespacemembers_u.html":[11,1,0,21],
 "namespacemembers_v.html":[11,1,0,22],
-"namespacemembers_vars.html":[11,1,2],
 "namespacemembers_vars.html":[11,1,2,0],
+"namespacemembers_vars.html":[11,1,2],
 "namespacemembers_vars_a.html":[11,1,2,1],
 "namespacemembers_vars_b.html":[11,1,2,2],
 "namespacemembers_vars_c.html":[11,1,2,3],
@@ -240,14 +249,5 @@ var NAVTREEINDEX68 =
 "namespacempbits.html#adde3f0055bb8b56e1361d8a872674b1a":[11,0,82,11],
 "namespacempbits.html#aea397564ea86fb7fe2b1c114b0871f4f":[11,0,82,0],
 "namespacempbits.html#af16fc58e032267904bb39d4c70fdb61c":[11,0,82,14],
-"namespacempdalc.html":[11,0,83],
-"namespacempdalc.html#a0279821acb3bdf18aad23c055c1d1e08":[11,0,83,15],
-"namespacempdalc.html#a08a52fc4c4d5e1809689382059bc2ff6":[11,0,83,10],
-"namespacempdalc.html#a0bbca3e592959ae9646e93a92b12df3f":[11,0,83,8],
-"namespacempdalc.html#a11522950ac44061b6fe1e4c8c091211e":[11,0,83,9],
-"namespacempdalc.html#a1d07b8b3aef72613c6d3f1a4b3d8cd51":[11,0,83,12],
-"namespacempdalc.html#a210be2e4b0dbfef6d73e992067d4ea5d":[11,0,83,6],
-"namespacempdalc.html#a51dfc8fc478f82ed304d71c75725efbd":[11,0,83,3],
-"namespacempdalc.html#a53659fb2ebde6c8c36d004045bef3465":[11,0,83,20],
-"namespacempdalc.html#a54bcdf716731ab3f7b65ea7353c4d44a":[11,0,83,22]
+"namespacempdalc.html":[11,0,83]
 };
