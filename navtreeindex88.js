@@ -1,5 +1,10 @@
 var NAVTREEINDEX88 =
 {
+"sndLHC__geom__config_8py.html#a5fad59e19bdbd8c95768ffde4c5f0b3f":[13,0,6,3,23],
+"sndLHC__geom__config_8py.html#a607f65703e1409dbcd572dfc5f57647f":[13,0,6,3,94],
+"sndLHC__geom__config_8py.html#a6175b9bd93639af22a5fce7784e6952d":[13,0,6,3,50],
+"sndLHC__geom__config_8py.html#a63d41b2ea543675e35bec3cf974b50da":[13,0,6,3,156],
+"sndLHC__geom__config_8py.html#a6493f36d972de777c976ebd6ac74ad3c":[13,0,6,3,107],
 "sndLHC__geom__config_8py.html#a67a9d98b7cde6bce04aaa972e45bf96b":[13,0,6,3,133],
 "sndLHC__geom__config_8py.html#a69d49dd7a7f5143c1bdc31469a2da96d":[13,0,6,3,116],
 "sndLHC__geom__config_8py.html#a6a165bf4347348813dc6f7c7ddc87f02":[13,0,6,3,170],
@@ -244,10 +249,5 @@ var NAVTREEINDEX88 =
 "strawtubesPoint_8cxx.html":[13,0,23,8],
 "strawtubesPoint_8cxx_source.html":[13,0,23,8],
 "strawtubesPoint_8h.html":[13,0,23,9],
-"strawtubesPoint_8h_source.html":[13,0,23,9],
-"strawtubes_8cxx.html":[13,0,23,0],
-"strawtubes_8cxx_source.html":[13,0,23,0],
-"strawtubes_8h.html":[13,0,23,1],
-"strawtubes_8h_source.html":[13,0,23,1],
-"strawtubes__single_8cxx.html":[13,0,23,2]
+"strawtubesPoint_8h_source.html":[13,0,23,9]
 };

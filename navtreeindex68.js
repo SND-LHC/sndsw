@@ -1,5 +1,10 @@
 var NAVTREEINDEX68 =
 {
+"namespacemakeMuonDIS.html#a1baa1871f9caf8718228af457e8da3b3":[11,0,70,9],
+"namespacemakeMuonDIS.html#a26aa2d2f4969d3eeb816781e0da12ee0":[11,0,70,28],
+"namespacemakeMuonDIS.html#a2b4e630f0163fb403afd6440c31de817":[11,0,70,50],
+"namespacemakeMuonDIS.html#a31069c861ee6564962a537e94c422254":[11,0,70,47],
+"namespacemakeMuonDIS.html#a3376c7ac13d7058bff30c174977e1d6e":[11,0,70,13],
 "namespacemakeMuonDIS.html#a46fd07d81c633221657121b3f0589fb3":[11,0,70,35],
 "namespacemakeMuonDIS.html#a5617f749af576f63d0a7e52d9b085189":[11,0,70,21],
 "namespacemakeMuonDIS.html#a5f9449552e46b6180d5430471d228330":[11,0,70,12],
@@ -143,8 +148,8 @@ var NAVTREEINDEX68 =
 "namespacemembers_type.html":[11,1,3],
 "namespacemembers_u.html":[11,1,0,21],
 "namespacemembers_v.html":[11,1,0,22],
-"namespacemembers_vars.html":[11,1,2,0],
 "namespacemembers_vars.html":[11,1,2],
+"namespacemembers_vars.html":[11,1,2,0],
 "namespacemembers_vars_a.html":[11,1,2,1],
 "namespacemembers_vars_b.html":[11,1,2,2],
 "namespacemembers_vars_c.html":[11,1,2,3],
@@ -244,10 +249,5 @@ var NAVTREEINDEX68 =
 "namespacempbits.html#a7e33d38506425a8cdae517d26b465e97":[11,0,82,7],
 "namespacempbits.html#aae2845e345a87b36b52288605541a96d":[11,0,82,1],
 "namespacempbits.html#ab3ce01c37ac727a87b02ccd7d352aa97":[11,0,82,8],
-"namespacempbits.html#ab5958876cd2674615d094fd9bfc0a9a6":[11,0,82,4],
-"namespacempbits.html#ac6629aea8d521ce7ee77d482c19ac192":[11,0,82,16],
-"namespacempbits.html#adde3f0055bb8b56e1361d8a872674b1a":[11,0,82,11],
-"namespacempbits.html#aea397564ea86fb7fe2b1c114b0871f4f":[11,0,82,0],
-"namespacempbits.html#af16fc58e032267904bb39d4c70fdb61c":[11,0,82,14],
-"namespacempdalc.html":[11,0,83]
+"namespacempbits.html#ab5958876cd2674615d094fd9bfc0a9a6":[11,0,82,4]
 };

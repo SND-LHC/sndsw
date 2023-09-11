@@ -1,5 +1,10 @@
 var NAVTREEINDEX85 =
 {
+"shipPatRec__prev_8py.html#acb4b3d791784790e34488f05d239490c":[13,0,17,47,1],
+"shipPatRec__prev_8py.html#ad8e4a71724d57a4e73e8d0ba9368e1c8":[13,0,17,47,13],
+"shipPatRec__prev_8py.html#addc69fbef103c103d823d5f25b5fa619":[13,0,17,47,43],
+"shipPatRec__prev_8py.html#ae4a4d65bbc2f2474c9d22b5ca0e8fe6d":[13,0,17,47,15],
+"shipPatRec__prev_8py.html#ae9ad578230004c49e16111cf0b2a0a89":[13,0,17,47,40],
 "shipPatRec__prev_8py.html#aeb7c2be538e477bbadd3119870d932ef":[13,0,17,47,57],
 "shipPatRec__prev_8py.html#aee3ba49ae8b97ba7744573bae601c696":[13,0,17,47,52],
 "shipPatRec__prev_8py.html#af1667e2b6f269aab41d6bd975f33b26d":[13,0,17,47,31],
@@ -244,10 +249,5 @@ var NAVTREEINDEX85 =
 "sndAvgDSFiducialCut_8h.html":[13,0,0,0,1],
 "sndAvgDSFiducialCut_8h_source.html":[13,0,0,0,1],
 "sndAvgSciFiFiducialCut_8cxx.html":[13,0,0,0,2],
-"sndAvgSciFiFiducialCut_8cxx_source.html":[13,0,0,0,2],
-"sndAvgSciFiFiducialCut_8h.html":[13,0,0,0,3],
-"sndAvgSciFiFiducialCut_8h_source.html":[13,0,0,0,3],
-"sndBaseCut_8h.html":[13,0,0,0,4],
-"sndBaseCut_8h_source.html":[13,0,0,0,4],
-"sndCluster_8cxx.html":[13,0,20,31]
+"sndAvgSciFiFiducialCut_8cxx_source.html":[13,0,0,0,2]
 };

@@ -1,5 +1,7 @@
 var NAVTREEINDEX2 =
 {
+"KalmanFitter_8h_source.html":[13,0,5,4,0,4],
+"MCStackLinkDef_8h.html":[13,0,18,2],
 "MCStackLinkDef_8h_source.html":[13,0,18,2],
 "MagneticSpectrometer_8cxx.html":[13,0,12,6],
 "MagneticSpectrometer_8cxx_source.html":[13,0,12,6],
@@ -247,7 +249,5 @@ var NAVTREEINDEX2 =
 "Pythia8Generator_8h.html":[13,0,19,29],
 "Pythia8Generator_8h_source.html":[13,0,19,29],
 "PythiaList_8py.html":[13,0,17,30],
-"PythiaList_8py.html#a13f7f67ea0b996cb7ac40f53ffbf1bff":[13,0,17,30,2],
-"PythiaList_8py.html#a405f77fe1f708bdae18e23a84469b962":[13,0,17,30,1],
-"PythiaList_8py.html#a9c4dcba5de0e5687d6d032e471c97779":[13,0,17,30,0]
+"PythiaList_8py.html#a13f7f67ea0b996cb7ac40f53ffbf1bff":[13,0,17,30,2]
 };

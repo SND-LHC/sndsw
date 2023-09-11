@@ -1,5 +1,10 @@
 var NAVTREEINDEX89 =
 {
+"strawtubes_8cxx.html":[13,0,23,0],
+"strawtubes_8cxx_source.html":[13,0,23,0],
+"strawtubes_8h.html":[13,0,23,1],
+"strawtubes_8h_source.html":[13,0,23,1],
+"strawtubes__single_8cxx.html":[13,0,23,2],
 "strawtubes__single_8cxx_source.html":[13,0,23,2],
 "streamerTest_2main_8cc.html":[13,0,5,9,3,0],
 "streamerTest_2main_8cc.html#a8de29f7c8bbf1a81cc6e71ac602032d3":[13,0,5,9,3,0,0],
@@ -78,8 +83,8 @@ var NAVTREEINDEX89 =
 "structgenfit_1_1ExtrapStep.html":[12,0,13,50],
 "structgenfit_1_1ExtrapStep.html#a687b426b05da411dc42fa2629dccbdd1":[12,0,13,50,3],
 "structgenfit_1_1ExtrapStep.html#a9dc6889d8afb2564841edc7fac79c4f4":[12,0,13,50,2],
-"structgenfit_1_1ExtrapStep.html#ace3dd7154d264707a7ab92f5dacb9061":[12,0,13,50,1],
 "structgenfit_1_1ExtrapStep.html#ace3dd7154d264707a7ab92f5dacb9061":[12,0,13,50,0],
+"structgenfit_1_1ExtrapStep.html#ace3dd7154d264707a7ab92f5dacb9061":[12,0,13,50,1],
 "structgenfit_1_1MatStep.html":[12,0,13,6],
 "structgenfit_1_1MatStep.html#a61b1a634431ebb71b7fef8d6de309160":[12,0,13,6,0],
 "structgenfit_1_1MatStep.html#a6c2b9e5bcddd3a6fdf105ec10685e8a7":[12,0,13,6,1],
@@ -244,10 +249,5 @@ var NAVTREEINDEX89 =
 "study__thinTarget_8py.html#a6997471a5eff05086318992b9deda546":[13,0,11,27,8],
 "study__thinTarget_8py.html#a6ab62725a04f4f0c23b38e5dc9315f17":[13,0,11,27,4],
 "study__thinTarget_8py.html#a7249652af1200b4fde685e6863109d86":[13,0,11,27,17],
-"study__thinTarget_8py.html#a781dc49671893f41b9cabf200aaec718":[13,0,11,27,41],
-"study__thinTarget_8py.html#a7bd06a17bb8831e6dabcf07c3e09402e":[13,0,11,27,3],
-"study__thinTarget_8py.html#a7c10cd1069ea56556ce9cde4d6a2c272":[13,0,11,27,1],
-"study__thinTarget_8py.html#a7d345676eb518ca2a793ac62d2f5f1aa":[13,0,11,27,30],
-"study__thinTarget_8py.html#a7dc873e4b7157264e2f8a2f0f5bbe654":[13,0,11,27,31],
-"study__thinTarget_8py.html#a849b1ab78e614b9fbd49b3db06be5e9e":[13,0,11,27,22]
+"study__thinTarget_8py.html#a781dc49671893f41b9cabf200aaec718":[13,0,11,27,41]
 };

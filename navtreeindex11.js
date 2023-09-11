@@ -1,5 +1,7 @@
 var NAVTREEINDEX11 =
 {
+"changes_page.html#ch-diag":[0,0,0,1],
+"changes_page.html#ch-elim-const":[0,0,0,4],
 "changes_page.html#ch-gzip":[0,0,5],
 "changes_page.html#ch-inv":[0,0,0,0],
 "changes_page.html#ch-locfit":[0,0,2],
@@ -247,7 +249,5 @@ var NAVTREEINDEX11 =
 "charm-geometry__config_8py.html#acdfcae9a1a3a423d337ea3086f85b9d8":[13,0,6,0,25],
 "charm-geometry__config_8py.html#acffcb1261b8b167ea373012f95ded5c1":[13,0,6,0,10],
 "charm-geometry__config_8py.html#ad1ca81030baa37c25ed946aaaa6eb9e5":[13,0,6,0,73],
-"charm-geometry__config_8py.html#ad22f08476b1eace9a398cec19890c9e8":[13,0,6,0,71],
-"charm-geometry__config_8py.html#ad2cce33219107bc0975448c85a023416":[13,0,6,0,107],
-"charm-geometry__config_8py.html#ad45ef0da0eb8ded81960c981b7f6348d":[13,0,6,0,201]
+"charm-geometry__config_8py.html#ad22f08476b1eace9a398cec19890c9e8":[13,0,6,0,71]
 };
