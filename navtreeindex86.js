@@ -1,5 +1,7 @@
 var NAVTREEINDEX86 =
 {
+"sndAvgSciFiFiducialCut_8cxx.html":[13,0,0,0,2],
+"sndAvgSciFiFiducialCut_8cxx_source.html":[13,0,0,0,2],
 "sndAvgSciFiFiducialCut_8h.html":[13,0,0,0,3],
 "sndAvgSciFiFiducialCut_8h_source.html":[13,0,0,0,3],
 "sndBaseCut_8h.html":[13,0,0,0,4],
@@ -247,7 +249,5 @@ var NAVTREEINDEX86 =
 "sndLHC__TI18geom__config_8py.html#a23169c10c47be1811592f1b1098fba0f":[13,0,6,5,190],
 "sndLHC__TI18geom__config_8py.html#a248d6fd2e3de06b08371a7cb17bac022":[13,0,6,5,60],
 "sndLHC__TI18geom__config_8py.html#a2525c7dac3aaec1bf285f2c73b73bce2":[13,0,6,5,154],
-"sndLHC__TI18geom__config_8py.html#a2527e923e1514bbda0d59e0784574d6c":[13,0,6,5,183],
-"sndLHC__TI18geom__config_8py.html#a26f6bfb6f802d0fe1c7f726cee7f55b5":[13,0,6,5,77],
-"sndLHC__TI18geom__config_8py.html#a27b798778811cc3fac0081e0b8b46a8d":[13,0,6,5,198]
+"sndLHC__TI18geom__config_8py.html#a2527e923e1514bbda0d59e0784574d6c":[13,0,6,5,183]
 };

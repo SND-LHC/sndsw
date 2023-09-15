@@ -1,5 +1,7 @@
 var NAVTREEINDEX28 =
 {
+"classecalMaximum.html#a7e96258287a7a25ceab53c4414f21a00":[12,0,77,18],
+"classecalMaximum.html#aa21fbf22ae7ef767c0b1db22c761c246":[12,0,77,15],
 "classecalMaximum.html#ab792c68775379921feb729d203b19de2":[12,0,77,5],
 "classecalMaximum.html#acf3ae929a5773aea8b37daf3eaaa52fe":[12,0,77,13],
 "classecalMaximum.html#ad8fb643241da9bc95ace557edc7b03e3":[12,0,77,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX28 =
 "classeventDisplay_1_1EventLoop.html#a71a9f421aa20178e0b9d9f4eb15a7bcf":[12,0,5,4,24],
 "classeventDisplay_1_1EventLoop.html#a7371b44e18733c161535961e78156139":[12,0,5,4,18],
 "classeventDisplay_1_1EventLoop.html#a7371b44e18733c161535961e78156139":[12,0,5,4,19],
-"classeventDisplay_1_1EventLoop.html#a7f6d669042d678a8473c54df941fc385":[12,0,5,4,11],
-"classeventDisplay_1_1EventLoop.html#a7fb434a7edf20f25270790282d1f76cb":[12,0,5,4,7],
-"classeventDisplay_1_1EventLoop.html#a7fb434a7edf20f25270790282d1f76cb":[12,0,5,4,8]
+"classeventDisplay_1_1EventLoop.html#a7f6d669042d678a8473c54df941fc385":[12,0,5,4,11]
 };

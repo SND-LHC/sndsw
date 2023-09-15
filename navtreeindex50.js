@@ -1,5 +1,7 @@
 var NAVTREEINDEX50 =
 {
+"hcalStructure_8h_source.html":[13,0,7,18],
+"hcal_8cxx.html":[13,0,7,0],
 "hcal_8cxx.html#a415964781f885f2bbb07b6aee6cab3e6":[13,0,7,0,0],
 "hcal_8cxx_source.html":[13,0,7,0],
 "hcal_8h.html":[13,0,7,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX50 =
 "logger_8py.html":[13,0,17,17],
 "logger_8py.html#a1af74ca7ca2dabc671b4e0e0a8702e5f":[13,0,17,17,1],
 "logger_8py.html#a415f8541e99d9bae30efd8b0daafcc2c":[13,0,17,17,0],
-"logger_8py_source.html":[13,0,17,17],
-"macro_2eveGlobal_8py.html":[13,0,8,7],
-"macro_2eveGlobal_8py.html#af384e4f875e85dd37b0398e54a393298":[13,0,8,7,0]
+"logger_8py_source.html":[13,0,17,17]
 };

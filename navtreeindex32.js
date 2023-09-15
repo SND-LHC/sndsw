@@ -1,5 +1,7 @@
 var NAVTREEINDEX32 =
 {
+"classgenfit_1_1Exception.html#a2803240b061c14525d5d22910f07a7a3":[12,0,13,9,15],
+"classgenfit_1_1Exception.html#a58a3fc500908ed07bd4f5e22b10bf725":[12,0,13,9,9],
 "classgenfit_1_1Exception.html#a597cffd8a824c3a3933f765ac04c1b45":[12,0,13,9,11],
 "classgenfit_1_1Exception.html#a5ee48f2b84face77343cfb0c40e816bb":[12,0,13,9,12],
 "classgenfit_1_1Exception.html#a8c76ad2b9cdc45d05864ec9f9f936d53":[12,0,13,9,10],
@@ -247,7 +249,5 @@ var NAVTREEINDEX32 =
 "classgenfit_1_1KalmanFitStatus.html#a6a9ca53a6e3d4b9fb167bab48030cc8d":[12,0,13,34,4],
 "classgenfit_1_1KalmanFitStatus.html#a78654a3559807248eb606df653335417":[12,0,13,34,23],
 "classgenfit_1_1KalmanFitStatus.html#a859df4929a5c5a8b0e99f9db1c9eaa21":[12,0,13,34,14],
-"classgenfit_1_1KalmanFitStatus.html#a8b09fb270c293f5c1dec6303e99dde83":[12,0,13,34,20],
-"classgenfit_1_1KalmanFitStatus.html#a8daed063760686198a664188d6130e68":[12,0,13,34,21],
-"classgenfit_1_1KalmanFitStatus.html#a8e73b0ebeea7b68df305fc405e3aebe4":[12,0,13,34,26]
+"classgenfit_1_1KalmanFitStatus.html#a8b09fb270c293f5c1dec6303e99dde83":[12,0,13,34,20]
 };

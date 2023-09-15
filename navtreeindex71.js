@@ -1,5 +1,7 @@
 var NAVTREEINDEX71 =
 {
+"namespacepythia8__conf__utils.html#a360e1819533bcfdd8e337c98df19a9d6":[11,0,105,2],
+"namespacepythia8__conf__utils.html#a436dfcedd1b1abcf03b6aa3134ff82ef":[11,0,105,8],
 "namespacepythia8__conf__utils.html#a43d55c0d1f126273135b7104b9c9be54":[11,0,105,15],
 "namespacepythia8__conf__utils.html#a4af7d1d7ec65e763627523bb319bbf4e":[11,0,105,7],
 "namespacepythia8__conf__utils.html#a4cc0d048f338f45ee1c7727668b348ce":[11,0,105,10],
@@ -247,7 +249,5 @@ var NAVTREEINDEX71 =
 "namespacerunPythia8PP.html#add19b1664210de7c0876bc51c0f44d93":[11,0,135,11],
 "namespacerunPythia8PP.html#adf9f5b68a2d639a37baa2802ad0f3287":[11,0,135,20],
 "namespacerunPythia8PP.html#ae1f2cf1f0cf5830a39eec726f2c80e7c":[11,0,135,30],
-"namespacerunPythia8PP.html#ae50645831107627f328a08eced9a53e2":[11,0,135,12],
-"namespacerunPythia8PP.html#ae8446b30b7e710e21cd690ef6a4bd822":[11,0,135,32],
-"namespacerunPythia8PP.html#af42df21f97a402a75382037a62963740":[11,0,135,7]
+"namespacerunPythia8PP.html#ae50645831107627f328a08eced9a53e2":[11,0,135,12]
 };

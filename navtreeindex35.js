@@ -1,5 +1,7 @@
 var NAVTREEINDEX35 =
 {
+"classgenfit_1_1ReferenceStateOnPlane.html#af36207cff5d1c72fa1cb32628b543376":[12,0,13,39,21],
+"classgenfit_1_1ReferenceStateOnPlane.html#af4aff6a48bdfa91d0e6eb3fe0565bb8c":[12,0,13,39,18],
 "classgenfit_1_1SpacepointMeasurement.html":[12,0,13,61],
 "classgenfit_1_1SpacepointMeasurement.html#a2fdfbd692e26f558a18fdd68eb614788":[12,0,13,61,10],
 "classgenfit_1_1SpacepointMeasurement.html#a47b41339435d36c86be58c88a8dac0be":[12,0,13,61,6],
@@ -247,7 +249,5 @@ var NAVTREEINDEX35 =
 "classgenfit_1_1TrackPoint.html#a29c2d1b6197728fdc3d582a392d22c1e":[12,0,13,25,19],
 "classgenfit_1_1TrackPoint.html#a29ced91f660b0b6f9918ef767e4c4922":[12,0,13,25,6],
 "classgenfit_1_1TrackPoint.html#a2c9bae2da0224d16a5f116618c29da3e":[12,0,13,25,9],
-"classgenfit_1_1TrackPoint.html#a2d15bc74d80bf72c60c2bcfb2be4aa16":[12,0,13,25,23],
-"classgenfit_1_1TrackPoint.html#a31d099caef94d38e4688a12b1befdd4a":[12,0,13,25,32],
-"classgenfit_1_1TrackPoint.html#a32990ba178789ed273a0b966550b16be":[12,0,13,25,11]
+"classgenfit_1_1TrackPoint.html#a2d15bc74d80bf72c60c2bcfb2be4aa16":[12,0,13,25,23]
 };
