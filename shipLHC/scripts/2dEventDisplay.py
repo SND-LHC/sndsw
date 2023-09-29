@@ -26,10 +26,10 @@ h={}
 from argparse import ArgumentParser
 parser = ArgumentParser()
 parser.add_argument("-r", "--runNumber", dest="runNumber", help="run number", type=int,required=False)
-parser.add_argument("-p", "--path", dest="path", help="path to data file",required=False,default=os.environ["EOSSHIP"]+"/eos/experiment/sndlhc/convertedData/physics/2022/")
+parser.add_argument("-p", "--path", dest="path", help="path to data file",required=False,default="/eos/experiment/sndlhc/convertedData/physics/2022/")
 parser.add_argument("-praw", "--pathRaw", dest="pathRaw", help="path to raw data file",required=False,default="/eos/experiment/sndlhc/raw_data/physics/2022/")
 parser.add_argument("-f", "--inputFile", dest="inputFile", help="input file data and MC",default="",required=False)
-parser.add_argument("-g", "--geoFile", dest="geoFile", help="geofile", default=os.environ["EOSSHIP"]+"/eos/experiment/sndlhc/convertedData/physics/2022/geofile_sndlhc_TI18_V0_2022.root")
+parser.add_argument("-g", "--geoFile", dest="geoFile", help="geofile", default="/eos/experiment/sndlhc/convertedData/physics/2022/geofile_sndlhc_TI18_V0_2022.root")
 parser.add_argument("-P", "--partition", dest="partition", help="partition of data", type=int,required=False,default=-1)
 parser.add_argument("--server", dest="server", help="xrootd server",default=os.environ["EOSSHIP"])
 
@@ -41,14 +41,14 @@ options.storePic = ''
 trans2local = False
 runInfo = False
 try:
-   fg  = ROOT.TFile.Open(options.server+options.p+"RunInfodict.root")
+   fg  = ROOT.TFile.Open(options.server+options.path+"RunInfodict.root")
    pkl = Unpickler(fg)
    runInfo = pkl.load('runInfo')
    fg.Close()
 except: pass
 
 import SndlhcGeo
-geo = SndlhcGeo.GeoInterface(options.geoFile)
+geo = SndlhcGeo.GeoInterface(options.server+options.geoFile)
 
 lsOfGlobals = ROOT.gROOT.GetListOfGlobals()
 lsOfGlobals.Add(geo.modules['Scifi'])
@@ -76,9 +76,9 @@ run      = ROOT.FairRunAna()
 ioman = ROOT.FairRootManager.Instance()
 
 if options.inputFile=="":
-  f=ROOT.TFile.Open(options.path+'sndsw_raw_'+str(options.runNumber).zfill(6)+'.root')
+  f=ROOT.TFile.Open(options.server+options.path+"/run_"+str(options.runNumber).zfill(6)+'/sndsw_raw-'+str(options.partition).zfill(4)+'.root')
 else:
-  f=ROOT.TFile.Open(options.path+options.inputFile)
+  f=ROOT.TFile.Open(options.server+options.inputFile)
 
 if f.FindKey('cbmsim'):
         eventTree = f.cbmsim
@@ -139,7 +139,7 @@ nav = ROOT.gGeoManager.GetCurrentNavigator()
 # get filling scheme
 try:
            runNumber = eventTree.EventHeader.GetRunId()
-           fg  = ROOT.TFile.Open(os.environ['EOSSHIP']+options.p+'FSdict.root')
+           fg  = ROOT.TFile.Open(options.server+options.path+'FSdict.root')
            pkl = Unpickler(fg)
            FSdict = pkl.load('FSdict')
            fg.Close()
@@ -152,9 +152,12 @@ except:
 startTimeOfRun = {}
 def getStartTime(runNumber):
       if runNumber in startTimeOfRun : return startTimeOfRun[runNumber]
-      runDir = options.pathRaw+"run_"+str(runNumber).zfill(6)
+      runDir = options.pathRaw+"/run_"+str(runNumber).zfill(6)
       jname = "run_timestamps.json"
-      dirlist  = str( subprocess.check_output("xrdfs "+options.server+" ls "+runDir,shell=True) ) 
+      try:         
+          dirlist  = str( subprocess.check_output("xrdfs "+options.server+" ls "+runDir,shell=True, stderr=subprocess.DEVNULL) )
+      except subprocess.CalledProcessError:
+          return False
       if not jname in dirlist: return False
       with client.File() as f:
                f.open(options.server+runDir+"/run_timestamps.json")
@@ -321,10 +324,11 @@ def loopEvents(start=0,save=False,goodEvents=False,withTrack=-1,withHoughTrack=-
           rc=h[collection][c][1].SetName(c)
           rc=h[collection][c][1].Set(0)
 
-    dTs = "%5.2Fns"%(dT/freq*1E9)
+    # Do we still use these lines? Seems no. And for events having all negative QDCs minT[1] is returned empty and the display crashes.
+    #dTs = "%5.2Fns"%(dT/freq*1E9)
     # find detector which triggered
-    minT = firstTimeStamp(event)
-    dTs+= "    " + str(minT[1].GetDetectorID())
+    #minT = firstTimeStamp(event)
+    #dTs+= "    " + str(minT[1].GetDetectorID())
     for p in proj:
        rc = h[ 'simpleDisplay'].cd(p)
        h[proj[p]].Draw('b')
@@ -578,7 +582,7 @@ def drawDetectors():
    for i in range(7,10):
       nodes['volMuFilter_1/volFeBlock_{}'.format(i)]=ROOT.kGreen-6
    passNodes = {'Block', 'Wall'}
-   xNodes = {'UpstreamBar', 'VetoBar', 'hor'}
+   xNodes = {'UpstreamDet', 'volVetoPlane', 'hor'}
    proj = {'X':0,'Y':1}
    for node_ in nodes:
       node = '/cave_1/Detector_0/'+node_
