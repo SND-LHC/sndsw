@@ -393,6 +393,7 @@ var annotated_dup =
     [ "preshower", "classpreshower.html", "classpreshower" ],
     [ "preshowerContFact", "classpreshowerContFact.html", "classpreshowerContFact" ],
     [ "preshowerPoint", "classpreshowerPoint.html", "classpreshowerPoint" ],
+    [ "PrimaryTrack", "structPrimaryTrack.html", "structPrimaryTrack" ],
     [ "pyFairModule", "classpyFairModule.html", "classpyFairModule" ],
     [ "Pythia6Generator", "classPythia6Generator.html", "classPythia6Generator" ],
     [ "Pythia8Generator", "classPythia8Generator.html", "classPythia8Generator" ],

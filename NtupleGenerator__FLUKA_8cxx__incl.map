@@ -1,12 +1,14 @@
 <map id="shipgen/NtupleGenerator_FLUKA.cxx" name="shipgen/NtupleGenerator_FLUKA.cxx">
 <area shape="rect" id="node1" title=" " alt="" coords="204,5,389,47"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,95,73,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="277,169,356,196"/>
+<area shape="rect" id="node3" title=" " alt="" coords="217,169,296,196"/>
 <area shape="rect" id="node4" title=" " alt="" coords="149,95,239,121"/>
 <area shape="rect" id="node5" title=" " alt="" coords="264,95,329,121"/>
 <area shape="rect" id="node6" title=" " alt="" coords="353,95,525,121"/>
 <area shape="rect" id="node7" href="$NtupleGenerator__FLUKA_8h.html" title=" " alt="" coords="550,95,742,121"/>
-<area shape="rect" id="node10" title=" " alt="" coords="767,95,867,121"/>
-<area shape="rect" id="node8" title=" " alt="" coords="525,169,647,196"/>
-<area shape="rect" id="node9" title=" " alt="" coords="671,169,741,196"/>
+<area shape="rect" id="node12" title=" " alt="" coords="767,95,867,121"/>
+<area shape="rect" id="node8" title=" " alt="" coords="405,169,527,196"/>
+<area shape="rect" id="node9" title=" " alt="" coords="551,169,621,196"/>
+<area shape="rect" id="node10" title=" " alt="" coords="645,169,764,196"/>
+<area shape="rect" id="node11" title=" " alt="" coords="788,169,872,196"/>
 </map>

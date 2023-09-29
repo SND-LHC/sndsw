@@ -2,7 +2,7 @@ var classNtupleGenerator__FLUKA =
 [
     [ "NtupleGenerator_FLUKA", "classNtupleGenerator__FLUKA.html#ae3b98a997de199812b9b761caf12c8e2", null ],
     [ "~NtupleGenerator_FLUKA", "classNtupleGenerator__FLUKA.html#a4eeec572fdede1536512bcdfc609ab46", null ],
-    [ "ClassDef", "classNtupleGenerator__FLUKA.html#abb3e86a8b269f19233eb9cf1cb2d18bb", null ],
+    [ "ClassDef", "classNtupleGenerator__FLUKA.html#a8e9b78def6c829a99e103e0785377e1a", null ],
     [ "GetNevents", "classNtupleGenerator__FLUKA.html#aa56fcb113cdbf1b5ccb7e05561f74f9b", null ],
     [ "Init", "classNtupleGenerator__FLUKA.html#a0e564c1282b399fdb2beff008697bf60", null ],
     [ "Init", "classNtupleGenerator__FLUKA.html#ae5c3927d4d3fb056eed83f6b024f4d09", null ],
@@ -15,6 +15,7 @@ var classNtupleGenerator__FLUKA =
     [ "fTree", "classNtupleGenerator__FLUKA.html#ad39ba2a2aa2be5716372dd7e6edd94b0", null ],
     [ "generation", "classNtupleGenerator__FLUKA.html#adc460b482e76e9b50f3e7c0313c39637", null ],
     [ "id", "classNtupleGenerator__FLUKA.html#a676cc1df4afd4e42d14afda7eb4287b2", null ],
+    [ "primaries", "classNtupleGenerator__FLUKA.html#ad44e52e19d02dd22f789fd3d4ecac1d0", null ],
     [ "px", "classNtupleGenerator__FLUKA.html#a3a318fb3b1324b943d48c5f701a08a60", null ],
     [ "py", "classNtupleGenerator__FLUKA.html#a07e8773e3164fb945eee8d4053c66646", null ],
     [ "pz", "classNtupleGenerator__FLUKA.html#a05b94531e49c726ed7827bc272e72db7", null ],

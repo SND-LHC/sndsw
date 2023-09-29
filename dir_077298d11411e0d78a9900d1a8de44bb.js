@@ -47,6 +47,7 @@ var dir_077298d11411e0d78a9900d1a8de44bb =
     ] ],
     [ "NtupleGenerator_FLUKA.cxx", "NtupleGenerator__FLUKA_8cxx.html", null ],
     [ "NtupleGenerator_FLUKA.h", "NtupleGenerator__FLUKA_8h.html", [
+      [ "PrimaryTrack", "structPrimaryTrack.html", "structPrimaryTrack" ],
       [ "NtupleGenerator_FLUKA", "classNtupleGenerator__FLUKA.html", "classNtupleGenerator__FLUKA" ]
     ] ],
     [ "NuageGenerator.cxx", "NuageGenerator_8cxx.html", null ],

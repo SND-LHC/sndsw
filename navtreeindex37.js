@@ -1,5 +1,6 @@
 var NAVTREEINDEX37 =
 {
+"classhcalInf.html#aec6f45ab1214215b8fb82178e5f69d8f":[12,0,98,35],
 "classhcalInf.html#af459b38a114c255ad75fb149b15d6010":[12,0,98,31],
 "classhcalInf.html#afc4afa18ed9f06178672fd437dc5969e":[12,0,98,48],
 "classhcalLightMap.html":[12,0,99],
@@ -248,6 +249,5 @@ var NAVTREEINDEX37 =
 "classmuon.html#af375cc5e818596fc7a860241bbb0139b":[12,0,117,45],
 "classmuon.html#af654537fdf8800dd3c6ea1941bd2a4b3":[12,0,117,29],
 "classmuon.html#afa1d819fc0a965459d73e88da4f9f389":[12,0,117,46],
-"classmuon.html#afcace9c864ef1cf31b14b58437ea9a76":[12,0,117,41],
-"classmuon.html#afe105775397044a80f002176c14a8bb5":[12,0,117,44]
+"classmuon.html#afcace9c864ef1cf31b14b58437ea9a76":[12,0,117,41]
 };

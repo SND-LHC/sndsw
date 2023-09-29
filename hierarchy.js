@@ -356,6 +356,7 @@ var hierarchy =
     ] ],
     [ "TObject", null, [
       [ "Hit2MCPoints", "classHit2MCPoints.html", null ],
+      [ "PrimaryTrack", "structPrimaryTrack.html", null ],
       [ "ShipHit", "classShipHit.html", [
         [ "TimeDetHit", "classTimeDetHit.html", null ],
         [ "UpstreamTaggerHit", "classUpstreamTaggerHit.html", null ],

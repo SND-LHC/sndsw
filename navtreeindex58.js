@@ -1,5 +1,6 @@
 var NAVTREEINDEX58 =
 {
+"namespaceTTCluster.html#a126d674ea739a72078786b48ec9665da":[11,0,184,45],
 "namespaceTTCluster.html#a166dd5ac857990c7f9fb37b9db7c48f9":[11,0,184,18],
 "namespaceTTCluster.html#a16bc5b13d45537007e0ac7464ff5ea89":[11,0,184,21],
 "namespaceTTCluster.html#a16d9fb5a8b4dbfdd96619cc0cdb9f968":[11,0,184,23],
@@ -248,6 +249,5 @@ var NAVTREEINDEX58 =
 "namespacecharm-geometry__config.html#a197332be1c846666394fe212e861fc59":[11,0,10,83],
 "namespacecharm-geometry__config.html#a19f55e72b46fee5b225c93d11be1e329":[11,0,10,232],
 "namespacecharm-geometry__config.html#a1a5081e21c975900d1099ae89ac49185":[11,0,10,155],
-"namespacecharm-geometry__config.html#a1aea1c7fb261dd39be5603465688660e":[11,0,10,234],
-"namespacecharm-geometry__config.html#a1b15ff1b7ad7e6a7c13280d5fb29b76f":[11,0,10,269]
+"namespacecharm-geometry__config.html#a1aea1c7fb261dd39be5603465688660e":[11,0,10,234]
 };

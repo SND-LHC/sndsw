@@ -1,5 +1,6 @@
 var NAVTREEINDEX55 =
 {
+"muonDis_8py.html#aece50ca76201e757f1a438e00eabe2b1":[13,0,20,22,51],
 "muonDis_8py.html#aefb9c0b4c3f628d395be4f83ace23f7d":[13,0,20,22,49],
 "muonDis_8py.html#af06f7cb923d60f15fc7489f3d2eaf141":[13,0,20,22,24],
 "muonDis_8py.html#af0a726d96a6b341570923a07cd3d66fa":[13,0,20,22,17],
@@ -248,6 +249,5 @@ var NAVTREEINDEX55 =
 "namespaceMufluxDigi.html#ae9ed11b8fa25ab13e43234f9ebe126b7":[11,0,94,4],
 "namespaceMufluxDigi.html#afdc5f507e1cd74506c5f6eea466c745f":[11,0,94,10],
 "namespaceMufluxDigiReco.html":[11,0,95],
-"namespaceMufluxDigiReco.html#a20b5b65b9b5ff92744639b945bc4502d":[11,0,95,3],
-"namespaceMufluxDigiReco.html#a2a57e6b404bf123eedf46d6bb00e91ce":[11,0,95,1]
+"namespaceMufluxDigiReco.html#a20b5b65b9b5ff92744639b945bc4502d":[11,0,95,3]
 };

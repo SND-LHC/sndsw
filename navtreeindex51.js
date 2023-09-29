@@ -1,5 +1,6 @@
 var NAVTREEINDEX51 =
 {
+"logger_8py_source.html":[13,0,17,17],
 "macro_2eveGlobal_8py.html":[13,0,8,7],
 "macro_2eveGlobal_8py.html#af384e4f875e85dd37b0398e54a393298":[13,0,8,7,0],
 "macro_2eveGlobal_8py_source.html":[13,0,8,7],
@@ -248,6 +249,5 @@ var NAVTREEINDEX51 =
 "makeMuonDIS_8py.html#a31069c861ee6564962a537e94c422254":[13,0,11,10,47],
 "makeMuonDIS_8py.html#a3376c7ac13d7058bff30c174977e1d6e":[13,0,11,10,13],
 "makeMuonDIS_8py.html#a46fd07d81c633221657121b3f0589fb3":[13,0,11,10,35],
-"makeMuonDIS_8py.html#a5617f749af576f63d0a7e52d9b085189":[13,0,11,10,21],
-"makeMuonDIS_8py.html#a5f9449552e46b6180d5430471d228330":[13,0,11,10,12]
+"makeMuonDIS_8py.html#a5617f749af576f63d0a7e52d9b085189":[13,0,11,10,21]
 };
