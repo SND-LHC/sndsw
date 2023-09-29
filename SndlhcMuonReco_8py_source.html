@@ -351,11 +351,11 @@ $(document).ready(function(){initNavTree('SndlhcMuonReco_8py_source.html',''); i
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;               self.<a class="code" href="classSndlhcMuonReco_1_1MuonReco.html#a4efb192db3bf4d64450c88d5cccf7afe">EventHeader</a>EventHeader = self.<a class="code" href="classSndlhcMuonReco_1_1MuonReco.html#a5c0afc748459155efd329bc98e535350">ioman</a>ioman.GetInTree().EventHeader</div>
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        </div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;        <span class="keywordflow">if</span> self.<a class="code" href="classSndlhcMuonReco_1_1MuonReco.html#adc1eb6ab4dd643e1d90c809daa053931">MuFilterHits</a>MuFilterHits == <span class="keywordtype">None</span> :</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;            <span class="keywordflow">raise</span> RuntimeException(<span class="stringliteral">&quot;Digi_MuFilterHits not found in input file.&quot;</span>)</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;            <span class="keywordflow">raise</span> RuntimeError(<span class="stringliteral">&quot;Digi_MuFilterHits not found in input file.&quot;</span>)</div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;        <span class="keywordflow">if</span> self.<a class="code" href="classSndlhcMuonReco_1_1MuonReco.html#a28d23d4544f025f70acc59a2cc349a4a">ScifiHits</a>ScifiHits == <span class="keywordtype">None</span> :</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;            <span class="keywordflow">raise</span> RuntimeException(<span class="stringliteral">&quot;Digi_ScifiHits not found in input file.&quot;</span>)</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;            <span class="keywordflow">raise</span> RuntimeError(<span class="stringliteral">&quot;Digi_ScifiHits not found in input file.&quot;</span>)</div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;        <span class="keywordflow">if</span> self.<a class="code" href="classSndlhcMuonReco_1_1MuonReco.html#a4efb192db3bf4d64450c88d5cccf7afe">EventHeader</a>EventHeader == <span class="keywordtype">None</span> :</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;            <span class="keywordflow">raise</span> RuntimeException(<span class="stringliteral">&quot;EventHeader not found in input file.&quot;</span>)</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;            <span class="keywordflow">raise</span> RuntimeError(<span class="stringliteral">&quot;EventHeader not found in input file.&quot;</span>)</div>
 <div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;        </div>
 <div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;        <span class="comment"># Initialize event counters in case scaling of events is required</span></div>
 <div class="line"><a name="l00274"></a><span class="lineno"><a class="line" href="classSndlhcMuonReco_1_1MuonReco.html#a5ef83d474cfcfd2c0b43f0f9aa30f0a2">  274</a></span>&#160;        self.<a class="code" href="classSndlhcMuonReco_1_1MuonReco.html#a5ef83d474cfcfd2c0b43f0f9aa30f0a2">scale</a>scale = 1</div>
@@ -403,7 +403,7 @@ $(document).ready(function(){initNavTree('SndlhcMuonReco_8py_source.html',''); i
 <div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160; </div>
 <div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;                   <span class="keywordflow">else</span>: <span class="keywordflow">continue</span></div>
 <div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;               <span class="keywordflow">if</span> <span class="keywordflow">not</span> Hspace_format_exists:</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;                  <span class="keywordflow">raise</span> RuntimeException(<span class="stringliteral">&quot;Unknown Hough space format, check naming in parameter xml file.&quot;</span>) </div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;                  <span class="keywordflow">raise</span> RuntimeError(<span class="stringliteral">&quot;Unknown Hough space format, check naming in parameter xml file.&quot;</span>) </div>
 <div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160; </div>
 <div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;               <span class="comment"># A scale factor for a back-up Hough space having more/less bins than the default one</span></div>
 <div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;               <span class="comment"># It is useful when fitting some low-E muon tracks, which are curved due to mult. scattering.</span></div>
@@ -444,7 +444,7 @@ $(document).ready(function(){initNavTree('SndlhcMuonReco_8py_source.html',''); i
 <div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160; </div>
 <div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;            <span class="keywordflow">else</span>: <span class="keywordflow">continue</span></div>
 <div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;        <span class="keywordflow">if</span> <span class="keywordflow">not</span> track_case_exists:</div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;           <span class="keywordflow">raise</span> RuntimeException(<span class="stringliteral">&quot;Unknown tracking case, check naming in parameter xml file.&quot;</span>)</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;           <span class="keywordflow">raise</span> RuntimeError(<span class="stringliteral">&quot;Unknown tracking case, check naming in parameter xml file.&quot;</span>)</div>
 <div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160; </div>
 <div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;        <span class="comment"># Get sensor dimensions from geometry</span></div>
 <div class="line"><a name="l00363"></a><span class="lineno"><a class="line" href="classSndlhcMuonReco_1_1MuonReco.html#af1c2cb982224dd3098ac7f145ba8e418">  363</a></span>&#160;        self.<a class="code" href="classSndlhcMuonReco_1_1MuonReco.html#af1c2cb982224dd3098ac7f145ba8e418">MuFilter_ds_dx</a>MuFilter_ds_dx = self.<a class="code" href="classSndlhcMuonReco_1_1MuonReco.html#adee4c6d9f01031f0e7892bc4ee3b90e3">mufiDet</a>mufiDet.GetConfParF(<span class="stringliteral">&quot;MuFilter/DownstreamBarY&quot;</span>) <span class="comment"># Assume y dimensions in vertical bars are the same as x dimensions in horizontal bars.</span></div>
@@ -1018,7 +1018,7 @@ $(document).ready(function(){initNavTree('SndlhcMuonReco_8py_source.html',''); i
 <div class="line"><a name="l00931"></a><span class="lineno">  931</span>&#160; </div>
 <div class="line"><a name="l00932"></a><span class="lineno">  932</span>&#160;            <span class="keywordflow">if</span> <span class="keywordflow">not</span> theTrack.checkConsistency():</div>
 <div class="line"><a name="l00933"></a><span class="lineno">  933</span>&#160;                theTrack.Delete()</div>
-<div class="line"><a name="l00934"></a><span class="lineno">  934</span>&#160;                <span class="keywordflow">raise</span> RuntimeException(<span class="stringliteral">&quot;Kalman fitter track consistency check failed.&quot;</span>)</div>
+<div class="line"><a name="l00934"></a><span class="lineno">  934</span>&#160;                <span class="keywordflow">raise</span> RuntimeError(<span class="stringliteral">&quot;Kalman fitter track consistency check failed.&quot;</span>)</div>
 <div class="line"><a name="l00935"></a><span class="lineno">  935</span>&#160; </div>
 <div class="line"><a name="l00936"></a><span class="lineno">  936</span>&#160;            <span class="comment"># do the fit</span></div>
 <div class="line"><a name="l00937"></a><span class="lineno">  937</span>&#160;            self.<a class="code" href="classSndlhcMuonReco_1_1MuonReco.html#ada233ce3649f5928692ca7d32c0f729d">kalman_fitter</a>kalman_fitter.processTrack(theTrack) <span class="comment"># processTrackWithRep(theTrack,rep,True)</span></div>
@@ -1026,7 +1026,7 @@ $(document).ready(function(){initNavTree('SndlhcMuonReco_8py_source.html',''); i
 <div class="line"><a name="l00939"></a><span class="lineno">  939</span>&#160;            fitStatus = theTrack.getFitStatus()</div>
 <div class="line"><a name="l00940"></a><span class="lineno">  940</span>&#160;            <span class="keywordflow">if</span> <span class="keywordflow">not</span> fitStatus.isFitConverged() <span class="keywordflow">and</span> 0&gt;1:</div>
 <div class="line"><a name="l00941"></a><span class="lineno">  941</span>&#160;                theTrack.Delete()</div>
-<div class="line"><a name="l00942"></a><span class="lineno">  942</span>&#160;                <span class="keywordflow">raise</span> RuntimeException(<span class="stringliteral">&quot;Kalman fit did not converge.&quot;</span>)</div>
+<div class="line"><a name="l00942"></a><span class="lineno">  942</span>&#160;                <span class="keywordflow">raise</span> RuntimeError(<span class="stringliteral">&quot;Kalman fit did not converge.&quot;</span>)</div>
 <div class="line"><a name="l00943"></a><span class="lineno">  943</span>&#160; </div>
 <div class="line"><a name="l00944"></a><span class="lineno">  944</span>&#160;            <span class="comment"># Now save the track if fit converged!</span></div>
 <div class="line"><a name="l00945"></a><span class="lineno">  945</span>&#160;            theTrack.SetUniqueID(self.<a class="code" href="classSndlhcMuonReco_1_1MuonReco.html#a502c71498e346f01715a17653ba79828">track_type</a>track_type)</div>
