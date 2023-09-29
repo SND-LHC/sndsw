@@ -1,7 +1,5 @@
 var NAVTREEINDEX89 =
 {
-"strawtubesPoint_8h.html":[13,0,23,9],
-"strawtubesPoint_8h_source.html":[13,0,23,9],
 "strawtubes_8cxx.html":[13,0,23,0],
 "strawtubes_8cxx_source.html":[13,0,23,0],
 "strawtubes_8h.html":[13,0,23,1],
@@ -95,8 +93,8 @@ var NAVTREEINDEX89 =
 "structgenfit_1_1RKStep.html#a4340cf43a2ccdf7d95f965ce01d38887":[12,0,13,49,2],
 "structgenfit_1_1RKStep.html#a5031ba3b89a869a5c733c2dde23d68e7":[12,0,13,49,3],
 "structgenfit_1_1RKStep.html#a5aca22ad48723a9ee41b27329aa9d9a3":[12,0,13,49,4],
-"structgenfit_1_1RKStep.html#a99d6dd2eac81744ad17b140ee9db0e66":[12,0,13,49,0],
 "structgenfit_1_1RKStep.html#a99d6dd2eac81744ad17b140ee9db0e66":[12,0,13,49,1],
+"structgenfit_1_1RKStep.html#a99d6dd2eac81744ad17b140ee9db0e66":[12,0,13,49,0],
 "structgenfit_1_1fieldCache.html":[12,0,13,10],
 "structgenfit_1_1fieldCache.html#a68ab943c56a996f17f372f5db8b45b69":[12,0,13,10,3],
 "structgenfit_1_1fieldCache.html#ab1e642cc0844b54686b45d72987d8e4b":[12,0,13,10,2],
@@ -249,5 +247,7 @@ var NAVTREEINDEX89 =
 "study__thinTarget_8py.html#a61df07d66fa119dc538c7e6f040d8a3f":[13,0,11,27,21],
 "study__thinTarget_8py.html#a66ea1e388086201ddb78f4983b1833f9":[13,0,11,27,39],
 "study__thinTarget_8py.html#a6997471a5eff05086318992b9deda546":[13,0,11,27,8],
-"study__thinTarget_8py.html#a6ab62725a04f4f0c23b38e5dc9315f17":[13,0,11,27,4]
+"study__thinTarget_8py.html#a6ab62725a04f4f0c23b38e5dc9315f17":[13,0,11,27,4],
+"study__thinTarget_8py.html#a7249652af1200b4fde685e6863109d86":[13,0,11,27,17],
+"study__thinTarget_8py.html#a781dc49671893f41b9cabf200aaec718":[13,0,11,27,41]
 };

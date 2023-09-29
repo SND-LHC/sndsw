@@ -23,7 +23,6 @@ var run__simSND_8py =
     [ "geoFile", "run__simSND_8py.html#a3031fbb08cef4a9f884024130812ecb5", null ],
     [ "gMC", "run__simSND_8py.html#ae4e5810b9de88d66fbc07f9b872bdc93", null ],
     [ "gProcessTable", "run__simSND_8py.html#a808a1b6f409e00c0dd6b93ee7f15e93c", null ],
-    [ "group", "run__simSND_8py.html#a2e82a5e1a2cdd9cd5dae7c65f2ccc113", null ],
     [ "gst", "run__simSND_8py.html#aef339858619c951728f2f12efcf5830d", null ],
     [ "gst_copy", "run__simSND_8py.html#ac4a52c1f7204ac40b27d6ee4d8ef7630", null ],
     [ "help", "run__simSND_8py.html#acb090aea96a7705afc659ba31140e27b", null ],

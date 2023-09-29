@@ -23,7 +23,6 @@ var namespacerun__simSND =
     [ "geoFile", "namespacerun__simSND.html#a3031fbb08cef4a9f884024130812ecb5", null ],
     [ "gMC", "namespacerun__simSND.html#ae4e5810b9de88d66fbc07f9b872bdc93", null ],
     [ "gProcessTable", "namespacerun__simSND.html#a808a1b6f409e00c0dd6b93ee7f15e93c", null ],
-    [ "group", "namespacerun__simSND.html#a2e82a5e1a2cdd9cd5dae7c65f2ccc113", null ],
     [ "gst", "namespacerun__simSND.html#aef339858619c951728f2f12efcf5830d", null ],
     [ "gst_copy", "namespacerun__simSND.html#ac4a52c1f7204ac40b27d6ee4d8ef7630", null ],
     [ "help", "namespacerun__simSND.html#acb090aea96a7705afc659ba31140e27b", null ],
