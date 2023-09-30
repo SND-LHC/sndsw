@@ -73,6 +73,12 @@ public:
 
     EmulsionDet(const EmulsionDet&);
     EmulsionDet& operator=(const EmulsionDet&);
+
+    void GetPosition(Int_t id, const Double_t* localpos, Double_t* globalpos); // use localtomaster to convert positions
+    void GetAngles(Int_t id, const Double_t* localang, Double_t* globalang);//converting angles
+
+    void GetLocalPosition(Int_t id, const Double_t* globalpos, Double_t* localpos); // use mastertolocal to convert positions
+    void GetLocalAngles(Int_t id, const Double_t* globalang, Double_t* localang);//converting angles
     
     ClassDef(EmulsionDet,5)
     

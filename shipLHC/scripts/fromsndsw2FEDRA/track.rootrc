@@ -1,0 +1,30 @@
+fedra.readCPcut:                         1
+fedra.track.TrZmap:                      8000 0 400000   8000 0 400000   30
+fedra.track.npass:                       1
+fedra.track.minPlate:                    -999
+fedra.track.maxPlate:                    999
+fedra.track.refPlate:                    999
+fedra.track.nsegmin:                     2
+fedra.track.ngapmax:                     4
+fedra.track.DZGapMax:                    5000
+fedra.track.DRmax:                       45
+fedra.track.DTmax:                       0.07
+fedra.track.Sigma0:                      3 3 0.005 0.005
+fedra.track.PulsRamp0:                   15 20
+fedra.track.PulsRamp04:                  15 20
+fedra.track.Degrad:                      4
+fedra.track.probmin:                     0.001
+fedra.track.momentum:                    2
+fedra.track.mass:                        0.14
+fedra.track.do_use_mcs:                  0
+fedra.track.RadX0:                       5810
+fedra.track.erase:                       0
+fedra.track.do_realign:                  0
+fedra.track.do_misalign:                 0
+fedra.track.misalign_offset:             500
+fedra.track.do_local_corr:               1
+fedra.track.do_comb:                     0
+fedra.track.NsegMin:                     2
+emtra.outdir:                            ..
+emtra.env:                               track.rootrc
+emtra.EdbDebugLevel:                     1

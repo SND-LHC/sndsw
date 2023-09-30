@@ -1,0 +1,10 @@
+FairShip2Fedra.nbricks:                  20
+FairShip2Fedra.nplates:                  60
+FairShip2Fedra.useefficiencymap:         0
+FairShip2Fedra.emuefficiency:            0.85
+FairShip2Fedra.dosmearing:               1
+FairShip2Fedra.maxtheta:                 0.78
+FairShip2Fedra.minmomentum:              0.1
+FairShip2Fedra.ngrains:                  70
+FairShip2Fedra.angres:                   0.003
+FairShip2Fedra.useLocalBrickCoordinates: 1
