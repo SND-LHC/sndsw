@@ -1,5 +1,7 @@
 var NAVTREEINDEX2 =
 {
+"KalmanFitter_8cc_source.html":[13,0,5,4,1,5],
+"KalmanFitter_8h.html":[13,0,5,4,0,4],
 "KalmanFitter_8h_source.html":[13,0,5,4,0,4],
 "MCStackLinkDef_8h.html":[13,0,18,2],
 "MCStackLinkDef_8h_source.html":[13,0,18,2],
@@ -247,7 +249,5 @@ var NAVTREEINDEX2 =
 "Pythia8Generator_8cxx.html#a9e059fccd1865e487271645a59736440":[13,0,19,28,3],
 "Pythia8Generator_8cxx_source.html":[13,0,19,28],
 "Pythia8Generator_8h.html":[13,0,19,29],
-"Pythia8Generator_8h_source.html":[13,0,19,29],
-"PythiaList_8py.html":[13,0,17,30],
-"PythiaList_8py.html#a13f7f67ea0b996cb7ac40f53ffbf1bff":[13,0,17,30,2]
+"Pythia8Generator_8h_source.html":[13,0,19,29]
 };
