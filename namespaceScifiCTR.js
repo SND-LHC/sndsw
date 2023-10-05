@@ -14,7 +14,6 @@ var namespaceScifiCTR =
     [ "event", "namespaceScifiCTR.html#aca22ef78acf169a5fb0995f60c4bc4af", null ],
     [ "FairTasks", "namespaceScifiCTR.html#a8c72fe2b427fcf010c08ece621123c4d", null ],
     [ "False", "namespaceScifiCTR.html#a56dfc10ce69c8e3afc4aa984d2f1afde", null ],
-    [ "geoFile", "namespaceScifiCTR.html#ab4197995e999abf6c14808a9a866ab60", null ],
     [ "help", "namespaceScifiCTR.html#a550e6195bf979f48f6f69f1d4c599426", null ],
     [ "int", "namespaceScifiCTR.html#a9243c6bb74f38de7234bb8e34d10e7e7", null ],
     [ "iteration", "namespaceScifiCTR.html#ae63c661ff0f0758207eb1865d3948c3a", null ],

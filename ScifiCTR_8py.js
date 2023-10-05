@@ -14,7 +14,6 @@ var ScifiCTR_8py =
     [ "event", "ScifiCTR_8py.html#aca22ef78acf169a5fb0995f60c4bc4af", null ],
     [ "FairTasks", "ScifiCTR_8py.html#a8c72fe2b427fcf010c08ece621123c4d", null ],
     [ "False", "ScifiCTR_8py.html#a56dfc10ce69c8e3afc4aa984d2f1afde", null ],
-    [ "geoFile", "ScifiCTR_8py.html#ab4197995e999abf6c14808a9a866ab60", null ],
     [ "help", "ScifiCTR_8py.html#a550e6195bf979f48f6f69f1d4c599426", null ],
     [ "int", "ScifiCTR_8py.html#a9243c6bb74f38de7234bb8e34d10e7e7", null ],
     [ "iteration", "ScifiCTR_8py.html#ae63c661ff0f0758207eb1865d3948c3a", null ],
