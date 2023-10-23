@@ -138,7 +138,7 @@ On lxplus or systems with CVMFS</h2>
 <li>Make sure you can access the SNDLHC CVMFS Repository ```bash ls /cvmfs/sndlhc.cern.ch ``<code></code></li>
 <li><code>Source the</code>setUp.sh&lt;tt&gt;script ``bash source /cvmfs/sndlhc.cern.ch/SNDLHC-2023/Aug30/setUp.sh (recommended latest version) ```</li>
 <li>If you don't want to modify the sndsw package, skip step 3: ```bash git clone <a href="https://github.com/SND-LHC/sndsw">https://github.com/SND-LHC/sndsw</a> ``` This gives you by default the master branch of the software. In case, you want to use a specific branch: ```bash cd sndsw git checkout &lt;branch&gt; cd .. ``<code></code></li>
-<li><code>Build the software using</code>aliBuild<code> </code>``bash aliBuild build sndsw -c $SNDDIST &ndash;always-prefer-system ``` If you exit your shell session and you want to go back working on it, make sure to re-execute the second step.</li>
+<li><code>Build the software using</code>aliBuild<code> </code>``bash aliBuild build sndsw -c $SNDDIST &ndash;always-prefer-system &ndash;default release ``` If you exit your shell session and you want to go back working on it, make sure to re-execute the second step.</li>
 </ol>
 <p>To load the <code>sndsw</code> environment, after you build the software, you can simply use:</p>
 <ol type="1">
@@ -156,7 +156,7 @@ On systems without access to CVMFS</h2>
 <li>Clone the <a href="https://github.com/SND-LHC/snddist">snddist</a>, which containts the recipes to build <code>sndsw</code> and it's dependencies: ```bash git clone <a href="https://github.com/SND-LHC/snddist.git">https://github.com/SND-LHC/snddist.git</a> ```</li>
 <li>If you don't want to modify the sndsw package, skip step 2: ```bash git clone <a href="https://github.com/SND-LHC/sndsw">https://github.com/SND-LHC/sndsw</a> ``` This gives you by default the master branch of the software. In case, you want to use a specific branch: ```bash cd sndsw git checkout &lt;branch&gt; cd .. ```</li>
 <li>Install <a href="https://github.com/alisw/alibuild">aliBuild</a> ``` bash pip3 install &ndash;user alibuild ``` and make sure that it is in your $PATH, or if you are administrator: ``` bash sudo pip3 install alibuild ```</li>
-<li>Build the software using aliBuild ```bash aliBuild build sndsw -c snddist ``<code> If you run into any problems,</code>aliDoctor` can help determine what the problem is.</li>
+<li>Build the software using aliBuild ```bash aliBuild build sndsw -c snddist &ndash;default release ``<code> If you run into any problems,</code>aliDoctor` can help determine what the problem is.</li>
 <li>Load the environment ```bash alienv enter sndsw/latest ```</li>
 </ol>
 <h1><a class="anchor" id="autotoc_md28"></a>
