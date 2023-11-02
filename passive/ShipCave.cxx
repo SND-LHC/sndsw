@@ -2,21 +2,6 @@
 #include "ShipCave.h"
 
 #include "ShipGeoCave.h"                // for ShipGeoCave
-#include "FairGeoInterface.h"           // for FairGeoInterface
-#include "FairGeoLoader.h"              // for FairGeoLoader
-#include "FairGeoNode.h"                // for FairGeoNode
-#include "FairGeoPassivePar.h"          // for FairGeoPassivePar
-#include "FairGeoVolume.h"              // for FairGeoVolume
-#include "FairRun.h"                    // for FairRun
-#include "FairRuntimeDb.h"              // for FairRuntimeDb
-
-#include "TList.h"                      // for TListIter, TList (ptr only)
-#include "TObjArray.h"                  // for TObjArray
-#include "TString.h"                    // for TString
-
-#include <stddef.h>                     // for NULL
-
-ClassImp(ShipCave)
 
 void ShipCave::ConstructGeometry()
 {
