@@ -107,7 +107,7 @@ $(document).ready(function(){initNavTree('makeGeoFile_8py_source.html',''); init
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"># -----Create simulation run----------------------------------------</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="namespacemakeGeoFile.html#a61b28d815f62de79066b7d4ad000d038">   21</a></span>&#160;run = ROOT.FairRunSim()</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;run.SetName(mcEngine)  <span class="comment"># Transport engine</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;run.SetOutputFile(<span class="stringliteral">&quot;dummy.root&quot;</span>)  <span class="comment"># Output file</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;run.SetSink(ROOT.FairRootFileSink(ROOT.TMemFile(<span class="stringliteral">&#39;output&#39;</span>, <span class="stringliteral">&#39;recreate&#39;</span>)))  <span class="comment"># output file</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;run.SetUserConfig(<span class="stringliteral">&quot;g4Config.C&quot;</span>) <span class="comment"># user configuration file default g4Config.C </span></div>
 <div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="namespacemakeGeoFile.html#a17d145e555c84f53e64673cf67b29098">   25</a></span>&#160;rtdb = run.GetRuntimeDb() </div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
@@ -133,7 +133,6 @@ $(document).ready(function(){initNavTree('makeGeoFile_8py_source.html',''); init
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment"># save detector parameters dictionary in geofile</span></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">import</span> saveBasicParameters</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<a class="code" href="namespacesaveBasicParameters.html#af414b03475f3233d7a3002989aff1ff4">saveBasicParameters.execute</a>(options.geofile,snd_geo)</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
 <div class="ttc" id="anamespacesaveBasicParameters_html_af414b03475f3233d7a3002989aff1ff4"><div class="ttname"><a href="namespacesaveBasicParameters.html#af414b03475f3233d7a3002989aff1ff4">saveBasicParameters.execute</a></div><div class="ttdeci">def execute(f, ox, name='ShipGeo')</div><div class="ttdef"><b>Definition:</b> <a href="saveBasicParameters_8py_source.html#l00038">saveBasicParameters.py:38</a></div></div>
 <div class="ttc" id="anamespaceshipRoot__conf_html_a5e8544883bc78700546fa8c4c116ca7d"><div class="ttname"><a href="namespaceshipRoot__conf.html#a5e8544883bc78700546fa8c4c116ca7d">shipRoot_conf.configure</a></div><div class="ttdeci">def configure(darkphoton=None)</div><div class="ttdef"><b>Definition:</b> <a href="shipRoot__conf_8py_source.html#l00067">shipRoot_conf.py:67</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

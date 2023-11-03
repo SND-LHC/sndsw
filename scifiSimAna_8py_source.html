@@ -115,7 +115,7 @@ $(document).ready(function(){initNavTree('scifiSimAna_8py_source.html',''); init
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
 <div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="namespacescifiSimAna.html#a53a2f322734cb21274b032ec9fb2907e">   29</a></span>&#160;run = ROOT.FairRunSim()</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;run.SetName(<span class="stringliteral">&quot;TGeant4&quot;</span>)  <span class="comment"># Transport engine</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;run.SetOutputFile(ROOT.TMemFile(<span class="stringliteral">&#39;output&#39;</span>, <span class="stringliteral">&#39;recreate&#39;</span>))  <span class="comment"># Output file</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;run.SetSink(ROOT.FairRootFileSink(ROOT.TMemFile(<span class="stringliteral">&#39;output&#39;</span>, <span class="stringliteral">&#39;recreate&#39;</span>)))  <span class="comment"># Output file</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;run.SetUserConfig(<span class="stringliteral">&quot;g4Config_basic.C&quot;</span>) <span class="comment"># geant4 transport not used</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="namespacescifiSimAna.html#a8bcb53dcb7d8a02d91d73bb3e6d8fbb7">   33</a></span>&#160;rtdb = run.GetRuntimeDb()</div>
 <div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="namespacescifiSimAna.html#ae9805f5fbf37e7fd8abf6a9ed916dd0f">   34</a></span>&#160;modules = sndDet_conf.configure(run,snd_geo)</div>

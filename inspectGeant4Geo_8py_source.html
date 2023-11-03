@@ -104,7 +104,7 @@ $(document).ready(function(){initNavTree('inspectGeant4Geo_8py_source.html','');
 <div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="namespaceinspectGeant4Geo.html#a7b5821cffd485ff8a225c9f2df441372">   17</a></span>&#160;modules = <a class="code" href="namespaceshipDet__conf.html#aab56bdb431b4537670432778b4a10305">shipDet_conf.configure</a>(run, ShipGeo)</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;run.SetUserConfig(<span class="stringliteral">&#39;g4Config.C&#39;</span>)</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;run.SetName(<span class="stringliteral">&#39;TGeant4&#39;</span>)</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;run.SetOutputFile(ROOT.TMemFile(<span class="stringliteral">&#39;output&#39;</span>, <span class="stringliteral">&#39;recreate&#39;</span>))</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;run.SetSink(ROOT.FairRootFileSink(ROOT.TMemFile(<span class="stringliteral">&#39;output&#39;</span>, <span class="stringliteral">&#39;recreate&#39;</span>)))</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;run.Init()</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;run.Run(0)</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">import</span> geomGeant4</div>

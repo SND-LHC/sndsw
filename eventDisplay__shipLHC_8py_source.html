@@ -937,7 +937,7 @@ $(document).ready(function(){initNavTree('eventDisplay__shipLHC_8py_source.html'
 <div class="line"><a name="l00850"></a><span class="lineno">  850</span>&#160; fRun.SetInputFile(options.InputFile)</div>
 <div class="line"><a name="l00851"></a><span class="lineno">  851</span>&#160;<span class="keywordflow">if</span> options.OutputFile == <span class="keywordtype">None</span>:</div>
 <div class="line"><a name="l00852"></a><span class="lineno"><a class="line" href="namespaceeventDisplay__shipLHC.html#a55ffd34e70199644cb9e7694ea7cf8e5">  852</a></span>&#160;  options.OutputFile = ROOT.TMemFile(<span class="stringliteral">&#39;event_display_output&#39;</span>, <span class="stringliteral">&#39;recreate&#39;</span>)</div>
-<div class="line"><a name="l00853"></a><span class="lineno">  853</span>&#160;fRun.SetOutputFile(options.OutputFile)</div>
+<div class="line"><a name="l00853"></a><span class="lineno">  853</span>&#160;fRun.SetSink(ROOT.FairRootFileSink(options.OutputFile))</div>
 <div class="line"><a name="l00854"></a><span class="lineno">  854</span>&#160; </div>
 <div class="line"><a name="l00855"></a><span class="lineno">  855</span>&#160;<span class="keywordflow">if</span> options.ParFile:</div>
 <div class="line"><a name="l00856"></a><span class="lineno"><a class="line" href="namespaceeventDisplay__shipLHC.html#ac5046a5444b4ff44eeba1cb068cd78df">  856</a></span>&#160; rtdb      = fRun.GetRuntimeDb()</div>
