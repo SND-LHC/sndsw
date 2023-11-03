@@ -1,7 +1,5 @@
 var NAVTREEINDEX85 =
 {
-"shipPatRec__prev_8py.html#aa7d4ef170583a5339c9a0fbb967b0c29":[13,0,17,47,11],
-"shipPatRec__prev_8py.html#aae1cd604027f872550ca84991b755b6e":[13,0,17,47,2],
 "shipPatRec__prev_8py.html#ab4ef0649c22a676b68557a8c55285080":[13,0,17,47,35],
 "shipPatRec__prev_8py.html#abb98a26b65beeef5012507cc3f9f51ec":[13,0,17,47,5],
 "shipPatRec__prev_8py.html#abc4a116b0a05b193b48ff0da21349150":[13,0,17,47,47],
@@ -249,5 +247,7 @@ var NAVTREEINDEX85 =
 "simpleTarget_8cxx.html":[13,0,11,22],
 "simpleTarget_8cxx_source.html":[13,0,11,22],
 "simpleTarget_8h.html":[13,0,11,23],
-"simpleTarget_8h_source.html":[13,0,11,23]
+"simpleTarget_8h_source.html":[13,0,11,23],
+"sndAvgDSFiducialCut_8cxx.html":[13,0,0,0,0],
+"sndAvgDSFiducialCut_8cxx_source.html":[13,0,0,0,0]
 };

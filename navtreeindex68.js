@@ -1,7 +1,5 @@
 var NAVTREEINDEX68 =
 {
-"namespacemakeGeoFile.html#acddf8eadc641bba689ebbe4f028b6f45":[11,0,69,12],
-"namespacemakeMuonDIS.html":[11,0,70],
 "namespacemakeMuonDIS.html#a0b59935c502dda77201f6c39411212ca":[11,0,70,23],
 "namespacemakeMuonDIS.html#a0baff85fde4aefea404a4f1933e8dcfb":[11,0,70,38],
 "namespacemakeMuonDIS.html#a0ffbb942174fb3db82b4bbdd7ee684e2":[11,0,70,45],
@@ -249,5 +247,7 @@ var NAVTREEINDEX68 =
 "namespacempbits.html#a092b420ebdc762fc51b649ca475a83f2":[11,0,82,6],
 "namespacempbits.html#a0b95f3e98f9dce0ac997663260947df0":[11,0,82,12],
 "namespacempbits.html#a0ea64a113eb525506043be7c92133c96":[11,0,82,3],
-"namespacempbits.html#a13ad9e08781d0d7591b9f3278a596a30":[11,0,82,5]
+"namespacempbits.html#a13ad9e08781d0d7591b9f3278a596a30":[11,0,82,5],
+"namespacempbits.html#a456806b8abad6591c95cb43cf45991f5":[11,0,82,9],
+"namespacempbits.html#a4b6174ff4f7f83f062c5e161555035db":[11,0,82,2]
 };
