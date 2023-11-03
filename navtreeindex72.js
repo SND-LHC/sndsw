@@ -1,6 +1,5 @@
 var NAVTREEINDEX72 =
 {
-"namespacerunPythia8PP.html#add19b1664210de7c0876bc51c0f44d93":[11,0,135,11],
 "namespacerunPythia8PP.html#adf9f5b68a2d639a37baa2802ad0f3287":[11,0,135,20],
 "namespacerunPythia8PP.html#ae1f2cf1f0cf5830a39eec726f2c80e7c":[11,0,135,30],
 "namespacerunPythia8PP.html#ae50645831107627f328a08eced9a53e2":[11,0,135,12],
@@ -249,5 +248,6 @@ var NAVTREEINDEX72 =
 "namespacerun__fixedTarget.html#a615db0e2839f158160ad6f6961d56f52":[11,0,120,69],
 "namespacerun__fixedTarget.html#a6170ac8e4c59892f1eea779928b8cfac":[11,0,120,64],
 "namespacerun__fixedTarget.html#a6376fe83a15eb0340f4c7576008e11da":[11,0,120,22],
-"namespacerun__fixedTarget.html#a68f8e54ebe34ed88a1aff4505c32be7c":[11,0,120,70]
+"namespacerun__fixedTarget.html#a68f8e54ebe34ed88a1aff4505c32be7c":[11,0,120,70],
+"namespacerun__fixedTarget.html#a6d5cc1c228964b1f271e6a82da5c5339":[11,0,120,68]
 };

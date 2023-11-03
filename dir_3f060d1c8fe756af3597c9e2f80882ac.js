@@ -5,7 +5,7 @@ var dir_3f060d1c8fe756af3597c9e2f80882ac =
       [ "MufluxTargetStation", "classMufluxTargetStation.html", "classMufluxTargetStation" ]
     ] ],
     [ "PassiveLinkDef.h", "PassiveLinkDef_8h.html", null ],
-    [ "ShipCave.cxx", "ShipCave_8cxx.html", "ShipCave_8cxx" ],
+    [ "ShipCave.cxx", "ShipCave_8cxx.html", null ],
     [ "ShipCave.h", "ShipCave_8h.html", [
       [ "ShipCave", "classShipCave.html", "classShipCave" ]
     ] ],

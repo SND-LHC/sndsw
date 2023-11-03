@@ -81,92 +81,30 @@ $(document).ready(function(){initNavTree('ShipCave_8cxx.html',''); initResizable
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">ShipCave.cxx File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="ShipCave_8h_source.html">ShipCave.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="ShipGeoCave_8h_source.html">ShipGeoCave.h</a>&quot;</code><br />
-<code>#include &quot;FairGeoInterface.h&quot;</code><br />
-<code>#include &quot;FairGeoLoader.h&quot;</code><br />
-<code>#include &quot;FairGeoNode.h&quot;</code><br />
-<code>#include &quot;FairGeoPassivePar.h&quot;</code><br />
-<code>#include &quot;FairGeoVolume.h&quot;</code><br />
-<code>#include &quot;FairRun.h&quot;</code><br />
-<code>#include &quot;FairRuntimeDb.h&quot;</code><br />
-<code>#include &quot;TList.h&quot;</code><br />
-<code>#include &quot;TObjArray.h&quot;</code><br />
-<code>#include &quot;TString.h&quot;</code><br />
-<code>#include &lt;stddef.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for ShipCave.cxx:</div>
 <div class="dyncontent">
 <div class="center"><img src="ShipCave_8cxx__incl.png" border="0" usemap="#apassive_2ShipCave_8cxx" alt=""/></div>
 <map name="apassive_2ShipCave_8cxx" id="apassive_2ShipCave_8cxx">
-<area shape="rect" title=" " alt="" coords="987,5,1151,32"/>
+<area shape="rect" title=" " alt="" coords="157,5,321,32"/>
 <area shape="rect" href="ShipCave_8h.html" title=" " alt="" coords="127,80,221,107"/>
-<area shape="rect" href="ShipGeoCave_8h.html" title=" " alt="" coords="337,80,459,107"/>
-<area shape="rect" title=" " alt="" coords="553,155,633,181"/>
-<area shape="rect" title=" " alt="" coords="534,80,675,107"/>
-<area shape="rect" title=" " alt="" coords="700,80,827,107"/>
-<area shape="rect" title=" " alt="" coords="851,80,969,107"/>
-<area shape="rect" title=" " alt="" coords="993,80,1144,107"/>
-<area shape="rect" title=" " alt="" coords="1168,80,1300,107"/>
-<area shape="rect" title=" " alt="" coords="1325,80,1407,107"/>
-<area shape="rect" title=" " alt="" coords="1431,80,1562,107"/>
-<area shape="rect" title=" " alt="" coords="1587,80,1652,107"/>
-<area shape="rect" title=" " alt="" coords="1676,80,1773,107"/>
-<area shape="rect" title=" " alt="" coords="1798,80,1873,107"/>
+<area shape="rect" href="ShipGeoCave_8h.html" title=" " alt="" coords="291,80,412,107"/>
 <area shape="rect" title=" " alt="" coords="5,155,111,181"/>
 <area shape="rect" title=" " alt="" coords="135,155,213,181"/>
 <area shape="rect" title=" " alt="" coords="238,155,342,181"/>
 <area shape="rect" title=" " alt="" coords="366,155,430,181"/>
-<area shape="rect" title=" " alt="" coords="455,155,528,181"/>
+<area shape="rect" title=" " alt="" coords="454,155,534,181"/>
+<area shape="rect" title=" " alt="" coords="559,155,632,181"/>
 </map>
 </div>
 </div>
 <p><a href="ShipCave_8cxx_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:af23229097f7c42761c94f93576301669"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ShipCave_8cxx.html#af23229097f7c42761c94f93576301669">ClassImp</a> (<a class="el" href="classShipCave.html">ShipCave</a>) void <a class="el" href="classShipCave.html">ShipCave</a></td></tr>
-<tr class="separator:af23229097f7c42761c94f93576301669"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="af23229097f7c42761c94f93576301669"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af23229097f7c42761c94f93576301669">&#9670;&nbsp;</a></span>ClassImp()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">ClassImp </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classShipCave.html">ShipCave</a>&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="ShipCave_8cxx_source.html#l00019">19</a> of file <a class="el" href="ShipCave_8cxx_source.html">ShipCave.cxx</a>.</p>
-<div class="fragment"><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  FairGeoLoader* loader=FairGeoLoader::Instance();</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  FairGeoInterface* GeoInterface =loader-&gt;getGeoInterface();</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <a class="code" href="classShipGeoCave.html">ShipGeoCave</a>* MGeo=<span class="keyword">new</span> <a class="code" href="classShipGeoCave.html">ShipGeoCave</a>();</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  MGeo-&gt;setGeomFile(GetGeometryFileName());</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  GeoInterface-&gt;addGeoModule(MGeo);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  Bool_t <a class="code" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#aa8c33fdf1a9b1e2dfdd08b46c6aecddd">rc</a> = GeoInterface-&gt;readSet(MGeo);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="keywordflow">if</span> ( <a class="code" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#aa8c33fdf1a9b1e2dfdd08b46c6aecddd">rc</a> ) { MGeo-&gt;create(loader-&gt;getGeoBuilder()); }</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
-<div class="ttc" id="aclassShipGeoCave_html"><div class="ttname"><a href="classShipGeoCave.html">ShipGeoCave</a></div><div class="ttdef"><b>Definition:</b> <a href="ShipGeoCave_8h_source.html#l00014">ShipGeoCave.h:15</a></div></div>
-<div class="ttc" id="anamespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring_html_aa8c33fdf1a9b1e2dfdd08b46c6aecddd"><div class="ttname"><a href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#aa8c33fdf1a9b1e2dfdd08b46c6aecddd">conditionsDatabase.demo.drifttubeMonitoring.rc</a></div><div class="ttdeci">dictionary rc</div><div class="ttdef"><b>Definition:</b> <a href="drifttubeMonitoring_8py_source.html#l00226">drifttubeMonitoring.py:226</a></div></div>
-</div><!-- fragment -->
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

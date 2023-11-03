@@ -1,6 +1,5 @@
 var NAVTREEINDEX13 =
 {
-"classDAQ__monitoring_1_1Time__evolution.html#af7b59e8d48fd92de1f4db624b13c89f1":[12,0,2,1,3],
 "classDAQ__monitoring_1_1Time__evolution.html#afe06902a2a6e9d590ba1499964f42dd8":[12,0,2,1,6],
 "classDPPythia8Generator.html":[12,0,58],
 "classDPPythia8Generator.html#a01a421c64a1ddc7904529672e65a6f47":[12,0,58,25],
@@ -249,5 +248,6 @@ var NAVTREEINDEX13 =
 "classEmulsionMagnet.html#aabe4295a172de5379f8821383e8ca294":[12,0,90,6],
 "classEmulsionMagnet.html#aabf8435721eba0ea2e44e7d341e74281":[12,0,90,43],
 "classEmulsionMagnet.html#aaea484fa64e8dcbd4c1b28a222446a20":[12,0,90,8],
-"classEmulsionMagnet.html#aafc00862ccc1b15a4fc62a92aba2faab":[12,0,90,3]
+"classEmulsionMagnet.html#aafc00862ccc1b15a4fc62a92aba2faab":[12,0,90,3],
+"classEmulsionMagnet.html#ab9fdee459c54e782161ace817b621193":[12,0,90,12]
 };

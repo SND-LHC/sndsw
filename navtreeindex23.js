@@ -1,6 +1,5 @@
 var NAVTREEINDEX23 =
 {
-"classSndlhcGeo_1_1GeoInterface.html#afab9e7ec9f05ddd1cf8ad33b4a0cca19":[12,0,40,0,1],
 "classSndlhcGeo_1_1GeoInterface.html#afacf40c54f13004cd23c8498fd9b93a7":[12,0,40,0,0],
 "classSndlhcHit.html":[12,0,176],
 "classSndlhcHit.html#a037949791245d523b80c7a359f2069ad":[12,0,176,23],
@@ -249,5 +248,6 @@ var NAVTREEINDEX23 =
 "classTarget.html#a500fb3a0f69439e08c475a2e9a09a282":[12,0,188,33],
 "classTarget.html#a510e7984b32b9bdb7d1489a18225c1e2":[12,0,188,49],
 "classTarget.html#a564da5b6367a3610f650931f69e863f5":[12,0,188,32],
-"classTarget.html#a69e5f45e119650c770c5043a77e1e93d":[12,0,188,94]
+"classTarget.html#a69e5f45e119650c770c5043a77e1e93d":[12,0,188,94],
+"classTarget.html#a6c9fbfcebc20cb86f7d87528c7c318b5":[12,0,188,5]
 };

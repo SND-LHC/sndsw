@@ -1,6 +1,5 @@
 var NAVTREEINDEX67 =
 {
-"namespacehepunit.html#a894234de8bebdb97d948f6f388ef8ef0":[11,0,60,76],
 "namespacehepunit.html#a8a34fdf467e5005b13d6ee3b10d3fa0f":[11,0,60,137],
 "namespacehepunit.html#a8a3c7d915ee8382b942912f58428e358":[11,0,60,127],
 "namespacehepunit.html#a8b7a286d413f2209e2192b2bbdc4ce0a":[11,0,60,71],
@@ -249,5 +248,6 @@ var NAVTREEINDEX67 =
 "namespacemakeGeoFile.html#aab1f997bf0c470cdb242e81d2ef5449c":[11,0,69,7],
 "namespacemakeGeoFile.html#ac76c370c08076311ba01e8b6831c749b":[11,0,69,5],
 "namespacemakeGeoFile.html#acddf8eadc641bba689ebbe4f028b6f45":[11,0,69,11],
-"namespacemakeMuonDIS.html":[11,0,70]
+"namespacemakeMuonDIS.html":[11,0,70],
+"namespacemakeMuonDIS.html#a0b59935c502dda77201f6c39411212ca":[11,0,70,23]
 };

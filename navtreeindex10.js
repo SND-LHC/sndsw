@@ -1,6 +1,5 @@
 var NAVTREEINDEX10 =
 {
-"cfortran_8h.html#ab631c757ff6718d069c015bebb001046":[13,0,9,1,300],
 "cfortran_8h.html#ab68ae3f60b6764e9c5d38aa5edd37f49":[13,0,9,1,61],
 "cfortran_8h.html#ab6c6b5be19ab0cb3705b9ae9909e51b9":[13,0,9,1,748],
 "cfortran_8h.html#ab6c97da2af0986a6c399f5932ce4bb8e":[13,0,9,1,18],
@@ -249,5 +248,6 @@ var NAVTREEINDEX10 =
 "cfortran_8h.html#affb8abae08ac351663376a1d37b51c2a":[13,0,9,1,524],
 "cfortran_8h.html#affc790bec4513d4054a41a82a80efe5c":[13,0,9,1,284],
 "cfortran_8h_source.html":[13,0,9,1],
-"changes_page.html":[0,0]
+"changes_page.html":[0,0],
+"changes_page.html#ch-compression":[0,0,4]
 };
