@@ -256,18 +256,18 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00828">828</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00828"></a><span class="lineno">  828</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#a29ad4658d2f54a231993294c02901314">debugStraw</a>(n):</div>
-<div class="line"><a name="l00829"></a><span class="lineno">  829</span>&#160; sGeo = ROOT.gGeoManager  </div>
-<div class="line"><a name="l00830"></a><span class="lineno">  830</span>&#160; vols = sGeo.GetListOfVolumes()</div>
-<div class="line"><a name="l00831"></a><span class="lineno">  831</span>&#160; sTree = g.FindObjectAny(<span class="stringliteral">&#39;cbmsim&#39;</span>)</div>
-<div class="line"><a name="l00832"></a><span class="lineno">  832</span>&#160; sTree.GetEntry(n)</div>
-<div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160; <span class="keywordflow">for</span> s <span class="keywordflow">in</span> sTree.strawtubesPoint:</div>
-<div class="line"><a name="l00834"></a><span class="lineno">  834</span>&#160;  print(vols[s.GetDetectorID()-1].GetName())</div>
-<div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160; </div>
-<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160; </div>
-<div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160;<span class="comment">#----Load the default libraries------</span></div>
-<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_a29ad4658d2f54a231993294c02901314"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#a29ad4658d2f54a231993294c02901314">eventDisplay_shipLHC.debugStraw</a></div><div class="ttdeci">def debugStraw(n)</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00828">eventDisplay_shipLHC.py:828</a></div></div>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00831">831</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00831"></a><span class="lineno">  831</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#a29ad4658d2f54a231993294c02901314">debugStraw</a>(n):</div>
+<div class="line"><a name="l00832"></a><span class="lineno">  832</span>&#160; sGeo = ROOT.gGeoManager  </div>
+<div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160; vols = sGeo.GetListOfVolumes()</div>
+<div class="line"><a name="l00834"></a><span class="lineno">  834</span>&#160; sTree = g.FindObjectAny(<span class="stringliteral">&#39;cbmsim&#39;</span>)</div>
+<div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160; sTree.GetEntry(n)</div>
+<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160; <span class="keywordflow">for</span> s <span class="keywordflow">in</span> sTree.strawtubesPoint:</div>
+<div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160;  print(vols[s.GetDetectorID()-1].GetName())</div>
+<div class="line"><a name="l00838"></a><span class="lineno">  838</span>&#160; </div>
+<div class="line"><a name="l00839"></a><span class="lineno">  839</span>&#160; </div>
+<div class="line"><a name="l00840"></a><span class="lineno">  840</span>&#160;<span class="comment">#----Load the default libraries------</span></div>
+<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_a29ad4658d2f54a231993294c02901314"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#a29ad4658d2f54a231993294c02901314">eventDisplay_shipLHC.debugStraw</a></div><div class="ttdeci">def debugStraw(n)</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00831">eventDisplay_shipLHC.py:831</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -286,17 +286,17 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00609">609</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#a40b159a88bd1f5cf704f0bfaea9991e5">DisplayNuDetector</a>():</div>
-<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160; <span class="keywordflow">for</span> x <span class="keywordflow">in</span> [<span class="stringliteral">&quot;Wall&quot;</span>]:</div>
-<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;  xvol = sGeo.GetVolume(x)</div>
-<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;  <span class="keywordflow">if</span> <span class="keywordflow">not</span> xvol: <span class="keywordflow">continue</span></div>
-<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;  xvol.SetVisDaughters(0)</div>
-<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;  xvol.SetVisibility(1)</div>
-<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160; sc    = gEve.GetScenes()</div>
-<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160; geoscene = sc.FindChild(<span class="stringliteral">&#39;Geometry scene&#39;</span>)</div>
-<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160; gEve.ElementChanged(geoscene,<span class="keyword">True</span>,<span class="keyword">True</span>)</div>
-<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_a40b159a88bd1f5cf704f0bfaea9991e5"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#a40b159a88bd1f5cf704f0bfaea9991e5">eventDisplay_shipLHC.DisplayNuDetector</a></div><div class="ttdeci">def DisplayNuDetector()</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00609">eventDisplay_shipLHC.py:609</a></div></div>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00612">612</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#a40b159a88bd1f5cf704f0bfaea9991e5">DisplayNuDetector</a>():</div>
+<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160; <span class="keywordflow">for</span> x <span class="keywordflow">in</span> [<span class="stringliteral">&quot;Wall&quot;</span>]:</div>
+<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;  xvol = sGeo.GetVolume(x)</div>
+<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;  <span class="keywordflow">if</span> <span class="keywordflow">not</span> xvol: <span class="keywordflow">continue</span></div>
+<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;  xvol.SetVisDaughters(0)</div>
+<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;  xvol.SetVisibility(1)</div>
+<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160; sc    = gEve.GetScenes()</div>
+<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160; geoscene = sc.FindChild(<span class="stringliteral">&#39;Geometry scene&#39;</span>)</div>
+<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160; gEve.ElementChanged(geoscene,<span class="keyword">True</span>,<span class="keyword">True</span>)</div>
+<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_a40b159a88bd1f5cf704f0bfaea9991e5"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#a40b159a88bd1f5cf704f0bfaea9991e5">eventDisplay_shipLHC.DisplayNuDetector</a></div><div class="ttdeci">def DisplayNuDetector()</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00612">eventDisplay_shipLHC.py:612</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -315,19 +315,19 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00940">940</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00940"></a><span class="lineno">  940</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#ae4827dc9d008172001f06ec86558e9fe">DrawCharmTracks</a>():</div>
-<div class="line"><a name="l00941"></a><span class="lineno">  941</span>&#160;  i = -1</div>
-<div class="line"><a name="l00942"></a><span class="lineno">  942</span>&#160;  <span class="keywordflow">for</span> aTrack <span class="keywordflow">in</span> sTree.MCTrack:</div>
-<div class="line"><a name="l00943"></a><span class="lineno">  943</span>&#160;    i+=1</div>
-<div class="line"><a name="l00944"></a><span class="lineno">  944</span>&#160;    <span class="keywordflow">if</span> i&lt;2: <span class="keywordflow">continue</span></div>
-<div class="line"><a name="l00945"></a><span class="lineno">  945</span>&#160;    <span class="keywordflow">if</span> aTrack.GetMotherId()==1:</div>
-<div class="line"><a name="l00946"></a><span class="lineno">  946</span>&#160;      pa = pdg.GetParticle(sTree.MCTrack[i] .GetPdgCode())</div>
-<div class="line"><a name="l00947"></a><span class="lineno">  947</span>&#160;      <span class="keywordflow">if</span> pa.Lifetime()&gt;1.E-12: </div>
-<div class="line"><a name="l00948"></a><span class="lineno">  948</span>&#160;       print(sTree.MCTrack[i])</div>
-<div class="line"><a name="l00949"></a><span class="lineno">  949</span>&#160;       SHiPDisplay.tracks.DrawMCTrack(i)</div>
-<div class="line"><a name="l00950"></a><span class="lineno">  950</span>&#160; </div>
-<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_ae4827dc9d008172001f06ec86558e9fe"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#ae4827dc9d008172001f06ec86558e9fe">eventDisplay_shipLHC.DrawCharmTracks</a></div><div class="ttdeci">def DrawCharmTracks()</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00940">eventDisplay_shipLHC.py:940</a></div></div>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00943">943</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00943"></a><span class="lineno">  943</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#ae4827dc9d008172001f06ec86558e9fe">DrawCharmTracks</a>():</div>
+<div class="line"><a name="l00944"></a><span class="lineno">  944</span>&#160;  i = -1</div>
+<div class="line"><a name="l00945"></a><span class="lineno">  945</span>&#160;  <span class="keywordflow">for</span> aTrack <span class="keywordflow">in</span> sTree.MCTrack:</div>
+<div class="line"><a name="l00946"></a><span class="lineno">  946</span>&#160;    i+=1</div>
+<div class="line"><a name="l00947"></a><span class="lineno">  947</span>&#160;    <span class="keywordflow">if</span> i&lt;2: <span class="keywordflow">continue</span></div>
+<div class="line"><a name="l00948"></a><span class="lineno">  948</span>&#160;    <span class="keywordflow">if</span> aTrack.GetMotherId()==1:</div>
+<div class="line"><a name="l00949"></a><span class="lineno">  949</span>&#160;      pa = pdg.GetParticle(sTree.MCTrack[i] .GetPdgCode())</div>
+<div class="line"><a name="l00950"></a><span class="lineno">  950</span>&#160;      <span class="keywordflow">if</span> pa.Lifetime()&gt;1.E-12: </div>
+<div class="line"><a name="l00951"></a><span class="lineno">  951</span>&#160;       print(sTree.MCTrack[i])</div>
+<div class="line"><a name="l00952"></a><span class="lineno">  952</span>&#160;       SHiPDisplay.tracks.DrawMCTrack(i)</div>
+<div class="line"><a name="l00953"></a><span class="lineno">  953</span>&#160; </div>
+<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_ae4827dc9d008172001f06ec86558e9fe"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#ae4827dc9d008172001f06ec86558e9fe">eventDisplay_shipLHC.DrawCharmTracks</a></div><div class="ttdeci">def DrawCharmTracks()</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00943">eventDisplay_shipLHC.py:943</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -346,16 +346,16 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00951">951</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00951"></a><span class="lineno">  951</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#af4c5d7dbca35b50cfe909e5b5d9ef922">DrawMuonTrack</a>():</div>
-<div class="line"><a name="l00952"></a><span class="lineno">  952</span>&#160;  i = -1</div>
-<div class="line"><a name="l00953"></a><span class="lineno">  953</span>&#160;  <span class="keywordflow">for</span> aTrack <span class="keywordflow">in</span> sTree.MCTrack:</div>
-<div class="line"><a name="l00954"></a><span class="lineno">  954</span>&#160;    i+=1</div>
-<div class="line"><a name="l00955"></a><span class="lineno">  955</span>&#160;    <span class="keywordflow">if</span> abs(aTrack.GetPdgCode())==13:</div>
-<div class="line"><a name="l00956"></a><span class="lineno">  956</span>&#160;      print(sTree.MCTrack[i])</div>
-<div class="line"><a name="l00957"></a><span class="lineno">  957</span>&#160;      SHiPDisplay.tracks.DrawMCTrack(i)</div>
-<div class="line"><a name="l00958"></a><span class="lineno">  958</span>&#160; </div>
-<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_af4c5d7dbca35b50cfe909e5b5d9ef922"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#af4c5d7dbca35b50cfe909e5b5d9ef922">eventDisplay_shipLHC.DrawMuonTrack</a></div><div class="ttdeci">def DrawMuonTrack()</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00951">eventDisplay_shipLHC.py:951</a></div></div>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00954">954</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00954"></a><span class="lineno">  954</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#af4c5d7dbca35b50cfe909e5b5d9ef922">DrawMuonTrack</a>():</div>
+<div class="line"><a name="l00955"></a><span class="lineno">  955</span>&#160;  i = -1</div>
+<div class="line"><a name="l00956"></a><span class="lineno">  956</span>&#160;  <span class="keywordflow">for</span> aTrack <span class="keywordflow">in</span> sTree.MCTrack:</div>
+<div class="line"><a name="l00957"></a><span class="lineno">  957</span>&#160;    i+=1</div>
+<div class="line"><a name="l00958"></a><span class="lineno">  958</span>&#160;    <span class="keywordflow">if</span> abs(aTrack.GetPdgCode())==13:</div>
+<div class="line"><a name="l00959"></a><span class="lineno">  959</span>&#160;      print(sTree.MCTrack[i])</div>
+<div class="line"><a name="l00960"></a><span class="lineno">  960</span>&#160;      SHiPDisplay.tracks.DrawMCTrack(i)</div>
+<div class="line"><a name="l00961"></a><span class="lineno">  961</span>&#160; </div>
+<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_af4c5d7dbca35b50cfe909e5b5d9ef922"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#af4c5d7dbca35b50cfe909e5b5d9ef922">eventDisplay_shipLHC.DrawMuonTrack</a></div><div class="ttdeci">def DrawMuonTrack()</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00954">eventDisplay_shipLHC.py:954</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -375,16 +375,16 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00059">59</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#a72d97f46b6a055aa142f0dab3aca875e">dump</a>(pcut=0):</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; print(<span class="stringliteral">&#39;   #         pid   px    py      pz     vx      vy       vz      mid&#39;</span>)</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; n=-1</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; <span class="keywordflow">for</span> mcp <span class="keywordflow">in</span> sTree.MCTrack: </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;   n+=1</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;   <span class="keywordflow">if</span> mcp.GetP()/u.GeV &lt; pcut :  <span class="keywordflow">continue</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;   <a class="code" href="namespaceeventDisplay__shipLHC.html#a7dd92fa16b1ad40be1e59414275134eb">printMCTrack</a>(n,sTree.MCTrack)</div>
-<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_a72d97f46b6a055aa142f0dab3aca875e"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#a72d97f46b6a055aa142f0dab3aca875e">eventDisplay_shipLHC.dump</a></div><div class="ttdeci">def dump(pcut=0)</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00059">eventDisplay_shipLHC.py:59</a></div></div>
-<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_a7dd92fa16b1ad40be1e59414275134eb"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#a7dd92fa16b1ad40be1e59414275134eb">eventDisplay_shipLHC.printMCTrack</a></div><div class="ttdeci">def printMCTrack(n, MCTrack)</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00055">eventDisplay_shipLHC.py:55</a></div></div>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00062">62</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#a72d97f46b6a055aa142f0dab3aca875e">dump</a>(pcut=0):</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; print(<span class="stringliteral">&#39;   #         pid   px    py      pz     vx      vy       vz      mid&#39;</span>)</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; n=-1</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; <span class="keywordflow">for</span> mcp <span class="keywordflow">in</span> sTree.MCTrack: </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;   n+=1</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;   <span class="keywordflow">if</span> mcp.GetP()/u.GeV &lt; pcut :  <span class="keywordflow">continue</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;   <a class="code" href="namespaceeventDisplay__shipLHC.html#a7dd92fa16b1ad40be1e59414275134eb">printMCTrack</a>(n,sTree.MCTrack)</div>
+<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_a72d97f46b6a055aa142f0dab3aca875e"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#a72d97f46b6a055aa142f0dab3aca875e">eventDisplay_shipLHC.dump</a></div><div class="ttdeci">def dump(pcut=0)</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00062">eventDisplay_shipLHC.py:62</a></div></div>
+<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_a7dd92fa16b1ad40be1e59414275134eb"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#a7dd92fa16b1ad40be1e59414275134eb">eventDisplay_shipLHC.printMCTrack</a></div><div class="ttdeci">def printMCTrack(n, MCTrack)</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00058">eventDisplay_shipLHC.py:58</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -402,14 +402,18 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00016">16</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#a6e7ada74dc1b822d97a2f8046c1ddeda">evExit</a>():</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; <span class="keywordflow">if</span> ROOT.gROOT.FindObject(<span class="stringliteral">&#39;Root Canvas EnergyLoss&#39;</span>):</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  print(<span class="stringliteral">&quot;make suicide before framework makes seg fault&quot;</span>) </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  os.kill(os.getpid(),9)</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"># apperantly problem disappeared in more recent root versions</span></div>
-<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_a6e7ada74dc1b822d97a2f8046c1ddeda"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#a6e7ada74dc1b822d97a2f8046c1ddeda">eventDisplay_shipLHC.evExit</a></div><div class="ttdeci">def evExit()</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00016">eventDisplay_shipLHC.py:16</a></div></div>
+<pre class="fragment">Prevent double delete due to a FairRoot bug.</pre> 
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00017">17</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#a6e7ada74dc1b822d97a2f8046c1ddeda">evExit</a>():</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="stringliteral">&quot;&quot;&quot;Prevent double delete due to a FairRoot bug.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="comment"># Check whether the Eve window was closed/destructed</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordflow">if</span> ROOT.addressof(ROOT.gEve) == 0:</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="comment"># Prevent the FairEventManager destructor from being called</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        ROOT.SetOwnership(fMan, <span class="keyword">False</span>)</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;atexit.register(evExit)</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_a6e7ada74dc1b822d97a2f8046c1ddeda"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#a6e7ada74dc1b822d97a2f8046c1ddeda">eventDisplay_shipLHC.evExit</a></div><div class="ttdeci">def evExit()</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00017">eventDisplay_shipLHC.py:17</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -428,42 +432,42 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00794">794</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#a71fcf5b4db7718b6c1580aab81b6c9e8">mydebug</a>():               </div>
-<div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160; t = g.FindObjectAny(<span class="stringliteral">&#39;cbmsim&#39;</span>)</div>
-<div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160; nev = t.GetEntriesFast()</div>
-<div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160; t.GetEntry(0)</div>
-<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;<span class="comment"># Loop over Geo tracks  </span></div>
-<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160; <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range( min(5,nev) ) :</div>
-<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;   t.GetEntry(i)</div>
-<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;   <span class="keywordflow">for</span> gTr <span class="keywordflow">in</span> t.GeoTracks: </div>
-<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;    gTr.Print()</div>
-<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;    part = gTr.GetParticle()</div>
-<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;    lorv = ROOT.TLorentzVector()</div>
-<div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;    print(<span class="stringliteral">&#39;xyz E pxpypz&#39;</span>,gTr.GetPoint(0)[0],gTr.GetPoint(0)[1] ,gTr.GetPoint(0)[2],lorv.E(),lorv.Px(),lorv.Py(),lorv.Pz())</div>
-<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;<span class="comment"># Loop over MC tracks  </span></div>
-<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160; <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range( min(5,nev) ) :</div>
-<div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160;   t.GetEntry(i)</div>
-<div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160;   <span class="keywordflow">for</span> gMCTr <span class="keywordflow">in</span> t.MCTrack: </div>
-<div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160;    gMCTr.Print()</div>
-<div class="line"><a name="l00811"></a><span class="lineno">  811</span>&#160;    print(gMCTr.GetPdgCode(),gMCTr.GetMass(),gMCTr.GetP())</div>
-<div class="line"><a name="l00812"></a><span class="lineno">  812</span>&#160;<span class="comment"># MC event header  </span></div>
-<div class="line"><a name="l00813"></a><span class="lineno">  813</span>&#160; <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range( nev ) :</div>
-<div class="line"><a name="l00814"></a><span class="lineno">  814</span>&#160;   t.GetEntry(i)</div>
-<div class="line"><a name="l00815"></a><span class="lineno">  815</span>&#160;   print(t.MCEventHeader.GetEventID(),t.MCEventHeader.GetRunID(),t.MCEventHeader.GetZ())</div>
-<div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160;<span class="comment"># geometrie</span></div>
-<div class="line"><a name="l00817"></a><span class="lineno">  817</span>&#160; sGeo = ROOT.gGeoManager</div>
-<div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160; cave = sGeo.GetTopVolume()</div>
-<div class="line"><a name="l00819"></a><span class="lineno">  819</span>&#160; cave.Draw(<span class="stringliteral">&#39;ogl&#39;</span>)</div>
-<div class="line"><a name="l00820"></a><span class="lineno">  820</span>&#160;<span class="comment"># eve</span></div>
-<div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160; gEve = ROOT.gEve</div>
-<div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160;<span class="comment">#</span></div>
-<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160; sc    = gEve.GetScenes()</div>
-<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160; geoscene = sc.FindChild(<span class="stringliteral">&#39;Geometry scene&#39;</span>)</div>
-<div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160; topnode  = geoscene.FindChild(<span class="stringliteral">&#39;cave_1&#39;</span>)</div>
-<div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160; topnode.SetVisLevel(4)</div>
-<div class="line"><a name="l00827"></a><span class="lineno">  827</span>&#160; gEve.ElementChanged(geoscene,<span class="keyword">True</span>,<span class="keyword">True</span>)</div>
-<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_a71fcf5b4db7718b6c1580aab81b6c9e8"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#a71fcf5b4db7718b6c1580aab81b6c9e8">eventDisplay_shipLHC.mydebug</a></div><div class="ttdeci">def mydebug()</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00794">eventDisplay_shipLHC.py:794</a></div></div>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00797">797</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#a71fcf5b4db7718b6c1580aab81b6c9e8">mydebug</a>():               </div>
+<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160; t = g.FindObjectAny(<span class="stringliteral">&#39;cbmsim&#39;</span>)</div>
+<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160; nev = t.GetEntriesFast()</div>
+<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160; t.GetEntry(0)</div>
+<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;<span class="comment"># Loop over Geo tracks  </span></div>
+<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160; <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range( min(5,nev) ) :</div>
+<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;   t.GetEntry(i)</div>
+<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;   <span class="keywordflow">for</span> gTr <span class="keywordflow">in</span> t.GeoTracks: </div>
+<div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;    gTr.Print()</div>
+<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;    part = gTr.GetParticle()</div>
+<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;    lorv = ROOT.TLorentzVector()</div>
+<div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160;    print(<span class="stringliteral">&#39;xyz E pxpypz&#39;</span>,gTr.GetPoint(0)[0],gTr.GetPoint(0)[1] ,gTr.GetPoint(0)[2],lorv.E(),lorv.Px(),lorv.Py(),lorv.Pz())</div>
+<div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160;<span class="comment"># Loop over MC tracks  </span></div>
+<div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160; <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range( min(5,nev) ) :</div>
+<div class="line"><a name="l00811"></a><span class="lineno">  811</span>&#160;   t.GetEntry(i)</div>
+<div class="line"><a name="l00812"></a><span class="lineno">  812</span>&#160;   <span class="keywordflow">for</span> gMCTr <span class="keywordflow">in</span> t.MCTrack: </div>
+<div class="line"><a name="l00813"></a><span class="lineno">  813</span>&#160;    gMCTr.Print()</div>
+<div class="line"><a name="l00814"></a><span class="lineno">  814</span>&#160;    print(gMCTr.GetPdgCode(),gMCTr.GetMass(),gMCTr.GetP())</div>
+<div class="line"><a name="l00815"></a><span class="lineno">  815</span>&#160;<span class="comment"># MC event header  </span></div>
+<div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160; <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range( nev ) :</div>
+<div class="line"><a name="l00817"></a><span class="lineno">  817</span>&#160;   t.GetEntry(i)</div>
+<div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160;   print(t.MCEventHeader.GetEventID(),t.MCEventHeader.GetRunID(),t.MCEventHeader.GetZ())</div>
+<div class="line"><a name="l00819"></a><span class="lineno">  819</span>&#160;<span class="comment"># geometrie</span></div>
+<div class="line"><a name="l00820"></a><span class="lineno">  820</span>&#160; sGeo = ROOT.gGeoManager</div>
+<div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160; cave = sGeo.GetTopVolume()</div>
+<div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160; cave.Draw(<span class="stringliteral">&#39;ogl&#39;</span>)</div>
+<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;<span class="comment"># eve</span></div>
+<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160; gEve = ROOT.gEve</div>
+<div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160;<span class="comment">#</span></div>
+<div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160; sc    = gEve.GetScenes()</div>
+<div class="line"><a name="l00827"></a><span class="lineno">  827</span>&#160; geoscene = sc.FindChild(<span class="stringliteral">&#39;Geometry scene&#39;</span>)</div>
+<div class="line"><a name="l00828"></a><span class="lineno">  828</span>&#160; topnode  = geoscene.FindChild(<span class="stringliteral">&#39;cave_1&#39;</span>)</div>
+<div class="line"><a name="l00829"></a><span class="lineno">  829</span>&#160; topnode.SetVisLevel(4)</div>
+<div class="line"><a name="l00830"></a><span class="lineno">  830</span>&#160; gEve.ElementChanged(geoscene,<span class="keyword">True</span>,<span class="keyword">True</span>)</div>
+<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_a71fcf5b4db7718b6c1580aab81b6c9e8"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#a71fcf5b4db7718b6c1580aab81b6c9e8">eventDisplay_shipLHC.mydebug</a></div><div class="ttdeci">def mydebug()</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00797">eventDisplay_shipLHC.py:797</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -541,17 +545,17 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00959">959</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00959"></a><span class="lineno">  959</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#ab2337dc2e68aa255bfceb604a0923ab9">positionText</a>(r,x,y,z,angle,txt,size=200,color=ROOT.kBlue,mode=ROOT.TGLFont.kExtrude,light=ROOT.kTRUE):</div>
-<div class="line"><a name="l00960"></a><span class="lineno">  960</span>&#160; tt = ROOT.TEveText(txt)</div>
-<div class="line"><a name="l00961"></a><span class="lineno">  961</span>&#160; tt.SetFontSize(size)</div>
-<div class="line"><a name="l00962"></a><span class="lineno">  962</span>&#160; tt.RefMainTrans().SetPos(x,y,z)</div>
-<div class="line"><a name="l00963"></a><span class="lineno">  963</span>&#160; tt.PtrMainTrans().RotateLF(1, 3, angle)</div>
-<div class="line"><a name="l00964"></a><span class="lineno">  964</span>&#160; tt.SetMainColor(color)</div>
-<div class="line"><a name="l00965"></a><span class="lineno">  965</span>&#160; tt.SetFontMode(mode)</div>
-<div class="line"><a name="l00966"></a><span class="lineno">  966</span>&#160; tt.SetLighting(light)</div>
-<div class="line"><a name="l00967"></a><span class="lineno">  967</span>&#160; r.AddElement(tt)</div>
-<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_ab2337dc2e68aa255bfceb604a0923ab9"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#ab2337dc2e68aa255bfceb604a0923ab9">eventDisplay_shipLHC.positionText</a></div><div class="ttdeci">def positionText(r, x, y, z, angle, txt, size=200, color=ROOT.kBlue, mode=ROOT.TGLFont.kExtrude, light=ROOT.kTRUE)</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00959">eventDisplay_shipLHC.py:959</a></div></div>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00962">962</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00962"></a><span class="lineno">  962</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#ab2337dc2e68aa255bfceb604a0923ab9">positionText</a>(r,x,y,z,angle,txt,size=200,color=ROOT.kBlue,mode=ROOT.TGLFont.kExtrude,light=ROOT.kTRUE):</div>
+<div class="line"><a name="l00963"></a><span class="lineno">  963</span>&#160; tt = ROOT.TEveText(txt)</div>
+<div class="line"><a name="l00964"></a><span class="lineno">  964</span>&#160; tt.SetFontSize(size)</div>
+<div class="line"><a name="l00965"></a><span class="lineno">  965</span>&#160; tt.RefMainTrans().SetPos(x,y,z)</div>
+<div class="line"><a name="l00966"></a><span class="lineno">  966</span>&#160; tt.PtrMainTrans().RotateLF(1, 3, angle)</div>
+<div class="line"><a name="l00967"></a><span class="lineno">  967</span>&#160; tt.SetMainColor(color)</div>
+<div class="line"><a name="l00968"></a><span class="lineno">  968</span>&#160; tt.SetFontMode(mode)</div>
+<div class="line"><a name="l00969"></a><span class="lineno">  969</span>&#160; tt.SetLighting(light)</div>
+<div class="line"><a name="l00970"></a><span class="lineno">  970</span>&#160; r.AddElement(tt)</div>
+<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_ab2337dc2e68aa255bfceb604a0923ab9"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#ab2337dc2e68aa255bfceb604a0923ab9">eventDisplay_shipLHC.positionText</a></div><div class="ttdeci">def positionText(r, x, y, z, angle, txt, size=200, color=ROOT.kBlue, mode=ROOT.TGLFont.kExtrude, light=ROOT.kTRUE)</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00962">eventDisplay_shipLHC.py:962</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -570,19 +574,19 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00066">66</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#aaad91e595bef3d1122daec10be755f35">printFittedTracks</a>():</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  print(<span class="stringliteral">&#39;  # converged Ndf chi2/Ndf    P      Pt      MCid&#39;</span>)</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  n=-1</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="keywordflow">for</span> ft <span class="keywordflow">in</span> sTree.FitTracks:</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;   n+=1</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;   fitStatus = ft.getFitStatus()</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;   fitState  = ft.getFittedState()</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;   mom = fitState.getMom()</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;   print(<span class="stringliteral">&#39;%3i %6i   %4i %6.3F   %6.3F %6.3F %6i &#39;</span>%(n,fitStatus.isFitConverged(),\</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            fitStatus.getNdf(),fitStatus.getChi2()/fitStatus.getNdf(),\</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            mom.Mag()/u.GeV,mom.Pt()/u.GeV,sTree.fitTrack2MC[n] ))</div>
-<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_aaad91e595bef3d1122daec10be755f35"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#aaad91e595bef3d1122daec10be755f35">eventDisplay_shipLHC.printFittedTracks</a></div><div class="ttdeci">def printFittedTracks()</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00066">eventDisplay_shipLHC.py:66</a></div></div>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00069">69</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#aaad91e595bef3d1122daec10be755f35">printFittedTracks</a>():</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  print(<span class="stringliteral">&#39;  # converged Ndf chi2/Ndf    P      Pt      MCid&#39;</span>)</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  n=-1</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="keywordflow">for</span> ft <span class="keywordflow">in</span> sTree.FitTracks:</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;   n+=1</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;   fitStatus = ft.getFitStatus()</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;   fitState  = ft.getFittedState()</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;   mom = fitState.getMom()</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;   print(<span class="stringliteral">&#39;%3i %6i   %4i %6.3F   %6.3F %6.3F %6i &#39;</span>%(n,fitStatus.isFitConverged(),\</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            fitStatus.getNdf(),fitStatus.getChi2()/fitStatus.getNdf(),\</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            mom.Mag()/u.GeV,mom.Pt()/u.GeV,sTree.fitTrack2MC[n] ))</div>
+<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_aaad91e595bef3d1122daec10be755f35"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#aaad91e595bef3d1122daec10be755f35">eventDisplay_shipLHC.printFittedTracks</a></div><div class="ttdeci">def printFittedTracks()</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00069">eventDisplay_shipLHC.py:69</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -612,11 +616,11 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00055">55</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#a7dd92fa16b1ad40be1e59414275134eb">printMCTrack</a>(n,MCTrack):</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;   mcp = MCTrack[n]</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;   print(<span class="stringliteral">&#39; %6i %7i %6.3F %6.3F %7.3F %7.3F %7.3F %7.3F %6i &#39;</span>%(n,mcp.GetPdgCode(),mcp.GetPx()/u.GeV,mcp.GetPy()/u.GeV,mcp.GetPz()/u.GeV, \</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                      mcp.GetStartX()/u.m,mcp.GetStartY()/u.m,mcp.GetStartZ()/u.m,mcp.GetMotherId()   ))</div>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00058">58</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#a7dd92fa16b1ad40be1e59414275134eb">printMCTrack</a>(n,MCTrack):</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;   mcp = MCTrack[n]</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;   print(<span class="stringliteral">&#39; %6i %7i %6.3F %6.3F %7.3F %7.3F %7.3F %7.3F %6i &#39;</span>%(n,mcp.GetPdgCode(),mcp.GetPx()/u.GeV,mcp.GetPy()/u.GeV,mcp.GetPz()/u.GeV, \</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                      mcp.GetStartX()/u.m,mcp.GetStartY()/u.m,mcp.GetStartZ()/u.m,mcp.GetMotherId()   ))</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -635,20 +639,20 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00077">77</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#aa571671049c5ca1bd2cd5294609435ed">printParticles</a>():</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  print(<span class="stringliteral">&#39;  #    P    Pt[GeV/c]   DOCA[mm]    Rsq    Vz[m]    d1    d2&#39;</span>)</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  n=-1</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  <span class="keywordflow">for</span> aP <span class="keywordflow">in</span> sTree.Particles:</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;   n+=1</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;   doca = -1.</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;   <span class="keywordflow">if</span> aP.GetMother(1)==99: <span class="comment"># DOCA is set</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;      doca = aP.T()</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;   Rsq = (aP.Vx()/(2.45*u.m) )**2 + (aP.Vy()/((10./2.-0.05)*u.m) )**2</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;   print(<span class="stringliteral">&#39;%3i %6.3F  %6.3F  %9.3F    %6.3F   %6.3F %4i  %4i &#39;</span>%(n,aP.P()/u.GeV,aP.Pt()/u.GeV,\</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            doca/u.mm,Rsq,aP.Vz()/u.m,aP.GetDaughter(0),aP.GetDaughter(1) ))</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_aa571671049c5ca1bd2cd5294609435ed"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#aa571671049c5ca1bd2cd5294609435ed">eventDisplay_shipLHC.printParticles</a></div><div class="ttdeci">def printParticles()</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00077">eventDisplay_shipLHC.py:77</a></div></div>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00080">80</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#aa571671049c5ca1bd2cd5294609435ed">printParticles</a>():</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  print(<span class="stringliteral">&#39;  #    P    Pt[GeV/c]   DOCA[mm]    Rsq    Vz[m]    d1    d2&#39;</span>)</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  n=-1</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  <span class="keywordflow">for</span> aP <span class="keywordflow">in</span> sTree.Particles:</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;   n+=1</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;   doca = -1.</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;   <span class="keywordflow">if</span> aP.GetMother(1)==99: <span class="comment"># DOCA is set</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;      doca = aP.T()</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;   Rsq = (aP.Vx()/(2.45*u.m) )**2 + (aP.Vy()/((10./2.-0.05)*u.m) )**2</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;   print(<span class="stringliteral">&#39;%3i %6.3F  %6.3F  %9.3F    %6.3F   %6.3F %4i  %4i &#39;</span>%(n,aP.P()/u.GeV,aP.Pt()/u.GeV,\</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            doca/u.mm,Rsq,aP.Vz()/u.m,aP.GetDaughter(0),aP.GetDaughter(1) ))</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_aa571671049c5ca1bd2cd5294609435ed"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#aa571671049c5ca1bd2cd5294609435ed">eventDisplay_shipLHC.printParticles</a></div><div class="ttdeci">def printParticles()</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00080">eventDisplay_shipLHC.py:80</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -667,26 +671,26 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00532">532</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#a67844f0eb9f32dcecccc55343bc59fe6">projection</a>():</div>
-<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;<span class="comment">#if 1&gt;0:</span></div>
-<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;   <span class="comment"># camera</span></div>
-<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;   s = ROOT.gEve.SpawnNewScene(<span class="stringliteral">&quot;Projected Event&quot;</span>)</div>
-<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;   ROOT.gEve.GetDefaultViewer().AddScene(s)</div>
-<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;   v = ROOT.gEve.GetDefaultGLViewer()</div>
-<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;   v.SetCurrentCamera(ROOT.TGLViewer.kCameraOrthoXOY)</div>
-<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;   cam = v.CurrentCamera()</div>
-<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;   cam.SetZoomMinMax(0.2, 20)</div>
-<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;   <span class="comment"># projections</span></div>
-<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;   mng = ROOT.TEveProjectionManager(ROOT.TEveProjection.kPT_RPhi)</div>
-<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;   s.AddElement(mng)</div>
-<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;   axes = ROOT.TEveProjectionAxes(mng)</div>
-<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;   axes.SetTitle(<span class="stringliteral">&quot;TEveProjections demo&quot;</span>)</div>
-<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;   s.AddElement(axes)</div>
-<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;   ROOT.gEve.AddToListTree(axes, ROOT.kTRUE)</div>
-<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;   ROOT.gEve.AddToListTree(mng, ROOT.kTRUE)</div>
-<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160; </div>
-<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_a67844f0eb9f32dcecccc55343bc59fe6"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#a67844f0eb9f32dcecccc55343bc59fe6">eventDisplay_shipLHC.projection</a></div><div class="ttdeci">def projection()</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00532">eventDisplay_shipLHC.py:532</a></div></div>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00535">535</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#a67844f0eb9f32dcecccc55343bc59fe6">projection</a>():</div>
+<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;<span class="comment">#if 1&gt;0:</span></div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;   <span class="comment"># camera</span></div>
+<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;   s = ROOT.gEve.SpawnNewScene(<span class="stringliteral">&quot;Projected Event&quot;</span>)</div>
+<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;   ROOT.gEve.GetDefaultViewer().AddScene(s)</div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;   v = ROOT.gEve.GetDefaultGLViewer()</div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;   v.SetCurrentCamera(ROOT.TGLViewer.kCameraOrthoXOY)</div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;   cam = v.CurrentCamera()</div>
+<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;   cam.SetZoomMinMax(0.2, 20)</div>
+<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;   <span class="comment"># projections</span></div>
+<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;   mng = ROOT.TEveProjectionManager(ROOT.TEveProjection.kPT_RPhi)</div>
+<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;   s.AddElement(mng)</div>
+<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;   axes = ROOT.TEveProjectionAxes(mng)</div>
+<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;   axes.SetTitle(<span class="stringliteral">&quot;TEveProjections demo&quot;</span>)</div>
+<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;   s.AddElement(axes)</div>
+<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;   ROOT.gEve.AddToListTree(axes, ROOT.kTRUE)</div>
+<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;   ROOT.gEve.AddToListTree(mng, ROOT.kTRUE)</div>
+<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160; </div>
+<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_a67844f0eb9f32dcecccc55343bc59fe6"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#a67844f0eb9f32dcecccc55343bc59fe6">eventDisplay_shipLHC.projection</a></div><div class="ttdeci">def projection()</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00535">eventDisplay_shipLHC.py:535</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -705,31 +709,31 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00550">550</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#acc2cc0479da161ab2b6ad32ddc478b1a">projection_prescale</a>():</div>
-<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;<span class="comment">#if 1&gt;0:</span></div>
-<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;   v = gEve.GetViewers()</div>
-<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;   vw = v.FindChild(<span class="stringliteral">&#39;Viewer 1&#39;</span>)</div>
-<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;   <span class="keywordflow">if</span> vw: vw.SetName(<span class="stringliteral">&#39;3d&#39;</span>)</div>
-<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;   sev = ROOT.gEve.SpawnNewViewer(<span class="stringliteral">&quot;Scaled 2D&quot;</span>)</div>
-<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;   smng = ROOT.TEveProjectionManager(ROOT.TEveProjection.kPP_Plane)</div>
-<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;   sp = smng.GetProjection()</div>
-<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;   sp.SetUsePreScale(ROOT.kTRUE)</div>
-<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;   sp.AddPreScaleEntry(2, 100000000.,  0.1)</div>
-<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;   ss = ROOT.gEve.SpawnNewScene(<span class="stringliteral">&quot;Scaled Geom&quot;</span>)</div>
-<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;   sev.AddScene(ss)</div>
-<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;   ss.AddElement(smng)</div>
-<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;   N = sGeo.GetTopNode()</div>
-<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;   TNod=ROOT.TEveGeoTopNode(sGeo, N, 1, 3, 10)</div>
-<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;   ss.AddElement(TNod)</div>
-<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;   eventscene = ROOT.gEve.SpawnNewScene(<span class="stringliteral">&#39;Scaled event&#39;</span>)</div>
-<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;   eventscene.AddElement(ROOT.FairEventManager.Instance())</div>
-<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;   sev.AddScene(eventscene)</div>
-<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;   eventscene.AddElement(smng)</div>
-<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;   ROOT.gEve.GetBrowser().GetTabRight().SetTab(1)</div>
-<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;   ROOT.gEve.FullRedraw3D(ROOT.kTRUE)</div>
-<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160; </div>
-<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_acc2cc0479da161ab2b6ad32ddc478b1a"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#acc2cc0479da161ab2b6ad32ddc478b1a">eventDisplay_shipLHC.projection_prescale</a></div><div class="ttdeci">def projection_prescale()</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00550">eventDisplay_shipLHC.py:550</a></div></div>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00553">553</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#acc2cc0479da161ab2b6ad32ddc478b1a">projection_prescale</a>():</div>
+<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;<span class="comment">#if 1&gt;0:</span></div>
+<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;   v = gEve.GetViewers()</div>
+<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;   vw = v.FindChild(<span class="stringliteral">&#39;Viewer 1&#39;</span>)</div>
+<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;   <span class="keywordflow">if</span> vw: vw.SetName(<span class="stringliteral">&#39;3d&#39;</span>)</div>
+<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;   sev = ROOT.gEve.SpawnNewViewer(<span class="stringliteral">&quot;Scaled 2D&quot;</span>)</div>
+<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;   smng = ROOT.TEveProjectionManager(ROOT.TEveProjection.kPP_Plane)</div>
+<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;   sp = smng.GetProjection()</div>
+<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;   sp.SetUsePreScale(ROOT.kTRUE)</div>
+<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;   sp.AddPreScaleEntry(2, 100000000.,  0.1)</div>
+<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;   ss = ROOT.gEve.SpawnNewScene(<span class="stringliteral">&quot;Scaled Geom&quot;</span>)</div>
+<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;   sev.AddScene(ss)</div>
+<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;   ss.AddElement(smng)</div>
+<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;   N = sGeo.GetTopNode()</div>
+<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;   TNod=ROOT.TEveGeoTopNode(sGeo, N, 1, 3, 10)</div>
+<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;   ss.AddElement(TNod)</div>
+<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;   eventscene = ROOT.gEve.SpawnNewScene(<span class="stringliteral">&#39;Scaled event&#39;</span>)</div>
+<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;   eventscene.AddElement(ROOT.FairEventManager.Instance())</div>
+<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;   sev.AddScene(eventscene)</div>
+<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;   eventscene.AddElement(smng)</div>
+<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;   ROOT.gEve.GetBrowser().GetTabRight().SetTab(1)</div>
+<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;   ROOT.gEve.FullRedraw3D(ROOT.kTRUE)</div>
+<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160; </div>
+<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_acc2cc0479da161ab2b6ad32ddc478b1a"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#acc2cc0479da161ab2b6ad32ddc478b1a">eventDisplay_shipLHC.projection_prescale</a></div><div class="ttdeci">def projection_prescale()</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00553">eventDisplay_shipLHC.py:553</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -748,98 +752,98 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00968">968</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00968"></a><span class="lineno">  968</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#a7dfd9cd5526eb86327cc129a4c3a6d53">PRVersion</a>():</div>
-<div class="line"><a name="l00969"></a><span class="lineno">  969</span>&#160; <a class="code" href="namespaceeventDisplay__shipLHC.html#aae762a1f65221490f7b9c323717a8a3f">readCameraSetting</a>()</div>
-<div class="line"><a name="l00970"></a><span class="lineno">  970</span>&#160; <span class="keywordflow">for</span> x <span class="keywordflow">in</span> [<span class="stringliteral">&#39;moreShieldingSide&#39;</span>, <span class="stringliteral">&#39;moreShieldingTopBot&#39;</span>,<span class="stringliteral">&#39;CoatWall&#39;</span>,<span class="stringliteral">&#39;CoatVol&#39;</span>,<span class="stringliteral">&#39;AbsorberVol&#39;</span>]:</div>
-<div class="line"><a name="l00971"></a><span class="lineno">  971</span>&#160;  vol = ROOT.gGeoManager.FindVolumeFast(x)</div>
-<div class="line"><a name="l00972"></a><span class="lineno">  972</span>&#160;  vol.SetVisibility(0)</div>
-<div class="line"><a name="l00973"></a><span class="lineno">  973</span>&#160; ROOT.gGeoManager.GetMaterial(<span class="stringliteral">&#39;Concrete&#39;</span>).SetTransparency(0)</div>
-<div class="line"><a name="l00974"></a><span class="lineno">  974</span>&#160; r = rulers.ruler</div>
-<div class="line"><a name="l00975"></a><span class="lineno">  975</span>&#160; ticks = 5</div>
-<div class="line"><a name="l00976"></a><span class="lineno">  976</span>&#160; r.DestroyElements()</div>
-<div class="line"><a name="l00977"></a><span class="lineno">  977</span>&#160; r.OpenCompound()</div>
-<div class="line"><a name="l00978"></a><span class="lineno">  978</span>&#160; xpos,ypos = -500., -1500.</div>
-<div class="line"><a name="l00979"></a><span class="lineno">  979</span>&#160; zstart  = ShipGeo.target.z0</div>
-<div class="line"><a name="l00980"></a><span class="lineno">  980</span>&#160; zlength = ShipGeo.MuonStation3.z - zstart + 10*u.m</div>
-<div class="line"><a name="l00981"></a><span class="lineno">  981</span>&#160; z=zstart</div>
-<div class="line"><a name="l00982"></a><span class="lineno">  982</span>&#160; <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(<a class="code" href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">int</a>(zlength/100/ticks)):</div>
-<div class="line"><a name="l00983"></a><span class="lineno">  983</span>&#160;   m = ROOT.TEveLine()</div>
-<div class="line"><a name="l00984"></a><span class="lineno">  984</span>&#160;   m.SetNextPoint(xpos,ypos, z)</div>
-<div class="line"><a name="l00985"></a><span class="lineno">  985</span>&#160;   m.SetNextPoint(xpos-1*u.m,ypos,z)</div>
-<div class="line"><a name="l00986"></a><span class="lineno">  986</span>&#160;   m.SetMainColor(ROOT.kRed)</div>
-<div class="line"><a name="l00987"></a><span class="lineno">  987</span>&#160;   m.SetLineWidth(5)</div>
-<div class="line"><a name="l00988"></a><span class="lineno">  988</span>&#160;   r.AddElement(m)</div>
-<div class="line"><a name="l00989"></a><span class="lineno">  989</span>&#160;   t1 = ROOT.TEveText(<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(i*ticks)+<span class="stringliteral">&#39;m&#39;</span>)</div>
-<div class="line"><a name="l00990"></a><span class="lineno">  990</span>&#160;   t1.SetMainColor(ROOT.kGray+3)</div>
-<div class="line"><a name="l00991"></a><span class="lineno">  991</span>&#160;   t1.SetFontSize(5)</div>
-<div class="line"><a name="l00992"></a><span class="lineno">  992</span>&#160;   t1.RefMainTrans().SetPos(xpos-0.1*u.m,ypos+0.2*u.m,z)</div>
-<div class="line"><a name="l00993"></a><span class="lineno">  993</span>&#160;   r.AddElement(t1)</div>
-<div class="line"><a name="l00994"></a><span class="lineno">  994</span>&#160;   z+=ticks*u.m</div>
-<div class="line"><a name="l00995"></a><span class="lineno">  995</span>&#160; xpos,ypos = 0., 0.</div>
-<div class="line"><a name="l00996"></a><span class="lineno">  996</span>&#160; z = ShipGeo.MuonStation3.z+6*u.m</div>
-<div class="line"><a name="l00997"></a><span class="lineno">  997</span>&#160; ylength = 7*u.m</div>
-<div class="line"><a name="l00998"></a><span class="lineno">  998</span>&#160; ypos=-ylength</div>
-<div class="line"><a name="l00999"></a><span class="lineno">  999</span>&#160; <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(-<a class="code" href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">int</a>(ylength/100),<a class="code" href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">int</a>(ylength/100),1):</div>
-<div class="line"><a name="l01000"></a><span class="lineno"> 1000</span>&#160;   m = ROOT.TEveLine()</div>
-<div class="line"><a name="l01001"></a><span class="lineno"> 1001</span>&#160;   m.SetNextPoint(xpos,ypos, z)</div>
-<div class="line"><a name="l01002"></a><span class="lineno"> 1002</span>&#160;   m.SetNextPoint(xpos+0.05*u.m,ypos,z)</div>
-<div class="line"><a name="l01003"></a><span class="lineno"> 1003</span>&#160;   m.SetMainColor(ROOT.kRed)</div>
-<div class="line"><a name="l01004"></a><span class="lineno"> 1004</span>&#160;   m.SetLineWidth(3)</div>
-<div class="line"><a name="l01005"></a><span class="lineno"> 1005</span>&#160;   r.AddElement(m)</div>
-<div class="line"><a name="l01006"></a><span class="lineno"> 1006</span>&#160;   t1 = ROOT.TEveText(<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(i)+<span class="stringliteral">&#39;m&#39;</span>)</div>
-<div class="line"><a name="l01007"></a><span class="lineno"> 1007</span>&#160;   t1.SetMainColor(ROOT.kGray+3)</div>
-<div class="line"><a name="l01008"></a><span class="lineno"> 1008</span>&#160;   t1.SetFontSize(5)</div>
-<div class="line"><a name="l01009"></a><span class="lineno"> 1009</span>&#160;   t1.RefMainTrans().SetPos(xpos-0.5*u.m,ypos,z)</div>
-<div class="line"><a name="l01010"></a><span class="lineno"> 1010</span>&#160;   r.AddElement(t1)</div>
-<div class="line"><a name="l01011"></a><span class="lineno"> 1011</span>&#160;   ypos+=1*u.m</div>
-<div class="line"><a name="l01012"></a><span class="lineno"> 1012</span>&#160; ty = ROOT.TEveText(<span class="stringliteral">&quot;y-axis&quot;</span>)</div>
-<div class="line"><a name="l01013"></a><span class="lineno"> 1013</span>&#160; ty.SetFontSize(10)</div>
-<div class="line"><a name="l01014"></a><span class="lineno"> 1014</span>&#160; ty.RefMainTrans().SetPos(0.,ypos+1*u.m,z)</div>
-<div class="line"><a name="l01015"></a><span class="lineno"> 1015</span>&#160; ty.SetMainColor(ROOT.kRed-2)</div>
-<div class="line"><a name="l01016"></a><span class="lineno"> 1016</span>&#160; r.AddElement(ty)</div>
-<div class="line"><a name="l01017"></a><span class="lineno"> 1017</span>&#160; xpos,ypos = 0., 0.</div>
-<div class="line"><a name="l01018"></a><span class="lineno"> 1018</span>&#160; z = ShipGeo.MuonStation3.z+10*u.m</div>
-<div class="line"><a name="l01019"></a><span class="lineno"> 1019</span>&#160; xlength = 3*u.m</div>
-<div class="line"><a name="l01020"></a><span class="lineno"> 1020</span>&#160; xpos=-xlength</div>
-<div class="line"><a name="l01021"></a><span class="lineno"> 1021</span>&#160; <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(-<a class="code" href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">int</a>(xlength/100),<a class="code" href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">int</a>(xlength/100),1):</div>
-<div class="line"><a name="l01022"></a><span class="lineno"> 1022</span>&#160;   m = ROOT.TEveLine()</div>
-<div class="line"><a name="l01023"></a><span class="lineno"> 1023</span>&#160;   m.SetNextPoint(xpos,ypos, z)</div>
-<div class="line"><a name="l01024"></a><span class="lineno"> 1024</span>&#160;   m.SetNextPoint(xpos,ypos-0.05*u.m,z)</div>
-<div class="line"><a name="l01025"></a><span class="lineno"> 1025</span>&#160;   m.SetMainColor(ROOT.kRed)</div>
-<div class="line"><a name="l01026"></a><span class="lineno"> 1026</span>&#160;   m.SetLineWidth(3)</div>
-<div class="line"><a name="l01027"></a><span class="lineno"> 1027</span>&#160;   r.AddElement(m)</div>
-<div class="line"><a name="l01028"></a><span class="lineno"> 1028</span>&#160;   t1 = ROOT.TEveText(<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(i)+<span class="stringliteral">&#39;m&#39;</span>)</div>
-<div class="line"><a name="l01029"></a><span class="lineno"> 1029</span>&#160;   t1.SetMainColor(ROOT.kGray+3)</div>
-<div class="line"><a name="l01030"></a><span class="lineno"> 1030</span>&#160;   t1.SetFontSize(5)</div>
-<div class="line"><a name="l01031"></a><span class="lineno"> 1031</span>&#160;   t1.RefMainTrans().SetPos(xpos,ypos-0.1*u.m,z)</div>
-<div class="line"><a name="l01032"></a><span class="lineno"> 1032</span>&#160;   r.AddElement(t1)</div>
-<div class="line"><a name="l01033"></a><span class="lineno"> 1033</span>&#160;   xpos+=1*u.m </div>
-<div class="line"><a name="l01034"></a><span class="lineno"> 1034</span>&#160; tx = ROOT.TEveText(<span class="stringliteral">&quot;x-axis&quot;</span>)</div>
-<div class="line"><a name="l01035"></a><span class="lineno"> 1035</span>&#160; tx.SetFontSize(10)</div>
-<div class="line"><a name="l01036"></a><span class="lineno"> 1036</span>&#160; tx.RefMainTrans().SetPos(xpos+1*u.m,0.,z)</div>
-<div class="line"><a name="l01037"></a><span class="lineno"> 1037</span>&#160; tx.SetMainColor(ROOT.kRed-2)</div>
-<div class="line"><a name="l01038"></a><span class="lineno"> 1038</span>&#160; r.AddElement(tx)</div>
-<div class="line"><a name="l01039"></a><span class="lineno"> 1039</span>&#160; rotAngle = ROOT.TMath.Pi()+ROOT.TMath.PiOver2()*5./2.</div>
-<div class="line"><a name="l01040"></a><span class="lineno"> 1040</span>&#160; <a class="code" href="namespaceeventDisplay__shipLHC.html#ab2337dc2e68aa255bfceb604a0923ab9">positionText</a>(r,0.,900.,ShipGeo.TrackStation1.z-20*u.m,rotAngle,<span class="stringliteral">&quot;SHiP&quot;</span>,200,ROOT.kOrange-2)</div>
-<div class="line"><a name="l01041"></a><span class="lineno"> 1041</span>&#160; <a class="code" href="namespaceeventDisplay__shipLHC.html#ab2337dc2e68aa255bfceb604a0923ab9">positionText</a>(r,0.,750.,ShipGeo.TrackStation1.z-40*u.m,rotAngle,<span class="stringliteral">&quot;Vacuum decay vessel&quot;</span>,200,ROOT.kGray+1)</div>
-<div class="line"><a name="l01042"></a><span class="lineno"> 1042</span>&#160; <a class="code" href="namespaceeventDisplay__shipLHC.html#ab2337dc2e68aa255bfceb604a0923ab9">positionText</a>(r,0.,100.,ShipGeo.target.z-6*u.m,rotAngle,<span class="stringliteral">&quot;Target&quot;</span>,200,ROOT.kBlue)</div>
-<div class="line"><a name="l01043"></a><span class="lineno"> 1043</span>&#160; <a class="code" href="namespaceeventDisplay__shipLHC.html#ab2337dc2e68aa255bfceb604a0923ab9">positionText</a>(r,0.,600.,ShipGeo.muShield.z-10*u.m,rotAngle,<span class="stringliteral">&quot;Active muon shield&quot;</span>,200,ROOT.kGreen-2)</div>
-<div class="line"><a name="l01044"></a><span class="lineno"> 1044</span>&#160; <a class="code" href="namespaceeventDisplay__shipLHC.html#ab2337dc2e68aa255bfceb604a0923ab9">positionText</a>(r,0.,600.,ShipGeo.tauMudet.zMudetC-10*u.m,rotAngle,<span class="stringliteral">&quot;Tau neutrino detector&quot;</span>,200,ROOT.kRed-2)</div>
-<div class="line"><a name="l01045"></a><span class="lineno"> 1045</span>&#160; <a class="code" href="namespaceeventDisplay__shipLHC.html#ab2337dc2e68aa255bfceb604a0923ab9">positionText</a>(r,0.,900.,ShipGeo.Bfield.z-5*u.m,rotAngle,<span class="stringliteral">&quot;Dipole Magnet&quot;</span>,200,ROOT.kBlue+2)</div>
-<div class="line"><a name="l01046"></a><span class="lineno"> 1046</span>&#160; <a class="code" href="namespaceeventDisplay__shipLHC.html#ab2337dc2e68aa255bfceb604a0923ab9">positionText</a>(r,-1500.,-800.,ShipGeo.TrackStation3.z-2*u.m,rotAngle,<span class="stringliteral">&quot;Strawtracker&quot;</span>,200,ROOT.kRed+2)</div>
-<div class="line"><a name="l01047"></a><span class="lineno"> 1047</span>&#160; <a class="code" href="namespaceeventDisplay__shipLHC.html#ab2337dc2e68aa255bfceb604a0923ab9">positionText</a>(r,0.,730.,ShipGeo.ecal.z-1*u.m,rotAngle,<span class="stringliteral">&quot;Ecal&quot;</span>,200,ROOT.kOrange)</div>
-<div class="line"><a name="l01048"></a><span class="lineno"> 1048</span>&#160; <a class="code" href="namespaceeventDisplay__shipLHC.html#ab2337dc2e68aa255bfceb604a0923ab9">positionText</a>(r,0.,700.,ShipGeo.MuonFilter2.z,rotAngle,<span class="stringliteral">&quot;Muon&quot;</span>,200,ROOT.kGreen+2)</div>
-<div class="line"><a name="l01049"></a><span class="lineno"> 1049</span>&#160; r.CloseCompound()</div>
-<div class="line"><a name="l01050"></a><span class="lineno"> 1050</span>&#160; sc    = gEve.GetScenes()</div>
-<div class="line"><a name="l01051"></a><span class="lineno"> 1051</span>&#160; geoscene = sc.FindChild(<span class="stringliteral">&#39;Geometry scene&#39;</span>)</div>
-<div class="line"><a name="l01052"></a><span class="lineno"> 1052</span>&#160; gEve.ElementChanged(geoscene,<span class="keyword">True</span>,<span class="keyword">True</span>)</div>
-<div class="line"><a name="l01053"></a><span class="lineno"> 1053</span>&#160; </div>
-<div class="line"><a name="l01054"></a><span class="lineno"> 1054</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00971">971</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00971"></a><span class="lineno">  971</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#a7dfd9cd5526eb86327cc129a4c3a6d53">PRVersion</a>():</div>
+<div class="line"><a name="l00972"></a><span class="lineno">  972</span>&#160; <a class="code" href="namespaceeventDisplay__shipLHC.html#aae762a1f65221490f7b9c323717a8a3f">readCameraSetting</a>()</div>
+<div class="line"><a name="l00973"></a><span class="lineno">  973</span>&#160; <span class="keywordflow">for</span> x <span class="keywordflow">in</span> [<span class="stringliteral">&#39;moreShieldingSide&#39;</span>, <span class="stringliteral">&#39;moreShieldingTopBot&#39;</span>,<span class="stringliteral">&#39;CoatWall&#39;</span>,<span class="stringliteral">&#39;CoatVol&#39;</span>,<span class="stringliteral">&#39;AbsorberVol&#39;</span>]:</div>
+<div class="line"><a name="l00974"></a><span class="lineno">  974</span>&#160;  vol = ROOT.gGeoManager.FindVolumeFast(x)</div>
+<div class="line"><a name="l00975"></a><span class="lineno">  975</span>&#160;  vol.SetVisibility(0)</div>
+<div class="line"><a name="l00976"></a><span class="lineno">  976</span>&#160; ROOT.gGeoManager.GetMaterial(<span class="stringliteral">&#39;Concrete&#39;</span>).SetTransparency(0)</div>
+<div class="line"><a name="l00977"></a><span class="lineno">  977</span>&#160; r = rulers.ruler</div>
+<div class="line"><a name="l00978"></a><span class="lineno">  978</span>&#160; ticks = 5</div>
+<div class="line"><a name="l00979"></a><span class="lineno">  979</span>&#160; r.DestroyElements()</div>
+<div class="line"><a name="l00980"></a><span class="lineno">  980</span>&#160; r.OpenCompound()</div>
+<div class="line"><a name="l00981"></a><span class="lineno">  981</span>&#160; xpos,ypos = -500., -1500.</div>
+<div class="line"><a name="l00982"></a><span class="lineno">  982</span>&#160; zstart  = ShipGeo.target.z0</div>
+<div class="line"><a name="l00983"></a><span class="lineno">  983</span>&#160; zlength = ShipGeo.MuonStation3.z - zstart + 10*u.m</div>
+<div class="line"><a name="l00984"></a><span class="lineno">  984</span>&#160; z=zstart</div>
+<div class="line"><a name="l00985"></a><span class="lineno">  985</span>&#160; <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(<a class="code" href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">int</a>(zlength/100/ticks)):</div>
+<div class="line"><a name="l00986"></a><span class="lineno">  986</span>&#160;   m = ROOT.TEveLine()</div>
+<div class="line"><a name="l00987"></a><span class="lineno">  987</span>&#160;   m.SetNextPoint(xpos,ypos, z)</div>
+<div class="line"><a name="l00988"></a><span class="lineno">  988</span>&#160;   m.SetNextPoint(xpos-1*u.m,ypos,z)</div>
+<div class="line"><a name="l00989"></a><span class="lineno">  989</span>&#160;   m.SetMainColor(ROOT.kRed)</div>
+<div class="line"><a name="l00990"></a><span class="lineno">  990</span>&#160;   m.SetLineWidth(5)</div>
+<div class="line"><a name="l00991"></a><span class="lineno">  991</span>&#160;   r.AddElement(m)</div>
+<div class="line"><a name="l00992"></a><span class="lineno">  992</span>&#160;   t1 = ROOT.TEveText(<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(i*ticks)+<span class="stringliteral">&#39;m&#39;</span>)</div>
+<div class="line"><a name="l00993"></a><span class="lineno">  993</span>&#160;   t1.SetMainColor(ROOT.kGray+3)</div>
+<div class="line"><a name="l00994"></a><span class="lineno">  994</span>&#160;   t1.SetFontSize(5)</div>
+<div class="line"><a name="l00995"></a><span class="lineno">  995</span>&#160;   t1.RefMainTrans().SetPos(xpos-0.1*u.m,ypos+0.2*u.m,z)</div>
+<div class="line"><a name="l00996"></a><span class="lineno">  996</span>&#160;   r.AddElement(t1)</div>
+<div class="line"><a name="l00997"></a><span class="lineno">  997</span>&#160;   z+=ticks*u.m</div>
+<div class="line"><a name="l00998"></a><span class="lineno">  998</span>&#160; xpos,ypos = 0., 0.</div>
+<div class="line"><a name="l00999"></a><span class="lineno">  999</span>&#160; z = ShipGeo.MuonStation3.z+6*u.m</div>
+<div class="line"><a name="l01000"></a><span class="lineno"> 1000</span>&#160; ylength = 7*u.m</div>
+<div class="line"><a name="l01001"></a><span class="lineno"> 1001</span>&#160; ypos=-ylength</div>
+<div class="line"><a name="l01002"></a><span class="lineno"> 1002</span>&#160; <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(-<a class="code" href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">int</a>(ylength/100),<a class="code" href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">int</a>(ylength/100),1):</div>
+<div class="line"><a name="l01003"></a><span class="lineno"> 1003</span>&#160;   m = ROOT.TEveLine()</div>
+<div class="line"><a name="l01004"></a><span class="lineno"> 1004</span>&#160;   m.SetNextPoint(xpos,ypos, z)</div>
+<div class="line"><a name="l01005"></a><span class="lineno"> 1005</span>&#160;   m.SetNextPoint(xpos+0.05*u.m,ypos,z)</div>
+<div class="line"><a name="l01006"></a><span class="lineno"> 1006</span>&#160;   m.SetMainColor(ROOT.kRed)</div>
+<div class="line"><a name="l01007"></a><span class="lineno"> 1007</span>&#160;   m.SetLineWidth(3)</div>
+<div class="line"><a name="l01008"></a><span class="lineno"> 1008</span>&#160;   r.AddElement(m)</div>
+<div class="line"><a name="l01009"></a><span class="lineno"> 1009</span>&#160;   t1 = ROOT.TEveText(<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(i)+<span class="stringliteral">&#39;m&#39;</span>)</div>
+<div class="line"><a name="l01010"></a><span class="lineno"> 1010</span>&#160;   t1.SetMainColor(ROOT.kGray+3)</div>
+<div class="line"><a name="l01011"></a><span class="lineno"> 1011</span>&#160;   t1.SetFontSize(5)</div>
+<div class="line"><a name="l01012"></a><span class="lineno"> 1012</span>&#160;   t1.RefMainTrans().SetPos(xpos-0.5*u.m,ypos,z)</div>
+<div class="line"><a name="l01013"></a><span class="lineno"> 1013</span>&#160;   r.AddElement(t1)</div>
+<div class="line"><a name="l01014"></a><span class="lineno"> 1014</span>&#160;   ypos+=1*u.m</div>
+<div class="line"><a name="l01015"></a><span class="lineno"> 1015</span>&#160; ty = ROOT.TEveText(<span class="stringliteral">&quot;y-axis&quot;</span>)</div>
+<div class="line"><a name="l01016"></a><span class="lineno"> 1016</span>&#160; ty.SetFontSize(10)</div>
+<div class="line"><a name="l01017"></a><span class="lineno"> 1017</span>&#160; ty.RefMainTrans().SetPos(0.,ypos+1*u.m,z)</div>
+<div class="line"><a name="l01018"></a><span class="lineno"> 1018</span>&#160; ty.SetMainColor(ROOT.kRed-2)</div>
+<div class="line"><a name="l01019"></a><span class="lineno"> 1019</span>&#160; r.AddElement(ty)</div>
+<div class="line"><a name="l01020"></a><span class="lineno"> 1020</span>&#160; xpos,ypos = 0., 0.</div>
+<div class="line"><a name="l01021"></a><span class="lineno"> 1021</span>&#160; z = ShipGeo.MuonStation3.z+10*u.m</div>
+<div class="line"><a name="l01022"></a><span class="lineno"> 1022</span>&#160; xlength = 3*u.m</div>
+<div class="line"><a name="l01023"></a><span class="lineno"> 1023</span>&#160; xpos=-xlength</div>
+<div class="line"><a name="l01024"></a><span class="lineno"> 1024</span>&#160; <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(-<a class="code" href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">int</a>(xlength/100),<a class="code" href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">int</a>(xlength/100),1):</div>
+<div class="line"><a name="l01025"></a><span class="lineno"> 1025</span>&#160;   m = ROOT.TEveLine()</div>
+<div class="line"><a name="l01026"></a><span class="lineno"> 1026</span>&#160;   m.SetNextPoint(xpos,ypos, z)</div>
+<div class="line"><a name="l01027"></a><span class="lineno"> 1027</span>&#160;   m.SetNextPoint(xpos,ypos-0.05*u.m,z)</div>
+<div class="line"><a name="l01028"></a><span class="lineno"> 1028</span>&#160;   m.SetMainColor(ROOT.kRed)</div>
+<div class="line"><a name="l01029"></a><span class="lineno"> 1029</span>&#160;   m.SetLineWidth(3)</div>
+<div class="line"><a name="l01030"></a><span class="lineno"> 1030</span>&#160;   r.AddElement(m)</div>
+<div class="line"><a name="l01031"></a><span class="lineno"> 1031</span>&#160;   t1 = ROOT.TEveText(<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(i)+<span class="stringliteral">&#39;m&#39;</span>)</div>
+<div class="line"><a name="l01032"></a><span class="lineno"> 1032</span>&#160;   t1.SetMainColor(ROOT.kGray+3)</div>
+<div class="line"><a name="l01033"></a><span class="lineno"> 1033</span>&#160;   t1.SetFontSize(5)</div>
+<div class="line"><a name="l01034"></a><span class="lineno"> 1034</span>&#160;   t1.RefMainTrans().SetPos(xpos,ypos-0.1*u.m,z)</div>
+<div class="line"><a name="l01035"></a><span class="lineno"> 1035</span>&#160;   r.AddElement(t1)</div>
+<div class="line"><a name="l01036"></a><span class="lineno"> 1036</span>&#160;   xpos+=1*u.m </div>
+<div class="line"><a name="l01037"></a><span class="lineno"> 1037</span>&#160; tx = ROOT.TEveText(<span class="stringliteral">&quot;x-axis&quot;</span>)</div>
+<div class="line"><a name="l01038"></a><span class="lineno"> 1038</span>&#160; tx.SetFontSize(10)</div>
+<div class="line"><a name="l01039"></a><span class="lineno"> 1039</span>&#160; tx.RefMainTrans().SetPos(xpos+1*u.m,0.,z)</div>
+<div class="line"><a name="l01040"></a><span class="lineno"> 1040</span>&#160; tx.SetMainColor(ROOT.kRed-2)</div>
+<div class="line"><a name="l01041"></a><span class="lineno"> 1041</span>&#160; r.AddElement(tx)</div>
+<div class="line"><a name="l01042"></a><span class="lineno"> 1042</span>&#160; rotAngle = ROOT.TMath.Pi()+ROOT.TMath.PiOver2()*5./2.</div>
+<div class="line"><a name="l01043"></a><span class="lineno"> 1043</span>&#160; <a class="code" href="namespaceeventDisplay__shipLHC.html#ab2337dc2e68aa255bfceb604a0923ab9">positionText</a>(r,0.,900.,ShipGeo.TrackStation1.z-20*u.m,rotAngle,<span class="stringliteral">&quot;SHiP&quot;</span>,200,ROOT.kOrange-2)</div>
+<div class="line"><a name="l01044"></a><span class="lineno"> 1044</span>&#160; <a class="code" href="namespaceeventDisplay__shipLHC.html#ab2337dc2e68aa255bfceb604a0923ab9">positionText</a>(r,0.,750.,ShipGeo.TrackStation1.z-40*u.m,rotAngle,<span class="stringliteral">&quot;Vacuum decay vessel&quot;</span>,200,ROOT.kGray+1)</div>
+<div class="line"><a name="l01045"></a><span class="lineno"> 1045</span>&#160; <a class="code" href="namespaceeventDisplay__shipLHC.html#ab2337dc2e68aa255bfceb604a0923ab9">positionText</a>(r,0.,100.,ShipGeo.target.z-6*u.m,rotAngle,<span class="stringliteral">&quot;Target&quot;</span>,200,ROOT.kBlue)</div>
+<div class="line"><a name="l01046"></a><span class="lineno"> 1046</span>&#160; <a class="code" href="namespaceeventDisplay__shipLHC.html#ab2337dc2e68aa255bfceb604a0923ab9">positionText</a>(r,0.,600.,ShipGeo.muShield.z-10*u.m,rotAngle,<span class="stringliteral">&quot;Active muon shield&quot;</span>,200,ROOT.kGreen-2)</div>
+<div class="line"><a name="l01047"></a><span class="lineno"> 1047</span>&#160; <a class="code" href="namespaceeventDisplay__shipLHC.html#ab2337dc2e68aa255bfceb604a0923ab9">positionText</a>(r,0.,600.,ShipGeo.tauMudet.zMudetC-10*u.m,rotAngle,<span class="stringliteral">&quot;Tau neutrino detector&quot;</span>,200,ROOT.kRed-2)</div>
+<div class="line"><a name="l01048"></a><span class="lineno"> 1048</span>&#160; <a class="code" href="namespaceeventDisplay__shipLHC.html#ab2337dc2e68aa255bfceb604a0923ab9">positionText</a>(r,0.,900.,ShipGeo.Bfield.z-5*u.m,rotAngle,<span class="stringliteral">&quot;Dipole Magnet&quot;</span>,200,ROOT.kBlue+2)</div>
+<div class="line"><a name="l01049"></a><span class="lineno"> 1049</span>&#160; <a class="code" href="namespaceeventDisplay__shipLHC.html#ab2337dc2e68aa255bfceb604a0923ab9">positionText</a>(r,-1500.,-800.,ShipGeo.TrackStation3.z-2*u.m,rotAngle,<span class="stringliteral">&quot;Strawtracker&quot;</span>,200,ROOT.kRed+2)</div>
+<div class="line"><a name="l01050"></a><span class="lineno"> 1050</span>&#160; <a class="code" href="namespaceeventDisplay__shipLHC.html#ab2337dc2e68aa255bfceb604a0923ab9">positionText</a>(r,0.,730.,ShipGeo.ecal.z-1*u.m,rotAngle,<span class="stringliteral">&quot;Ecal&quot;</span>,200,ROOT.kOrange)</div>
+<div class="line"><a name="l01051"></a><span class="lineno"> 1051</span>&#160; <a class="code" href="namespaceeventDisplay__shipLHC.html#ab2337dc2e68aa255bfceb604a0923ab9">positionText</a>(r,0.,700.,ShipGeo.MuonFilter2.z,rotAngle,<span class="stringliteral">&quot;Muon&quot;</span>,200,ROOT.kGreen+2)</div>
+<div class="line"><a name="l01052"></a><span class="lineno"> 1052</span>&#160; r.CloseCompound()</div>
+<div class="line"><a name="l01053"></a><span class="lineno"> 1053</span>&#160; sc    = gEve.GetScenes()</div>
+<div class="line"><a name="l01054"></a><span class="lineno"> 1054</span>&#160; geoscene = sc.FindChild(<span class="stringliteral">&#39;Geometry scene&#39;</span>)</div>
+<div class="line"><a name="l01055"></a><span class="lineno"> 1055</span>&#160; gEve.ElementChanged(geoscene,<span class="keyword">True</span>,<span class="keyword">True</span>)</div>
+<div class="line"><a name="l01056"></a><span class="lineno"> 1056</span>&#160; </div>
+<div class="line"><a name="l01057"></a><span class="lineno"> 1057</span>&#160; </div>
 <div class="ttc" id="anamespaceadd__noise__to__field_html_a4aa6f75233f1922a97b2d4c15285c18e"><div class="ttname"><a href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">add_noise_to_field.int</a></div><div class="ttdeci">int</div><div class="ttdef"><b>Definition:</b> <a href="add__noise__to__field_8py_source.html#l00057">add_noise_to_field.py:57</a></div></div>
 <div class="ttc" id="anamespaceadd__noise__to__field_html_ac8c461fc99cff345995bf60fcdfefa01"><div class="ttname"><a href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">add_noise_to_field.str</a></div><div class="ttdeci">str</div><div class="ttdef"><b>Definition:</b> <a href="add__noise__to__field_8py_source.html#l00053">add_noise_to_field.py:53</a></div></div>
-<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_a7dfd9cd5526eb86327cc129a4c3a6d53"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#a7dfd9cd5526eb86327cc129a4c3a6d53">eventDisplay_shipLHC.PRVersion</a></div><div class="ttdeci">def PRVersion()</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00968">eventDisplay_shipLHC.py:968</a></div></div>
-<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_aae762a1f65221490f7b9c323717a8a3f"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#aae762a1f65221490f7b9c323717a8a3f">eventDisplay_shipLHC.readCameraSetting</a></div><div class="ttdeci">def readCameraSetting(fname='camSetting.root')</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00578">eventDisplay_shipLHC.py:578</a></div></div>
+<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_a7dfd9cd5526eb86327cc129a4c3a6d53"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#a7dfd9cd5526eb86327cc129a4c3a6d53">eventDisplay_shipLHC.PRVersion</a></div><div class="ttdeci">def PRVersion()</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00971">eventDisplay_shipLHC.py:971</a></div></div>
+<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_aae762a1f65221490f7b9c323717a8a3f"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#aae762a1f65221490f7b9c323717a8a3f">eventDisplay_shipLHC.readCameraSetting</a></div><div class="ttdeci">def readCameraSetting(fname='camSetting.root')</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00581">eventDisplay_shipLHC.py:581</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -859,14 +863,14 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00578">578</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#aae762a1f65221490f7b9c323717a8a3f">readCameraSetting</a>(fname=&#39;camSetting.root&#39;):</div>
-<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160; f = ROOT.TFile.Open(fname)</div>
-<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160; cam  = ROOT.gEve.GetDefaultGLViewer().CurrentCamera()</div>
-<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160; f.GetKey(cam.ClassName()).Read(cam)</div>
-<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160; cam.IncTimeStamp()</div>
-<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160; gEve.GetDefaultGLViewer().RequestDraw()</div>
-<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160; f.Close()</div>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00581">581</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#aae762a1f65221490f7b9c323717a8a3f">readCameraSetting</a>(fname=&#39;camSetting.root&#39;):</div>
+<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160; f = ROOT.TFile.Open(fname)</div>
+<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160; cam  = ROOT.gEve.GetDefaultGLViewer().CurrentCamera()</div>
+<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160; f.GetKey(cam.ClassName()).Read(cam)</div>
+<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160; cam.IncTimeStamp()</div>
+<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160; gEve.GetDefaultGLViewer().RequestDraw()</div>
+<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160; f.Close()</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -886,17 +890,17 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00682">682</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#a60cabce22af82250611a70afea765a38">rename</a>(name=&#39;ship.TGeant4.root&#39;):</div>
-<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160; f = ROOT.TFile(name,<span class="stringliteral">&#39;UPDATE&#39;</span>)</div>
-<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160; t = f.Get(<span class="stringliteral">&#39;cbmsim&#39;</span>)</div>
-<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160; <span class="keywordflow">for</span> x <span class="keywordflow">in</span> t.GetListOfBranches():</div>
-<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;  nm = x.GetName().replace(<span class="stringliteral">&#39;_1&#39;</span>,<span class="stringliteral">&#39;&#39;</span>)</div>
-<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;  x.SetName(nm)</div>
-<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160; t.Write()</div>
-<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160; f.Close() </div>
-<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160; </div>
-<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_a60cabce22af82250611a70afea765a38"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#a60cabce22af82250611a70afea765a38">eventDisplay_shipLHC.rename</a></div><div class="ttdeci">def rename(name='ship.TGeant4.root')</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00682">eventDisplay_shipLHC.py:682</a></div></div>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00685">685</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#a60cabce22af82250611a70afea765a38">rename</a>(name=&#39;ship.TGeant4.root&#39;):</div>
+<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160; f = ROOT.TFile(name,<span class="stringliteral">&#39;UPDATE&#39;</span>)</div>
+<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160; t = f.Get(<span class="stringliteral">&#39;cbmsim&#39;</span>)</div>
+<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160; <span class="keywordflow">for</span> x <span class="keywordflow">in</span> t.GetListOfBranches():</div>
+<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;  nm = x.GetName().replace(<span class="stringliteral">&#39;_1&#39;</span>,<span class="stringliteral">&#39;&#39;</span>)</div>
+<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;  x.SetName(nm)</div>
+<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160; t.Write()</div>
+<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160; f.Close() </div>
+<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160; </div>
+<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_a60cabce22af82250611a70afea765a38"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#a60cabce22af82250611a70afea765a38">eventDisplay_shipLHC.rename</a></div><div class="ttdeci">def rename(name='ship.TGeant4.root')</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00685">eventDisplay_shipLHC.py:685</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -926,11 +930,11 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00679">679</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#a6a2d07dfa0c8945493d1b830c8debf9b">search</a>(lvdict,tag):</div>
-<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;  <span class="keywordflow">for</span> x <span class="keywordflow">in</span> lvdict: </div>
-<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;   <span class="keywordflow">if</span> <span class="keywordflow">not</span> x.find(tag)&lt;0: print(x)</div>
-<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_a6a2d07dfa0c8945493d1b830c8debf9b"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#a6a2d07dfa0c8945493d1b830c8debf9b">eventDisplay_shipLHC.search</a></div><div class="ttdeci">def search(lvdict, tag)</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00679">eventDisplay_shipLHC.py:679</a></div></div>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00682">682</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#a6a2d07dfa0c8945493d1b830c8debf9b">search</a>(lvdict,tag):</div>
+<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;  <span class="keywordflow">for</span> x <span class="keywordflow">in</span> lvdict: </div>
+<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;   <span class="keywordflow">if</span> <span class="keywordflow">not</span> x.find(tag)&lt;0: print(x)</div>
+<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_a6a2d07dfa0c8945493d1b830c8debf9b"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#a6a2d07dfa0c8945493d1b830c8debf9b">eventDisplay_shipLHC.search</a></div><div class="ttdeci">def search(lvdict, tag)</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00682">eventDisplay_shipLHC.py:682</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -950,14 +954,14 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00673">673</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#a241e6fa0dd37d1ff926e7a29c0db2e73">select</a>(pattern):</div>
-<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160; exc = []</div>
-<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160; <span class="keywordflow">for</span> v <span class="keywordflow">in</span> sGeo.GetListOfVolumes():</div>
-<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;   vname = v.GetName()</div>
-<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;   <span class="keywordflow">if</span> <span class="keywordflow">not</span> vname.find(pattern) &lt; 0 : exc.append(vname)</div>
-<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160; <span class="keywordflow">return</span> exc</div>
-<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_a241e6fa0dd37d1ff926e7a29c0db2e73"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#a241e6fa0dd37d1ff926e7a29c0db2e73">eventDisplay_shipLHC.select</a></div><div class="ttdeci">def select(pattern)</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00673">eventDisplay_shipLHC.py:673</a></div></div>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00676">676</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#a241e6fa0dd37d1ff926e7a29c0db2e73">select</a>(pattern):</div>
+<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160; exc = []</div>
+<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160; <span class="keywordflow">for</span> v <span class="keywordflow">in</span> sGeo.GetListOfVolumes():</div>
+<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;   vname = v.GetName()</div>
+<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;   <span class="keywordflow">if</span> <span class="keywordflow">not</span> vname.find(pattern) &lt; 0 : exc.append(vname)</div>
+<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160; <span class="keywordflow">return</span> exc</div>
+<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_a241e6fa0dd37d1ff926e7a29c0db2e73"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#a241e6fa0dd37d1ff926e7a29c0db2e73">eventDisplay_shipLHC.select</a></div><div class="ttdeci">def select(pattern)</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00676">eventDisplay_shipLHC.py:676</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -976,32 +980,32 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00585">585</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#ad092ba08bcc855fa36b4391866b85033">speedUp</a>():</div>
-<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160; <span class="keywordflow">for</span> x <span class="keywordflow">in</span> [<span class="stringliteral">&quot;wire&quot;</span>,<span class="stringliteral">&quot;gas&quot;</span>,<span class="stringliteral">&quot;rockD&quot;</span>,<span class="stringliteral">&quot;rockS&quot;</span>,<span class="stringliteral">&quot;rockSFe&quot;</span>]:  </div>
-<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;   xvol = sGeo.GetVolume(x)</div>
-<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;   <span class="keywordflow">if</span> xvol: xvol.SetVisibility(0) </div>
-<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160; <span class="keywordflow">for</span> k <span class="keywordflow">in</span> range(1,7):</div>
-<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;     va = sGeo.GetVolume(<span class="stringliteral">&quot;T&quot;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(k))</div>
-<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;     <span class="keywordflow">if</span> <span class="keywordflow">not</span> va: <span class="keywordflow">continue</span></div>
-<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;     <span class="keywordflow">for</span> x <span class="keywordflow">in</span> va.GetNodes():</div>
-<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;       nm = x.GetName()</div>
-<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;       <span class="keywordflow">if</span> <span class="keywordflow">not</span> nm.find(<span class="stringliteral">&quot;Inner&quot;</span>)&lt;0 <span class="keywordflow">and</span> k &lt; 3: </div>
-<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;          x.SetVisDaughters(<span class="keyword">False</span>)</div>
-<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;          x.SetVisibility(<span class="keyword">False</span>)</div>
-<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;       <span class="keywordflow">if</span> <span class="keywordflow">not</span> nm.find(<span class="stringliteral">&quot;LiSc&quot;</span>)&lt;0: x.SetVisDaughters(<span class="keyword">False</span>)</div>
-<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;       <span class="keywordflow">if</span> <span class="keywordflow">not</span> nm.find(<span class="stringliteral">&quot;RibPhi&quot;</span>)&lt;0: x.SetVisDaughters(<span class="keyword">False</span>)</div>
-<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;<span class="comment"># </span></div>
-<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160; <span class="keywordflow">for</span> x <span class="keywordflow">in</span> [<span class="stringliteral">&quot;Ecal&quot;</span>,<span class="stringliteral">&quot;Hcal&quot;</span>]:</div>
-<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;  xvol = sGeo.GetVolume(x)</div>
-<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;  <span class="keywordflow">if</span> <span class="keywordflow">not</span> xvol: <span class="keywordflow">continue</span></div>
-<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;  xvol.SetVisDaughters(0)</div>
-<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;  xvol.SetVisibility(1)</div>
-<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;  <span class="keywordflow">if</span> x==<span class="stringliteral">&quot;Ecal&quot;</span>: xvol.SetLineColor(ROOT.kYellow) </div>
-<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;  <span class="keywordflow">else</span>:        xvol.SetLineColor(ROOT.kOrange+3) </div>
-<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160; </div>
-<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;<span class="comment"># set display properties for tau nu target</span></div>
-<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_ad092ba08bcc855fa36b4391866b85033"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#ad092ba08bcc855fa36b4391866b85033">eventDisplay_shipLHC.speedUp</a></div><div class="ttdeci">def speedUp()</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00585">eventDisplay_shipLHC.py:585</a></div></div>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00588">588</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#ad092ba08bcc855fa36b4391866b85033">speedUp</a>():</div>
+<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160; <span class="keywordflow">for</span> x <span class="keywordflow">in</span> [<span class="stringliteral">&quot;wire&quot;</span>,<span class="stringliteral">&quot;gas&quot;</span>,<span class="stringliteral">&quot;rockD&quot;</span>,<span class="stringliteral">&quot;rockS&quot;</span>,<span class="stringliteral">&quot;rockSFe&quot;</span>]:  </div>
+<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;   xvol = sGeo.GetVolume(x)</div>
+<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;   <span class="keywordflow">if</span> xvol: xvol.SetVisibility(0) </div>
+<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160; <span class="keywordflow">for</span> k <span class="keywordflow">in</span> range(1,7):</div>
+<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;     va = sGeo.GetVolume(<span class="stringliteral">&quot;T&quot;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(k))</div>
+<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;     <span class="keywordflow">if</span> <span class="keywordflow">not</span> va: <span class="keywordflow">continue</span></div>
+<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;     <span class="keywordflow">for</span> x <span class="keywordflow">in</span> va.GetNodes():</div>
+<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;       nm = x.GetName()</div>
+<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;       <span class="keywordflow">if</span> <span class="keywordflow">not</span> nm.find(<span class="stringliteral">&quot;Inner&quot;</span>)&lt;0 <span class="keywordflow">and</span> k &lt; 3: </div>
+<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;          x.SetVisDaughters(<span class="keyword">False</span>)</div>
+<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;          x.SetVisibility(<span class="keyword">False</span>)</div>
+<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;       <span class="keywordflow">if</span> <span class="keywordflow">not</span> nm.find(<span class="stringliteral">&quot;LiSc&quot;</span>)&lt;0: x.SetVisDaughters(<span class="keyword">False</span>)</div>
+<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;       <span class="keywordflow">if</span> <span class="keywordflow">not</span> nm.find(<span class="stringliteral">&quot;RibPhi&quot;</span>)&lt;0: x.SetVisDaughters(<span class="keyword">False</span>)</div>
+<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;<span class="comment"># </span></div>
+<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160; <span class="keywordflow">for</span> x <span class="keywordflow">in</span> [<span class="stringliteral">&quot;Ecal&quot;</span>,<span class="stringliteral">&quot;Hcal&quot;</span>]:</div>
+<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;  xvol = sGeo.GetVolume(x)</div>
+<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;  <span class="keywordflow">if</span> <span class="keywordflow">not</span> xvol: <span class="keywordflow">continue</span></div>
+<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;  xvol.SetVisDaughters(0)</div>
+<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;  xvol.SetVisibility(1)</div>
+<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;  <span class="keywordflow">if</span> x==<span class="stringliteral">&quot;Ecal&quot;</span>: xvol.SetLineColor(ROOT.kYellow) </div>
+<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;  <span class="keywordflow">else</span>:        xvol.SetLineColor(ROOT.kOrange+3) </div>
+<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160; </div>
+<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;<span class="comment"># set display properties for tau nu target</span></div>
+<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_ad092ba08bcc855fa36b4391866b85033"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#ad092ba08bcc855fa36b4391866b85033">eventDisplay_shipLHC.speedUp</a></div><div class="ttdeci">def speedUp()</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00588">eventDisplay_shipLHC.py:588</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1021,13 +1025,13 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00573">573</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#a6be0bfd847485f21286a5efea2498233">storeCameraSetting</a>(fname=&#39;camSetting.root&#39;):</div>
-<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160; f = ROOT.TFile.Open(fname, <span class="stringliteral">&quot;RECREATE&quot;</span>);</div>
-<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160; cam  = ROOT.gEve.GetDefaultGLViewer().CurrentCamera()</div>
-<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160; cam.Write()</div>
-<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160; f.Close()</div>
-<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_a6be0bfd847485f21286a5efea2498233"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#a6be0bfd847485f21286a5efea2498233">eventDisplay_shipLHC.storeCameraSetting</a></div><div class="ttdeci">def storeCameraSetting(fname='camSetting.root')</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00573">eventDisplay_shipLHC.py:573</a></div></div>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00576">576</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#a6be0bfd847485f21286a5efea2498233">storeCameraSetting</a>(fname=&#39;camSetting.root&#39;):</div>
+<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160; f = ROOT.TFile.Open(fname, <span class="stringliteral">&quot;RECREATE&quot;</span>);</div>
+<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160; cam  = ROOT.gEve.GetDefaultGLViewer().CurrentCamera()</div>
+<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160; cam.Write()</div>
+<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160; f.Close()</div>
+<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_a6be0bfd847485f21286a5efea2498233"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#a6be0bfd847485f21286a5efea2498233">eventDisplay_shipLHC.storeCameraSetting</a></div><div class="ttdeci">def storeCameraSetting(fname='camSetting.root')</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00576">eventDisplay_shipLHC.py:576</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1047,17 +1051,17 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00618">618</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#aa1ed172a3d6b3ce4a5970da7c488c80b">switchOf</a>(tag):</div>
-<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160; sc    = gEve.GetScenes()</div>
-<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160; geoscene = sc.FindChild(<span class="stringliteral">&#39;Geometry scene&#39;</span>)</div>
-<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160; <span class="keywordflow">for</span> v <span class="keywordflow">in</span> top.GetNodes():</div>
-<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;   vname = v.GetName()</div>
-<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;   <span class="keywordflow">if</span> <span class="keywordflow">not</span> vname.find(tag)&lt;0:</div>
-<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;     v.SetVisibility(0)</div>
-<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;     v.SetVisDaughters(0)</div>
-<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160; gEve.ElementChanged(geoscene,<span class="keyword">True</span>,<span class="keyword">True</span>)</div>
-<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_aa1ed172a3d6b3ce4a5970da7c488c80b"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#aa1ed172a3d6b3ce4a5970da7c488c80b">eventDisplay_shipLHC.switchOf</a></div><div class="ttdeci">def switchOf(tag)</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00618">eventDisplay_shipLHC.py:618</a></div></div>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00621">621</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#aa1ed172a3d6b3ce4a5970da7c488c80b">switchOf</a>(tag):</div>
+<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160; sc    = gEve.GetScenes()</div>
+<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160; geoscene = sc.FindChild(<span class="stringliteral">&#39;Geometry scene&#39;</span>)</div>
+<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160; <span class="keywordflow">for</span> v <span class="keywordflow">in</span> top.GetNodes():</div>
+<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;   vname = v.GetName()</div>
+<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;   <span class="keywordflow">if</span> <span class="keywordflow">not</span> vname.find(tag)&lt;0:</div>
+<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;     v.SetVisibility(0)</div>
+<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;     v.SetVisDaughters(0)</div>
+<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160; gEve.ElementChanged(geoscene,<span class="keyword">True</span>,<span class="keyword">True</span>)</div>
+<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_aa1ed172a3d6b3ce4a5970da7c488c80b"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#aa1ed172a3d6b3ce4a5970da7c488c80b">eventDisplay_shipLHC.switchOf</a></div><div class="ttdeci">def switchOf(tag)</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00621">eventDisplay_shipLHC.py:621</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1077,21 +1081,21 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00646">646</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#a0888b1e67919884fb21809d5840cb809">switchOfAll</a>(exc):</div>
-<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160; sc    = gEve.GetScenes()</div>
-<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160; geoscene = sc.FindChild(<span class="stringliteral">&#39;Geometry scene&#39;</span>)</div>
-<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160; <span class="keywordflow">for</span> v <span class="keywordflow">in</span> top.GetNodes():</div>
-<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;   vname = v.GetName()</div>
-<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;   <span class="keywordflow">if</span> <span class="keywordflow">not</span> vname.find(<span class="stringliteral">&#39;cave&#39;</span>)&lt; 0 : <span class="keywordflow">continue</span></div>
-<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;   todo = <span class="keyword">True</span></div>
-<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;   <span class="keywordflow">for</span> tag <span class="keywordflow">in</span> exc: </div>
-<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;    <span class="keywordflow">if</span> <span class="keywordflow">not</span> tag.find(vname)&lt;0: todo = <span class="keyword">False</span> </div>
-<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;   <span class="keywordflow">if</span> todo:</div>
-<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;    v.SetVisibility(0)</div>
-<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;    v.SetVisDaughters(0)</div>
-<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160; gEve.ElementChanged(geoscene,<span class="keyword">True</span>,<span class="keyword">True</span>) </div>
-<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_a0888b1e67919884fb21809d5840cb809"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#a0888b1e67919884fb21809d5840cb809">eventDisplay_shipLHC.switchOfAll</a></div><div class="ttdeci">def switchOfAll(exc)</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00646">eventDisplay_shipLHC.py:646</a></div></div>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00649">649</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#a0888b1e67919884fb21809d5840cb809">switchOfAll</a>(exc):</div>
+<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160; sc    = gEve.GetScenes()</div>
+<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160; geoscene = sc.FindChild(<span class="stringliteral">&#39;Geometry scene&#39;</span>)</div>
+<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160; <span class="keywordflow">for</span> v <span class="keywordflow">in</span> top.GetNodes():</div>
+<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;   vname = v.GetName()</div>
+<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;   <span class="keywordflow">if</span> <span class="keywordflow">not</span> vname.find(<span class="stringliteral">&#39;cave&#39;</span>)&lt; 0 : <span class="keywordflow">continue</span></div>
+<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;   todo = <span class="keyword">True</span></div>
+<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;   <span class="keywordflow">for</span> tag <span class="keywordflow">in</span> exc: </div>
+<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;    <span class="keywordflow">if</span> <span class="keywordflow">not</span> tag.find(vname)&lt;0: todo = <span class="keyword">False</span> </div>
+<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;   <span class="keywordflow">if</span> todo:</div>
+<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;    v.SetVisibility(0)</div>
+<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;    v.SetVisDaughters(0)</div>
+<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160; gEve.ElementChanged(geoscene,<span class="keyword">True</span>,<span class="keyword">True</span>) </div>
+<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_a0888b1e67919884fb21809d5840cb809"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#a0888b1e67919884fb21809d5840cb809">eventDisplay_shipLHC.switchOfAll</a></div><div class="ttdeci">def switchOfAll(exc)</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00649">eventDisplay_shipLHC.py:649</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1110,15 +1114,15 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00639">639</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#a297c062f5a5f648a0710472016271976">switchOfRock</a>():</div>
-<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160; sc    = gEve.GetScenes()</div>
-<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160; geoscene = sc.FindChild(<span class="stringliteral">&#39;Geometry scene&#39;</span>)</div>
-<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160; <span class="keywordflow">for</span> x <span class="keywordflow">in</span> [ <span class="stringliteral">&#39;rockD&#39;</span>, <span class="stringliteral">&#39;rockS&#39;</span>]:</div>
-<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;  v = sGeo.FindVolumeFast(x)</div>
-<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;  v.SetVisibility(0)</div>
-<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160; gEve.ElementChanged(geoscene,<span class="keyword">True</span>,<span class="keyword">True</span>)</div>
-<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_a297c062f5a5f648a0710472016271976"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#a297c062f5a5f648a0710472016271976">eventDisplay_shipLHC.switchOfRock</a></div><div class="ttdeci">def switchOfRock()</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00639">eventDisplay_shipLHC.py:639</a></div></div>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00642">642</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#a297c062f5a5f648a0710472016271976">switchOfRock</a>():</div>
+<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160; sc    = gEve.GetScenes()</div>
+<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160; geoscene = sc.FindChild(<span class="stringliteral">&#39;Geometry scene&#39;</span>)</div>
+<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160; <span class="keywordflow">for</span> x <span class="keywordflow">in</span> [ <span class="stringliteral">&#39;rockD&#39;</span>, <span class="stringliteral">&#39;rockS&#39;</span>]:</div>
+<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;  v = sGeo.FindVolumeFast(x)</div>
+<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;  v.SetVisibility(0)</div>
+<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160; gEve.ElementChanged(geoscene,<span class="keyword">True</span>,<span class="keyword">True</span>)</div>
+<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_a297c062f5a5f648a0710472016271976"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#a297c062f5a5f648a0710472016271976">eventDisplay_shipLHC.switchOfRock</a></div><div class="ttdeci">def switchOfRock()</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00642">eventDisplay_shipLHC.py:642</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1138,20 +1142,20 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00627">627</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#a79bc49b223fe035f079058d6f28651f1">switchOn</a>(tag):</div>
-<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160; sc    = gEve.GetScenes()</div>
-<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160; geoscene = sc.FindChild(<span class="stringliteral">&#39;Geometry scene&#39;</span>)</div>
-<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160; <span class="keywordflow">for</span> v <span class="keywordflow">in</span> top.GetNodes():</div>
-<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;   vname = v.GetName()</div>
-<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;   <span class="keywordflow">if</span> <span class="keywordflow">not</span> vname.find(tag)&lt;0:</div>
-<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;     print(<span class="stringliteral">&#39;switch on &#39;</span>,vname)</div>
-<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;     v.SetVisibility(1)</div>
-<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;     v.SetVisDaughters(1)</div>
-<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160; gEve.ElementChanged(geoscene,<span class="keyword">True</span>,<span class="keyword">True</span>)</div>
-<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160; </div>
-<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;<span class="comment"># switch of drawing of rock</span></div>
-<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_a79bc49b223fe035f079058d6f28651f1"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#a79bc49b223fe035f079058d6f28651f1">eventDisplay_shipLHC.switchOn</a></div><div class="ttdeci">def switchOn(tag)</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00627">eventDisplay_shipLHC.py:627</a></div></div>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00630">630</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#a79bc49b223fe035f079058d6f28651f1">switchOn</a>(tag):</div>
+<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160; sc    = gEve.GetScenes()</div>
+<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160; geoscene = sc.FindChild(<span class="stringliteral">&#39;Geometry scene&#39;</span>)</div>
+<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160; <span class="keywordflow">for</span> v <span class="keywordflow">in</span> top.GetNodes():</div>
+<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;   vname = v.GetName()</div>
+<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;   <span class="keywordflow">if</span> <span class="keywordflow">not</span> vname.find(tag)&lt;0:</div>
+<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;     print(<span class="stringliteral">&#39;switch on &#39;</span>,vname)</div>
+<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;     v.SetVisibility(1)</div>
+<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;     v.SetVisDaughters(1)</div>
+<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160; gEve.ElementChanged(geoscene,<span class="keyword">True</span>,<span class="keyword">True</span>)</div>
+<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160; </div>
+<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;<span class="comment"># switch of drawing of rock</span></div>
+<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_a79bc49b223fe035f079058d6f28651f1"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#a79bc49b223fe035f079058d6f28651f1">eventDisplay_shipLHC.switchOn</a></div><div class="ttdeci">def switchOn(tag)</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00630">eventDisplay_shipLHC.py:630</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1171,22 +1175,22 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00659">659</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#a7dceb1132efa00bb307a97d6b923a780">switchOnAll</a>(exc):</div>
-<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160; sc    = gEve.GetScenes()</div>
-<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160; geoscene = sc.FindChild(<span class="stringliteral">&#39;Geometry scene&#39;</span>)</div>
-<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160; <span class="keywordflow">for</span> v <span class="keywordflow">in</span> top.GetNodes():</div>
-<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;   vname = v.GetName()</div>
-<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;   <span class="keywordflow">if</span> <span class="keywordflow">not</span> vname.find(<span class="stringliteral">&#39;cave&#39;</span>)&lt; 0 : <span class="keywordflow">continue</span></div>
-<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;   todo = <span class="keyword">True</span></div>
-<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;   <span class="keywordflow">for</span> tag <span class="keywordflow">in</span> exc: </div>
-<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;    <span class="keywordflow">if</span> <span class="keywordflow">not</span> tag.find(vname)&lt;0: todo = <span class="keyword">False</span> </div>
-<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;   <span class="keywordflow">if</span> todo:</div>
-<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;    v.SetVisibility(1)</div>
-<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;    v.SetVisDaughters(1)</div>
-<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160; gEve.ElementChanged(geoscene,<span class="keyword">True</span>,<span class="keyword">True</span>) </div>
-<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160; </div>
-<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_a7dceb1132efa00bb307a97d6b923a780"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#a7dceb1132efa00bb307a97d6b923a780">eventDisplay_shipLHC.switchOnAll</a></div><div class="ttdeci">def switchOnAll(exc)</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00659">eventDisplay_shipLHC.py:659</a></div></div>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00662">662</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceeventDisplay__shipLHC.html#a7dceb1132efa00bb307a97d6b923a780">switchOnAll</a>(exc):</div>
+<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160; sc    = gEve.GetScenes()</div>
+<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160; geoscene = sc.FindChild(<span class="stringliteral">&#39;Geometry scene&#39;</span>)</div>
+<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160; <span class="keywordflow">for</span> v <span class="keywordflow">in</span> top.GetNodes():</div>
+<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;   vname = v.GetName()</div>
+<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;   <span class="keywordflow">if</span> <span class="keywordflow">not</span> vname.find(<span class="stringliteral">&#39;cave&#39;</span>)&lt; 0 : <span class="keywordflow">continue</span></div>
+<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;   todo = <span class="keyword">True</span></div>
+<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;   <span class="keywordflow">for</span> tag <span class="keywordflow">in</span> exc: </div>
+<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;    <span class="keywordflow">if</span> <span class="keywordflow">not</span> tag.find(vname)&lt;0: todo = <span class="keyword">False</span> </div>
+<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;   <span class="keywordflow">if</span> todo:</div>
+<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;    v.SetVisibility(1)</div>
+<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;    v.SetVisDaughters(1)</div>
+<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160; gEve.ElementChanged(geoscene,<span class="keyword">True</span>,<span class="keyword">True</span>) </div>
+<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160; </div>
+<div class="ttc" id="anamespaceeventDisplay__shipLHC_html_a7dceb1132efa00bb307a97d6b923a780"><div class="ttname"><a href="namespaceeventDisplay__shipLHC.html#a7dceb1132efa00bb307a97d6b923a780">eventDisplay_shipLHC.switchOnAll</a></div><div class="ttdeci">def switchOnAll(exc)</div><div class="ttdef"><b>Definition:</b> <a href="eventDisplay__shipLHC_8py_source.html#l00662">eventDisplay_shipLHC.py:662</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1203,7 +1207,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00048">48</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00051">51</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
 
 </div>
 </div>
@@ -1219,7 +1223,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00914">914</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00917">917</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
 
 </div>
 </div>
@@ -1235,7 +1239,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00047">47</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00050">50</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
 
 </div>
 </div>
@@ -1251,7 +1255,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00045">45</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00048">48</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
 
 </div>
 </div>
@@ -1267,7 +1271,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00047">47</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00050">50</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
 
 </div>
 </div>
@@ -1283,7 +1287,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00910">910</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00913">913</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
 
 </div>
 </div>
@@ -1299,7 +1303,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00023">23</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00026">26</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
 
 </div>
 </div>
@@ -1315,7 +1319,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00898">898</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00901">901</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
 
 </div>
 </div>
@@ -1331,7 +1335,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00024">24</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00027">27</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
 
 </div>
 </div>
@@ -1347,7 +1351,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00026">26</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00029">29</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
 
 </div>
 </div>
@@ -1363,7 +1367,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00027">27</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00030">30</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
 
 </div>
 </div>
@@ -1379,7 +1383,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00842">842</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00845">845</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
 
 </div>
 </div>
@@ -1395,7 +1399,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00908">908</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00911">911</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
 
 </div>
 </div>
@@ -1411,7 +1415,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00906">906</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00909">909</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
 
 </div>
 </div>
@@ -1427,7 +1431,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00871">871</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00874">874</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
 
 </div>
 </div>
@@ -1443,7 +1447,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00045">45</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00048">48</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
 
 </div>
 </div>
@@ -1459,7 +1463,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00847">847</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00850">850</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
 
 </div>
 </div>
@@ -1475,7 +1479,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00845">845</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00848">848</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
 
 </div>
 </div>
@@ -1491,7 +1495,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00900">900</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00903">903</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
 
 </div>
 </div>
@@ -1507,7 +1511,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00030">30</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00033">33</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
 
 </div>
 </div>
@@ -1523,7 +1527,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00884">884</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00887">887</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
 
 </div>
 </div>
@@ -1539,7 +1543,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00052">52</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00055">55</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
 
 </div>
 </div>
@@ -1555,7 +1559,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00852">852</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00855">855</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
 
 </div>
 </div>
@@ -1571,7 +1575,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00857">857</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00860">860</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
 
 </div>
 </div>
@@ -1587,7 +1591,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00043">43</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00046">46</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
 
 </div>
 </div>
@@ -1603,7 +1607,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00025">25</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00028">28</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
 
 </div>
 </div>
@@ -1619,7 +1623,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00045">45</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00048">48</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
 
 </div>
 </div>
@@ -1635,7 +1639,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00856">856</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00859">859</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
 
 </div>
 </div>
@@ -1651,7 +1655,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00920">920</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00923">923</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
 
 </div>
 </div>
@@ -1667,7 +1671,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00902">902</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00905">905</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
 
 </div>
 </div>
@@ -1683,7 +1687,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00921">921</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00924">924</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
 
 </div>
 </div>
@@ -1699,7 +1703,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00878">878</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00881">881</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
 
 </div>
 </div>
@@ -1715,7 +1719,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00031">31</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00034">34</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
 
 </div>
 </div>
@@ -1731,7 +1735,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00899">899</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00902">902</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
 
 </div>
 </div>
@@ -1747,7 +1751,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00903">903</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00906">906</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
 
 </div>
 </div>
@@ -1763,7 +1767,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00870">870</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00873">873</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
 
 </div>
 </div>
@@ -1784,7 +1788,7 @@ Variables</h2></td></tr>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">#                        charm detector  </span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;                        <span class="stringliteral">&#39;CoilAluminium&#39;</span>:70,<span class="stringliteral">&#39;molybdenum&#39;</span>:80,<span class="stringliteral">&#39;PlasticBase&#39;</span>:70,<span class="stringliteral">&#39;tantalum&#39;</span>:70}</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00036">36</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00039">39</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
 
 </div>
 </div>
@@ -1800,7 +1804,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00881">881</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00884">884</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
 
 </div>
 </div>
@@ -1816,7 +1820,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00868">868</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00871">871</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
 
 </div>
 </div>
@@ -1832,7 +1836,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00032">32</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00035">35</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
 
 </div>
 </div>
@@ -1848,7 +1852,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00033">33</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="eventDisplay__shipLHC_8py_source.html#l00036">36</a> of file <a class="el" href="eventDisplay__shipLHC_8py_source.html">eventDisplay_shipLHC.py</a>.</p>
 
 </div>
 </div>
