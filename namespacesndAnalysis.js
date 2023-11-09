@@ -4,6 +4,7 @@ var namespacesndAnalysis =
     [ "avgSciFiFiducialCut", "classsndAnalysis_1_1avgSciFiFiducialCut.html", "classsndAnalysis_1_1avgSciFiFiducialCut" ],
     [ "baseCut", "classsndAnalysis_1_1baseCut.html", "classsndAnalysis_1_1baseCut" ],
     [ "DSActivityCut", "classsndAnalysis_1_1DSActivityCut.html", "classsndAnalysis_1_1DSActivityCut" ],
+    [ "DSVetoCut", "classsndAnalysis_1_1DSVetoCut.html", "classsndAnalysis_1_1DSVetoCut" ],
     [ "eventDeltatCut", "classsndAnalysis_1_1eventDeltatCut.html", "classsndAnalysis_1_1eventDeltatCut" ],
     [ "EventHeaderBaseCut", "classsndAnalysis_1_1EventHeaderBaseCut.html", "classsndAnalysis_1_1EventHeaderBaseCut" ],
     [ "minSciFiConsecutivePlanes", "classsndAnalysis_1_1minSciFiConsecutivePlanes.html", "classsndAnalysis_1_1minSciFiConsecutivePlanes" ],

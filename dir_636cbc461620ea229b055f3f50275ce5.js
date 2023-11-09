@@ -15,6 +15,10 @@ var dir_636cbc461620ea229b055f3f50275ce5 =
     [ "sndDSActivityCut.h", "sndDSActivityCut_8h.html", [
       [ "DSActivityCut", "classsndAnalysis_1_1DSActivityCut.html", "classsndAnalysis_1_1DSActivityCut" ]
     ] ],
+    [ "sndDSVetoCut.cxx", "sndDSVetoCut_8cxx.html", null ],
+    [ "sndDSVetoCut.h", "sndDSVetoCut_8h.html", [
+      [ "DSVetoCut", "classsndAnalysis_1_1DSVetoCut.html", "classsndAnalysis_1_1DSVetoCut" ]
+    ] ],
     [ "sndEventDeltat.cxx", "sndEventDeltat_8cxx.html", null ],
     [ "sndEventDeltat.h", "sndEventDeltat_8h.html", [
       [ "eventDeltatCut", "classsndAnalysis_1_1eventDeltatCut.html", "classsndAnalysis_1_1eventDeltatCut" ]

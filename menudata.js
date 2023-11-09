@@ -292,9 +292,12 @@ var menudata={children:[
 {text:"Typedefs",url:"globals_type.html"},
 {text:"Enumerations",url:"globals_enum.html"},
 {text:"Enumerator",url:"globals_eval.html",children:[
+{text:"a",url:"globals_eval.html#index_a"},
 {text:"e",url:"globals_eval.html#index_e"},
+{text:"f",url:"globals_eval.html#index_f"},
 {text:"h",url:"globals_eval.html#index_h"},
 {text:"k",url:"globals_eval.html#index_k"},
+{text:"n",url:"globals_eval.html#index_n"},
 {text:"s",url:"globals_eval.html#index_s"},
 {text:"v",url:"globals_eval.html#index_v"}]},
 {text:"Macros",url:"globals_defs.html",children:[

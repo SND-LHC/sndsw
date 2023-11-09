@@ -387,11 +387,12 @@ Protected Attributes</h2></td></tr>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <a class="code" href="classgenfit_1_1AbsKalmanFitter.html#a92f42206963951c573e02c9dedb7ed23">getChiSquNdf</a>(tr, rep, bChi2, fChi2, bNdf, fNdf);</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  <span class="keywordflow">if</span> (direction &lt; 0)</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="namespaceneutrinoFilterGoldenSample__stage2.html#af05dc467263117be6efd007aa09659de">direction</a> &lt; 0)</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordflow">return</span> bChi2;</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  <span class="keywordflow">return</span> fChi2;</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;}</div>
 <div class="ttc" id="aclassgenfit_1_1AbsKalmanFitter_html_a92f42206963951c573e02c9dedb7ed23"><div class="ttname"><a href="classgenfit_1_1AbsKalmanFitter.html#a92f42206963951c573e02c9dedb7ed23">genfit::AbsKalmanFitter::getChiSquNdf</a></div><div class="ttdeci">void getChiSquNdf(const Track *tr, const AbsTrackRep *rep, double &amp;bChi2, double &amp;fChi2, double &amp;bNdf, double &amp;fNdf) const</div><div class="ttdef"><b>Definition:</b> <a href="AbsKalmanFitter_8cc_source.html#l00040">AbsKalmanFitter.cc:40</a></div></div>
+<div class="ttc" id="anamespaceneutrinoFilterGoldenSample__stage2_html_af05dc467263117be6efd007aa09659de"><div class="ttname"><a href="namespaceneutrinoFilterGoldenSample__stage2.html#af05dc467263117be6efd007aa09659de">neutrinoFilterGoldenSample_stage2.direction</a></div><div class="ttdeci">def direction(event)</div><div class="ttdoc">Event direction cut.</div><div class="ttdef"><b>Definition:</b> <a href="neutrinoFilterGoldenSample__stage2_8py_source.html#l00079">neutrinoFilterGoldenSample_stage2.py:79</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -564,13 +565,13 @@ Protected Attributes</h2></td></tr>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="namespacegenfit.html#a2243c8ece1acd0220b857eb896791b02a30a9fbc482689dfad5b3dc77b8e92756">weightedClosestToPrediction</a> :</div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="namespacegenfit.html#a2243c8ece1acd0220b857eb896791b02aaba552568910851c4393b71f98352a0a">unweightedClosestToPrediction</a> :</div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    {</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;      <span class="keywordflow">if</span> (!fi-&gt;<a class="code" href="classgenfit_1_1AbsFitterInfo.html#a4d09fa16d8331b04abc87f404a08bd6a">hasPrediction</a>(direction)) {</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;      <span class="keywordflow">if</span> (!fi-&gt;<a class="code" href="classgenfit_1_1AbsFitterInfo.html#a4d09fa16d8331b04abc87f404a08bd6a">hasPrediction</a>(<a class="code" href="namespaceneutrinoFilterGoldenSample__stage2.html#af05dc467263117be6efd007aa09659de">direction</a>)) {</div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        <a class="code" href="classgenfit_1_1Exception.html">Exception</a> e(<span class="stringliteral">&quot;AbsKalmanFitter::getMeasurement: no prediction.&quot;</span>, __LINE__,__FILE__);</div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        e.setFatal();</div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        <span class="keywordflow">throw</span> e;</div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;      }</div>
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;      std::vector&lt;MeasurementOnPlane *&gt; retVal;</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;      retVal.push_back(fi-&gt;<a class="code" href="classgenfit_1_1KalmanFitterInfo.html#a93bb308265899549d7d5383fbab2c321">getClosestMeasurementOnPlane</a>(fi-&gt;<a class="code" href="classgenfit_1_1KalmanFitterInfo.html#a7bbeb4ef07e47f6144f97e21530d46fe">getPrediction</a>(direction)));</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;      retVal.push_back(fi-&gt;<a class="code" href="classgenfit_1_1KalmanFitterInfo.html#a93bb308265899549d7d5383fbab2c321">getClosestMeasurementOnPlane</a>(fi-&gt;<a class="code" href="classgenfit_1_1KalmanFitterInfo.html#a7bbeb4ef07e47f6144f97e21530d46fe">getPrediction</a>(<a class="code" href="namespaceneutrinoFilterGoldenSample__stage2.html#af05dc467263117be6efd007aa09659de">direction</a>)));</div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;      <span class="keywordflow">return</span> retVal;</div>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    }</div>
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160; </div>
@@ -596,13 +597,13 @@ Protected Attributes</h2></td></tr>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="namespacegenfit.html#a2243c8ece1acd0220b857eb896791b02a6bfe52d0cb76a8c3e92e0e5853957a3c">unweightedClosestToPredictionWire</a> :</div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    {</div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;      <span class="keywordflow">if</span> (<a class="code" href="namespacemakeCascade.html#a7fa96a16bd8cee0441b6cec4aeda8761">tp</a>-&gt;getNumRawMeasurements() == 1 &amp;&amp; <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classgenfit_1_1WireMeasurement.html">WireMeasurement</a>*<span class="keyword">&gt;</span>(<a class="code" href="namespacemakeCascade.html#a7fa96a16bd8cee0441b6cec4aeda8761">tp</a>-&gt;getRawMeasurement()) != NULL) {</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;        <span class="keywordflow">if</span> (!fi-&gt;<a class="code" href="classgenfit_1_1AbsFitterInfo.html#a4d09fa16d8331b04abc87f404a08bd6a">hasPrediction</a>(direction)) {</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;        <span class="keywordflow">if</span> (!fi-&gt;<a class="code" href="classgenfit_1_1AbsFitterInfo.html#a4d09fa16d8331b04abc87f404a08bd6a">hasPrediction</a>(<a class="code" href="namespaceneutrinoFilterGoldenSample__stage2.html#af05dc467263117be6efd007aa09659de">direction</a>)) {</div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;          <a class="code" href="classgenfit_1_1Exception.html">Exception</a> e(<span class="stringliteral">&quot;AbsKalmanFitter::getMeasurement: no prediction.&quot;</span>, __LINE__,__FILE__);</div>
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;          e.setFatal();</div>
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;          <span class="keywordflow">throw</span> e;</div>
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;        }</div>
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;        std::vector&lt;MeasurementOnPlane *&gt; retVal;</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;        retVal.push_back(fi-&gt;<a class="code" href="classgenfit_1_1KalmanFitterInfo.html#a93bb308265899549d7d5383fbab2c321">getClosestMeasurementOnPlane</a>(fi-&gt;<a class="code" href="classgenfit_1_1KalmanFitterInfo.html#a7bbeb4ef07e47f6144f97e21530d46fe">getPrediction</a>(direction)));</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;        retVal.push_back(fi-&gt;<a class="code" href="classgenfit_1_1KalmanFitterInfo.html#a93bb308265899549d7d5383fbab2c321">getClosestMeasurementOnPlane</a>(fi-&gt;<a class="code" href="classgenfit_1_1KalmanFitterInfo.html#a7bbeb4ef07e47f6144f97e21530d46fe">getPrediction</a>(<a class="code" href="namespaceneutrinoFilterGoldenSample__stage2.html#af05dc467263117be6efd007aa09659de">direction</a>)));</div>
 <div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;        <span class="keywordflow">return</span> retVal;</div>
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;      }</div>
 <div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;      <span class="keywordflow">else</span></div>
@@ -695,7 +696,7 @@ Protected Attributes</h2></td></tr>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  <a class="code" href="classgenfit_1_1AbsKalmanFitter.html#a92f42206963951c573e02c9dedb7ed23">getChiSquNdf</a>(tr, rep, bChi2, fChi2, bNdf, fNdf);</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  <span class="keywordflow">if</span> (direction &lt; 0)</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="namespaceneutrinoFilterGoldenSample__stage2.html#af05dc467263117be6efd007aa09659de">direction</a> &lt; 0)</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">return</span> bNdf;</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  <span class="keywordflow">return</span> fNdf;</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;}</div>
@@ -740,7 +741,7 @@ Protected Attributes</h2></td></tr>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  <a class="code" href="classgenfit_1_1AbsKalmanFitter.html#a92f42206963951c573e02c9dedb7ed23">getChiSquNdf</a>(tr, rep, bChi2, fChi2, bNdf, fNdf);</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  <span class="keywordflow">if</span> (direction &lt; 0)</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="namespaceneutrinoFilterGoldenSample__stage2.html#af05dc467263117be6efd007aa09659de">direction</a> &lt; 0)</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordflow">return</span> ROOT::Math::chisquared_cdf_c(bChi2, bNdf);</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;  <span class="keywordflow">return</span> ROOT::Math::chisquared_cdf_c(fChi2, fNdf);</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;}</div>
@@ -785,7 +786,7 @@ Protected Attributes</h2></td></tr>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  <a class="code" href="classgenfit_1_1AbsKalmanFitter.html#a92f42206963951c573e02c9dedb7ed23">getChiSquNdf</a>(tr, rep, bChi2, fChi2, bNdf, fNdf);</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <span class="keywordflow">if</span> (direction &lt; 0)</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="namespaceneutrinoFilterGoldenSample__stage2.html#af05dc467263117be6efd007aa09659de">direction</a> &lt; 0)</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordflow">return</span> bChi2/bNdf;</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  <span class="keywordflow">return</span> fChi2/fNdf;</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;}</div>

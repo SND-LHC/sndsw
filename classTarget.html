@@ -1139,14 +1139,14 @@ Protected Attributes</h2></td></tr>
 <div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;  NWall = detID/1E7;</div>
 <div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;  NRow = (detID - NWall*1E7)/1E6;</div>
 <div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;  NColumn = (detID - NWall*1E7 -NRow*1E6)/1E4;</div>
-<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;  Double_t <a class="code" href="namespaceScifiCTR.html#a87a9336a17ef0557a1090c56e6990797">b</a> = (detID - NWall*1E7 -NRow*1E6 - NColumn*1E4)/1.E3;</div>
-<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;  <span class="keywordflow">if</span>(<a class="code" href="namespaceScifiCTR.html#a87a9336a17ef0557a1090c56e6990797">b</a> &lt; 1)</div>
+<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;  Double_t <a class="code" href="namespaceneutrinoFilterGoldenSample__stage2.html#a4d3a35309dfc41a14adb6865aa8238ae">b</a> = (detID - NWall*1E7 -NRow*1E6 - NColumn*1E4)/1.E3;</div>
+<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;  <span class="keywordflow">if</span>(<a class="code" href="namespaceneutrinoFilterGoldenSample__stage2.html#a4d3a35309dfc41a14adb6865aa8238ae">b</a> &lt; 1)</div>
 <div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;    {</div>
 <div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;      BrickorCES = 0;</div>
 <div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;      NPlate = (detID - NWall*1E7 -NRow*1E6 - NColumn*1E4 - BrickorCES*1E3)/1E1;</div>
 <div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;<span class="comment">//      NPlate = detID - NWall*1E7 -NRow*1E6 - NColumn*1E4 - BrickorCES*1E3;</span></div>
 <div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;    }</div>
-<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;  <span class="keywordflow">if</span>(<a class="code" href="namespaceScifiCTR.html#a87a9336a17ef0557a1090c56e6990797">b</a> &gt;= 1)</div>
+<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;  <span class="keywordflow">if</span>(<a class="code" href="namespaceneutrinoFilterGoldenSample__stage2.html#a4d3a35309dfc41a14adb6865aa8238ae">b</a> &gt;= 1)</div>
 <div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;    {</div>
 <div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;      BrickorCES = 1;</div>
 <div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;      NPlate = (detID - NWall*1E7 -NRow*1E6 - NColumn*1E4 - BrickorCES*1E3)/1E1;</div>
@@ -1167,7 +1167,7 @@ Protected Attributes</h2></td></tr>
 <div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;  <span class="comment">// cout &lt;&lt; &quot;EmCES = &quot; &lt;&lt; EmCES &lt;&lt; &quot;;    EmBrick = &quot; &lt;&lt; EmBick &lt;&lt; endl;</span></div>
 <div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;  <span class="comment">// cout &lt;&lt; endl;</span></div>
 <div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;}</div>
-<div class="ttc" id="anamespaceScifiCTR_html_a87a9336a17ef0557a1090c56e6990797"><div class="ttname"><a href="namespaceScifiCTR.html#a87a9336a17ef0557a1090c56e6990797">ScifiCTR.b</a></div><div class="ttdeci">b</div><div class="ttdef"><b>Definition:</b> <a href="ScifiCTR_8py_source.html#l00470">ScifiCTR.py:470</a></div></div>
+<div class="ttc" id="anamespaceneutrinoFilterGoldenSample__stage2_html_a4d3a35309dfc41a14adb6865aa8238ae"><div class="ttname"><a href="namespaceneutrinoFilterGoldenSample__stage2.html#a4d3a35309dfc41a14adb6865aa8238ae">neutrinoFilterGoldenSample_stage2.b</a></div><div class="ttdeci">b</div><div class="ttdef"><b>Definition:</b> <a href="neutrinoFilterGoldenSample__stage2_8py_source.html#l00493">neutrinoFilterGoldenSample_stage2.py:493</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1387,9 +1387,9 @@ Protected Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="Target_8cxx_source.html#l00136">136</a> of file <a class="el" href="Target_8cxx_source.html">Target.cxx</a>.</p>
 <div class="fragment"><div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;{</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;  <a class="code" href="classTarget.html#ad99b3af0e72861f3ef76849c058a1a9f">fPassive</a>=<a class="code" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a5e37896fee417eb26379057dc702c406">a</a>;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;  <a class="code" href="classTarget.html#ad99b3af0e72861f3ef76849c058a1a9f">fPassive</a>=<a class="code" href="namespaceneutrinoFilterGoldenSample__stage2.html#a5168014afe6a6542fec6b1a26ad9abc7">a</a>;</div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;}</div>
-<div class="ttc" id="anamespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring_html_a5e37896fee417eb26379057dc702c406"><div class="ttname"><a href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a5e37896fee417eb26379057dc702c406">conditionsDatabase.demo.drifttubeMonitoring.a</a></div><div class="ttdeci">a</div><div class="ttdef"><b>Definition:</b> <a href="drifttubeMonitoring_8py_source.html#l00213">drifttubeMonitoring.py:213</a></div></div>
+<div class="ttc" id="anamespaceneutrinoFilterGoldenSample__stage2_html_a5168014afe6a6542fec6b1a26ad9abc7"><div class="ttname"><a href="namespaceneutrinoFilterGoldenSample__stage2.html#a5168014afe6a6542fec6b1a26ad9abc7">neutrinoFilterGoldenSample_stage2.a</a></div><div class="ttdeci">a</div><div class="ttdef"><b>Definition:</b> <a href="neutrinoFilterGoldenSample__stage2_8py_source.html#l00492">neutrinoFilterGoldenSample_stage2.py:492</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>

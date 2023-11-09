@@ -99,6 +99,8 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsndAnalysis_1_1DSActivityCut.html">DSActivityCut</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsndAnalysis_1_1DSVetoCut.html">DSVetoCut</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsndAnalysis_1_1eventDeltatCut.html">eventDeltatCut</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsndAnalysis_1_1EventHeaderBaseCut.html">EventHeaderBaseCut</a></td></tr>
@@ -178,14 +180,14 @@ Functions</h2></td></tr>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  std::partial_sum(frac.begin(), frac.end(), frac_sum.begin());</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  std::vector&lt;float&gt;::iterator station = std::find_if(frac_sum.begin(), frac_sum.end(),</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                              [&amp;threshold](<span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a637894e719175e5eb3e4a4fb4679ed7e">f</a>) {</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                              [&amp;threshold](<span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code" href="namespaceneutrinoFilterGoldenSample__stage2.html#ae9fce6ddd3faec9559671c4cda7f6872">f</a>) {</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                            return f &gt; threshold;</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                              });</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    </div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <span class="keywordflow">return</span> station - frac_sum.begin() + 1;</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    </div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;}</div>
-<div class="ttc" id="anamespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring_html_a637894e719175e5eb3e4a4fb4679ed7e"><div class="ttname"><a href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a637894e719175e5eb3e4a4fb4679ed7e">conditionsDatabase.demo.drifttubeMonitoring.f</a></div><div class="ttdeci">f</div><div class="ttdef"><b>Definition:</b> <a href="drifttubeMonitoring_8py_source.html#l00091">drifttubeMonitoring.py:91</a></div></div>
+<div class="ttc" id="anamespaceneutrinoFilterGoldenSample__stage2_html_ae9fce6ddd3faec9559671c4cda7f6872"><div class="ttname"><a href="namespaceneutrinoFilterGoldenSample__stage2.html#ae9fce6ddd3faec9559671c4cda7f6872">neutrinoFilterGoldenSample_stage2.f</a></div><div class="ttdeci">f</div><div class="ttdoc">END CUT DEFINITONS.</div><div class="ttdef"><b>Definition:</b> <a href="neutrinoFilterGoldenSample__stage2_8py_source.html#l00352">neutrinoFilterGoldenSample_stage2.py:352</a></div></div>
 <div class="ttc" id="anamespacesndAnalysis_html_a52b02aaea4b5a6dfa293913db414f6e9"><div class="ttname"><a href="namespacesndAnalysis.html#a52b02aaea4b5a6dfa293913db414f6e9">sndAnalysis::getFractionalHitsPerPlane</a></div><div class="ttdeci">std::vector&lt; float &gt; getFractionalHitsPerPlane(std::vector&lt; int &gt; &amp;horizontal_hits, std::vector&lt; int &gt; &amp;vertical_hits)</div><div class="ttdef"><b>Definition:</b> <a href="sndSciFiTools_8cxx_source.html#l00047">sndSciFiTools.cxx:47</a></div></div>
 </div><!-- fragment -->
 </div>
