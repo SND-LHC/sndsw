@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "SND Software", "index.html", [
+  [ "SND@LHC Software", "index.html", [
     [ "SNDSW Class Reference", "index.html", "index" ],
     [ "README", "md_conditionsDatabase_databases_mongodb_models_README.html", null ],
     [ "README", "md_conditionsDatabase_databases_mongodb_README.html", null ],
