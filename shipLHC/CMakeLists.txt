@@ -7,15 +7,12 @@ ${BASE_INCLUDE_DIRECTORIES}
 ${CMAKE_SOURCE_DIR}/shipdata
 ${CMAKE_SOURCE_DIR}/shipLHC
 ${CMAKE_SOURCE_DIR}/veto
-${CMAKE_SOURCE_DIR}/genfit/core/include
-${CMAKE_SOURCE_DIR}/genfit/trackReps/include
-${CMAKE_SOURCE_DIR}/genfit/include/genfit
-${CMAKE_SOURCE_DIR}/genfit/fields/include
 ${ROOT_INCLUDE_DIR}
 )
 
 include_directories( ${INCLUDE_DIRECTORIES} ${VMC_INCLUDE_DIRS} ${FAIRROOT_INCLUDE_DIR} ${FairLogger_INCDIR} ${FMT_INCLUDE_DIR}
 )
+include_directories(${genfit2_INCDIR})
 include_directories(SYSTEM ${SYSTEM_INCLUDE_DIRECTORIES})
 
 set(LINK_DIRECTORIES
@@ -25,6 +22,8 @@ ${FAIRROOT_LIBRARY_DIR}
 )
  
 link_directories( ${LINK_DIRECTORIES})
+link_directories(${genfit2_LIBDIR})
+link_directories(${Rave_LIBDIR})
 
 set(SRCS
 Floor.cxx
@@ -46,7 +45,7 @@ sndRecoTrack.cxx
 Set(HEADERS )
 Set(LINKDEF shipLHCLinkDef.h)
 Set(LIBRARY_NAME shipLHC)
-Set(DEPENDENCIES Base ShipData GeoBase ParBase Geom Core genfit)
+Set(DEPENDENCIES Base ShipData GeoBase ParBase Geom Core genfit2)
 
 include(FindPythonInterp)
 list(APPEND PYTHONPATH  "${CMAKE_SOURCE_DIR}/shipLHC/scripts")

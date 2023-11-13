@@ -4,22 +4,21 @@
 
 set(INCLUDE_DIRECTORIES
 ${CMAKE_SOURCE_DIR}/shipdata
-${CMAKE_SOURCE_DIR}/genfit/core/include
-${CMAKE_SOURCE_DIR}/genfit/fitters/include
 )
 
 include_directories( ${INCLUDE_DIRECTORIES} ${VMC_INCLUDE_DIRS} ${FAIRROOT_INCLUDE_DIR} ${FairLogger_INCDIR} ${FMT_INCLUDE_DIR}
 )
+include_directories(${genfit2_INCDIR})
 include_directories(SYSTEM ${SYSTEM_INCLUDE_DIRECTORIES})
 
 set(LINK_DIRECTORIES
 ${ROOT_LIBRARY_DIR}
 ${FAIRROOT_LIBRARY_DIR}
-${CMAKE_SOURCE_DIR}/shipdata
-
 )
  
 link_directories( ${LINK_DIRECTORIES})
+link_directories(${genfit2_LIBDIR})
+link_directories(${Rave_LIBDIR})
 
 set(SRCS
 ShipHit.cxx 
@@ -34,7 +33,7 @@ TrackInfo.cxx
 Set(HEADERS )
 Set(LINKDEF MCStackLinkDef.h)
 Set(LIBRARY_NAME ShipData)
-Set(DEPENDENCIES Base EG Physics Core genfit)
+Set(DEPENDENCIES Base EG Physics Core genfit2 RaveBase RaveCore RaveVertex RaveFlavorTag RaveVertexKinematics CLHEP)
 
 GENERATE_LIBRARY()
 

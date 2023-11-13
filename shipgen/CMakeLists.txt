@@ -31,6 +31,8 @@ ${SIMPATH}/lib
 )
 
 link_directories(${LINK_DIRECTORIES})
+link_directories(${genfit2_LIBDIR})
+link_directories(${Rave_LIBDIR})
 
 set(SRCS
 Pythia8Generator.cxx
