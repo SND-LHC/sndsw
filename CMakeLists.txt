@@ -143,6 +143,24 @@ find_package2(PUBLIC FairRoot REQUIRED)
 
 find_package2(PUBLIC FairLogger REQUIRED)
 
+find_package(genfit2 REQUIRED)
+IF(DEFINED ENV{RAVEPATH})
+	# get compiler flags from rave
+	INCLUDE(FindPkgConfig)
+	SET(ENV{PKG_CONFIG_PATH} $ENV{RAVEPATH})
+	find_package(Rave REQUIRED)
+	SET(RAVE True)
+ENDIF()
+
+IF(DEFINED RAVE)
+	find_package(CLHEP REQUIRED)
+	MESSAGE(STATUS "FOUND Rave_LDFLAGS=${Rave_LDFLAGS}")
+	MESSAGE(STATUS "FOUND Rave_INCLUDE_DIRS=${Rave_INCLUDE_DIRS}")
+	# turn semicolon separated lists into space separated strings
+	string (REPLACE ";" " " Rave_LDFLAGS_STR "${Rave_LDFLAGS}")
+	string (REPLACE ";" " " Rave_INCLUDE_DIRS_STR "${Rave_INCLUDE_DIRS}")
+ENDIF()
+
 IF(DEFINED ${BOOST_ROOT})
   Set(Boost_NO_SYSTEM_PATHS TRUE)
   Set(Boost_NO_BOOST_CMAKE TRUE)
@@ -257,8 +275,6 @@ add_subdirectory (passive)
 add_subdirectory (veto)
 add_subdirectory (shipgen)
 add_subdirectory (field)
-add_subdirectory (genfit)
-add_subdirectory (millepede)
 add_subdirectory (analysis)
 
 FIND_PATH(TEvePath NAMES TEveEventManager.h PATHS
