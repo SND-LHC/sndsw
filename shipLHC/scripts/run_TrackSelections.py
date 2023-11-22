@@ -4,11 +4,6 @@ import Monitor
 import SndlhcMuonReco
 import SndlhcTracking
 
-def pyExit():
-       print("Make suicide until solution found for freezing")
-       os.system('kill '+str(os.getpid()))
-atexit.register(pyExit)
-
 from argparse import ArgumentParser
 parser = ArgumentParser()
 parser.add_argument("-o", "--outFile", dest="oname", help="output file name", type=str,default=None,required=True)

@@ -14,9 +14,9 @@
 
   <!--  Tracks stored in genfit::Track format, value 1,
         or sndRecoTrack class, value 0  -->
-  <genfitTrack> 0 </genfitTrack>
-  <!--  Enable option to visualize the polulated Hough space. Usefull for tests -->
-  <draw> 0 </draw> 
+  <genfitTrack> 1 </genfitTrack>
+  <!--  Enable option to visualize the populated Hough space. Useful for tests -->
+  <draw> 0 </draw>
   
   <tracking_case name = "nu_interaction_products">
      <!--  Which detectors to use in the tracks fit, in the format: vesfusds, 

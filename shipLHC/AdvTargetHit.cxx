@@ -8,6 +8,7 @@
 #include <TRandom.h>
 #include <iomanip>
 #include "ShipUnit.h"
+#include <cassert>
 #include "ROOT/RVec.hxx"
 
 // -----   Default constructor   -------------------------------------------
@@ -46,8 +47,13 @@ void AdvTargetHit::GetPosition(TVector3& vLeft, TVector3& vRight) {
     auto* S = dynamic_cast<TGeoBBox*>(node->GetVolume()->GetShape());
     Double_t short_side = S->GetDY();
     Double_t long_side = S->GetDX();
-    Double_t top[3] = {long_side, short_side, S->GetDZ()};
-    Double_t bot[3] = {-long_side, -short_side, -S->GetDZ()};
+    Double_t centre[3] = {0, 0, 0};
+    Double_t Gcentre[3];
+    // Double_t top[3] = {long_side, short_side, S->GetDZ()};
+    // Double_t bot[3] = {-long_side, -short_side, -S->GetDZ()};
+    // Use centre of strip
+    Double_t top[3] = {long_side, 0, 0};
+    Double_t bot[3] = {-long_side, 0, 0};
     Double_t Gtop[3], Gbot[3];
     if (short_side > 100) {
         LOG(INFO) << nav->GetPath();
@@ -55,30 +61,49 @@ void AdvTargetHit::GetPosition(TVector3& vLeft, TVector3& vRight) {
     }
     nav->LocalToMaster(top, Gtop);
     nav->LocalToMaster(bot, Gbot);
-    if (
-        !(
-            (Gtop[0] < fX && fX < Gbot[0]) ||
-            (Gbot[0] < fX && fX < Gtop[0])
-        )
-    ){
-        LOG(WARN) << "fX not between Gtop and Gbot!";
-        LOG(INFO) << "True:\t" << fX;
-        LOG(INFO) << "Gtop\t" << Gtop[0];
-        LOG(INFO) << "Gbot\t" << Gbot[0];
-        LOG(INFO) << path;
-    }
-    if (
-        !(
-            (Gtop[1] < fY && fY < Gbot[1]) ||
-            (Gbot[1] < fY && fY < Gtop[1])
-        )
-    ){
-        LOG(WARN) << "fY not between Gtop and Gbot!";
-        LOG(INFO) << "True:\t" << fY;
-        LOG(INFO) << "Gtop\t" << Gtop[1];
-        LOG(INFO) << "Gbot\t" << Gbot[1];
-        LOG(INFO) << path;
-    }
+    // nav->LocalToMaster(centre, Gcentre);
+    // LOG(INFO) << "Gcentre:\t" << Gcentre[0] << Gcentre[1] << Gcentre[2];
+    // if (isVertical()) {
+    //     Gtop[0] = Gcentre [0] + long_side;
+    //     Gtop[1] = Gcentre [1] + short_side;
+    //     Gbot[0] = Gcentre [0] - long_side;
+    //     Gbot[1] = Gcentre [1] - short_side;
+    // } else {
+    //     Gtop[0] = Gcentre [0] + short_side;
+    //     Gtop[1] = Gcentre [1] + long_side;
+    //     Gbot[0] = Gcentre [0] - short_side;
+    //     Gbot[1] = Gcentre [1] - long_side;
+    // }
+    // Gtop[2] = Gcentre [2] + S->GetDZ();
+    // Gbot[2] = Gcentre [2] - S->GetDZ();
+    // LOG(INFO) << "Gtop:\t" << Gtop[0] << Gtop[1] << Gtop[2];
+    // LOG(INFO) << "Gbot:\t" << Gbot[0] << Gbot[1] << Gbot[2];
+    // LOG(INFO) << "long_side:\t" << - Gbot[0] + Gtop[0];
+    // LOG(INFO) << "short_side:\t" << - Gbot[1] + Gtop[1];
+    // if (
+    //     !(
+    //         (Gtop[0] < fX && fX < Gbot[0]) ||
+    //         (Gbot[0] < fX && fX < Gtop[0])
+    //     )
+    // ){
+    //     LOG(WARN) << "fX not between Gtop and Gbot!";
+    //     LOG(INFO) << "True:\t" << fX;
+    //     LOG(INFO) << "Gtop\t" << Gtop[0];
+    //     LOG(INFO) << "Gbot\t" << Gbot[0];
+    //     LOG(INFO) << path;
+    // }
+    // if (
+    //     !(
+    //         (Gtop[1] < fY && fY < Gbot[1]) ||
+    //         (Gbot[1] < fY && fY < Gtop[1])
+    //     )
+    // ){
+    //     LOG(WARN) << "fY not between Gtop and Gbot!";
+    //     LOG(INFO) << "True:\t" << fY;
+    //     LOG(INFO) << "Gtop\t" << Gtop[1];
+    //     LOG(INFO) << "Gbot\t" << Gbot[1];
+    //     LOG(INFO) << path;
+    // }
     vLeft.SetXYZ(Gtop[0], Gtop[1], Gtop[2]);
     vRight.SetXYZ(Gbot[0], Gbot[1], Gbot[2]);
 }

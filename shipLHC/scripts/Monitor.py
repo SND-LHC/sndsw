@@ -860,5 +860,7 @@ class TrackSelector():
           self.fSink.Fill()
 
    def Finalize(self):
+         for t in self.options.FairTasks:
+            self.options.FairTasks[t].FinishTask()
          self.fSink.Write()
          self.outFile.Close()
