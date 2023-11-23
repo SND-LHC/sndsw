@@ -145,7 +145,7 @@ On lxplus or systems with CVMFS</h2>
 <li>Load the environment ```bash alienv enter sndsw/latest ```</li>
 </ol>
 <p>However, this won't work if you are using HTCondor. In such case you can do:</p>
-<div class="fragment"><div class="line">eval alienv load sndsw/latest</div>
+<div class="fragment"><div class="line">eval $(alienv load sndsw/latest --no-refresh)</div>
 </div><!-- fragment --><p>If you modify <code>sndsw</code>, simply repeat step 4 from <code>sndsw</code>'s parent directory.</p>
 <p>Note for Ubuntu 20.04: currently there is a version (March 2022) of CVMFS built with Ubuntu 20.04. However, standard ubuntu 20.04 still have python2 has default, while we moved to python3. So, it is needed to do </p><div class="fragment"><div class="line">sudo apt-get install python-is-python3</div>
 </div><!-- fragment --><p>Then, the above procedure works </p>
