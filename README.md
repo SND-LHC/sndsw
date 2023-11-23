@@ -104,7 +104,7 @@ To load the `sndsw` environment, after you build the software, you can simply us
 However, this won't work if you are using HTCondor. In such case you can do:
 
 ```bash
-eval alienv load sndsw/latest
+eval $(alienv load sndsw/latest --no-refresh)
 ```
 
 If you modify `sndsw`, simply repeat step 4 from `sndsw`'s parent directory.
