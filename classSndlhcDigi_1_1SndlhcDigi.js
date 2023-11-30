@@ -1,13 +1,10 @@
 var classSndlhcDigi_1_1SndlhcDigi =
 [
     [ "__init__", "classSndlhcDigi_1_1SndlhcDigi.html#a9df45e36a430513e201a9dd9f8a2dc0b", null ],
-    [ "clusterScifi", "classSndlhcDigi_1_1SndlhcDigi.html#adbd404ee6c0c6794b5f94a9f559a203f", null ],
     [ "digitize", "classSndlhcDigi_1_1SndlhcDigi.html#ad92c364633086082156276ba76575354", null ],
     [ "digitizeMuFilter", "classSndlhcDigi_1_1SndlhcDigi.html#a610614407775223ce757fe128bdc650a", null ],
     [ "digitizeScifi", "classSndlhcDigi_1_1SndlhcDigi.html#a0941c974cadc5a054ff601e80e5a6d00", null ],
     [ "finish", "classSndlhcDigi_1_1SndlhcDigi.html#aaac0b9379be3eeade9d6965fc68aa179", null ],
-    [ "clusScifi", "classSndlhcDigi_1_1SndlhcDigi.html#a000031a10c7bc637aef9001b49725c4c", null ],
-    [ "clusScifiBranch", "classSndlhcDigi_1_1SndlhcDigi.html#aa03dedd0cff1dbb0ca9183f6d1a3a0fa", null ],
     [ "digiMuFilter", "classSndlhcDigi_1_1SndlhcDigi.html#adc158b49225468ea6d1fa3ce31a27b92", null ],
     [ "digiMuFilter2MCPoints", "classSndlhcDigi_1_1SndlhcDigi.html#a89394b9e2d0329ecc09f1b78b19202af", null ],
     [ "digiMuFilter2MCPointsBranch", "classSndlhcDigi_1_1SndlhcDigi.html#a906b80dd3a2e8a27ff9b7b0f911d57b8", null ],

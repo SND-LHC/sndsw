@@ -111,107 +111,108 @@ $(document).ready(function(){initNavTree('run__digiSND_8py_source.html',''); ini
 <div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#a765ac06b5801ac2ee0dae6f1998a3185">   24</a></span>&#160;parser.add_argument(<span class="stringliteral">&quot;-f&quot;</span>, <span class="stringliteral">&quot;--inputFile&quot;</span>, dest=<span class="stringliteral">&quot;inputFile&quot;</span>, help=<span class="stringliteral">&quot;single input file&quot;</span>, required=<span class="keyword">True</span>)</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;parser.add_argument(<span class="stringliteral">&quot;-g&quot;</span>, <span class="stringliteral">&quot;--geoFile&quot;</span>, dest=<span class="stringliteral">&quot;geoFile&quot;</span>, help=<span class="stringliteral">&quot;geofile&quot;</span>, required=<span class="keyword">True</span>)</div>
 <div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#afd902e05aaff52727afa34a94a386431">   26</a></span>&#160;parser.add_argument(<span class="stringliteral">&quot;-n&quot;</span>, <span class="stringliteral">&quot;--nEvents&quot;</span>, dest=<span class="stringliteral">&quot;nEvents&quot;</span>,  type=int, help=<span class="stringliteral">&quot;number of events to process&quot;</span>, default=100000)</div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#af501c3168e3d0b8014f6df001f6e603e">   27</a></span>&#160;parser.add_argument(<span class="stringliteral">&quot;-ts&quot;</span>, <span class="stringliteral">&quot;--thresholdScifi&quot;</span>, dest=<span class="stringliteral">&quot;ts&quot;</span>, type=float, help=<span class="stringliteral">&quot;threshold energy for Scifi [keV]&quot;</span>, default=3.5)</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;parser.add_argument(<span class="stringliteral">&quot;-tML&quot;</span>, <span class="stringliteral">&quot;--thresholdMufiL&quot;</span>, dest=<span class="stringliteral">&quot;tml&quot;</span>, type=float, help=<span class="stringliteral">&quot;threshold energy for Mufi large [keV]&quot;</span>, default=0.0)</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;parser.add_argument(<span class="stringliteral">&quot;-tMS&quot;</span>, <span class="stringliteral">&quot;--thresholdMufiS&quot;</span>, dest=<span class="stringliteral">&quot;tms&quot;</span>, type=float, help=<span class="stringliteral">&quot;threshold energy for Mufi small [keV]&quot;</span>, default=0.0)</div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#aa62fdc224ae15c8eae440522929a7951">   30</a></span>&#160;parser.add_argument(<span class="stringliteral">&quot;-cpp&quot;</span>, <span class="stringliteral">&quot;--digiCPP&quot;</span>, action=<span class="stringliteral">&#39;store_true&#39;</span>, dest=<span class="stringliteral">&quot;FairTask_digi&quot;</span>, help=<span class="stringliteral">&quot;perform digitization using DigiTaskSND&quot;</span>, default=<span class="keyword">False</span>)</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;parser.add_argument(<span class="stringliteral">&quot;-d&quot;</span>, <span class="stringliteral">&quot;--Debug&quot;</span>, dest=<span class="stringliteral">&quot;debug&quot;</span>, help=<span class="stringliteral">&quot;debug&quot;</span>, default=<span class="keyword">False</span>)</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#aaa56ba8053a70d7463be8060c5013733">   33</a></span>&#160;options = parser.parse_args()</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment"># -----Timer-------------</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#a86368a13f7b3893659b25f5de341165b">   35</a></span>&#160;timer = ROOT.TStopwatch()</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;timer.Start()</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment"># outfile should be in local directory</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#ad1f3cd6970ec898a584432736bc47c85">   39</a></span>&#160;tmp     = options.inputFile.split(<span class="stringliteral">&#39;/&#39;</span>)</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#a8891ba4aa2655651e201300dacce2b64">   40</a></span>&#160;outFile = tmp[len(tmp)-1].replace(<span class="stringliteral">&#39;.root&#39;</span>,<span class="stringliteral">&#39;_dig.root&#39;</span>)</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keywordflow">if</span> options.inputFile.find(<span class="stringliteral">&#39;/eos&#39;</span>)==0:</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;   <span class="keywordflow">if</span> options.FairTask_digi:</div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#a126a3ccb6d5fb858124e85782c916a8e">   43</a></span>&#160;       options.inputFile = os.environ[<span class="stringliteral">&#39;EOSSHIP&#39;</span>]+options.inputFile</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;   <span class="keywordflow">else</span>:   </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;       os.system(<span class="stringliteral">&#39;xrdcp &#39;</span>+os.environ[<span class="stringliteral">&#39;EOSSHIP&#39;</span>]+options.inputFile+<span class="stringliteral">&#39; &#39;</span>+outFile)</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">if</span> <span class="keywordflow">not</span> options.FairTask_digi:</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;       os.system(<span class="stringliteral">&#39;cp &#39;</span>+options.inputFile+<span class="stringliteral">&#39; &#39;</span>+outFile) </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment"># -----Create geometry----------------------------------------------</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">import</span> shipLHC_conf <span class="keyword">as</span> sndDet_conf</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keywordflow">if</span> options.geoFile.find(<span class="stringliteral">&#39;/eos&#39;</span>)==0:</div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#ae1b49298440b96e3ecf906aaec145eda">   54</a></span>&#160;       options.geoFile = os.environ[<span class="stringliteral">&#39;EOSSHIP&#39;</span>]+options.geoFile</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">import</span> SndlhcGeo</div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#aa3ab6a00d45f469c9f55ffb6145a1122">   56</a></span>&#160;snd_geo = <a class="code" href="classSndlhcGeo_1_1GeoInterface.html">SndlhcGeo.GeoInterface</a>(options.geoFile)</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment"># set digitization parameters for MuFilter</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#a3d2ef2cab7ab2dce4fc08b8d3ea2cea1">   59</a></span>&#160;lsOfGlobals  = ROOT.gROOT.GetListOfGlobals()</div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#ae02cf3869f50c8449fd28da6e767988d">   60</a></span>&#160;scifiDet     = lsOfGlobals.FindObject(<span class="stringliteral">&#39;Scifi&#39;</span>)</div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#acfd6116705f57460fe5c184a3d5c19c7">   61</a></span>&#160;mufiDet      = lsOfGlobals.FindObject(<span class="stringliteral">&#39;MuFilter&#39;</span>)</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;mufiDet.SetConfPar(<span class="stringliteral">&quot;MuFilter/DsAttenuationLength&quot;</span>,350 * u.cm)       <span class="comment">#  values between 300 cm and 400cm observed for H6 testbeam</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;mufiDet.SetConfPar(<span class="stringliteral">&quot;MuFilter/DsTAttenuationLength&quot;</span>,700 * u.cm)      <span class="comment"># top readout with mirror on bottom</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;mufiDet.SetConfPar(<span class="stringliteral">&quot;MuFilter/VandUpAttenuationLength&quot;</span>,999 * u.cm)   <span class="comment"># no significante attenuation observed for H6 testbeam</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;mufiDet.SetConfPar(<span class="stringliteral">&quot;MuFilter/DsSiPMcalibrationS&quot;</span>,25.*1000.)         <span class="comment"># in MC: 1.65 keV are about 41.2 qdc</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;mufiDet.SetConfPar(<span class="stringliteral">&quot;MuFilter/VandUpSiPMcalibration&quot;</span>,25.*1000.);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;mufiDet.SetConfPar(<span class="stringliteral">&quot;MuFilter/VandUpSiPMcalibrationS&quot;</span>,25.*1000.);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;mufiDet.SetConfPar(<span class="stringliteral">&quot;MuFilter/VandUpPropSpeed&quot;</span>,12.5*u.cm/u.nanosecond);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;mufiDet.SetConfPar(<span class="stringliteral">&quot;MuFilter/DsPropSpeed&quot;</span>,14.3*u.cm/u.nanosecond);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;scifiDet.SetConfPar(<span class="stringliteral">&quot;Scifi/nphe_min&quot;</span>,3.5)   <span class="comment"># threshold</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;scifiDet.SetConfPar(<span class="stringliteral">&quot;Scifi/nphe_max&quot;</span>,104.) <span class="comment"># saturation</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;scifiDet.SetConfPar(<span class="stringliteral">&quot;Scifi/timeResol&quot;</span>,150.*u.picosecond) <span class="comment"># time resolution in ps</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;scifiDet.SetConfPar(<span class="stringliteral">&quot;MuFilter/timeResol&quot;</span>,150.*u.picosecond) <span class="comment"># time resolution in ps, first guess</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#af501c3168e3d0b8014f6df001f6e603e">   27</a></span>&#160;parser.add_argument(<span class="stringliteral">&quot;-ts&quot;</span>, <span class="stringliteral">&quot;--thresholdScifi&quot;</span>, dest=<span class="stringliteral">&quot;ts&quot;</span>, type=float, help=<span class="stringliteral">&quot;threshold energy for Scifi [p.e.]&quot;</span>, default=3.5)</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;parser.add_argument(<span class="stringliteral">&quot;-ss&quot;</span>, <span class="stringliteral">&quot;--saturationScifi&quot;</span>, dest=<span class="stringliteral">&quot;ss&quot;</span>, type=float, help=<span class="stringliteral">&quot;saturation energy for Scifi [p.e.]&quot;</span>, default=104.)</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;parser.add_argument(<span class="stringliteral">&quot;-tML&quot;</span>, <span class="stringliteral">&quot;--thresholdMufiL&quot;</span>, dest=<span class="stringliteral">&quot;tml&quot;</span>, type=float, help=<span class="stringliteral">&quot;threshold energy for Mufi large [p.e.]&quot;</span>, default=0.0)</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;parser.add_argument(<span class="stringliteral">&quot;-tMS&quot;</span>, <span class="stringliteral">&quot;--thresholdMufiS&quot;</span>, dest=<span class="stringliteral">&quot;tms&quot;</span>, type=float, help=<span class="stringliteral">&quot;threshold energy for Mufi small [p.e.]&quot;</span>, default=0.0)</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#aa62fdc224ae15c8eae440522929a7951">   31</a></span>&#160;parser.add_argument(<span class="stringliteral">&quot;-cpp&quot;</span>, <span class="stringliteral">&quot;--digiCPP&quot;</span>, action=<span class="stringliteral">&#39;store_true&#39;</span>, dest=<span class="stringliteral">&quot;FairTask_digi&quot;</span>, help=<span class="stringliteral">&quot;perform digitization using DigiTaskSND&quot;</span>, default=<span class="keyword">False</span>)</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;parser.add_argument(<span class="stringliteral">&quot;-d&quot;</span>, <span class="stringliteral">&quot;--Debug&quot;</span>, dest=<span class="stringliteral">&quot;debug&quot;</span>, help=<span class="stringliteral">&quot;debug&quot;</span>, default=<span class="keyword">False</span>)</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#aaa56ba8053a70d7463be8060c5013733">   34</a></span>&#160;options = parser.parse_args()</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment"># -----Timer-------------</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#a86368a13f7b3893659b25f5de341165b">   36</a></span>&#160;timer = ROOT.TStopwatch()</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;timer.Start()</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment"># outfile should be in local directory</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#ad1f3cd6970ec898a584432736bc47c85">   40</a></span>&#160;tmp     = options.inputFile.split(<span class="stringliteral">&#39;/&#39;</span>)</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#a8891ba4aa2655651e201300dacce2b64">   41</a></span>&#160;outFile = tmp[len(tmp)-1].replace(<span class="stringliteral">&#39;.root&#39;</span>,<span class="stringliteral">&#39;_dig.root&#39;</span>)</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keywordflow">if</span> options.inputFile.find(<span class="stringliteral">&#39;/eos&#39;</span>)==0:</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;   <span class="keywordflow">if</span> options.FairTask_digi:</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#a126a3ccb6d5fb858124e85782c916a8e">   44</a></span>&#160;       options.inputFile = os.environ[<span class="stringliteral">&#39;EOSSHIP&#39;</span>]+options.inputFile</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;   <span class="keywordflow">else</span>:   </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;       os.system(<span class="stringliteral">&#39;xrdcp &#39;</span>+os.environ[<span class="stringliteral">&#39;EOSSHIP&#39;</span>]+options.inputFile+<span class="stringliteral">&#39; &#39;</span>+outFile)</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">if</span> <span class="keywordflow">not</span> options.FairTask_digi:</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;       os.system(<span class="stringliteral">&#39;cp &#39;</span>+options.inputFile+<span class="stringliteral">&#39; &#39;</span>+outFile) </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment"># -----Create geometry----------------------------------------------</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">import</span> shipLHC_conf <span class="keyword">as</span> sndDet_conf</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keywordflow">if</span> options.geoFile.find(<span class="stringliteral">&#39;/eos&#39;</span>)==0:</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#ae1b49298440b96e3ecf906aaec145eda">   55</a></span>&#160;       options.geoFile = os.environ[<span class="stringliteral">&#39;EOSSHIP&#39;</span>]+options.geoFile</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">import</span> SndlhcGeo</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#aa3ab6a00d45f469c9f55ffb6145a1122">   57</a></span>&#160;snd_geo = <a class="code" href="classSndlhcGeo_1_1GeoInterface.html">SndlhcGeo.GeoInterface</a>(options.geoFile)</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment"># set digitization parameters for MuFilter</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#a3d2ef2cab7ab2dce4fc08b8d3ea2cea1">   60</a></span>&#160;lsOfGlobals  = ROOT.gROOT.GetListOfGlobals()</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#ae02cf3869f50c8449fd28da6e767988d">   61</a></span>&#160;scifiDet     = lsOfGlobals.FindObject(<span class="stringliteral">&#39;Scifi&#39;</span>)</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#acfd6116705f57460fe5c184a3d5c19c7">   62</a></span>&#160;mufiDet      = lsOfGlobals.FindObject(<span class="stringliteral">&#39;MuFilter&#39;</span>)</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;mufiDet.SetConfPar(<span class="stringliteral">&quot;MuFilter/DsAttenuationLength&quot;</span>,350 * u.cm)       <span class="comment">#  values between 300 cm and 400cm observed for H6 testbeam</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;mufiDet.SetConfPar(<span class="stringliteral">&quot;MuFilter/DsTAttenuationLength&quot;</span>,700 * u.cm)      <span class="comment"># top readout with mirror on bottom</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;mufiDet.SetConfPar(<span class="stringliteral">&quot;MuFilter/VandUpAttenuationLength&quot;</span>,999 * u.cm)   <span class="comment"># no significante attenuation observed for H6 testbeam</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;mufiDet.SetConfPar(<span class="stringliteral">&quot;MuFilter/DsSiPMcalibrationS&quot;</span>,25.*1000.)         <span class="comment"># in MC: 1.65 keV are about 41.2 qdc</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;mufiDet.SetConfPar(<span class="stringliteral">&quot;MuFilter/VandUpSiPMcalibration&quot;</span>,25.*1000.);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;mufiDet.SetConfPar(<span class="stringliteral">&quot;MuFilter/VandUpSiPMcalibrationS&quot;</span>,25.*1000.);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;mufiDet.SetConfPar(<span class="stringliteral">&quot;MuFilter/VandUpPropSpeed&quot;</span>,12.5*u.cm/u.nanosecond);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;mufiDet.SetConfPar(<span class="stringliteral">&quot;MuFilter/DsPropSpeed&quot;</span>,14.3*u.cm/u.nanosecond);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;scifiDet.SetConfPar(<span class="stringliteral">&quot;Scifi/nphe_min&quot;</span>,options.ts)   <span class="comment"># threshold</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;scifiDet.SetConfPar(<span class="stringliteral">&quot;Scifi/nphe_max&quot;</span>,options.ss) <span class="comment"># saturation</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;scifiDet.SetConfPar(<span class="stringliteral">&quot;Scifi/timeResol&quot;</span>,150.*u.picosecond) <span class="comment"># time resolution in ps</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;scifiDet.SetConfPar(<span class="stringliteral">&quot;MuFilter/timeResol&quot;</span>,150.*u.picosecond) <span class="comment"># time resolution in ps, first guess</span></div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment"># Fair digitization task</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keywordflow">if</span> options.FairTask_digi:</div>
-<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#ae3ea0831b19e20155631cb5820e177f1">   78</a></span>&#160;  run = ROOT.FairRunAna()</div>
-<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#a7d35f6d30c4224da21a8347fb09e9350">   79</a></span>&#160;  ioman = ROOT.FairRootManager.Instance()</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  ioman.RegisterInputObject(<span class="stringliteral">&#39;Scifi&#39;</span>, snd_geo.modules[<span class="stringliteral">&#39;Scifi&#39;</span>])</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  ioman.RegisterInputObject(<span class="stringliteral">&#39;MuFilter&#39;</span>, snd_geo.modules[<span class="stringliteral">&#39;MuFilter&#39;</span>])</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="comment"># Don&#39;t use FairRoot&#39;s default event header settings</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  run.SetEventHeaderPersistence(<span class="keyword">False</span>)</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="comment"># Set input</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#acbeade646eb3812f9a19ed1b6d44f11e">   86</a></span>&#160;  fileSource = ROOT.FairFileSource(options.inputFile)</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  run.SetSource(fileSource)</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <span class="comment"># Set output</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#aaa08bbe28a3408b1637437cafd0d821d">   89</a></span>&#160;  outfile = ROOT.FairRootFileSink(outFile.replace(<span class="stringliteral">&#39;.root&#39;</span>,<span class="stringliteral">&#39;CPP.root&#39;</span>))</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  run.SetSink(outfile)</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  <span class="comment"># Set number of events to process</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#aa5fe4b1766171af97236b642c04c6ff8">   93</a></span>&#160;  inRootFile = ROOT.TFile.Open(options.inputFile)</div>
-<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#a68cf6a25ec71ea8281fbfefc425d3bd0">   94</a></span>&#160;  inTree = inRootFile.Get(<span class="stringliteral">&#39;cbmsim&#39;</span>)</div>
-<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#a808d6dcb199c7f6093f3dd851f14d685">   95</a></span>&#160;  nEventsInFile = inTree.GetEntries()</div>
-<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#ae3e6f33bf932ca856f8efc1542d7b718">   96</a></span>&#160;  nEvents = min(nEventsInFile, options.nEvents)</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
-<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#aed394027219a3d76ff57e78ba15d0ae2">   98</a></span>&#160;  rtdb = run.GetRuntimeDb()</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  run.AddTask(ROOT.DigiTaskSND())</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  run.Init()</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  run.Run(firstEvent, nEvents)</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="comment"># Digitization using python code SndlhcDigi</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; <span class="comment"># import digi task</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  <span class="keyword">import</span> SndlhcDigi</div>
-<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#ae4257a7315f7cc434e7b7e181d160675">  107</a></span>&#160;  Sndlhc = <a class="code" href="classSndlhcDigi_1_1SndlhcDigi.html">SndlhcDigi.SndlhcDigi</a>(outFile)</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  nEvents   = min(Sndlhc.sTree.GetEntries(),options.nEvents)</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="comment"># main loop</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  <span class="keywordflow">for</span> iEvent <span class="keywordflow">in</span> range(firstEvent, nEvents):</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordflow">if</span> iEvent % 50000 == 0 <span class="keywordflow">or</span> options.debug:</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        print(<span class="stringliteral">&#39;event &#39;</span>, iEvent, nEvents - firstEvent)</div>
-<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#a3e48193d9f647c620aaa32366decf6af">  114</a></span>&#160;    Sndlhc.iEvent = iEvent</div>
-<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#ae8e9da8f9584848cf46f3ae503a00cb2">  115</a></span>&#160;    rc = Sndlhc.sTree.GetEvent(iEvent)</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    Sndlhc.digitize()</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; <span class="comment"># memory monitoring</span></div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; <span class="comment"># mem_monitor()</span></div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;  <span class="comment"># end loop over events</span></div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;  Sndlhc.finish()</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  </div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;timer.Stop()</div>
-<div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#a78b5e8831ac5a77620d60b8ac35b005f">  124</a></span>&#160;rtime = timer.RealTime()</div>
-<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#aeec7c35dc7b68d4eae80546432e05585">  125</a></span>&#160;ctime = timer.CpuTime()</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;print(<span class="stringliteral">&#39; &#39;</span>) </div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;print(<span class="stringliteral">&quot;Real time &quot;</span>,rtime, <span class="stringliteral">&quot; s, CPU time &quot;</span>,ctime,<span class="stringliteral">&quot;s&quot;</span>)</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment"># Fair digitization task</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keywordflow">if</span> options.FairTask_digi:</div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#ae3ea0831b19e20155631cb5820e177f1">   79</a></span>&#160;  run = ROOT.FairRunAna()</div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#a7d35f6d30c4224da21a8347fb09e9350">   80</a></span>&#160;  ioman = ROOT.FairRootManager.Instance()</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  ioman.RegisterInputObject(<span class="stringliteral">&#39;Scifi&#39;</span>, snd_geo.modules[<span class="stringliteral">&#39;Scifi&#39;</span>])</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  ioman.RegisterInputObject(<span class="stringliteral">&#39;MuFilter&#39;</span>, snd_geo.modules[<span class="stringliteral">&#39;MuFilter&#39;</span>])</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  <span class="comment"># Don&#39;t use FairRoot&#39;s default event header settings</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  run.SetEventHeaderPersistence(<span class="keyword">False</span>)</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  <span class="comment"># Set input</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#acbeade646eb3812f9a19ed1b6d44f11e">   87</a></span>&#160;  fileSource = ROOT.FairFileSource(options.inputFile)</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  run.SetSource(fileSource)</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  <span class="comment"># Set output</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#aaa08bbe28a3408b1637437cafd0d821d">   90</a></span>&#160;  outfile = ROOT.FairRootFileSink(outFile.replace(<span class="stringliteral">&#39;.root&#39;</span>,<span class="stringliteral">&#39;CPP.root&#39;</span>))</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  run.SetSink(outfile)</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  <span class="comment"># Set number of events to process</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#aa5fe4b1766171af97236b642c04c6ff8">   94</a></span>&#160;  inRootFile = ROOT.TFile.Open(options.inputFile)</div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#a68cf6a25ec71ea8281fbfefc425d3bd0">   95</a></span>&#160;  inTree = inRootFile.Get(<span class="stringliteral">&#39;cbmsim&#39;</span>)</div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#a808d6dcb199c7f6093f3dd851f14d685">   96</a></span>&#160;  nEventsInFile = inTree.GetEntries()</div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#ae3e6f33bf932ca856f8efc1542d7b718">   97</a></span>&#160;  nEvents = min(nEventsInFile, options.nEvents)</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#aed394027219a3d76ff57e78ba15d0ae2">   99</a></span>&#160;  rtdb = run.GetRuntimeDb()</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  run.AddTask(ROOT.DigiTaskSND())</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  run.Init()</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  run.Run(firstEvent, nEvents)</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="comment"># Digitization using python code SndlhcDigi</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; <span class="comment"># import digi task</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  <span class="keyword">import</span> SndlhcDigi</div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#ae4257a7315f7cc434e7b7e181d160675">  108</a></span>&#160;  Sndlhc = <a class="code" href="classSndlhcDigi_1_1SndlhcDigi.html">SndlhcDigi.SndlhcDigi</a>(outFile)</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  nEvents   = min(Sndlhc.sTree.GetEntries(),options.nEvents)</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="comment"># main loop</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  <span class="keywordflow">for</span> iEvent <span class="keywordflow">in</span> range(firstEvent, nEvents):</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordflow">if</span> iEvent % 50000 == 0 <span class="keywordflow">or</span> options.debug:</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        print(<span class="stringliteral">&#39;event &#39;</span>, iEvent, nEvents - firstEvent)</div>
+<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#a3e48193d9f647c620aaa32366decf6af">  115</a></span>&#160;    Sndlhc.iEvent = iEvent</div>
+<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#ae8e9da8f9584848cf46f3ae503a00cb2">  116</a></span>&#160;    rc = Sndlhc.sTree.GetEvent(iEvent)</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    Sndlhc.digitize()</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; <span class="comment"># memory monitoring</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; <span class="comment"># mem_monitor()</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;  <span class="comment"># end loop over events</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  Sndlhc.finish()</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;timer.Stop()</div>
+<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#a78b5e8831ac5a77620d60b8ac35b005f">  125</a></span>&#160;rtime = timer.RealTime()</div>
+<div class="line"><a name="l00126"></a><span class="lineno"><a class="line" href="namespacerun__digiSND.html#aeec7c35dc7b68d4eae80546432e05585">  126</a></span>&#160;ctime = timer.CpuTime()</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;print(<span class="stringliteral">&#39; &#39;</span>) </div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;print(<span class="stringliteral">&quot;Real time &quot;</span>,rtime, <span class="stringliteral">&quot; s, CPU time &quot;</span>,ctime,<span class="stringliteral">&quot;s&quot;</span>)</div>
 <div class="ttc" id="aclassSndlhcDigi_1_1SndlhcDigi_html"><div class="ttname"><a href="classSndlhcDigi_1_1SndlhcDigi.html">SndlhcDigi.SndlhcDigi</a></div><div class="ttdef"><b>Definition:</b> <a href="SndlhcDigi_8py_source.html#l00010">SndlhcDigi.py:10</a></div></div>
 <div class="ttc" id="aclassSndlhcGeo_1_1GeoInterface_html"><div class="ttname"><a href="classSndlhcGeo_1_1GeoInterface.html">SndlhcGeo.GeoInterface</a></div><div class="ttdef"><b>Definition:</b> <a href="SndlhcGeo_8py_source.html#l00007">SndlhcGeo.py:7</a></div></div>
 <div class="ttc" id="anamespaceadd__noise__to__field_html_ac8c461fc99cff345995bf60fcdfefa01"><div class="ttname"><a href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">add_noise_to_field.str</a></div><div class="ttdeci">str</div><div class="ttdef"><b>Definition:</b> <a href="add__noise__to__field_8py_source.html#l00053">add_noise_to_field.py:53</a></div></div>

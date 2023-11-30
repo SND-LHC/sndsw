@@ -1,14 +1,5 @@
 var NAVTREEINDEX34 =
 {
-"classgenfit_1_1MeasurementCreator.html#a6a7c6b23f14b7d46c81cad3e8794851b":[12,0,13,67,27],
-"classgenfit_1_1MeasurementCreator.html#a7a318b9f650a284570fae22bfea74091":[12,0,13,67,1],
-"classgenfit_1_1MeasurementCreator.html#a7c1269a5e5c8c18e2b2ed505de58762e":[12,0,13,67,28],
-"classgenfit_1_1MeasurementCreator.html#a81943e554d7a5fb12dafa21a4dbf2eb5":[12,0,13,67,26],
-"classgenfit_1_1MeasurementCreator.html#a89da2e5ff3d1398b6d143aae7e48ba09":[12,0,13,67,0],
-"classgenfit_1_1MeasurementCreator.html#a9100e7e87800ac828370005c6e8a7233":[12,0,13,67,19],
-"classgenfit_1_1MeasurementCreator.html#a9c9ff70f41479ece5ac36158e5a7eef7":[12,0,13,67,22],
-"classgenfit_1_1MeasurementCreator.html#a9f9f951e57a3a0dd23f4c8eda0e56914":[12,0,13,67,13],
-"classgenfit_1_1MeasurementCreator.html#aa094190f5ff35543a10fa7082024a2b2":[12,0,13,67,36],
 "classgenfit_1_1MeasurementCreator.html#aa81d2aa274a52218103df609f6978b16":[12,0,13,67,20],
 "classgenfit_1_1MeasurementCreator.html#ab0eac8acd000d9095c7f09bafc45544c":[12,0,13,67,3],
 "classgenfit_1_1MeasurementCreator.html#ab32560f6ca2574e9ec5819094aebc613":[12,0,13,67,9],
@@ -249,5 +240,14 @@ var NAVTREEINDEX34 =
 "classgenfit_1_1ReferenceStateOnPlane.html#aa11dc358e9bc34e9e436d758d6cef581":[12,0,13,39,22],
 "classgenfit_1_1ReferenceStateOnPlane.html#ab4fc75e3e4a8d022e8d3dee8db30f190":[12,0,13,39,4],
 "classgenfit_1_1ReferenceStateOnPlane.html#ab864b86b4f4a8452a954eed703eba68c":[12,0,13,39,15],
-"classgenfit_1_1ReferenceStateOnPlane.html#ac5d86c9f5ac0aa2a2d79fdc894148026":[12,0,13,39,32]
+"classgenfit_1_1ReferenceStateOnPlane.html#ac5d86c9f5ac0aa2a2d79fdc894148026":[12,0,13,39,32],
+"classgenfit_1_1ReferenceStateOnPlane.html#ad06783bcb1efc638e94f5017dfc15686":[12,0,13,39,7],
+"classgenfit_1_1ReferenceStateOnPlane.html#addd1ddbf074f48e5e30689c3ef7d39fa":[12,0,13,39,16],
+"classgenfit_1_1ReferenceStateOnPlane.html#aea4914bba6c85d57c070b7454c12a73e":[12,0,13,39,10],
+"classgenfit_1_1ReferenceStateOnPlane.html#aef02be2ce072d785427796cf933d24a9":[12,0,13,39,5],
+"classgenfit_1_1ReferenceStateOnPlane.html#af36207cff5d1c72fa1cb32628b543376":[12,0,13,39,21],
+"classgenfit_1_1ReferenceStateOnPlane.html#af4aff6a48bdfa91d0e6eb3fe0565bb8c":[12,0,13,39,18],
+"classgenfit_1_1SpacepointMeasurement.html":[12,0,13,61],
+"classgenfit_1_1SpacepointMeasurement.html#a2fdfbd692e26f558a18fdd68eb614788":[12,0,13,61,10],
+"classgenfit_1_1SpacepointMeasurement.html#a47b41339435d36c86be58c88a8dac0be":[12,0,13,61,6]
 };

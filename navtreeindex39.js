@@ -1,14 +1,5 @@
 var NAVTREEINDEX39 =
 {
-"classshipDigiReco_1_1ShipDigiReco.html#a4f6d46101de2dbc10ea32fd64272bf9f":[12,0,32,0,15],
-"classshipDigiReco_1_1ShipDigiReco.html#a5027b7b524b47b50d68b34db23eded6c":[12,0,32,0,50],
-"classshipDigiReco_1_1ShipDigiReco.html#a5287a747625c0d9a32c721adb8d6a00c":[12,0,32,0,2],
-"classshipDigiReco_1_1ShipDigiReco.html#a54283f8e004587c908a80f9a2483128f":[12,0,32,0,57],
-"classshipDigiReco_1_1ShipDigiReco.html#a567f51d240af214971ad31d3abb7a406":[12,0,32,0,54],
-"classshipDigiReco_1_1ShipDigiReco.html#a60f54023b5d36dd748b5fb9d375d261d":[12,0,32,0,43],
-"classshipDigiReco_1_1ShipDigiReco.html#a623756b8d494b2953cc6967de6687b15":[12,0,32,0,49],
-"classshipDigiReco_1_1ShipDigiReco.html#a63c8c1191f7e7c759ef85b827228a212":[12,0,32,0,20],
-"classshipDigiReco_1_1ShipDigiReco.html#a65eabfbe07243c8d20a72cc52a9ed173":[12,0,32,0,24],
 "classshipDigiReco_1_1ShipDigiReco.html#a6f117e48c82f7d36d4e25b6119518002":[12,0,32,0,55],
 "classshipDigiReco_1_1ShipDigiReco.html#a70d787c74334688efd5d91f4dbf5467f":[12,0,32,0,29],
 "classshipDigiReco_1_1ShipDigiReco.html#a7a8ad5ed24bdbedcc91f32db71c2fa5d":[12,0,32,0,48],
@@ -249,5 +240,14 @@ var NAVTREEINDEX39 =
 "classsndAnalysis_1_1minSciFiHits.html#a3905ee56e3d19ec9fa33eef1c3bbee2d":[12,0,38,8,1],
 "classsndAnalysis_1_1minSciFiHits.html#ab70d33fdc2edac21d8c7ee8dae46f22e":[12,0,38,8,3],
 "classsndAnalysis_1_1minSciFiHits.html#acddf9e028b431f9f3b7425e8342b8e62":[12,0,38,8,2],
-"classsndAnalysis_1_1sciFiBaseCut.html":[12,0,38,10]
+"classsndAnalysis_1_1sciFiBaseCut.html":[12,0,38,10],
+"classsndAnalysis_1_1sciFiBaseCut.html#a08dd2082b12fd91b5c08056a4e3cb0f0":[12,0,38,10,1],
+"classsndAnalysis_1_1sciFiBaseCut.html#a975b54d6b9e1b74877d2e52f9d24b11b":[12,0,38,10,0],
+"classsndAnalysis_1_1sciFiBaseCut.html#ac6ed7b5827a5cb1f4b02fb464dec9408":[12,0,38,10,2],
+"classsndAnalysis_1_1sciFiStationCut.html":[12,0,38,11],
+"classsndAnalysis_1_1sciFiStationCut.html#a139829b78a23166c26fd3fc4114b5675":[12,0,38,11,0],
+"classsndAnalysis_1_1sciFiStationCut.html#a2623cfcd73139c240b8a6afa177df9d7":[12,0,38,11,2],
+"classsndAnalysis_1_1sciFiStationCut.html#a608910818b5d3628b58d9d7f83f9088f":[12,0,38,11,3],
+"classsndAnalysis_1_1sciFiStationCut.html#ac0f09fb107ce6ac5573db22d8ed49ff9":[12,0,38,11,4],
+"classsndAnalysis_1_1sciFiStationCut.html#adf70defb1f75f2a867d9a6036980053a":[12,0,38,11,1]
 };

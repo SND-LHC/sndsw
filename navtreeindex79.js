@@ -1,14 +1,5 @@
 var NAVTREEINDEX79 =
 {
-"namespacesndLHC__geom__config.html#af2a06997ae3b863c5238709b15e0494e":[11,0,168,92],
-"namespacesndLHC__geom__config.html#af398e41ec9b68f82199e2565b77af44c":[11,0,168,10],
-"namespacesndLHC__geom__config.html#af5842508a9d15ff6334d5595437556f7":[11,0,168,76],
-"namespacesndLHC__geom__config.html#af763e743093b0d3122d3e23f06174e1e":[11,0,168,176],
-"namespacesndLHC__geom__config.html#af76f19f84ac91a519a681139c4240e80":[11,0,168,112],
-"namespacesndLHC__geom__config.html#af92068131dbc75bef273af4a10ece225":[11,0,168,79],
-"namespacesndLHC__geom__config.html#af9dbb4880b47a1749711159c4d7f6a80":[11,0,168,139],
-"namespacesndLHC__geom__config.html#af9f894be9c39005f970850fb16284dbf":[11,0,168,41],
-"namespacesndLHC__geom__config.html#afab32829230c88e81bce5651eb35c7e3":[11,0,168,173],
 "namespacesndLHC__geom__config.html#afbbe28aa95d28388606fe35ed91b16bd":[11,0,168,74],
 "namespacesndLHC__geom__config.html#afd3e0afe74f20f9712ba1bc93de7d34f":[11,0,168,177],
 "namespacesndLHC__geom__config.html#afeb6d587bf55e1055e8303627973b4d8":[11,0,168,117],
@@ -249,5 +240,14 @@ var NAVTREEINDEX79 =
 "neutrinoFilterGoldenSample__stage2_8py.html#a00223a7024718ccfca07a6428706ef86":[13,0,0,3,30],
 "neutrinoFilterGoldenSample__stage2_8py.html#a02036c42366697178bfc3c7e93cfbb9f":[13,0,0,3,11],
 "neutrinoFilterGoldenSample__stage2_8py.html#a035a7423765606a7771f4c9fa754c74a":[13,0,0,3,14],
-"neutrinoFilterGoldenSample__stage2_8py.html#a0827be96cab73f071d7e30b4164af224":[13,0,0,3,33]
+"neutrinoFilterGoldenSample__stage2_8py.html#a0827be96cab73f071d7e30b4164af224":[13,0,0,3,33],
+"neutrinoFilterGoldenSample__stage2_8py.html#a09e55492463354e46e230ee9ab0c848e":[13,0,0,3,69],
+"neutrinoFilterGoldenSample__stage2_8py.html#a110fd6c49090beb836be120cc372088d":[13,0,0,3,67],
+"neutrinoFilterGoldenSample__stage2_8py.html#a114ea208e0ab634c122b6cba1cf53b37":[13,0,0,3,2],
+"neutrinoFilterGoldenSample__stage2_8py.html#a1448f489854d9560362c7c568837d172":[13,0,0,3,12],
+"neutrinoFilterGoldenSample__stage2_8py.html#a1908f00794a646d0d606ede132770303":[13,0,0,3,56],
+"neutrinoFilterGoldenSample__stage2_8py.html#a19540e911ffd225f6586720e7d10cac3":[13,0,0,3,61],
+"neutrinoFilterGoldenSample__stage2_8py.html#a19bad15076d5976530d609082db026cd":[13,0,0,3,6],
+"neutrinoFilterGoldenSample__stage2_8py.html#a1e979ed7ed1782049057cd5d5fc73e6f":[13,0,0,3,3],
+"neutrinoFilterGoldenSample__stage2_8py.html#a2e36de455ff1d280270019390d5f34de":[13,0,0,3,49]
 };

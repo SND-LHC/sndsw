@@ -1,14 +1,5 @@
 var NAVTREEINDEX38 =
 {
-"classmuon.html#af654537fdf8800dd3c6ea1941bd2a4b3":[12,0,117,29],
-"classmuon.html#afa1d819fc0a965459d73e88da4f9f389":[12,0,117,46],
-"classmuon.html#afcace9c864ef1cf31b14b58437ea9a76":[12,0,117,41],
-"classmuon.html#afe105775397044a80f002176c14a8bb5":[12,0,117,44],
-"classmuonContFact.html":[12,0,119],
-"classmuonContFact.html#a28fcdbcb0779807071d158ad1c8a2506":[12,0,119,0],
-"classmuonContFact.html#ab53c50434f61a0ea353f8ca188a587f4":[12,0,119,2],
-"classmuonContFact.html#ac83a0dca314dc06755295ab551c2fec2":[12,0,119,1],
-"classmuonContFact.html#ac87c774dbc194a4fd3f555b6fc70dc3f":[12,0,119,3],
 "classmuonHit.html":[12,0,120],
 "classmuonHit.html#a07ca745fefed6cf84e784c554a1b5be1":[12,0,120,14],
 "classmuonHit.html#a28658b5fb2ff970ac47c76a9861643e9":[12,0,120,3],
@@ -249,5 +240,14 @@ var NAVTREEINDEX38 =
 "classshipDigiReco_1_1ShipDigiReco.html#a3e5a53decbb82dbbb50af59e51d135f7":[12,0,32,0,53],
 "classshipDigiReco_1_1ShipDigiReco.html#a4488580d6eaf2dcba4816fab543028c3":[12,0,32,0,0],
 "classshipDigiReco_1_1ShipDigiReco.html#a496735b4a16841fe527ad10e110ce10e":[12,0,32,0,34],
-"classshipDigiReco_1_1ShipDigiReco.html#a4b68db78a1aded9077298d029e905bc4":[12,0,32,0,7]
+"classshipDigiReco_1_1ShipDigiReco.html#a4b68db78a1aded9077298d029e905bc4":[12,0,32,0,7],
+"classshipDigiReco_1_1ShipDigiReco.html#a4f6d46101de2dbc10ea32fd64272bf9f":[12,0,32,0,15],
+"classshipDigiReco_1_1ShipDigiReco.html#a5027b7b524b47b50d68b34db23eded6c":[12,0,32,0,50],
+"classshipDigiReco_1_1ShipDigiReco.html#a5287a747625c0d9a32c721adb8d6a00c":[12,0,32,0,2],
+"classshipDigiReco_1_1ShipDigiReco.html#a54283f8e004587c908a80f9a2483128f":[12,0,32,0,57],
+"classshipDigiReco_1_1ShipDigiReco.html#a567f51d240af214971ad31d3abb7a406":[12,0,32,0,54],
+"classshipDigiReco_1_1ShipDigiReco.html#a60f54023b5d36dd748b5fb9d375d261d":[12,0,32,0,43],
+"classshipDigiReco_1_1ShipDigiReco.html#a623756b8d494b2953cc6967de6687b15":[12,0,32,0,49],
+"classshipDigiReco_1_1ShipDigiReco.html#a63c8c1191f7e7c759ef85b827228a212":[12,0,32,0,20],
+"classshipDigiReco_1_1ShipDigiReco.html#a65eabfbe07243c8d20a72cc52a9ed173":[12,0,32,0,24]
 };

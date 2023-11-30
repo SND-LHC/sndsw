@@ -1,14 +1,5 @@
 var NAVTREEINDEX55 =
 {
-"muonDis_8py.html#ab4838d0bf6160debc631fc1f1438153d":[13,0,20,22,53],
-"muonDis_8py.html#aba47753dbc938414e6fe69bee1ad3760":[13,0,20,22,27],
-"muonDis_8py.html#abfdf3dd562b952337684bb7d829fcd0b":[13,0,20,22,33],
-"muonDis_8py.html#ac0c3361bd68f103d12074807a6d31d56":[13,0,20,22,19],
-"muonDis_8py.html#ac5bee2416c256707b927469966e7bb58":[13,0,20,22,68],
-"muonDis_8py.html#acc6e0783a91712662772cee0f86d8e24":[13,0,20,22,43],
-"muonDis_8py.html#acd43847e396c9c5e9a0bb0e3d215f1e8":[13,0,20,22,21],
-"muonDis_8py.html#ad1b94f41539f3c553c52a771be25b4c9":[13,0,20,22,6],
-"muonDis_8py.html#ad4b3e4999ddd47e023ce054a819b8393":[13,0,20,22,46],
 "muonDis_8py.html#ad6926fb694d3918d6e1bfb23d7754f2c":[13,0,20,22,47],
 "muonDis_8py.html#ad989dc838a07045c77968b4406311005":[13,0,20,22,38],
 "muonDis_8py.html#adf4fcee9ea9526d210a0bcb23674f6ed":[13,0,20,22,7],
@@ -249,5 +240,14 @@ var NAVTREEINDEX55 =
 "namespaceMufiCTR.html#af8acd2945f6fc4ff5b092c862991323c":[11,0,92,4],
 "namespaceMufiCTR.html#afa2741c0e7a4b7f9339bedbac6f0f050":[11,0,92,1],
 "namespaceMufiCTR.html#afcb30b727e3f3b7d0fbb9725e4636a28":[11,0,92,7],
-"namespaceMufi__monitoring.html":[11,0,91]
+"namespaceMufi__monitoring.html":[11,0,91],
+"namespaceMufi__monitoring.html#a81c61924524c6a6d31a7f387e8b18ba4":[11,0,91,5],
+"namespaceMufi__monitoring.html#a96359c0da8161ce41c4151913a7a4fce":[11,0,91,3],
+"namespaceMufi__monitoring.html#ab452e361ad07122c2ced6622888607fb":[11,0,91,4],
+"namespaceMufluxDigi.html":[11,0,94],
+"namespaceMufluxDigi.html#a3ac42624085a60fe1ab137a6fef69663":[11,0,94,6],
+"namespaceMufluxDigi.html#a4012be644922f319eb646f2dea4de7e8":[11,0,94,8],
+"namespaceMufluxDigi.html#a411bc9af6f067f4ad2ead8cd0ad778a5":[11,0,94,3],
+"namespaceMufluxDigi.html#a542a15fc4fd0bfa91eeff476535c50b9":[11,0,94,9],
+"namespaceMufluxDigi.html#a55a778e0eba46a3467219bd799849fb6":[11,0,94,7]
 };

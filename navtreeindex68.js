@@ -1,14 +1,5 @@
 var NAVTREEINDEX68 =
 {
-"namespacemakeGeoFile.html":[11,0,69],
-"namespacemakeGeoFile.html#a0e8eac6484def7a943b4a714d22710bd":[11,0,69,8],
-"namespacemakeGeoFile.html#a17d145e555c84f53e64673cf67b29098":[11,0,69,9],
-"namespacemakeGeoFile.html#a2a8740876d9690e88f2476f376c0ec49":[11,0,69,6],
-"namespacemakeGeoFile.html#a61b28d815f62de79066b7d4ad000d038":[11,0,69,10],
-"namespacemakeGeoFile.html#a787fa6efc7973e1a1c2d0a7ef377d4f9":[11,0,69,3],
-"namespacemakeGeoFile.html#a79d0aa521e99ce876a9c5943617206d1":[11,0,69,2],
-"namespacemakeGeoFile.html#a8cd33c91a64c05eefc3184475a8ecf2b":[11,0,69,4],
-"namespacemakeGeoFile.html#a9a62b01dc5eab62133d8ba0eaa7294f9":[11,0,69,1],
 "namespacemakeGeoFile.html#a9e590e5bab2892e634d9ff887a1a117f":[11,0,69,0],
 "namespacemakeGeoFile.html#aab1f997bf0c470cdb242e81d2ef5449c":[11,0,69,7],
 "namespacemakeGeoFile.html#ac76c370c08076311ba01e8b6831c749b":[11,0,69,5],
@@ -249,5 +240,14 @@ var NAVTREEINDEX68 =
 "namespaceminresqlpdatamodule.html#ac0839d5f917682a5399cd15803eed229":[11,0,78,7],
 "namespaceminresqlpdatamodule.html#ad4793e3c82cc761ad92d5325bab6a072":[11,0,78,9],
 "namespaceminresqlpdatamodule.html#afbc19af608787884a2d3089b89409cc7":[11,0,78,6],
-"namespaceminresqlpmodule.html":[11,0,79]
+"namespaceminresqlpmodule.html":[11,0,79],
+"namespaceminresqlpmodule.html#ab0e9f6586048493a1e8e01f5f471b2c0":[11,0,79,0],
+"namespaceminresqlpmodule.html#af827a771499cbe406df432ef1d5d758b":[11,0,79,1],
+"namespacemodifyGeoFileDict.html":[11,0,80],
+"namespacemodifyGeoFileDict.html#a7c2d0b6c3eaef6be39e544c612658b6d":[11,0,80,0],
+"namespacemodifyGeoFileDict.html#a96015d348b63ae52c982e1388f7e6f23":[11,0,80,2],
+"namespacemodifyGeoFileDict.html#a9a975b2f71e72370731d35fdc228e0d0":[11,0,80,1],
+"namespacempbits.html":[11,0,82],
+"namespacempbits.html#a00d494db0b1c256d51aa7dc03fb3414a":[11,0,82,10],
+"namespacempbits.html#a092b420ebdc762fc51b649ca475a83f2":[11,0,82,6]
 };
