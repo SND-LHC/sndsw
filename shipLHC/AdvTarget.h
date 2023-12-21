@@ -1,24 +1,21 @@
 //
 //  AdvTarget.h
 //
-//  by D. Centanni
-//  Sept 2022
+//  O. Lantwin and D. Centanni
+//  Dec 2023
 //
 #ifndef AdvTarget_H
 #define AdvTarget_H
 
-#include "FairModule.h" // for FairModule
 #include "FairDetector.h"
 
 #include "Rtypes.h" // for ShipMuonShield::Class, Bool_t, etc
 
-#include <string> // for string
-
-#include "TVector3.h"
 #include "TLorentzVector.h"
 
 class AdvTargetPoint;
 class FairVolume;
+class TVector3;
 class TClonesArray;
 
 class AdvTarget : public FairDetector {

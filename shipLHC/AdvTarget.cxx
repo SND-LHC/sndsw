@@ -1,19 +1,15 @@
 //
 //  AdvTarget.cxx
 //
-//  by D. Centanni
-//  Sept 2022
+//  O. Lantwin and D. Centanni
+//  Dec 2023
 //
 
 #include "AdvTarget.h"
 #include "AdvTargetPoint.h"
 
 #include "TGeoManager.h"
-#include "FairRun.h"       // for FairRun
-#include "FairRuntimeDb.h" // for FairRuntimeDb
 #include <iosfwd>          // for ostream
-#include "TList.h"         // for TListIter, TList (ptr only)
-#include "TObjArray.h"     // for TObjArray
 #include "TString.h"       // for TString
 
 #include "TGeoBBox.h"
@@ -40,8 +36,6 @@
 #include "FairGeoMedia.h"
 #include "FairGeoMedium.h"
 #include "FairGeoBuilder.h"
-#include "FairRun.h"
-#include "FairRuntimeDb.h"
 
 #include "ShipDetectorList.h"
 #include "ShipUnit.h"
@@ -56,7 +50,6 @@
 #include <ROOT/TSeq.hxx>
 #include <stddef.h> // for NULL
 #include <iostream> // for operator<<, basic_ostream,etc
-#include <string.h>
 
 using ROOT::TSeq;
 using namespace ShipUnit;
