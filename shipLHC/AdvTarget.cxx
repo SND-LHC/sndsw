@@ -150,8 +150,11 @@ void AdvTarget::ConstructGeometry()
     double strip_width = 122 * um;
     TGeoBBox *Strip = new TGeoBBox("Strip", sensor_length / 2, strip_width / 2, 0.5 * mm / 2);
     TGeoVolume *StripVolume = new TGeoVolume("StripVolume", Strip, Silicon);
-    StripVolume->SetLineColor(kGreen);
-    AddSensitiveVolume(StripVolume);
+    TGeoBBox *SensorShape = new TGeoBBox("SensorShape", sensor_length / 2, sensor_width / 2, 0.5 * mm / 2);
+    TGeoVolume *SensorVolume = new TGeoVolume("SensorVolume", SensorShape, Silicon);
+    auto* Strips = SensorVolume->Divide("SLICEY", 2, 768, -sensor_width / 2, strip_width);
+    SensorVolume->SetLineColor(kGreen);
+    AddSensitiveVolume(Strips);
 
     double sensor_gap = 3.1 * mm;
 
@@ -193,17 +196,7 @@ void AdvTarget::ConstructGeometry()
                     TGeoVolumeAssembly *SensorModule = new TGeoVolumeAssembly("SensorModule");
                     SensorModule->AddNode(SupportVolume, 1);
                     for (auto &&sensor : TSeq(sensors)) {
-                        TGeoVolumeAssembly *Sensor = new TGeoVolumeAssembly("Sensor");
-                        for (auto &&strip : TSeq(strips)) {
-                            int strip_id =
-                                (station << 15) + (plane << 14) + (row << 12) + (column << 11) + (sensor << 10) + strip;
-                            Sensor->AddNode(
-                                StripVolume,
-                                strip_id,
-                                new TGeoTranslation(
-                                    0, -sensor_width / 2 + strip_width / 2 + strip * (strip_width + strip_gap), 0));
-                        }
-                        SensorModule->AddNode(Sensor,
+                        SensorModule->AddNode(SensorVolume,
                                               sensor,
                                               new TGeoTranslation(-module_length / 2 + 46.95 * mm + sensor_length / 2
                                                                       + sensor * (sensor_length + sensor_gap),
