@@ -196,8 +196,9 @@ void AdvTarget::ConstructGeometry()
                     TGeoVolumeAssembly *SensorModule = new TGeoVolumeAssembly("SensorModule");
                     SensorModule->AddNode(SupportVolume, 1);
                     for (auto &&sensor : TSeq(sensors)) {
+                        int sensor_id =  (station << 5) + (plane << 4) + (row << 2) + (column << 1) + sensor;
                         SensorModule->AddNode(SensorVolume,
-                                              sensor,
+                                              sensor_id,
                                               new TGeoTranslation(-module_length / 2 + 46.95 * mm + sensor_length / 2
                                                                       + sensor * (sensor_length + sensor_gap),
                                                                   0,
@@ -266,18 +267,17 @@ Bool_t AdvTarget::ProcessHits(FairVolume *vol)
         gMC->TrackPosition(Pos);
         TLorentzVector Mom;
         gMC->TrackMomentum(Mom);
-        Int_t detID = 0;
-        gMC->CurrentVolID(detID);
-        const char *name;
-        name = gMC->CurrentVolName();
+        Int_t strip_id = 0;
+        Int_t sensor_id = 0;
+        gMC->CurrentVolID(strip_id);
+        gMC->CurrentVolOffID(1, sensor_id);
         // Check which volume is actually hit and what detID is given
-        LOG(DEBUG) << "AdvTargetPoint DetID " << detID << " Hit volume name " << name;
-        fVolumeID = detID;
+        fVolumeID = (sensor_id << 10) + strip_id;
         Double_t xmean = (fPos.X() + Pos.X()) / 2.;
         Double_t ymean = (fPos.Y() + Pos.Y()) / 2.;
         Double_t zmean = (fPos.Z() + Pos.Z()) / 2.;
         AddHit(fTrackID,
-               detID,
+               fVolumeID,
                TVector3(xmean, ymean, zmean),
                TVector3(fMom.Px(), fMom.Py(), fMom.Pz()),
                fTime,
