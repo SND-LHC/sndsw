@@ -309,8 +309,8 @@ with ConfigRegistry.register_config("basic") as c:
 
         # AdvSND Target & Tracker structure
         c.AdvTarget = AttrDict(z=0*u.cm)
-        c.AdvTarget.TargetWallX = 50.0 * u.cm
-        c.AdvTarget.TargetWallY = 50.0 * u.cm
+        c.AdvTarget.TargetWallX = 10.0 * u.cm
+        c.AdvTarget.TargetWallY = 10.0 * u.cm
         c.AdvTarget.TargetWallZ = 7.5 * u.mm
 
         # Target Tracking stations
