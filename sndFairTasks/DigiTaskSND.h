@@ -6,14 +6,13 @@
 #include <TClonesArray.h> 
 #include "FairTask.h"           // for FairTask, InitStatus
 #include "FairMCEventHeader.h"  // for FairMCEventHeader
-#include "Scifi.h"              // for Scifi detector
 #include "SNDLHCEventHeader.h"  // for EventHeader
 class TBuffer;
 class TClass;
 class TClonesArray;
 class TMemberInspector;
-
-using namespace std;
+class Scifi;
+class AdvTargetHit;
 
 class DigiTaskSND : public FairTask
 {
@@ -50,6 +49,7 @@ class DigiTaskSND : public FairTask
     TClonesArray* fScifiHit2MCPointsArray;
     TClonesArray* fvetoPointArray;
     TClonesArray* fEmulsionPointArray;
+    std::vector<AdvTargetHit*>* fAdvTargetHits;
 
     TClonesArray* fMCTrackArray;
     DigiTaskSND(const DigiTaskSND&);
