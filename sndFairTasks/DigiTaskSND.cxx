@@ -18,9 +18,8 @@
  #include "MuFilterPoint.h"	     // for Muon Filter Point
  #include "sndScifiHit.h"	     // for SciFi Hit
  #include "MuFilterHit.h"	     // for Muon Filter Hit
+ #include "AdvTargetHit.h"	     // for AdvTarget Hit
  #include "Hit2MCPoints.h"           // for linking hits to true MC points
-
-using namespace std;
 
 DigiTaskSND::DigiTaskSND()
     : FairTask("DigTaskSND")
@@ -85,13 +84,15 @@ InitStatus DigiTaskSND::Init()
     // Branche containing links to MC truth info
     fScifiHit2MCPointsArray = new TClonesArray("Hit2MCPoints");
     ioman->Register("Digi_ScifiHits2MCPoints", "DigiScifiHits2MCPoints_det", fScifiHit2MCPointsArray, kTRUE);
-    fScifiHit2MCPointsArray->BypassStreamer(kTRUE);   
+    fScifiHit2MCPointsArray->BypassStreamer(kTRUE);
     fMuFilterDigiHitArray = new TClonesArray("MuFilterHit");
     ioman->Register("Digi_MuFilterHits", "DigiMuFilterHit_det", fMuFilterDigiHitArray, kTRUE);
     // Branche containing links to MC truth info
     fMuFilterHit2MCPointsArray = new TClonesArray("Hit2MCPoints");
     ioman->Register("Digi_MuFilterHits2MCPoints", "DigiMuFilterHits2MCPoints_det", fMuFilterHit2MCPointsArray, kTRUE);
     fMuFilterHit2MCPointsArray->BypassStreamer(kTRUE);
+    fAdvTargetHits = new std::vector<AdvTargetHit*>;
+    ioman->RegisterAny("Digi_advTargetHits", fAdvTargetHits, kTRUE);
     
     return kSUCCESS;
 }
@@ -99,10 +100,14 @@ InitStatus DigiTaskSND::Init()
 void DigiTaskSND::Exec(Option_t* /*opt*/)
 {
 
-    fScifiDigiHitArray->Delete();
-    fScifiHit2MCPointsArray->Delete();
-    fMuFilterDigiHitArray->Delete();
-    fMuFilterHit2MCPointsArray->Delete();
+    fScifiDigiHitArray->Clear("C");
+    fScifiHit2MCPointsArray->Clear("C");
+    fMuFilterDigiHitArray->Clear("C");
+    fMuFilterHit2MCPointsArray->Clear("C");
+    for (auto const &x : (*fAdvTargetHits)) {
+        delete x;
+    }
+    fAdvTargetHits->clear();
 
     // Set event header
     fEventHeader->SetRunId(fMCEventHeader->GetRunID());
