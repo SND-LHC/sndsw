@@ -314,9 +314,9 @@ with ConfigRegistry.register_config("basic") as c:
         c.AdvTarget.TargetWallZ = 7.5 * u.mm
 
         # Target Tracking stations
-        c.AdvTarget.TTX = 49.29 * u.cm
-        c.AdvTarget.TTY = 49.29 * u.cm
-        c.AdvTarget.TTZ = 7.5 * u.mm
+        # c.AdvTarget.TTX = 49.29 * u.cm
+        # c.AdvTarget.TTY = 49.29 * u.cm
+        # c.AdvTarget.TTZ = 7.5 * u.mm
         c.AdvTarget.nTT = 40
 
         # AdvSND MuFilter structure

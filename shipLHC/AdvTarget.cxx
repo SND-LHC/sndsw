@@ -124,9 +124,9 @@ void AdvTarget::ConstructGeometry()
     Double_t fTargetWallX = conf_floats["AdvTarget/TargetWallX"];
     Double_t fTargetWallY = conf_floats["AdvTarget/TargetWallY"];
     Double_t fTargetWallZ = conf_floats["AdvTarget/TargetWallZ"];
-    Double_t fTTX = conf_floats["AdvTarget/TTX"];
-    Double_t fTTY = conf_floats["AdvTarget/TTY"];
-    Double_t fTTZ = conf_floats["AdvTarget/TTZ"];
+    // Double_t fTTX = conf_floats["AdvTarget/TTX"];  // unused
+    // Double_t fTTY = conf_floats["AdvTarget/TTY"];  // unused
+    // Double_t fTTZ = conf_floats["AdvTarget/TTZ"];  // unused
     Int_t stations = conf_ints["AdvTarget/nTT"];   // Number of TT stations
 
     TGeoBBox *TargetWall = new TGeoBBox("TargetWall", fTargetWallX / 2., fTargetWallY / 2., fTargetWallZ / 2.);
