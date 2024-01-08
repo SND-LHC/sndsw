@@ -435,14 +435,14 @@ void Scifi::InitEvent(SNDLHCEventHeader *e){
     // Time alignment tags
     for (auto key : conf_floats){
       tag_string = key.first.Data();
-      if (tag_string.find("Scifi/station1t_") != string::npos){
+      if (tag_string.find("Scifi/station1t_") != std::string::npos){
 	covered_runs_time_alignment.push_back(stoi(tag_string.substr(tag_string.find("t_")+2)));
       }
     }
     // Position alignment tags
     for (auto key : conf_floats){
       tag_string = key.first.Data();
-      if (tag_string.find("Scifi/LocM100t_") != string::npos){
+      if (tag_string.find("Scifi/LocM100t_") != std::string::npos){
 	covered_runs_position_alignment.push_back(stoi(tag_string.substr(tag_string.find("t_")+2)));
       }
     }
@@ -527,14 +527,14 @@ Double_t Scifi::GetCorrectedTime(Int_t fDetectorID, Double_t rawTime, Double_t L
 		  }
 		  
 		  if (covered_runs_time_alignment.size()!=0){
-		      tag = "t_"+to_string(covered_runs_time_alignment[covered_runs_time_alignment.size()-1]);
+		      tag = "t_"+std::to_string(covered_runs_time_alignment[covered_runs_time_alignment.size()-1]);
 		      for (int i=1; i<covered_runs_time_alignment.size(); i++){
 		           if (fRunNumber>=covered_runs_time_alignment[i-1] && fRunNumber<covered_runs_time_alignment[i]){
-		               tag = "t_"+to_string(covered_runs_time_alignment[i-1]);
+		               tag = "t_"+std::to_string(covered_runs_time_alignment[i-1]);
 		           }
 		      }
 		      // special case
-		      if (fRunNumber<5193 && fRunNumber>5174) tag = "t_"+to_string(covered_runs_time_alignment[0]);
+		      if (fRunNumber<5193 && fRunNumber>5174) tag = "t_"+std::to_string(covered_runs_time_alignment[0]);
 		  }
 		  else{		
 		       // allow reading older geo files with letter tags i.e. A, B, C
@@ -649,10 +649,10 @@ void Scifi::GetSiPMPosition(Int_t SiPMChan, TVector3& A, TVector3& B)
 		  }
 		  
 		  if (covered_runs_position_alignment.size()!=0){
-		      tag = "t_"+to_string(covered_runs_position_alignment[covered_runs_position_alignment.size()-1]);
+		      tag = "t_"+std::to_string(covered_runs_position_alignment[covered_runs_position_alignment.size()-1]);
 		      for (int i=1; i<covered_runs_position_alignment.size(); i++){
 		           if (fRunNumber>=covered_runs_position_alignment[i-1] && fRunNumber<covered_runs_position_alignment[i]){
-		               tag = "t_"+to_string(covered_runs_position_alignment[i-1]);
+		               tag = "t_"+std::to_string(covered_runs_position_alignment[i-1]);
 		           }
 		      }
 		  }

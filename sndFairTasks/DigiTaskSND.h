@@ -13,8 +13,6 @@ class TClass;
 class TClonesArray;
 class TMemberInspector;
 
-using namespace std;
-
 class DigiTaskSND : public FairTask
 {
   public:
@@ -42,8 +40,8 @@ class DigiTaskSND : public FairTask
     void clusterScifi();
 
     Scifi* scifi;
-    map<Int_t, map<Int_t, array<float, 2>>> fibresSiPM;
-    map<Int_t, map<Int_t, array<float, 2>>> siPMFibres;
+    std::map<Int_t, std::map<Int_t, std::array<float, 2>>> fibresSiPM;
+    std::map<Int_t, std::map<Int_t,std:: array<float, 2>>> siPMFibres;
 
     // Input
     FairMCEventHeader* fMCEventHeader;
