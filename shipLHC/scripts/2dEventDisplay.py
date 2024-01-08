@@ -22,6 +22,8 @@ atexit.register(pyExit)
 A,B = ROOT.TVector3(),ROOT.TVector3()
 freq      =  160.316E6
 
+eventComment = {}   # possibility to add an event comment before moving to next event
+
 h={}
 from argparse import ArgumentParser
 parser = ArgumentParser()
@@ -62,9 +64,12 @@ mi = geo.snd_geo.MuFilter
 detSize[1] =[mi.VetoBarX/2,                   mi.VetoBarY/2,            mi.VetoBarZ/2]
 detSize[2] =[mi.UpstreamBarX/2,           mi.UpstreamBarY/2,    mi.UpstreamBarZ/2]
 detSize[3] =[mi.DownstreamBarX_ver/2,mi.DownstreamBarY/2,mi.DownstreamBarZ/2]
-
+withDetector = True  # False is useful when using zoom
+with2Points  = False # plot start and end point of straw/bar
 mc = False
 
+firstScifi_z = 300*u.cm
+TDC2ns = 1E9/160.316E6
 
 # Initialize FairLogger: set severity and verbosity
 logger = ROOT.FairLogger.GetLogger()
@@ -186,6 +191,24 @@ def goodEvent(event):
            if onlyScifi and len(stations['Scifi'])>Nlimit: return True
            elif not onlyScifi  and totalN >  Nlimit: return True
            else: return False
+def userProcessing(event):
+# user hook to add action after event is plotted. Useful for adding special objects to the display for example.
+''' an example for display of 3-track events with external reco
+       trackTask.multipleTrackCandidates(nMaxCl=8,dGap=0.2,dMax=0.8,dMax3=0.8,ovMax=1,doublet=True,debug=False)
+       n3D = [0,0]
+       for p in range(2):
+         tc = h['simpleDisplay'].cd(-p+2)
+         for trackId in trackTask.multipleTrackStore['trackCand'][p]:
+             if trackId < 100000 and not trackTask.multipleTrackStore['doublet']: continue
+             if trackId in trackTask.multipleTrackStore['cloneCand'][p]: continue
+             n3D[p]+=1
+             rc = trackTask.multipleTrackStore['trackCand'][p][trackId].Fit('pol1','SQ')
+             trackTask.multipleTrackStore['trackCand'][p][trackId].Draw('same')
+         tc.Update()
+       print('Number of full tracks',n3D)
+       return True
+'''
+   return
 def bunchXtype():
 # check for b1,b2,IP1,IP2
         xing = {'all':True,'B1only':False,'B2noB1':False,'noBeam':False}
@@ -331,7 +354,7 @@ def loopEvents(start=0,save=False,goodEvents=False,withTrack=-1,withHoughTrack=-
        rc = h[ 'simpleDisplay'].cd(p)
        h[proj[p]].Draw('b')
 
-    drawDetectors()
+    if withDetector: drawDetectors()
     for D in digis:
       for digi in D:
          detID = digi.GetDetectorID()
@@ -347,21 +370,26 @@ def loopEvents(start=0,save=False,goodEvents=False,withTrack=-1,withHoughTrack=-
          curPath = nav.GetPath()
          tmp = curPath.rfind('/')
          nav.cd(curPath[:tmp])
-         globA,locA = array('d',[A[0],A[1],A[2]]),array('d',[A[0],A[1],A[2]])
-         if trans2local:   nav.MasterToLocal(globA,locA)
-         Z = A[2]
-         if digi.isVertical():
+         first = True
+         for X in [A,B]:
+           if not first and not with2Points: continue
+           first = False
+           globA,locA = array('d',[X[0],X[1],X[2]]),array('d',[X[0],X[1],X[2]])
+           if trans2local:
+              nav.MasterToLocal(globA,locA)
+           Z = X[2]
+           if digi.isVertical():
                    collection = 'hitCollectionX'
                    Y = locA[0]
                    sY = detSize[system][0]
-         else:                         
+           else:                         
                    collection = 'hitCollectionY'
                    Y = locA[1]
                    sY = detSize[system][1]
-         c = h[collection][systems[system]]
-         rc = c[1].SetPoint(c[0],Z, Y)
-         rc = c[1].SetPointError(c[0],detSize[system][2],sY)
-         c[0]+=1 
+           c = h[collection][systems[system]]
+           rc = c[1].SetPoint(c[0],Z, Y)
+           rc = c[1].SetPointError(c[0],detSize[system][2],sY)
+           c[0]+=1 
 
          fillNode(curPath)
 
@@ -430,6 +458,8 @@ def loopEvents(start=0,save=False,goodEvents=False,withTrack=-1,withHoughTrack=-
           if not rc: rc = twoTrackEvent(sMin=10,dClMin=7,minDistance=0.5,sepDistance=3.0)
 
     if verbose>0: dumpChannels()
+    userProcessing(event)
+
     if save: h['simpleDisplay'].Print('{:0>2d}-event_{:04d}'.format(runId,N)+'.png')
     if auto:
         h['simpleDisplay'].Print(options.storePic+str(runId)+'-event_'+str(event.EventHeader.GetEventNumber())+'.png')
@@ -437,7 +467,9 @@ def loopEvents(start=0,save=False,goodEvents=False,withTrack=-1,withHoughTrack=-
        rc = input("hit return for next event or p for print or q for quit: ")
        if rc=='p': 
              h['simpleDisplay'].Print(options.storePic+str(runId)+'-event_'+str(event.EventHeader.GetEventNumber())+'.png')
-       if rc=='q': break
+       elif rc=='q': break
+       else:
+          eventComment[str(runId)+'-event_'+str(event.EventHeader.GetEventNumber())] = rc
  if save: os.system("convert -delay 60 -loop 0 event*.png animated.gif")
 
 def addTrack(OT,scifi=False):
@@ -774,8 +806,6 @@ def cleanTracks():
     return uniqueTracks
 
 def timingOfEvent(makeCluster=False,debug=False):
-   firstScifi_z = 300*u.cm
-   TDC2ns = 1E9/160.316E6
    ut.bookHist(h,'evTimeDS','cor time of hits;[ns]',70,-5.,30)
    ut.bookHist(h,'evTimeScifi','cor time of hits blue DS red Scifi;[ns]',70,-5.,30)
    ut.bookCanvas(h,'tevTime','cor time of hits',1024,768,1,1)
