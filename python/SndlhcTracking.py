@@ -56,6 +56,8 @@ class Tracking(ROOT.FairTask):
    self.sigmaMufiDS_spatial = 0.3*u.cm
    self.scifi_vsignal = 15.*u.cm/u.ns
    self.firstScifi_z = 300*u.cm
+   self.dZ = 13.   # distance between scifi stations = 13cm
+   self.multipleTrackStore = {}
    self.Debug = False
    self.ioman = ROOT.FairRootManager.Instance()
    self.sink = self.ioman.GetSink()
@@ -584,3 +586,195 @@ class Tracking(ROOT.FairTask):
       fitResult =  rc.Get()
       slope = fitResult.Parameter(1)
       return [slope,slope/(fitResult.ParError(1)+1E-13),fitResult.Parameter(0)]
+      
+ def multipleTrackCandidates(self,planesWithClusters=10,nMaxCl=8,dGap=0.2,dMax=0.8,dMax3=0.8,ovMax = 1,doublet=True,debug=False):
+       A,B = ROOT.TVector3(),ROOT.TVector3()
+       h = self.multipleTrackStore
+       h['trackCand'] = {0:{},1:{}}
+       h['sortedClusters'] = {}
+       sortedClusters = h['sortedClusters']
+       self.scifiCluster()
+       clusters = self.clusScifi
+       for aCl in clusters:
+           so = aCl.GetFirst()//100000
+           if not so in sortedClusters: 
+              sortedClusters[so]=[]
+           aCl.GetPosition(A,B)
+           if aCl.GetFirst()//100000%10 == 0: pos = A[1]
+           else:                              pos = A[0]
+           sortedClusters[so].append([pos,A[2],aCl])
+# select events with clusters in each plane
+       if len(sortedClusters)<planesWithClusters: return
+#
+       h['mergedClusters'] = {}
+       mergedClusters = h['mergedClusters']
+       for so in sortedClusters:
+          pos={}
+          mergedClusters[so]=[]
+          for k in range(len(sortedClusters[so])):
+             pos[k] = sortedClusters[so][k][0]
+          sorted_pos = sorted(pos.items(), key=lambda x: x[1])
+          merged = -1
+          for i in range(len(sorted_pos)):
+              x = sorted_pos[i]
+              aClobj = sortedClusters[so][x[0]]
+              if merged < 0:
+                 merged+=1
+                 mergedClusters[so].append( [aClobj[0],aClobj[1],[aClobj[2]]] )
+              else:
+                 prevPos = mergedClusters[so][merged][0]
+                 pos     = aClobj[0]
+                 if pos-prevPos > dGap: 
+                   merged+=1
+                   mergedClusters[so].append( [aClobj[0],aClobj[1],[aClobj[2]]] )
+                 else:
+                   N = len(mergedClusters[so][merged][2])
+                   newPos = (prevPos*N+pos)/(N+1)
+                   mergedClusters[so][merged][0]=newPos
+                   mergedClusters[so][merged][2].append(aClobj[2])
+# not more than nMaxCl in a plane and at least 2
+       for so in mergedClusters:
+          if len(mergedClusters[so]) > nMaxCl: return
+          if len(mergedClusters[so]) < 2: return
+       for p in range(2):
+         if debug: print('-------- p=',p)
+         if doublet:
+# method using doublets
+          h['doublet'] = {}
+          for j1 in range(1,5):
+             h['doublet'][j1] = {}
+             for k1 in range(len(mergedClusters[j1*10+p])):
+                aCl1 = mergedClusters[j1*10+p][k1]
+                h['doublet'][j1][k1] = []
+                j2 = j1+1
+                for k2 in range(len(mergedClusters[j2*10+p])):
+                    aCl2 = mergedClusters[j2*10+p][k2]
+                    D = aCl2[0]-aCl1[0]
+                    if debug: print(j1,j2,'x1',aCl1[0],'x2',aCl2[0],'D',D)
+                    if abs(D ) > dMax: continue
+                    h['doublet'][j1][k1].append(10*j2+k2)
+                if len(h['doublet'][j1][k1]) == 0 and j2<5:   # allow one missing plane
+                   j2 = j1+2
+                   for k2 in range(len(mergedClusters[j2*10+p])):
+                     aCl2 = mergedClusters[j2*10+p][k2]
+                     D = aCl2[0]-aCl1[0]
+                     if debug: print(j1,j2,'x1',aCl1[0],'x2',aCl2[0],'D',D)
+                     if abs(D ) > dMax: continue
+                     h['doublet'][j1][k1].append(10*j2+k2)
+          h['trackCand'][p] = {}
+          for j1 in [1,2]:
+           for k1 in h['doublet'][j1]:
+            if j1==2:
+               alreadyUsed = False
+               for k0 in h['doublet'][1]:
+                 for sk0 in h['doublet'][1][k0]:
+                    if k1== (sk0%10) :
+                       alreadyUsed = True
+                       break
+               if alreadyUsed: continue
+            trackId = (k1+1)*10**(j1-1)
+            if debug: print(j1,k1,trackId)
+            for sk2 in h['doublet'][j1][k1]:
+              j2 = sk2//10
+              k2 = sk2%10
+              trackId = (k1+1)*10**(j1-1) + (k2+1)*10**(j2-1)
+              if debug: print(j2,k2,trackId)
+              for sk3 in h['doublet'][j2][k2]:
+               j3 = sk3//10
+               k3 = sk3%10
+               if j3>4: continue
+               trackId = (k1+1)*10**(j1-1) + (k2+1)*10**(j2-1) + (k3+1)*10**(j3-1)
+               if debug: print(j3,k3,trackId)
+               for sk4 in h['doublet'][j3][k3]:
+                 j4 = sk4//10
+                 k4 = sk4%10
+                 trackId = (k1+1)*10**(j1-1) + (k2+1)*10**(j2-1) + (k3+1)*10**(j3-1) + (k4+1)*10**(j4-1)
+                 if debug: print(j4,k4,trackId)
+                 found = False
+                 if j4<5:
+                    for sk5 in h['doublet'][j4][k4]:
+                       found = True
+                       j5 = sk5//10
+                       k5 = sk5%10
+                       trackId = (k1+1)*10**(j1-1) + (k2+1)*10**(j2-1) + (k3+1)*10**(j3-1) + (k4+1)*10**(j4-1) + (k5+1)*10**(j5-1)
+                       h['trackCand'][p][trackId] = ROOT.TGraph()
+                 if not found:
+                    h['trackCand'][p][trackId] = ROOT.TGraph()
+          for trackId in h['trackCand'][p]:
+              N = -1
+              for s in range(1,6):
+                k = (trackId//10**(s-1))%10-1
+                if not k<0:
+                   N+=1
+                   aCl = mergedClusters[s*10+p][k]
+                   h['trackCand'][p][trackId].SetPoint(N,aCl[1],aCl[0])
+# 5 plane combinatoric
+         else:
+          for k1 in range(len(mergedClusters[10+p])):
+            aCl1 = mergedClusters[10+p][k1]
+            for k2 in range(len(mergedClusters[20+p])):
+               aCl2 = mergedClusters[20+p][k2]
+               D = aCl2[0]-aCl1[0]
+               if debug: print(2,'x1',aCl1[0],'x2',aCl2[0],'D',D)
+               if abs(D) > dMax: continue
+               for k3 in range(len(mergedClusters[30+p])):
+                  aCl3 = mergedClusters[30+p][k3]
+                  D3 = 2*D+aCl1[0]-aCl3[0]
+                  if debug: print(3,'x1',aCl1[0],'x2',aCl2[0],'x3',aCl3[0],'D',D,'D3',D3)
+                  if abs(D3) > dMax3: continue
+                  trackId = 1000+100*k3+10*k2+k1
+                  trackId3 = trackId
+                  h['trackCand'][p][trackId]=ROOT.TGraph()
+                  h['trackCand'][p][trackId].SetPoint(0,aCl1[1],aCl1[0])
+                  h['trackCand'][p][trackId].SetPoint(1,aCl2[1],aCl2[0])
+                  h['trackCand'][p][trackId].SetPoint(2,aCl3[1],aCl3[0])
+                  extr4 = h['trackCand'][p][trackId].Eval(aCl3[1]+self.dZ)
+                  for k4 in range(len(mergedClusters[40+p])):
+                    aCl4 = mergedClusters[40+p][k4]
+                    D4 = aCl4[0]-extr4
+                    if debug: print(4,'D4',D4,'x4',aCl4[0],'extr',extr4)
+                    if abs(D4) > dMax3: continue
+                    trackId = 10000+1000*k4+100*k3+10*k2+k1
+                    trackId4 = trackId
+                    if debug: print(4,trackId)
+                    h['trackCand'][p][trackId] = h['trackCand'][p][trackId3].Clone()
+                    h['trackCand'][p][trackId].SetPoint(3,aCl4[1],aCl4[0])
+                    extr5 = h['trackCand'][p][trackId].Eval(aCl4[1]+self.dZ)
+                    for k5 in range(len(mergedClusters[50+p])):
+                       aCl5 = mergedClusters[50+p][k5]
+                       D5 = aCl5[0]-extr5
+                       if debug: print(5,'D5',D5,'x5',aCl5[0],'extr',extr5)
+                       if abs(D5) > dMax3: continue
+                       trackId = 100000+10000*k5+1000*k4+100*k3+10*k2+k1
+                       h['trackCand'][p][trackId] = h['trackCand'][p][trackId4].Clone()
+                       h['trackCand'][p][trackId].SetPoint(4,aCl5[1],aCl5[0])
+                       if debug: print('final',trackId)
+       '''
+clonekiller
+if more than 2 clusters are shared by a track, take the track with better chi2
+       '''
+       h['cloneCand'] = {0:[],1:[]}
+       discarded = h['cloneCand']
+       for p in range(2):
+         keys = list(h['trackCand'][p])
+         for k1 in range( len(keys)-1):
+            if keys[k1] < 100000 and not doublet: continue
+            if keys[k1] in discarded[p]: continue
+            if doublet: test1 = str(keys[k1]).zfill(5)
+            else:       test1 = str(keys[k1]%100000).zfill(5)
+            for k2 in range(k1+1,len(keys) ):
+               if keys[k2] < 100000 and not doublet: continue
+               if keys[k2] in discarded[p]: continue
+               if doublet: test2 = str(keys[k2]).zfill(5)
+               else:       test2 = str(keys[k2]%100000).zfill(5)
+               ov = 0
+               for i in range(5): 
+                 if test1[i]==test2[i]: ov+=1
+               if ov>ovMax:
+                 if doublet and test1.find('0')<0 and not test2.find('0')<0: discarded[p].append(keys[k2])
+                 elif doublet and test2.find('0')<0 and not test1.find('0')<0: discarded[p].append(keys[k1])
+                 else:
+                    rc1 = h['trackCand'][p][keys[k1]].Fit('pol1','QS')
+                    rc2 = h['trackCand'][p][keys[k2]].Fit('pol1','QS')
+                    if rc1.Get().Chi2() <  rc2.Get().Chi2(): discarded[p].append(keys[k2])
+                    else:                                    discarded[p].append(keys[k1])
