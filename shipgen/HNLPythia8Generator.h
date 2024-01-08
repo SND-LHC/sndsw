@@ -12,7 +12,6 @@
 #include "FairLogger.h"                 // for FairLogger, MESSAGE_ORIGIN
 
 class FairPrimaryGenerator;
-//using namespace Pythia8;
 
 class PyTr1Rng : public Pythia8::RndmEngine
 {

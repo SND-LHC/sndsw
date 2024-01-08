@@ -47,8 +47,7 @@
 
 using std::cout;
 using std::endl;
-using std::to_string;
-using std::string;
+
 using namespace ShipUnit;
 
 MuFilter::MuFilter()
@@ -154,7 +153,7 @@ void MuFilter::ConstructGeometry()
 	std::map<int, TVector3 > edge_Iron;
 	std::map<int, TVector3 > edge_MuFilter;
 	for (int i=1;i<10;i++){
-		string si = to_string(i);
+		std::string si = std::to_string(i);
 		edge_Iron[i] = TVector3( -conf_floats["MuFilter/Iron"+si+"Dx"],conf_floats["MuFilter/Iron"+si+"Dz"],conf_floats["MuFilter/Iron"+si+"Dy"]);
 		edge_MuFilter[i]  = TVector3( -conf_floats["MuFilter/Muon"+si+"Dx"],conf_floats["MuFilter/Muon"+si+"Dz"],conf_floats["MuFilter/Muon"+si+"Dy"]);
 	}
@@ -202,7 +201,7 @@ void MuFilter::ConstructGeometry()
 	TGeoVolume* volVetoPlane;
 	for (int iplane=0; iplane < fNVetoPlanes; iplane++){
 	  
-	  string name = "volVetoPlane_"+to_string(iplane);
+	  std::string name = "volVetoPlane_"+std::to_string(iplane);
 	  volVetoPlane = new TGeoVolumeAssembly(name.c_str());
 
 	  displacement = edge_Veto[iplane+1] + LocBarVeto + TVector3(-fVetoBarX/2, 0, 0);
@@ -292,7 +291,7 @@ void MuFilter::ConstructGeometry()
 	AddSensitiveVolume(volMuUpstreamBar);
 	for(Int_t l=0; l<fNUpstreamPlanes; l++)
 	{
-	  string name = "volMuUpstreamDet_"+std::to_string(l);
+	  std::string name = "volMuUpstreamDet_"+std::to_string(l);
 	  volUpstreamDet = new TGeoVolumeAssembly(name.c_str());
 
 	  displacement = edge_Iron[l+1] - TVector3(fFeBlockX/2,-fFeBlockY/2,-fFeBlockZ/2);
@@ -319,7 +318,7 @@ void MuFilter::ConstructGeometry()
 	  for (Int_t ibar = 0; ibar < fNUpstreamBars; ibar++){
 	    Double_t dy_bar =  (fUpstreamBarY + fUpstreamBarGap)*ibar; 
 	    volUpstreamDet->AddNode(volMuUpstreamBar,2e+4+l*1e+3+ibar,
-				new TGeoTranslation(displacement.X(),displacement.Y()+conf_floats["MuFilter/USOffZ"+to_string(l+1)]+dy_bar,displacement.Z()));
+				new TGeoTranslation(displacement.X(),displacement.Y()+conf_floats["MuFilter/USOffZ"+std::to_string(l+1)]+dy_bar,displacement.Z()));
 	  }
 
 	}
@@ -366,7 +365,7 @@ void MuFilter::ConstructGeometry()
 	}
 
 	// add detectors
-	string name = "volMuDownstreamDet_"+std::to_string(l);
+	std::string name = "volMuDownstreamDet_"+std::to_string(l);
 	volDownstreamDet = new TGeoVolumeAssembly(name.c_str());
 	displacement = edge_MuFilter[l+fNUpstreamPlanes+1] + LocBarH + TVector3(-fDownstreamBarX/2, 0,0);
 	
@@ -512,7 +511,7 @@ Float_t MuFilter::GetCorrectedTime(Int_t fDetectorID, Int_t channel, Double_t ra
 		return rawTime;
 	}
 	TString tag = "";
-	vector<int> coveredRuns{};
+	std::vector<int> coveredRuns{};
 	if (eventHeader){
 		Int_t fRunNumber = eventHeader->GetRunId();
 		if (fRunNumber<1){
@@ -523,19 +522,19 @@ Float_t MuFilter::GetCorrectedTime(Int_t fDetectorID, Int_t channel, Double_t ra
 		std::string tag_string;
 		for (auto key : conf_floats){
 		     tag_string = key.first.Data();
-		     if (tag_string.find("MuFilter/DSTcorslopet_") != string::npos){
+		     if (tag_string.find("MuFilter/DSTcorslopet_") != std::string::npos){
 		         coveredRuns.push_back(stoi(tag_string.substr(tag_string.find("t_")+2)));
 		     }
 		}
 		if (coveredRuns.size()!=0){
-		    tag = "t_"+to_string(coveredRuns[coveredRuns.size()-1]);
+		    tag = "t_"+std::to_string(coveredRuns[coveredRuns.size()-1]);
 		    for (int i=1; i<coveredRuns.size(); i++){
 		          if (fRunNumber>=coveredRuns[i-1] && fRunNumber<coveredRuns[i]){
-		              tag = "t_"+to_string(coveredRuns[i-1]);
+		              tag = "t_"+std::to_string(coveredRuns[i-1]);
 		          }
 		    }
 		    //special case
-		    if (fRunNumber<5193 && fRunNumber>5174) tag = "t_"+to_string(coveredRuns[0]);
+		    if (fRunNumber<5193 && fRunNumber>5174) tag = "t_"+std::to_string(coveredRuns[0]);
 		}
 		else{
 		     // allow reading older geo files with letter tags i.e. A, B, C
@@ -558,7 +557,7 @@ Float_t MuFilter::GetCorrectedTime(Int_t fDetectorID, Int_t channel, Double_t ra
 	// DS time alignment first order
 	if (ichannel60<30){cor += conf_floats["MuFilter/DSTcorslope"+tag]*(ichannel60-15);}
 	else{              cor -= conf_floats["MuFilter/DSTcorslope"+tag]*(ichannel60-45);}
-	string si = to_string(p);
+	std::string si = std::to_string(p);
 	cor -= conf_floats["MuFilter/DSTcorC"+si+tag];
 	cor -= L/conf_floats["MuFilter/DsPropSpeed"];
 	return cor;

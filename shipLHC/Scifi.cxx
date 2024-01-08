@@ -449,7 +449,7 @@ Double_t Scifi::GetCorrectedTime(Int_t fDetectorID, Double_t rawTime, Double_t L
 /* expect time in u.ns  and  path length to sipm u.cm */
 	TString tag = "t";
 	TString sID;
-	vector<int> coveredRuns{};
+	std::vector<int> coveredRuns{};
 	if (eventHeader){
 		Int_t fRunNumber = eventHeader->GetRunId();
 		if (fRunNumber<1) {
@@ -460,19 +460,19 @@ Double_t Scifi::GetCorrectedTime(Int_t fDetectorID, Double_t rawTime, Double_t L
 		std::string tag_string;
 		for (auto key : conf_floats){
 		     tag_string = key.first.Data();
-		     if (tag_string.find("Scifi/station1t_") != string::npos){
+		     if (tag_string.find("Scifi/station1t_") != std::string::npos){
 		         coveredRuns.push_back(stoi(tag_string.substr(tag_string.find("t_")+2)));
 		     }
 		}
 		if (coveredRuns.size()!=0){
-		    tag = "t_"+to_string(coveredRuns[coveredRuns.size()-1]);
+		    tag = "t_"+std::to_string(coveredRuns[coveredRuns.size()-1]);
 		    for (int i=1; i<coveredRuns.size(); i++){
 		         if (fRunNumber>=coveredRuns[i-1] && fRunNumber<coveredRuns[i]){
-		             tag = "t_"+to_string(coveredRuns[i-1]);
+		             tag = "t_"+std::to_string(coveredRuns[i-1]);
 		         }
 		    }
 		    // special case
-		    if (fRunNumber<5193 && fRunNumber>5174) tag = "t_"+to_string(coveredRuns[0]);
+		    if (fRunNumber<5193 && fRunNumber>5174) tag = "t_"+std::to_string(coveredRuns[0]);
 		}
 		else{		
 		     // allow reading older geo files with letter tags i.e. A, B, C
@@ -569,7 +569,7 @@ void Scifi::GetSiPMPosition(Int_t SiPMChan, TVector3& A, TVector3& B)
 	Double_t fFiberLength  = conf_floats["Scifi/fiber_length"];
 	
 	TString tag = "";
-	vector<int> coveredRuns{};
+	std::vector<int> coveredRuns{};
 	// in case of old data with FairEventHeader, user will be responsible to use the correct geofile.
 	if (eventHeader){
 		Int_t fRunNumber = eventHeader->GetRunId();
@@ -581,15 +581,15 @@ void Scifi::GetSiPMPosition(Int_t SiPMChan, TVector3& A, TVector3& B)
 		std::string tag_string;
 		for (auto key : conf_floats){
 		     tag_string = key.first.Data();
-		     if (tag_string.find("Scifi/LocM100t_") != string::npos){
+		     if (tag_string.find("Scifi/LocM100t_") != std::string::npos){
 		         coveredRuns.push_back(stoi(tag_string.substr(tag_string.find("t_")+2)));
 		     }
 		}
 		if (coveredRuns.size()!=0){
-		    tag = "t_"+to_string(coveredRuns[coveredRuns.size()-1]);
+		    tag = "t_"+std::to_string(coveredRuns[coveredRuns.size()-1]);
 		    for (int i=1; i<coveredRuns.size(); i++){
 		         if (fRunNumber>=coveredRuns[i-1] && fRunNumber<coveredRuns[i]){
-		             tag = "t_"+to_string(coveredRuns[i-1]);
+		             tag = "t_"+std::to_string(coveredRuns[i-1]);
 		         }
 		    }
 		}

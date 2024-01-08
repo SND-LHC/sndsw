@@ -8,9 +8,11 @@
 #include <tuple>
 #include "nlohmann/json.hpp"
 
-using namespace std;
+using std::map;
+using std::string;
 using json = nlohmann::json;
 
-tuple<map<string, map<string, map<string, int>> >, map<string, map<string, map<string, string>> > > getBoardMapping(json j);
+std::tuple<map<string, map<string, map<string, int>> >,
+           map<string, map<string, map<string, string>> > > getBoardMapping(json j);
 
 #endif
