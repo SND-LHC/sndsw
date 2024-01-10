@@ -68,6 +68,8 @@ withDetector = True  # False is useful when using zoom
 with2Points = False  # plot start and end point of straw/bar
 mc = False
 
+firstScifi_z = 300 * u.cm
+TDC2ns = 1E9 / 160.316E6
 
 # Initialize FairLogger: set severity and verbosity
 logger = ROOT.FairLogger.GetLogger()
@@ -818,8 +820,6 @@ def cleanTracks():
     return uniqueTracks
 
 def timingOfEvent(makeCluster=False,debug=False):
-   firstScifi_z = 300*u.cm
-   TDC2ns = 1E9/160.316E6
    ut.bookHist(h,'evTimeDS','cor time of hits;[ns]',70,-5.,30)
    ut.bookHist(h,'evTimeScifi','cor time of hits blue DS red Scifi;[ns]',70,-5.,30)
    ut.bookCanvas(h,'tevTime','cor time of hits',1024,768,1,1)
