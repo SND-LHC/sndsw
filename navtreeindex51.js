@@ -1,5 +1,9 @@
 var NAVTREEINDEX51 =
 {
+"logger_8hxx.html":[13,0,27,0],
+"logger_8hxx.html#a113b6bb3527bb2ff3507ec12731aaafe":[13,0,27,0,3],
+"logger_8hxx.html#a2a557d803d7b5988f0a19b50443e1169":[13,0,27,0,2],
+"logger_8hxx.html#a83472731771521d366d09a96db58d50f":[13,0,27,0,7],
 "logger_8hxx.html#a8f34527ad339f58b12244b3376248654":[13,0,27,0,0],
 "logger_8hxx.html#a9780cccb8bc64317351d97dcce1cfc40":[13,0,27,0,6],
 "logger_8hxx.html#acb23448d4f370a5fbdbe746cfed2287e":[13,0,27,0,5],
@@ -245,9 +249,5 @@ var NAVTREEINDEX51 =
 "makeGeoFile_8py.html#acddf8eadc641bba689ebbe4f028b6f45":[13,0,20,14,11],
 "makeGeoFile_8py_source.html":[13,0,20,14],
 "makeMuonDIS_8py.html":[13,0,11,10],
-"makeMuonDIS_8py.html#a0b59935c502dda77201f6c39411212ca":[13,0,11,10,23],
-"makeMuonDIS_8py.html#a0baff85fde4aefea404a4f1933e8dcfb":[13,0,11,10,38],
-"makeMuonDIS_8py.html#a0ffbb942174fb3db82b4bbdd7ee684e2":[13,0,11,10,45],
-"makeMuonDIS_8py.html#a167283eebd6aab628dc0adeb258817fb":[13,0,11,10,41],
-"makeMuonDIS_8py.html#a16db02aaa9304108c4806bede18f350e":[13,0,11,10,22]
+"makeMuonDIS_8py.html#a0b59935c502dda77201f6c39411212ca":[13,0,11,10,23]
 };

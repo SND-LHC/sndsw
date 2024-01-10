@@ -58,7 +58,7 @@ var searchData=
   ['nb_5695',['nb',['../namespacemakeCascade.html#a17abff334f86b2f1030efc18f1bdfa9a',1,'makeCascade']]],
   ['nbars_5696',['nbars',['../classvetoTimeCalibration_1_1vetoTDCplaneCalibration.html#acd60af167e906bde508487b2600f129c',1,'vetoTimeCalibration::vetoTDCplaneCalibration']]],
   ['nbdrx_5697',['nbdrx',['../namespacempmod.html#a8a0b7f0bb1466fe16b03c5abc9fa134a',1,'mpmod']]],
-  ['nbins_5698',['nbins',['../classsndAnalysis_1_1baseCut.html#a6728028f25062a0a80cee38201d65a56',1,'sndAnalysis::baseCut::nbins()'],['../namespaceTTCluster.html#afe58c17a736f63959adf2de562eda1a6',1,'TTCluster.nbins()'],['../namespaceextract__interacting__neutrinos.html#ad3842a773edea12249c66fc322fc19a4',1,'extract_interacting_neutrinos.nbins()']]],
+  ['nbins_5698',['nbins',['../classsnd_1_1analysis__cuts_1_1baseCut.html#aee7d36f1de87f8d0140e0518e27a6052',1,'snd::analysis_cuts::baseCut::nbins()'],['../namespaceTTCluster.html#afe58c17a736f63959adf2de562eda1a6',1,'TTCluster.nbins()'],['../namespaceextract__interacting__neutrinos.html#ad3842a773edea12249c66fc322fc19a4',1,'extract_interacting_neutrinos.nbins()']]],
   ['nbndr_5699',['nbndr',['../namespacempmod.html#a55d73a7d752b965b5e38ede6b6bc3a40',1,'mpmod']]],
   ['nbndx_5700',['nbndx',['../namespacempmod.html#a40caab8c79f0800ca8a83394a463cd83',1,'mpmod']]],
   ['nboard_5701',['nboard',['../structRawHit.html#ab5e50d04504bfdd0c1a8634f3bec36bd',1,'RawHit']]],

@@ -137,6 +137,10 @@ var NAVTREEINDEX0 =
 "AddDiMuonDecayChannelsToG4_8py.html":[13,0,17,0],
 "AddDiMuonDecayChannelsToG4_8py.html#a753e4ffd6a0356653c5896ba1f5a57cd":[13,0,17,0,0],
 "AddDiMuonDecayChannelsToG4_8py_source.html":[13,0,17,0],
+"AnalysisCutsLinkDef_8h.html":[13,0,0,0,0],
+"AnalysisCutsLinkDef_8h_source.html":[13,0,0,0,0],
+"AnalysisToolsLinkDef_8h.html":[13,0,0,1,0],
+"AnalysisToolsLinkDef_8h_source.html":[13,0,0,1,0],
 "BellField_8cc.html":[13,0,5,2,1,0],
 "BellField_8cc.html#a051a74c8506be0a4072e69b52b7113a8":[13,0,5,2,1,0,4],
 "BellField_8cc.html#a36fc4b47251281f99efceaa80c7877f0":[13,0,5,2,1,0,0],
@@ -245,9 +249,5 @@ var NAVTREEINDEX0 =
 "EmulsionDetContFact_8h.html":[13,0,20,8],
 "EmulsionDetContFact_8h_source.html":[13,0,20,8],
 "EmulsionDetPoint_8cxx.html":[13,0,20,9],
-"EmulsionDetPoint_8cxx_source.html":[13,0,20,9],
-"EmulsionDetPoint_8h.html":[13,0,20,10],
-"EmulsionDetPoint_8h_source.html":[13,0,20,10],
-"EmulsionDet_8cxx.html":[13,0,20,5],
-"EmulsionDet_8cxx_source.html":[13,0,20,5]
+"EmulsionDetPoint_8cxx_source.html":[13,0,20,9]
 };

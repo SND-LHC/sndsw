@@ -1,5 +1,9 @@
 var NAVTREEINDEX26 =
 {
+"classdarkphoton_1_1DarkPhoton.html#aae7dc22c0ff1dae3b0131f1a6723107c":[12,0,3,0,3],
+"classdarkphoton_1_1DarkPhoton.html#ab0faf382132859798d426d850b416869":[12,0,3,0,2],
+"classdarkphoton_1_1DarkPhoton.html#af481171fc548f6c43740e80ee2742d1e":[12,0,3,0,8],
+"classdarkphoton_1_1DarkPhoton.html#af9f3babe8985ae6deefd4a8a23280f78":[12,0,3,0,5],
 "classecal.html":[12,0,61],
 "classecal.html#a0264a819c2faa11ea10300b51969b24e":[12,0,61,18],
 "classecal.html#a043d8d376fdfabef644b552e6c24755c":[12,0,61,27],
@@ -245,9 +249,5 @@ var NAVTREEINDEX26 =
 "classecalCluster.html#ae4f0d13e217424e3cfeb9ebb7ba04006":[12,0,66,37],
 "classecalCluster.html#aefb1a0b5e13f2624e96719aa3e9c1a01":[12,0,66,0],
 "classecalCluster.html#af75224c7858215b61ca7c77620b6229e":[12,0,66,4],
-"classecalCluster.html#afe829d121baac9fc34ea99c42a7f4ffd":[12,0,66,13],
-"classecalClusterCalibration.html":[12,0,67],
-"classecalClusterCalibration.html#a224603fdd7e8d9ff625f6d9684032fa1":[12,0,67,12],
-"classecalClusterCalibration.html#a25a29b4dc31c93f7b412b123299f6d4c":[12,0,67,1],
-"classecalClusterCalibration.html#a55ecb56debc5c57706e5bcdbd8f01c28":[12,0,67,10]
+"classecalCluster.html#afe829d121baac9fc34ea99c42a7f4ffd":[12,0,66,13]
 };

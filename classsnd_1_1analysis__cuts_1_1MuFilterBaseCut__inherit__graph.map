@@ -1,0 +1,9 @@
+<map id="snd::analysis_cuts::MuFilterBaseCut" name="snd::analysis_cuts::MuFilterBaseCut">
+<area shape="rect" id="node1" title=" " alt="" coords="195,136,336,177"/>
+<area shape="rect" id="node3" href="$classsnd_1_1analysis__cuts_1_1DSActivityCut.html" title=" " alt="" coords="385,5,527,47"/>
+<area shape="rect" id="node4" href="$classsnd_1_1analysis__cuts_1_1DSVetoCut.html" title=" " alt="" coords="385,71,527,112"/>
+<area shape="rect" id="node5" href="$classsnd_1_1analysis__cuts_1_1USQDCCut.html" title=" " alt="" coords="385,136,527,177"/>
+<area shape="rect" id="node6" href="$classsnd_1_1analysis__cuts_1_1avgDSFiducialCut.html" title=" " alt="" coords="384,201,528,243"/>
+<area shape="rect" id="node7" href="$classsnd_1_1analysis__cuts_1_1vetoCut.html" title=" " alt="" coords="385,267,527,308"/>
+<area shape="rect" id="node2" href="$classsnd_1_1analysis__cuts_1_1baseCut.html" title=" " alt="" coords="5,136,147,177"/>
+</map>

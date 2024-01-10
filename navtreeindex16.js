@@ -1,5 +1,9 @@
 var NAVTREEINDEX16 =
 {
+"classMagneticSpectrometer.html#a2d7754fcb4ba80fe074fe016a68dc29f":[12,0,110,17],
+"classMagneticSpectrometer.html#a2eb04fffdb5b8982e4c76220de60ea1e":[12,0,110,75],
+"classMagneticSpectrometer.html#a30a545f52568b6f474347bc89e66f8a6":[12,0,110,27],
+"classMagneticSpectrometer.html#a31eaca716a6d922aa74aceff3e2098c8":[12,0,110,0],
 "classMagneticSpectrometer.html#a344ac08271bba84c47508de60a37009d":[12,0,110,65],
 "classMagneticSpectrometer.html#a362ca8c392c25ab7796143986743e1d9":[12,0,110,73],
 "classMagneticSpectrometer.html#a418bd7f6efacf510e2eccd17a08bfb42":[12,0,110,15],
@@ -245,9 +249,5 @@ var NAVTREEINDEX16 =
 "classMuFilterHit.html#a7024855d42919ec52751f05e6b404b34":[12,0,114,6],
 "classMuFilterHit.html#a8071401f68ab4210ec4bdf3287021d30":[12,0,114,8],
 "classMuFilterHit.html#a843bd8bb0fb5e6bf4d0668a44a87f538":[12,0,114,9],
-"classMuFilterHit.html#a8b96b4fdbee25930d125aa989bd92e01":[12,0,114,19],
-"classMuFilterHit.html#a92eeef7d192027351ec7994f74b009e1":[12,0,114,13],
-"classMuFilterHit.html#a9753354841b0a0908fc1c7b92e371489":[12,0,114,5],
-"classMuFilterHit.html#a9b72c70bf758fe6c920794c9a8e44604":[12,0,114,4],
-"classMuFilterHit.html#a9bd2341dda850aac864772fe9e664b1c":[12,0,114,25]
+"classMuFilterHit.html#a8b96b4fdbee25930d125aa989bd92e01":[12,0,114,19]
 };

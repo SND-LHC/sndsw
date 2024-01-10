@@ -3933,7 +3933,7 @@ var namespaces_dup =
     ] ],
     [ "shipVertex", "namespaceshipVertex.html", "namespaceshipVertex" ],
     [ "shipVeto", "namespaceshipVeto.html", "namespaceshipVeto" ],
-    [ "sndAnalysis", "namespacesndAnalysis.html", "namespacesndAnalysis" ],
+    [ "snd", "namespacesnd.html", "namespacesnd" ],
     [ "sndLHC_geom_config", "namespacesndLHC__geom__config.html", [
       [ "Acrylic_width", "namespacesndLHC__geom__config.html#abea228ae1b50053d5163976ed4b4b133", null ],
       [ "AllPW", "namespacesndLHC__geom__config.html#a3ef6cc1369b93b648cf740558857b3fc", null ],

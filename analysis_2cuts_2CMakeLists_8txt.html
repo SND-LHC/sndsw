@@ -90,37 +90,14 @@ $(document).ready(function(){initNavTree('analysis_2cuts_2CMakeLists_8txt.html',
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a8777f5c45dafc7d47d18d457bf571e0e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="analysis_2cuts_2CMakeLists_8txt.html#a8777f5c45dafc7d47d18d457bf571e0e">set</a> (SND_CUTS_SRCS sndSciFiBaseCut.cxx sndMuFilterBaseCut.cxx sndMinSciFiHitsCut.cxx sndSciFiStationCut.cxx sndVetoCut.cxx sndMinSciFiConsecutivePlanes.cxx sndDSActivityCut.cxx sndUSQDCCut.cxx sndEventHeaderBaseCut.cxx sndEventDeltat.cxx sndAvgSciFiFiducialCut.cxx sndAvgDSFiducialCut.cxx sndDSVetoCut.cxx) set(LINK_DIRECTORIES $</td></tr>
-<tr class="separator:a8777f5c45dafc7d47d18d457bf571e0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36d67472c7561feaecb746b963389f07"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="analysis_2cuts_2CMakeLists_8txt.html#a36d67472c7561feaecb746b963389f07">link_directories</a> (${LINK_DIRECTORIES}) add_library(sndCuts SHARED $</td></tr>
-<tr class="separator:a36d67472c7561feaecb746b963389f07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83cedc3c27b874f090f13cc09f4f28d0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="analysis_2cuts_2CMakeLists_8txt.html#a83cedc3c27b874f090f13cc09f4f28d0">set</a> (INCLUDE_DIRECTORIES ${SYSTEM_INCLUDE_DIRECTORIES} ${VMC_INCLUDE_DIRS} ${CMAKE_SOURCE_DIR}/shipdata ${CMAKE_SOURCE_DIR}/shipLHC ${CMAKE_SOURCE_DIR}/analysis/cuts ${FMT_INCLUDE_DIR}) <a class="el" href="pid_2CMakeLists_8txt.html#a5e5d5889be285986095018dc34620a74">include_directories</a>($</td></tr>
+<tr class="separator:a83cedc3c27b874f090f13cc09f4f28d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a826c762cb95f413ba504e14a98c85ac4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="analysis_2cuts_2CMakeLists_8txt.html#a826c762cb95f413ba504e14a98c85ac4">set</a> (SRCS sndSciFiBaseCut.cxx sndMuFilterBaseCut.cxx sndMinSciFiHitsCut.cxx sndSciFiStationCut.cxx sndVetoCut.cxx sndMinSciFiConsecutivePlanes.cxx sndDSActivityCut.cxx sndUSQDCCut.cxx sndEventHeaderBaseCut.cxx sndEventDeltat.cxx sndAvgSciFiFiducialCut.cxx sndAvgDSFiducialCut.cxx sndDSVetoCut.cxx) set(LINK_DIRECTORIES $</td></tr>
+<tr class="separator:a826c762cb95f413ba504e14a98c85ac4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a36d67472c7561feaecb746b963389f07"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a36d67472c7561feaecb746b963389f07">&#9670;&nbsp;</a></span>link_directories()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">link_directories </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>${LINK_DIRECTORIES}</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="analysis_2cuts_2CMakeLists_8txt_source.html#l00021">21</a> of file <a class="el" href="analysis_2cuts_2CMakeLists_8txt_source.html">CMakeLists.txt</a>.</p>
-<div class="fragment"><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                   {LINK_DIRECTORIES})</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;add_library(sndCuts SHARED ${SND_CUTS_SRCS})</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a8777f5c45dafc7d47d18d457bf571e0e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8777f5c45dafc7d47d18d457bf571e0e">&#9670;&nbsp;</a></span>set()</h2>
+<a id="a83cedc3c27b874f090f13cc09f4f28d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83cedc3c27b874f090f13cc09f4f28d0">&#9670;&nbsp;</a></span>set() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -128,15 +105,46 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">set </td>
           <td>(</td>
-          <td class="paramtype">SND_CUTS_SRCS sndSciFiBaseCut.cxx sndMuFilterBaseCut.cxx sndMinSciFiHitsCut.cxx sndSciFiStationCut.cxx sndVetoCut.cxx sndMinSciFiConsecutivePlanes.cxx sndDSActivityCut.cxx sndUSQDCCut.cxx sndEventHeaderBaseCut.cxx sndEventDeltat.cxx sndAvgSciFiFiducialCut.cxx sndAvgDSFiducialCut.cxx sndDSVetoCut.&#160;</td>
-          <td class="paramname"><em>cxx</em></td><td>)</td>
+          <td class="paramtype">INCLUDE_DIRECTORIES ${SYSTEM_INCLUDE_DIRECTORIES} ${VMC_INCLUDE_DIRS} ${CMAKE_SOURCE_DIR}/shipdata ${CMAKE_SOURCE_DIR}/shipLHC ${CMAKE_SOURCE_DIR}/analysis/cuts ${FMT_INCLUDE_DIR}&#160;</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="analysis_2cuts_2CMakeLists_8txt_source.html#l00001">1</a> of file <a class="el" href="analysis_2cuts_2CMakeLists_8txt_source.html">CMakeLists.txt</a>.</p>
-<div class="fragment"><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; {FAIRROOT_LIBRARY_DIR}</div>
+<div class="fragment"><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; {SYSTEM_INCLUDE_DIRECTORIES}</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;${VMC_INCLUDE_DIRS}</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;${CMAKE_SOURCE_DIR}/shipdata</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;${CMAKE_SOURCE_DIR}/shipLHC</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;${CMAKE_SOURCE_DIR}/analysis/<a class="code" href="namespaceneutrinoFilterGoldenSample__stage2.html#aa7f88e269db73063f6476370ea74184b">cuts</a></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;${FMT_INCLUDE_DIR}</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;)</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<a class="code" href="online_2CMakeLists_8txt.html#a929133b0086520fb548785c4a86a5315">include_directories</a>( ${INCLUDE_DIRECTORIES} )</div>
+<div class="ttc" id="anamespaceneutrinoFilterGoldenSample__stage2_html_aa7f88e269db73063f6476370ea74184b"><div class="ttname"><a href="namespaceneutrinoFilterGoldenSample__stage2.html#aa7f88e269db73063f6476370ea74184b">neutrinoFilterGoldenSample_stage2.cuts</a></div><div class="ttdeci">list cuts</div><div class="ttdef"><b>Definition:</b> <a href="neutrinoFilterGoldenSample__stage2_8py_source.html#l00052">neutrinoFilterGoldenSample_stage2.py:52</a></div></div>
+<div class="ttc" id="aonline_2CMakeLists_8txt_html_a929133b0086520fb548785c4a86a5315"><div class="ttname"><a href="online_2CMakeLists_8txt.html#a929133b0086520fb548785c4a86a5315">include_directories</a></div><div class="ttdeci">include_directories(${INCLUDE_DIRECTORIES} ${FAIRROOT_INCLUDE_DIR} ${FairLogger_INCDIR} ${FMT_INCLUDE_DIR}) include_directories(SYSTEM $</div><div class="ttdef"><b>Definition:</b> <a href="online_2CMakeLists_8txt_source.html#l00012">CMakeLists.txt:12</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a826c762cb95f413ba504e14a98c85ac4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a826c762cb95f413ba504e14a98c85ac4">&#9670;&nbsp;</a></span>set() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">set </td>
+          <td>(</td>
+          <td class="paramtype">SRCS sndSciFiBaseCut.cxx sndMuFilterBaseCut.cxx sndMinSciFiHitsCut.cxx sndSciFiStationCut.cxx sndVetoCut.cxx sndMinSciFiConsecutivePlanes.cxx sndDSActivityCut.cxx sndUSQDCCut.cxx sndEventHeaderBaseCut.cxx sndEventDeltat.cxx sndAvgSciFiFiducialCut.cxx sndAvgDSFiducialCut.cxx sndDSVetoCut.&#160;</td>
+          <td class="paramname"><em>cxx</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="analysis_2cuts_2CMakeLists_8txt_source.html#l00012">12</a> of file <a class="el" href="analysis_2cuts_2CMakeLists_8txt_source.html">CMakeLists.txt</a>.</p>
+<div class="fragment"><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; {FAIRROOT_LIBRARY_DIR}</div>
 </div><!-- fragment -->
 </div>
 </div>

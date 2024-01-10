@@ -259,21 +259,23 @@ var annotated_dup =
     [ "shipVeto", "namespaceshipVeto.html", [
       [ "Task", "classshipVeto_1_1Task.html", "classshipVeto_1_1Task" ]
     ] ],
-    [ "sndAnalysis", "namespacesndAnalysis.html", [
-      [ "avgDSFiducialCut", "classsndAnalysis_1_1avgDSFiducialCut.html", "classsndAnalysis_1_1avgDSFiducialCut" ],
-      [ "avgSciFiFiducialCut", "classsndAnalysis_1_1avgSciFiFiducialCut.html", "classsndAnalysis_1_1avgSciFiFiducialCut" ],
-      [ "baseCut", "classsndAnalysis_1_1baseCut.html", "classsndAnalysis_1_1baseCut" ],
-      [ "DSActivityCut", "classsndAnalysis_1_1DSActivityCut.html", "classsndAnalysis_1_1DSActivityCut" ],
-      [ "DSVetoCut", "classsndAnalysis_1_1DSVetoCut.html", "classsndAnalysis_1_1DSVetoCut" ],
-      [ "eventDeltatCut", "classsndAnalysis_1_1eventDeltatCut.html", "classsndAnalysis_1_1eventDeltatCut" ],
-      [ "EventHeaderBaseCut", "classsndAnalysis_1_1EventHeaderBaseCut.html", "classsndAnalysis_1_1EventHeaderBaseCut" ],
-      [ "minSciFiConsecutivePlanes", "classsndAnalysis_1_1minSciFiConsecutivePlanes.html", "classsndAnalysis_1_1minSciFiConsecutivePlanes" ],
-      [ "minSciFiHits", "classsndAnalysis_1_1minSciFiHits.html", "classsndAnalysis_1_1minSciFiHits" ],
-      [ "MuFilterBaseCut", "classsndAnalysis_1_1MuFilterBaseCut.html", "classsndAnalysis_1_1MuFilterBaseCut" ],
-      [ "sciFiBaseCut", "classsndAnalysis_1_1sciFiBaseCut.html", "classsndAnalysis_1_1sciFiBaseCut" ],
-      [ "sciFiStationCut", "classsndAnalysis_1_1sciFiStationCut.html", "classsndAnalysis_1_1sciFiStationCut" ],
-      [ "USQDCCut", "classsndAnalysis_1_1USQDCCut.html", "classsndAnalysis_1_1USQDCCut" ],
-      [ "vetoCut", "classsndAnalysis_1_1vetoCut.html", "classsndAnalysis_1_1vetoCut" ]
+    [ "snd", "namespacesnd.html", [
+      [ "analysis_cuts", "namespacesnd_1_1analysis__cuts.html", [
+        [ "avgDSFiducialCut", "classsnd_1_1analysis__cuts_1_1avgDSFiducialCut.html", "classsnd_1_1analysis__cuts_1_1avgDSFiducialCut" ],
+        [ "avgSciFiFiducialCut", "classsnd_1_1analysis__cuts_1_1avgSciFiFiducialCut.html", "classsnd_1_1analysis__cuts_1_1avgSciFiFiducialCut" ],
+        [ "baseCut", "classsnd_1_1analysis__cuts_1_1baseCut.html", "classsnd_1_1analysis__cuts_1_1baseCut" ],
+        [ "DSActivityCut", "classsnd_1_1analysis__cuts_1_1DSActivityCut.html", "classsnd_1_1analysis__cuts_1_1DSActivityCut" ],
+        [ "DSVetoCut", "classsnd_1_1analysis__cuts_1_1DSVetoCut.html", "classsnd_1_1analysis__cuts_1_1DSVetoCut" ],
+        [ "eventDeltatCut", "classsnd_1_1analysis__cuts_1_1eventDeltatCut.html", "classsnd_1_1analysis__cuts_1_1eventDeltatCut" ],
+        [ "EventHeaderBaseCut", "classsnd_1_1analysis__cuts_1_1EventHeaderBaseCut.html", "classsnd_1_1analysis__cuts_1_1EventHeaderBaseCut" ],
+        [ "minSciFiConsecutivePlanes", "classsnd_1_1analysis__cuts_1_1minSciFiConsecutivePlanes.html", "classsnd_1_1analysis__cuts_1_1minSciFiConsecutivePlanes" ],
+        [ "minSciFiHits", "classsnd_1_1analysis__cuts_1_1minSciFiHits.html", "classsnd_1_1analysis__cuts_1_1minSciFiHits" ],
+        [ "MuFilterBaseCut", "classsnd_1_1analysis__cuts_1_1MuFilterBaseCut.html", "classsnd_1_1analysis__cuts_1_1MuFilterBaseCut" ],
+        [ "sciFiBaseCut", "classsnd_1_1analysis__cuts_1_1sciFiBaseCut.html", "classsnd_1_1analysis__cuts_1_1sciFiBaseCut" ],
+        [ "sciFiStationCut", "classsnd_1_1analysis__cuts_1_1sciFiStationCut.html", "classsnd_1_1analysis__cuts_1_1sciFiStationCut" ],
+        [ "USQDCCut", "classsnd_1_1analysis__cuts_1_1USQDCCut.html", "classsnd_1_1analysis__cuts_1_1USQDCCut" ],
+        [ "vetoCut", "classsnd_1_1analysis__cuts_1_1vetoCut.html", "classsnd_1_1analysis__cuts_1_1vetoCut" ]
+      ] ]
     ] ],
     [ "SndlhcDigi", "namespaceSndlhcDigi.html", [
       [ "SndlhcDigi", "classSndlhcDigi_1_1SndlhcDigi.html", "classSndlhcDigi_1_1SndlhcDigi" ]

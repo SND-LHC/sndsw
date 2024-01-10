@@ -1,0 +1,16 @@
+<map id="snd::analysis_cuts::baseCut" name="snd::analysis_cuts::baseCut">
+<area shape="rect" id="node1" title=" " alt="" coords="5,201,147,243"/>
+<area shape="rect" id="node2" href="$classsnd_1_1analysis__cuts_1_1EventHeaderBaseCut.html" title=" " alt="" coords="195,71,363,112"/>
+<area shape="rect" id="node4" href="$classsnd_1_1analysis__cuts_1_1MuFilterBaseCut.html" title=" " alt="" coords="208,201,349,243"/>
+<area shape="rect" id="node10" href="$classsnd_1_1analysis__cuts_1_1sciFiBaseCut.html" title=" " alt="" coords="208,463,349,504"/>
+<area shape="rect" id="node3" href="$classsnd_1_1analysis__cuts_1_1eventDeltatCut.html" title=" " alt="" coords="444,5,585,47"/>
+<area shape="rect" id="node5" href="$classsnd_1_1analysis__cuts_1_1DSActivityCut.html" title=" " alt="" coords="444,71,585,112"/>
+<area shape="rect" id="node6" href="$classsnd_1_1analysis__cuts_1_1DSVetoCut.html" title=" " alt="" coords="444,136,585,177"/>
+<area shape="rect" id="node7" href="$classsnd_1_1analysis__cuts_1_1USQDCCut.html" title=" " alt="" coords="444,201,585,243"/>
+<area shape="rect" id="node8" href="$classsnd_1_1analysis__cuts_1_1avgDSFiducialCut.html" title=" " alt="" coords="443,267,587,308"/>
+<area shape="rect" id="node9" href="$classsnd_1_1analysis__cuts_1_1vetoCut.html" title=" " alt="" coords="444,332,585,373"/>
+<area shape="rect" id="node11" href="$classsnd_1_1analysis__cuts_1_1avgSciFiFiducialCut.html" title=" " alt="" coords="437,397,593,439"/>
+<area shape="rect" id="node12" href="$classsnd_1_1analysis__cuts_1_1minSciFiConsecutivePlanes.html" title=" " alt="" coords="411,463,619,504"/>
+<area shape="rect" id="node13" href="$classsnd_1_1analysis__cuts_1_1minSciFiHits.html" title=" " alt="" coords="444,528,585,569"/>
+<area shape="rect" id="node14" href="$classsnd_1_1analysis__cuts_1_1sciFiStationCut.html" title=" " alt="" coords="444,593,585,635"/>
+</map>

@@ -90,8 +90,8 @@ $(document).ready(function(){initNavTree('analysis_2CMakeLists_8txt.html',''); i
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a8c03b14267bf6ee1791908515c34144d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="analysis_2CMakeLists_8txt.html#a8c03b14267bf6ee1791908515c34144d">set</a> (INCLUDE_DIRECTORIES ${BASE_INCLUDE_DIRECTORIES} ${VMC_INCLUDE_DIRS} ${CMAKE_SOURCE_DIR}/shipdata ${CMAKE_SOURCE_DIR}/shipLHC ${CMAKE_SOURCE_DIR}/analysis/cuts ${CMAKE_SOURCE_DIR}/analysis/tools) <a class="el" href="pid_2CMakeLists_8txt.html#a5e5d5889be285986095018dc34620a74">include_directories</a>($</td></tr>
-<tr class="separator:a8c03b14267bf6ee1791908515c34144d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47029adc3cc30093dfd93f86b779bb99"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="analysis_2CMakeLists_8txt.html#a47029adc3cc30093dfd93f86b779bb99">set</a> (INCLUDE_DIRECTORIES ${SYSTEM_INCLUDE_DIRECTORIES} ${VMC_INCLUDE_DIRS} ${CMAKE_SOURCE_DIR}/shipdata ${CMAKE_SOURCE_DIR}/shipLHC ${CMAKE_SOURCE_DIR}/analysis/cuts ${CMAKE_SOURCE_DIR}/analysis/tools ${FMT_INCLUDE_DIR}) <a class="el" href="pid_2CMakeLists_8txt.html#a5e5d5889be285986095018dc34620a74">include_directories</a>($</td></tr>
+<tr class="separator:a47029adc3cc30093dfd93f86b779bb99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6cf1f4d4259cf4f1fa3c343ef6fcc0fe"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="analysis_2CMakeLists_8txt.html#a6cf1f4d4259cf4f1fa3c343ef6fcc0fe">add_subdirectory</a> (cuts) add_subdirectory(tools) <a class="el" href="veto_2CMakeLists_8txt.html#aa90c1fd469a897d1a08aa8f94bd084a7">set</a>(LINK_DIRECTORIES $</td></tr>
 <tr class="separator:a6cf1f4d4259cf4f1fa3c343ef6fcc0fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7160979f5c34f0d33b3767326804b8d5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="analysis_2CMakeLists_8txt.html#a7160979f5c34f0d33b3767326804b8d5">link_directories</a> (${LINK_DIRECTORIES}) add_executable(neutrinoFilterGoldenSample neutrinoFilterGoldenSample.cxx) target_link_libraries(neutrinoFilterGoldenSample $</td></tr>
@@ -114,8 +114,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="analysis_2CMakeLists_8txt_source.html#l00012">12</a> of file <a class="el" href="analysis_2CMakeLists_8txt_source.html">CMakeLists.txt</a>.</p>
-<div class="fragment"><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; {FAIRROOT_LIBRARY_DIR}</div>
+<p class="definition">Definition at line <a class="el" href="analysis_2CMakeLists_8txt_source.html#l00013">13</a> of file <a class="el" href="analysis_2CMakeLists_8txt_source.html">CMakeLists.txt</a>.</p>
+<div class="fragment"><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; {FAIRROOT_LIBRARY_DIR}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -135,16 +135,16 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="analysis_2CMakeLists_8txt_source.html#l00019">19</a> of file <a class="el" href="analysis_2CMakeLists_8txt_source.html">CMakeLists.txt</a>.</p>
-<div class="fragment"><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                   {LINK_DIRECTORIES})</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;add_executable(neutrinoFilterGoldenSample neutrinoFilterGoldenSample.cxx)</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;target_link_libraries(neutrinoFilterGoldenSample ${ROOT_LIBRARIES} sndCuts)</div>
+<p class="definition">Definition at line <a class="el" href="analysis_2CMakeLists_8txt_source.html#l00020">20</a> of file <a class="el" href="analysis_2CMakeLists_8txt_source.html">CMakeLists.txt</a>.</p>
+<div class="fragment"><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                   {LINK_DIRECTORIES})</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;add_executable(neutrinoFilterGoldenSample neutrinoFilterGoldenSample.cxx)</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;target_link_libraries(neutrinoFilterGoldenSample ${ROOT_LIBRARIES} snd_analysis_tools snd_analysis_cuts)</div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a8c03b14267bf6ee1791908515c34144d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8c03b14267bf6ee1791908515c34144d">&#9670;&nbsp;</a></span>set()</h2>
+<a id="a47029adc3cc30093dfd93f86b779bb99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47029adc3cc30093dfd93f86b779bb99">&#9670;&nbsp;</a></span>set()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -152,23 +152,24 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">set </td>
           <td>(</td>
-          <td class="paramtype">INCLUDE_DIRECTORIES ${BASE_INCLUDE_DIRECTORIES} ${VMC_INCLUDE_DIRS} ${CMAKE_SOURCE_DIR}/shipdata ${CMAKE_SOURCE_DIR}/shipLHC ${CMAKE_SOURCE_DIR}/analysis/cuts ${CMAKE_SOURCE_DIR}/analysis/&#160;</td>
-          <td class="paramname"><em>tools</em></td><td>)</td>
+          <td class="paramtype">INCLUDE_DIRECTORIES ${SYSTEM_INCLUDE_DIRECTORIES} ${VMC_INCLUDE_DIRS} ${CMAKE_SOURCE_DIR}/shipdata ${CMAKE_SOURCE_DIR}/shipLHC ${CMAKE_SOURCE_DIR}/analysis/cuts ${CMAKE_SOURCE_DIR}/analysis/tools ${FMT_INCLUDE_DIR}&#160;</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="analysis_2CMakeLists_8txt_source.html#l00001">1</a> of file <a class="el" href="analysis_2CMakeLists_8txt_source.html">CMakeLists.txt</a>.</p>
-<div class="fragment"><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; {BASE_INCLUDE_DIRECTORIES}</div>
+<div class="fragment"><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; {SYSTEM_INCLUDE_DIRECTORIES}</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;${VMC_INCLUDE_DIRS}</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;${CMAKE_SOURCE_DIR}/shipdata</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;${CMAKE_SOURCE_DIR}/shipLHC</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;${CMAKE_SOURCE_DIR}/analysis/<a class="code" href="namespaceneutrinoFilterGoldenSample__stage2.html#aa7f88e269db73063f6476370ea74184b">cuts</a></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;${CMAKE_SOURCE_DIR}/analysis/tools</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;)</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<a class="code" href="online_2CMakeLists_8txt.html#a929133b0086520fb548785c4a86a5315">include_directories</a>( ${INCLUDE_DIRECTORIES} )</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;${FMT_INCLUDE_DIR}</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;)</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<a class="code" href="online_2CMakeLists_8txt.html#a929133b0086520fb548785c4a86a5315">include_directories</a>( ${INCLUDE_DIRECTORIES} )</div>
 <div class="ttc" id="anamespaceneutrinoFilterGoldenSample__stage2_html_aa7f88e269db73063f6476370ea74184b"><div class="ttname"><a href="namespaceneutrinoFilterGoldenSample__stage2.html#aa7f88e269db73063f6476370ea74184b">neutrinoFilterGoldenSample_stage2.cuts</a></div><div class="ttdeci">list cuts</div><div class="ttdef"><b>Definition:</b> <a href="neutrinoFilterGoldenSample__stage2_8py_source.html#l00052">neutrinoFilterGoldenSample_stage2.py:52</a></div></div>
 <div class="ttc" id="aonline_2CMakeLists_8txt_html_a929133b0086520fb548785c4a86a5315"><div class="ttname"><a href="online_2CMakeLists_8txt.html#a929133b0086520fb548785c4a86a5315">include_directories</a></div><div class="ttdeci">include_directories(${INCLUDE_DIRECTORIES} ${FAIRROOT_INCLUDE_DIR} ${FairLogger_INCDIR} ${FMT_INCLUDE_DIR}) include_directories(SYSTEM $</div><div class="ttdef"><b>Definition:</b> <a href="online_2CMakeLists_8txt_source.html#l00012">CMakeLists.txt:12</a></div></div>
 </div><!-- fragment -->

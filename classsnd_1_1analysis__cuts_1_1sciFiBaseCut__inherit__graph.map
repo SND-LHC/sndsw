@@ -1,0 +1,8 @@
+<map id="snd::analysis_cuts::sciFiBaseCut" name="snd::analysis_cuts::sciFiBaseCut">
+<area shape="rect" id="node1" title=" " alt="" coords="195,104,336,145"/>
+<area shape="rect" id="node3" href="$classsnd_1_1analysis__cuts_1_1avgSciFiFiducialCut.html" title=" " alt="" coords="410,5,566,47"/>
+<area shape="rect" id="node4" href="$classsnd_1_1analysis__cuts_1_1minSciFiConsecutivePlanes.html" title=" " alt="" coords="384,71,592,112"/>
+<area shape="rect" id="node5" href="$classsnd_1_1analysis__cuts_1_1minSciFiHits.html" title=" " alt="" coords="417,136,559,177"/>
+<area shape="rect" id="node6" href="$classsnd_1_1analysis__cuts_1_1sciFiStationCut.html" title=" " alt="" coords="417,201,559,243"/>
+<area shape="rect" id="node2" href="$classsnd_1_1analysis__cuts_1_1baseCut.html" title=" " alt="" coords="5,104,147,145"/>
+</map>

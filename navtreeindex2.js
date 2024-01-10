@@ -1,5 +1,9 @@
 var NAVTREEINDEX2 =
 {
+"KalmanFitterRefTrack_8cc_source.html":[13,0,5,4,1,7],
+"KalmanFitterRefTrack_8h.html":[13,0,5,4,0,6],
+"KalmanFitterRefTrack_8h_source.html":[13,0,5,4,0,6],
+"KalmanFitter_8cc.html":[13,0,5,4,1,5],
 "KalmanFitter_8cc_source.html":[13,0,5,4,1,5],
 "KalmanFitter_8h.html":[13,0,5,4,0,4],
 "KalmanFitter_8h_source.html":[13,0,5,4,0,4],
@@ -245,9 +249,5 @@ var NAVTREEINDEX2 =
 "Pythia8Generator_8cxx.html":[13,0,19,28],
 "Pythia8Generator_8cxx.html#a0c71dd09868f911626085e61855e4d3a":[13,0,19,28,2],
 "Pythia8Generator_8cxx.html#a20066c2dc15c8a3bac6f429aacdb4c30":[13,0,19,28,1],
-"Pythia8Generator_8cxx.html#a918077216eb661c02ed2a5bfd06bb77d":[13,0,19,28,0],
-"Pythia8Generator_8cxx.html#a9e059fccd1865e487271645a59736440":[13,0,19,28,3],
-"Pythia8Generator_8cxx_source.html":[13,0,19,28],
-"Pythia8Generator_8h.html":[13,0,19,29],
-"Pythia8Generator_8h_source.html":[13,0,19,29]
+"Pythia8Generator_8cxx.html#a918077216eb661c02ed2a5bfd06bb77d":[13,0,19,28,0]
 };

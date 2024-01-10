@@ -1,5 +1,9 @@
 var NAVTREEINDEX25 =
 {
+"classUpstreamTagger.html#a14d06c0aad8ead0ffb5e4af656bf3249":[12,0,198,22],
+"classUpstreamTagger.html#a14fea1ab3afd5cbdaa83c87435b1c0bb":[12,0,198,43],
+"classUpstreamTagger.html#a15b98b36b0fc1d4f003de09e1f3f5471":[12,0,198,75],
+"classUpstreamTagger.html#a1720f5921d7075ceebc0dfd9d1728419":[12,0,198,52],
 "classUpstreamTagger.html#a1be9ebdbaa3602355f01de53bf5b4284":[12,0,198,67],
 "classUpstreamTagger.html#a1da1d96bcf4b590cc869e71528fbd597":[12,0,198,20],
 "classUpstreamTagger.html#a1e1dc40e366b85d5d83dc216c3703c92":[12,0,198,62],
@@ -245,9 +249,5 @@ var NAVTREEINDEX25 =
 "classdarkphoton_1_1DarkPhoton.html#a87898cfc7b5cc6b40f0bfa0db5490016":[12,0,3,0,4],
 "classdarkphoton_1_1DarkPhoton.html#a8a43d05b3811ddf48aec3d09ff84fb20":[12,0,3,0,7],
 "classdarkphoton_1_1DarkPhoton.html#a8c88686cf4ee2bcfcbbea0f63d3bca37":[12,0,3,0,17],
-"classdarkphoton_1_1DarkPhoton.html#a9b80d71172037fe8a399df1e498e8c01":[12,0,3,0,9],
-"classdarkphoton_1_1DarkPhoton.html#aae7dc22c0ff1dae3b0131f1a6723107c":[12,0,3,0,3],
-"classdarkphoton_1_1DarkPhoton.html#ab0faf382132859798d426d850b416869":[12,0,3,0,2],
-"classdarkphoton_1_1DarkPhoton.html#af481171fc548f6c43740e80ee2742d1e":[12,0,3,0,8],
-"classdarkphoton_1_1DarkPhoton.html#af9f3babe8985ae6deefd4a8a23280f78":[12,0,3,0,5]
+"classdarkphoton_1_1DarkPhoton.html#a9b80d71172037fe8a399df1e498e8c01":[12,0,3,0,9]
 };

@@ -1,5 +1,9 @@
 var NAVTREEINDEX32 =
 {
+"classgenfit_1_1Exception.html#a58a3fc500908ed07bd4f5e22b10bf725":[12,0,13,9,9],
+"classgenfit_1_1Exception.html#a597cffd8a824c3a3933f765ac04c1b45":[12,0,13,9,11],
+"classgenfit_1_1Exception.html#a5ee48f2b84face77343cfb0c40e816bb":[12,0,13,9,12],
+"classgenfit_1_1Exception.html#a8c76ad2b9cdc45d05864ec9f9f936d53":[12,0,13,9,10],
 "classgenfit_1_1Exception.html#a93070c833bba570aba4aebc03b25bdc9":[12,0,13,9,8],
 "classgenfit_1_1Exception.html#aa05c7028d7c0cb4f096a02fe3328d890":[12,0,13,9,6],
 "classgenfit_1_1Exception.html#aaa950982ac54e9c498686ea45321852f":[12,0,13,9,1],
@@ -29,8 +33,8 @@ var NAVTREEINDEX32 =
 "classgenfit_1_1FieldManager.html#a6489369c58bb9fb7003cfe4b201320e3":[12,0,13,11,3],
 "classgenfit_1_1FieldManager.html#a7432ac0fd7ad0d3249ca4546a8ead6cb":[12,0,13,11,10],
 "classgenfit_1_1FieldManager.html#a7432ac0fd7ad0d3249ca4546a8ead6cb":[12,0,13,11,11],
-"classgenfit_1_1FieldManager.html#a962a11af0a79ed6f380f96f35ce3c4e4":[12,0,13,11,5],
 "classgenfit_1_1FieldManager.html#a962a11af0a79ed6f380f96f35ce3c4e4":[12,0,13,11,4],
+"classgenfit_1_1FieldManager.html#a962a11af0a79ed6f380f96f35ce3c4e4":[12,0,13,11,5],
 "classgenfit_1_1FieldManager.html#ae2127405db832936bdacc9c33ad04f1e":[12,0,13,11,16],
 "classgenfit_1_1FieldManager.html#ae2127405db832936bdacc9c33ad04f1e":[12,0,13,11,17],
 "classgenfit_1_1FitStatus.html":[12,0,13,12],
@@ -245,9 +249,5 @@ var NAVTREEINDEX32 =
 "classgenfit_1_1KalmanFitStatus.html#a78654a3559807248eb606df653335417":[12,0,13,34,23],
 "classgenfit_1_1KalmanFitStatus.html#a859df4929a5c5a8b0e99f9db1c9eaa21":[12,0,13,34,14],
 "classgenfit_1_1KalmanFitStatus.html#a8b09fb270c293f5c1dec6303e99dde83":[12,0,13,34,20],
-"classgenfit_1_1KalmanFitStatus.html#a8daed063760686198a664188d6130e68":[12,0,13,34,21],
-"classgenfit_1_1KalmanFitStatus.html#a8e73b0ebeea7b68df305fc405e3aebe4":[12,0,13,34,26],
-"classgenfit_1_1KalmanFitStatus.html#a92378642b2d9154aa7b9dd9a766faeaf":[12,0,13,34,12],
-"classgenfit_1_1KalmanFitStatus.html#a986d57cce02794aa00f0e85b8611fd3b":[12,0,13,34,24],
-"classgenfit_1_1KalmanFitStatus.html#a9ee4ab5a9b659d9a6d4d2783ada0b415":[12,0,13,34,13]
+"classgenfit_1_1KalmanFitStatus.html#a8daed063760686198a664188d6130e68":[12,0,13,34,21]
 };

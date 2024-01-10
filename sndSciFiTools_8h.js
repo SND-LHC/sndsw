@@ -1,10 +1,10 @@
 var sndSciFiTools_8h =
 [
-    [ "findStation", "sndSciFiTools_8h.html#ae97a2b92dcc39651b4108b3d190cb60d", null ],
-    [ "findStation", "sndSciFiTools_8h.html#a5c662522049b106903241bcb91c3e4bc", null ],
-    [ "getFractionalHitsPerPlane", "sndSciFiTools_8h.html#a52b02aaea4b5a6dfa293913db414f6e9", null ],
-    [ "getFractionalHitsPerPlane", "sndSciFiTools_8h.html#a460daee795cfd57eb41bc5cc7e0f2958", null ],
-    [ "getSciFiHitsPerStation", "sndSciFiTools_8h.html#aa9e144a8220539a6b4e238d080bbab3f", null ],
-    [ "getTotalSciFiHits", "sndSciFiTools_8h.html#afad8dc10f5d48ba389a4d677e878f122", null ],
-    [ "getTotalSciFiHits", "sndSciFiTools_8h.html#a799fc8481107aebbf6a6ede0b5d73b61", null ]
+    [ "findScifiStation", "sndSciFiTools_8h.html#a1cfa1e0acecf53005048a0b11c125b57", null ],
+    [ "findScifiStation", "sndSciFiTools_8h.html#ab124b95c73f51f841f5c12caeef146bb", null ],
+    [ "getFractionalHitsPerScifiPlane", "sndSciFiTools_8h.html#ab110e213c86b26c581a9c7456a140ebc", null ],
+    [ "getFractionalHitsPerScifiPlane", "sndSciFiTools_8h.html#af5e62052bcb88fbcf911834a2bf5b3c8", null ],
+    [ "getSciFiHitsPerStation", "sndSciFiTools_8h.html#ae6d366e54bc86ccdc3f11627c4d62545", null ],
+    [ "getTotalSciFiHits", "sndSciFiTools_8h.html#add38a36ae42dce4c3e48621c2c4d0b23", null ],
+    [ "getTotalSciFiHits", "sndSciFiTools_8h.html#a9b5ca887a58ebfafeb84999585e4912f", null ]
 ];
