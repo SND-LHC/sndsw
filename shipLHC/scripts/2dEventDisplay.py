@@ -22,6 +22,8 @@ atexit.register(pyExit)
 A,B = ROOT.TVector3(),ROOT.TVector3()
 freq      =  160.316E6
 
+eventComment = {}   # possibility to add an event comment before moving to next event
+
 h={}
 from argparse import ArgumentParser
 parser = ArgumentParser()
@@ -437,7 +439,10 @@ def loopEvents(start=0,save=False,goodEvents=False,withTrack=-1,withHoughTrack=-
        rc = input("hit return for next event or p for print or q for quit: ")
        if rc=='p': 
              h['simpleDisplay'].Print(options.storePic+str(runId)+'-event_'+str(event.EventHeader.GetEventNumber())+'.png')
-       if rc=='q': break
+       elif rc == 'q':
+          break
+       else:
+          eventComment[f"{runId}-event_{event.EventHeader.GetEventNumber()}"] = rc
  if save: os.system("convert -delay 60 -loop 0 event*.png animated.gif")
 
 def addTrack(OT,scifi=False):
