@@ -65,6 +65,7 @@ detSize[1] =[mi.VetoBarX/2,                   mi.VetoBarY/2,            mi.VetoB
 detSize[2] =[mi.UpstreamBarX/2,           mi.UpstreamBarY/2,    mi.UpstreamBarZ/2]
 detSize[3] =[mi.DownstreamBarX_ver/2,mi.DownstreamBarY/2,mi.DownstreamBarZ/2]
 withDetector = True  # False is useful when using zoom
+with2Points = False  # plot start and end point of straw/bar
 mc = False
 
 
@@ -379,21 +380,27 @@ def loopEvents(start=0,save=False,goodEvents=False,withTrack=-1,withHoughTrack=-
          curPath = nav.GetPath()
          tmp = curPath.rfind('/')
          nav.cd(curPath[:tmp])
-         globA,locA = array('d',[A[0],A[1],A[2]]),array('d',[A[0],A[1],A[2]])
-         if trans2local:   nav.MasterToLocal(globA,locA)
-         Z = A[2]
-         if digi.isVertical():
+         first = True
+         for X in [A, B]:
+             if not first and not with2Points:
+                 continue
+             first = False
+             globA, locA = array('d', [X[0], X[1], X[2]]), array('d', [X[0], X[1], X[2]])
+             if trans2local:
+                 nav.MasterToLocal(globA, locA)
+             Z = X[2]
+             if digi.isVertical():
                    collection = 'hitCollectionX'
                    Y = locA[0]
                    sY = detSize[system][0]
-         else:                         
+             else:
                    collection = 'hitCollectionY'
                    Y = locA[1]
                    sY = detSize[system][1]
-         c = h[collection][systems[system]]
-         rc = c[1].SetPoint(c[0],Z, Y)
-         rc = c[1].SetPointError(c[0],detSize[system][2],sY)
-         c[0]+=1 
+             c = h[collection][systems[system]]
+             rc = c[1].SetPoint(c[0], Z, Y)
+             rc = c[1].SetPointError(c[0], detSize[system][2], sY)
+             c[0] += 1
 
          fillNode(curPath)
 
