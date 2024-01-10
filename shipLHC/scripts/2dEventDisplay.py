@@ -188,6 +188,35 @@ def goodEvent(event):
            if onlyScifi and len(stations['Scifi'])>Nlimit: return True
            elif not onlyScifi  and totalN >  Nlimit: return True
            else: return False
+
+def userProcessing(event):
+    '''User hook to add action after event is plotted.
+
+    Useful for adding special objects to the display for example.
+    An example for display of 3-track events with external reco:
+
+    ```python
+    trackTask.multipleTrackCandidates(
+        nMaxCl=8, dGap=0.2, dMax=0.8, dMax3=0.8, ovMax=1, doublet=True, debug=False
+    )
+    n3D = [0, 0]
+    for p in range(2):
+        tc = h['simpleDisplay'].cd(-p + 2)
+        for trackId in trackTask.multipleTrackStore['trackCand'][p]:
+            if trackId < 100000 and not trackTask.multipleTrackStore['doublet']:
+                continue
+            if trackId in trackTask.multipleTrackStore['cloneCand'][p]:
+                continue
+            n3D[p] += 1
+            rc = trackTask.multipleTrackStore['trackCand'][p][trackId].Fit('pol1', 'SQ')
+            trackTask.multipleTrackStore['trackCand'][p][trackId].Draw('same')
+        tc.Update()
+    print('Number of full tracks', n3D)
+    return True
+    ```
+    '''
+    return
+
 def bunchXtype():
 # check for b1,b2,IP1,IP2
         xing = {'all':True,'B1only':False,'B2noB1':False,'noBeam':False}
@@ -433,6 +462,8 @@ def loopEvents(start=0,save=False,goodEvents=False,withTrack=-1,withHoughTrack=-
           if not rc: rc = twoTrackEvent(sMin=10,dClMin=7,minDistance=0.5,sepDistance=3.0)
 
     if verbose>0: dumpChannels()
+    userProcessing(event)
+
     if save: h['simpleDisplay'].Print('{:0>2d}-event_{:04d}'.format(runId,N)+'.png')
     if auto:
         h['simpleDisplay'].Print(options.storePic+str(runId)+'-event_'+str(event.EventHeader.GetEventNumber())+'.png')
