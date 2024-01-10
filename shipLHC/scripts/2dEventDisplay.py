@@ -64,7 +64,7 @@ mi = geo.snd_geo.MuFilter
 detSize[1] =[mi.VetoBarX/2,                   mi.VetoBarY/2,            mi.VetoBarZ/2]
 detSize[2] =[mi.UpstreamBarX/2,           mi.UpstreamBarY/2,    mi.UpstreamBarZ/2]
 detSize[3] =[mi.DownstreamBarX_ver/2,mi.DownstreamBarY/2,mi.DownstreamBarZ/2]
-
+withDetector = True  # False is useful when using zoom
 mc = False
 
 
@@ -333,7 +333,8 @@ def loopEvents(start=0,save=False,goodEvents=False,withTrack=-1,withHoughTrack=-
        rc = h[ 'simpleDisplay'].cd(p)
        h[proj[p]].Draw('b')
 
-    drawDetectors()
+    if withDetector:
+      drawDetectors()
     for D in digis:
       for digi in D:
          detID = digi.GetDetectorID()
