@@ -64,7 +64,7 @@ void AdvTargetHit::GetPosition(TVector3& vLeft, TVector3& vRight) {
 
 
 // -----   constructor from AdvTargetPoint   ------------------------------------------
-AdvTargetHit::AdvTargetHit(Int_t detID, std::vector<AdvTargetPoint*> V)
+AdvTargetHit::AdvTargetHit(Int_t detID, const std::vector<const AdvTargetPoint*> &V)
   : SndlhcHit()
 {
      // AdvTarget* AdvTargetDet = dynamic_cast<AdvTarget*> (gROOT->GetListOfGlobals()->FindObject("AdvTarget"));
@@ -87,9 +87,9 @@ AdvTargetHit::AdvTargetHit(Int_t detID, std::vector<AdvTargetPoint*> V)
 
      signals[0] = ROOT::VecOps::Sum(_signals);
 
-     if (V.size() > 1) {
-          LOG(WARN) << "Multiple hits for detector ID" << detID;
-     }
+     // if (V.size() > 1) {
+     //      LOG(WARN) << "Multiple hits for detector ID" << detID;
+     // }
 
      flag = true;
 

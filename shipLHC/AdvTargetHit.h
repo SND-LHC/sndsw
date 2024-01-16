@@ -16,7 +16,7 @@ class AdvTargetHit : public SndlhcHit
     AdvTargetHit(Int_t detID);
 
     // Constructor from vector of AdvTargetPoint
-    AdvTargetHit(Int_t detID, std::vector<AdvTargetPoint*>);
+    AdvTargetHit(Int_t detID, const std::vector<const AdvTargetPoint*>&);
 
  /** Destructor **/
     virtual ~AdvTargetHit();
