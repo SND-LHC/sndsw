@@ -26,21 +26,19 @@ AdvTargetHit::AdvTargetHit(Int_t detID)
 void AdvTargetHit::GetPosition(TVector3& vLeft, TVector3& vRight) {
     if (!gGeoManager) LOG(FATAL) << "Geofile required to get the position of AdvTargetHits.";
     TGeoNavigator* nav = gGeoManager->GetCurrentNavigator();
-    auto path = TString::Format(
-        "/cave_1/"
-        "Detector_0/"
-        "volAdvTarget_1/"
-        "TrackingStation_%d/"
-        "TrackerPlane_%d/"
-        "SensorModule_%d/"
-        "Sensor_%d/"
-        "StripVolume_%d",
-        GetStation(),
-        GetPlane(),
-        GetModule(),
-        GetSensor(),
-        fDetectorID
-    );
+    auto path = TString::Format("/cave_1/"
+                                "Detector_0/"
+                                "volAdvTarget_1/"
+                                "TrackingStation_%d/"
+                                "TrackerPlane_%d/"
+                                "SensorModule_%d/"
+                                "SensorVolume_%d/"
+                                "SLICEY_%d",
+                                GetStation(),
+                                GetPlane(),
+                                GetModule(),
+                                GetSensor(),
+                                GetStrip());
     nav->cd(path);
     auto *node = nav->GetCurrentNode();
     auto* S = dynamic_cast<TGeoBBox*>(node->GetVolume()->GetShape());

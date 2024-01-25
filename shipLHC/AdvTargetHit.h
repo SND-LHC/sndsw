@@ -33,8 +33,8 @@ class AdvTargetHit : public SndlhcHit
     int constexpr GetPlane() { return int(fDetectorID >> 14) % 2; } // 0 is X-plane, 1 is Y-pane
     int constexpr GetRow() { return int(fDetectorID >> 12) % 4; }
     int constexpr GetColumn() { return int(fDetectorID >> 11) % 2; }
-    int constexpr GetSensor() { return int(fDetectorID >> 10) % 2; }
-    int constexpr GetStrip() { return int(fDetectorID % 768); }
+    int constexpr GetSensor() { return int(fDetectorID >> 10); }
+    int constexpr GetStrip() { return int(fDetectorID % 1024); }
     int constexpr GetModule() { return 2 * GetRow() + 1 + GetColumn(); }
     bool constexpr isVertical(){
         return GetPlane() == 0;
