@@ -1,5 +1,11 @@
 var NAVTREEINDEX1 =
 {
+"EmulsionDetContFact_8cxx.html#a426d9e84cc3ce06a17a84c7a22d79855":[13,0,20,7,0],
+"EmulsionDetContFact_8cxx_source.html":[13,0,20,7],
+"EmulsionDetContFact_8h.html":[13,0,20,8],
+"EmulsionDetContFact_8h_source.html":[13,0,20,8],
+"EmulsionDetPoint_8cxx.html":[13,0,20,9],
+"EmulsionDetPoint_8cxx_source.html":[13,0,20,9],
 "EmulsionDetPoint_8h.html":[13,0,20,10],
 "EmulsionDetPoint_8h_source.html":[13,0,20,10],
 "EmulsionDet_8cxx.html":[13,0,20,5],
@@ -243,11 +249,5 @@ var NAVTREEINDEX1 =
 "KalmanFitStatus_8h_source.html":[13,0,5,4,0,2],
 "KalmanFittedStateOnPlane_8cc.html":[13,0,5,4,1,4],
 "KalmanFittedStateOnPlane_8cc_source.html":[13,0,5,4,1,4],
-"KalmanFittedStateOnPlane_8h.html":[13,0,5,4,0,3],
-"KalmanFittedStateOnPlane_8h_source.html":[13,0,5,4,0,3],
-"KalmanFitterInfo_8cc.html":[13,0,5,4,1,6],
-"KalmanFitterInfo_8cc_source.html":[13,0,5,4,1,6],
-"KalmanFitterInfo_8h.html":[13,0,5,4,0,5],
-"KalmanFitterInfo_8h_source.html":[13,0,5,4,0,5],
-"KalmanFitterRefTrack_8cc.html":[13,0,5,4,1,7]
+"KalmanFittedStateOnPlane_8h.html":[13,0,5,4,0,3]
 };

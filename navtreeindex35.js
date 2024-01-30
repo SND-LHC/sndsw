@@ -1,5 +1,11 @@
 var NAVTREEINDEX35 =
 {
+"classgenfit_1_1ReferenceStateOnPlane.html#ac5d86c9f5ac0aa2a2d79fdc894148026":[12,0,13,39,32],
+"classgenfit_1_1ReferenceStateOnPlane.html#ad06783bcb1efc638e94f5017dfc15686":[12,0,13,39,7],
+"classgenfit_1_1ReferenceStateOnPlane.html#addd1ddbf074f48e5e30689c3ef7d39fa":[12,0,13,39,16],
+"classgenfit_1_1ReferenceStateOnPlane.html#aea4914bba6c85d57c070b7454c12a73e":[12,0,13,39,10],
+"classgenfit_1_1ReferenceStateOnPlane.html#aef02be2ce072d785427796cf933d24a9":[12,0,13,39,5],
+"classgenfit_1_1ReferenceStateOnPlane.html#af36207cff5d1c72fa1cb32628b543376":[12,0,13,39,21],
 "classgenfit_1_1ReferenceStateOnPlane.html#af4aff6a48bdfa91d0e6eb3fe0565bb8c":[12,0,13,39,18],
 "classgenfit_1_1SpacepointMeasurement.html":[12,0,13,61],
 "classgenfit_1_1SpacepointMeasurement.html#a2fdfbd692e26f558a18fdd68eb614788":[12,0,13,61,10],
@@ -80,14 +86,14 @@ var NAVTREEINDEX35 =
 "classgenfit_1_1TGeoMaterialInterface.html":[12,0,13,52],
 "classgenfit_1_1TGeoMaterialInterface.html#a151f9f408eef445e286f5fe085ef0a6d":[12,0,13,52,0],
 "classgenfit_1_1TGeoMaterialInterface.html#a151f9f408eef445e286f5fe085ef0a6d":[12,0,13,52,2],
-"classgenfit_1_1TGeoMaterialInterface.html#a3151722806c0a2fff8a9d025e1ad2bdc":[12,0,13,52,10],
 "classgenfit_1_1TGeoMaterialInterface.html#a3151722806c0a2fff8a9d025e1ad2bdc":[12,0,13,52,11],
-"classgenfit_1_1TGeoMaterialInterface.html#a3ebf9d80b0abafb649a50c07825d5567":[12,0,13,52,8],
+"classgenfit_1_1TGeoMaterialInterface.html#a3151722806c0a2fff8a9d025e1ad2bdc":[12,0,13,52,10],
 "classgenfit_1_1TGeoMaterialInterface.html#a3ebf9d80b0abafb649a50c07825d5567":[12,0,13,52,9],
-"classgenfit_1_1TGeoMaterialInterface.html#a3fdf0212196630c8a5a56973431a1708":[12,0,13,52,13],
+"classgenfit_1_1TGeoMaterialInterface.html#a3ebf9d80b0abafb649a50c07825d5567":[12,0,13,52,8],
 "classgenfit_1_1TGeoMaterialInterface.html#a3fdf0212196630c8a5a56973431a1708":[12,0,13,52,12],
-"classgenfit_1_1TGeoMaterialInterface.html#a8efab4baa48efa1bcf0cf7e664d4c3cf":[12,0,13,52,1],
+"classgenfit_1_1TGeoMaterialInterface.html#a3fdf0212196630c8a5a56973431a1708":[12,0,13,52,13],
 "classgenfit_1_1TGeoMaterialInterface.html#a8efab4baa48efa1bcf0cf7e664d4c3cf":[12,0,13,52,3],
+"classgenfit_1_1TGeoMaterialInterface.html#a8efab4baa48efa1bcf0cf7e664d4c3cf":[12,0,13,52,1],
 "classgenfit_1_1TGeoMaterialInterface.html#ab2606ef9facca7dc2491db41cf6100a2":[12,0,13,52,14],
 "classgenfit_1_1TGeoMaterialInterface.html#ab2606ef9facca7dc2491db41cf6100a2":[12,0,13,52,15],
 "classgenfit_1_1TGeoMaterialInterface.html#ace08710ba8aed64b52473b85883d711e":[12,0,13,52,6],
@@ -243,11 +249,5 @@ var NAVTREEINDEX35 =
 "classgenfit_1_1TrackPoint.html#a011403b02210674e97ad6c2bdefaea54":[12,0,13,25,20],
 "classgenfit_1_1TrackPoint.html#a0c7f86125e59a951ec2da7ce198fba69":[12,0,13,25,13],
 "classgenfit_1_1TrackPoint.html#a0c91664442aa72027678ca9ef17b304e":[12,0,13,25,8],
-"classgenfit_1_1TrackPoint.html#a100d45ed17cff174e06cebde2c0d6de7":[12,0,13,25,22],
-"classgenfit_1_1TrackPoint.html#a20c2dbf713b2693dfa28ec03bd05fbb7":[12,0,13,25,35],
-"classgenfit_1_1TrackPoint.html#a29c2d1b6197728fdc3d582a392d22c1e":[12,0,13,25,19],
-"classgenfit_1_1TrackPoint.html#a29ced91f660b0b6f9918ef767e4c4922":[12,0,13,25,6],
-"classgenfit_1_1TrackPoint.html#a2c9bae2da0224d16a5f116618c29da3e":[12,0,13,25,9],
-"classgenfit_1_1TrackPoint.html#a2d15bc74d80bf72c60c2bcfb2be4aa16":[12,0,13,25,23],
-"classgenfit_1_1TrackPoint.html#a31d099caef94d38e4688a12b1befdd4a":[12,0,13,25,32]
+"classgenfit_1_1TrackPoint.html#a100d45ed17cff174e06cebde2c0d6de7":[12,0,13,25,22]
 };
