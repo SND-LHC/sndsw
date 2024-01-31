@@ -1,9 +1,9 @@
 import ROOT
 import os,sys,subprocess,atexit
-import rootUtils as ut
 from array import array
 import shipunit as u
 import SndlhcMuonReco
+import rootUtils as ut
 import json
 from decorators import *
 from rootpyPickler import Unpickler
