@@ -4,7 +4,6 @@ from array import array
 import shipunit as u
 import SndlhcMuonReco
 import rootUtils as ut
-import json
 from decorators import *
 from rootpyPickler import Unpickler
 import time
@@ -154,24 +153,6 @@ try:
 except:
            print('continue without knowing filling scheme')
            fsdict = False
-
-startTimeOfRun = {}
-def getStartTime(runNumber):
-      if runNumber in startTimeOfRun : return startTimeOfRun[runNumber]
-      runDir = options.pathRaw+"run_"+str(runNumber).zfill(6)
-      jname = "run_timestamps.json"
-      dirlist  = str( subprocess.check_output("xrdfs "+options.server+" ls "+runDir,shell=True) ) 
-      if not jname in dirlist: return False
-      with client.File() as f:
-               f.open(options.server+runDir+"/run_timestamps.json")
-               status, jsonStr = f.read()
-               f.close()
-      date = json.loads(jsonStr)
-      time_str = date['start_time'].replace('Z','')
-      time_obj = time.strptime(time_str, '%Y-%m-%dT%H:%M:%S')
-      startTimeOfRun[runNumber] = time.mktime(time_obj)
-      return startTimeOfRun[runNumber]
-
 
 Nlimit = 4
 onlyScifi = False
@@ -983,15 +964,10 @@ def drawInfo(pad, k, run, event, timestamp,moreEventInfo=[]):
    if drawText:
     if k==1 or len(moreEventInfo)<5:
       runNumber = eventTree.EventHeader.GetRunId()
-      if eventTree.GetBranch('MCTrack'):
-        timestamp_start = False
-      else:
-        timestamp_start = getStartTime(runNumber)
-        if  timestamp_start:
-           TDC2ns = 6.23768   #conversion factor from 160MHz clock to ns
-           timestamp_s = timestamp * TDC2ns * 1E-9
-           timestamp_event = int(timestamp_start + timestamp_s)
-           time_event = datetime.fromtimestamp(timestamp_event)
+      timestamp_print = False
+      if not mc and hasattr(eventTree.EventHeader, "GetUTCtimestamp"):
+        timestamp_print = True
+        time_event= datetime.utcfromtimestamp(eventTree.EventHeader.GetUTCtimestamp())
       padText = ROOT.TPad("info","info",0.19,0.1,0.6,0.3)
       padText.SetFillStyle(4000)
       padText.Draw()
@@ -1004,7 +980,7 @@ def drawInfo(pad, k, run, event, timestamp,moreEventInfo=[]):
       if hasattr(eventTree.EventHeader,'GetEventNumber'): N = eventTree.EventHeader.GetEventNumber()
       else: N = event
       textInfo.DrawLatex(0, 0.4, 'Run / Event: '+str(run)+' / '+str(N))
-      if timestamp_start:
+      if timestamp_print:
            textInfo.DrawLatex(0, 0.2, 'Time (GMT): {}'.format(time_event))
       pad.cd(k)
     elif options.extraInfo:
