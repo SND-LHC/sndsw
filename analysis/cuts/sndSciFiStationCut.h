@@ -13,7 +13,7 @@ namespace snd {
       float fractionThreshold;
       std::vector<int> stations_to_exclude;
     public :
-      sciFiStationCut(float threshold, std::vector<int> excluded_stations, TChain * tree);
+      sciFiStationCut(float threshold, std::vector<int> excluded_stations, TChain * ch);
       ~sciFiStationCut(){;}
 
       bool passCut();

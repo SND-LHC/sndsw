@@ -11,7 +11,7 @@ namespace snd {
     private :
       int hitThreshold;
     public :
-      minSciFiHits(int threshold, TChain * tree);
+      minSciFiHits(int threshold, TChain * ch);
       ~minSciFiHits(){;}
 
       bool passCut();

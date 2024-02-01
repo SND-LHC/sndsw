@@ -9,7 +9,7 @@ namespace snd {
   namespace analysis_cuts {
     class minSciFiConsecutivePlanes : public snd::analysis_cuts::sciFiBaseCut {
     public :
-      minSciFiConsecutivePlanes(TChain * tree);
+      minSciFiConsecutivePlanes(TChain * ch);
       ~minSciFiConsecutivePlanes(){;}
 
       bool passCut();

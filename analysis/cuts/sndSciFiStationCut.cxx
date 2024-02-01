@@ -5,7 +5,7 @@
 #include "TChain.h"
 
 namespace snd::analysis_cuts{
-  sciFiStationCut::sciFiStationCut(float threshold, std::vector<int> excluded_stations, TChain * tree) : sciFiBaseCut(tree){
+  sciFiStationCut::sciFiStationCut(float threshold, std::vector<int> excluded_stations, TChain * ch) : sciFiBaseCut(ch){
     fractionThreshold = threshold;
     stations_to_exclude = std::vector(excluded_stations);
     cutName = "Exclude stations";

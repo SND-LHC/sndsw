@@ -5,7 +5,7 @@
 #include "TChain.h"
 
 namespace snd::analysis_cuts{
-  minSciFiHits::minSciFiHits(int threshold, TChain * tree) : sciFiBaseCut(tree){
+  minSciFiHits::minSciFiHits(int threshold, TChain * ch) : sciFiBaseCut(ch){
     hitThreshold = threshold;
     cutName = "More than "+std::to_string(hitThreshold)+" SciFi hits";
     shortName = "SciFiMinHits";

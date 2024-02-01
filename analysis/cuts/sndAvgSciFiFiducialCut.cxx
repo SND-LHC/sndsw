@@ -3,7 +3,7 @@
 #include "TChain.h"
 
 namespace snd::analysis_cuts {
-  avgSciFiFiducialCut::avgSciFiFiducialCut(double vertical_min_cut, double vertical_max_cut, double horizontal_min_cut, double horizontal_max_cut, TChain * tree, bool reverseCuts) : sciFiBaseCut(tree){
+  avgSciFiFiducialCut::avgSciFiFiducialCut(double vertical_min_cut, double vertical_max_cut, double horizontal_min_cut, double horizontal_max_cut, TChain * ch, bool reverseCuts) : sciFiBaseCut(ch){
 
     reversed = reverseCuts;
 
