@@ -114,8 +114,8 @@ Collaboration diagram for snd::analysis_cuts::minSciFiConsecutivePlanes:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a738f9b193bf154cfe23a1d669035fb31"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsnd_1_1analysis__cuts_1_1minSciFiConsecutivePlanes.html#a738f9b193bf154cfe23a1d669035fb31">minSciFiConsecutivePlanes</a> (TChain *<a class="el" href="classsnd_1_1analysis__cuts_1_1sciFiBaseCut.html#aeabd35b9ad01d1fa39231d3f7c54e5c1">tree</a>)</td></tr>
-<tr class="separator:a738f9b193bf154cfe23a1d669035fb31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c53eb3a609cebc1312cdb60adecc2bb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsnd_1_1analysis__cuts_1_1minSciFiConsecutivePlanes.html#a8c53eb3a609cebc1312cdb60adecc2bb">minSciFiConsecutivePlanes</a> (TChain *ch)</td></tr>
+<tr class="separator:a8c53eb3a609cebc1312cdb60adecc2bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff6b5f33910d9bd5836f211e8603d5bb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsnd_1_1analysis__cuts_1_1minSciFiConsecutivePlanes.html#aff6b5f33910d9bd5836f211e8603d5bb">~minSciFiConsecutivePlanes</a> ()</td></tr>
 <tr class="separator:aff6b5f33910d9bd5836f211e8603d5bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1bb142b627a4d5b0f1e7421c29377261"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsnd_1_1analysis__cuts_1_1minSciFiConsecutivePlanes.html#a1bb142b627a4d5b0f1e7421c29377261">passCut</a> ()</td></tr>
@@ -168,8 +168,8 @@ Additional Inherited Members</h2></td></tr>
 <div class="textblock">
 <p class="definition">Definition at line <a class="el" href="sndMinSciFiConsecutivePlanes_8h_source.html#l00010">10</a> of file <a class="el" href="sndMinSciFiConsecutivePlanes_8h_source.html">sndMinSciFiConsecutivePlanes.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a738f9b193bf154cfe23a1d669035fb31"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a738f9b193bf154cfe23a1d669035fb31">&#9670;&nbsp;</a></span>minSciFiConsecutivePlanes()</h2>
+<a id="a8c53eb3a609cebc1312cdb60adecc2bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c53eb3a609cebc1312cdb60adecc2bb">&#9670;&nbsp;</a></span>minSciFiConsecutivePlanes()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -178,14 +178,14 @@ Additional Inherited Members</h2></td></tr>
           <td class="memname">snd::analysis_cuts::minSciFiConsecutivePlanes::minSciFiConsecutivePlanes </td>
           <td>(</td>
           <td class="paramtype">TChain *&#160;</td>
-          <td class="paramname"><em>tree</em></td><td>)</td>
+          <td class="paramname"><em>ch</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="sndMinSciFiConsecutivePlanes_8cxx_source.html#l00008">8</a> of file <a class="el" href="sndMinSciFiConsecutivePlanes_8cxx_source.html">sndMinSciFiConsecutivePlanes.cxx</a>.</p>
-<div class="fragment"><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;                                                                    : <a class="code" href="classsnd_1_1analysis__cuts_1_1sciFiBaseCut.html#abc9dad54c9ba5ccc5d2bbc1525e12772">sciFiBaseCut</a>(<a class="code" href="classsnd_1_1analysis__cuts_1_1sciFiBaseCut.html#aeabd35b9ad01d1fa39231d3f7c54e5c1">tree</a>){</div>
+<div class="fragment"><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;                                                                  : <a class="code" href="classsnd_1_1analysis__cuts_1_1sciFiBaseCut.html#abc9dad54c9ba5ccc5d2bbc1525e12772">sciFiBaseCut</a>(<a class="code" href="namespaceneutrinoFilterGoldenSample__stage2.html#a39980e1c5923c2aea72c3d7d16aebcca">ch</a>){</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <a class="code" href="classsnd_1_1analysis__cuts_1_1baseCut.html#aab5b6f724432d60dd3661f36afccc14d">cutName</a> = <span class="stringliteral">&quot;Two or more consecutive SciFi planes&quot;</span>;</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="classsnd_1_1analysis__cuts_1_1baseCut.html#a3a5cfcde9df2379665a0f1b213e43040">shortName</a> = <span class="stringliteral">&quot;At least two consecutive SciFi planes&quot;</span>;</div>
@@ -202,7 +202,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="ttc" id="aclasssnd_1_1analysis__cuts_1_1baseCut_html_aed69611620ffa139d306cc370363835e"><div class="ttname"><a href="classsnd_1_1analysis__cuts_1_1baseCut.html#aed69611620ffa139d306cc370363835e">snd::analysis_cuts::baseCut::range_start</a></div><div class="ttdeci">std::vector&lt; double &gt; range_start</div><div class="ttdef"><b>Definition:</b> <a href="sndBaseCut_8h_source.html#l00012">sndBaseCut.h:12</a></div></div>
 <div class="ttc" id="aclasssnd_1_1analysis__cuts_1_1baseCut_html_aee7d36f1de87f8d0140e0518e27a6052"><div class="ttname"><a href="classsnd_1_1analysis__cuts_1_1baseCut.html#aee7d36f1de87f8d0140e0518e27a6052">snd::analysis_cuts::baseCut::nbins</a></div><div class="ttdeci">std::vector&lt; int &gt; nbins</div><div class="ttdef"><b>Definition:</b> <a href="sndBaseCut_8h_source.html#l00011">sndBaseCut.h:11</a></div></div>
 <div class="ttc" id="aclasssnd_1_1analysis__cuts_1_1sciFiBaseCut_html_abc9dad54c9ba5ccc5d2bbc1525e12772"><div class="ttname"><a href="classsnd_1_1analysis__cuts_1_1sciFiBaseCut.html#abc9dad54c9ba5ccc5d2bbc1525e12772">snd::analysis_cuts::sciFiBaseCut::sciFiBaseCut</a></div><div class="ttdeci">sciFiBaseCut(TChain *ch)</div><div class="ttdef"><b>Definition:</b> <a href="sndSciFiBaseCut_8cxx_source.html#l00018">sndSciFiBaseCut.cxx:18</a></div></div>
-<div class="ttc" id="aclasssnd_1_1analysis__cuts_1_1sciFiBaseCut_html_aeabd35b9ad01d1fa39231d3f7c54e5c1"><div class="ttname"><a href="classsnd_1_1analysis__cuts_1_1sciFiBaseCut.html#aeabd35b9ad01d1fa39231d3f7c54e5c1">snd::analysis_cuts::sciFiBaseCut::tree</a></div><div class="ttdeci">static TChain * tree</div><div class="ttdef"><b>Definition:</b> <a href="sndSciFiBaseCut_8h_source.html#l00017">sndSciFiBaseCut.h:17</a></div></div>
+<div class="ttc" id="anamespaceneutrinoFilterGoldenSample__stage2_html_a39980e1c5923c2aea72c3d7d16aebcca"><div class="ttname"><a href="namespaceneutrinoFilterGoldenSample__stage2.html#a39980e1c5923c2aea72c3d7d16aebcca">neutrinoFilterGoldenSample_stage2.ch</a></div><div class="ttdeci">ch</div><div class="ttdef"><b>Definition:</b> <a href="neutrinoFilterGoldenSample__stage2_8py_source.html#l00030">neutrinoFilterGoldenSample_stage2.py:30</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
