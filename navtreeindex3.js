@@ -1,7 +1,5 @@
 var NAVTREEINDEX3 =
 {
-"Pythia6Generator_8h.html":[13,0,19,27],
-"Pythia6Generator_8h_source.html":[13,0,19,27],
 "Pythia8Generator_8cxx.html":[13,0,19,28],
 "Pythia8Generator_8cxx.html#a0c71dd09868f911626085e61855e4d3a":[13,0,19,28,2],
 "Pythia8Generator_8cxx.html#a20066c2dc15c8a3bac6f429aacdb4c30":[13,0,19,28,1],
@@ -249,5 +247,7 @@ var NAVTREEINDEX3 =
 "Scifi_8cxx.html":[13,0,20,26],
 "Scifi_8cxx_source.html":[13,0,20,26],
 "Scifi_8h.html":[13,0,20,27],
-"Scifi_8h_source.html":[13,0,20,27]
+"Scifi_8h_source.html":[13,0,20,27],
+"Scifi__monitoring_8py.html":[13,0,20,1,13],
+"Scifi__monitoring_8py.html#a20171c04e9eedd54da82fca085f830ed":[13,0,20,1,13,4]
 };

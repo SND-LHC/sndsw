@@ -1,7 +1,5 @@
 var NAVTREEINDEX32 =
 {
-"classgenfit_1_1EventDisplay.html#af7783147726b84fbf7ef9102d4eff4ce":[12,0,13,26,7],
-"classgenfit_1_1EventDisplay.html#af9994011418a7d1d0f4b952016b6f18d":[12,0,13,26,63],
 "classgenfit_1_1Exception.html":[12,0,13,9],
 "classgenfit_1_1Exception.html#a1187909bef6c14e69f231aa09e7cb29a":[12,0,13,9,4],
 "classgenfit_1_1Exception.html#a13619975a1e1be5c1bd504b254e01f7a":[12,0,13,9,5],
@@ -30,16 +28,16 @@ var NAVTREEINDEX32 =
 "classgenfit_1_1FieldManager.html":[12,0,13,11],
 "classgenfit_1_1FieldManager.html#a01194f10c4efe8d19286492ba01e104e":[12,0,13,11,0],
 "classgenfit_1_1FieldManager.html#a01194f10c4efe8d19286492ba01e104e":[12,0,13,11,2],
-"classgenfit_1_1FieldManager.html#a0360198b189d2d5acaebfca7a468437e":[12,0,13,11,12],
 "classgenfit_1_1FieldManager.html#a0360198b189d2d5acaebfca7a468437e":[12,0,13,11,13],
+"classgenfit_1_1FieldManager.html#a0360198b189d2d5acaebfca7a468437e":[12,0,13,11,12],
 "classgenfit_1_1FieldManager.html#a12f1a610b482443c3727f34ff807b8bc":[12,0,13,11,6],
 "classgenfit_1_1FieldManager.html#a12f1a610b482443c3727f34ff807b8bc":[12,0,13,11,7],
 "classgenfit_1_1FieldManager.html#a240ef44f94f23a7baf87f7d4c1b4cba6":[12,0,13,11,8],
 "classgenfit_1_1FieldManager.html#a240ef44f94f23a7baf87f7d4c1b4cba6":[12,0,13,11,9],
 "classgenfit_1_1FieldManager.html#a311142cb85b746f93c8f45cd50d737bc":[12,0,13,11,14],
 "classgenfit_1_1FieldManager.html#a311142cb85b746f93c8f45cd50d737bc":[12,0,13,11,15],
-"classgenfit_1_1FieldManager.html#a6489369c58bb9fb7003cfe4b201320e3":[12,0,13,11,3],
 "classgenfit_1_1FieldManager.html#a6489369c58bb9fb7003cfe4b201320e3":[12,0,13,11,1],
+"classgenfit_1_1FieldManager.html#a6489369c58bb9fb7003cfe4b201320e3":[12,0,13,11,3],
 "classgenfit_1_1FieldManager.html#a7432ac0fd7ad0d3249ca4546a8ead6cb":[12,0,13,11,10],
 "classgenfit_1_1FieldManager.html#a7432ac0fd7ad0d3249ca4546a8ead6cb":[12,0,13,11,11],
 "classgenfit_1_1FieldManager.html#a962a11af0a79ed6f380f96f35ce3c4e4":[12,0,13,11,4],
@@ -249,5 +247,7 @@ var NAVTREEINDEX32 =
 "classgenfit_1_1KalmanFitStatus.html#a14aa6f9507a0efe70a536841894fc59b":[12,0,13,34,22],
 "classgenfit_1_1KalmanFitStatus.html#a21530c53d4b1ab3dc5e76cd03c215f40":[12,0,13,34,15],
 "classgenfit_1_1KalmanFitStatus.html#a2cb5b284b4c10876128c4c8e1931654b":[12,0,13,34,16],
-"classgenfit_1_1KalmanFitStatus.html#a3224e522641c350f21d13dbe4a198a97":[12,0,13,34,8]
+"classgenfit_1_1KalmanFitStatus.html#a3224e522641c350f21d13dbe4a198a97":[12,0,13,34,8],
+"classgenfit_1_1KalmanFitStatus.html#a3a751416087483b2e625fd3177982ea9":[12,0,13,34,0],
+"classgenfit_1_1KalmanFitStatus.html#a53076715779756a91db6750ed22fca21":[12,0,13,34,3]
 };

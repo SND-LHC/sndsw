@@ -1,9 +1,5 @@
 var NAVTREEINDEX80 =
 {
-"neutrinoFilterGoldenSample_8cxx.html#a4ffeee7d737c39f87090ad858c3d91dfa28ecf0dca4593aab0a91bb5753a7231e":[13,0,0,2,0,5],
-"neutrinoFilterGoldenSample_8cxx.html#a4ffeee7d737c39f87090ad858c3d91dfa4b00693b4855d6caf21dffd12f34f4ac":[13,0,0,2,0,3],
-"neutrinoFilterGoldenSample_8cxx.html#a4ffeee7d737c39f87090ad858c3d91dfa5fabc2dca7d00e60d4a7c91a4593aace":[13,0,0,2,0,2],
-"neutrinoFilterGoldenSample_8cxx.html#a4ffeee7d737c39f87090ad858c3d91dfa9102749a15dac44b5131a85c8f547894":[13,0,0,2,0,0],
 "neutrinoFilterGoldenSample_8cxx.html#a4ffeee7d737c39f87090ad858c3d91dfaf49f71c4fab70ef994732bf56be6d60d":[13,0,0,2,0,1],
 "neutrinoFilterGoldenSample_8cxx_source.html":[13,0,0,2],
 "neutrinoFilterGoldenSample__stage2_8py.html":[13,0,0,3],
@@ -249,5 +245,9 @@ var NAVTREEINDEX80 =
 "proton__bremsstrahlung_8py.html#aceccc347da90c6397d29b37de4dfdeaf":[13,0,17,26,6],
 "proton__bremsstrahlung_8py.html#ae3b95b849d91a62e6d5819f662a86f2b":[13,0,17,26,20],
 "proton__bremsstrahlung_8py.html#ae66a22074f6381514bddb5a270e9018d":[13,0,17,26,7],
-"proton__bremsstrahlung_8py.html#ae6b8aa393f26f949b32b951a1ad8b51e":[13,0,17,26,16]
+"proton__bremsstrahlung_8py.html#ae6b8aa393f26f949b32b951a1ad8b51e":[13,0,17,26,16],
+"proton__bremsstrahlung_8py.html#aea9544b9811cdcd633c3dabc8eeef64a":[13,0,17,26,21],
+"proton__bremsstrahlung_8py.html#af07c1c98c4893430bc9a1bb688d955f7":[13,0,17,26,4],
+"proton__bremsstrahlung_8py.html#afeac538db4c9f83f0c760b5799a4f9ff":[13,0,17,26,15],
+"proton__bremsstrahlung_8py_source.html":[13,0,17,26]
 };

@@ -1,9 +1,5 @@
 var NAVTREEINDEX75 =
 {
-"namespacescifiSimAna.html#a6c37ffc24d1d6f7538d62f1e71654372":[11,0,143,23],
-"namespacescifiSimAna.html#a70137e5d31d762cf6c43d174d0ab11d5":[11,0,143,20],
-"namespacescifiSimAna.html#a75e82b0c0b08cafa8ee0ff55c5de87aa":[11,0,143,24],
-"namespacescifiSimAna.html#a81078f4ac1fa779a85931ce7a77b3cc9":[11,0,143,14],
 "namespacescifiSimAna.html#a8151319bd0cbb01f24dff332fd774d5d":[11,0,143,34],
 "namespacescifiSimAna.html#a81bbef4c60da2524bd01e74fdbfe502a":[11,0,143,25],
 "namespacescifiSimAna.html#a82679343c832c69406a3375d0c16165a":[11,0,143,19],
@@ -249,5 +245,9 @@ var NAVTREEINDEX75 =
 "namespaceshipVeto.html":[11,0,166],
 "namespaceship_1_1details.html":[11,0,145,0],
 "namespaceship_1_1details.html#acb23448d4f370a5fbdbe746cfed2287e":[11,0,145,0,1],
-"namespaceship_1_1details.html#acc1c8b1bb1cd5218d0f9c42217adaf73":[11,0,145,0,0]
+"namespaceship_1_1details.html#acc1c8b1bb1cd5218d0f9c42217adaf73":[11,0,145,0,0],
+"namespaceshipunit.html":[11,0,164],
+"namespaceshipunit.html#a00008fdab85283156ae0dc5be22998a2":[11,0,164,125],
+"namespaceshipunit.html#a020b78cceabc2e8d54655a64de9f231d":[11,0,164,91],
+"namespaceshipunit.html#a022888e39661b1b1cdbeed97a9b51fa3":[11,0,164,9]
 };

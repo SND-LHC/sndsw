@@ -1,7 +1,5 @@
 var NAVTREEINDEX13 =
 {
-"classDAQ__monitoring_1_1Time__evolution.html#a183fb57b56a3b52a1fe4b5158f01958f":[12,0,2,1,12],
-"classDAQ__monitoring_1_1Time__evolution.html#a30765cdc28faf4f962e33a0b47a90f62":[12,0,2,1,11],
 "classDAQ__monitoring_1_1Time__evolution.html#a4c2379be6f8ff9719389c2d5d2ebd21a":[12,0,2,1,0],
 "classDAQ__monitoring_1_1Time__evolution.html#a7c432e6b7828eaf069444af4ca1a6f2a":[12,0,2,1,7],
 "classDAQ__monitoring_1_1Time__evolution.html#a869092d4550d61b0a94c7adfcb26f9ba":[12,0,2,1,8],
@@ -249,5 +247,7 @@ var NAVTREEINDEX13 =
 "classEmulsionMagnet.html#a995a1f50e6ae65b68d36d1c0221236b3":[12,0,90,41],
 "classEmulsionMagnet.html#aa592a92555e65e7205ead0b39e9e5b38":[12,0,90,23],
 "classEmulsionMagnet.html#aa825174f7aac52bb801c5c20f34fc594":[12,0,90,39],
-"classEmulsionMagnet.html#aabe4295a172de5379f8821383e8ca294":[12,0,90,6]
+"classEmulsionMagnet.html#aabe4295a172de5379f8821383e8ca294":[12,0,90,6],
+"classEmulsionMagnet.html#aabf8435721eba0ea2e44e7d341e74281":[12,0,90,43],
+"classEmulsionMagnet.html#aaea484fa64e8dcbd4c1b28a222446a20":[12,0,90,8]
 };

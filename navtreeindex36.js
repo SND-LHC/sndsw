@@ -1,7 +1,5 @@
 var NAVTREEINDEX36 =
 {
-"classgenfit_1_1TrackPoint.html#a0c7f86125e59a951ec2da7ce198fba69":[12,0,13,25,13],
-"classgenfit_1_1TrackPoint.html#a0c91664442aa72027678ca9ef17b304e":[12,0,13,25,8],
 "classgenfit_1_1TrackPoint.html#a100d45ed17cff174e06cebde2c0d6de7":[12,0,13,25,22],
 "classgenfit_1_1TrackPoint.html#a20c2dbf713b2693dfa28ec03bd05fbb7":[12,0,13,25,35],
 "classgenfit_1_1TrackPoint.html#a29c2d1b6197728fdc3d582a392d22c1e":[12,0,13,25,19],
@@ -249,5 +247,7 @@ var NAVTREEINDEX36 =
 "classhcalInf.html#ab02e31ec1ae519c2a190db9e499681e3":[12,0,98,28],
 "classhcalInf.html#ab2110d9750e2b1dbbab12b9078a1b92c":[12,0,98,38],
 "classhcalInf.html#aba1516f098b542a085e931376cde48d7":[12,0,98,56],
-"classhcalInf.html#ababd25696daa868451b01acb1b9d0974":[12,0,98,50]
+"classhcalInf.html#ababd25696daa868451b01acb1b9d0974":[12,0,98,50],
+"classhcalInf.html#abaf0e58ba45bf5c80f039028e2420702":[12,0,98,15],
+"classhcalInf.html#abee9619e097379803af8e180d7e22f7d":[12,0,98,23]
 };

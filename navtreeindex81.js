@@ -1,9 +1,5 @@
 var NAVTREEINDEX81 =
 {
-"proton__bremsstrahlung_8py.html#aea9544b9811cdcd633c3dabc8eeef64a":[13,0,17,26,21],
-"proton__bremsstrahlung_8py.html#af07c1c98c4893430bc9a1bb688d955f7":[13,0,17,26,4],
-"proton__bremsstrahlung_8py.html#afeac538db4c9f83f0c760b5799a4f9ff":[13,0,17,26,15],
-"proton__bremsstrahlung_8py_source.html":[13,0,17,26],
 "pyFairModule_8cxx.html":[13,0,11,14],
 "pyFairModule_8cxx.html#a4890f669326884bda5880d3fd27e9a76":[13,0,11,14,0],
 "pyFairModule_8cxx_source.html":[13,0,11,14],
@@ -249,5 +245,9 @@ var NAVTREEINDEX81 =
 "runPythia8PP_8py.html#ace9e38b749fc1f9352dcc02df1662133":[13,0,8,26,35],
 "runPythia8PP_8py.html#ad67ad9c46e45bc1dd5d006e38ca018a2":[13,0,8,26,23],
 "runPythia8PP_8py.html#adb2fc39da7b5649f02b7f0545dca540d":[13,0,8,26,37],
-"runPythia8PP_8py.html#adcde9d80ace2efad95557556ec23db79":[13,0,8,26,15]
+"runPythia8PP_8py.html#adcde9d80ace2efad95557556ec23db79":[13,0,8,26,15],
+"runPythia8PP_8py.html#add19b1664210de7c0876bc51c0f44d93":[13,0,8,26,11],
+"runPythia8PP_8py.html#adf9f5b68a2d639a37baa2802ad0f3287":[13,0,8,26,20],
+"runPythia8PP_8py.html#ae1f2cf1f0cf5830a39eec726f2c80e7c":[13,0,8,26,30],
+"runPythia8PP_8py.html#ae50645831107627f328a08eced9a53e2":[13,0,8,26,12]
 };

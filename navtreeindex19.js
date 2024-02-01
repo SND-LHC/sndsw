@@ -1,7 +1,5 @@
 var NAVTREEINDEX19 =
 {
-"classNuageGenerator.html#ade1f61ae732cf075855e6fa05e3ece85":[12,0,125,19],
-"classNuageGenerator.html#adeeb4563f21b2809cae5c2aef3fa6524":[12,0,125,39],
 "classNuageGenerator.html#adfc83ac3799bc541237b3d71339f4770":[12,0,125,82],
 "classNuageGenerator.html#ae15c6f0648c46a730105c42df57cfd53":[12,0,125,11],
 "classNuageGenerator.html#ae3c994b99228c23d2f318cfd6123c44e":[12,0,125,63],
@@ -249,5 +247,7 @@ var NAVTREEINDEX19 =
 "classScifi.html#ad980e3f622fbe90467d8955afb7f26b1":[12,0,145,11],
 "classScifi.html#adb5c9464c0582a9e6ef904146085bebf":[12,0,145,0],
 "classScifi.html#ae4d9684e2acf4a2d24c7d18e1be49414":[12,0,145,2],
-"classScifi.html#ae5b1afb1ee1a8b23426a56d8061396af":[12,0,145,39]
+"classScifi.html#ae5b1afb1ee1a8b23426a56d8061396af":[12,0,145,39],
+"classScifi.html#ae72c8d4e81f74915281ca870bf410113":[12,0,145,7],
+"classScifi.html#aef7b269295b36330fa26c065d5d23c44":[12,0,145,53]
 };
