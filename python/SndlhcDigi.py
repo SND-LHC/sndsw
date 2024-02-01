@@ -35,6 +35,9 @@ class SndlhcDigi:
 # make sipm to fibre mapping
         self.fibresSiPM = SciFiMapping.getFibre2SiPMCPP(self.scifiDet)
         self.siPMFibres = SciFiMapping.getSiPM2FibreCPP(self.scifiDet)
+        #scifi clusters
+        self.clusScifi   = ROOT.TClonesArray("sndCluster")
+        self.clusScifiBranch    = self.sTree.Branch("Cluster_Scifi",self.clusScifi,32000,1)
 
         #muonFilter
         self.digiMuFilter   = ROOT.TClonesArray("MuFilterHit")
@@ -54,6 +57,9 @@ class SndlhcDigi:
         self.digitizeScifi()
         self.digiScifiBranch.Fill()
         self.digiScifi2MCPointsBranch.Fill()
+        self.clusScifi.Delete()
+        self.clusterScifi()
+        self.clusScifiBranch.Fill()
 
         self.digiMuFilter.Delete()
         self.digiMuFilter2MCPoints.Delete()
@@ -130,6 +136,41 @@ class SndlhcDigi:
                 mcLinks.Add(detID,k, mcPoints[detID][k]/norm[detID])
         self.digiMuFilter2MCPoints[0]=mcLinks
 
+    def clusterScifi(self):
+        index = 0
+        hitDict = {}
+        for k in range(self.sTree.Digi_ScifiHits.GetEntries()):
+            d = self.sTree.Digi_ScifiHits[k]
+            if not d.isValid(): continue 
+            hitDict[d.GetDetectorID()] = k
+        hitList = list(hitDict.keys())
+        if len(hitList)>0:
+              hitList.sort()
+              tmp = [ hitList[0] ]
+              cprev = hitList[0]
+              ncl = 0
+              last = len(hitList)-1
+              hitlist = ROOT.std.vector("sndScifiHit*")()
+              for i in range(len(hitList)):
+                   if i==0 and len(hitList)>1: continue
+                   c=hitList[i]
+                   if (c-cprev)==1: 
+                        tmp.append(c)
+                   if (c-cprev)!=1 or c==hitList[last]:
+                        first = tmp[0]
+                        N = len(tmp)
+                        hitlist.clear()
+                        for aHit in tmp: hitlist.push_back( self.sTree.Digi_ScifiHits[hitDict[aHit]],)
+                        aCluster = ROOT.sndCluster(first,N,hitlist,self.scifiDet)
+                        if self.clusScifi.GetSize() == index: self.clusScifi.Expand(index+10)
+                        self.clusScifi[index]=aCluster
+                        index+=1
+                        if c!=hitList[last]:
+                             ncl+=1
+                             tmp = [c]
+                   cprev = c
+
+            
     def finish(self):
         print('finished writing tree')
         self.sTree.Write()

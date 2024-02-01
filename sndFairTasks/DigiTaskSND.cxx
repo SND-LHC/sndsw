@@ -1,3 +1,10 @@
+/********************************************************************************
+ *    Copyright (C) 2014 GSI Helmholtzzentrum fuer Schwerionenforschung GmbH    *
+ *                                                                              *
+ *              This software is distributed under the terms of the             *
+ *              GNU Lesser General Public Licence (LGPL) version 3,             *
+ *                  copied verbatim in the file "LICENSE"                       *
+ ********************************************************************************/
  #include <TClonesArray.h>           // or TClonesArray
  #include <TGenericClassInfo.h>      // for TGenericClassInfo
  #include <TMath.h>                  // for Sqrt
@@ -18,6 +25,7 @@
  #include "MuFilterPoint.h"	     // for Muon Filter Point
  #include "sndScifiHit.h"	     // for SciFi Hit
  #include "MuFilterHit.h"	     // for Muon Filter Hit
+ #include "sndCluster.h"	     // for Clusters
  #include "Hit2MCPoints.h"           // for linking hits to true MC points
 
 using namespace std;
@@ -28,6 +36,7 @@ DigiTaskSND::DigiTaskSND()
     , fMuFilterPointArray(nullptr)
     , fEventHeader(nullptr)
     , fScifiDigiHitArray(nullptr)
+    , fScifiClusterArray(nullptr)
     , fMuFilterDigiHitArray(nullptr)
     , fScifiHit2MCPointsArray(nullptr)
     , fMuFilterHit2MCPointsArray(nullptr)
@@ -85,13 +94,18 @@ InitStatus DigiTaskSND::Init()
     // Branche containing links to MC truth info
     fScifiHit2MCPointsArray = new TClonesArray("Hit2MCPoints");
     ioman->Register("Digi_ScifiHits2MCPoints", "DigiScifiHits2MCPoints_det", fScifiHit2MCPointsArray, kTRUE);
-    fScifiHit2MCPointsArray->BypassStreamer(kTRUE);   
+    fScifiHit2MCPointsArray->BypassStreamer(kTRUE);    fScifiClusterArray = new TClonesArray("sndCluster");
+    ioman->Register("Cluster_Scifi", "ScifiCluster_det", fScifiClusterArray, kTRUE);
     fMuFilterDigiHitArray = new TClonesArray("MuFilterHit");
     ioman->Register("Digi_MuFilterHits", "DigiMuFilterHit_det", fMuFilterDigiHitArray, kTRUE);
     // Branche containing links to MC truth info
     fMuFilterHit2MCPointsArray = new TClonesArray("Hit2MCPoints");
     ioman->Register("Digi_MuFilterHits2MCPoints", "DigiMuFilterHits2MCPoints_det", fMuFilterHit2MCPointsArray, kTRUE);
     fMuFilterHit2MCPointsArray->BypassStreamer(kTRUE);
+
+    ScifiThreshold = 3.5;
+    MufiLargeThreshold = 0;
+    MufiSmallThreshold = 0;
     
     return kSUCCESS;
 }
@@ -100,6 +114,7 @@ void DigiTaskSND::Exec(Option_t* /*opt*/)
 {
 
     fScifiDigiHitArray->Delete();
+    fScifiClusterArray->Delete();
     fScifiHit2MCPointsArray->Delete();
     fMuFilterDigiHitArray->Delete();
     fMuFilterHit2MCPointsArray->Delete();
@@ -114,6 +129,7 @@ void DigiTaskSND::Exec(Option_t* /*opt*/)
     if (fScifiPointArray)
     {
         digitizeScifi();
+        clusterScifi();
     }
 }
 
@@ -142,6 +158,12 @@ void DigiTaskSND::digitizeScifi()
         for (auto sipmChan : siPMFibres[locFibreID])
         {
             globsipmChan = int(detID/100000)*100000+sipmChan.first;
+            // Initializing - not needed in C++
+            /*if (hitContainer[globsipmChan].first.size()==0){
+                 hitContainer[globsipmChan] = {};
+                 mcPoints[make_pair(globsipmChan, k)] = {};
+                 norm[globsipmChan] = {};
+            }*/
             weight = sipmChan.second[0];
             hitContainer[globsipmChan].first.push_back(point);
             hitContainer[globsipmChan].second.push_back(weight);
@@ -162,6 +184,55 @@ void DigiTaskSND::digitizeScifi()
     new((*fScifiHit2MCPointsArray)[0]) Hit2MCPoints(mcLinks);
 }
 
+void DigiTaskSND::clusterScifi()
+{    
+    map<int, int > hitDict{};
+    vector<int> hitList{};
+    vector<int> tmp{};
+    int index{}, ncl{}, cprev{}, c{}, last{}, first{}, N{};
+    
+    for (int k = 0, kEnd = fScifiDigiHitArray->GetEntries(); k < kEnd; k++) {
+        sndScifiHit* d = static_cast<sndScifiHit*>(fScifiDigiHitArray->At(k));
+        if (!d->isValid()) continue;
+        hitDict[d->GetDetectorID()] = k ;
+        hitList.push_back(d->GetDetectorID());
+    }
+    if (hitList.size() > 0)
+    {
+       sort(hitList.begin(), hitList.end()); 
+       tmp.push_back(hitList[0]);
+       cprev = hitList[0];
+       ncl = 0;
+       last = hitList.size()-1;
+       vector<sndScifiHit*> hitlist{};
+       for (int i =0; i<hitList.size(); i++)
+       {
+            if (i==0 && hitList.size()>1) continue;
+            c = hitList[i];
+            if (c-cprev ==1) tmp.push_back(c);
+            if (c-cprev !=1 || c==hitList[last]){
+                first = tmp[0];
+                N = tmp.size();
+                hitlist.clear();
+                for (int j=0; j<tmp.size(); j++)
+                {
+                    sndScifiHit* aHit = static_cast<sndScifiHit*>(fScifiDigiHitArray->At(hitDict[tmp[j]]));
+                    hitlist.push_back(aHit);
+                }
+                new ((*fScifiClusterArray)[index]) sndCluster(first, N, hitlist, scifi);
+                index++;
+                if (c!=hitList[last])
+                {
+                   ncl++;
+                   tmp.clear();
+                   tmp.push_back(c);
+                }
+            }
+            cprev = c;
+        }
+     } 
+}
+
 void DigiTaskSND::digitizeMuFilter()
 {
     // a map with detID and vector(list) of points
@@ -177,6 +248,12 @@ void DigiTaskSND::digitizeMuFilter()
         if (!point) continue;
         // Collect all hits in same detector element
         detID = point->GetDetectorID();
+        // Initializing - not needed in C++
+        /*if (hitContainer[detID].size()==0){
+          hitContainer[detID] = {};
+          mcPoints[make_pair(detID, k)] = {};
+          norm[detID] = {};
+        }*/
         hitContainer[detID].push_back(point);
         mcPoints[make_pair(detID, k)] = point->GetEnergyLoss();
         norm[detID]+= point->GetEnergyLoss();
