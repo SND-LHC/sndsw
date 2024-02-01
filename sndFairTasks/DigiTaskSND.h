@@ -1,10 +1,3 @@
-/********************************************************************************
- *    Copyright (C) 2014 GSI Helmholtzzentrum fuer Schwerionenforschung GmbH    *
- *                                                                              *
- *              This software is distributed under the terms of the             *
- *              GNU Lesser General Public Licence (LGPL) version 3,             *
- *                  copied verbatim in the file "LICENSE"                       *
- ********************************************************************************/
 #ifndef DIGITASKSND_H_
 #define DIGITASKSND_H_
 
@@ -12,7 +5,6 @@
 #include <RtypesCore.h>         // for Double_t, Int_t, Option_t
 #include <TClonesArray.h> 
 #include "FairTask.h"           // for FairTask, InitStatus
-//#include "FairEventHeader.h"    // for FairEventHeader
 #include "FairMCEventHeader.h"  // for FairMCEventHeader
 #include "Scifi.h"              // for Scifi detector
 #include "SNDLHCEventHeader.h"  // for EventHeader

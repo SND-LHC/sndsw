@@ -1,10 +1,3 @@
-/********************************************************************************
- *    Copyright (C) 2014 GSI Helmholtzzentrum fuer Schwerionenforschung GmbH    *
- *                                                                              *
- *              This software is distributed under the terms of the             *
- *              GNU Lesser General Public Licence (LGPL) version 3,             *
- *                  copied verbatim in the file "LICENSE"                       *
- ********************************************************************************/
  #include <TClonesArray.h>           // or TClonesArray
  #include <TGenericClassInfo.h>      // for TGenericClassInfo
  #include <TMath.h>                  // for Sqrt
@@ -158,12 +151,6 @@ void DigiTaskSND::digitizeScifi()
         for (auto sipmChan : siPMFibres[locFibreID])
         {
             globsipmChan = int(detID/100000)*100000+sipmChan.first;
-            // Initializing - not needed in C++
-            /*if (hitContainer[globsipmChan].first.size()==0){
-                 hitContainer[globsipmChan] = {};
-                 mcPoints[make_pair(globsipmChan, k)] = {};
-                 norm[globsipmChan] = {};
-            }*/
             weight = sipmChan.second[0];
             hitContainer[globsipmChan].first.push_back(point);
             hitContainer[globsipmChan].second.push_back(weight);
@@ -248,12 +235,6 @@ void DigiTaskSND::digitizeMuFilter()
         if (!point) continue;
         // Collect all hits in same detector element
         detID = point->GetDetectorID();
-        // Initializing - not needed in C++
-        /*if (hitContainer[detID].size()==0){
-          hitContainer[detID] = {};
-          mcPoints[make_pair(detID, k)] = {};
-          norm[detID] = {};
-        }*/
         hitContainer[detID].push_back(point);
         mcPoints[make_pair(detID, k)] = point->GetEnergyLoss();
         norm[detID]+= point->GetEnergyLoss();
