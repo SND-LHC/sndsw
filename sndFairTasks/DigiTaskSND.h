@@ -29,9 +29,6 @@ class DigiTaskSND : public FairTask
 
     /** Virtual method Exec **/
     virtual void Exec(Option_t* opt);
-    
-    /** setting thresholds **/
-    void setThresholds(Float_t S,Float_t ML=0,Float_t MS=0){ScifiThreshold = S; MufiLargeThreshold = ML; MufiSmallThreshold = MS;}
 
   private:
     void digitizeMuFilter();
@@ -60,12 +57,7 @@ class DigiTaskSND : public FairTask
     DigiTaskSND(const DigiTaskSND&);
     DigiTaskSND& operator=(const DigiTaskSND&);
 
-    // thresholds
-    Float_t ScifiThreshold;
-    Float_t MufiLargeThreshold;
-    Float_t MufiSmallThreshold;
-
-    ClassDef(DigiTaskSND, 2);
+    ClassDef(DigiTaskSND, 4);
 };
 
 #endif /* DIGITASKSND_H_ */

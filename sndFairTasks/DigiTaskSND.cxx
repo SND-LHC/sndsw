@@ -95,10 +95,6 @@ InitStatus DigiTaskSND::Init()
     fMuFilterHit2MCPointsArray = new TClonesArray("Hit2MCPoints");
     ioman->Register("Digi_MuFilterHits2MCPoints", "DigiMuFilterHits2MCPoints_det", fMuFilterHit2MCPointsArray, kTRUE);
     fMuFilterHit2MCPointsArray->BypassStreamer(kTRUE);
-
-    ScifiThreshold = 3.5;
-    MufiLargeThreshold = 0;
-    MufiSmallThreshold = 0;
     
     return kSUCCESS;
 }
