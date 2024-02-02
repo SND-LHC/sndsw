@@ -9,7 +9,7 @@ start = ROOT.TVector3()
 
 class SndlhcDigi:
     " convert  MC hits to digitized hits"
-    def __init__(self,fout):
+    def __init__(self,fout, makeClusterScifi):
 
         self.iEvent = 0
 
@@ -35,9 +35,12 @@ class SndlhcDigi:
 # make sipm to fibre mapping
         self.fibresSiPM = SciFiMapping.getFibre2SiPMCPP(self.scifiDet)
         self.siPMFibres = SciFiMapping.getSiPM2FibreCPP(self.scifiDet)
+
         #scifi clusters
-        self.clusScifi   = ROOT.TClonesArray("sndCluster")
-        self.clusScifiBranch    = self.sTree.Branch("Cluster_Scifi",self.clusScifi,32000,1)
+        self.makeClusterScifi = makeClusterScifi
+        if self.makeClusterScifi:
+           self.clusScifi   = ROOT.TClonesArray("sndCluster")
+           self.clusScifiBranch    = self.sTree.Branch("Cluster_Scifi",self.clusScifi,32000,1)
 
         #muonFilter
         self.digiMuFilter   = ROOT.TClonesArray("MuFilterHit")
@@ -57,9 +60,10 @@ class SndlhcDigi:
         self.digitizeScifi()
         self.digiScifiBranch.Fill()
         self.digiScifi2MCPointsBranch.Fill()
-        self.clusScifi.Delete()
-        self.clusterScifi()
-        self.clusScifiBranch.Fill()
+        if self.makeClusterScifi:
+           self.clusScifi.Delete()
+           self.clusterScifi()
+           self.clusScifiBranch.Fill()
 
         self.digiMuFilter.Delete()
         self.digiMuFilter2MCPoints.Delete()
@@ -170,7 +174,7 @@ class SndlhcDigi:
                              tmp = [c]
                    cprev = c
 
-            
+
     def finish(self):
         print('finished writing tree')
         self.sTree.Write()

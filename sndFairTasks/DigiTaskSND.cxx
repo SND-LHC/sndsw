@@ -33,6 +33,7 @@ DigiTaskSND::DigiTaskSND()
     , fMuFilterDigiHitArray(nullptr)
     , fScifiHit2MCPointsArray(nullptr)
     , fMuFilterHit2MCPointsArray(nullptr)
+    , fMakeClusterScifi(true)
 {}
 
 DigiTaskSND::~DigiTaskSND() {}
@@ -87,8 +88,11 @@ InitStatus DigiTaskSND::Init()
     // Branche containing links to MC truth info
     fScifiHit2MCPointsArray = new TClonesArray("Hit2MCPoints");
     ioman->Register("Digi_ScifiHits2MCPoints", "DigiScifiHits2MCPoints_det", fScifiHit2MCPointsArray, kTRUE);
-    fScifiHit2MCPointsArray->BypassStreamer(kTRUE);    fScifiClusterArray = new TClonesArray("sndCluster");
-    ioman->Register("Cluster_Scifi", "ScifiCluster_det", fScifiClusterArray, kTRUE);
+    fScifiHit2MCPointsArray->BypassStreamer(kTRUE);
+    if ( fMakeClusterScifi )  {
+       fScifiClusterArray = new TClonesArray("sndCluster");
+       ioman->Register("Cluster_Scifi", "ScifiCluster_det", fScifiClusterArray, kTRUE);
+    }
     fMuFilterDigiHitArray = new TClonesArray("MuFilterHit");
     ioman->Register("Digi_MuFilterHits", "DigiMuFilterHit_det", fMuFilterDigiHitArray, kTRUE);
     // Branche containing links to MC truth info
@@ -103,7 +107,7 @@ void DigiTaskSND::Exec(Option_t* /*opt*/)
 {
 
     fScifiDigiHitArray->Delete();
-    fScifiClusterArray->Delete();
+    if (fMakeClusterScifi) fScifiClusterArray->Delete();
     fScifiHit2MCPointsArray->Delete();
     fMuFilterDigiHitArray->Delete();
     fMuFilterHit2MCPointsArray->Delete();
@@ -118,7 +122,7 @@ void DigiTaskSND::Exec(Option_t* /*opt*/)
     if (fScifiPointArray)
     {
         digitizeScifi();
-        clusterScifi();
+        if (fMakeClusterScifi) clusterScifi();
     }
 }
 

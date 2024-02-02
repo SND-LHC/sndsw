@@ -28,10 +28,13 @@ parser.add_argument("-ts", "--thresholdScifi", dest="ts", type=float, help="thre
 parser.add_argument("-ss", "--saturationScifi", dest="ss", type=float, help="saturation energy for Scifi [p.e.]", default=104.)
 parser.add_argument("-tML", "--thresholdMufiL", dest="tml", type=float, help="threshold energy for Mufi large [p.e.]", default=0.0)
 parser.add_argument("-tMS", "--thresholdMufiS", dest="tms", type=float, help="threshold energy for Mufi small [p.e.]", default=0.0)
-parser.add_argument("-cpp", "--digiCPP", action='store_true', dest="FairTask_digi", help="perform digitization using DigiTaskSND", default=False)
+parser.add_argument("-no-cls", "--noClusterScifi", action='store_true', help="do not make Scifi clusters")
+parser.add_argument("-cpp", "--digiCPP", action='store_true', dest="FairTask_digi", help="perform digitization using DigiTaskSND")
 parser.add_argument("-d", "--Debug", dest="debug", help="debug", default=False)
 
 options = parser.parse_args()
+# rephrase the no-cluster flag
+makeClusterScifi = not options.noClusterScifi
 # -----Timer-------------
 timer = ROOT.TStopwatch()
 timer.Start()
@@ -97,7 +100,9 @@ if options.FairTask_digi:
   nEvents = min(nEventsInFile, options.nEvents)
 
   rtdb = run.GetRuntimeDb()
-  run.AddTask(ROOT.DigiTaskSND())
+  DigiTask = ROOT.DigiTaskSND()
+  DigiTask.withScifiClusters(makeClusterScifi)
+  run.AddTask(DigiTask)
   run.Init()
   run.Run(firstEvent, nEvents)
 
@@ -105,7 +110,7 @@ if options.FairTask_digi:
 else:
  # import digi task
   import SndlhcDigi
-  Sndlhc = SndlhcDigi.SndlhcDigi(outFile)
+  Sndlhc = SndlhcDigi.SndlhcDigi(outFile,makeClusterScifi)
 
   nEvents   = min(Sndlhc.sTree.GetEntries(),options.nEvents)
 # main loop
@@ -115,6 +120,8 @@ else:
     Sndlhc.iEvent = iEvent
     rc = Sndlhc.sTree.GetEvent(iEvent)
     Sndlhc.digitize()
+    if makeClusterScifi:
+       Sndlhc.clusterScifi()
  # memory monitoring
  # mem_monitor()
 
