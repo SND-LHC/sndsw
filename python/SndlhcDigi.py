@@ -55,18 +55,18 @@ class SndlhcDigi:
         self.header.SetEventNumber( self.sTree.MCEventHeader.GetEventID() )  # counts from 1
         self.header.SetBunchType(101);
         self.eventHeader.Fill()
-        self.digiScifi.Delete()
-        self.digiScifi2MCPoints.Delete()
+        self.digiScifi.Clear('C')
+        self.digiScifi2MCPoints.Clear('C')
         self.digitizeScifi()
         self.digiScifiBranch.Fill()
         self.digiScifi2MCPointsBranch.Fill()
         if self.makeClusterScifi:
-           self.clusScifi.Delete()
+           self.clusScifi.Clear('C')
            self.clusterScifi()
            self.clusScifiBranch.Fill()
 
-        self.digiMuFilter.Delete()
-        self.digiMuFilter2MCPoints.Delete()
+        self.digiMuFilter.Clear('C')
+        self.digiMuFilter2MCPoints.Clear('C')
         self.digitizeMuFilter()
         self.digiMuFilterBranch.Fill()
         self.digiMuFilter2MCPointsBranch.Fill()

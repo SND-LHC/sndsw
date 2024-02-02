@@ -106,11 +106,11 @@ InitStatus DigiTaskSND::Init()
 void DigiTaskSND::Exec(Option_t* /*opt*/)
 {
 
-    fScifiDigiHitArray->Delete();
-    if (fMakeClusterScifi) fScifiClusterArray->Delete();
-    fScifiHit2MCPointsArray->Delete();
-    fMuFilterDigiHitArray->Delete();
-    fMuFilterHit2MCPointsArray->Delete();
+    fScifiDigiHitArray->Clear("C");
+    if (fMakeClusterScifi) fScifiClusterArray->Clear("C");
+    fScifiHit2MCPointsArray->Clear("C");
+    fMuFilterDigiHitArray->Clear("C");
+    fMuFilterHit2MCPointsArray->Clear("C");
 
     // Set event header
     fEventHeader->SetRunId(fMCEventHeader->GetRunID());
