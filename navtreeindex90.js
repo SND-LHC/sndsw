@@ -1,5 +1,17 @@
 var NAVTREEINDEX90 =
 {
+"structRawHit.html#a4f9bd90474b6757ce9dbd0a16dab4e14":[12,0,140,3],
+"structRawHit.html#ab5e50d04504bfdd0c1a8634f3bec36bd":[12,0,140,1],
+"structRawHit.html#ab90a2e6c9d1c97c4a16f4dfdf91350fb":[12,0,140,0],
+"structRawHit.html#ad9eab68a8ef634c771f1130104ffa753":[12,0,140,2],
+"structScalarFrame.html":[12,0,143],
+"structScalarFrame.html#a11b8694cc1128ee5e2c016410fafd5f6":[12,0,143,0],
+"structScalarFrame.html#a2fbf52df12101b1e86f6ce55d741d904":[12,0,143,6],
+"structScalarFrame.html#a8e2127539e9775a9dd4aa7092dc8f867":[12,0,143,4],
+"structScalarFrame.html#a9e4ce9aeb49bd3c351f52403d42e11b3":[12,0,143,2],
+"structScalarFrame.html#ac892c394a599e795d5ee6b947991649c":[12,0,143,1],
+"structScalarFrame.html#acda844dc1fa6d23e74f38eec69c6eaee":[12,0,143,5],
+"structScalarFrame.html#af17551a636e743818decaa8bd22a07a4":[12,0,143,3],
 "structSciFiDataFrame.html":[12,0,146],
 "structSciFiDataFrame.html#a62879805daba2c2fdf06370ed37842f8":[12,0,146,0],
 "structSciFiDataFrame.html#a733851da768c2e80206af2ae747e1a1d":[12,0,146,2],
@@ -237,17 +249,5 @@ var NAVTREEINDEX90 =
 "test__factory_8py.html#a8c1a989590508af1857e727a9e02a68c":[13,0,1,2,4,0],
 "test__factory_8py_source.html":[13,0,1,2,4],
 "test__mongodbadapter_8py.html":[13,0,1,2,0,2],
-"test__mongodbadapter_8py.html#a0493d927f61909e8a9a443cb21b56819":[13,0,1,2,0,2,15],
-"test__mongodbadapter_8py.html#a4c9bee8dfbf3a63c91a2d90fe4263335":[13,0,1,2,0,2,9],
-"test__mongodbadapter_8py.html#a66a65ce0174fcaa88148b94e975f5f2b":[13,0,1,2,0,2,19],
-"test__mongodbadapter_8py.html#a6b85f463a3710f76133032efe3ea5745":[13,0,1,2,0,2,1],
-"test__mongodbadapter_8py.html#a6d48e6d68682def2d62d49413418a9d2":[13,0,1,2,0,2,5],
-"test__mongodbadapter_8py.html#a7208b0b2e93f80025de7633c97563a6d":[13,0,1,2,0,2,2],
-"test__mongodbadapter_8py.html#a9258ed0fac305dcf4374174c37a30801":[13,0,1,2,0,2,18],
-"test__mongodbadapter_8py.html#a92e63851c5a27f27df083fa673fad3c7":[13,0,1,2,0,2,0],
-"test__mongodbadapter_8py.html#aa6fce077bcf933864bd0b2e9031c5a0b":[13,0,1,2,0,2,10],
-"test__mongodbadapter_8py.html#aa9a96ba0e0df1d0f5137ba95be3ace00":[13,0,1,2,0,2,13],
-"test__mongodbadapter_8py.html#ab13c6c3934e0c54fb6014b5319fcaacb":[13,0,1,2,0,2,16],
-"test__mongodbadapter_8py.html#ac05ae3c6d103a358f22ce47dfa5c6dc7":[13,0,1,2,0,2,4],
-"test__mongodbadapter_8py.html#acb3bc8739e146a786eaef31b97f71aad":[13,0,1,2,0,2,6]
+"test__mongodbadapter_8py.html#a0493d927f61909e8a9a443cb21b56819":[13,0,1,2,0,2,15]
 };

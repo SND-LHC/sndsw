@@ -1,4 +1,5 @@
 <map id="shipLHC/sndCluster.h" name="shipLHC/sndCluster.h">
-<area shape="rect" id="node1" title=" " alt="" coords="13,5,172,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="124,5,283,32"/>
 <area shape="rect" id="node2" href="$sndCluster_8cxx.html" title=" " alt="" coords="5,80,180,107"/>
+<area shape="rect" id="node3" href="$DigiTaskSND_8cxx.html" title=" " alt="" coords="205,80,423,107"/>
 </map>

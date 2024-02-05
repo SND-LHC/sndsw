@@ -1,5 +1,13 @@
 var NAVTREEINDEX25 =
 {
+"classTracklet.html#ab64903158530bc2b8d9fc82e7784689f":[12,0,196,0],
+"classTracklet.html#ac98d07dd8f7b70e16ccb9a01abf56b9c":[12,0,196,10],
+"classTracklet.html#aeaa1bd3aee73b91742892ba080d896b2":[12,0,196,2],
+"classTracklet.html#aee1366b8fd35ca6e40bd47c9c7796ce8":[12,0,196,11],
+"classTracklet.html#af64a6f30c5709cf0b1fb664e69ffbdef":[12,0,196,3],
+"classUpstreamTagger.html":[12,0,198],
+"classUpstreamTagger.html#a050f82e42f048ea7b7e03d4fc58bed9d":[12,0,198,42],
+"classUpstreamTagger.html#a076739947afc5dbeb9d66a229379f118":[12,0,198,99],
 "classUpstreamTagger.html#a076acc4c397f8dd7a29dcaffe11dbcd3":[12,0,198,23],
 "classUpstreamTagger.html#a078167a5b9d2b270341352b914713408":[12,0,198,61],
 "classUpstreamTagger.html#a0b14ac5b108b2b7985408e1af5c19545":[12,0,198,21],
@@ -241,13 +249,5 @@ var NAVTREEINDEX25 =
 "classconditionsDatabase_1_1interface_1_1APIInterface.html#abca4c994fdddd73130faf48b28478036":[12,0,0,2,0,2],
 "classconditionsDatabase_1_1interface_1_1APIInterface.html#acf6f6f4d9a1b4814445531372d515878":[12,0,0,2,0,11],
 "classconditionsDatabase_1_1interface_1_1APIInterface.html#aea84dc968b3f9c9cce574c633ccf375b":[12,0,0,2,0,6],
-"classconditionsDatabase_1_1interface_1_1APIInterface.html#afc07a6dc371a9573abf14c012bb1bdee":[12,0,0,2,0,4],
-"classdarkphoton_1_1DarkPhoton.html":[12,0,3,0],
-"classdarkphoton_1_1DarkPhoton.html#a072bfb5c4c802e007a6b7448c179268c":[12,0,3,0,1],
-"classdarkphoton_1_1DarkPhoton.html#a123a00952bd733843f5044e37868b309":[12,0,3,0,10],
-"classdarkphoton_1_1DarkPhoton.html#a12eb971f9c654199ed012a2c87c6ee27":[12,0,3,0,15],
-"classdarkphoton_1_1DarkPhoton.html#a2b7d8a3f2ce64d9456b2fd584a66e9e5":[12,0,3,0,11],
-"classdarkphoton_1_1DarkPhoton.html#a2f2ed00aeca19cd89bde4c42e9721b47":[12,0,3,0,0],
-"classdarkphoton_1_1DarkPhoton.html#a401657e6f3e09f732abe3c3cebc71163":[12,0,3,0,12],
-"classdarkphoton_1_1DarkPhoton.html#a607505ed84f12accaecbf6516ff4bc5d":[12,0,3,0,14]
+"classconditionsDatabase_1_1interface_1_1APIInterface.html#afc07a6dc371a9573abf14c012bb1bdee":[12,0,0,2,0,4]
 };
