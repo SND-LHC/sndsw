@@ -46,7 +46,6 @@ var namespacerun__simSND =
     [ "nEvents", "namespacerun__simSND.html#ab3705e1cb0c789ca9a6955cad00ccbe6", null ],
     [ "Ntuplegen", "namespacerun__simSND.html#a251e6a1cb4d05af81fa269716e81934a", null ],
     [ "Nuagegen", "namespacerun__simSND.html#aed77091d807ba62db3814a162a6bc0bc", null ],
-    [ "nuTargetPassive", "namespacerun__simSND.html#abc5e3294a96b108c46e21866dba71d40", null ],
     [ "options", "namespacerun__simSND.html#a91e480057d06c40c15fa8c8364fb67e4", null ],
     [ "outFile", "namespacerun__simSND.html#ac9a19e27a72b438a3ffd5be77df6e734", null ],
     [ "parFile", "namespacerun__simSND.html#a67130a90c763d8f08f2d63bfcfaf4ba7", null ],
@@ -67,6 +66,5 @@ var namespacerun__simSND =
     [ "timer", "namespacerun__simSND.html#a498f3cda1d4d074431f3f0ca08e3bfe3", null ],
     [ "tolerance_vtx_z", "namespacerun__simSND.html#a93e38786107b2b7745bfb7004cf8d73c", null ],
     [ "type", "namespacerun__simSND.html#a09e2cf736a7bb499b29e3962beefea2f", null ],
-    [ "useNagoyaEmulsions", "namespacerun__simSND.html#a6a89b7bd79aca9e92e2f55cd24b61337", null ],
     [ "userTask", "namespacerun__simSND.html#aa5ba624e6adae0fd7ebb3593135fe26f", null ]
 ];

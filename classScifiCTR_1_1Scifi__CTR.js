@@ -6,7 +6,6 @@ var classScifiCTR_1_1Scifi__CTR =
     [ "minimize", "classScifiCTR_1_1Scifi__CTR.html#a07795af60ae3720334677c8e117f609f", null ],
     [ "minimizeStation", "classScifiCTR_1_1Scifi__CTR.html#a5b011c19671a3bcd8b593c896f329a7a", null ],
     [ "Plot", "classScifiCTR_1_1Scifi__CTR.html#a9c54773fdd9cba944357bb35c012079e", null ],
-    [ "C", "classScifiCTR_1_1Scifi__CTR.html#a2d9e83d44a46d56b45a97cdc9b99f163", null ],
     [ "M", "classScifiCTR_1_1Scifi__CTR.html#a08127559497e6f2cc8848e10e745f7b2", null ],
     [ "meanAndSigma", "classScifiCTR_1_1Scifi__CTR.html#a8be842cd75e300cd3121f343f2470cf9", null ],
     [ "meanAndSigmaStation", "classScifiCTR_1_1Scifi__CTR.html#a851bc0747d1d9db379b391e3a6a2efb3", null ],

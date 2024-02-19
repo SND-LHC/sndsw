@@ -1,5 +1,7 @@
 var NAVTREEINDEX32 =
 {
+"classgenfit_1_1EventDisplay.html#ad93b93a7d7cbf3e52d3ef8cdca5f48e0":[12,0,13,26,64],
+"classgenfit_1_1EventDisplay.html#adfa511ff680041bf9bc82601b67a291d":[12,0,13,26,26],
 "classgenfit_1_1EventDisplay.html#ae4db6c8ff56045f6c9d7aee52d3dd695":[12,0,13,26,18],
 "classgenfit_1_1EventDisplay.html#aeab3494a0580b76d1fc3c4e72058ce77":[12,0,13,26,28],
 "classgenfit_1_1EventDisplay.html#aeafc5c226cbc9bb82f2ad655faca0fce":[12,0,13,26,33],
@@ -38,14 +40,14 @@ var NAVTREEINDEX32 =
 "classgenfit_1_1FieldManager.html#a01194f10c4efe8d19286492ba01e104e":[12,0,13,11,2],
 "classgenfit_1_1FieldManager.html#a0360198b189d2d5acaebfca7a468437e":[12,0,13,11,12],
 "classgenfit_1_1FieldManager.html#a0360198b189d2d5acaebfca7a468437e":[12,0,13,11,13],
-"classgenfit_1_1FieldManager.html#a12f1a610b482443c3727f34ff807b8bc":[12,0,13,11,6],
 "classgenfit_1_1FieldManager.html#a12f1a610b482443c3727f34ff807b8bc":[12,0,13,11,7],
+"classgenfit_1_1FieldManager.html#a12f1a610b482443c3727f34ff807b8bc":[12,0,13,11,6],
 "classgenfit_1_1FieldManager.html#a240ef44f94f23a7baf87f7d4c1b4cba6":[12,0,13,11,8],
 "classgenfit_1_1FieldManager.html#a240ef44f94f23a7baf87f7d4c1b4cba6":[12,0,13,11,9],
 "classgenfit_1_1FieldManager.html#a311142cb85b746f93c8f45cd50d737bc":[12,0,13,11,14],
 "classgenfit_1_1FieldManager.html#a311142cb85b746f93c8f45cd50d737bc":[12,0,13,11,15],
-"classgenfit_1_1FieldManager.html#a6489369c58bb9fb7003cfe4b201320e3":[12,0,13,11,3],
 "classgenfit_1_1FieldManager.html#a6489369c58bb9fb7003cfe4b201320e3":[12,0,13,11,1],
+"classgenfit_1_1FieldManager.html#a6489369c58bb9fb7003cfe4b201320e3":[12,0,13,11,3],
 "classgenfit_1_1FieldManager.html#a7432ac0fd7ad0d3249ca4546a8ead6cb":[12,0,13,11,10],
 "classgenfit_1_1FieldManager.html#a7432ac0fd7ad0d3249ca4546a8ead6cb":[12,0,13,11,11],
 "classgenfit_1_1FieldManager.html#a962a11af0a79ed6f380f96f35ce3c4e4":[12,0,13,11,4],
@@ -247,7 +249,5 @@ var NAVTREEINDEX32 =
 "classgenfit_1_1HelixTrackModel.html#aab4e131d65583c8cb07c119959ae2fab":[12,0,13,66,4],
 "classgenfit_1_1HelixTrackModel.html#ab2250f28ac705f38e5d450e0f23e0abe":[12,0,13,66,5],
 "classgenfit_1_1HelixTrackModel.html#ad250686f44e1e6a2ce8022cf2e7597f2":[12,0,13,66,0],
-"classgenfit_1_1HelixTrackModel.html#ad5a2ad8767eb58e70a049fe921e3390a":[12,0,13,66,8],
-"classgenfit_1_1KalmanFitStatus.html":[12,0,13,34],
-"classgenfit_1_1KalmanFitStatus.html#a05bc9f768a5195204e2648c59a89eb8e":[12,0,13,34,19]
+"classgenfit_1_1HelixTrackModel.html#ad5a2ad8767eb58e70a049fe921e3390a":[12,0,13,66,8]
 };

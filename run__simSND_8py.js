@@ -46,7 +46,6 @@ var run__simSND_8py =
     [ "nEvents", "run__simSND_8py.html#ab3705e1cb0c789ca9a6955cad00ccbe6", null ],
     [ "Ntuplegen", "run__simSND_8py.html#a251e6a1cb4d05af81fa269716e81934a", null ],
     [ "Nuagegen", "run__simSND_8py.html#aed77091d807ba62db3814a162a6bc0bc", null ],
-    [ "nuTargetPassive", "run__simSND_8py.html#abc5e3294a96b108c46e21866dba71d40", null ],
     [ "options", "run__simSND_8py.html#a91e480057d06c40c15fa8c8364fb67e4", null ],
     [ "outFile", "run__simSND_8py.html#ac9a19e27a72b438a3ffd5be77df6e734", null ],
     [ "parFile", "run__simSND_8py.html#a67130a90c763d8f08f2d63bfcfaf4ba7", null ],
@@ -67,6 +66,5 @@ var run__simSND_8py =
     [ "timer", "run__simSND_8py.html#a498f3cda1d4d074431f3f0ca08e3bfe3", null ],
     [ "tolerance_vtx_z", "run__simSND_8py.html#a93e38786107b2b7745bfb7004cf8d73c", null ],
     [ "type", "run__simSND_8py.html#a09e2cf736a7bb499b29e3962beefea2f", null ],
-    [ "useNagoyaEmulsions", "run__simSND_8py.html#a6a89b7bd79aca9e92e2f55cd24b61337", null ],
     [ "userTask", "run__simSND_8py.html#aa5ba624e6adae0fd7ebb3593135fe26f", null ]
 ];
