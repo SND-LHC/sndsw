@@ -1,5 +1,8 @@
 var NAVTREEINDEX2 =
 {
+"KalmanFittedStateOnPlane_8h.html":[13,0,5,4,0,3],
+"KalmanFittedStateOnPlane_8h_source.html":[13,0,5,4,0,3],
+"KalmanFitterInfo_8cc.html":[13,0,5,4,1,6],
 "KalmanFitterInfo_8cc_source.html":[13,0,5,4,1,6],
 "KalmanFitterInfo_8h.html":[13,0,5,4,0,5],
 "KalmanFitterInfo_8h_source.html":[13,0,5,4,0,5],
@@ -246,8 +249,5 @@ var NAVTREEINDEX2 =
 "ProlateSpacepointMeasurement_8cc_source.html":[13,0,5,8,1,8],
 "ProlateSpacepointMeasurement_8h.html":[13,0,5,8,0,7],
 "ProlateSpacepointMeasurement_8h_source.html":[13,0,5,8,0,7],
-"Pythia6Generator_8cxx.html":[13,0,19,26],
-"Pythia6Generator_8cxx_source.html":[13,0,19,26],
-"Pythia6Generator_8h.html":[13,0,19,27],
-"Pythia6Generator_8h_source.html":[13,0,19,27]
+"Pythia6Generator_8cxx.html":[13,0,19,26]
 };

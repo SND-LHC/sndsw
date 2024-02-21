@@ -1,5 +1,8 @@
 var NAVTREEINDEX32 =
 {
+"classgenfit_1_1EventDisplay.html#ad186b2d9c7e83fe5a0255fca641d1afa":[12,0,13,26,2],
+"classgenfit_1_1EventDisplay.html#ad623dc01f48fdfde19fa6f2e8a64dbc0":[12,0,13,26,51],
+"classgenfit_1_1EventDisplay.html#ad8d9e0f0f5ea3f33d29c98807cd1f61a":[12,0,13,26,41],
 "classgenfit_1_1EventDisplay.html#ad93b93a7d7cbf3e52d3ef8cdca5f48e0":[12,0,13,26,64],
 "classgenfit_1_1EventDisplay.html#adfa511ff680041bf9bc82601b67a291d":[12,0,13,26,26],
 "classgenfit_1_1EventDisplay.html#ae4db6c8ff56045f6c9d7aee52d3dd695":[12,0,13,26,18],
@@ -50,8 +53,8 @@ var NAVTREEINDEX32 =
 "classgenfit_1_1FieldManager.html#a6489369c58bb9fb7003cfe4b201320e3":[12,0,13,11,3],
 "classgenfit_1_1FieldManager.html#a7432ac0fd7ad0d3249ca4546a8ead6cb":[12,0,13,11,10],
 "classgenfit_1_1FieldManager.html#a7432ac0fd7ad0d3249ca4546a8ead6cb":[12,0,13,11,11],
-"classgenfit_1_1FieldManager.html#a962a11af0a79ed6f380f96f35ce3c4e4":[12,0,13,11,4],
 "classgenfit_1_1FieldManager.html#a962a11af0a79ed6f380f96f35ce3c4e4":[12,0,13,11,5],
+"classgenfit_1_1FieldManager.html#a962a11af0a79ed6f380f96f35ce3c4e4":[12,0,13,11,4],
 "classgenfit_1_1FieldManager.html#ae2127405db832936bdacc9c33ad04f1e":[12,0,13,11,16],
 "classgenfit_1_1FieldManager.html#ae2127405db832936bdacc9c33ad04f1e":[12,0,13,11,17],
 "classgenfit_1_1FitStatus.html":[12,0,13,12],
@@ -246,8 +249,5 @@ var NAVTREEINDEX32 =
 "classgenfit_1_1HelixTrackModel.html#a7e1c86957392e9a6d287849240a726d2":[12,0,13,66,1],
 "classgenfit_1_1HelixTrackModel.html#a91ca8e98d2cab1e8e3c03848abacdb7a":[12,0,13,66,3],
 "classgenfit_1_1HelixTrackModel.html#a9cbd1572703fb1389c0c92780fd50e8a":[12,0,13,66,7],
-"classgenfit_1_1HelixTrackModel.html#aab4e131d65583c8cb07c119959ae2fab":[12,0,13,66,4],
-"classgenfit_1_1HelixTrackModel.html#ab2250f28ac705f38e5d450e0f23e0abe":[12,0,13,66,5],
-"classgenfit_1_1HelixTrackModel.html#ad250686f44e1e6a2ce8022cf2e7597f2":[12,0,13,66,0],
-"classgenfit_1_1HelixTrackModel.html#ad5a2ad8767eb58e70a049fe921e3390a":[12,0,13,66,8]
+"classgenfit_1_1HelixTrackModel.html#aab4e131d65583c8cb07c119959ae2fab":[12,0,13,66,4]
 };

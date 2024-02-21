@@ -1,5 +1,11 @@
 var NAVTREEINDEX80 =
 {
+"namespacesnd_1_1analysis__tools.html#a1cfa1e0acecf53005048a0b11c125b57":[11,0,167,1,0],
+"namespacesnd_1_1analysis__tools.html#a9b5ca887a58ebfafeb84999585e4912f":[11,0,167,1,6],
+"namespacesnd_1_1analysis__tools.html#ab110e213c86b26c581a9c7456a140ebc":[11,0,167,1,2],
+"namespacesnd_1_1analysis__tools.html#ab124b95c73f51f841f5c12caeef146bb":[11,0,167,1,1],
+"namespacesnd_1_1analysis__tools.html#add38a36ae42dce4c3e48621c2c4d0b23":[11,0,167,1,5],
+"namespacesnd_1_1analysis__tools.html#ae6d366e54bc86ccdc3f11627c4d62545":[11,0,167,1,4],
 "namespacesnd_1_1analysis__tools.html#af5e62052bcb88fbcf911834a2bf5b3c8":[11,0,167,1,3],
 "namespacestudy__GammaConv.html":[11,0,176],
 "namespacestudy__GammaConv.html#a0c8835d13cbb751222d31f7787a46f64":[11,0,176,23],
@@ -243,11 +249,5 @@ var NAVTREEINDEX80 =
 "neutrinoFilterGoldenSample__stage2_8py.html#a110fd6c49090beb836be120cc372088d":[13,0,0,3,67],
 "neutrinoFilterGoldenSample__stage2_8py.html#a114ea208e0ab634c122b6cba1cf53b37":[13,0,0,3,2],
 "neutrinoFilterGoldenSample__stage2_8py.html#a1448f489854d9560362c7c568837d172":[13,0,0,3,12],
-"neutrinoFilterGoldenSample__stage2_8py.html#a1908f00794a646d0d606ede132770303":[13,0,0,3,56],
-"neutrinoFilterGoldenSample__stage2_8py.html#a19540e911ffd225f6586720e7d10cac3":[13,0,0,3,61],
-"neutrinoFilterGoldenSample__stage2_8py.html#a19bad15076d5976530d609082db026cd":[13,0,0,3,6],
-"neutrinoFilterGoldenSample__stage2_8py.html#a1e979ed7ed1782049057cd5d5fc73e6f":[13,0,0,3,3],
-"neutrinoFilterGoldenSample__stage2_8py.html#a2e36de455ff1d280270019390d5f34de":[13,0,0,3,49],
-"neutrinoFilterGoldenSample__stage2_8py.html#a3395ddf5febef970a2ae5b8ad8e3477c":[13,0,0,3,58],
-"neutrinoFilterGoldenSample__stage2_8py.html#a39980e1c5923c2aea72c3d7d16aebcca":[13,0,0,3,13]
+"neutrinoFilterGoldenSample__stage2_8py.html#a1908f00794a646d0d606ede132770303":[13,0,0,3,56]
 };

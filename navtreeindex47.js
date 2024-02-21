@@ -1,5 +1,8 @@
 var NAVTREEINDEX47 =
 {
+"g4Ex_8py.html#afd27be4af37c94678ccdccb2c39e7f62":[13,0,11,6,37],
+"g4Ex_8py_source.html":[13,0,11,6],
+"g4Ex__args_8py.html":[13,0,11,7],
 "g4Ex__args_8py.html#a095cbe971c5f99d45c340bc602d046f7":[13,0,11,7,27],
 "g4Ex__args_8py.html#a0987f3969de55adeb2defbb3764614e9":[13,0,11,7,21],
 "g4Ex__args_8py.html#a0d72419fe5c9c393b0cc53554ae00ce0":[13,0,11,7,40],
@@ -246,8 +249,5 @@ var NAVTREEINDEX47 =
 "geometry__config_8py.html#a2e9549828fd2efbfed01f3913b3034ca":[13,0,6,2,212],
 "geometry__config_8py.html#a2e9e67656740816331bb5c3c124ff54e":[13,0,6,2,298],
 "geometry__config_8py.html#a2eb83208f9d8f60a8c7bb1d5e84861bd":[13,0,6,2,243],
-"geometry__config_8py.html#a2f7179a14c765000c4ff66aedca82fe3":[13,0,6,2,386],
-"geometry__config_8py.html#a2fd41a30cc0a54d1a1f0a143a9faac84":[13,0,6,2,278],
-"geometry__config_8py.html#a30b1823477c4945de25d357bc327b076":[13,0,6,2,252],
-"geometry__config_8py.html#a312eeeac797ad75cb4a8c0e05622e3d9":[13,0,6,2,420]
+"geometry__config_8py.html#a2f7179a14c765000c4ff66aedca82fe3":[13,0,6,2,386]
 };
