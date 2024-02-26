@@ -11,8 +11,10 @@ sndsw
     - [On lxplus or systems with CVMFS](#on-lxplus-or-systems-with-cvmfs)
     - [On systems without access to CVMFS](#on-systems-without-access-to-cvmfs)
 - [Run Instructions](#run-instructions)
+- [Development](#development) 
+    - [How to keep branches up to date](#how-to-keep-branches-up-to-date)
+    - [How to contribute code](#how-to-contribute-code)
 - [Docker Instructions](#docker-instructions)
-- [Contributing Code](#contributing-code)
 
 <!-- markdown-toc end -->
 
@@ -26,7 +28,7 @@ PyROOT.
 ## Contact and communication
 
 If you have questions or problems, please feel free to contact the 
-@SND-LHC/core-developers. For troubleshooting and development, we plan to discuss on [Mattermost](https://mattermost.web.cern.ch/sndlhc/channels/software).
+@SND-LHC/core-developers. For troubleshooting and development, we plan to discuss on [Mattermost](https://mattermost.web.cern.ch/sndlhc-daq/channels/software-and-analysis).
 
 The [snd-software](mailto:snd-software@cern.ch) mailing list can be used to discuss the software and report issues. Important annoucements will be made there.
 
@@ -154,6 +156,7 @@ Commands are similar to the previous case, but without access to CVMFS you need 
     alienv enter sndsw/latest
     ```
 
+
 # Run Instructions
 
 updated  11 October 2021 for the use with raw data
@@ -245,6 +248,67 @@ Two methods implemented, hitMaps(Nev = -1) and eventTime().
  python $SNDSW_ROOT/shipLHC/scripts/scifiHitMaps.py -p /eos/experiment/sndlhc/testbeam/scifi/sndsw/ -r 1 -g geofile_full.Ntuple-TGeant4.root 
  ```
 
+# Development
+
+All packages are managed in Git and GitHub. Please either use the web interface to create pull requests or issues, or [send patches via email](https://git-send-email.io/).
+
+If your changes would also benefit [FairShip](https://github.com/ShipSoft/FairShip), please consider making a pull-request for your changes there. We can then pick up the changes from FairShip automatically.
+
+## How to keep branches up to date
+
+To update one's local copy of a branch with the latest modifications of that branch on the upstream repository do:
+```bash
+cd sndsw
+git checkout <branch>
+git pull --rebase
+cd ..
+```
+and build the software as usual per the [Build instructions](#build-instructions).
+
+While working on your local copy of a feature `branch`, it is possible that the upstream `master` software changes (e.g. because a pull request was merged into master).
+Then one propagates the updates of the upstream `master` to the local `branch` (`master -> branch`) doing:
+```bash
+cd sndsw
+git checkout master
+git pull --rebase
+git checkout <branch>
+git pull --rebase # skip this step if the branch only exists locally
+git rebase -i master
+cd ..
+```
+This will put all commits of the feature branch on top of the `master` commits.
+Note that before the `rebase` the local feature `branch` was updated via `git pull --rebase` too in case it changed on the upstream repository.
+
+If the `master` and the local `branch` both change the same line(s) in a file(s), a `conflict` arises. Don't panic!
+Follow the command-line instructions to resolve them or seek help through the [snd-software](mailto:snd-software@cern.ch) mailing list
+or the [Software and Analysis Mattermost channel](https://mattermost.web.cern.ch/sndlhc-daq/channels/software-and-analysis).
+One can verify the `commit history` reading the `git log` or inspecting via the graphical tool typing `gitk`.
+
+After solving any encountered `conflict`, build the updated branch as per the [Build instructions](#build-instructions).
+
+Following a `rebase` and after solving `conflicts`, to push one's local changes to the feature `branch` on the upstream repository do:
+```bash
+git push --force-with-lease --set-upstream origin <branch>
+```
+Follow the link for further reading why we use [`--force-with-lease` flag](https://stackoverflow.com/questions/52823692/git-push-force-with-lease-vs-force/52823955#52823955).
+
+## How to contribute code
+
+Proposals for contributions to any target branch are made using `Pull requests`.
+Furthermore, all `Pull requests` to the `master` branch on the upstream repository go through a review process by the `sndsw` [`core-developers`](https://github.com/orgs/SND-LHC/teams/core-developers).
+To make a `Pull request`, follow the guidelines below:
+
+1. Prepare you feature `branch` and commit all your updates/fixes.
+2. Update the branch and take care of potential conflicts, as described [above](#update-branch-instructions)
+3. Go online to [the sndsw Pull request webpage](https://github.com/SND-LHC/sndsw/pulls) and click on `New pull request`.
+   Follow through the fields and verify the request goes from `branch` to the desired branch of `SND-LHC/sndsw`, i.e.
+   `base:target_branch <- compare:branch`
+4. Leave a message explaining your changes, the need for them, etc.
+For `Pull requests` to the `master` branch:
+5. On the right panel, under the `Reviewers` heading one can chose who should review the code, e.g. the expert for a syb-system or topic, or someone who you have discussed the changes with.
+   Otherwise, the default is `core-developers`.
+6. Create the `Pull request`.
+
 
 # Docker Instructions
 
@@ -271,9 +335,3 @@ desirable.
     sndsw /bin/bash
     ``` 
     The option `-e DISPLAY=unix$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix` forwards graphics from the docker to your local system (similar to `ssh -X`). The option `-v /local_workdir:/image_workdir` mounts `/local_workdir` on the local system as `/image_workdir` within docker.
-
-# Contributing Code
-
-All packages are managed in Git and GitHub. Please either use the web interface to create pull requests or issues, or [send patches via email](https://git-send-email.io/).
-
-If your changes would also benefit [FairShip](https://github.com/ShipSoft/FairShip), please consider making a pull-request for your changes there. We can then pick up the changes from FairShip automatically.
