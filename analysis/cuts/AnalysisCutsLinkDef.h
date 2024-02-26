@@ -6,7 +6,6 @@
 
 #pragma link C++ nestedclasses;
 #pragma link C++ nestedtypedef;
-#pragma link C++ nestedfunctions;
 
 #pragma link C++ namespace snd::analysis_cuts;
 #pragma link C++ defined_in namespace snd::analysis_cuts;
