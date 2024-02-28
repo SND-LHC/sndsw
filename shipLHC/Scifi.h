@@ -49,8 +49,7 @@ public:
     Float_t  GetConfParF(TString name){return conf_floats[name];} 
     Int_t       GetConfParI(TString name){return conf_ints[name];}
     TString  GetConfParS(TString name){return conf_strings[name];}
-    void InitEvent(SNDLHCEventHeader *e){    eventHeader = e;// get mapping to eventHeader
-    }
+    void InitEvent(SNDLHCEventHeader *e);
 
     /**      Initialization of the detector is done here    */
     virtual void Initialize();
@@ -120,6 +119,14 @@ private:
     std::map<TString,Int_t> conf_ints;
     std::map<TString,TString> conf_strings;
     SNDLHCEventHeader *eventHeader;
+
+    // Vector to store runs covered in the geometry file.
+    std::vector<int> covered_runs_time_alignment;
+    std::vector<int> covered_runs_position_alignment;
+    int last_run;
+    TString last_time_alignment_tag;
+    TString last_position_alignment_tag;
+    bool alignment_init;
 protected:
     
     Int_t InitMedium(const char* name);

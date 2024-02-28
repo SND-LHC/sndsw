@@ -61,6 +61,9 @@ fTime(-1.),
 fLength(-1.),
 fELoss(-1),
 eventHeader(0),
+last_run(-1),
+last_time_alignment_tag(""),
+alignment_init(false),
 fMuFilterPointCollection(new TClonesArray("MuFilterPoint"))
 {
 }
@@ -75,6 +78,9 @@ fTime(-1.),
 fLength(-1.),
 fELoss(-1),
 eventHeader(0),
+last_run(-1),
+last_time_alignment_tag(""),
+alignment_init(false),
 fMuFilterPointCollection(new TClonesArray("MuFilterPoint"))
 {
 }
@@ -409,6 +415,25 @@ void MuFilter::ConstructGeometry()
 	}
 }
 
+void MuFilter::InitEvent(SNDLHCEventHeader *e){
+  // get mapping to eventHeader
+  eventHeader = e;
+
+  // Initialize
+  if (not alignment_init) {
+    alignment_init = true;
+    // Get available tags from the geometry file
+    std::string tag_string;
+    for (auto key : conf_floats){
+      tag_string = key.first.Data();
+      if (tag_string.find("MuFilter/DSTcorslopet_") != string::npos){
+	covered_runs_time_alignment.push_back(stoi(tag_string.substr(tag_string.find("t_")+2)));
+      }
+    }
+  }
+};
+
+
 Bool_t  MuFilter::ProcessHits(FairVolume* vol)
 {
 	/** This method is called from the MC stepping */
@@ -521,38 +546,35 @@ Float_t MuFilter::GetCorrectedTime(Int_t fDetectorID, Int_t channel, Double_t ra
 		return rawTime;
 	}
 	TString tag = "";
-	vector<int> coveredRuns{};
 	if (eventHeader){
 		Int_t fRunNumber = eventHeader->GetRunId();
-		if (fRunNumber<1){
-			LOG(ERROR) << "MuFilter::GetCorrectedTime: non valid run number "<<fRunNumber;
-			return rawTime;
+		if (fRunNumber != last_run){
+		  last_run = fRunNumber;
+
+		  if (fRunNumber<1){
+		  	LOG(ERROR) << "MuFilter::GetCorrectedTime: non valid run number "<<fRunNumber;
+		  	return rawTime;
+		  }
+
+		  if (covered_runs_time_alignment.size()!=0){
+		      tag = "t_"+to_string(covered_runs_time_alignment[covered_runs_time_alignment.size()-1]);
+		      for (int i=1; i<covered_runs_time_alignment.size(); i++){
+		            if (fRunNumber>=covered_runs_time_alignment[i-1] && fRunNumber<covered_runs_time_alignment[i]){
+		                tag = "t_"+to_string(covered_runs_time_alignment[i-1]);
+		            }
+		      }
+		      //special case
+		      if (fRunNumber<5193 && fRunNumber>5174) tag = "t_"+to_string(covered_runs_time_alignment[0]);
+		  }
+		  else{
+		       // allow reading older geo files with letter tags i.e. A, B, C
+		       tag = "A";
+		       if (fRunNumber>5116 && !(fRunNumber<5193 && fRunNumber>5174) ) {tag = "B";}		 
+		  }
+		  // 2023 testbeam data doesn't have a custom tag
+		  if (fRunNumber>=1e5) {tag = "";}
+		  last_time_alignment_tag = tag;
 		}
-		// Get available tags from the geometry file
-		std::string tag_string;
-		for (auto key : conf_floats){
-		     tag_string = key.first.Data();
-		     if (tag_string.find("MuFilter/DSTcorslopet_") != string::npos){
-		         coveredRuns.push_back(stoi(tag_string.substr(tag_string.find("t_")+2)));
-		     }
-		}
-		if (coveredRuns.size()!=0){
-		    tag = "t_"+to_string(coveredRuns[coveredRuns.size()-1]);
-		    for (int i=1; i<coveredRuns.size(); i++){
-		          if (fRunNumber>=coveredRuns[i-1] && fRunNumber<coveredRuns[i]){
-		              tag = "t_"+to_string(coveredRuns[i-1]);
-		          }
-		    }
-		    //special case
-		    if (fRunNumber<5193 && fRunNumber>5174) tag = "t_"+to_string(coveredRuns[0]);
-		}
-		else{
-		     // allow reading older geo files with letter tags i.e. A, B, C
-		     tag = "A";
-		     if (fRunNumber>5116 && !(fRunNumber<5193 && fRunNumber>5174) ) {tag = "B";}		 
-		}
-		// 2023 testbeam data doesn't have a custom tag
-		if (fRunNumber>=1e5) {tag = "";}
 	}
 	Float_t cor = rawTime;
 	int l = (fDetectorID-30000)/1000;
@@ -567,10 +589,10 @@ Float_t MuFilter::GetCorrectedTime(Int_t fDetectorID, Int_t channel, Double_t ra
 	if (l==3){p-=4;}
 	if (ichannel60>59) {ichannel60-=60;}
 	// DS time alignment first order
-	if (ichannel60<30){cor += conf_floats["MuFilter/DSTcorslope"+tag]*(ichannel60-15);}
-	else{              cor -= conf_floats["MuFilter/DSTcorslope"+tag]*(ichannel60-45);}
+	if (ichannel60<30){cor += conf_floats["MuFilter/DSTcorslope"+last_time_alignment_tag]*(ichannel60-15);}
+	else{              cor -= conf_floats["MuFilter/DSTcorslope"+last_time_alignment_tag]*(ichannel60-45);}
 	string si = to_string(p);
-	cor -= conf_floats["MuFilter/DSTcorC"+si+tag];
+	cor -= conf_floats["MuFilter/DSTcorC"+si+last_time_alignment_tag];
 	cor -= L/conf_floats["MuFilter/DsPropSpeed"];
 	return cor;
 }
@@ -650,4 +672,5 @@ void MuFilter::GetPosition(Int_t fDetectorID, TVector3& vLeft, TVector3& vRight)
        if (subsystem==1){return conf_ints["MuFilter/UpstreamnSides"];}
        return conf_ints["MuFilter/DownstreamnSides"];
   }
+
 ClassImp(MuFilter)

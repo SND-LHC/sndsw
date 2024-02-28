@@ -39,8 +39,7 @@ class MuFilter : public FairDetector
                  Int_t GetnSiPMs(Int_t detID);
                  Int_t GetnSides(Int_t detID);
 
-		void InitEvent(SNDLHCEventHeader *e){    eventHeader = e;// get mapping to eventHeader
-		}	
+                void InitEvent(SNDLHCEventHeader *e);
 		void SetConfPar(TString name, Float_t value){conf_floats[name]=value;}
 		void SetConfPar(TString name, Int_t value){conf_ints[name]=value;}
 		void SetConfPar(TString name, TString value){conf_strings[name]=value;}
@@ -104,6 +103,11 @@ class MuFilter : public FairDetector
 		std::map<TString,TString> conf_strings;
 		SNDLHCEventHeader *eventHeader;
 
+                // Vector to store runs covered in the geometry file.
+                std::vector<int> covered_runs_time_alignment;
+                TString last_time_alignment_tag;
+                int last_run;
+                bool alignment_init;
 	protected:
 
 			Int_t InitMedium(const char* name);
