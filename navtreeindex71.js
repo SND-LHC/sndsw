@@ -1,5 +1,7 @@
 var NAVTREEINDEX71 =
 {
+"namespaceneutrinoFilterGoldenSample__stage2.html#a0005a58cce933c36d3862531db819535":[11,0,101,28],
+"namespaceneutrinoFilterGoldenSample__stage2.html#a00223a7024718ccfca07a6428706ef86":[11,0,101,30],
 "namespaceneutrinoFilterGoldenSample__stage2.html#a02036c42366697178bfc3c7e93cfbb9f":[11,0,101,11],
 "namespaceneutrinoFilterGoldenSample__stage2.html#a035a7423765606a7771f4c9fa754c74a":[11,0,101,14],
 "namespaceneutrinoFilterGoldenSample__stage2.html#a0827be96cab73f071d7e30b4164af224":[11,0,101,33],
@@ -247,7 +249,5 @@ var NAVTREEINDEX71 =
 "namespacerunMufluxDigi.html#a490550a9eb226b68d4df938477a38c7b":[11,0,133,4],
 "namespacerunMufluxDigi.html#a500f2c37dc570bf0c7f293dae38ebf6e":[11,0,133,7],
 "namespacerunMufluxDigi.html#a51cd8c148323d7a66de4975370a81df5":[11,0,133,15],
-"namespacerunMufluxDigi.html#a55348b5547008337e4de6e77fd7203ba":[11,0,133,11],
-"namespacerunMufluxDigi.html#a58d89ff0b58402da2689343a4eedb05a":[11,0,133,16],
-"namespacerunMufluxDigi.html#a7daa3609372e3b47e9599d48e662c504":[11,0,133,5]
+"namespacerunMufluxDigi.html#a55348b5547008337e4de6e77fd7203ba":[11,0,133,11]
 };

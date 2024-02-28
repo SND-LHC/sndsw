@@ -1,5 +1,7 @@
 var NAVTREEINDEX58 =
 {
+"namespaceSurvey-MufiScifi.html#aa8bcb12ccfb9863b5a8dd4cc5bf1e6a6":[11,0,181,9],
+"namespaceSurvey-MufiScifi.html#aaa2b933e6cfb18c05a590b715066b5f3":[11,0,181,84],
 "namespaceSurvey-MufiScifi.html#aac8014efb7cbf9a708281e13512729db":[11,0,181,83],
 "namespaceSurvey-MufiScifi.html#aaca69b1b500a713886dcc27d4bfeba09":[11,0,181,7],
 "namespaceSurvey-MufiScifi.html#aaec517f7210d9c6235c0ced9c44b8495":[11,0,181,29],
@@ -247,7 +249,5 @@ var NAVTREEINDEX58 =
 "namespaceana__thermalNeutrons.html#a6a20303a46cfc7612ade25b7eb3e718d":[11,0,5,13],
 "namespaceana__thermalNeutrons.html#a6b4ebba3d29e04282fea51fc2f052a24":[11,0,5,22],
 "namespaceana__thermalNeutrons.html#a82333a4d1c716b629346f2291a213676":[11,0,5,18],
-"namespaceana__thermalNeutrons.html#a8eeed601b57c782926a86f9abe147df3":[11,0,5,8],
-"namespaceana__thermalNeutrons.html#a9a1b8f84eb717db9625e89842981c513":[11,0,5,9],
-"namespaceana__thermalNeutrons.html#ab3b22a703f2184ffd96187a359449af7":[11,0,5,6]
+"namespaceana__thermalNeutrons.html#a8eeed601b57c782926a86f9abe147df3":[11,0,5,8]
 };

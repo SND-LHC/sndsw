@@ -1,5 +1,7 @@
 var NAVTREEINDEX82 =
 {
+"pythia8__conf_8py.html#af74451298b8c0e13a73dc3e6120b21c0":[13,0,17,27,0],
+"pythia8__conf_8py_source.html":[13,0,17,27],
 "pythia8__conf__utils_8py.html":[13,0,17,28],
 "pythia8__conf__utils_8py.html#a06cc5b68fd84222b36b3b64a1bbbc454":[13,0,17,28,0],
 "pythia8__conf__utils_8py.html#a0cbb5682bb63fa7c1be81f0eaf9088cd":[13,0,17,28,4],
@@ -247,7 +249,5 @@ var NAVTREEINDEX82 =
 "runPythia8_8py.html#a1135a48d19eb061057b3c6ae189948d8":[13,0,8,25,20],
 "runPythia8_8py.html#a3158403349a4ff59ccf4ba0e8fcf10a2":[13,0,8,25,1],
 "runPythia8_8py.html#a316dc666bd5bbff854948c43be173f04":[13,0,8,25,35],
-"runPythia8_8py.html#a34a3a6ef676e4f0a2288e9f04210c415":[13,0,8,25,24],
-"runPythia8_8py.html#a373c8974853b0e69035f9ccf89ffa70b":[13,0,8,25,0],
-"runPythia8_8py.html#a38094f9e3ff3543e85a6557257a3b559":[13,0,8,25,38]
+"runPythia8_8py.html#a34a3a6ef676e4f0a2288e9f04210c415":[13,0,8,25,24]
 };

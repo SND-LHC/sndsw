@@ -1,5 +1,7 @@
 var NAVTREEINDEX81 =
 {
+"neutrinoFilterGoldenSample__stage2_8py.html#a1448f489854d9560362c7c568837d172":[13,0,0,3,12],
+"neutrinoFilterGoldenSample__stage2_8py.html#a1908f00794a646d0d606ede132770303":[13,0,0,3,56],
 "neutrinoFilterGoldenSample__stage2_8py.html#a19540e911ffd225f6586720e7d10cac3":[13,0,0,3,61],
 "neutrinoFilterGoldenSample__stage2_8py.html#a19bad15076d5976530d609082db026cd":[13,0,0,3,6],
 "neutrinoFilterGoldenSample__stage2_8py.html#a1e979ed7ed1782049057cd5d5fc73e6f":[13,0,0,3,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX81 =
 "pythia8__conf_8py.html":[13,0,17,27],
 "pythia8__conf_8py.html#a2b3c56a66f8fd6da2994e4f2a75a36ff":[13,0,17,27,3],
 "pythia8__conf_8py.html#a970a3da10fa8b541ea748fd7097e9cbb":[13,0,17,27,2],
-"pythia8__conf_8py.html#aa390a2413d3b5fc056162feeac9cd5e7":[13,0,17,27,1],
-"pythia8__conf_8py.html#af74451298b8c0e13a73dc3e6120b21c0":[13,0,17,27,0],
-"pythia8__conf_8py_source.html":[13,0,17,27]
+"pythia8__conf_8py.html#aa390a2413d3b5fc056162feeac9cd5e7":[13,0,17,27,1]
 };
