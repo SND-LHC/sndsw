@@ -118,13 +118,16 @@ tuple<map<string, map<string, map<string, int>> >, map<string, map<string, map<s
         if (boardMapsMu["MuFilter"].find(bString.c_str()) == boardMapsMu["MuFilter"].end())
         {
           boardMapsMu["MuFilter"][bString] = {};
-        }          
+        }
         // Loop over the slots (the first is always left, the second always right)
         for (int i = 0; i < info.slots.size(); i++)
         {
           bString = Form("board_%i", info.board);
-          if (i==0) boardMapsMu["MuFilter"][bString][info.slots.at(i)] = Form("Veto_%dLeft", stoi(subel.key()));
-          else if (i==1) boardMapsMu["MuFilter"][bString][info.slots.at(i)] = Form("Veto_%dRight", stoi(subel.key()));
+          if (stoi(subel.key())<3){
+            if (i==0) boardMapsMu["MuFilter"][bString][info.slots.at(i)] = Form("Veto_%iLeft", stoi(subel.key()));
+            else if (i==1) boardMapsMu["MuFilter"][bString][info.slots.at(i)] = Form("Veto_%iRight", stoi(subel.key()));
+          }
+          if (stoi(subel.key())==3) boardMapsMu["MuFilter"][bString][info.slots.at(i)] = Form("Veto_%iVert", stoi(subel.key()));
         }
       }
       else if (el.key() =="us")

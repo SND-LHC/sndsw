@@ -40,7 +40,11 @@ def getBoardMapping(jsonString):
         
         # loops over the slots (the first is always left, the second always right)
         for i in range(2):
-          boardMapsNew['MuFilter'][bString][conf['slots'][i]] = f'Veto_{plane}{"Left" if i == 0 else "Right"}'
+          if int(plane) <3:
+            boardMapsNew['MuFilter'][bString][conf['slots'][i]] = f'Veto_{plane}{"Left" if i == 0 else "Right"}'
+          # The vertical Veto plane has one slot only
+          if int(plane) ==3 and i == 0: 
+            boardMapsNew['MuFilter'][bString][conf['slots'][i]] = f'Veto_{plane[i]}Vert'
 
     elif subsys == 'us':
       for plane, conf in planes.items():
