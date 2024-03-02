@@ -72,14 +72,6 @@ class Monitoring():
         self.TEnd   = -1
         self.MonteCarlo = False
         self.Weight = 1
-# MuFilter mapping of planes and bars 
-        self.systemAndPlanes  = {1:2,2:5,3:7}
-        self.systemAndBars     = {1:7,2:10,3:60}
-        self.systemAndChannels     = {1:[8,0],2:[6,2],3:[1,0]}
-        self.sdict                     = {0:'Scifi',1:'Veto',2:'US',3:'DS'}
-
-        self.freq      =  160.316E6
-        self.TDC2ns = 1E9/self.freq
 
         path     = options.path
         self.myclient = None
@@ -93,6 +85,22 @@ class Monitoring():
         else:                                         self.snd_geo = SndlhcGeo.GeoInterface(options.geoFile[3:])
         self.MuFilter = self.snd_geo.modules['MuFilter']
         self.Scifi       = self.snd_geo.modules['Scifi']
+
+# MuFilter mapping of planes and bars 
+        self.systemAndPlanes   = {1:self.MuFilter.GetConfParI("MuFilter/NVetoPlanes"),
+                     2:self.MuFilter.GetConfParI("MuFilter/NUpstreamPlanes"),
+                     3:2*self.MuFilter.GetConfParI("MuFilter/NDownstreamPlanes")-1} # to arrive at 7 DS planes
+        self.systemAndBars     = {1:self.MuFilter.GetConfParI("MuFilter/NVetoBars"),
+                     2:self.MuFilter.GetConfParI("MuFilter/NUpstreamBars"),
+                     3:self.MuFilter.GetConfParI("MuFilter/NDownstreamBars")}
+        self.systemAndChannels = {1:[self.MuFilter.GetConfParI("MuFilter/VetonSiPMs"),0],
+                     2:[self.MuFilter.GetConfParI("MuFilter/UpstreamnSiPMs")-2,2],
+                     3:[self.MuFilter.GetConfParI("MuFilter/DownstreamnSiPMs"),0]}
+        self.sdict                     = {0:'Scifi',1:'Veto',2:'US',3:'DS'}
+
+        self.freq      =  160.316E6
+        self.TDC2ns = 1E9/self.freq
+
         self.zPos = self.getAverageZpositions()
 
         self.h = {}   # histogram storage

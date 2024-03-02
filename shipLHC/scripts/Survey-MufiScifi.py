@@ -143,7 +143,7 @@ latex = ROOT.TLatex()
 # MuFilter mapping of planes and bars 
 systemAndPlanes   = {1:MuFilter.GetConfParI("MuFilter/NVetoPlanes"),
                      2:MuFilter.GetConfParI("MuFilter/NUpstreamPlanes"),
-                     3:MuFilter.GetConfParI("MuFilter/NDownstreamPlanes")}
+                     3:2*MuFilter.GetConfParI("MuFilter/NDownstreamPlanes")-1} # to arrive at 7 DS planes
 systemAndBars     = {1:MuFilter.GetConfParI("MuFilter/NVetoBars"),
                      2:MuFilter.GetConfParI("MuFilter/NUpstreamBars"),
                      3:MuFilter.GetConfParI("MuFilter/NDownstreamBars")}
