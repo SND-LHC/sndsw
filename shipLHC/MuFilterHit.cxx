@@ -43,8 +43,7 @@ MuFilterHit::MuFilterHit(Int_t detID, std::vector<MuFilterPoint*> V)
      MuFilter* MuFilterDet = dynamic_cast<MuFilter*> (gROOT->GetListOfGlobals()->FindObject("MuFilter"));
      // get parameters from the MuFilter detector for simulating the digitized information
      nSiPMs  = MuFilterDet->GetnSiPMs(detID);
-     if (floor(detID/10000)==3&&detID%1000>59) nSides = MuFilterDet->GetnSides(detID) - 1;
-     else nSides = MuFilterDet->GetnSides(detID);
+     nSides = MuFilterDet->GetnSides(detID);
 
      Float_t timeResol = MuFilterDet->GetConfParF("MuFilter/timeResol");
 
