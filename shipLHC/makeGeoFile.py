@@ -10,11 +10,12 @@ parser = ArgumentParser()
 
 parser.add_argument("-c",   dest="config",   help="configuration file", required=True)
 parser.add_argument("-g",   dest="geofile",   help="geo file output name", required=True)
+parser.add_argument("-y",   dest="year",   help="specify the year to generate the respective TI18 detector setup", required=True)
 options = parser.parse_args()
 
 shipRoot_conf.configure(0)     # load basic libraries, prepare atexit for python
 
-snd_geo = ConfigRegistry.loadpy(options.config)
+snd_geo = ConfigRegistry.loadpy(options.config, year=options.year)
 
 # -----Create simulation run----------------------------------------
 run = ROOT.FairRunSim()

@@ -50,6 +50,7 @@ parser.add_argument("--debug",   dest="debug",   help="debugging mode, check for
 parser.add_argument("-D", "--display", dest="eventDisplay", help="store trajectories", required=False, action="store_true")
 parser.add_argument("--EmuDet","--nuTargetActive",dest="nuTargetPassive",help="activate emulsiondetector", required=False,action="store_false")
 parser.add_argument("--NagoyaEmu","--useNagoyaEmulsions",dest="useNagoyaEmulsions",help="use bricks of 57 Nagoya emulsion films instead of 60 Slavich", required=False,action="store_true")
+parser.add_argument("-y", dest="year", help="specify the year to generate the respective TI18 detector setup", required=False, type=int, default=2024)
 
 options = parser.parse_args()
 
@@ -113,7 +114,8 @@ elif options.testbeam2023:
 else:
   snd_geo = ConfigRegistry.loadpy("$SNDSW_ROOT/geometry/sndLHC_geom_config.py",
                                    nuTargetPassive = options.nuTargetPassive,
-                                   useNagoyaEmulsions = options.useNagoyaEmulsions)
+                                   useNagoyaEmulsions = options.useNagoyaEmulsions,
+                                   year=options.year)
 
 if simEngine == "PG": tag = simEngine + "_"+str(options.pID)+"-"+mcEngine
 else: tag = simEngine+"-"+mcEngine
