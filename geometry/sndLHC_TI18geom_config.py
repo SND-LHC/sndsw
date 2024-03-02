@@ -290,6 +290,14 @@ with ConfigRegistry.register_config("basic") as c:
         c.Floor.DX = 1.0*u.cm 
         c.Floor.DY = -4.5*u.cm #  subtract 4.5cm to avoid overlaps 
         c.Floor.DZ = 0.
+        
+        # Pit on the tunnel floor hosting Veto - using survey coord. system
+        # Dimensions
+        c.Floor.VetoPitXdim, c.Floor.VetoPitYdim, c.Floor.VetoPitZdim = 500*u.mm, 200*u.mm, 86*u.mm
+        # Position == Emuslion wall 1 + a correction in Z
+        c.Floor.VetoPitX =  c.EmulsionDet.Xpos0
+        c.Floor.VetoPitY =  c.EmulsionDet.Ypos0
+        c.Floor.VetoPitZ =  c.EmulsionDet.Zpos0 + c.EmulsionDet.WallZBorder_offset
 
         #COLDBOX configuration
         c.Floor.Acrylic_width = 5.0*u.cm

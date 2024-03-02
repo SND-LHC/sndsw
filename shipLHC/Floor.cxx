@@ -357,7 +357,20 @@ void Floor::ConstructGeometry()
 
   }
   LOG(DEBUG) << "shapes "<<shapes[0]->GetName()<<" "<<shapes[1]->GetName()<<" "<<shapes[2]->GetName();
-  auto total = new TGeoCompositeShape("Stotal","TI18_1_union+TI18_2_union+TI18_3_union");
+
+  // Since 2024 there is a pit on the TI18 floor hosting the veto
+  // Unless defined in the geo config file, the pit dims are 0.
+  auto vetoPit = new TGeoBBox("vetoPit",
+                                 conf_floats["Floor/VetoPitXdim"]/2.,
+                                 conf_floats["Floor/VetoPitZdim"]/2.,
+                                 conf_floats["Floor/VetoPitYdim"]/2.);
+  auto VetoPit_transl = new TGeoTranslation("VetoPit_transl",
+                                -conf_floats["Floor/VetoPitX"]-conf_floats["Floor/VetoPitXdim"]/2.,
+                                 conf_floats["Floor/VetoPitZ"]-conf_floats["Floor/VetoPitZdim"]/2.,
+                                 conf_floats["Floor/VetoPitY"]-conf_floats["Floor/VetoPitYdim"]/2.);
+  VetoPit_transl->RegisterYourself();
+
+  auto total = new TGeoCompositeShape("Stotal","TI18_1_union+TI18_2_union+TI18_3_union-vetoPit:VetoPit_transl");
   auto volT = new TGeoVolume("VTI18",total,concrete);
   volT->SetTransparency(0);
   volT->SetLineColor(kGray);
@@ -427,6 +440,7 @@ void Floor::ConstructGeometry()
  auto bigBox   = new TGeoBBox("BigBox", 1000.,1000. , dz);
  auto TR_1       = new TGeoTranslation("TR_1",0.,0.,-dz+geoParameters["TI18_o1"][2]-SND_Z - 50.); // move a bit more upstream to have free view from the back
  TR_1->RegisterYourself();
+ 
  auto cutOut   = new TGeoCompositeShape("cutOut", "BigBox:TR_1-Ftotal2-(TI18_1_Funion+TI18_2_Funion+TI18_3_Funion)");
  auto volT3      = new TGeoVolume("Vrock",cutOut,rock);
  volT3->SetTransparency(75);
