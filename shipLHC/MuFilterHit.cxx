@@ -133,7 +133,10 @@ Float_t MuFilterHit::GetEnergy()
 }
 
 bool MuFilterHit::isVertical(){
-  if  (floor(fDetectorID/10000)==3&&fDetectorID%1000>59) {return kTRUE;}
+  if  ( (floor(fDetectorID/10000)==3&&fDetectorID%1000>59) ||
+         (floor(fDetectorID/10000)==1&&int(fDetectorID/1000)%10==2) ) {  
+      return kTRUE;
+  }
   else{return kFALSE;}
 }
 
