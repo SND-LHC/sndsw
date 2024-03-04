@@ -1,5 +1,15 @@
 var NAVTREEINDEX82 =
 {
+"pyFairModule_8cxx.html#a4890f669326884bda5880d3fd27e9a76":[13,0,11,14,0],
+"pyFairModule_8cxx_source.html":[13,0,11,14],
+"pyFairModule_8h.html":[13,0,11,15],
+"pyFairModule_8h.html#a4890f669326884bda5880d3fd27e9a76":[13,0,11,15,2],
+"pyFairModule_8h.html#ae19630c1f4ca6d5236b30719d9140013":[13,0,11,15,1],
+"pyFairModule_8h_source.html":[13,0,11,15],
+"pythia8__conf_8py.html":[13,0,17,27],
+"pythia8__conf_8py.html#a2b3c56a66f8fd6da2994e4f2a75a36ff":[13,0,17,27,3],
+"pythia8__conf_8py.html#a970a3da10fa8b541ea748fd7097e9cbb":[13,0,17,27,2],
+"pythia8__conf_8py.html#aa390a2413d3b5fc056162feeac9cd5e7":[13,0,17,27,1],
 "pythia8__conf_8py.html#af74451298b8c0e13a73dc3e6120b21c0":[13,0,17,27,0],
 "pythia8__conf_8py_source.html":[13,0,17,27],
 "pythia8__conf__utils_8py.html":[13,0,17,28],
@@ -239,15 +249,5 @@ var NAVTREEINDEX82 =
 "runPythia8PP_8py.html#adf9f5b68a2d639a37baa2802ad0f3287":[13,0,8,26,20],
 "runPythia8PP_8py.html#ae1f2cf1f0cf5830a39eec726f2c80e7c":[13,0,8,26,30],
 "runPythia8PP_8py.html#ae50645831107627f328a08eced9a53e2":[13,0,8,26,12],
-"runPythia8PP_8py.html#ae8446b30b7e710e21cd690ef6a4bd822":[13,0,8,26,32],
-"runPythia8PP_8py.html#af42df21f97a402a75382037a62963740":[13,0,8,26,7],
-"runPythia8PP_8py.html#afb0772f1dff126347b9fe18fd2d6edc5":[13,0,8,26,40],
-"runPythia8PP_8py_source.html":[13,0,8,26],
-"runPythia8_8py.html":[13,0,8,25],
-"runPythia8_8py.html#a0b04bdf8836597be3171571fce868402":[13,0,8,25,8],
-"runPythia8_8py.html#a0d9c03eda229f0b78fcd659720421370":[13,0,8,25,31],
-"runPythia8_8py.html#a1135a48d19eb061057b3c6ae189948d8":[13,0,8,25,20],
-"runPythia8_8py.html#a3158403349a4ff59ccf4ba0e8fcf10a2":[13,0,8,25,1],
-"runPythia8_8py.html#a316dc666bd5bbff854948c43be173f04":[13,0,8,25,35],
-"runPythia8_8py.html#a34a3a6ef676e4f0a2288e9f04210c415":[13,0,8,25,24]
+"runPythia8PP_8py.html#ae8446b30b7e710e21cd690ef6a4bd822":[13,0,8,26,32]
 };

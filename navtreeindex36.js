@@ -1,5 +1,15 @@
 var NAVTREEINDEX36 =
 {
+"classgenfit_1_1TrackCandHit.html":[12,0,13,24],
+"classgenfit_1_1TrackCandHit.html#a0c8eae0aa9fe243b8b8cf1aa358abe2a":[12,0,13,24,8],
+"classgenfit_1_1TrackCandHit.html#a1224823998d1e45af86e78af15f6a10d":[12,0,13,24,5],
+"classgenfit_1_1TrackCandHit.html#a24ae54ca43c9d2b0e8123894e782fba8":[12,0,13,24,14],
+"classgenfit_1_1TrackCandHit.html#a2aa465817344b2e3749eb3ed4026f3e8":[12,0,13,24,0],
+"classgenfit_1_1TrackCandHit.html#a325908d00c2552fd66164d5bf86ede23":[12,0,13,24,11],
+"classgenfit_1_1TrackCandHit.html#a45b17deb95875ac10f432da876f02886":[12,0,13,24,4],
+"classgenfit_1_1TrackCandHit.html#a5eff93731793e9b136de05f9bc75a92d":[12,0,13,24,3],
+"classgenfit_1_1TrackCandHit.html#a613a562d6721129643da5bbc87c88ea6":[12,0,13,24,15],
+"classgenfit_1_1TrackCandHit.html#a64cc60ed6e49e4d4859f5509ccf38bcc":[12,0,13,24,2],
 "classgenfit_1_1TrackCandHit.html#a76b678bdf5a5d27bfd18cf0f0e1b5fe9":[12,0,13,24,1],
 "classgenfit_1_1TrackCandHit.html#a98ad488933938064406e80f1b35b47de":[12,0,13,24,7],
 "classgenfit_1_1TrackCandHit.html#ac49946aff3e7e32350d3b0f3d9663643":[12,0,13,24,16],
@@ -239,15 +249,5 @@ var NAVTREEINDEX36 =
 "classhcalInf.html#a6feb411e56f1863aa53f1e2a0fd3f563":[12,0,98,9],
 "classhcalInf.html#a788dbd10869649224c8e670a06675331":[12,0,98,4],
 "classhcalInf.html#a7e9e61e247e7471c8921351ca1e599f6":[12,0,98,54],
-"classhcalInf.html#a7ffe65bad4730e2a324fdb9c68fc7edb":[12,0,98,25],
-"classhcalInf.html#a81ed2247db5822593038cb0187f2d72a":[12,0,98,6],
-"classhcalInf.html#a8494bd70c75840dd9b498bc85a2c85ec":[12,0,98,26],
-"classhcalInf.html#a878115345d91df3d9fe9decf0c5cd92f":[12,0,98,16],
-"classhcalInf.html#a8849fde4e1524f298465407aa6936455":[12,0,98,24],
-"classhcalInf.html#a963e8975207f9571975c299e5cc48e3d":[12,0,98,17],
-"classhcalInf.html#a9792ccfe9c1eb9c3ac715e11ba9e1d09":[12,0,98,19],
-"classhcalInf.html#a985152bb34917c6d5862421f13e2f5fc":[12,0,98,27],
-"classhcalInf.html#a99de0d5a96c3dccd2a05cf03ad91f511":[12,0,98,41],
-"classhcalInf.html#a9b01205db7fe29b3755046d9342147b3":[12,0,98,1],
-"classhcalInf.html#a9c8d8446ebcebd6609879b05339632ef":[12,0,98,8]
+"classhcalInf.html#a7ffe65bad4730e2a324fdb9c68fc7edb":[12,0,98,25]
 };

@@ -42,9 +42,12 @@ var classScifi =
     [ "SiPMmapping", "classScifi.html#ae5b1afb1ee1a8b23426a56d8061396af", null ],
     [ "SiPMOverlap", "classScifi.html#a96249812f60d376aa559f53b549236ed", null ],
     [ "ycross", "classScifi.html#a74f70e6bafe1122e66466be4e45619fb", null ],
+    [ "alignment_init", "classScifi.html#a471b93651b8b1c485be24db3aead6a8c", null ],
     [ "conf_floats", "classScifi.html#a5d2e7c71b4b31a84ab8e3e81ac000307", null ],
     [ "conf_ints", "classScifi.html#a5c392da9551c12a1b66a8c495108fed0", null ],
     [ "conf_strings", "classScifi.html#a974e81cc2fc9e3a3fcacdeebe14c6909", null ],
+    [ "covered_runs_position_alignment", "classScifi.html#a3d98b718eeeee367b580ce126dc079fc", null ],
+    [ "covered_runs_time_alignment", "classScifi.html#aa9b54258d10b25c818bbec3695c22138", null ],
     [ "eventHeader", "classScifi.html#af01edfdc41ce34b71f45deaa035bcc62", null ],
     [ "fELoss", "classScifi.html#a1c4d8c5f4fa7b4cb38718bf2e5da7ebb", null ],
     [ "fibresSiPM", "classScifi.html#a90deaf0bd49f2314f43d9471a0b9db99", null ],
@@ -54,6 +57,9 @@ var classScifi =
     [ "fScifiPointCollection", "classScifi.html#a70fb1cb3af7e651ed0bd94bdcf093dc4", null ],
     [ "fTime", "classScifi.html#a0f2882c9d18c73e9cebc4095876a3055", null ],
     [ "fVolumeID", "classScifi.html#aef7b269295b36330fa26c065d5d23c44", null ],
+    [ "last_position_alignment_tag", "classScifi.html#ab95c52f45b4120fc34d0dfba42b87b32", null ],
+    [ "last_run", "classScifi.html#a115232f91236cf87d0869f80a5c225f7", null ],
+    [ "last_time_alignment_tag", "classScifi.html#a1c5fe37132711da70fa448affdafa05f", null ],
     [ "siPMFibres", "classScifi.html#a2ea36329b683daa137289911441d1454", null ],
     [ "SiPMPos", "classScifi.html#a17f51978480e036d4f60358c3b3e2c98", null ]
 ];
