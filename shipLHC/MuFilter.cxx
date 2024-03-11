@@ -191,9 +191,11 @@ void MuFilter::ConstructGeometry()
 	Int_t fNVetoPlanes       = conf_ints["MuFilter/NVetoPlanes"];
 	Int_t fNVetoBars          = conf_ints["MuFilter/NVetoBars"];
 	Double_t fSupportBoxVW = conf_floats["MuFilter/SupportBoxVW"]; // SupportBox dimensions
+	// thickness of bottom part of Veto 3 SupportBox
+	Double_t fSupportBoxVB3 = conf_floats["MuFilter/SupportBoxVB3"];
 	// local position of bottom horizontal bar to survey edge
 	TVector3 LocBarVeto = TVector3(-conf_floats["MuFilter/VETOLocX"], conf_floats["MuFilter/VETOLocZ"],conf_floats["MuFilter/VETOLocY"]);
-	TVector3 LocBarVeto_v = TVector3(-conf_floats["MuFilter/VETOLocX3"], conf_floats["MuFilter/VETOLocZ3"],conf_floats["MuFilter/VETOLocY3"]);// FIXME check if it is correct
+	TVector3 LocBarVeto_v = TVector3(-conf_floats["MuFilter/VETOLocX3"], conf_floats["MuFilter/VETOLocZ3"],conf_floats["MuFilter/VETOLocY3"]);
 
 	TVector3 VetoBox1 = TVector3(-conf_floats["MuFilter/VETOBoxX1"],conf_floats["MuFilter/VETOBoxZ1"],conf_floats["MuFilter/VETOBoxY1"]); // bottom front left
 	TVector3 VetoBox2 = TVector3(-conf_floats["MuFilter/VETOBoxX2"],conf_floats["MuFilter/VETOBoxZ2"],conf_floats["MuFilter/VETOBoxY2"]); // top back right
@@ -211,7 +213,7 @@ void MuFilter::ConstructGeometry()
 	TVector3 Veto3BoxDim = TVector3( VetoBox3.X()-VetoBox4.X(), VetoBox4.Y()-VetoBox3.Y(), VetoBox4.Z()-VetoBox3.Z() ) ;
 	// support box
 	TGeoBBox  *supVeto3BoxInner  = new TGeoBBox("supVeto3BoxI",Veto3BoxDim.X()/2,Veto3BoxDim.Y()/2,Veto3BoxDim.Z()/2);
-	TGeoBBox  *supVeto3BoxOuter = new TGeoBBox("supVeto3BoxO",Veto3BoxDim.X()/2+fSupportBoxVW,Veto3BoxDim.Y()/2+fSupportBoxVW,Veto3BoxDim.Z()/2+fSupportBoxVW);
+	TGeoBBox  *supVeto3BoxOuter = new TGeoBBox("supVeto3BoxO",Veto3BoxDim.X()/2+fSupportBoxVW,Veto3BoxDim.Y()/2+fSupportBoxVB3,Veto3BoxDim.Z()/2+fSupportBoxVW);
 	TGeoCompositeShape *subVeto3BoxShape = new TGeoCompositeShape("subVeto3BoxShape", "supVeto3BoxO-supVeto3BoxI");
 	TGeoVolume *subVeto3Box = new TGeoVolume("subVeto3Box", subVeto3BoxShape, Al);     
 	subVeto3Box->SetLineColor(kGray+1);
@@ -261,7 +263,7 @@ void MuFilter::ConstructGeometry()
 
 	     displacement = TVector3(0, 0, 0);
 	     for (Int_t ibar = 0; ibar < fNVetoBars; ibar++){
-	       Double_t dx_bar =  (fVeto3BarX + fVetoBarGap)*ibar; //FIXME check what is the gap btw bars for 3rd Veto
+	       Double_t dx_bar =  (fVeto3BarX + fVetoBarGap)*ibar;
 	       volVetoPlane->AddNode(volVetoBar_ver, 1e+4+iplane*1e+3+ibar,
 				 new TGeoTranslation(displacement.X()-dx_bar,displacement.Y(),displacement.Z())); // detID of type 12xxx
 	     }
