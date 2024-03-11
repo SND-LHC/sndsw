@@ -89,9 +89,9 @@ $(document).ready(function(){initNavTree('sndLHC__HXgeom__config_8py_source.html
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="keyword">import</span> shipunit <span class="keyword">as</span> u</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">from</span> ShipGeoConfig <span class="keyword">import</span> AttrDict, ConfigRegistry</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#aa3f54d1700da9bbf20e4aea7b3adea9b">    5</a></span>&#160;tb_2023_mc = <span class="keyword">False</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keywordflow">if</span> <span class="stringliteral">&quot;tb_2023_mc&quot;</span> <span class="keywordflow">in</span> globals():</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    tb_2023_mc = <span class="keyword">True</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keywordflow">if</span> <span class="stringliteral">&quot;tb_2023_mc&quot;</span> <span class="keywordflow">in</span> globals():</div>
+<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#a3ad56082f5d62be195941fb0edcecfbb">    6</a></span>&#160;    tb_2023_mc = <span class="keyword">True</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keywordflow">else</span>: tb_2023_mc = <span class="keyword">False</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">with</span> ConfigRegistry.register_config(<span class="stringliteral">&quot;basic&quot;</span>) <span class="keyword">as</span> c:</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"># cave parameters</span></div>
@@ -475,10 +475,10 @@ $(document).ready(function(){initNavTree('sndLHC__HXgeom__config_8py_source.html
 <div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;             c.Scifi.RotPhiS40,c.Scifi.RotPsiS40,c.Scifi.RotThetaS40 =     0.00*u.mrad,    0.15*u.mrad,    0.00*u.mrad</div>
 <div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;             c.Scifi.RotPhiS41,c.Scifi.RotPsiS41,c.Scifi.RotThetaS41 =     0.00*u.mrad,    3.13*u.mrad,    0.00*u.mrad</div>
 <div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;<span class="comment"># Time alignment Scifi, T0 = station 0,  mat 0 </span></div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;             c.Scifi.station1t,c.Scifi.station1H0t,c.Scifi.station1V0t  =  0.000*u.ns,  0.000*u.ns,  0.000*u.ns</div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;             c.Scifi.station2t,c.Scifi.station2H0t,c.Scifi.station2V0t  =  0.338*u.ns,  0.000*u.ns,  0.000*u.ns</div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;             c.Scifi.station3t,c.Scifi.station3H0t,c.Scifi.station3V0t  =  2.015*u.ns,  0.000*u.ns,  0.000*u.ns</div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;             c.Scifi.station4t,c.Scifi.station4H0t,c.Scifi.station4V0t  =  0.908*u.ns,  0.000*u.ns,  0.000*u.ns</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;             c.Scifi.station1t,c.Scifi.station1H0t,c.Scifi.station1V0t =  0.000*u.ns,  0.000*u.ns,  1.535*u.ns</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;             c.Scifi.station2t,c.Scifi.station2H0t,c.Scifi.station2V0t =  1.246*u.ns,  0.000*u.ns,  -0.281*u.ns</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;             c.Scifi.station3t,c.Scifi.station3H0t,c.Scifi.station3V0t =  3.240*u.ns,  0.000*u.ns,  -0.913*u.ns</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;             c.Scifi.station4t,c.Scifi.station4H0t,c.Scifi.station4V0t =  1.750*u.ns,  0.000*u.ns,  -0.145*u.ns</div>
 <div class="ttc" id="aclassShipGeoConfig_1_1AttrDict_html"><div class="ttname"><a href="classShipGeoConfig_1_1AttrDict.html">ShipGeoConfig.AttrDict</a></div><div class="ttdef"><b>Definition:</b> <a href="ShipGeoConfig_8py_source.html#l00094">ShipGeoConfig.py:94</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

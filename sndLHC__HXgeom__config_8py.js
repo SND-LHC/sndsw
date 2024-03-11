@@ -160,7 +160,7 @@ var sndLHC__HXgeom__config_8py =
     [ "SupportBoxVW", "sndLHC__HXgeom__config_8py.html#aa1a9c53aa8a87b75022a0ebb7c74b8d5", null ],
     [ "SupportBoxW", "sndLHC__HXgeom__config_8py.html#a136e713db6bd02209bd29ccdfd4e552a", null ],
     [ "target", "sndLHC__HXgeom__config_8py.html#a189a846fe7ad484ade32d8df34fdf339", null ],
-    [ "tb_2023_mc", "sndLHC__HXgeom__config_8py.html#aa3f54d1700da9bbf20e4aea7b3adea9b", null ],
+    [ "tb_2023_mc", "sndLHC__HXgeom__config_8py.html#a3ad56082f5d62be195941fb0edcecfbb", null ],
     [ "timeResol", "sndLHC__HXgeom__config_8py.html#a1bbe6631d9692e61a2ab873f94a18391", null ],
     [ "TotalWallZDim", "sndLHC__HXgeom__config_8py.html#a1da4ced627ff886ff10a7c8acd3e9cdc", null ],
     [ "TTz", "sndLHC__HXgeom__config_8py.html#a678819e64443f6a293eb5ecb3054179b", null ],

@@ -4509,7 +4509,7 @@ var namespaces_dup =
       [ "SupportBoxVW", "namespacesndLHC__HXgeom__config.html#aa1a9c53aa8a87b75022a0ebb7c74b8d5", null ],
       [ "SupportBoxW", "namespacesndLHC__HXgeom__config.html#a136e713db6bd02209bd29ccdfd4e552a", null ],
       [ "target", "namespacesndLHC__HXgeom__config.html#a189a846fe7ad484ade32d8df34fdf339", null ],
-      [ "tb_2023_mc", "namespacesndLHC__HXgeom__config.html#aa3f54d1700da9bbf20e4aea7b3adea9b", null ],
+      [ "tb_2023_mc", "namespacesndLHC__HXgeom__config.html#a3ad56082f5d62be195941fb0edcecfbb", null ],
       [ "timeResol", "namespacesndLHC__HXgeom__config.html#a1bbe6631d9692e61a2ab873f94a18391", null ],
       [ "TotalWallZDim", "namespacesndLHC__HXgeom__config.html#a1da4ced627ff886ff10a7c8acd3e9cdc", null ],
       [ "TTz", "namespacesndLHC__HXgeom__config.html#a678819e64443f6a293eb5ecb3054179b", null ],

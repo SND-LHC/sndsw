@@ -110,7 +110,7 @@ $(document).ready(function(){initNavTree('ScifiCTR_8py_source.html',''); initRes
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;       <span class="keywordflow">for</span> matH <span class="keywordflow">in</span> range(nMats):</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            <span class="keywordflow">for</span> matV <span class="keywordflow">in</span> range(nMats):</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;               tdiff = X.GetBinContent(matH*10+matV)</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;               d = tdiff - (par[matH] - par[matV+3])</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;               d = tdiff - (par[matH] - par[matV+nMats])</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;               chisq += d**2</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;       f.value = chisq</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;       <span class="keywordflow">return</span></div>
@@ -352,7 +352,7 @@ $(document).ready(function(){initNavTree('ScifiCTR_8py_source.html',''); initRes
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;               key = 100*s+10*matH+matV</div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;               dt = self.<a class="code" href="classScifiCTR_1_1Scifi__CTR.html#a8be842cd75e300cd3121f343f2470cf9">meanAndSigma</a>meanAndSigma[b][key][0]</div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;               h[<span class="stringliteral">&#39;commonBlock&#39;</span>].SetBinContent(matH*10+matV,dt)</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;         npar = 2*3</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;         npar = 2*nMats</div>
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;         ierflg    = ctypes.c_int(0)</div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;         vstart  = <a class="code" href="namespaceScifiCluster.html#af665f08bc8ac8769c1b0aa7d1cc33041">array</a>(<span class="stringliteral">&#39;d&#39;</span>,[0]*npar)</div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;         gMinuit = ROOT.TMinuit(npar)</div>

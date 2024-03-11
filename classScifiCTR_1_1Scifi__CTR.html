@@ -427,7 +427,7 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;               key = 100*s+10*matH+matV</div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;               dt = self.meanAndSigma[b][key][0]</div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;               h[<span class="stringliteral">&#39;commonBlock&#39;</span>].SetBinContent(matH*10+matV,dt)</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;         npar = 2*3</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;         npar = 2*nMats</div>
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;         ierflg    = ctypes.c_int(0)</div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;         vstart  = <a class="code" href="namespaceScifiCluster.html#af665f08bc8ac8769c1b0aa7d1cc33041">array</a>(<span class="stringliteral">&#39;d&#39;</span>,[0]*npar)</div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;         gMinuit = ROOT.TMinuit(npar)</div>
