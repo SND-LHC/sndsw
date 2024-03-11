@@ -23,7 +23,6 @@ atexit.register(pyExit)
 
 
 A,B = ROOT.TVector3(),ROOT.TVector3()
-freq      =  160.316E6
 
 eventComment = {}   # possibility to add an event comment before moving to next event
 
@@ -72,7 +71,6 @@ with2Points = False  # plot start and end point of straw/bar
 mc = False
 
 firstScifi_z = 300 * u.cm
-TDC2ns = 1E9 / 160.316E6
 
 # Initialize FairLogger: set severity and verbosity
 logger = ROOT.FairLogger.GetLogger()
@@ -424,7 +422,7 @@ def loopEvents(
 
     #Do we still use these lines? Seems no. 
     #And for events having all negative QDCs minT[1] is returned empty and the display crashes.
-    #dTs = "%5.2Fns"%(dT/freq*1E9)
+    #dTs = "%5.2Fns"%(dT/u.snd_freq*1E9)
     # find detector which triggered
     #minT = firstTimeStamp(event)
     #dTs+= "    " + str(minT[1].GetDetectorID())
@@ -957,7 +955,7 @@ def timingOfEvent(makeCluster=False,debug=False):
           pos = (A[0]+B[0])/2.
           L = abs(A[1]-B[1])/2.
        for i in range(nmax):
-            corTime = geo.modules['MuFilter'].GetCorrectedTime(detID, i, aHit.GetTime(i)*TDC2ns, 0)- (z-firstScifi_z)/u.speedOfLight
+            corTime = geo.modules['MuFilter'].GetCorrectedTime(detID, i, aHit.GetTime(i)*u.snd_TDC2ns, 0)- (z-firstScifi_z)/u.speedOfLight
             h['evTimeDS'].Fill(corTime)
             if debug: print(detID,i,corTime,pos)
    tc=h['tevTime'].cd()
