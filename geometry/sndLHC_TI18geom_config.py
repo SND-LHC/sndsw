@@ -161,9 +161,9 @@ with ConfigRegistry.register_config("basic") as c:
         
         #coordinates in local gravity based system
         if year == 2024:
-          c.MuFilter.Veto1Dx,c.MuFilter.Veto1Dy,c.MuFilter.Veto1Dz = 40.8*u.mm, 2761.2*u.mm, 164.3*u.mm
-          c.MuFilter.Veto2Dx,c.MuFilter.Veto2Dy,c.MuFilter.Veto2Dz = 40.6*u.mm, 2802.2*u.mm, 144.3*u.mm
-          c.MuFilter.Veto3Dx,c.MuFilter.Veto3Dy,c.MuFilter.Veto3Dz = 40.4*u.mm, 2843.3*u.mm, 125.8*u.mm
+          c.MuFilter.Veto1Dx,c.MuFilter.Veto1Dy,c.MuFilter.Veto1Dz = 49.3*u.mm, 2761.1*u.mm, 168.1*u.mm
+          c.MuFilter.Veto2Dx,c.MuFilter.Veto2Dy,c.MuFilter.Veto2Dz = 49.3*u.mm, 2802.1*u.mm, 148.1*u.mm
+          c.MuFilter.Veto3Dx,c.MuFilter.Veto3Dy,c.MuFilter.Veto3Dz = 61.8*u.mm, 2863.1*u.mm, 146.6*u.mm
         else:
           c.MuFilter.Veto1Dx,c.MuFilter.Veto1Dy,c.MuFilter.Veto1Dz = 40.8*u.mm, 2798.3*u.mm, 192.1*u.mm
           c.MuFilter.Veto2Dx,c.MuFilter.Veto2Dy,c.MuFilter.Veto2Dz = 40.6*u.mm, 2839.3*u.mm, 172.1*u.mm
@@ -200,7 +200,6 @@ with ConfigRegistry.register_config("basic") as c:
 
         # relation between edge and bottom bar for VETO
         c.MuFilter.VETOLocX,c.MuFilter.VETOLocY,c.MuFilter.VETOLocZ = 20.0*u.mm,20.0*u.mm,46.7*u.mm
-        c.MuFilter.VETOLocX3,c.MuFilter.VETOLocY3,c.MuFilter.VETOLocZ3 = 20.0*u.mm, 20.0*u.mm, 14.0*u.mm
 
         # relation between edge and bottom bar for US and DS
         c.MuFilter.DSHLocX,c.MuFilter.DSHLocY,c.MuFilter.DSHLocZ      = 10.5*u.mm, 32.0*u.mm, 11.1*u.mm
@@ -265,25 +264,25 @@ with ConfigRegistry.register_config("basic") as c:
         c.MuFilter.SupportBoxVW = 4*u.mm
         c.MuFilter.SupportBoxVDH = 0*u.mm
         if year == 2024:
-          c.MuFilter.SupportBoxVW = 6*u.mm # FIXME
+          c.MuFilter.SupportBoxVB3 = 6*u.mm
           c.MuFilter.SupportBoxVDH  = 2.0*u.mm  # empty space between 3rd veto plane and box (left-right sides in the hor. plane)
         c.MuFilter.VETOBoxX1        = c.MuFilter.VETOLocX - c.MuFilter.SupportBoxD
         c.MuFilter.VETOBoxX2        = c.MuFilter.VETOLocX + c.MuFilter.VetoBarX + c.MuFilter.SupportBoxD
         
-        c.MuFilter.VETOBoxX3        = c.MuFilter.VETOLocX3 - c.MuFilter.Veto3BarX/2 - c.MuFilter.SupportBoxD - c.MuFilter.SupportBoxVDH
-        c.MuFilter.VETOBoxX4        = c.MuFilter.VETOLocX3 + (c.MuFilter.NVetoBars-1)*(c.MuFilter.Veto3BarX+c.MuFilter.VetoBarGap) + c.MuFilter.Veto3BarX/2 + c.MuFilter.SupportBoxD + c.MuFilter.SupportBoxVDH
+        c.MuFilter.VETOBoxX3        = - c.MuFilter.Veto3BarX/2 - c.MuFilter.SupportBoxD - c.MuFilter.SupportBoxVDH
+        c.MuFilter.VETOBoxX4        = (c.MuFilter.NVetoBars-1)*(c.MuFilter.Veto3BarX+c.MuFilter.VetoBarGap) + c.MuFilter.Veto3BarX/2 + c.MuFilter.SupportBoxD + c.MuFilter.SupportBoxVDH
         
         c.MuFilter.VETOBoxZ1        = c.MuFilter.VETOLocZ - c.MuFilter.VetoBarY/2 - c.MuFilter.SupportBoxD
         c.MuFilter.VETOBoxZ2        = c.MuFilter.VETOLocZ + (c.MuFilter.NVetoBars-1)*(c.MuFilter.VetoBarY+c.MuFilter.VetoBarGap) + c.MuFilter.VetoBarY/2 + c.MuFilter.SupportBoxD
         
-        c.MuFilter.VETOBoxZ3        = c.MuFilter.VETOLocZ3 - c.MuFilter.SupportBoxD 
-        c.MuFilter.VETOBoxZ4        = c.MuFilter.VETOLocZ3 + c.MuFilter.Veto3BarY + c.MuFilter.SupportBoxD
+        c.MuFilter.VETOBoxZ3        = - c.MuFilter.SupportBoxD 
+        c.MuFilter.VETOBoxZ4        = c.MuFilter.Veto3BarY + c.MuFilter.SupportBoxD
         
         c.MuFilter.VETOBoxY1        = c.MuFilter.VETOLocY - c.MuFilter.VetoBarZ/2 - c.MuFilter.SupportBoxD
         c.MuFilter.VETOBoxY2        = c.MuFilter.VETOLocY + c.MuFilter.VetoBarZ/2 + c.MuFilter.SupportBoxD
         
-        c.MuFilter.VETOBoxY3        = c.MuFilter.VETOLocY3 - c.MuFilter.Veto3BarZ/2 - c.MuFilter.SupportBoxD
-        c.MuFilter.VETOBoxY4        = c.MuFilter.VETOLocY3 + c.MuFilter.Veto3BarZ/2 + c.MuFilter.SupportBoxD
+        c.MuFilter.VETOBoxY3        = - c.MuFilter.Veto3BarZ/2 - c.MuFilter.SupportBoxD
+        c.MuFilter.VETOBoxY4        = c.MuFilter.Veto3BarZ/2 + c.MuFilter.SupportBoxD
 
        # VETO/US/DS plane alignment
         c.MuFilter.Veto1ShiftY =  0.11 * u.cm
