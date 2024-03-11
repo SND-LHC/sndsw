@@ -23,7 +23,7 @@ def FCN(npar, gin, f, par, iflag):
        for matH in range(nMats):
             for matV in range(nMats):
                tdiff = X.GetBinContent(matH*10+matV)
-               d = tdiff - (par[matH] - par[matV+3])
+               d = tdiff - (par[matH] - par[matV+nMats])
                chisq += d**2
        f.value = chisq
        return
@@ -265,7 +265,7 @@ class Scifi_CTR(ROOT.FairTask):
                key = 100*s+10*matH+matV
                dt = self.meanAndSigma[b][key][0]
                h['commonBlock'].SetBinContent(matH*10+matV,dt)
-         npar = 2*3
+         npar = 2*nMats
          ierflg    = ctypes.c_int(0)
          vstart  = array('d',[0]*npar)
          gMinuit = ROOT.TMinuit(npar)

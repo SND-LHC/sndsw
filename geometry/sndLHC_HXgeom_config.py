@@ -2,9 +2,9 @@ import ROOT as r
 import shipunit as u
 from ShipGeoConfig import AttrDict, ConfigRegistry
 
-tb_2023_mc = False
 if "tb_2023_mc" in globals():
     tb_2023_mc = True
+else: tb_2023_mc = False
 
 with ConfigRegistry.register_config("basic") as c:
 # cave parameters
@@ -388,7 +388,7 @@ with ConfigRegistry.register_config("basic") as c:
              c.Scifi.RotPhiS40,c.Scifi.RotPsiS40,c.Scifi.RotThetaS40 =     0.00*u.mrad,    0.15*u.mrad,    0.00*u.mrad
              c.Scifi.RotPhiS41,c.Scifi.RotPsiS41,c.Scifi.RotThetaS41 =     0.00*u.mrad,    3.13*u.mrad,    0.00*u.mrad
 # Time alignment Scifi, T0 = station 0,  mat 0 
-             c.Scifi.station1t,c.Scifi.station1H0t,c.Scifi.station1V0t  =  0.000*u.ns,  0.000*u.ns,  0.000*u.ns
-             c.Scifi.station2t,c.Scifi.station2H0t,c.Scifi.station2V0t  =  0.338*u.ns,  0.000*u.ns,  0.000*u.ns
-             c.Scifi.station3t,c.Scifi.station3H0t,c.Scifi.station3V0t  =  2.015*u.ns,  0.000*u.ns,  0.000*u.ns
-             c.Scifi.station4t,c.Scifi.station4H0t,c.Scifi.station4V0t  =  0.908*u.ns,  0.000*u.ns,  0.000*u.ns
+             c.Scifi.station1t,c.Scifi.station1H0t,c.Scifi.station1V0t =  0.000*u.ns,  0.000*u.ns,  1.535*u.ns
+             c.Scifi.station2t,c.Scifi.station2H0t,c.Scifi.station2V0t =  1.246*u.ns,  0.000*u.ns,  -0.281*u.ns
+             c.Scifi.station3t,c.Scifi.station3H0t,c.Scifi.station3V0t =  3.240*u.ns,  0.000*u.ns,  -0.913*u.ns
+             c.Scifi.station4t,c.Scifi.station4H0t,c.Scifi.station4V0t =  1.750*u.ns,  0.000*u.ns,  -0.145*u.ns
