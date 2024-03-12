@@ -53,7 +53,8 @@ fTime(-1.),
 fLength(-1.),
 fELoss(-1),
 eventHeader(0),
-last_run(-1),
+last_run_time(-1),
+last_run_pos(-1),
 last_time_alignment_tag(""),
 last_position_alignment_tag(""),
 alignment_init(false),
@@ -71,7 +72,8 @@ fTime(-1.),
 fLength(-1.),
 fELoss(-1),
 eventHeader(0),
-last_run(-1),
+last_run_time(-1),
+last_run_pos(-1),
 last_time_alignment_tag(""),
 last_position_alignment_tag(""),
 alignment_init(false),
@@ -517,8 +519,8 @@ Double_t Scifi::GetCorrectedTime(Int_t fDetectorID, Double_t rawTime, Double_t L
 
 	if (eventHeader){
 		Int_t fRunNumber = eventHeader->GetRunId();
-		if (fRunNumber != last_run){
-		  last_run = fRunNumber;
+		if (fRunNumber != last_run_time){
+		  last_run_time = fRunNumber;
 		  if (fRunNumber<1) {
 		  	LOG(ERROR) << "Scifi::GetCorrectedTime: non valid run number "<<fRunNumber;
 		  	return rawTime;
@@ -638,8 +640,8 @@ void Scifi::GetSiPMPosition(Int_t SiPMChan, TVector3& A, TVector3& B)
 	// in case of old data with FairEventHeader, user will be responsible to use the correct geofile.
 	if (eventHeader){
 		Int_t fRunNumber = eventHeader->GetRunId();
-		if (fRunNumber != last_run){
-		  last_run = fRunNumber;
+		if (fRunNumber != last_run_pos){
+		  last_run_pos = fRunNumber;
 
 		  if (fRunNumber<1) {
 		  LOG(ERROR) << "Scifi::GetSiPMPosition: non valid run number "<<fRunNumber;

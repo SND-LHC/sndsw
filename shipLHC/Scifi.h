@@ -123,7 +123,7 @@ private:
     // Vector to store runs covered in the geometry file.
     std::vector<int> covered_runs_time_alignment;
     std::vector<int> covered_runs_position_alignment;
-    int last_run;
+    int last_run_time, last_run_pos;
     TString last_time_alignment_tag;
     TString last_position_alignment_tag;
     bool alignment_init;

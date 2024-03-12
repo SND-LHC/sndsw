@@ -106,7 +106,7 @@ class MuFilter : public FairDetector
                 // Vector to store runs covered in the geometry file.
                 std::vector<int> covered_runs_time_alignment;
                 TString last_time_alignment_tag;
-                int last_run;
+                int last_run_time, last_run_pos;
                 bool alignment_init;
 	protected:
 

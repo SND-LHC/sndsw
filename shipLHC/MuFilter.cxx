@@ -61,7 +61,8 @@ fTime(-1.),
 fLength(-1.),
 fELoss(-1),
 eventHeader(0),
-last_run(-1),
+last_run_time(-1),
+last_run_pos(-1),
 last_time_alignment_tag(""),
 alignment_init(false),
 fMuFilterPointCollection(new TClonesArray("MuFilterPoint"))
@@ -78,7 +79,8 @@ fTime(-1.),
 fLength(-1.),
 fELoss(-1),
 eventHeader(0),
-last_run(-1),
+last_run_time(-1),
+last_run_pos(-1),
 last_time_alignment_tag(""),
 alignment_init(false),
 fMuFilterPointCollection(new TClonesArray("MuFilterPoint"))
@@ -548,8 +550,8 @@ Float_t MuFilter::GetCorrectedTime(Int_t fDetectorID, Int_t channel, Double_t ra
 	TString tag = "";
 	if (eventHeader){
 		Int_t fRunNumber = eventHeader->GetRunId();
-		if (fRunNumber != last_run){
-		  last_run = fRunNumber;
+		if (fRunNumber != last_run_time){
+		  last_run_time = fRunNumber;
 
 		  if (fRunNumber<1){
 		  	LOG(ERROR) << "MuFilter::GetCorrectedTime: non valid run number "<<fRunNumber;
