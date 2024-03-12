@@ -1,5 +1,7 @@
 var NAVTREEINDEX22 =
 {
+"classShipHit.html#ae6f710068617281173e847a0f7276692":[12,0,161,7],
+"classShipMCTrack.html":[12,0,163],
 "classShipMCTrack.html#a059ad30bfc90c14f4fe8de00f41f0db0":[12,0,163,26],
 "classShipMCTrack.html#a114a5d4e29259c565c9aedc205f5a65e":[12,0,163,37],
 "classShipMCTrack.html#a16a4aa18815e4671f29d06f62d9d71df":[12,0,163,25],
@@ -247,7 +249,5 @@ var NAVTREEINDEX22 =
 "classSndlhcDigi_1_1SndlhcDigi.html#a38aff7cd8642367805dac1603c870196":[12,0,39,0,23],
 "classSndlhcDigi_1_1SndlhcDigi.html#a42c8a46cb3d1e3d317cc8745dcd1ad85":[12,0,39,0,20],
 "classSndlhcDigi_1_1SndlhcDigi.html#a588b7bc605f8a263b686abcd9b98ba98":[12,0,39,0,11],
-"classSndlhcDigi_1_1SndlhcDigi.html#a610614407775223ce757fe128bdc650a":[12,0,39,0,3],
-"classSndlhcDigi_1_1SndlhcDigi.html#a625597c18bb939acf6d1a83a38f96e00":[12,0,39,0,13],
-"classSndlhcDigi_1_1SndlhcDigi.html#a70e27ef03e398567e2fce28c130416f9":[12,0,39,0,24]
+"classSndlhcDigi_1_1SndlhcDigi.html#a610614407775223ce757fe128bdc650a":[12,0,39,0,3]
 };

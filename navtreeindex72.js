@@ -1,5 +1,7 @@
 var NAVTREEINDEX72 =
 {
+"namespacerunMufluxDigi.html":[11,0,133],
+"namespacerunMufluxDigi.html#a06467345fec48770c13a9e20e795179b":[11,0,133,1],
 "namespacerunMufluxDigi.html#a0ebb5227e9f1a0ae37ff842043d20a18":[11,0,133,21],
 "namespacerunMufluxDigi.html#a0fdbbe0f685635fe43bdf0653a6ac313":[11,0,133,10],
 "namespacerunMufluxDigi.html#a1021b1f77fd0509e469ba25f6b2e39b3":[11,0,133,17],
@@ -247,7 +249,5 @@ var NAVTREEINDEX72 =
 "namespacerun__MufluxfixedTarget.html#a9c8cd634bfa2bdc845eb203ea2a33af0":[11,0,123,48],
 "namespacerun__MufluxfixedTarget.html#a9e07da9155bce2b8f38fbcfdd183f2bd":[11,0,123,23],
 "namespacerun__MufluxfixedTarget.html#aa6238cccc4e9988c94f65a6657ce7211":[11,0,123,12],
-"namespacerun__MufluxfixedTarget.html#aa7077b021d2c92a092ceac3cc0d1c783":[11,0,123,52],
-"namespacerun__MufluxfixedTarget.html#aa8c55dfb75dd485777269b1035e3316d":[11,0,123,1],
-"namespacerun__MufluxfixedTarget.html#aa9bf33c978fbc7216ecbe7f027578906":[11,0,123,8]
+"namespacerun__MufluxfixedTarget.html#aa7077b021d2c92a092ceac3cc0d1c783":[11,0,123,52]
 };

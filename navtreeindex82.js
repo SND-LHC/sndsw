@@ -1,5 +1,7 @@
 var NAVTREEINDEX82 =
 {
+"proton__bremsstrahlung_8py_source.html":[13,0,17,26],
+"pyFairModule_8cxx.html":[13,0,11,14],
 "pyFairModule_8cxx.html#a4890f669326884bda5880d3fd27e9a76":[13,0,11,14,0],
 "pyFairModule_8cxx_source.html":[13,0,11,14],
 "pyFairModule_8h.html":[13,0,11,15],
@@ -247,7 +249,5 @@ var NAVTREEINDEX82 =
 "runPythia8PP_8py.html#adcde9d80ace2efad95557556ec23db79":[13,0,8,26,15],
 "runPythia8PP_8py.html#add19b1664210de7c0876bc51c0f44d93":[13,0,8,26,11],
 "runPythia8PP_8py.html#adf9f5b68a2d639a37baa2802ad0f3287":[13,0,8,26,20],
-"runPythia8PP_8py.html#ae1f2cf1f0cf5830a39eec726f2c80e7c":[13,0,8,26,30],
-"runPythia8PP_8py.html#ae50645831107627f328a08eced9a53e2":[13,0,8,26,12],
-"runPythia8PP_8py.html#ae8446b30b7e710e21cd690ef6a4bd822":[13,0,8,26,32]
+"runPythia8PP_8py.html#ae1f2cf1f0cf5830a39eec726f2c80e7c":[13,0,8,26,30]
 };

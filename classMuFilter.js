@@ -47,6 +47,7 @@ var classMuFilter =
     [ "fPos", "classMuFilter.html#a859f4a282b024a9b4d4111c92b1709eb", null ],
     [ "fTime", "classMuFilter.html#a9cc41304924c11985d72025b1575f3f5", null ],
     [ "fVolumeID", "classMuFilter.html#a12f0931ad5cb0e388f3f362e0a5f36ac", null ],
-    [ "last_run", "classMuFilter.html#afca3d59c1840c1c3a7c9941a4e6b0a80", null ],
+    [ "last_run_pos", "classMuFilter.html#ae8a00075f539fe1ce1221a3441fd6670", null ],
+    [ "last_run_time", "classMuFilter.html#aea21db3ee0881acbde2bf0b0153c66d8", null ],
     [ "last_time_alignment_tag", "classMuFilter.html#a2cb4e2cba3e4ad3e09fdae1496e19f41", null ]
 ];

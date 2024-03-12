@@ -58,7 +58,8 @@ var classScifi =
     [ "fTime", "classScifi.html#a0f2882c9d18c73e9cebc4095876a3055", null ],
     [ "fVolumeID", "classScifi.html#aef7b269295b36330fa26c065d5d23c44", null ],
     [ "last_position_alignment_tag", "classScifi.html#ab95c52f45b4120fc34d0dfba42b87b32", null ],
-    [ "last_run", "classScifi.html#a115232f91236cf87d0869f80a5c225f7", null ],
+    [ "last_run_pos", "classScifi.html#a827468a1b3b1fd4ae3b92956e4d24558", null ],
+    [ "last_run_time", "classScifi.html#a258534df7544c1dccae1a11dd3861c4e", null ],
     [ "last_time_alignment_tag", "classScifi.html#a1c5fe37132711da70fa448affdafa05f", null ],
     [ "siPMFibres", "classScifi.html#a2ea36329b683daa137289911441d1454", null ],
     [ "SiPMPos", "classScifi.html#a17f51978480e036d4f60358c3b3e2c98", null ]

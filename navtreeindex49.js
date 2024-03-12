@@ -1,5 +1,7 @@
 var NAVTREEINDEX49 =
 {
+"geometry__config_8py.html#ac4e0c6b2e261bf98d7436b1795dcec35":[13,0,6,2,36],
+"geometry__config_8py.html#ac4e3103dcaec406289b7b50264b59702":[13,0,6,2,261],
 "geometry__config_8py.html#ac4f8dd163acdf0dad119f4c99e0866f6":[13,0,6,2,33],
 "geometry__config_8py.html#ac59dba70c1ba33a531b0bb13de2db94e":[13,0,6,2,49],
 "geometry__config_8py.html#ac8e32debe827ba34eed56deaeffe9f9f":[13,0,6,2,32],
@@ -247,7 +249,5 @@ var NAVTREEINDEX49 =
 "goliath2root_8py_source.html":[13,0,17,14],
 "group__EventDisplay.html":[10,1],
 "group__GFRave.html":[10,2],
-"group__RKTrackRep.html":[10,3],
-"group__genfit.html":[10,0],
-"group__genfit.html#ga43fd55aa78bd891ebbd6a450f5eecce4":[10,0,0]
+"group__RKTrackRep.html":[10,3]
 };
