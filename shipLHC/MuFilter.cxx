@@ -539,14 +539,20 @@ void MuFilter::GetLocalPosition(Int_t fDetectorID, TVector3& vLeft, TVector3& vR
   vRight.SetXYZ(locB[0],locB[1],locB[2]);
 }
 
-Float_t MuFilter::GetCorrectedTime(Int_t fDetectorID, Int_t channel, Double_t rawTime, Double_t L){
+//+ Calculate the time walk correction
+Float_t MuFilter::GetTimeWalk(Int_t fDetectorID, Int_t channel, Float_t qdc, TString tag){
+   std::vector<float> vec = conf_vectors["MuFilter/Tw_DSa_"+std::to_string(fDetectorID)
+                                                           +"_"+std::to_string(channel)+tag];
+   /* A = vec[0]; B = vec[1]; C = vec[2];
+      D = vec[3]; E = vec[4]; F = vec[5]; */
+   Float_t Q = qdc-vec[0];
+   return vec[3]*Q/(vec[1]+vec[2]*pow(Q,2)) + vec[4]*Q + vec[5];
+}
+
+Float_t MuFilter::GetCorrectedTime(Int_t fDetectorID, Int_t channel, Double_t rawTime, Double_t L, Float_t qdc){
 /* expect time in u.ns  and  path length to sipm u.cm */
-/* calibration implemented only for DS! */
-/* channel 0 left or top, channel 1 right */
-	if (fDetectorID<30000){
-		LOG(ERROR) << "MuFilter::GetCorrectedTime: not yet implemented for Veto and DS, no correction applied" ;
-		return rawTime;
-	}
+/* returns the time in u.ns  */
+/* for DS: channel 0 left or top, channel 1 right */
 	TString tag = "";
 	if (eventHeader){
 		Int_t fRunNumber = eventHeader->GetRunId();
@@ -578,6 +584,12 @@ Float_t MuFilter::GetCorrectedTime(Int_t fDetectorID, Int_t channel, Double_t ra
 		  last_time_alignment_tag = tag;
 		}
 	}
+	if (fDetectorID<30000){
+	   return rawTime + GetTimeWalk(fDetectorID, channel, qdc, last_time_alignment_tag)
+	                  + conf_vectors["MuFilter/Tw_DSa_"
+	                                 +std::to_string(fDetectorID)+"_"+std::to_string(channel)
+	                                 +last_time_alignment_tag].back();
+	}	
 	Float_t cor = rawTime;
 	int l = (fDetectorID-30000)/1000;
 	int ichannel60 = fDetectorID%1000;
