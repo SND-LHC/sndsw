@@ -1,5 +1,6 @@
 #include "MuFilterHit.h"
 #include "MuFilter.h"
+#include "ShipUnit.h"
 #include "TROOT.h"
 #include "FairRunSim.h"
 #include "TGeoNavigator.h"
@@ -167,15 +168,16 @@ std::map<Int_t,Float_t> MuFilterHit::GetAllSignals(Bool_t mask,Bool_t positive)
 }
 
 // -----   Public method Get List of time measurements   -------------------------------------------
-std::map<Int_t,Float_t> MuFilterHit::GetAllTimes(Bool_t mask)
+std::map<Int_t,Float_t> MuFilterHit::GetAllTimes(Bool_t mask, Bool_t apply_t_corr, Double_t SipmDistance)
 {
+          OptForTimeCorrections(mask, apply_t_corr, SipmDistance);
           std::map<Int_t,Float_t> allTimes;
           for (unsigned int s=0; s<nSides; ++s){
               for (unsigned int j=0; j<nSiPMs; ++j){
                unsigned int channel = j+s*nSiPMs;
                if (signals[channel]> 0){
                  if (!fMasked[channel] || !mask){
-                    allTimes[channel] = times[channel];
+                    allTimes[channel] = fTimesHelper[channel];
                     }
                 }
               }
@@ -184,9 +186,10 @@ std::map<Int_t,Float_t> MuFilterHit::GetAllTimes(Bool_t mask)
 }
 
 // -----   Public method Get time difference mean Left - mean Right   -----------------
-Float_t MuFilterHit::GetDeltaT(Bool_t mask)
+Float_t MuFilterHit::GetDeltaT(Bool_t mask, Bool_t apply_t_corr, Double_t SipmDistance)
 // based on mean TDC measured on Left and Right
 {
+          OptForTimeCorrections(mask, apply_t_corr, SipmDistance);
           Float_t mean[] = {0,0}; 
           Int_t count[] = {0,0}; 
           Float_t dT = -999.;
@@ -195,7 +198,7 @@ Float_t MuFilterHit::GetDeltaT(Bool_t mask)
                unsigned int channel = j+s*nSiPMs;
                if (signals[channel]> 0){
                  if (!fMasked[channel] || !mask){
-                    mean[s] += times[channel];
+                    mean[s] += fTimesHelper[channel];
                     count[s] += 1;
                     }
                 }
@@ -206,9 +209,10 @@ Float_t MuFilterHit::GetDeltaT(Bool_t mask)
           }
           return dT;
 }
-Float_t MuFilterHit::GetFastDeltaT(Bool_t mask)
+Float_t MuFilterHit::GetFastDeltaT(Bool_t mask, Bool_t apply_t_corr, Double_t SipmDistance)
 // based on fastest (earliest) TDC measured on Left and Right
 {
+          OptForTimeCorrections(mask, apply_t_corr, SipmDistance);
           Float_t first[] = {1E20,1E20}; 
           Float_t dT = -999.;
           for (unsigned int s=0; s<nSides; ++s){
@@ -216,7 +220,7 @@ Float_t MuFilterHit::GetFastDeltaT(Bool_t mask)
                unsigned int channel = j+s*nSiPMs;
                if (signals[channel]> 0){
                  if (!fMasked[channel] || !mask){
-                    if  (times[channel]<first[s]) {first[s] = times[channel];}
+                    if  (times[channel]<first[s]) {first[s] = fTimesHelper[channel];}
                     }
                 }
               }
@@ -229,8 +233,9 @@ Float_t MuFilterHit::GetFastDeltaT(Bool_t mask)
 
 
 // -----   Public method Get mean time  -----------------
-Float_t MuFilterHit::GetImpactT(Bool_t mask)
+Float_t MuFilterHit::GetImpactT(Bool_t mask, Bool_t apply_t_corr, Double_t SipmDistance)
 {
+          OptForTimeCorrections(mask, apply_t_corr, SipmDistance);
           Float_t mean[] = {0,0}; 
           Int_t count[] = {0,0}; 
           Float_t dT = -999.;
@@ -248,14 +253,14 @@ Float_t MuFilterHit::GetImpactT(Bool_t mask)
                unsigned int channel = j+s*nSiPMs;
                if (signals[channel]> 0){
                  if (!fMasked[channel] || !mask){
-                    mean[s] += times[channel];
+                    mean[s] += fTimesHelper[channel];
                     count[s] += 1;
                     }
                 }
               }
           }
           if (count[0]>0 && count[1]>0) {
-                dT = (mean[0]/count[0] + mean[1]/count[1])/2.*6.25 -  dL/2.; // TDC to ns = 6.25
+                dT = (mean[0]/count[0] + mean[1]/count[1])/2.*ShipUnit::snd_TDC2ns -  dL/2.; // TDC to ns = 6.25
           }
           return dT;
 }
@@ -318,6 +323,30 @@ void MuFilterHit::Print() const
      }
  }
 std::cout << std::endl;
+}
+
+// -----   Private method to opt for time corrections   -------------------------------------------
+void MuFilterHit::OptForTimeCorrections(Bool_t mask, Bool_t apply, Double_t SipmDistance)
+{
+          // simply copy the times if no time corrections is required
+          if (apply == kFALSE) memcpy(fTimesHelper, times, sizeof(fTimesHelper));
+          else { // apply the time corrections
+            MuFilter* MuFilterDet = dynamic_cast<MuFilter*> (gROOT->GetListOfGlobals()->FindObject("MuFilter"));
+            for (unsigned int s=0; s<nSides; ++s){
+                for (unsigned int j=0; j<nSiPMs; ++j){
+                 unsigned int channel = j+s*nSiPMs;
+                 if (signals[channel]> 0){
+                   if (!fMasked[channel] || !mask){
+                     fTimesHelper[channel] = (MuFilterDet->GetCorrectedTime(fDetectorID,channel,
+                                                                    times[channel]*ShipUnit::snd_TDC2ns,
+                                                                    SipmDistance,
+                                                                    signals[channel])/ShipUnit::snd_TDC2ns);
+                      }
+                 }
+                 else fTimesHelper[channel] = times[channel];
+                }
+            }
+          }
 }
 // -------------------------------------------------------------------------
 
