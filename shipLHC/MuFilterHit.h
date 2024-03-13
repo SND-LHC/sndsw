@@ -29,10 +29,11 @@ class MuFilterHit : public SndlhcHit
     Float_t SumOfSignals(char* opt,Bool_t mask=kTRUE);
     std::map<TString,Float_t> SumOfSignals(Bool_t mask=kTRUE);
     std::map<Int_t,Float_t> GetAllSignals(Bool_t mask=kTRUE,Bool_t positive=kTRUE);
-    std::map<Int_t,Float_t> GetAllTimes(Bool_t mask=kTRUE);
-    Float_t  GetDeltaT(Bool_t mask=kTRUE);
-    Float_t  GetFastDeltaT(Bool_t mask=kTRUE);
-    Float_t  GetImpactT(Bool_t mask=kTRUE);
+    void ApplyTimeCorrections(Bool_t mask=kTRUE, Bool_t apply=kTRUE);
+    std::map<Int_t,Float_t> GetAllTimes(Bool_t mask=kTRUE, Bool_t atc=kFALSE);
+    Float_t  GetDeltaT(Bool_t mask=kTRUE, Bool_t atc=kFALSE);
+    Float_t  GetFastDeltaT(Bool_t mask=kTRUE, Bool_t atc=kFALSE);
+    Float_t  GetImpactT(Bool_t mask=kTRUE, Bool_t atc=kFALSE);
     bool isValid() const {return flag;}
     bool isMasked(Int_t i) const {return fMasked[i];}
     void SetMasked(Int_t i) {fMasked[i]=kTRUE;}
@@ -47,8 +48,12 @@ class MuFilterHit : public SndlhcHit
 
     Float_t flag;   ///< flag
     Float_t fMasked[16];  /// masked signal
+    /* Container for time-corrected or raw times 
+       depending if time alignment is requested
+       unit is clock cycles as for the times[16] */
+    Float_t fTimesBeta[16]; 
 
-    ClassDef(MuFilterHit,5);
+    ClassDef(MuFilterHit,6);
     
 
 };
