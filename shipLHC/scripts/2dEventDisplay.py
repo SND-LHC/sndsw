@@ -63,15 +63,16 @@ detSize = {}
 si = geo.snd_geo.Scifi
 detSize[0] =[si.channel_width, si.channel_width, si.scifimat_z ]
 mi = geo.snd_geo.MuFilter
-detSize[1] =[mi.VetoBarX/2,                   mi.VetoBarY/2,            mi.VetoBarZ/2]
-detSize[2] =[mi.UpstreamBarX/2,           mi.UpstreamBarY/2,    mi.UpstreamBarZ/2]
+if hasattr(mi, "Veto3BarX"): vetoXdim = mi.Veto3BarX/2
+else: vetoXdim = mi.VetoBarX/2
+detSize[1] =[vetoXdim, mi.VetoBarY/2, mi.VetoBarZ/2]
+detSize[2] =[mi.UpstreamBarX/2, mi.UpstreamBarY/2, mi.UpstreamBarZ/2]
 detSize[3] =[mi.DownstreamBarX_ver/2,mi.DownstreamBarY/2,mi.DownstreamBarZ/2]
 withDetector = True  # False is useful when using zoom
 with2Points = False  # plot start and end point of straw/bar
 mc = False
 
 firstScifi_z = 300 * u.cm
-
 # Initialize FairLogger: set severity and verbosity
 logger = ROOT.FairLogger.GetLogger()
 logger.SetColoredLog(True)
@@ -402,14 +403,14 @@ def loopEvents(
          if empty: print( "event -> %i"%N)
          empty = False
     if empty: continue
-    h['hitCollectionX']= {'Scifi':[0,ROOT.TGraphErrors()],'DS':[0,ROOT.TGraphErrors()]}
+    h['hitCollectionX']= {'Veto':[0,ROOT.TGraphErrors()],'Scifi':[0,ROOT.TGraphErrors()],'DS':[0,ROOT.TGraphErrors()]}
     h['hitCollectionY']= {'Veto':[0,ROOT.TGraphErrors()],'Scifi':[0,ROOT.TGraphErrors()],'US':[0,ROOT.TGraphErrors()],'DS':[0,ROOT.TGraphErrors()]}
     if hitColour:
-           h['hitColourX'] = {'Scifi': [], 'DS' : []}
+           h['hitColourX'] = {'Veto': [], 'Scifi': [], 'DS' : []}
            h['hitColourY'] = {'Veto': [], 'Scifi' : [], 'US' : [], 'DS' : []}
            h["markerCollection"] = []
 
-    h['firedChannelsX']= {'Scifi':[0,0,0],'DS':[0,0,0]}
+    h['firedChannelsX']= {'Veto':[0,0,0,0],'Scifi':[0,0,0],'DS':[0,0,0]}
     h['firedChannelsY']= {'Veto':[0,0,0,0],'Scifi':[0,0,0],'US':[0,0,0,0],'DS':[0,0,0,0]}
     systems = {1:'Veto',2:'US',3:'DS',0:'Scifi'}
     for collection in ['hitCollectionX','hitCollectionY']:
@@ -718,30 +719,32 @@ def twoTrackEvent(sMin=10,dClMin=7,minDistance=1.5,sepDistance=0.5):
 
 def drawDetectors():
    nodes = {'volMuFilter_1/volFeBlockEnd_1':ROOT.kGreen-6}
-   for i in range(2):
+   for i in range(mi.NVetoPlanes):
       nodes['volVeto_1/volVetoPlane_{}_{}'.format(i, i)]=ROOT.kRed
-      for j in range(7):
-         nodes['volVeto_1/volVetoPlane_{}_{}/volVetoBar_1{}{:0>3d}'.format(i, i, i, j)]=ROOT.kRed
-      nodes['volVeto_1/subVetoBox_{}'.format(i)]=ROOT.kGray+1
-   for i in range(4):
-      nodes['volMuFilter_1/volMuDownstreamDet_{}_{}'.format(i, i+7)]=ROOT.kBlue+1
-      for j in range(60):
-         nodes['volMuFilter_1/volMuDownstreamDet_{}_{}/volMuDownstreamBar_ver_3{}{:0>3d}'.format(i, i+7, i, j+60)]=ROOT.kBlue+1
+      for j in range(mi.NVetoBars):
+         if i<2: nodes['volVeto_1/volVetoPlane_{}_{}/volVetoBar_1{}{:0>3d}'.format(i, i, i, j)]=ROOT.kRed
+         if i==2: nodes['volVeto_1/volVetoPlane_{}_{}/volVetoBar_ver_1{}{:0>3d}'.format(i, i, i, j)]=ROOT.kRed
+      if i<2: nodes['volVeto_1/subVetoBox_{}'.format(i)]=ROOT.kGray+1
+      if i==2: nodes['volVeto_1/subVeto3Box_{}'.format(i)]=ROOT.kGray+1
+   for i in range(mi.NDownstreamPlanes):
+      nodes['volMuFilter_1/volMuDownstreamDet_{}_{}'.format(i, i+mi.NVetoPlanes+mi.NUpstreamPlanes)]=ROOT.kBlue+1
+      for j in range(mi.NDownstreamBars):
+         nodes['volMuFilter_1/volMuDownstreamDet_{}_{}/volMuDownstreamBar_ver_3{}{:0>3d}'.format(i, i+mi.NVetoPlanes+mi.NUpstreamPlanes, i, j+mi.NDownstreamBars)]=ROOT.kBlue+1
          if i < 3:
-            nodes['volMuFilter_1/volMuDownstreamDet_{}_{}/volMuDownstreamBar_hor_3{}{:0>3d}'.format(i, i+7, i, j)]=ROOT.kBlue+1
-   for i in range(4):
-      nodes['volMuFilter_1/subDSBox_{}'.format(i+7)]=ROOT.kGray+1
-   for i in range(5):
+            nodes['volMuFilter_1/volMuDownstreamDet_{}_{}/volMuDownstreamBar_hor_3{}{:0>3d}'.format(i, i+mi.NVetoPlanes+mi.NUpstreamPlanes, i, j)]=ROOT.kBlue+1
+   for i in range(mi.NDownstreamPlanes):
+      nodes['volMuFilter_1/subDSBox_{}'.format(i+mi.NVetoPlanes+mi.NUpstreamPlanes)]=ROOT.kGray+1
+   for i in range(mi.NUpstreamPlanes):
       nodes['volTarget_1/ScifiVolume{}_{}000000'.format(i+1, i+1)]=ROOT.kBlue+1
       nodes['volTarget_1/volWallborder_{}'.format(i)]=ROOT.kGray
-      nodes['volMuFilter_1/subUSBox_{}'.format(i+2)]=ROOT.kGray+1
-      nodes['volMuFilter_1/volMuUpstreamDet_{}_{}'.format(i, i+2)]=ROOT.kBlue+1
+      nodes['volMuFilter_1/subUSBox_{}'.format(i+mi.NVetoPlanes)]=ROOT.kGray+1
+      nodes['volMuFilter_1/volMuUpstreamDet_{}_{}'.format(i, i+mi.NVetoPlanes)]=ROOT.kBlue+1
       # iron blocks btw SciFi planes in the testbeam 2023 det layout
       nodes['volTarget_1/volFeTarget{}_1'.format(i+1)]=ROOT.kGreen-6
-      for j in range(10):
-         nodes['volMuFilter_1/volMuUpstreamDet_{}_{}/volMuUpstreamBar_2{}00{}'.format(i, i+2, i, j)]=ROOT.kBlue+1
+      for j in range(mi.NUpstreamBars):
+         nodes['volMuFilter_1/volMuUpstreamDet_{}_{}/volMuUpstreamBar_2{}00{}'.format(i, i+mi.NVetoPlanes, i, j)]=ROOT.kBlue+1
       nodes['volMuFilter_1/volFeBlock_{}'.format(i)]=ROOT.kGreen-6
-   for i in range(7,10):
+   for i in range(mi.NVetoPlanes+mi.NUpstreamPlanes,mi.NVetoPlanes+mi.NUpstreamPlanes+mi.NDownstreamPlanes):
       nodes['volMuFilter_1/volFeBlock_{}'.format(i)]=ROOT.kGreen-6
    passNodes = {'Block', 'Wall', 'FeTarget'}
    xNodes = {'UpstreamBar', 'VetoBar', 'hor'}
@@ -765,7 +768,7 @@ def drawDetectors():
             ox,oy,oz = S.GetOrigin()[0],S.GetOrigin()[1],S.GetOrigin()[2]
             P = {}
             M = {}
-            if p=='X' and not any(xNode in node for xNode in xNodes):
+            if p=='X' and (not any(xNode in node for xNode in xNodes) or 'VetoBar_ver' in node):
                P['LeftBottom'] = array('d',[-dx+ox,oy,-dz+oz])
                P['LeftTop'] = array('d',[dx+ox,oy,-dz+oz])
                P['RightBottom'] = array('d',[-dx+ox,oy,dz+oz])
