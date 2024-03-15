@@ -323,12 +323,7 @@ void MuFilter::ConstructGeometry()
 	Double_t dz = 0;
 	//Upstream Detector planes definition
 	Double_t fUpstreamDetZ =  conf_floats["MuFilter/UpstreamDetZ"];
-	
-	/* For the testbeam 2023, there is no Veto detector. However, to have the correct mapping of US and DS bars,
-	   one needs to have the standatd NvetoPlanes=2
-	   It is safe to go back to 2 'fictional' Veto planes now, after the Veto construction part. */
-	if (fNVetoPlanes != 2) fNVetoPlanes = 2;
-	
+
 	// local position of bottom horizontal bar to survey edge
 	TVector3 LocBarUS = TVector3(
 		-conf_floats["MuFilter/DSHLocX"],
