@@ -1,6 +1,5 @@
 var NAVTREEINDEX15 =
 {
-"classFloor.html#aa80c2157e419dd549b07552078d376b7":[12,0,93,20],
 "classFloor.html#ab0f5bbd7e74be0337d6056c726fb5aa3":[12,0,93,27],
 "classFloor.html#ab12f60e77916eeb1ae807a6da3501f46":[12,0,93,49],
 "classFloor.html#ab9fe782a53cc185bf7e34d847dbe8fab":[12,0,93,17],
@@ -249,5 +248,6 @@ var NAVTREEINDEX15 =
 "classMagneticSpectrometer.html#a07928c1a32a5e439d2e7b6dd7c3cbd11":[12,0,110,46],
 "classMagneticSpectrometer.html#a084917a2b7190a1e09fb90e7d049dbf8":[12,0,110,31],
 "classMagneticSpectrometer.html#a099c2df7a7f3f402bf52e68274a1bda6":[12,0,110,80],
-"classMagneticSpectrometer.html#a11b6fd5dd346149bee64a6f68db44bb2":[12,0,110,4]
+"classMagneticSpectrometer.html#a11b6fd5dd346149bee64a6f68db44bb2":[12,0,110,4],
+"classMagneticSpectrometer.html#a1221f270d7e0816a578efd826c6a4bde":[12,0,110,86]
 };

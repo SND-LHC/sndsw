@@ -1,6 +1,5 @@
 var NAVTREEINDEX13 =
 {
-"classDAQ__monitoring_1_1DAQ__boards.html#a55ee76e52490add9fe1aa428b2e820e9":[12,0,2,0,0],
 "classDAQ__monitoring_1_1DAQ__boards.html#acd2cb5cfba43d40c9270eb4ad8b1819b":[12,0,2,0,3],
 "classDAQ__monitoring_1_1Time__evolution.html":[12,0,2,1],
 "classDAQ__monitoring_1_1Time__evolution.html#a08139306d1eceabb1d9e03a5ea333701":[12,0,2,1,10],
@@ -249,5 +248,6 @@ var NAVTREEINDEX13 =
 "classEmulsionMagnet.html#a47ba4cbb5012f93b749be5317785ec80":[12,0,90,27],
 "classEmulsionMagnet.html#a51df7fe2ddf8d91630d72032d9ac851c":[12,0,90,14],
 "classEmulsionMagnet.html#a5e47abf446b8d01210589d99b6e2581f":[12,0,90,29],
-"classEmulsionMagnet.html#a6a4cf9fcf3408afe0fcb06b44e9fa70c":[12,0,90,28]
+"classEmulsionMagnet.html#a6a4cf9fcf3408afe0fcb06b44e9fa70c":[12,0,90,28],
+"classEmulsionMagnet.html#a856b625f9b0b9996c2d735ce26b635f1":[12,0,90,36]
 };

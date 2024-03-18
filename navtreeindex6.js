@@ -1,6 +1,5 @@
 var NAVTREEINDEX6 =
 {
-"Survey-MufiScifi_8py.html#af4ffb7c6a1ac0074478d8f08320ec38e":[13,0,20,1,16,30],
 "Survey-MufiScifi_8py.html#af70bf828089e20017a2e30b3175d8e9d":[13,0,20,1,16,1],
 "Survey-MufiScifi_8py.html#af7877e4509de2613da00f14e953372d2":[13,0,20,1,16,21],
 "Survey-MufiScifi_8py.html#afb6081f2168489c7752d1d28c3246d28":[13,0,20,1,16,103],
@@ -249,5 +248,6 @@ var NAVTREEINDEX6 =
 "ana__ShipMuon_8py.html#a1e1301f21fc56575feecb35f2cd8dab6":[13,0,11,0,8],
 "ana__ShipMuon_8py.html#a2306147015cd10d8f6cb0f970e723e4e":[13,0,11,0,41],
 "ana__ShipMuon_8py.html#a25dd8aa285a4ddfc1a1b43d2fc997093":[13,0,11,0,23],
-"ana__ShipMuon_8py.html#a29e83c545ffd0efcdff72bb00751cd9c":[13,0,11,0,19]
+"ana__ShipMuon_8py.html#a29e83c545ffd0efcdff72bb00751cd9c":[13,0,11,0,19],
+"ana__ShipMuon_8py.html#a2b1ce251d898b7cb68495b43257f8d14":[13,0,11,0,2]
 };

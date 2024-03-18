@@ -28,6 +28,7 @@ var namespacerun__simSND =
     [ "help", "namespacerun__simSND.html#acb090aea96a7705afc659ba31140e27b", null ],
     [ "inactivateMuonProcesses", "namespacerun__simSND.html#a809baa96793c02c3d1741c7e6eced4c5", null ],
     [ "inputFile", "namespacerun__simSND.html#a823e384e2485cad122b18e0710db56c0", null ],
+    [ "int", "namespacerun__simSND.html#ae4cd1f9806c486085dcbcf82109c00e4", null ],
     [ "kParameterMerged", "namespacerun__simSND.html#afcac533fde963fe0553a85b08dd6d7bc", null ],
     [ "lt", "namespacerun__simSND.html#a2f1b45222212331b46cb09ca21005a76", null ],
     [ "mcEngine", "namespacerun__simSND.html#a887dc867ace6c5334a4978896db5b20e", null ],

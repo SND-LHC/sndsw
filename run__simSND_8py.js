@@ -28,6 +28,7 @@ var run__simSND_8py =
     [ "help", "run__simSND_8py.html#acb090aea96a7705afc659ba31140e27b", null ],
     [ "inactivateMuonProcesses", "run__simSND_8py.html#a809baa96793c02c3d1741c7e6eced4c5", null ],
     [ "inputFile", "run__simSND_8py.html#a823e384e2485cad122b18e0710db56c0", null ],
+    [ "int", "run__simSND_8py.html#ae4cd1f9806c486085dcbcf82109c00e4", null ],
     [ "kParameterMerged", "run__simSND_8py.html#afcac533fde963fe0553a85b08dd6d7bc", null ],
     [ "lt", "run__simSND_8py.html#a2f1b45222212331b46cb09ca21005a76", null ],
     [ "mcEngine", "run__simSND_8py.html#a887dc867ace6c5334a4978896db5b20e", null ],

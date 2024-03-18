@@ -1,6 +1,5 @@
 var NAVTREEINDEX19 =
 {
-"classNuageGenerator.html#abbe5e0bfc0b8e5c28e1dda0a2c812c5c":[12,0,125,14],
 "classNuageGenerator.html#abbf71ba41bae8fa158c30009ba056614":[12,0,125,22],
 "classNuageGenerator.html#ac0dc4bd6b5701f815262dd135cc25e56":[12,0,125,13],
 "classNuageGenerator.html#ac38a935d184d8d0cf18fa28c47ef823a":[12,0,125,83],
@@ -249,5 +248,6 @@ var NAVTREEINDEX19 =
 "classScifi.html#a840b74e97903daa02513897083c5d812":[12,0,145,37],
 "classScifi.html#a8e9e5ad633f3aba7283e93129a2e6773":[12,0,145,17],
 "classScifi.html#a8f71127d5baa423068e8d79ed6e69aa5":[12,0,145,23],
-"classScifi.html#a90429f1da2fa09776a83ed3eb5de6016":[12,0,145,26]
+"classScifi.html#a90429f1da2fa09776a83ed3eb5de6016":[12,0,145,26],
+"classScifi.html#a90deaf0bd49f2314f43d9471a0b9db99":[12,0,145,50]
 };

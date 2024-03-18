@@ -1,6 +1,5 @@
 var NAVTREEINDEX35 =
 {
-"classgenfit_1_1ReferenceStateOnPlane.html#a279be3ea67b33e134403a35ba1122c26":[12,0,13,39,13],
 "classgenfit_1_1ReferenceStateOnPlane.html#a285f0368e920c789bb60f9bfb2de9835":[12,0,13,39,25],
 "classgenfit_1_1ReferenceStateOnPlane.html#a2d1e34da5fe0f8090cb3ed180c02cd4c":[12,0,13,39,29],
 "classgenfit_1_1ReferenceStateOnPlane.html#a32f7484870b680b78289e6449f3480e8":[12,0,13,39,17],
@@ -118,14 +117,14 @@ var NAVTREEINDEX35 =
 "classgenfit_1_1TGeoMaterialInterface.html#a3ebf9d80b0abafb649a50c07825d5567":[12,0,13,52,9],
 "classgenfit_1_1TGeoMaterialInterface.html#a3fdf0212196630c8a5a56973431a1708":[12,0,13,52,12],
 "classgenfit_1_1TGeoMaterialInterface.html#a3fdf0212196630c8a5a56973431a1708":[12,0,13,52,13],
-"classgenfit_1_1TGeoMaterialInterface.html#a8efab4baa48efa1bcf0cf7e664d4c3cf":[12,0,13,52,1],
 "classgenfit_1_1TGeoMaterialInterface.html#a8efab4baa48efa1bcf0cf7e664d4c3cf":[12,0,13,52,3],
+"classgenfit_1_1TGeoMaterialInterface.html#a8efab4baa48efa1bcf0cf7e664d4c3cf":[12,0,13,52,1],
 "classgenfit_1_1TGeoMaterialInterface.html#ab2606ef9facca7dc2491db41cf6100a2":[12,0,13,52,14],
 "classgenfit_1_1TGeoMaterialInterface.html#ab2606ef9facca7dc2491db41cf6100a2":[12,0,13,52,15],
 "classgenfit_1_1TGeoMaterialInterface.html#ace08710ba8aed64b52473b85883d711e":[12,0,13,52,6],
 "classgenfit_1_1TGeoMaterialInterface.html#ace08710ba8aed64b52473b85883d711e":[12,0,13,52,7],
-"classgenfit_1_1TGeoMaterialInterface.html#ad4ad64e058e25a950e2fca4fa21865dc":[12,0,13,52,5],
 "classgenfit_1_1TGeoMaterialInterface.html#ad4ad64e058e25a950e2fca4fa21865dc":[12,0,13,52,4],
+"classgenfit_1_1TGeoMaterialInterface.html#ad4ad64e058e25a950e2fca4fa21865dc":[12,0,13,52,5],
 "classgenfit_1_1ThinScatterer.html":[12,0,13,20],
 "classgenfit_1_1ThinScatterer.html#a2f6668ce91912302ef400c240f637b87":[12,0,13,20,5],
 "classgenfit_1_1ThinScatterer.html#a5976617f503e7c2d78b2515a6f28df27":[12,0,13,20,6],
@@ -249,5 +248,6 @@ var NAVTREEINDEX35 =
 "classgenfit_1_1TrackCand.html#aec30690d4178708850aeb8a78197f675":[12,0,13,23,6],
 "classgenfit_1_1TrackCand.html#aeff468e75b8207b498b951a0f6799bbe":[12,0,13,23,42],
 "classgenfit_1_1TrackCand.html#af2a8ce70672c6485b5f34ba14acd1fa3":[12,0,13,23,18],
-"classgenfit_1_1TrackCand.html#af55beac0f83aadc4c261b620978cdce6":[12,0,13,23,29]
+"classgenfit_1_1TrackCand.html#af55beac0f83aadc4c261b620978cdce6":[12,0,13,23,29],
+"classgenfit_1_1TrackCand.html#af9e05237d13870a58e0d71307ac44d77":[12,0,13,23,9]
 };

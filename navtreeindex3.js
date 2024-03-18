@@ -1,6 +1,5 @@
 var NAVTREEINDEX3 =
 {
-"Pythia6Generator_8cxx_source.html":[13,0,19,26],
 "Pythia6Generator_8h.html":[13,0,19,27],
 "Pythia6Generator_8h_source.html":[13,0,19,27],
 "Pythia8Generator_8cxx.html":[13,0,19,28],
@@ -249,5 +248,6 @@ var NAVTREEINDEX3 =
 "ScifiPoint_8cxx_source.html":[13,0,20,28],
 "ScifiPoint_8h.html":[13,0,20,29],
 "ScifiPoint_8h_source.html":[13,0,20,29],
-"Scifi_8cxx.html":[13,0,20,26]
+"Scifi_8cxx.html":[13,0,20,26],
+"Scifi_8cxx_source.html":[13,0,20,26]
 };

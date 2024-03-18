@@ -140,7 +140,7 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="Mufi__monitoring_8py_source.html#l00664">664</a> of file <a class="el" href="Mufi__monitoring_8py_source.html">Mufi_monitoring.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Mufi__monitoring_8py_source.html#l00669">669</a> of file <a class="el" href="Mufi__monitoring_8py_source.html">Mufi_monitoring.py</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a7b980cd858080189aff7a3468f89317d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7b980cd858080189aff7a3468f89317d">&#9670;&nbsp;</a></span>checkOtherTriggers()</h2>
@@ -174,60 +174,60 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Mufi__monitoring_8py_source.html#l00911">911</a> of file <a class="el" href="Mufi__monitoring_8py_source.html">Mufi_monitoring.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00911"></a><span class="lineno">  911</span>&#160;   <span class="keyword">def </span><a class="code" href="namespace2dEventDisplay.html#a32e01f83d697927d64ab3adaeff93f51">checkOtherTriggers</a>(self,event,debug=False):</div>
-<div class="line"><a name="l00912"></a><span class="lineno">  912</span>&#160;      T0 = event.EventHeader.GetEventTime()</div>
-<div class="line"><a name="l00913"></a><span class="lineno">  913</span>&#160;      N = event.EventHeader.GetEventNumber()</div>
-<div class="line"><a name="l00914"></a><span class="lineno">  914</span>&#160;      otherFastTrigger = <span class="keyword">False</span></div>
-<div class="line"><a name="l00915"></a><span class="lineno">  915</span>&#160;      otherAdvTrigger = <span class="keyword">False</span></div>
-<div class="line"><a name="l00916"></a><span class="lineno">  916</span>&#160;      tightNoiseFilter = <span class="keyword">False</span></div>
-<div class="line"><a name="l00917"></a><span class="lineno">  917</span>&#160;      Nprev = 1</div>
-<div class="line"><a name="l00918"></a><span class="lineno">  918</span>&#160;      <span class="keywordflow">if</span> N&lt;Nprev: <span class="keywordflow">return</span> otherFastTrigger, otherAdvTrigger, tightNoiseFilter, -1, 0</div>
-<div class="line"><a name="l00919"></a><span class="lineno">  919</span>&#160;      rc = event.GetEvent(N-Nprev)</div>
-<div class="line"><a name="l00920"></a><span class="lineno">  920</span>&#160;      dt = T0 - event.EventHeader.GetEventTime()</div>
-<div class="line"><a name="l00921"></a><span class="lineno">  921</span>&#160;      <span class="keywordflow">while</span> dt &lt; self.deadTime <span class="keywordflow">and</span> N&gt;Nprev:</div>
-<div class="line"><a name="l00922"></a><span class="lineno">  922</span>&#160;         otherFastTrigger = <span class="keyword">False</span></div>
-<div class="line"><a name="l00923"></a><span class="lineno">  923</span>&#160;         <span class="keywordflow">for</span> x <span class="keywordflow">in</span> event.EventHeader.GetFastNoiseFilters():</div>
-<div class="line"><a name="l00924"></a><span class="lineno">  924</span>&#160;             <span class="keywordflow">if</span> debug: print(<span class="stringliteral">&#39;fast:&#39;</span>, x.first, x.second )</div>
-<div class="line"><a name="l00925"></a><span class="lineno">  925</span>&#160;             <span class="keywordflow">if</span> x.second <span class="keywordflow">and</span> <span class="keywordflow">not</span> x.first == <span class="stringliteral">&#39;Veto_Total&#39;</span>: otherFastTrigger = <span class="keyword">True</span></div>
-<div class="line"><a name="l00926"></a><span class="lineno">  926</span>&#160;         otherAdvTrigger = <span class="keyword">False</span></div>
-<div class="line"><a name="l00927"></a><span class="lineno">  927</span>&#160;         <span class="keywordflow">for</span> x <span class="keywordflow">in</span> event.EventHeader.GetAdvNoiseFilters():</div>
-<div class="line"><a name="l00928"></a><span class="lineno">  928</span>&#160;             <span class="keywordflow">if</span> debug: print(<span class="stringliteral">&#39;adv:&#39;</span>, x.first, x.second )</div>
-<div class="line"><a name="l00929"></a><span class="lineno">  929</span>&#160;             <span class="keywordflow">if</span> x.second <span class="keywordflow">and</span> <span class="keywordflow">not</span> x.first == <span class="stringliteral">&#39;VETO_Planes&#39;</span>: otherAdvTrigger = <span class="keyword">True</span></div>
-<div class="line"><a name="l00930"></a><span class="lineno">  930</span>&#160;         <span class="keywordflow">if</span> debug: print(<span class="stringliteral">&#39;pre event &#39;</span>,Nprev,dt,otherFastTrigger,otherAdvTrigger)</div>
-<div class="line"><a name="l00931"></a><span class="lineno">  931</span>&#160;         <span class="keywordflow">if</span> otherFastTrigger <span class="keywordflow">and</span> otherAdvTrigger:</div>
-<div class="line"><a name="l00932"></a><span class="lineno">  932</span>&#160;             rc = event.GetEvent(N)</div>
-<div class="line"><a name="l00933"></a><span class="lineno">  933</span>&#160;             <span class="keywordflow">return</span> otherFastTrigger, otherAdvTrigger, tightNoiseFilter, Nprev, dt</div>
-<div class="line"><a name="l00934"></a><span class="lineno">  934</span>&#160;         Nprev+=1</div>
-<div class="line"><a name="l00935"></a><span class="lineno">  935</span>&#160;         rc = event.GetEvent(N-Nprev)</div>
-<div class="line"><a name="l00936"></a><span class="lineno">  936</span>&#160;         dt = T0 - event.EventHeader.GetEventTime()</div>
-<div class="line"><a name="l00937"></a><span class="lineno">  937</span>&#160;      Nprev = 1</div>
-<div class="line"><a name="l00938"></a><span class="lineno">  938</span>&#160;      rc = event.GetEvent(N-Nprev)</div>
-<div class="line"><a name="l00939"></a><span class="lineno">  939</span>&#160;      dt = T0 - event.EventHeader.GetEventTime()</div>
-<div class="line"><a name="l00940"></a><span class="lineno">  940</span>&#160;      <span class="keywordflow">while</span> dt &lt; self.deadTime <span class="keywordflow">and</span> Nprev&gt;N:</div>
-<div class="line"><a name="l00941"></a><span class="lineno">  941</span>&#160;         hits = {1:0,0:0}</div>
-<div class="line"><a name="l00942"></a><span class="lineno">  942</span>&#160;         <span class="keywordflow">for</span> aHit <span class="keywordflow">in</span> event.Digi_MuFilterHits:</div>
-<div class="line"><a name="l00943"></a><span class="lineno">  943</span>&#160;            Minfo = self.M.<a class="code" href="namespace2dEventDisplay.html#ad800efd41dc9e83951eb16cbfbcc0c3d">MuFilter_PlaneBars</a>(aHit.GetDetectorID())</div>
-<div class="line"><a name="l00944"></a><span class="lineno">  944</span>&#160;            s,l,bar = Minfo[<span class="stringliteral">&#39;station&#39;</span>],Minfo[<span class="stringliteral">&#39;plane&#39;</span>],Minfo[<span class="stringliteral">&#39;bar&#39;</span>]</div>
-<div class="line"><a name="l00945"></a><span class="lineno">  945</span>&#160;            <span class="keywordflow">if</span> s&gt;1: <span class="keywordflow">continue</span></div>
-<div class="line"><a name="l00946"></a><span class="lineno">  946</span>&#160;            allChannels = aHit.GetAllSignals(<span class="keyword">False</span>,<span class="keyword">False</span>)</div>
-<div class="line"><a name="l00947"></a><span class="lineno">  947</span>&#160;            hits[l]+=len(allChannels)</div>
-<div class="line"><a name="l00948"></a><span class="lineno">  948</span>&#160;         noiseFilter0 = (hits[0]+hits[1])&gt;4.5</div>
-<div class="line"><a name="l00949"></a><span class="lineno">  949</span>&#160;         noiseFilter1 = hits[0]&gt;0 <span class="keywordflow">and</span> hits[1]&gt;0</div>
-<div class="line"><a name="l00950"></a><span class="lineno">  950</span>&#160;         <span class="keywordflow">if</span> debug: print(<span class="stringliteral">&#39;veto hits:&#39;</span>,hits)</div>
-<div class="line"><a name="l00951"></a><span class="lineno">  951</span>&#160;         <span class="keywordflow">if</span> noiseFilter0 <span class="keywordflow">and</span> noiseFilter1: </div>
-<div class="line"><a name="l00952"></a><span class="lineno">  952</span>&#160;            tightNoiseFilter = <span class="keyword">True</span></div>
-<div class="line"><a name="l00953"></a><span class="lineno">  953</span>&#160;            rc = event.GetEvent(N)</div>
-<div class="line"><a name="l00954"></a><span class="lineno">  954</span>&#160;            <span class="keywordflow">return</span> otherFastTrigger, otherAdvTrigger, tightNoiseFilter, Nprev-1, dt</div>
-<div class="line"><a name="l00955"></a><span class="lineno">  955</span>&#160;         Nprev+=1</div>
-<div class="line"><a name="l00956"></a><span class="lineno">  956</span>&#160;         rc = event.GetEvent(N-Nprev)</div>
-<div class="line"><a name="l00957"></a><span class="lineno">  957</span>&#160;         dt = T0 - event.EventHeader.GetEventTime()</div>
-<div class="line"><a name="l00958"></a><span class="lineno">  958</span>&#160;      <span class="keywordflow">if</span> Nprev&gt;1: </div>
-<div class="line"><a name="l00959"></a><span class="lineno">  959</span>&#160;            rc = event.GetEvent(N-Nprev+1)</div>
-<div class="line"><a name="l00960"></a><span class="lineno">  960</span>&#160;            dt = T0 - event.EventHeader.GetEventTime()</div>
-<div class="line"><a name="l00961"></a><span class="lineno">  961</span>&#160;      rc = event.GetEvent(N)</div>
-<div class="line"><a name="l00962"></a><span class="lineno">  962</span>&#160;      <span class="keywordflow">return</span> otherFastTrigger, otherAdvTrigger, tightNoiseFilter, Nprev-1, dt</div>
-<div class="line"><a name="l00963"></a><span class="lineno">  963</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="Mufi__monitoring_8py_source.html#l00929">929</a> of file <a class="el" href="Mufi__monitoring_8py_source.html">Mufi_monitoring.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00929"></a><span class="lineno">  929</span>&#160;   <span class="keyword">def </span><a class="code" href="namespace2dEventDisplay.html#a32e01f83d697927d64ab3adaeff93f51">checkOtherTriggers</a>(self,event,debug=False):</div>
+<div class="line"><a name="l00930"></a><span class="lineno">  930</span>&#160;      T0 = event.EventHeader.GetEventTime()</div>
+<div class="line"><a name="l00931"></a><span class="lineno">  931</span>&#160;      N = event.EventHeader.GetEventNumber()</div>
+<div class="line"><a name="l00932"></a><span class="lineno">  932</span>&#160;      otherFastTrigger = <span class="keyword">False</span></div>
+<div class="line"><a name="l00933"></a><span class="lineno">  933</span>&#160;      otherAdvTrigger = <span class="keyword">False</span></div>
+<div class="line"><a name="l00934"></a><span class="lineno">  934</span>&#160;      tightNoiseFilter = <span class="keyword">False</span></div>
+<div class="line"><a name="l00935"></a><span class="lineno">  935</span>&#160;      Nprev = 1</div>
+<div class="line"><a name="l00936"></a><span class="lineno">  936</span>&#160;      <span class="keywordflow">if</span> N&lt;Nprev: <span class="keywordflow">return</span> otherFastTrigger, otherAdvTrigger, tightNoiseFilter, -1, 0</div>
+<div class="line"><a name="l00937"></a><span class="lineno">  937</span>&#160;      rc = event.GetEvent(N-Nprev)</div>
+<div class="line"><a name="l00938"></a><span class="lineno">  938</span>&#160;      dt = T0 - event.EventHeader.GetEventTime()</div>
+<div class="line"><a name="l00939"></a><span class="lineno">  939</span>&#160;      <span class="keywordflow">while</span> dt &lt; self.deadTime <span class="keywordflow">and</span> N&gt;Nprev:</div>
+<div class="line"><a name="l00940"></a><span class="lineno">  940</span>&#160;         otherFastTrigger = <span class="keyword">False</span></div>
+<div class="line"><a name="l00941"></a><span class="lineno">  941</span>&#160;         <span class="keywordflow">for</span> x <span class="keywordflow">in</span> event.EventHeader.GetFastNoiseFilters():</div>
+<div class="line"><a name="l00942"></a><span class="lineno">  942</span>&#160;             <span class="keywordflow">if</span> debug: print(<span class="stringliteral">&#39;fast:&#39;</span>, x.first, x.second )</div>
+<div class="line"><a name="l00943"></a><span class="lineno">  943</span>&#160;             <span class="keywordflow">if</span> x.second <span class="keywordflow">and</span> <span class="keywordflow">not</span> x.first == <span class="stringliteral">&#39;Veto_Total&#39;</span>: otherFastTrigger = <span class="keyword">True</span></div>
+<div class="line"><a name="l00944"></a><span class="lineno">  944</span>&#160;         otherAdvTrigger = <span class="keyword">False</span></div>
+<div class="line"><a name="l00945"></a><span class="lineno">  945</span>&#160;         <span class="keywordflow">for</span> x <span class="keywordflow">in</span> event.EventHeader.GetAdvNoiseFilters():</div>
+<div class="line"><a name="l00946"></a><span class="lineno">  946</span>&#160;             <span class="keywordflow">if</span> debug: print(<span class="stringliteral">&#39;adv:&#39;</span>, x.first, x.second )</div>
+<div class="line"><a name="l00947"></a><span class="lineno">  947</span>&#160;             <span class="keywordflow">if</span> x.second <span class="keywordflow">and</span> <span class="keywordflow">not</span> x.first == <span class="stringliteral">&#39;VETO_Planes&#39;</span>: otherAdvTrigger = <span class="keyword">True</span></div>
+<div class="line"><a name="l00948"></a><span class="lineno">  948</span>&#160;         <span class="keywordflow">if</span> debug: print(<span class="stringliteral">&#39;pre event &#39;</span>,Nprev,dt,otherFastTrigger,otherAdvTrigger)</div>
+<div class="line"><a name="l00949"></a><span class="lineno">  949</span>&#160;         <span class="keywordflow">if</span> otherFastTrigger <span class="keywordflow">and</span> otherAdvTrigger:</div>
+<div class="line"><a name="l00950"></a><span class="lineno">  950</span>&#160;             rc = event.GetEvent(N)</div>
+<div class="line"><a name="l00951"></a><span class="lineno">  951</span>&#160;             <span class="keywordflow">return</span> otherFastTrigger, otherAdvTrigger, tightNoiseFilter, Nprev, dt</div>
+<div class="line"><a name="l00952"></a><span class="lineno">  952</span>&#160;         Nprev+=1</div>
+<div class="line"><a name="l00953"></a><span class="lineno">  953</span>&#160;         rc = event.GetEvent(N-Nprev)</div>
+<div class="line"><a name="l00954"></a><span class="lineno">  954</span>&#160;         dt = T0 - event.EventHeader.GetEventTime()</div>
+<div class="line"><a name="l00955"></a><span class="lineno">  955</span>&#160;      Nprev = 1</div>
+<div class="line"><a name="l00956"></a><span class="lineno">  956</span>&#160;      rc = event.GetEvent(N-Nprev)</div>
+<div class="line"><a name="l00957"></a><span class="lineno">  957</span>&#160;      dt = T0 - event.EventHeader.GetEventTime()</div>
+<div class="line"><a name="l00958"></a><span class="lineno">  958</span>&#160;      <span class="keywordflow">while</span> dt &lt; self.deadTime <span class="keywordflow">and</span> Nprev&gt;N:</div>
+<div class="line"><a name="l00959"></a><span class="lineno">  959</span>&#160;         hits = {2:0,1:0,0:0}</div>
+<div class="line"><a name="l00960"></a><span class="lineno">  960</span>&#160;         <span class="keywordflow">for</span> aHit <span class="keywordflow">in</span> event.Digi_MuFilterHits:</div>
+<div class="line"><a name="l00961"></a><span class="lineno">  961</span>&#160;            Minfo = self.M.<a class="code" href="namespace2dEventDisplay.html#ad800efd41dc9e83951eb16cbfbcc0c3d">MuFilter_PlaneBars</a>(aHit.GetDetectorID())</div>
+<div class="line"><a name="l00962"></a><span class="lineno">  962</span>&#160;            s,l,bar = Minfo[<span class="stringliteral">&#39;station&#39;</span>],Minfo[<span class="stringliteral">&#39;plane&#39;</span>],Minfo[<span class="stringliteral">&#39;bar&#39;</span>]</div>
+<div class="line"><a name="l00963"></a><span class="lineno">  963</span>&#160;            <span class="keywordflow">if</span> s&gt;1: <span class="keywordflow">continue</span></div>
+<div class="line"><a name="l00964"></a><span class="lineno">  964</span>&#160;            allChannels = aHit.GetAllSignals(<span class="keyword">False</span>,<span class="keyword">False</span>)</div>
+<div class="line"><a name="l00965"></a><span class="lineno">  965</span>&#160;            hits[l]+=len(allChannels)</div>
+<div class="line"><a name="l00966"></a><span class="lineno">  966</span>&#160;         noiseFilter0 = sum(hits)&gt;4.5</div>
+<div class="line"><a name="l00967"></a><span class="lineno">  967</span>&#160;         noiseFilter1 = all(p &gt; 0 <span class="keywordflow">for</span> p <span class="keywordflow">in</span> hits)</div>
+<div class="line"><a name="l00968"></a><span class="lineno">  968</span>&#160;         <span class="keywordflow">if</span> debug: print(<span class="stringliteral">&#39;veto hits:&#39;</span>,hits)</div>
+<div class="line"><a name="l00969"></a><span class="lineno">  969</span>&#160;         <span class="keywordflow">if</span> noiseFilter0 <span class="keywordflow">and</span> noiseFilter1: </div>
+<div class="line"><a name="l00970"></a><span class="lineno">  970</span>&#160;            tightNoiseFilter = <span class="keyword">True</span></div>
+<div class="line"><a name="l00971"></a><span class="lineno">  971</span>&#160;            rc = event.GetEvent(N)</div>
+<div class="line"><a name="l00972"></a><span class="lineno">  972</span>&#160;            <span class="keywordflow">return</span> otherFastTrigger, otherAdvTrigger, tightNoiseFilter, Nprev-1, dt</div>
+<div class="line"><a name="l00973"></a><span class="lineno">  973</span>&#160;         Nprev+=1</div>
+<div class="line"><a name="l00974"></a><span class="lineno">  974</span>&#160;         rc = event.GetEvent(N-Nprev)</div>
+<div class="line"><a name="l00975"></a><span class="lineno">  975</span>&#160;         dt = T0 - event.EventHeader.GetEventTime()</div>
+<div class="line"><a name="l00976"></a><span class="lineno">  976</span>&#160;      <span class="keywordflow">if</span> Nprev&gt;1: </div>
+<div class="line"><a name="l00977"></a><span class="lineno">  977</span>&#160;            rc = event.GetEvent(N-Nprev+1)</div>
+<div class="line"><a name="l00978"></a><span class="lineno">  978</span>&#160;            dt = T0 - event.EventHeader.GetEventTime()</div>
+<div class="line"><a name="l00979"></a><span class="lineno">  979</span>&#160;      rc = event.GetEvent(N)</div>
+<div class="line"><a name="l00980"></a><span class="lineno">  980</span>&#160;      <span class="keywordflow">return</span> otherFastTrigger, otherAdvTrigger, tightNoiseFilter, Nprev-1, dt</div>
+<div class="line"><a name="l00981"></a><span class="lineno">  981</span>&#160; </div>
 <div class="ttc" id="anamespace2dEventDisplay_html_a32e01f83d697927d64ab3adaeff93f51"><div class="ttname"><a href="namespace2dEventDisplay.html#a32e01f83d697927d64ab3adaeff93f51">2dEventDisplay.checkOtherTriggers</a></div><div class="ttdeci">def checkOtherTriggers(event, deadTime=100, debug=False)</div><div class="ttdef"><b>Definition:</b> <a href="2dEventDisplay_8py_source.html#l00844">2dEventDisplay.py:844</a></div></div>
 <div class="ttc" id="anamespace2dEventDisplay_html_ad800efd41dc9e83951eb16cbfbcc0c3d"><div class="ttname"><a href="namespace2dEventDisplay.html#ad800efd41dc9e83951eb16cbfbcc0c3d">2dEventDisplay.MuFilter_PlaneBars</a></div><div class="ttdeci">def MuFilter_PlaneBars(detID)</div><div class="ttdef"><b>Definition:</b> <a href="2dEventDisplay_8py_source.html#l00833">2dEventDisplay.py:833</a></div></div>
 </div><!-- fragment -->
@@ -259,210 +259,221 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Mufi__monitoring_8py_source.html#l00710">710</a> of file <a class="el" href="Mufi__monitoring_8py_source.html">Mufi_monitoring.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;   <span class="keyword">def </span>ExecuteEvent(self,event):</div>
-<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;       scifiCorTest = <span class="keyword">False</span></div>
-<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;       systemAndPlanes = self.M.systemAndPlanes</div>
-<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;       sdict = self.M.sdict</div>
-<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;       s = 1</div>
-<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;       h = self.M.h</div>
-<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;       W = self.M.Weight</div>
-<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;       nSiPMs = 8</div>
-<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;       hits = {1:0,0:0,<span class="stringliteral">&#39;0L&#39;</span>:0,<span class="stringliteral">&#39;0R&#39;</span>:0,<span class="stringliteral">&#39;1L&#39;</span>:0,<span class="stringliteral">&#39;1R&#39;</span>:0}</div>
-<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;       vetoHitsFromPrev = 0</div>
-<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;       <span class="keywordflow">if</span> event.EventHeader.GetRunId() &lt; 6204 <span class="keywordflow">and</span> event.EventHeader.GetRunId() &gt; 5480: vetoHitsFromPrev = 5</div>
-<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;       <span class="comment"># special treatment for first 10fb-1 in 2023, wrong time alignment, again!</span></div>
-<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;       N1 = event.GetReadEntry()</div>
-<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;       Tcurrent = event.EventHeader.GetEventTime()</div>
-<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;       dT = abs(Tcurrent-self.eventBefore[<span class="stringliteral">&#39;T&#39;</span>])</div>
-<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;       prevAdded = <span class="keyword">False</span></div>
-<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;       <span class="keywordflow">for</span> j <span class="keywordflow">in</span> [0,-1]:</div>
-<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;         <span class="keywordflow">if</span> j&lt;0 <span class="keywordflow">and</span> N1&gt;0: </div>
-<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;              <span class="keywordflow">if</span> dT &gt; vetoHitsFromPrev: <span class="keywordflow">continue</span></div>
-<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;              rc = event.GetEvent(N1-1)  <span class="comment"># add veto hits from prev event</span></div>
-<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;              prevAdded = <span class="keyword">True</span></div>
-<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;         <span class="keywordflow">for</span> aHit <span class="keywordflow">in</span> event.Digi_MuFilterHits:</div>
-<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;           <span class="keywordflow">if</span> <span class="keywordflow">not</span> aHit.isValid(): <span class="keywordflow">continue</span></div>
-<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;           Minfo = self.M.<a class="code" href="namespace2dEventDisplay.html#ad800efd41dc9e83951eb16cbfbcc0c3d">MuFilter_PlaneBars</a>(aHit.GetDetectorID())</div>
-<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;           s,l,bar = Minfo[<span class="stringliteral">&#39;station&#39;</span>],Minfo[<span class="stringliteral">&#39;plane&#39;</span>],Minfo[<span class="stringliteral">&#39;bar&#39;</span>]</div>
-<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;           <span class="keywordflow">if</span> s&gt;1: <span class="keywordflow">continue</span></div>
-<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;           allChannels = self.M.<a class="code" href="namespaceSurvey-MufiScifi.html#a01cdeb8a7bc5f981ebe5849e735a87d4">map2Dict</a>(aHit,<span class="stringliteral">&#39;GetAllSignals&#39;</span>)</div>
-<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;           hits[l]+=len(allChannels)</div>
-<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;           <span class="keywordflow">for</span> c <span class="keywordflow">in</span> allChannels:</div>
-<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;              <span class="keywordflow">if</span>  nSiPMs &gt; c:  <span class="comment"># left side</span></div>
-<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;                 hits[<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(l)+<span class="stringliteral">&#39;L&#39;</span>]+=1</div>
-<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;              <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;                    hits[<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(l)+<span class="stringliteral">&#39;R&#39;</span>]+=1</div>
-<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;           allChannels.clear()</div>
-<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;       <span class="keywordflow">if</span> prevAdded <span class="keywordflow">and</span> N1&gt;1:</div>
-<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;         rc = event.GetEvent(N1-2)</div>
-<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;         Tprevprev = event.EventHeader.GetEventTime()</div>
-<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;         dT = abs(Tcurrent-Tprevprev)</div>
-<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;       <span class="keywordflow">if</span> prevAdded: event.GetEvent(N1)</div>
-<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;       prevEvent = <span class="keyword">False</span></div>
-<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;       tightNoiseFilter = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;       otherAdvTrigger  = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;       otherFastTrigger = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;       <span class="keywordflow">if</span> dT &lt; self.deadTime <span class="keywordflow">and</span> dT &gt; vetoHitsFromPrev:</div>
-<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;           prevEvent = <span class="keyword">True</span></div>
-<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;           <span class="comment"># check type of prev event, if it would pass tight noise filter, run 6568 ++ </span></div>
-<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;           <span class="keywordflow">if</span> event.EventHeader.GetRunId() &gt; 6567 <span class="keywordflow">and</span> N1&gt;0:</div>
-<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;              tightNoiseFilter, otherFastTrigger, otherAdvTrigger,Nprev,dt = self.checkOtherTriggers(event)</div>
-<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160; </div>
-<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;       tmpT = self.eventBefore[<span class="stringliteral">&#39;T&#39;</span>]</div>
-<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;       tmpN = self.eventBefore[<span class="stringliteral">&#39;N&#39;</span>]</div>
-<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;       self.eventBefore[<span class="stringliteral">&#39;T&#39;</span>] = Tcurrent</div>
-<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;       <span class="keywordflow">if</span> (self.M.EventNumber - self.eventBefore[<span class="stringliteral">&#39;N&#39;</span>] &gt; 1) <span class="keywordflow">and</span> self.M.options.postScale &lt; 2:</div>
-<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;          print(<span class="stringliteral">&#39;what is going on?&#39;</span>, self.M.EventNumber, self.eventBefore[<span class="stringliteral">&#39;N&#39;</span>])</div>
-<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;       self.eventBefore[<span class="stringliteral">&#39;N&#39;</span>] = self.M.EventNumber</div>
-<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160; </div>
-<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;       rc = h[<span class="stringliteral">&#39;scaler&#39;</span>].Fill(11)</div>
-<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;       <span class="keywordflow">if</span> self.M.Reco_MuonTracks.GetEntries()&lt;2: <span class="keywordflow">return</span> <span class="comment"># require Scifi and DS track</span></div>
-<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;<span class="comment"># check that track has scifi cluster in station 1, afterthought: require measurements in all planes</span></div>
-<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;       planes = {}</div>
-<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;       <span class="keywordflow">for</span> scifiTrack <span class="keywordflow">in</span> self.M.Reco_MuonTracks:</div>
-<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;           <span class="keywordflow">if</span> <span class="keywordflow">not</span> scifiTrack.GetUniqueID()==1: <span class="keywordflow">continue</span></div>
-<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;           fitStatus = scifiTrack.getFitStatus()</div>
-<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;           <span class="keywordflow">if</span> <span class="keywordflow">not</span> fitStatus.isFitConverged(): <span class="keywordflow">continue</span></div>
-<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;           <span class="keywordflow">if</span> fitStatus.getNdf() &lt; 5 <span class="keywordflow">or</span> fitStatus.getNdf()&gt;12 : <span class="keywordflow">continue</span></div>
-<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;           <span class="keywordflow">if</span> fitStatus.getChi2()/fitStatus.getNdf() &gt; 80: <span class="keywordflow">continue</span></div>
-<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;           <span class="keywordflow">for</span> nM <span class="keywordflow">in</span> range(scifiTrack.getNumPointsWithMeasurement()):</div>
-<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;              M = scifiTrack.getPointWithMeasurement(nM)</div>
-<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;              W = M.getRawMeasurement()</div>
-<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;              detID = W.getDetId()</div>
-<div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;              planes[detID//100000] = 1</div>
-<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;       rc = h[<span class="stringliteral">&#39;scaler&#39;</span>].Fill(10)</div>
-<div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;       scifiOneEff = 10 <span class="keywordflow">in</span> planes <span class="keywordflow">or</span> 11 <span class="keywordflow">in</span> planes <span class="keywordflow">or</span> <span class="keywordflow">not</span> scifiCorTest</div>
-<div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;       <span class="keywordflow">if</span> <span class="keywordflow">not</span> scifiOneEff  <span class="keywordflow">and</span> len(planes) &lt; 8: <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;       <span class="keywordflow">if</span> scifiOneEff <span class="keywordflow">and</span> len(planes) &lt; 10: <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160;       rc = h[<span class="stringliteral">&#39;scaler&#39;</span>].Fill(0)</div>
-<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;       <span class="keywordflow">if</span> <span class="keywordflow">not</span> prevEvent: rc = h[<span class="stringliteral">&#39;scaler&#39;</span>].Fill(1)</div>
-<div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160; </div>
-<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;       <span class="keywordflow">for</span> l <span class="keywordflow">in</span> range(2):</div>
-<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;          rc = h[<span class="stringliteral">&#39;hitVeto_&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(l)].Fill(hits[<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(l)+<span class="stringliteral">&#39;L&#39;</span>],hits[<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(l)+<span class="stringliteral">&#39;R&#39;</span>])</div>
-<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;       rc = h[<span class="stringliteral">&#39;hitVeto_01&#39;</span>].Fill(hits[0],hits[1])</div>
-<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160; </div>
-<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;       <span class="keywordflow">for</span> muTrack <span class="keywordflow">in</span> self.M.Reco_MuonTracks:</div>
-<div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;          <span class="keywordflow">if</span> <span class="keywordflow">not</span> muTrack.GetUniqueID()==3: <span class="keywordflow">continue</span></div>
-<div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;          fstate =  muTrack.getFittedState()</div>
-<div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160;          posT,momT  = fstate.getPos(),fstate.getMom()</div>
-<div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160;          lam      = (self.zEx-posT.z())/momT.z()</div>
-<div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;          yExTag      = posT.y()+lam*momT.y()</div>
-<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;          xExTag      = posT.x()+lam*momT.x()</div>
-<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160;          sstate = scifiTrack.getFittedState()</div>
-<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;          pos = sstate.getPos()</div>
-<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;          delX = xExTag - pos.x()</div>
-<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;          delY = yExTag - pos.y()</div>
-<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;          rc = h[<span class="stringliteral">&#39;X/Y&#39;</span>].Fill(delX,delY)</div>
-<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;          <span class="keywordflow">if</span> abs(delX)&gt;10 <span class="keywordflow">or</span> abs(delY)&gt;10: <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;          </div>
-<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;       <span class="keywordflow">for</span> aTrack <span class="keywordflow">in</span> self.M.Reco_MuonTracks:</div>
-<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;           <span class="keywordflow">if</span> <span class="keywordflow">not</span> aTrack.GetUniqueID()==1: <span class="keywordflow">continue</span></div>
-<div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160;           fitStatus = aTrack.getFitStatus()</div>
-<div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160;           <span class="keywordflow">if</span> <span class="keywordflow">not</span> fitStatus.isFitConverged(): <span class="keywordflow">continue</span></div>
-<div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160;           fstate =  aTrack.getFittedState()</div>
-<div class="line"><a name="l00811"></a><span class="lineno">  811</span>&#160;           pos,mom = [fstate.getPos(),fstate.getMom()]</div>
-<div class="line"><a name="l00812"></a><span class="lineno">  812</span>&#160;           beam = <span class="keyword">False</span></div>
-<div class="line"><a name="l00813"></a><span class="lineno">  813</span>&#160;           <span class="keywordflow">if</span> abs(mom.x()/mom.z())&lt;0.1 <span class="keywordflow">and</span> abs(mom.y()/mom.z())&lt;0.1: beam = <span class="keyword">True</span></div>
-<div class="line"><a name="l00814"></a><span class="lineno">  814</span>&#160;<span class="comment"># extrapolate to veto</span></div>
-<div class="line"><a name="l00815"></a><span class="lineno">  815</span>&#160;<span class="comment"># check timing, remove backward tracks</span></div>
-<div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160;<span class="comment"># 1: get early DS time in horizontal plane 2:</span></div>
-<div class="line"><a name="l00817"></a><span class="lineno">  817</span>&#160;           dsHitTimes = []</div>
-<div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160;           <span class="keywordflow">for</span> aHit <span class="keywordflow">in</span> event.Digi_MuFilterHits:</div>
-<div class="line"><a name="l00819"></a><span class="lineno">  819</span>&#160;              <span class="keywordflow">if</span> <span class="keywordflow">not</span> aHit.isValid(): <span class="keywordflow">continue</span></div>
-<div class="line"><a name="l00820"></a><span class="lineno">  820</span>&#160;              detID = aHit.GetDetectorID()</div>
-<div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160;              Minfo = self.M.<a class="code" href="namespace2dEventDisplay.html#ad800efd41dc9e83951eb16cbfbcc0c3d">MuFilter_PlaneBars</a>(detID)</div>
-<div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160;              s,l,bar = Minfo[<span class="stringliteral">&#39;station&#39;</span>],Minfo[<span class="stringliteral">&#39;plane&#39;</span>],Minfo[<span class="stringliteral">&#39;bar&#39;</span>]</div>
-<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;              <span class="keywordflow">if</span> s==3 <span class="keywordflow">and</span> l==2:</div>
-<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160;                   self.M.<a class="code" href="classMuFilter.html#a2525ccc41592f3cc117c18424e8dc7ac">MuFilter.GetPosition</a>(detID,A,B)</div>
-<div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160;                   timeLeft = aHit.GetTime(0)</div>
-<div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160;                   timeRight = aHit.GetTime(1)</div>
-<div class="line"><a name="l00827"></a><span class="lineno">  827</span>&#160;                   <span class="keywordflow">if</span> timeLeft&gt;0 <span class="keywordflow">and</span> timeRight&gt;0:</div>
-<div class="line"><a name="l00828"></a><span class="lineno">  828</span>&#160;                      dL = abs(A[0]-B[0])</div>
-<div class="line"><a name="l00829"></a><span class="lineno">  829</span>&#160;                      avTime = self.M.<a class="code" href="classMuFilter.html#a39fd3e93c025d41e63850afcc503944b">MuFilter.GetCorrectedTime</a>(detID, 0, timeLeft*self.M.TDC2ns,0) + \</div>
-<div class="line"><a name="l00830"></a><span class="lineno">  830</span>&#160;                               self.M.<a class="code" href="classMuFilter.html#a39fd3e93c025d41e63850afcc503944b">MuFilter.GetCorrectedTime</a>(detID, 1, timeRight*self.M.TDC2ns,0)</div>
-<div class="line"><a name="l00831"></a><span class="lineno">  831</span>&#160;                      dsHitTimes.append( (avTime-abs(A[0]-B[0])/15)/2) <span class="comment"># L/2 / 15cm/ns</span></div>
-<div class="line"><a name="l00832"></a><span class="lineno">  832</span>&#160;           dsHitTimes.sort()</div>
-<div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160;           scifiHitTimes = {1:[],2:[],3:[],4:[],5:[]}</div>
-<div class="line"><a name="l00834"></a><span class="lineno">  834</span>&#160;           deltaT = -100</div>
-<div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160;           <span class="keywordflow">if</span> len(dsHitTimes)&gt;0:</div>
-<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;            <span class="keywordflow">for</span> scifiHit <span class="keywordflow">in</span> event.Digi_ScifiHits:</div>
-<div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160;              detID = scifiHit.GetDetectorID()</div>
-<div class="line"><a name="l00838"></a><span class="lineno">  838</span>&#160;              s = <a class="code" href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">int</a>(scifiHit.GetDetectorID()/1000000)</div>
-<div class="line"><a name="l00839"></a><span class="lineno">  839</span>&#160;              <span class="keywordflow">if</span> s&gt;1.5: <span class="keywordflow">continue</span></div>
-<div class="line"><a name="l00840"></a><span class="lineno">  840</span>&#160;              scifiHitTimes[s].append(self.M.<a class="code" href="classScifi.html#ad450e9024b424afc7cc0cdeafbe23552">Scifi.GetCorrectedTime</a>(detID,scifiHit.GetTime()*self.M.TDC2ns,0))</div>
-<div class="line"><a name="l00841"></a><span class="lineno">  841</span>&#160;            <span class="keywordflow">for</span> s <span class="keywordflow">in</span> scifiHitTimes:</div>
-<div class="line"><a name="l00842"></a><span class="lineno">  842</span>&#160;                <span class="keywordflow">if</span> len(scifiHitTimes[s])&lt;1: <span class="keywordflow">continue</span></div>
-<div class="line"><a name="l00843"></a><span class="lineno">  843</span>&#160;                scifiHitTimes[s].sort()</div>
-<div class="line"><a name="l00844"></a><span class="lineno">  844</span>&#160;                deltaT = dsHitTimes[0] - scifiHitTimes[s][0] - (self.M.zPos[<span class="stringliteral">&#39;MuFilter&#39;</span>][34]-self.M.zPos[<span class="stringliteral">&#39;Scifi&#39;</span>][s*10])/u.speedOfLight</div>
-<div class="line"><a name="l00845"></a><span class="lineno">  845</span>&#160;           rc = h[<span class="stringliteral">&#39;deltaT&#39;</span>].Fill(deltaT)</div>
-<div class="line"><a name="l00846"></a><span class="lineno">  846</span>&#160;           <span class="keywordflow">if</span> deltaT &lt; -10: <span class="keywordflow">continue</span></div>
-<div class="line"><a name="l00847"></a><span class="lineno">  847</span>&#160;           <span class="comment">#look for previous event time</span></div>
-<div class="line"><a name="l00848"></a><span class="lineno">  848</span>&#160;           T1 = event.EventHeader.GetEventTime()</div>
-<div class="line"><a name="l00849"></a><span class="lineno">  849</span>&#160;           N1 = event.EventHeader.GetEventNumber()</div>
-<div class="line"><a name="l00850"></a><span class="lineno">  850</span>&#160;           <span class="keywordflow">if</span> prevAdded: rc = event.GetEvent(N1-2)</div>
-<div class="line"><a name="l00851"></a><span class="lineno">  851</span>&#160;           <span class="keywordflow">else</span>:         rc = event.GetEvent(N1-1)</div>
-<div class="line"><a name="l00852"></a><span class="lineno">  852</span>&#160;           T0 = event.EventHeader.GetEventTime()</div>
-<div class="line"><a name="l00853"></a><span class="lineno">  853</span>&#160;           rc = event.GetEvent(N1+1)</div>
-<div class="line"><a name="l00854"></a><span class="lineno">  854</span>&#160;           T2 = event.EventHeader.GetEventTime()</div>
-<div class="line"><a name="l00855"></a><span class="lineno">  855</span>&#160;           rc = event.GetEvent(N1)</div>
-<div class="line"><a name="l00856"></a><span class="lineno">  856</span>&#160;           <span class="keywordflow">if</span> (T1-T0) &lt; 100 <span class="keywordflow">and</span> self.M.options.postScale &lt; 2:</div>
-<div class="line"><a name="l00857"></a><span class="lineno">  857</span>&#160;               <span class="keywordflow">if</span> <span class="keywordflow">not</span> prevEvent: print(<span class="stringliteral">&#39;what is going on?&#39;</span>,N1,T1,T0,N1-1,tmpN,tmpT)</div>
-<div class="line"><a name="l00858"></a><span class="lineno">  858</span>&#160;               prevEvent = <span class="keyword">True</span></div>
-<div class="line"><a name="l00859"></a><span class="lineno">  859</span>&#160;           s = 1</div>
-<div class="line"><a name="l00860"></a><span class="lineno">  860</span>&#160;           xEx = {}</div>
-<div class="line"><a name="l00861"></a><span class="lineno">  861</span>&#160;           yEx = {}</div>
-<div class="line"><a name="l00862"></a><span class="lineno">  862</span>&#160;           <span class="keywordflow">for</span> l <span class="keywordflow">in</span> range(2):</div>
-<div class="line"><a name="l00863"></a><span class="lineno">  863</span>&#160;              zEx = self.M.zPos[<span class="stringliteral">&#39;MuFilter&#39;</span>][s*10+l]</div>
-<div class="line"><a name="l00864"></a><span class="lineno">  864</span>&#160;              lam = (zEx-pos.z())/mom.z()</div>
-<div class="line"><a name="l00865"></a><span class="lineno">  865</span>&#160;              xEx[l] = pos.x()+lam*mom.x()</div>
-<div class="line"><a name="l00866"></a><span class="lineno">  866</span>&#160;              yEx[l] = pos.y()+lam*mom.y()</div>
-<div class="line"><a name="l00867"></a><span class="lineno">  867</span>&#160;           <span class="keywordflow">for</span> l <span class="keywordflow">in</span> range(2):</div>
-<div class="line"><a name="l00868"></a><span class="lineno">  868</span>&#160;              <span class="keywordflow">for</span> noiseCut <span class="keywordflow">in</span> self.noiseCuts:</div>
-<div class="line"><a name="l00869"></a><span class="lineno">  869</span>&#160;                 c=<span class="stringliteral">&#39;&#39;</span></div>
-<div class="line"><a name="l00870"></a><span class="lineno">  870</span>&#160;                 <span class="keywordflow">if</span> <span class="keywordflow">not</span> prevEvent: c=<span class="stringliteral">&#39;NoPrev&#39;</span></div>
-<div class="line"><a name="l00871"></a><span class="lineno">  871</span>&#160;                 nc = <span class="stringliteral">&#39;T&#39;</span>+c+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(noiseCut)</div>
-<div class="line"><a name="l00872"></a><span class="lineno">  872</span>&#160;                 ncL = <span class="stringliteral">&#39;T&#39;</span>+<span class="stringliteral">&#39;TiNoFi&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(noiseCut)</div>
-<div class="line"><a name="l00873"></a><span class="lineno">  873</span>&#160;                 <span class="keywordflow">if</span> hits[l] &gt; noiseCut: </div>
-<div class="line"><a name="l00874"></a><span class="lineno">  874</span>&#160;                      rc = h[nc+<span class="stringliteral">&#39;PosVeto_&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(l)].Fill(xEx[l],yEx[l])</div>
-<div class="line"><a name="l00875"></a><span class="lineno">  875</span>&#160;                      <span class="keywordflow">if</span> tightNoiseFilter: rc = h[ncL+<span class="stringliteral">&#39;PosVeto_&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(l)].Fill(xEx[l],yEx[l])</div>
-<div class="line"><a name="l00876"></a><span class="lineno">  876</span>&#160;                      <span class="keywordflow">if</span> beam: rc = h[nc+<span class="stringliteral">&#39;beamPosVeto_&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(l)].Fill(xEx[l],yEx[l])</div>
-<div class="line"><a name="l00877"></a><span class="lineno">  877</span>&#160;                 <span class="keywordflow">else</span>:                        </div>
-<div class="line"><a name="l00878"></a><span class="lineno">  878</span>&#160;                      rc = h[nc+<span class="stringliteral">&#39;XPosVeto_&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(l)].Fill(xEx[l],yEx[l])</div>
-<div class="line"><a name="l00879"></a><span class="lineno">  879</span>&#160;                      rc = h[nc+<span class="stringliteral">&#39;XPosVetoXL_&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(l)].Fill(xEx[l],yEx[l])</div>
-<div class="line"><a name="l00880"></a><span class="lineno">  880</span>&#160;                      <span class="keywordflow">if</span> tightNoiseFilter: h[ncL+<span class="stringliteral">&#39;XPosVeto_&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(l)].Fill(xEx[l],yEx[l])</div>
-<div class="line"><a name="l00881"></a><span class="lineno">  881</span>&#160;                      <span class="keywordflow">if</span> beam: rc = h[nc+<span class="stringliteral">&#39;beamXPosVeto_&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(l)].Fill(xEx[l],yEx[l])</div>
-<div class="line"><a name="l00882"></a><span class="lineno">  882</span>&#160;                 <span class="keywordflow">if</span> l==0:</div>
-<div class="line"><a name="l00883"></a><span class="lineno">  883</span>&#160;                    <span class="keywordflow">if</span> -45&lt;xEx[l] <span class="keywordflow">and</span> xEx[l]&lt;-10 <span class="keywordflow">and</span> 27&lt;yEx[l] <span class="keywordflow">and</span> yEx[l]&lt;54:</div>
-<div class="line"><a name="l00884"></a><span class="lineno">  884</span>&#160;                          rc = h[<span class="stringliteral">&#39;timeDiffPrev_&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(noiseCut)].Fill(T1-T0)</div>
-<div class="line"><a name="l00885"></a><span class="lineno">  885</span>&#160;                          rc = h[<span class="stringliteral">&#39;timeDiffNext_&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(noiseCut)].Fill(T2-T1)</div>
-<div class="line"><a name="l00886"></a><span class="lineno">  886</span>&#160;                    <span class="keywordflow">if</span> hits[0] &gt; noiseCut <span class="keywordflow">and</span> hits[1] &gt; noiseCut: </div>
-<div class="line"><a name="l00887"></a><span class="lineno">  887</span>&#160;                      rc = h[nc+<span class="stringliteral">&#39;PosVeto_11&#39;</span>].Fill(xEx[l],yEx[l])</div>
-<div class="line"><a name="l00888"></a><span class="lineno">  888</span>&#160;                      rc = h[nc+<span class="stringliteral">&#39;PosVeto_111&#39;</span>].Fill(xEx[1],yEx[1])</div>
-<div class="line"><a name="l00889"></a><span class="lineno">  889</span>&#160;                      <span class="keywordflow">if</span> tightNoiseFilter: </div>
-<div class="line"><a name="l00890"></a><span class="lineno">  890</span>&#160;                        rc = h[ncL+<span class="stringliteral">&#39;PosVeto_11&#39;</span>].Fill(xEx[l],yEx[l])</div>
-<div class="line"><a name="l00891"></a><span class="lineno">  891</span>&#160;                        rc = h[ncL+<span class="stringliteral">&#39;PosVeto_111&#39;</span>].Fill(xEx[1],yEx[1])</div>
-<div class="line"><a name="l00892"></a><span class="lineno">  892</span>&#160;                      <span class="keywordflow">if</span> beam: rc = h[nc+<span class="stringliteral">&#39;beamPosVeto_11&#39;</span>].Fill(xEx[l],yEx[l])</div>
-<div class="line"><a name="l00893"></a><span class="lineno">  893</span>&#160;                    <span class="keywordflow">if</span> hits[0] &gt; noiseCut <span class="keywordflow">or</span> hits[1] &gt; noiseCut:    </div>
-<div class="line"><a name="l00894"></a><span class="lineno">  894</span>&#160;                      rc = h[nc+<span class="stringliteral">&#39;PosVeto_00&#39;</span>].Fill(xEx[l],yEx[l])</div>
-<div class="line"><a name="l00895"></a><span class="lineno">  895</span>&#160;                      <span class="keywordflow">if</span> tightNoiseFilter: h[ncL+<span class="stringliteral">&#39;PosVeto_00&#39;</span>].Fill(xEx[l],yEx[l])</div>
-<div class="line"><a name="l00896"></a><span class="lineno">  896</span>&#160;                      <span class="keywordflow">if</span> beam: rc = h[nc+<span class="stringliteral">&#39;beamPosVeto_00&#39;</span>].Fill(xEx[l],yEx[l])</div>
-<div class="line"><a name="l00897"></a><span class="lineno">  897</span>&#160;                    <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00898"></a><span class="lineno">  898</span>&#160;                        <span class="keywordflow">if</span> -45&lt;xEx[l] <span class="keywordflow">and</span> xEx[l]&lt;-10 <span class="keywordflow">and</span> 27&lt;yEx[l] <span class="keywordflow">and</span> yEx[l]&lt;54:</div>
-<div class="line"><a name="l00899"></a><span class="lineno">  899</span>&#160;                          rc = h[<span class="stringliteral">&#39;XtimeDiffPrev_&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(noiseCut)].Fill(T1-T0)</div>
-<div class="line"><a name="l00900"></a><span class="lineno">  900</span>&#160;                          rc = h[<span class="stringliteral">&#39;XtimeDiffNext_&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(noiseCut)].Fill(T2-T1)</div>
-<div class="line"><a name="l00901"></a><span class="lineno">  901</span>&#160;                          <span class="keywordflow">if</span> <span class="keywordflow">not</span> prevEvent <span class="keywordflow">or</span> (prevEvent <span class="keywordflow">and</span> <span class="keywordflow">not</span> tightNoiseFilter):</div>
-<div class="line"><a name="l00902"></a><span class="lineno">  902</span>&#160;                            <span class="keywordflow">if</span> self.debug: print(<span class="stringliteral">&#39;no hits&#39;</span>,noiseCut,prevEvent,beam,N1,tightNoiseFilter,otherFastTrigger,otherAdvTrigger)</div>
-<div class="line"><a name="l00903"></a><span class="lineno">  903</span>&#160;                        rc = h[nc+<span class="stringliteral">&#39;XPosVeto_11&#39;</span>].Fill(xEx[l],yEx[l])</div>
-<div class="line"><a name="l00904"></a><span class="lineno">  904</span>&#160;                        rc = h[nc+<span class="stringliteral">&#39;XPosVetoXL_11&#39;</span>].Fill(xEx[l],yEx[l])</div>
-<div class="line"><a name="l00905"></a><span class="lineno">  905</span>&#160;                        rc = h[nc+<span class="stringliteral">&#39;XPosVeto_111&#39;</span>].Fill(xEx[1],yEx[1])</div>
-<div class="line"><a name="l00906"></a><span class="lineno">  906</span>&#160;                        <span class="keywordflow">if</span> beam: rc = h[nc+<span class="stringliteral">&#39;beamXPosVeto_11&#39;</span>].Fill(xEx[l],yEx[l])</div>
-<div class="line"><a name="l00907"></a><span class="lineno">  907</span>&#160;                        <span class="keywordflow">if</span> tightNoiseFilter: </div>
-<div class="line"><a name="l00908"></a><span class="lineno">  908</span>&#160;                           rc = h[ncL+<span class="stringliteral">&#39;XPosVeto_11&#39;</span>].Fill(xEx[l],yEx[l])</div>
-<div class="line"><a name="l00909"></a><span class="lineno">  909</span>&#160;                           rc = h[ncL+<span class="stringliteral">&#39;XPosVeto_111&#39;</span>].Fill(xEx[1],yEx[1])</div>
-<div class="line"><a name="l00910"></a><span class="lineno">  910</span>&#160; </div>
-<div class="ttc" id="aclassMuFilter_html_a2525ccc41592f3cc117c18424e8dc7ac"><div class="ttname"><a href="classMuFilter.html#a2525ccc41592f3cc117c18424e8dc7ac">MuFilter::GetPosition</a></div><div class="ttdeci">void GetPosition(Int_t id, TVector3 &amp;vLeft, TVector3 &amp;vRight)</div><div class="ttdef"><b>Definition:</b> <a href="MuFilter_8cxx_source.html#l00602">MuFilter.cxx:602</a></div></div>
-<div class="ttc" id="aclassMuFilter_html_a39fd3e93c025d41e63850afcc503944b"><div class="ttname"><a href="classMuFilter.html#a39fd3e93c025d41e63850afcc503944b">MuFilter::GetCorrectedTime</a></div><div class="ttdeci">Float_t GetCorrectedTime(Int_t id, Int_t c, Double_t t, Double_t L)</div><div class="ttdef"><b>Definition:</b> <a href="MuFilter_8cxx_source.html#l00542">MuFilter.cxx:542</a></div></div>
+<p class="definition">Definition at line <a class="el" href="Mufi__monitoring_8py_source.html#l00718">718</a> of file <a class="el" href="Mufi__monitoring_8py_source.html">Mufi_monitoring.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;   <span class="keyword">def </span>ExecuteEvent(self,event):</div>
+<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;       scifiCorTest = <span class="keyword">False</span></div>
+<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;       systemAndPlanes = self.M.systemAndPlanes</div>
+<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;       sdict = self.M.sdict</div>
+<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;       s = 1</div>
+<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;       h = self.M.h</div>
+<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;       W = self.M.Weight</div>
+<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;       nSiPMs = self.M.<a class="code" href="classMuFilter.html#aee98c7a29a40aa284f4d214e936efaf0">MuFilter.GetConfParI</a>(<span class="stringliteral">&quot;MuFilter/VetonSiPMs&quot;</span>)</div>
+<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;       hits = {2:0,1:0,0:0,<span class="stringliteral">&#39;0L&#39;</span>:0,<span class="stringliteral">&#39;0R&#39;</span>:0,<span class="stringliteral">&#39;1L&#39;</span>:0,<span class="stringliteral">&#39;1R&#39;</span>:0}</div>
+<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;       vetoHitsFromPrev = 0</div>
+<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;       <span class="keywordflow">if</span> event.EventHeader.GetRunId() &lt; 6204 <span class="keywordflow">and</span> event.EventHeader.GetRunId() &gt; 5480: vetoHitsFromPrev = 5</div>
+<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;       <span class="comment"># special treatment for first 10fb-1 in 2023, wrong time alignment, again!</span></div>
+<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;       N1 = event.GetReadEntry()</div>
+<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;       Tcurrent = event.EventHeader.GetEventTime()</div>
+<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;       dT = abs(Tcurrent-self.eventBefore[<span class="stringliteral">&#39;T&#39;</span>])</div>
+<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;       prevAdded = <span class="keyword">False</span></div>
+<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;       <span class="keywordflow">for</span> j <span class="keywordflow">in</span> [0,-1]:</div>
+<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;         <span class="keywordflow">if</span> j&lt;0 <span class="keywordflow">and</span> N1&gt;0: </div>
+<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;              <span class="keywordflow">if</span> dT &gt; vetoHitsFromPrev: <span class="keywordflow">continue</span></div>
+<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;              rc = event.GetEvent(N1-1)  <span class="comment"># add veto hits from prev event</span></div>
+<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;              prevAdded = <span class="keyword">True</span></div>
+<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;         <span class="keywordflow">for</span> aHit <span class="keywordflow">in</span> event.Digi_MuFilterHits:</div>
+<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;           <span class="keywordflow">if</span> <span class="keywordflow">not</span> aHit.isValid(): <span class="keywordflow">continue</span></div>
+<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;           Minfo = self.M.<a class="code" href="namespace2dEventDisplay.html#ad800efd41dc9e83951eb16cbfbcc0c3d">MuFilter_PlaneBars</a>(aHit.GetDetectorID())</div>
+<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;           s,l,bar = Minfo[<span class="stringliteral">&#39;station&#39;</span>],Minfo[<span class="stringliteral">&#39;plane&#39;</span>],Minfo[<span class="stringliteral">&#39;bar&#39;</span>]</div>
+<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;           <span class="keywordflow">if</span> s&gt;1: <span class="keywordflow">continue</span></div>
+<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;           allChannels = self.M.<a class="code" href="namespaceSurvey-MufiScifi.html#a01cdeb8a7bc5f981ebe5849e735a87d4">map2Dict</a>(aHit,<span class="stringliteral">&#39;GetAllSignals&#39;</span>)</div>
+<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;           hits[l]+=len(allChannels)</div>
+<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;           <span class="keywordflow">if</span> l != 2:</div>
+<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;             <span class="keywordflow">for</span> c <span class="keywordflow">in</span> allChannels:</div>
+<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;                <span class="keywordflow">if</span>  nSiPMs &gt; c:  <span class="comment"># left side</span></div>
+<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;                   hits[<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(l)+<span class="stringliteral">&#39;L&#39;</span>]+=1</div>
+<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;                <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;                      hits[<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(l)+<span class="stringliteral">&#39;R&#39;</span>]+=1</div>
+<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;           allChannels.clear()</div>
+<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;       <span class="keywordflow">if</span> prevAdded <span class="keywordflow">and</span> N1&gt;1:</div>
+<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;         rc = event.GetEvent(N1-2)</div>
+<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;         Tprevprev = event.EventHeader.GetEventTime()</div>
+<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;         dT = abs(Tcurrent-Tprevprev)</div>
+<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;       <span class="keywordflow">if</span> prevAdded: event.GetEvent(N1)</div>
+<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;       prevEvent = <span class="keyword">False</span></div>
+<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;       tightNoiseFilter = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;       otherAdvTrigger  = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;       otherFastTrigger = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;       <span class="keywordflow">if</span> dT &lt; self.deadTime <span class="keywordflow">and</span> dT &gt; vetoHitsFromPrev:</div>
+<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;           prevEvent = <span class="keyword">True</span></div>
+<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;           <span class="comment"># check type of prev event, if it would pass tight noise filter, run 6568 ++ </span></div>
+<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;           <span class="keywordflow">if</span> event.EventHeader.GetRunId() &gt; 6567 <span class="keywordflow">and</span> N1&gt;0:</div>
+<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;              tightNoiseFilter, otherFastTrigger, otherAdvTrigger,Nprev,dt = self.checkOtherTriggers(event)</div>
+<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160; </div>
+<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;       tmpT = self.eventBefore[<span class="stringliteral">&#39;T&#39;</span>]</div>
+<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;       tmpN = self.eventBefore[<span class="stringliteral">&#39;N&#39;</span>]</div>
+<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;       self.eventBefore[<span class="stringliteral">&#39;T&#39;</span>] = Tcurrent</div>
+<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;       <span class="keywordflow">if</span> (self.M.EventNumber - self.eventBefore[<span class="stringliteral">&#39;N&#39;</span>] &gt; 1) <span class="keywordflow">and</span> self.M.options.postScale &lt; 2:</div>
+<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;          print(<span class="stringliteral">&#39;what is going on?&#39;</span>, self.M.EventNumber, self.eventBefore[<span class="stringliteral">&#39;N&#39;</span>])</div>
+<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;       self.eventBefore[<span class="stringliteral">&#39;N&#39;</span>] = self.M.EventNumber</div>
+<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160; </div>
+<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;       rc = h[<span class="stringliteral">&#39;scaler&#39;</span>].Fill(11)</div>
+<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;       <span class="keywordflow">if</span> self.M.Reco_MuonTracks.GetEntries()&lt;2: <span class="keywordflow">return</span> <span class="comment"># require Scifi and DS track</span></div>
+<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;<span class="comment"># check that track has scifi cluster in station 1, afterthought: require measurements in all planes</span></div>
+<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;       planes = {}</div>
+<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;       <span class="keywordflow">for</span> scifiTrack <span class="keywordflow">in</span> self.M.Reco_MuonTracks:</div>
+<div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;           <span class="keywordflow">if</span> <span class="keywordflow">not</span> scifiTrack.GetUniqueID()==1: <span class="keywordflow">continue</span></div>
+<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;           fitStatus = scifiTrack.getFitStatus()</div>
+<div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;           <span class="keywordflow">if</span> <span class="keywordflow">not</span> fitStatus.isFitConverged(): <span class="keywordflow">continue</span></div>
+<div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;           <span class="keywordflow">if</span> fitStatus.getNdf() &lt; 5 <span class="keywordflow">or</span> fitStatus.getNdf()&gt;12 : <span class="keywordflow">continue</span></div>
+<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;           <span class="keywordflow">if</span> fitStatus.getChi2()/fitStatus.getNdf() &gt; 80: <span class="keywordflow">continue</span></div>
+<div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160;           <span class="keywordflow">for</span> nM <span class="keywordflow">in</span> range(scifiTrack.getNumPointsWithMeasurement()):</div>
+<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;              M = scifiTrack.getPointWithMeasurement(nM)</div>
+<div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;              W = M.getRawMeasurement()</div>
+<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;              detID = W.getDetId()</div>
+<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;              planes[detID//100000] = 1</div>
+<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;       rc = h[<span class="stringliteral">&#39;scaler&#39;</span>].Fill(10)</div>
+<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;       scifiOneEff = 10 <span class="keywordflow">in</span> planes <span class="keywordflow">or</span> 11 <span class="keywordflow">in</span> planes <span class="keywordflow">or</span> <span class="keywordflow">not</span> scifiCorTest</div>
+<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;       <span class="keywordflow">if</span> <span class="keywordflow">not</span> scifiOneEff  <span class="keywordflow">and</span> len(planes) &lt; 8: <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;       <span class="keywordflow">if</span> scifiOneEff <span class="keywordflow">and</span> len(planes) &lt; 10: <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;       rc = h[<span class="stringliteral">&#39;scaler&#39;</span>].Fill(0)</div>
+<div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160;       <span class="keywordflow">if</span> <span class="keywordflow">not</span> prevEvent: rc = h[<span class="stringliteral">&#39;scaler&#39;</span>].Fill(1)</div>
+<div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160; </div>
+<div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;       <span class="keywordflow">for</span> l <span class="keywordflow">in</span> range(systemAndPlanes[1]-1):</div>
+<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;          rc = h[<span class="stringliteral">&#39;hitVeto_&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(l)].Fill(hits[<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(l)+<span class="stringliteral">&#39;L&#39;</span>],hits[<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(l)+<span class="stringliteral">&#39;R&#39;</span>])</div>
+<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160;       rc = h[<span class="stringliteral">&#39;hitVeto_01&#39;</span>].Fill(hits[0],hits[1])</div>
+<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;       <span class="keywordflow">if</span> systemAndPlanes[1] &gt; 2 :</div>
+<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;         rc = h[<span class="stringliteral">&#39;hitVeto_02&#39;</span>].Fill(hits[0],hits[2])</div>
+<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;         rc = h[<span class="stringliteral">&#39;hitVeto_12&#39;</span>].Fill(hits[1],hits[2])</div>
+<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160; </div>
+<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;       <span class="keywordflow">for</span> muTrack <span class="keywordflow">in</span> self.M.Reco_MuonTracks:</div>
+<div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;          <span class="keywordflow">if</span> <span class="keywordflow">not</span> muTrack.GetUniqueID()==3: <span class="keywordflow">continue</span></div>
+<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;          fstate =  muTrack.getFittedState()</div>
+<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;          posT,momT  = fstate.getPos(),fstate.getMom()</div>
+<div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160;          lam      = (self.zEx-posT.z())/momT.z()</div>
+<div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160;          yExTag      = posT.y()+lam*momT.y()</div>
+<div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160;          xExTag      = posT.x()+lam*momT.x()</div>
+<div class="line"><a name="l00811"></a><span class="lineno">  811</span>&#160;          sstate = scifiTrack.getFittedState()</div>
+<div class="line"><a name="l00812"></a><span class="lineno">  812</span>&#160;          pos = sstate.getPos()</div>
+<div class="line"><a name="l00813"></a><span class="lineno">  813</span>&#160;          delX = xExTag - pos.x()</div>
+<div class="line"><a name="l00814"></a><span class="lineno">  814</span>&#160;          delY = yExTag - pos.y()</div>
+<div class="line"><a name="l00815"></a><span class="lineno">  815</span>&#160;          rc = h[<span class="stringliteral">&#39;X/Y&#39;</span>].Fill(delX,delY)</div>
+<div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160;          <span class="keywordflow">if</span> abs(delX)&gt;10 <span class="keywordflow">or</span> abs(delY)&gt;10: <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00817"></a><span class="lineno">  817</span>&#160;          </div>
+<div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160;       <span class="keywordflow">for</span> aTrack <span class="keywordflow">in</span> self.M.Reco_MuonTracks:</div>
+<div class="line"><a name="l00819"></a><span class="lineno">  819</span>&#160;           <span class="keywordflow">if</span> <span class="keywordflow">not</span> aTrack.GetUniqueID()==1: <span class="keywordflow">continue</span></div>
+<div class="line"><a name="l00820"></a><span class="lineno">  820</span>&#160;           fitStatus = aTrack.getFitStatus()</div>
+<div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160;           <span class="keywordflow">if</span> <span class="keywordflow">not</span> fitStatus.isFitConverged(): <span class="keywordflow">continue</span></div>
+<div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160;           fstate =  aTrack.getFittedState()</div>
+<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;           pos,mom = [fstate.getPos(),fstate.getMom()]</div>
+<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160;           beam = <span class="keyword">False</span></div>
+<div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160;           <span class="keywordflow">if</span> abs(mom.x()/mom.z())&lt;0.1 <span class="keywordflow">and</span> abs(mom.y()/mom.z())&lt;0.1: beam = <span class="keyword">True</span></div>
+<div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160;<span class="comment"># extrapolate to veto</span></div>
+<div class="line"><a name="l00827"></a><span class="lineno">  827</span>&#160;<span class="comment"># check timing, remove backward tracks</span></div>
+<div class="line"><a name="l00828"></a><span class="lineno">  828</span>&#160;<span class="comment"># 1: get early DS time in horizontal plane 2:</span></div>
+<div class="line"><a name="l00829"></a><span class="lineno">  829</span>&#160;           dsHitTimes = []</div>
+<div class="line"><a name="l00830"></a><span class="lineno">  830</span>&#160;           <span class="keywordflow">for</span> aHit <span class="keywordflow">in</span> event.Digi_MuFilterHits:</div>
+<div class="line"><a name="l00831"></a><span class="lineno">  831</span>&#160;              <span class="keywordflow">if</span> <span class="keywordflow">not</span> aHit.isValid(): <span class="keywordflow">continue</span></div>
+<div class="line"><a name="l00832"></a><span class="lineno">  832</span>&#160;              detID = aHit.GetDetectorID()</div>
+<div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160;              Minfo = self.M.<a class="code" href="namespace2dEventDisplay.html#ad800efd41dc9e83951eb16cbfbcc0c3d">MuFilter_PlaneBars</a>(detID)</div>
+<div class="line"><a name="l00834"></a><span class="lineno">  834</span>&#160;              s,l,bar = Minfo[<span class="stringliteral">&#39;station&#39;</span>],Minfo[<span class="stringliteral">&#39;plane&#39;</span>],Minfo[<span class="stringliteral">&#39;bar&#39;</span>]</div>
+<div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160;              <span class="keywordflow">if</span> s==3 <span class="keywordflow">and</span> l==2:</div>
+<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;                   self.M.<a class="code" href="classMuFilter.html#a2525ccc41592f3cc117c18424e8dc7ac">MuFilter.GetPosition</a>(detID,A,B)</div>
+<div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160;                   timeLeft = aHit.GetTime(0)</div>
+<div class="line"><a name="l00838"></a><span class="lineno">  838</span>&#160;                   timeRight = aHit.GetTime(1)</div>
+<div class="line"><a name="l00839"></a><span class="lineno">  839</span>&#160;                   <span class="keywordflow">if</span> timeLeft&gt;0 <span class="keywordflow">and</span> timeRight&gt;0:</div>
+<div class="line"><a name="l00840"></a><span class="lineno">  840</span>&#160;                      dL = abs(A[0]-B[0])</div>
+<div class="line"><a name="l00841"></a><span class="lineno">  841</span>&#160;                      avTime = self.M.<a class="code" href="classMuFilter.html#a39fd3e93c025d41e63850afcc503944b">MuFilter.GetCorrectedTime</a>(detID, 0, timeLeft*self.M.TDC2ns,0) + \</div>
+<div class="line"><a name="l00842"></a><span class="lineno">  842</span>&#160;                               self.M.<a class="code" href="classMuFilter.html#a39fd3e93c025d41e63850afcc503944b">MuFilter.GetCorrectedTime</a>(detID, 1, timeRight*self.M.TDC2ns,0)</div>
+<div class="line"><a name="l00843"></a><span class="lineno">  843</span>&#160;                      dsHitTimes.append( (avTime-abs(A[0]-B[0])/15)/2) <span class="comment"># L/2 / 15cm/ns</span></div>
+<div class="line"><a name="l00844"></a><span class="lineno">  844</span>&#160;           dsHitTimes.sort()</div>
+<div class="line"><a name="l00845"></a><span class="lineno">  845</span>&#160;           scifiHitTimes = {1:[],2:[],3:[],4:[],5:[]}</div>
+<div class="line"><a name="l00846"></a><span class="lineno">  846</span>&#160;           deltaT = -100</div>
+<div class="line"><a name="l00847"></a><span class="lineno">  847</span>&#160;           <span class="keywordflow">if</span> len(dsHitTimes)&gt;0:</div>
+<div class="line"><a name="l00848"></a><span class="lineno">  848</span>&#160;            <span class="keywordflow">for</span> scifiHit <span class="keywordflow">in</span> event.Digi_ScifiHits:</div>
+<div class="line"><a name="l00849"></a><span class="lineno">  849</span>&#160;              detID = scifiHit.GetDetectorID()</div>
+<div class="line"><a name="l00850"></a><span class="lineno">  850</span>&#160;              s = <a class="code" href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">int</a>(scifiHit.GetDetectorID()/1000000)</div>
+<div class="line"><a name="l00851"></a><span class="lineno">  851</span>&#160;              <span class="keywordflow">if</span> s&gt;1.5: <span class="keywordflow">continue</span></div>
+<div class="line"><a name="l00852"></a><span class="lineno">  852</span>&#160;              scifiHitTimes[s].append(self.M.<a class="code" href="classScifi.html#ad450e9024b424afc7cc0cdeafbe23552">Scifi.GetCorrectedTime</a>(detID,scifiHit.GetTime()*self.M.TDC2ns,0))</div>
+<div class="line"><a name="l00853"></a><span class="lineno">  853</span>&#160;            <span class="keywordflow">for</span> s <span class="keywordflow">in</span> scifiHitTimes:</div>
+<div class="line"><a name="l00854"></a><span class="lineno">  854</span>&#160;                <span class="keywordflow">if</span> len(scifiHitTimes[s])&lt;1: <span class="keywordflow">continue</span></div>
+<div class="line"><a name="l00855"></a><span class="lineno">  855</span>&#160;                scifiHitTimes[s].sort()</div>
+<div class="line"><a name="l00856"></a><span class="lineno">  856</span>&#160;                deltaT = dsHitTimes[0] - scifiHitTimes[s][0] - (self.M.zPos[<span class="stringliteral">&#39;MuFilter&#39;</span>][34]-self.M.zPos[<span class="stringliteral">&#39;Scifi&#39;</span>][s*10])/u.speedOfLight</div>
+<div class="line"><a name="l00857"></a><span class="lineno">  857</span>&#160;           rc = h[<span class="stringliteral">&#39;deltaT&#39;</span>].Fill(deltaT)</div>
+<div class="line"><a name="l00858"></a><span class="lineno">  858</span>&#160;           <span class="keywordflow">if</span> deltaT &lt; -10: <span class="keywordflow">continue</span></div>
+<div class="line"><a name="l00859"></a><span class="lineno">  859</span>&#160;           <span class="comment">#look for previous event time</span></div>
+<div class="line"><a name="l00860"></a><span class="lineno">  860</span>&#160;           T1 = event.EventHeader.GetEventTime()</div>
+<div class="line"><a name="l00861"></a><span class="lineno">  861</span>&#160;           N1 = event.EventHeader.GetEventNumber()</div>
+<div class="line"><a name="l00862"></a><span class="lineno">  862</span>&#160;           <span class="keywordflow">if</span> prevAdded: rc = event.GetEvent(N1-2)</div>
+<div class="line"><a name="l00863"></a><span class="lineno">  863</span>&#160;           <span class="keywordflow">else</span>:         rc = event.GetEvent(N1-1)</div>
+<div class="line"><a name="l00864"></a><span class="lineno">  864</span>&#160;           T0 = event.EventHeader.GetEventTime()</div>
+<div class="line"><a name="l00865"></a><span class="lineno">  865</span>&#160;           rc = event.GetEvent(N1+1)</div>
+<div class="line"><a name="l00866"></a><span class="lineno">  866</span>&#160;           T2 = event.EventHeader.GetEventTime()</div>
+<div class="line"><a name="l00867"></a><span class="lineno">  867</span>&#160;           rc = event.GetEvent(N1)</div>
+<div class="line"><a name="l00868"></a><span class="lineno">  868</span>&#160;           <span class="keywordflow">if</span> (T1-T0) &lt; 100 <span class="keywordflow">and</span> self.M.options.postScale &lt; 2:</div>
+<div class="line"><a name="l00869"></a><span class="lineno">  869</span>&#160;               <span class="keywordflow">if</span> <span class="keywordflow">not</span> prevEvent: print(<span class="stringliteral">&#39;what is going on?&#39;</span>,N1,T1,T0,N1-1,tmpN,tmpT)</div>
+<div class="line"><a name="l00870"></a><span class="lineno">  870</span>&#160;               prevEvent = <span class="keyword">True</span></div>
+<div class="line"><a name="l00871"></a><span class="lineno">  871</span>&#160;           s = 1</div>
+<div class="line"><a name="l00872"></a><span class="lineno">  872</span>&#160;           xEx = {}</div>
+<div class="line"><a name="l00873"></a><span class="lineno">  873</span>&#160;           yEx = {}</div>
+<div class="line"><a name="l00874"></a><span class="lineno">  874</span>&#160;           <span class="keywordflow">for</span> l <span class="keywordflow">in</span> range(systemAndPlanes[1]):</div>
+<div class="line"><a name="l00875"></a><span class="lineno">  875</span>&#160;              zEx = self.M.zPos[<span class="stringliteral">&#39;MuFilter&#39;</span>][s*10+l]</div>
+<div class="line"><a name="l00876"></a><span class="lineno">  876</span>&#160;              lam = (zEx-pos.z())/mom.z()</div>
+<div class="line"><a name="l00877"></a><span class="lineno">  877</span>&#160;              xEx[l] = pos.x()+lam*mom.x()</div>
+<div class="line"><a name="l00878"></a><span class="lineno">  878</span>&#160;              yEx[l] = pos.y()+lam*mom.y()</div>
+<div class="line"><a name="l00879"></a><span class="lineno">  879</span>&#160;           <span class="keywordflow">for</span> l <span class="keywordflow">in</span> range(systemAndPlanes[1]):</div>
+<div class="line"><a name="l00880"></a><span class="lineno">  880</span>&#160;              <span class="keywordflow">for</span> noiseCut <span class="keywordflow">in</span> self.noiseCuts:</div>
+<div class="line"><a name="l00881"></a><span class="lineno">  881</span>&#160;                 c=<span class="stringliteral">&#39;&#39;</span></div>
+<div class="line"><a name="l00882"></a><span class="lineno">  882</span>&#160;                 <span class="keywordflow">if</span> <span class="keywordflow">not</span> prevEvent: c=<span class="stringliteral">&#39;NoPrev&#39;</span></div>
+<div class="line"><a name="l00883"></a><span class="lineno">  883</span>&#160;                 nc = <span class="stringliteral">&#39;T&#39;</span>+c+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(noiseCut)</div>
+<div class="line"><a name="l00884"></a><span class="lineno">  884</span>&#160;                 ncL = <span class="stringliteral">&#39;T&#39;</span>+<span class="stringliteral">&#39;TiNoFi&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(noiseCut)</div>
+<div class="line"><a name="l00885"></a><span class="lineno">  885</span>&#160;                 <span class="keywordflow">if</span> hits[l] &gt; noiseCut <span class="keywordflow">or</span> (l==2 <span class="keywordflow">and</span> hits[l] &gt; <a class="code" href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">int</a>(noiseCut/2+0.5)):</div>
+<div class="line"><a name="l00886"></a><span class="lineno">  886</span>&#160;                      rc = h[nc+<span class="stringliteral">&#39;PosVeto_&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(l)].Fill(xEx[l],yEx[l])</div>
+<div class="line"><a name="l00887"></a><span class="lineno">  887</span>&#160;                      <span class="keywordflow">if</span> tightNoiseFilter: rc = h[ncL+<span class="stringliteral">&#39;PosVeto_&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(l)].Fill(xEx[l],yEx[l])</div>
+<div class="line"><a name="l00888"></a><span class="lineno">  888</span>&#160;                      <span class="keywordflow">if</span> beam: rc = h[nc+<span class="stringliteral">&#39;beamPosVeto_&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(l)].Fill(xEx[l],yEx[l])</div>
+<div class="line"><a name="l00889"></a><span class="lineno">  889</span>&#160;                 <span class="keywordflow">else</span>:                        </div>
+<div class="line"><a name="l00890"></a><span class="lineno">  890</span>&#160;                      rc = h[nc+<span class="stringliteral">&#39;XPosVeto_&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(l)].Fill(xEx[l],yEx[l])</div>
+<div class="line"><a name="l00891"></a><span class="lineno">  891</span>&#160;                      rc = h[nc+<span class="stringliteral">&#39;XPosVetoXL_&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(l)].Fill(xEx[l],yEx[l])</div>
+<div class="line"><a name="l00892"></a><span class="lineno">  892</span>&#160;                      <span class="keywordflow">if</span> tightNoiseFilter: h[ncL+<span class="stringliteral">&#39;XPosVeto_&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(l)].Fill(xEx[l],yEx[l])</div>
+<div class="line"><a name="l00893"></a><span class="lineno">  893</span>&#160;                      <span class="keywordflow">if</span> beam: rc = h[nc+<span class="stringliteral">&#39;beamXPosVeto_&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(l)].Fill(xEx[l],yEx[l])</div>
+<div class="line"><a name="l00894"></a><span class="lineno">  894</span>&#160;                 <span class="keywordflow">if</span> l==0:</div>
+<div class="line"><a name="l00895"></a><span class="lineno">  895</span>&#160;                    <span class="keywordflow">if</span> -45&lt;xEx[l] <span class="keywordflow">and</span> xEx[l]&lt;-10 <span class="keywordflow">and</span> 27&lt;yEx[l] <span class="keywordflow">and</span> yEx[l]&lt;54:</div>
+<div class="line"><a name="l00896"></a><span class="lineno">  896</span>&#160;                          rc = h[<span class="stringliteral">&#39;timeDiffPrev_&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(noiseCut)].Fill(T1-T0)</div>
+<div class="line"><a name="l00897"></a><span class="lineno">  897</span>&#160;                          rc = h[<span class="stringliteral">&#39;timeDiffNext_&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(noiseCut)].Fill(T2-T1)</div>
+<div class="line"><a name="l00898"></a><span class="lineno">  898</span>&#160;                    <span class="keywordflow">if</span> ( systemAndPlanes[1]==2 <span class="keywordflow">and</span> hits[0] &gt; noiseCut <span class="keywordflow">and</span> hits[1] &gt; noiseCut) <span class="keywordflow">or</span> \</div>
+<div class="line"><a name="l00899"></a><span class="lineno">  899</span>&#160;                       ( systemAndPlanes[1]==3 <span class="keywordflow">and</span> hits[0] &gt; noiseCut <span class="keywordflow">and</span> hits[1] &gt; noiseCut \</div>
+<div class="line"><a name="l00900"></a><span class="lineno">  900</span>&#160;                                               <span class="keywordflow">and</span> hits[2] &gt; <a class="code" href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">int</a>(noiseCut/2+0.5) ):</div>
+<div class="line"><a name="l00901"></a><span class="lineno">  901</span>&#160;                      <span class="keywordflow">for</span> l1 <span class="keywordflow">in</span> range(systemAndPlanes[1]):</div>
+<div class="line"><a name="l00902"></a><span class="lineno">  902</span>&#160;                        rc = h[nc+<span class="stringliteral">&#39;PosVeto_111&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(l1)].Fill(xEx[l1],yEx[l1])</div>
+<div class="line"><a name="l00903"></a><span class="lineno">  903</span>&#160;                        <span class="keywordflow">if</span> tightNoiseFilter: </div>
+<div class="line"><a name="l00904"></a><span class="lineno">  904</span>&#160;                          rc = h[ncL+<span class="stringliteral">&#39;PosVeto_111&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(l1)].Fill(xEx[l1],yEx[l1])</div>
+<div class="line"><a name="l00905"></a><span class="lineno">  905</span>&#160;                      <span class="keywordflow">if</span> beam: rc = h[nc+<span class="stringliteral">&#39;beamPosVeto_1110&#39;</span>].Fill(xEx[l],yEx[l])</div>
+<div class="line"><a name="l00906"></a><span class="lineno">  906</span>&#160;                    <span class="keywordflow">if</span> ( systemAndPlanes[1]==2 <span class="keywordflow">and</span> (hits[0] &gt; noiseCut <span class="keywordflow">or</span> hits[1] &gt; noiseCut)) <span class="keywordflow">or</span> \</div>
+<div class="line"><a name="l00907"></a><span class="lineno">  907</span>&#160;                       ( systemAndPlanes[1]==3 <span class="keywordflow">and</span> (hits[0] &gt; noiseCut <span class="keywordflow">or</span> hits[1] &gt; noiseCut \</div>
+<div class="line"><a name="l00908"></a><span class="lineno">  908</span>&#160;                                               <span class="keywordflow">or</span> hits[2] &gt; <a class="code" href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">int</a>(noiseCut/2+0.5)) ):</div>
+<div class="line"><a name="l00909"></a><span class="lineno">  909</span>&#160;                      rc = h[nc+<span class="stringliteral">&#39;PosVeto_000&#39;</span>].Fill(xEx[l],yEx[l])</div>
+<div class="line"><a name="l00910"></a><span class="lineno">  910</span>&#160;                      <span class="keywordflow">if</span> tightNoiseFilter: h[ncL+<span class="stringliteral">&#39;PosVeto_000&#39;</span>].Fill(xEx[l],yEx[l])</div>
+<div class="line"><a name="l00911"></a><span class="lineno">  911</span>&#160;                      <span class="keywordflow">if</span> beam: rc = h[nc+<span class="stringliteral">&#39;beamPosVeto_000&#39;</span>].Fill(xEx[l],yEx[l])</div>
+<div class="line"><a name="l00912"></a><span class="lineno">  912</span>&#160;                    <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00913"></a><span class="lineno">  913</span>&#160;                        <span class="keywordflow">if</span> -45&lt;xEx[l] <span class="keywordflow">and</span> xEx[l]&lt;-10 <span class="keywordflow">and</span> 27&lt;yEx[l] <span class="keywordflow">and</span> yEx[l]&lt;54:</div>
+<div class="line"><a name="l00914"></a><span class="lineno">  914</span>&#160;                          rc = h[<span class="stringliteral">&#39;XtimeDiffPrev_&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(noiseCut)].Fill(T1-T0)</div>
+<div class="line"><a name="l00915"></a><span class="lineno">  915</span>&#160;                          rc = h[<span class="stringliteral">&#39;XtimeDiffNext_&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(noiseCut)].Fill(T2-T1)</div>
+<div class="line"><a name="l00916"></a><span class="lineno">  916</span>&#160;                          <span class="keywordflow">if</span> <span class="keywordflow">not</span> prevEvent <span class="keywordflow">or</span> (prevEvent <span class="keywordflow">and</span> <span class="keywordflow">not</span> tightNoiseFilter):</div>
+<div class="line"><a name="l00917"></a><span class="lineno">  917</span>&#160;                            <span class="keywordflow">if</span> self.debug: print(<span class="stringliteral">&#39;no hits&#39;</span>,noiseCut,prevEvent,beam,N1,tightNoiseFilter,otherFastTrigger,otherAdvTrigger)</div>
+<div class="line"><a name="l00918"></a><span class="lineno">  918</span>&#160;                        <span class="keywordflow">for</span> l1 <span class="keywordflow">in</span> range(systemAndPlanes[1]):</div>
+<div class="line"><a name="l00919"></a><span class="lineno">  919</span>&#160;                          rc = h[nc+<span class="stringliteral">&#39;XPosVeto_111&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(l1)].Fill(xEx[l1],yEx[l1])</div>
+<div class="line"><a name="l00920"></a><span class="lineno">  920</span>&#160;                          <span class="keywordflow">if</span> tightNoiseFilter: </div>
+<div class="line"><a name="l00921"></a><span class="lineno">  921</span>&#160;                           rc = h[ncL+<span class="stringliteral">&#39;XPosVeto_111&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(l1)].Fill(xEx[l1],yEx[l1])</div>
+<div class="line"><a name="l00922"></a><span class="lineno">  922</span>&#160;                        <span class="keywordflow">if</span> beam: rc = h[nc+<span class="stringliteral">&#39;beamXPosVeto_1110&#39;</span>].Fill(xEx[l],yEx[l])</div>
+<div class="line"><a name="l00923"></a><span class="lineno">  923</span>&#160;                    <span class="comment"># also for the 2 planea</span></div>
+<div class="line"><a name="l00924"></a><span class="lineno">  924</span>&#160;                    <span class="keywordflow">if</span> hits[0] &gt; noiseCut <span class="keywordflow">and</span> hits[1] &gt; noiseCut:</div>
+<div class="line"><a name="l00925"></a><span class="lineno">  925</span>&#160;                      rc = h[nc+<span class="stringliteral">&#39;PosVeto_11&#39;</span>].Fill(xEx[l],yEx[l])</div>
+<div class="line"><a name="l00926"></a><span class="lineno">  926</span>&#160;                    <span class="keywordflow">if</span> <span class="keywordflow">not</span> (hits[0] &gt; noiseCut <span class="keywordflow">or</span> hits[1] &gt; noiseCut):</div>
+<div class="line"><a name="l00927"></a><span class="lineno">  927</span>&#160;                      rc = h[nc+<span class="stringliteral">&#39;XPosVeto_11&#39;</span>].Fill(xEx[l],yEx[l])</div>
+<div class="line"><a name="l00928"></a><span class="lineno">  928</span>&#160; </div>
+<div class="ttc" id="aclassMuFilter_html_a2525ccc41592f3cc117c18424e8dc7ac"><div class="ttname"><a href="classMuFilter.html#a2525ccc41592f3cc117c18424e8dc7ac">MuFilter::GetPosition</a></div><div class="ttdeci">void GetPosition(Int_t id, TVector3 &amp;vLeft, TVector3 &amp;vRight)</div><div class="ttdef"><b>Definition:</b> <a href="MuFilter_8cxx_source.html#l00638">MuFilter.cxx:638</a></div></div>
+<div class="ttc" id="aclassMuFilter_html_a39fd3e93c025d41e63850afcc503944b"><div class="ttname"><a href="classMuFilter.html#a39fd3e93c025d41e63850afcc503944b">MuFilter::GetCorrectedTime</a></div><div class="ttdeci">Float_t GetCorrectedTime(Int_t id, Int_t c, Double_t t, Double_t L)</div><div class="ttdef"><b>Definition:</b> <a href="MuFilter_8cxx_source.html#l00578">MuFilter.cxx:578</a></div></div>
+<div class="ttc" id="aclassMuFilter_html_aee98c7a29a40aa284f4d214e936efaf0"><div class="ttname"><a href="classMuFilter.html#aee98c7a29a40aa284f4d214e936efaf0">MuFilter::GetConfParI</a></div><div class="ttdeci">Int_t GetConfParI(TString name)</div><div class="ttdef"><b>Definition:</b> <a href="MuFilter_8h_source.html#l00047">MuFilter.h:47</a></div></div>
 <div class="ttc" id="aclassScifi_html_ad450e9024b424afc7cc0cdeafbe23552"><div class="ttname"><a href="classScifi.html#ad450e9024b424afc7cc0cdeafbe23552">Scifi::GetCorrectedTime</a></div><div class="ttdeci">Double_t GetCorrectedTime(Int_t fDetectorID, Double_t rawTime, Double_t L)</div><div class="ttdef"><b>Definition:</b> <a href="Scifi_8cxx_source.html#l00515">Scifi.cxx:515</a></div></div>
 <div class="ttc" id="anamespaceSurvey-MufiScifi_html_a01cdeb8a7bc5f981ebe5849e735a87d4"><div class="ttname"><a href="namespaceSurvey-MufiScifi.html#a01cdeb8a7bc5f981ebe5849e735a87d4">Survey-MufiScifi.map2Dict</a></div><div class="ttdeci">def map2Dict(aHit, T='GetAllSignals', mask=True)</div><div class="ttdef"><b>Definition:</b> <a href="Survey-MufiScifi_8py_source.html#l00067">Survey-MufiScifi.py:67</a></div></div>
 <div class="ttc" id="anamespaceadd__noise__to__field_html_a4aa6f75233f1922a97b2d4c15285c18e"><div class="ttname"><a href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">add_noise_to_field.int</a></div><div class="ttdeci">int</div><div class="ttdef"><b>Definition:</b> <a href="add__noise__to__field_8py_source.html#l00057">add_noise_to_field.py:57</a></div></div>
@@ -502,51 +513,54 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Mufi__monitoring_8py_source.html#l00666">666</a> of file <a class="el" href="Mufi__monitoring_8py_source.html">Mufi_monitoring.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;   <span class="keyword">def </span>Init(self,options,monitor):</div>
-<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;       self.debug = <span class="keyword">True</span></div>
-<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;       self.deadTime = 100</div>
-<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;       self.M = monitor</div>
-<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;       sdict = self.M.sdict</div>
-<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;       self.eventBefore={<span class="stringliteral">&#39;T&#39;</span>:-1,<span class="stringliteral">&#39;N&#39;</span>:-1,<span class="stringliteral">&#39;hits&#39;</span>:{1:0,0:0,<span class="stringliteral">&#39;0L&#39;</span>:0,<span class="stringliteral">&#39;0R&#39;</span>:0,<span class="stringliteral">&#39;1L&#39;</span>:0,<span class="stringliteral">&#39;1R&#39;</span>:0}}</div>
-<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;       h = self.M.h</div>
-<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;       run = ROOT.FairRunAna.Instance()</div>
-<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;       self.trackTask = run.GetTask(<span class="stringliteral">&#39;simpleTracking&#39;</span>)</div>
-<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;       <span class="keywordflow">if</span> <span class="keywordflow">not</span> self.trackTask: self.trackTask = run.GetTask(<span class="stringliteral">&#39;houghTransform&#39;</span>)</div>
-<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;       ioman = ROOT.FairRootManager.Instance()</div>
-<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;       self.OT = ioman.GetSink().GetOutTree()</div>
-<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;       s = 1</div>
-<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;       self.noiseCuts = [1,5,10,12]</div>
-<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;       self.zEx = self.M.zPos[<span class="stringliteral">&#39;Scifi&#39;</span>][10]</div>
-<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;       <span class="keywordflow">for</span> noiseCut <span class="keywordflow">in</span> self.noiseCuts:</div>
-<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;        ut.bookHist(h,<span class="stringliteral">&#39;timeDiffPrev_&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(noiseCut),<span class="stringliteral">&#39;time diff; [clock cycles] &#39;</span>,100,-0.5,999.5)</div>
-<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;        ut.bookHist(h,<span class="stringliteral">&#39;XtimeDiffPrev_&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(noiseCut),<span class="stringliteral">&#39;time diff no hits; [clock cycles] &#39;</span>,100,-0.5,999.5)</div>
-<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;        ut.bookHist(h,<span class="stringliteral">&#39;timeDiffNext_&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(noiseCut),<span class="stringliteral">&#39;time diff next; [clock cycles] &#39;</span>,100,-0.5,999.5)</div>
-<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;        ut.bookHist(h,<span class="stringliteral">&#39;XtimeDiffNext_&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(noiseCut),<span class="stringliteral">&#39;time diff next no hits; [clock cycles] &#39;</span>,100,-0.5,999.5)</div>
-<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;        <span class="keywordflow">for</span> c <span class="keywordflow">in</span> [<span class="stringliteral">&#39;&#39;</span>,<span class="stringliteral">&#39;NoPrev&#39;</span>,<span class="stringliteral">&#39;TiNoFi&#39;</span>]:</div>
-<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;         <span class="keywordflow">for</span> b <span class="keywordflow">in</span> [<span class="stringliteral">&#39;&#39;</span>,<span class="stringliteral">&#39;beam&#39;</span>]:</div>
-<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;          nc = <span class="stringliteral">&#39;T&#39;</span>+c+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(noiseCut)+b</div>
-<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;          <span class="keywordflow">for</span> l <span class="keywordflow">in</span> range(monitor.systemAndPlanes[s]):</div>
-<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;           ut.bookHist(h,nc+<span class="stringliteral">&#39;PosVeto_&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(l),<span class="stringliteral">&#39;track pos at veto&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(l)+<span class="stringliteral">&#39; with hit &#39;</span>+<span class="stringliteral">&#39;;X [cm]; Y [cm]&#39;</span>,110,-55.,0.,110,10.,65.)</div>
-<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;           ut.bookHist(h,nc+<span class="stringliteral">&#39;XPosVeto_&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(l),<span class="stringliteral">&#39;track pos at veto&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(l)+<span class="stringliteral">&#39; no hit&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(l)+<span class="stringliteral">&#39;;X [cm]; Y [cm]&#39;</span>,110,-55.,0.,110,10.,65.)</div>
-<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;           ut.bookHist(h,nc+<span class="stringliteral">&#39;XPosVetoXL_&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(l),<span class="stringliteral">&#39;track pos at veto&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(l)+<span class="stringliteral">&#39; no hit&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(l)+<span class="stringliteral">&#39;;X [cm]; Y [cm]&#39;</span>,1100,-55.,0.,1100,10.,65.)</div>
-<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;          ut.bookHist(h,nc+<span class="stringliteral">&#39;PosVeto_11&#39;</span>,<span class="stringliteral">&#39;track pos at veto AND hit&#39;</span>+<span class="stringliteral">&#39;;X [cm]; Y [cm]&#39;</span>,110,-55.,0.,110,10.,65.)</div>
-<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;          ut.bookHist(h,nc+<span class="stringliteral">&#39;PosVeto_111&#39;</span>,<span class="stringliteral">&#39;track pos at veto AND hit&#39;</span>+<span class="stringliteral">&#39;;X [cm]; Y [cm]&#39;</span>,110,-55.,0.,110,10.,65.)</div>
-<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;          ut.bookHist(h,nc+<span class="stringliteral">&#39;PosVeto_00&#39;</span>,<span class="stringliteral">&#39;track pos at veto OR hit&#39;</span>+<span class="stringliteral">&#39;;X [cm]; Y [cm]&#39;</span>,110,-55.,0.,110,10.,65.)</div>
-<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;          ut.bookHist(h,nc+<span class="stringliteral">&#39;XPosVeto_11&#39;</span>,<span class="stringliteral">&#39;track pos at veto no hit&#39;</span>+<span class="stringliteral">&#39;;X [cm]; Y [cm]&#39;</span>,110,-55.,0.,110,10.,65.)</div>
-<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;          ut.bookHist(h,nc+<span class="stringliteral">&#39;XPosVetoXL_11&#39;</span>,<span class="stringliteral">&#39;track pos at veto no hit&#39;</span>+<span class="stringliteral">&#39;;X [cm]; Y [cm]&#39;</span>,110,-55.,0.,110,10.,65.)</div>
-<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;          ut.bookHist(h,nc+<span class="stringliteral">&#39;XPosVeto_111&#39;</span>,<span class="stringliteral">&#39;track pos at veto no hit&#39;</span>+<span class="stringliteral">&#39;;X [cm]; Y [cm]&#39;</span>,110,-55.,0.,110,10.,65.)</div>
-<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;          <span class="keywordflow">for</span> x <span class="keywordflow">in</span> [nc+<span class="stringliteral">&#39;XPosVeto_11&#39;</span>,nc+<span class="stringliteral">&#39;PosVeto_00&#39;</span>,nc+<span class="stringliteral">&#39;PosVeto_11&#39;</span>,nc+<span class="stringliteral">&#39;PosVeto_1&#39;</span>,</div>
-<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;                      nc+<span class="stringliteral">&#39;PosVeto_0&#39;</span>,nc+<span class="stringliteral">&#39;XPosVeto_1&#39;</span>,nc+<span class="stringliteral">&#39;XPosVeto_0&#39;</span>]: h[x].SetStats(0)</div>
-<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160; </div>
-<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;       ut.bookHist(h,<span class="stringliteral">&#39;hitVeto_0&#39;</span>,<span class="stringliteral">&#39;nr hits L vs R;n sipm; n sipm&#39;</span>,25,-0.5,24.5,25,-0.5,24.5)</div>
-<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;       ut.bookHist(h,<span class="stringliteral">&#39;hitVeto_1&#39;</span>,<span class="stringliteral">&#39;nr hits L vs R;n sipm; n sipm&#39;</span>,25,-0.5,24.5,25,-0.5,24.5)</div>
-<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;       ut.bookHist(h,<span class="stringliteral">&#39;hitVeto_01&#39;</span>,<span class="stringliteral">&#39;nr hits 0 vs 1;n sipm; n sipm&#39;</span>,25,-0.5,24.5,25,-0.5,24.5)</div>
-<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;       ut.bookHist(h,<span class="stringliteral">&#39;hitVeto_prev01&#39;</span>,<span class="stringliteral">&#39;nr hits 0 vs 1;n sipm; n sipm&#39;</span>,25,-0.5,24.5,25,-0.5,24.5)</div>
-<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;       ut.bookHist(h,<span class="stringliteral">&#39;scaler&#39;</span>,<span class="stringliteral">&#39;all no prevEvent&#39;</span>,25,-0.5,24.5)</div>
-<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;       ut.bookHist(h,<span class="stringliteral">&#39;deltaT&#39;</span>,<span class="stringliteral">&#39;delta T DS 2 and Scifi 1&#39;</span>,100,-20.0,20.)</div>
-<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;       ut.bookHist(h,<span class="stringliteral">&#39;X/Y&#39;</span>,<span class="stringliteral">&#39;xy matching of scifi DS&#39;</span>,100,-20.0,20.,100,-20.0,20.)</div>
-<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="Mufi__monitoring_8py_source.html#l00671">671</a> of file <a class="el" href="Mufi__monitoring_8py_source.html">Mufi_monitoring.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;   <span class="keyword">def </span>Init(self,options,monitor):</div>
+<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;       self.debug = <span class="keyword">True</span></div>
+<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;       self.deadTime = 100</div>
+<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;       self.M = monitor</div>
+<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;       sdict = self.M.sdict</div>
+<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;       self.eventBefore={<span class="stringliteral">&#39;T&#39;</span>:-1,<span class="stringliteral">&#39;N&#39;</span>:-1,<span class="stringliteral">&#39;hits&#39;</span>:{2:0,1:0,0:0,<span class="stringliteral">&#39;0L&#39;</span>:0,<span class="stringliteral">&#39;0R&#39;</span>:0,<span class="stringliteral">&#39;1L&#39;</span>:0,<span class="stringliteral">&#39;1R&#39;</span>:0}}</div>
+<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;       h = self.M.h</div>
+<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;       run = ROOT.FairRunAna.Instance()</div>
+<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;       self.trackTask = run.GetTask(<span class="stringliteral">&#39;simpleTracking&#39;</span>)</div>
+<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;       <span class="keywordflow">if</span> <span class="keywordflow">not</span> self.trackTask: self.trackTask = run.GetTask(<span class="stringliteral">&#39;houghTransform&#39;</span>)</div>
+<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;       ioman = ROOT.FairRootManager.Instance()</div>
+<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;       self.OT = ioman.GetSink().GetOutTree()</div>
+<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;       s = 1</div>
+<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;       self.noiseCuts = [1,5,10,12]</div>
+<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;       self.zEx = self.M.zPos[<span class="stringliteral">&#39;Scifi&#39;</span>][10]</div>
+<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;       <span class="keywordflow">for</span> noiseCut <span class="keywordflow">in</span> self.noiseCuts:</div>
+<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;        ut.bookHist(h,<span class="stringliteral">&#39;timeDiffPrev_&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(noiseCut),<span class="stringliteral">&#39;time diff; [clock cycles] &#39;</span>,100,-0.5,999.5)</div>
+<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;        ut.bookHist(h,<span class="stringliteral">&#39;XtimeDiffPrev_&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(noiseCut),<span class="stringliteral">&#39;time diff no hits; [clock cycles] &#39;</span>,100,-0.5,999.5)</div>
+<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;        ut.bookHist(h,<span class="stringliteral">&#39;timeDiffNext_&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(noiseCut),<span class="stringliteral">&#39;time diff next; [clock cycles] &#39;</span>,100,-0.5,999.5)</div>
+<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;        ut.bookHist(h,<span class="stringliteral">&#39;XtimeDiffNext_&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(noiseCut),<span class="stringliteral">&#39;time diff next no hits; [clock cycles] &#39;</span>,100,-0.5,999.5)</div>
+<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;        <span class="keywordflow">for</span> c <span class="keywordflow">in</span> [<span class="stringliteral">&#39;&#39;</span>,<span class="stringliteral">&#39;NoPrev&#39;</span>,<span class="stringliteral">&#39;TiNoFi&#39;</span>]:</div>
+<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;         <span class="keywordflow">for</span> b <span class="keywordflow">in</span> [<span class="stringliteral">&#39;&#39;</span>,<span class="stringliteral">&#39;beam&#39;</span>]:</div>
+<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;          nc = <span class="stringliteral">&#39;T&#39;</span>+c+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(noiseCut)+b</div>
+<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;          <span class="keywordflow">for</span> l <span class="keywordflow">in</span> range(monitor.systemAndPlanes[s]):</div>
+<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;            ut.bookHist(h,nc+<span class="stringliteral">&#39;PosVeto_&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(l),<span class="stringliteral">&#39;track pos at veto&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(l)+<span class="stringliteral">&#39; with hit &#39;</span>+<span class="stringliteral">&#39;;X [cm]; Y [cm]&#39;</span>,110,-55.,0.,110,10.,65.)</div>
+<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;            ut.bookHist(h,nc+<span class="stringliteral">&#39;XPosVeto_&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(l),<span class="stringliteral">&#39;track pos at veto&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(l)+<span class="stringliteral">&#39; no hit&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(l)+<span class="stringliteral">&#39;;X [cm]; Y [cm]&#39;</span>,110,-55.,0.,110,10.,65.)</div>
+<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;            ut.bookHist(h,nc+<span class="stringliteral">&#39;XPosVetoXL_&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(l),<span class="stringliteral">&#39;track pos at veto&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(l)+<span class="stringliteral">&#39; no hit&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(l)+<span class="stringliteral">&#39;;X [cm]; Y [cm]&#39;</span>,1100,-55.,0.,1100,10.,65.)</div>
+<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;            ut.bookHist(h,nc+<span class="stringliteral">&#39;PosVeto_111&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(l),<span class="stringliteral">&#39;track pos at veto AND hit&#39;</span>+<span class="stringliteral">&#39;;X [cm]; Y [cm]&#39;</span>,110,-55.,0.,110,10.,65.)</div>
+<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;            ut.bookHist(h,nc+<span class="stringliteral">&#39;XPosVeto_111&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(l),<span class="stringliteral">&#39;track pos at veto no hit&#39;</span>+<span class="stringliteral">&#39;;X [cm]; Y [cm]&#39;</span>,110,-55.,0.,110,10.,65.)</div>
+<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;            <span class="keywordflow">if</span> l == 0:</div>
+<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;              ut.bookHist(h,nc+<span class="stringliteral">&#39;PosVeto_11&#39;</span>,<span class="stringliteral">&#39;track pos at veto AND hit&#39;</span>+<span class="stringliteral">&#39;;X [cm]; Y [cm]&#39;</span>,110,-55.,0.,110,10.,65.)</div>
+<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;              ut.bookHist(h,nc+<span class="stringliteral">&#39;XPosVeto_11&#39;</span>,<span class="stringliteral">&#39;track pos at veto no hit&#39;</span>+<span class="stringliteral">&#39;;X [cm]; Y [cm]&#39;</span>,110,-55.,0.,110,10.,65.)</div>
+<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;          ut.bookHist(h,nc+<span class="stringliteral">&#39;PosVeto_000&#39;</span>,<span class="stringliteral">&#39;track pos at veto OR hit&#39;</span>+<span class="stringliteral">&#39;;X [cm]; Y [cm]&#39;</span>,110,-55.,0.,110,10.,65.)          </div>
+<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;          <span class="keywordflow">for</span> x <span class="keywordflow">in</span> h:</div>
+<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;            <span class="keywordflow">if</span> isinstance(h[x], ROOT.TH2) <span class="keywordflow">and</span> x.find(<span class="stringliteral">&quot;PosVeto&quot;</span>)&gt;0:</div>
+<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;              h[x].SetStats(0)</div>
+<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160; </div>
+<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;       ut.bookHist(h,<span class="stringliteral">&#39;hitVeto_0&#39;</span>,<span class="stringliteral">&#39;nr hits L vs R;n sipm; n sipm&#39;</span>,25,-0.5,24.5,25,-0.5,24.5)</div>
+<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;       ut.bookHist(h,<span class="stringliteral">&#39;hitVeto_1&#39;</span>,<span class="stringliteral">&#39;nr hits L vs R;n sipm; n sipm&#39;</span>,25,-0.5,24.5,25,-0.5,24.5)</div>
+<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;       ut.bookHist(h,<span class="stringliteral">&#39;hitVeto_2&#39;</span>,<span class="stringliteral">&#39;nr hits T ;n sipm&#39;</span>, 25,-0.5,24.5)</div>
+<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;       ut.bookHist(h,<span class="stringliteral">&#39;hitVeto_01&#39;</span>,<span class="stringliteral">&#39;nr hits 0 vs 1;n sipm; n sipm&#39;</span>,25,-0.5,24.5,25,-0.5,24.5)</div>
+<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;       ut.bookHist(h,<span class="stringliteral">&#39;hitVeto_02&#39;</span>,<span class="stringliteral">&#39;nr hits 0 vs 2;n sipm; n sipm&#39;</span>,25,-0.5,24.5,25,-0.5,24.5)</div>
+<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;       ut.bookHist(h,<span class="stringliteral">&#39;hitVeto_12&#39;</span>,<span class="stringliteral">&#39;nr hits 1 vs 2;n sipm; n sipm&#39;</span>,25,-0.5,24.5,25,-0.5,24.5)</div>
+<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;       ut.bookHist(h,<span class="stringliteral">&#39;scaler&#39;</span>,<span class="stringliteral">&#39;all no prevEvent&#39;</span>,25,-0.5,24.5)</div>
+<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;       ut.bookHist(h,<span class="stringliteral">&#39;deltaT&#39;</span>,<span class="stringliteral">&#39;delta T DS 2 and Scifi 1&#39;</span>,100,-20.0,20.)</div>
+<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;       ut.bookHist(h,<span class="stringliteral">&#39;X/Y&#39;</span>,<span class="stringliteral">&#39;xy matching of scifi DS&#39;</span>,100,-20.0,20.,100,-20.0,20.)</div>
+<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -576,95 +590,121 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Mufi__monitoring_8py_source.html#l00964">964</a> of file <a class="el" href="Mufi__monitoring_8py_source.html">Mufi_monitoring.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00964"></a><span class="lineno">  964</span>&#160;   <span class="keyword">def </span>Plot(self,beamOnly=False):</div>
-<div class="line"><a name="l00965"></a><span class="lineno">  965</span>&#160;     h = self.M.h</div>
-<div class="line"><a name="l00966"></a><span class="lineno">  966</span>&#160;     <span class="keywordflow">if</span> beamOnly: b=<span class="stringliteral">&#39;beam&#39;</span></div>
-<div class="line"><a name="l00967"></a><span class="lineno">  967</span>&#160;     <span class="keywordflow">else</span>: b=<span class="stringliteral">&#39;&#39;</span></div>
-<div class="line"><a name="l00968"></a><span class="lineno">  968</span>&#160;     <span class="keywordflow">for</span> c <span class="keywordflow">in</span> [<span class="stringliteral">&#39;&#39;</span>,<span class="stringliteral">&#39;NoPrev&#39;</span>]:</div>
-<div class="line"><a name="l00969"></a><span class="lineno">  969</span>&#160;      allTracks = h[<span class="stringliteral">&#39;T&#39;</span>+c+<span class="stringliteral">&#39;1PosVeto_0&#39;</span>].Clone(<span class="stringliteral">&#39;tmp&#39;</span>)</div>
-<div class="line"><a name="l00970"></a><span class="lineno">  970</span>&#160;      allTracks.Add(h[<span class="stringliteral">&#39;T&#39;</span>+c+<span class="stringliteral">&#39;1XPosVeto_0&#39;</span>])</div>
-<div class="line"><a name="l00971"></a><span class="lineno">  971</span>&#160;      <span class="keywordflow">for</span> noiseCut <span class="keywordflow">in</span> self.noiseCuts:</div>
-<div class="line"><a name="l00972"></a><span class="lineno">  972</span>&#160;       nc = <span class="stringliteral">&#39;T&#39;</span>+c+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(noiseCut)+b</div>
-<div class="line"><a name="l00973"></a><span class="lineno">  973</span>&#160;       h[nc+<span class="stringliteral">&#39;XPosVeto_00&#39;</span>]=allTracks.Clone(nc+<span class="stringliteral">&#39;XPosVeto_00&#39;</span>)</div>
-<div class="line"><a name="l00974"></a><span class="lineno">  974</span>&#160;       h[nc+<span class="stringliteral">&#39;XPosVeto_00&#39;</span>].Add(h[nc+<span class="stringliteral">&#39;PosVeto_00&#39;</span>],-1)</div>
-<div class="line"><a name="l00975"></a><span class="lineno">  975</span>&#160;       <span class="keywordflow">for</span> l <span class="keywordflow">in</span> [<span class="stringliteral">&#39;0&#39;</span>,<span class="stringliteral">&#39;1&#39;</span>,<span class="stringliteral">&#39;00&#39;</span>,<span class="stringliteral">&#39;11&#39;</span>]:</div>
-<div class="line"><a name="l00976"></a><span class="lineno">  976</span>&#160;           h[nc+<span class="stringliteral">&#39;Veto_ineff&#39;</span>+l] = h[nc+<span class="stringliteral">&#39;PosVeto_&#39;</span>+l].Clone(nc+<span class="stringliteral">&#39;Veto_ineff&#39;</span>+l)</div>
-<div class="line"><a name="l00977"></a><span class="lineno">  977</span>&#160;           h[nc+<span class="stringliteral">&#39;Veto_ineff&#39;</span>+l].SetTitle(<span class="stringliteral">&#39;Veto inefficiency &#39;</span>+l+<span class="stringliteral">&#39; noise cut=&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(noiseCut))</div>
-<div class="line"><a name="l00978"></a><span class="lineno">  978</span>&#160;           h[nc+<span class="stringliteral">&#39;Veto_ineff&#39;</span>+l].SetMinimum(0)</div>
-<div class="line"><a name="l00979"></a><span class="lineno">  979</span>&#160;           h[nc+<span class="stringliteral">&#39;Veto_ineff&#39;</span>+l].SetMaximum(1)</div>
-<div class="line"><a name="l00980"></a><span class="lineno">  980</span>&#160;       <span class="keywordflow">for</span> ix <span class="keywordflow">in</span> range(allTracks.GetNbinsX()):</div>
-<div class="line"><a name="l00981"></a><span class="lineno">  981</span>&#160;          <span class="keywordflow">for</span> iy <span class="keywordflow">in</span> range(allTracks.GetNbinsY()):</div>
-<div class="line"><a name="l00982"></a><span class="lineno">  982</span>&#160;              <span class="keywordflow">for</span> l <span class="keywordflow">in</span> [<span class="stringliteral">&#39;0&#39;</span>,<span class="stringliteral">&#39;1&#39;</span>,<span class="stringliteral">&#39;00&#39;</span>,<span class="stringliteral">&#39;11&#39;</span>]:</div>
-<div class="line"><a name="l00983"></a><span class="lineno">  983</span>&#160;                 bc = allTracks.GetBinContent(ix,iy)</div>
-<div class="line"><a name="l00984"></a><span class="lineno">  984</span>&#160;                 <span class="keywordflow">if</span> bc &lt; 100:</div>
-<div class="line"><a name="l00985"></a><span class="lineno">  985</span>&#160;                    h[nc+<span class="stringliteral">&#39;Veto_ineff&#39;</span>+l].SetBinContent(ix,iy,-1)</div>
-<div class="line"><a name="l00986"></a><span class="lineno">  986</span>&#160;                    h[nc+<span class="stringliteral">&#39;Veto_ineff&#39;</span>+l].SetBinError(ix,iy,0)</div>
-<div class="line"><a name="l00987"></a><span class="lineno">  987</span>&#160;                 <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00988"></a><span class="lineno">  988</span>&#160;                    h[nc+<span class="stringliteral">&#39;Veto_ineff&#39;</span>+l].SetBinContent(ix,iy,<a class="code" href="namespacegeometry__config.html#a669b957607386750ed2077d789c9434e">max</a>(h[nc+<span class="stringliteral">&#39;XPosVeto_&#39;</span>+l].GetBinContent(ix+1,iy+1)/bc, 2.7/bc))</div>
-<div class="line"><a name="l00989"></a><span class="lineno">  989</span>&#160;                    h[nc+<span class="stringliteral">&#39;Veto_ineff&#39;</span>+l].SetBinError(ix,iy,h[nc+<span class="stringliteral">&#39;XPosVeto_&#39;</span>+l].GetBinError(ix+1,iy+1)/bc)</div>
-<div class="line"><a name="l00990"></a><span class="lineno">  990</span>&#160;       ut.bookCanvas(h,nc+<span class="stringliteral">&#39;VetoEff&#39;</span>,<span class="stringliteral">&#39;&#39;</span>,1800,1400,4,2)</div>
-<div class="line"><a name="l00991"></a><span class="lineno">  991</span>&#160;       tc = h[nc+<span class="stringliteral">&#39;VetoEff&#39;</span>].cd(1)</div>
-<div class="line"><a name="l00992"></a><span class="lineno">  992</span>&#160;       h[nc+<span class="stringliteral">&#39;PosVeto_0&#39;</span>].Draw(<span class="stringliteral">&#39;colz&#39;</span>)</div>
-<div class="line"><a name="l00993"></a><span class="lineno">  993</span>&#160;       tc = h[nc+<span class="stringliteral">&#39;VetoEff&#39;</span>].cd(2)</div>
-<div class="line"><a name="l00994"></a><span class="lineno">  994</span>&#160;       h[nc+<span class="stringliteral">&#39;PosVeto_1&#39;</span>].Draw(<span class="stringliteral">&#39;colz&#39;</span>)</div>
-<div class="line"><a name="l00995"></a><span class="lineno">  995</span>&#160;       tc = h[nc+<span class="stringliteral">&#39;VetoEff&#39;</span>].cd(3)</div>
-<div class="line"><a name="l00996"></a><span class="lineno">  996</span>&#160;       h[nc+<span class="stringliteral">&#39;PosVeto_11&#39;</span>].Draw(<span class="stringliteral">&#39;colz&#39;</span>)</div>
-<div class="line"><a name="l00997"></a><span class="lineno">  997</span>&#160;       tc = h[nc+<span class="stringliteral">&#39;VetoEff&#39;</span>].cd(5)</div>
-<div class="line"><a name="l00998"></a><span class="lineno">  998</span>&#160;       h[nc+<span class="stringliteral">&#39;XPosVeto_0&#39;</span>].Draw(<span class="stringliteral">&#39;colz&#39;</span>)</div>
-<div class="line"><a name="l00999"></a><span class="lineno">  999</span>&#160;       tc = h[nc+<span class="stringliteral">&#39;VetoEff&#39;</span>].cd(6)</div>
-<div class="line"><a name="l01000"></a><span class="lineno"> 1000</span>&#160;       h[nc+<span class="stringliteral">&#39;XPosVeto_1&#39;</span>].Draw(<span class="stringliteral">&#39;colz&#39;</span>)</div>
-<div class="line"><a name="l01001"></a><span class="lineno"> 1001</span>&#160;       tc = h[nc+<span class="stringliteral">&#39;VetoEff&#39;</span>].cd(7)</div>
-<div class="line"><a name="l01002"></a><span class="lineno"> 1002</span>&#160;       h[nc+<span class="stringliteral">&#39;XPosVeto_11&#39;</span>].Draw(<span class="stringliteral">&#39;colz&#39;</span>)</div>
-<div class="line"><a name="l01003"></a><span class="lineno"> 1003</span>&#160;       tc = h[nc+<span class="stringliteral">&#39;VetoEff&#39;</span>].cd(8)</div>
-<div class="line"><a name="l01004"></a><span class="lineno"> 1004</span>&#160;       h[nc+<span class="stringliteral">&#39;PosVeto_00&#39;</span>].Draw(<span class="stringliteral">&#39;colz&#39;</span>)</div>
-<div class="line"><a name="l01005"></a><span class="lineno"> 1005</span>&#160;       ut.bookCanvas(h,nc+<span class="stringliteral">&#39;VetoInEff&#39;</span>,<span class="stringliteral">&#39;&#39;</span>,1800,1400,2,2)</div>
-<div class="line"><a name="l01006"></a><span class="lineno"> 1006</span>&#160;       tc = h[nc+<span class="stringliteral">&#39;VetoInEff&#39;</span>].cd(1)</div>
-<div class="line"><a name="l01007"></a><span class="lineno"> 1007</span>&#160;       tc.SetLogz(1)</div>
-<div class="line"><a name="l01008"></a><span class="lineno"> 1008</span>&#160;       h[nc+<span class="stringliteral">&#39;Veto_ineff0&#39;</span>].Draw(<span class="stringliteral">&#39;colz&#39;</span>)</div>
-<div class="line"><a name="l01009"></a><span class="lineno"> 1009</span>&#160;       tc = h[nc+<span class="stringliteral">&#39;VetoInEff&#39;</span>].cd(2)</div>
-<div class="line"><a name="l01010"></a><span class="lineno"> 1010</span>&#160;       tc.SetLogz(1)</div>
-<div class="line"><a name="l01011"></a><span class="lineno"> 1011</span>&#160;       h[nc+<span class="stringliteral">&#39;Veto_ineff1&#39;</span>].Draw(<span class="stringliteral">&#39;colz&#39;</span>)</div>
-<div class="line"><a name="l01012"></a><span class="lineno"> 1012</span>&#160;       tc = h[nc+<span class="stringliteral">&#39;VetoInEff&#39;</span>].cd(3)</div>
-<div class="line"><a name="l01013"></a><span class="lineno"> 1013</span>&#160;       tc.SetLogz(1)</div>
-<div class="line"><a name="l01014"></a><span class="lineno"> 1014</span>&#160;       h[nc+<span class="stringliteral">&#39;Veto_ineff11&#39;</span>].Draw(<span class="stringliteral">&#39;colz&#39;</span>)</div>
-<div class="line"><a name="l01015"></a><span class="lineno"> 1015</span>&#160;       tc = h[nc+<span class="stringliteral">&#39;VetoInEff&#39;</span>].cd(4)</div>
-<div class="line"><a name="l01016"></a><span class="lineno"> 1016</span>&#160;       tc.SetLogz(1)</div>
-<div class="line"><a name="l01017"></a><span class="lineno"> 1017</span>&#160;       h[nc+<span class="stringliteral">&#39;Veto_ineff00&#39;</span>].Draw(<span class="stringliteral">&#39;colz&#39;</span>)</div>
-<div class="line"><a name="l01018"></a><span class="lineno"> 1018</span>&#160;<span class="comment"># make some printout</span></div>
-<div class="line"><a name="l01019"></a><span class="lineno"> 1019</span>&#160;       Ntot = h[nc+<span class="stringliteral">&#39;PosVeto_0&#39;</span>].Clone(<span class="stringliteral">&#39;Ntot&#39;</span>)</div>
-<div class="line"><a name="l01020"></a><span class="lineno"> 1020</span>&#160;       Ntot.Add(h[nc+<span class="stringliteral">&#39;XPosVeto_0&#39;</span>])</div>
-<div class="line"><a name="l01021"></a><span class="lineno"> 1021</span>&#160;       ineff0 =  h[nc+<span class="stringliteral">&#39;XPosVeto_0&#39;</span>].GetEntries()/(Ntot.GetEntries()+1E-20)</div>
-<div class="line"><a name="l01022"></a><span class="lineno"> 1022</span>&#160;       ineff1 = h[nc+<span class="stringliteral">&#39;XPosVeto_1&#39;</span>].GetEntries()/(Ntot.GetEntries()+1E-20)</div>
-<div class="line"><a name="l01023"></a><span class="lineno"> 1023</span>&#160;       ineffOR =  h[nc+<span class="stringliteral">&#39;XPosVeto_11&#39;</span>].GetEntries()/(Ntot.GetEntries()+1E-20)</div>
-<div class="line"><a name="l01024"></a><span class="lineno"> 1024</span>&#160;       ineffAND = 1.-h[nc+<span class="stringliteral">&#39;PosVeto_11&#39;</span>].GetEntries()/(Ntot.GetEntries()+1E-20)</div>
-<div class="line"><a name="l01025"></a><span class="lineno"> 1025</span>&#160;       region = [21,91,34,89]</div>
-<div class="line"><a name="l01026"></a><span class="lineno"> 1026</span>&#160;       xax = h[nc+<span class="stringliteral">&#39;PosVeto_0&#39;</span>].GetXaxis()</div>
-<div class="line"><a name="l01027"></a><span class="lineno"> 1027</span>&#160;       yax = h[nc+<span class="stringliteral">&#39;PosVeto_0&#39;</span>].GetYaxis()</div>
-<div class="line"><a name="l01028"></a><span class="lineno"> 1028</span>&#160;       Ntot_r = Ntot.Integral(region[0],region[1],region[2],region[3])+1E-20</div>
-<div class="line"><a name="l01029"></a><span class="lineno"> 1029</span>&#160;       ineff0_r = h[nc+<span class="stringliteral">&#39;XPosVeto_0&#39;</span>].Integral(region[0],region[1],region[2],region[3])/Ntot_r</div>
-<div class="line"><a name="l01030"></a><span class="lineno"> 1030</span>&#160;       ineff1_r = h[nc+<span class="stringliteral">&#39;XPosVeto_1&#39;</span>].Integral(region[0],region[1],region[2],region[3])/Ntot_r</div>
-<div class="line"><a name="l01031"></a><span class="lineno"> 1031</span>&#160;       ineffOR_r =  h[nc+<span class="stringliteral">&#39;XPosVeto_11&#39;</span>].Integral(region[0],region[1],region[2],region[3])/Ntot_r</div>
-<div class="line"><a name="l01032"></a><span class="lineno"> 1032</span>&#160;       ineffAND_r = 1.-h[nc+<span class="stringliteral">&#39;PosVeto_11&#39;</span>].Integral(region[0],region[1],region[2],region[3])/Ntot_r</div>
-<div class="line"><a name="l01033"></a><span class="lineno"> 1033</span>&#160;       print(<span class="stringliteral">&#39;noise cut = &#39;</span>,noiseCut, <span class="stringliteral">&#39;previous event:&#39;</span>,c)</div>
-<div class="line"><a name="l01034"></a><span class="lineno"> 1034</span>&#160;       print(<span class="stringliteral">&#39;global inefficiency veto0: %5.2F%% veto1: %5.2F%% veto0AND1: %5.2F%% veto0OR1: %5.2F%%&#39;</span>%(</div>
-<div class="line"><a name="l01035"></a><span class="lineno"> 1035</span>&#160;        ineff0*100,ineff1*100,ineffAND*100,ineffOR*100))</div>
-<div class="line"><a name="l01036"></a><span class="lineno"> 1036</span>&#160;       print(<span class="stringliteral">&#39;region %5.2F &lt; X &lt; %5.2F and %5.2F &lt; Y &lt; %5.2F &#39;</span>%(xax.GetBinCenter(region[0]),</div>
-<div class="line"><a name="l01037"></a><span class="lineno"> 1037</span>&#160;          xax.GetBinCenter(region[1]),yax.GetBinCenter(region[0]),yax.GetBinCenter(region[1])))</div>
-<div class="line"><a name="l01038"></a><span class="lineno"> 1038</span>&#160;       print(<span class="stringliteral">&#39;veto0: %5.2F%% veto1: %5.2F%% veto0AND1: %5.2F%% veto0OR1: %5.2F%%&#39;</span>%( ineff0_r*100,ineff1_r*100,ineffAND_r*100,ineffOR_r*100))</div>
-<div class="line"><a name="l01039"></a><span class="lineno"> 1039</span>&#160;<span class="comment">#</span></div>
-<div class="line"><a name="l01040"></a><span class="lineno"> 1040</span>&#160;     h[<span class="stringliteral">&#39;hitVeto_X&#39;</span>] = h[<span class="stringliteral">&#39;hitVeto_01&#39;</span>].ProjectionX(<span class="stringliteral">&#39;hitVeto_X&#39;</span>)</div>
-<div class="line"><a name="l01041"></a><span class="lineno"> 1041</span>&#160;     h[<span class="stringliteral">&#39;hitVeto_Y&#39;</span>] = h[<span class="stringliteral">&#39;hitVeto_01&#39;</span>].ProjectionY(<span class="stringliteral">&#39;hitVeto_Y&#39;</span>)</div>
-<div class="line"><a name="l01042"></a><span class="lineno"> 1042</span>&#160;     h[<span class="stringliteral">&#39;hitVeto_X&#39;</span>].SetStats(0)</div>
-<div class="line"><a name="l01043"></a><span class="lineno"> 1043</span>&#160;     h[<span class="stringliteral">&#39;hitVeto_X&#39;</span>].SetLineColor(ROOT.kGreen)</div>
-<div class="line"><a name="l01044"></a><span class="lineno"> 1044</span>&#160;     h[<span class="stringliteral">&#39;hitVeto_Y&#39;</span>].SetLineColor(ROOT.kBlue)</div>
-<div class="line"><a name="l01045"></a><span class="lineno"> 1045</span>&#160;     h[<span class="stringliteral">&#39;hitVeto_Y&#39;</span>].SetStats(0)</div>
-<div class="line"><a name="l01046"></a><span class="lineno"> 1046</span>&#160;     ut.bookCanvas(h,<span class="stringliteral">&#39;ThitVeto&#39;</span>,<span class="stringliteral">&#39;&#39;</span>,900,600,1,1)</div>
-<div class="line"><a name="l01047"></a><span class="lineno"> 1047</span>&#160;     tc = h[<span class="stringliteral">&#39;ThitVeto&#39;</span>].cd()</div>
-<div class="line"><a name="l01048"></a><span class="lineno"> 1048</span>&#160;     tc.SetLogy(1)</div>
-<div class="line"><a name="l01049"></a><span class="lineno"> 1049</span>&#160;     h[<span class="stringliteral">&#39;hitVeto_X&#39;</span>].Draw(<span class="stringliteral">&#39;hist&#39;</span>)</div>
-<div class="line"><a name="l01050"></a><span class="lineno"> 1050</span>&#160;     h[<span class="stringliteral">&#39;hitVeto_Y&#39;</span>].Draw(<span class="stringliteral">&#39;histsame&#39;</span>)</div>
-<div class="line"><a name="l01051"></a><span class="lineno"> 1051</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="Mufi__monitoring_8py_source.html#l00982">982</a> of file <a class="el" href="Mufi__monitoring_8py_source.html">Mufi_monitoring.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00982"></a><span class="lineno">  982</span>&#160;   <span class="keyword">def </span>Plot(self,beamOnly=False):</div>
+<div class="line"><a name="l00983"></a><span class="lineno">  983</span>&#160;     h = self.M.h</div>
+<div class="line"><a name="l00984"></a><span class="lineno">  984</span>&#160;     nVetoPlanes =self.M.systemAndPlanes[1]</div>
+<div class="line"><a name="l00985"></a><span class="lineno">  985</span>&#160;     <span class="keywordflow">if</span> nVetoPlanes &gt; 2 : hist_idx = [<span class="stringliteral">&#39;0&#39;</span>,<span class="stringliteral">&#39;1&#39;</span>,<span class="stringliteral">&#39;2&#39;</span>,<span class="stringliteral">&#39;000&#39;</span>,<span class="stringliteral">&#39;1110&#39;</span>]</div>
+<div class="line"><a name="l00986"></a><span class="lineno">  986</span>&#160;     <span class="keywordflow">else</span>: hist_idx = [<span class="stringliteral">&#39;0&#39;</span>,<span class="stringliteral">&#39;1&#39;</span>,<span class="stringliteral">&#39;000&#39;</span>,<span class="stringliteral">&#39;1110&#39;</span>]</div>
+<div class="line"><a name="l00987"></a><span class="lineno">  987</span>&#160;     <span class="keywordflow">if</span> beamOnly: b=<span class="stringliteral">&#39;beam&#39;</span></div>
+<div class="line"><a name="l00988"></a><span class="lineno">  988</span>&#160;     <span class="keywordflow">else</span>: b=<span class="stringliteral">&#39;&#39;</span></div>
+<div class="line"><a name="l00989"></a><span class="lineno">  989</span>&#160;     <span class="keywordflow">for</span> c <span class="keywordflow">in</span> [<span class="stringliteral">&#39;&#39;</span>,<span class="stringliteral">&#39;NoPrev&#39;</span>]:</div>
+<div class="line"><a name="l00990"></a><span class="lineno">  990</span>&#160;      allTracks = h[<span class="stringliteral">&#39;T&#39;</span>+c+<span class="stringliteral">&#39;1PosVeto_0&#39;</span>].Clone(<span class="stringliteral">&#39;tmp&#39;</span>)</div>
+<div class="line"><a name="l00991"></a><span class="lineno">  991</span>&#160;      allTracks.Add(h[<span class="stringliteral">&#39;T&#39;</span>+c+<span class="stringliteral">&#39;1XPosVeto_0&#39;</span>])</div>
+<div class="line"><a name="l00992"></a><span class="lineno">  992</span>&#160;      <span class="keywordflow">for</span> noiseCut <span class="keywordflow">in</span> self.noiseCuts:</div>
+<div class="line"><a name="l00993"></a><span class="lineno">  993</span>&#160;       nc = <span class="stringliteral">&#39;T&#39;</span>+c+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(noiseCut)+b</div>
+<div class="line"><a name="l00994"></a><span class="lineno">  994</span>&#160;       h[nc+<span class="stringliteral">&#39;XPosVeto_000&#39;</span>]=allTracks.Clone(nc+<span class="stringliteral">&#39;XPosVeto_000&#39;</span>)</div>
+<div class="line"><a name="l00995"></a><span class="lineno">  995</span>&#160;       h[nc+<span class="stringliteral">&#39;XPosVeto_000&#39;</span>].Add(h[nc+<span class="stringliteral">&#39;PosVeto_000&#39;</span>],-1)</div>
+<div class="line"><a name="l00996"></a><span class="lineno">  996</span>&#160;       <span class="keywordflow">for</span> l <span class="keywordflow">in</span> hist_idx:</div>
+<div class="line"><a name="l00997"></a><span class="lineno">  997</span>&#160;           h[nc+<span class="stringliteral">&#39;Veto_ineff&#39;</span>+l] = h[nc+<span class="stringliteral">&#39;PosVeto_&#39;</span>+l].Clone(nc+<span class="stringliteral">&#39;Veto_ineff&#39;</span>+l)</div>
+<div class="line"><a name="l00998"></a><span class="lineno">  998</span>&#160;           <span class="keywordflow">if</span> l != <span class="stringliteral">&#39;2&#39;</span>: h[nc+<span class="stringliteral">&#39;Veto_ineff&#39;</span>+l].SetTitle(<span class="stringliteral">&#39;Veto inefficiency &#39;</span>+l+<span class="stringliteral">&#39; noise cut=&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(noiseCut))</div>
+<div class="line"><a name="l00999"></a><span class="lineno">  999</span>&#160;           <span class="keywordflow">else</span>: h[nc+<span class="stringliteral">&#39;Veto_ineff&#39;</span>+l].SetTitle(<span class="stringliteral">&#39;Veto inefficiency &#39;</span>+l+<span class="stringliteral">&#39; noise cut=&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(<a class="code" href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">int</a>(noiseCut/2+0.5)))</div>
+<div class="line"><a name="l01000"></a><span class="lineno"> 1000</span>&#160;           h[nc+<span class="stringliteral">&#39;Veto_ineff&#39;</span>+l].SetMinimum(0)</div>
+<div class="line"><a name="l01001"></a><span class="lineno"> 1001</span>&#160;           h[nc+<span class="stringliteral">&#39;Veto_ineff&#39;</span>+l].SetMaximum(1)</div>
+<div class="line"><a name="l01002"></a><span class="lineno"> 1002</span>&#160;       <span class="keywordflow">for</span> ix <span class="keywordflow">in</span> range(allTracks.GetNbinsX()):</div>
+<div class="line"><a name="l01003"></a><span class="lineno"> 1003</span>&#160;          <span class="keywordflow">for</span> iy <span class="keywordflow">in</span> range(allTracks.GetNbinsY()):</div>
+<div class="line"><a name="l01004"></a><span class="lineno"> 1004</span>&#160;              <span class="keywordflow">for</span> l <span class="keywordflow">in</span> hist_idx:</div>
+<div class="line"><a name="l01005"></a><span class="lineno"> 1005</span>&#160;                 bc = allTracks.GetBinContent(ix,iy)</div>
+<div class="line"><a name="l01006"></a><span class="lineno"> 1006</span>&#160;                 <span class="keywordflow">if</span> bc &lt; 100:</div>
+<div class="line"><a name="l01007"></a><span class="lineno"> 1007</span>&#160;                    h[nc+<span class="stringliteral">&#39;Veto_ineff&#39;</span>+l].SetBinContent(ix,iy,-1)</div>
+<div class="line"><a name="l01008"></a><span class="lineno"> 1008</span>&#160;                    h[nc+<span class="stringliteral">&#39;Veto_ineff&#39;</span>+l].SetBinError(ix,iy,0)</div>
+<div class="line"><a name="l01009"></a><span class="lineno"> 1009</span>&#160;                 <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l01010"></a><span class="lineno"> 1010</span>&#160;                    h[nc+<span class="stringliteral">&#39;Veto_ineff&#39;</span>+l].SetBinContent(ix,iy,<a class="code" href="namespacegeometry__config.html#a669b957607386750ed2077d789c9434e">max</a>(h[nc+<span class="stringliteral">&#39;XPosVeto_&#39;</span>+l].GetBinContent(ix+1,iy+1)/bc, 2.7/bc))</div>
+<div class="line"><a name="l01011"></a><span class="lineno"> 1011</span>&#160;                    h[nc+<span class="stringliteral">&#39;Veto_ineff&#39;</span>+l].SetBinError(ix,iy,h[nc+<span class="stringliteral">&#39;XPosVeto_&#39;</span>+l].GetBinError(ix+1,iy+1)/bc)</div>
+<div class="line"><a name="l01012"></a><span class="lineno"> 1012</span>&#160;       ut.bookCanvas(h,nc+<span class="stringliteral">&#39;VetoEff&#39;</span>,<span class="stringliteral">&#39;&#39;</span>,1400,1800, nVetoPlanes, 2*nVetoPlanes)</div>
+<div class="line"><a name="l01013"></a><span class="lineno"> 1013</span>&#160;       <span class="keywordflow">for</span> p <span class="keywordflow">in</span> range(2*nVetoPlanes**2):</div>
+<div class="line"><a name="l01014"></a><span class="lineno"> 1014</span>&#160;         tc = h[nc+<span class="stringliteral">&#39;VetoEff&#39;</span>].cd(p+1)</div>
+<div class="line"><a name="l01015"></a><span class="lineno"> 1015</span>&#160;         <span class="keywordflow">if</span> p &lt; nVetoPlanes:</div>
+<div class="line"><a name="l01016"></a><span class="lineno"> 1016</span>&#160;           h[nc+<span class="stringliteral">&#39;PosVeto_&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(p%nVetoPlanes)].Draw(<span class="stringliteral">&#39;colz&#39;</span>)</div>
+<div class="line"><a name="l01017"></a><span class="lineno"> 1017</span>&#160;         <span class="keywordflow">if</span> p <span class="keywordflow">in</span> range(nVetoPlanes, 2*nVetoPlanes):</div>
+<div class="line"><a name="l01018"></a><span class="lineno"> 1018</span>&#160;           h[nc+<span class="stringliteral">&#39;PosVeto_111&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(p%nVetoPlanes)].Draw(<span class="stringliteral">&#39;colz&#39;</span>)</div>
+<div class="line"><a name="l01019"></a><span class="lineno"> 1019</span>&#160;         <span class="keywordflow">if</span> p <span class="keywordflow">in</span> range(2*nVetoPlanes, 3*nVetoPlanes):</div>
+<div class="line"><a name="l01020"></a><span class="lineno"> 1020</span>&#160;           h[nc+<span class="stringliteral">&#39;XPosVeto_&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(p%nVetoPlanes)].Draw(<span class="stringliteral">&#39;colz&#39;</span>)</div>
+<div class="line"><a name="l01021"></a><span class="lineno"> 1021</span>&#160;         <span class="keywordflow">if</span> p <span class="keywordflow">in</span> range(3*nVetoPlanes, 4*nVetoPlanes):</div>
+<div class="line"><a name="l01022"></a><span class="lineno"> 1022</span>&#160;           h[nc+<span class="stringliteral">&#39;XPosVeto_111&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(p%nVetoPlanes)].Draw(<span class="stringliteral">&#39;colz&#39;</span>)</div>
+<div class="line"><a name="l01023"></a><span class="lineno"> 1023</span>&#160;       tc = h[nc+<span class="stringliteral">&#39;VetoEff&#39;</span>].cd(4*nVetoPlanes+1)</div>
+<div class="line"><a name="l01024"></a><span class="lineno"> 1024</span>&#160;       h[nc+<span class="stringliteral">&#39;PosVeto_000&#39;</span>].Draw(<span class="stringliteral">&#39;colz&#39;</span>)</div>
+<div class="line"><a name="l01025"></a><span class="lineno"> 1025</span>&#160; </div>
+<div class="line"><a name="l01026"></a><span class="lineno"> 1026</span>&#160;       ut.bookCanvas(h,nc+<span class="stringliteral">&#39;VetoInEff&#39;</span>,<span class="stringliteral">&#39;&#39;</span>,1800,1400,nVetoPlanes,2)</div>
+<div class="line"><a name="l01027"></a><span class="lineno"> 1027</span>&#160;       <span class="keywordflow">for</span> p <span class="keywordflow">in</span> range(nVetoPlanes): </div>
+<div class="line"><a name="l01028"></a><span class="lineno"> 1028</span>&#160;         tc = h[nc+<span class="stringliteral">&#39;VetoInEff&#39;</span>].cd(p+1)</div>
+<div class="line"><a name="l01029"></a><span class="lineno"> 1029</span>&#160;         tc.SetLogz(1)</div>
+<div class="line"><a name="l01030"></a><span class="lineno"> 1030</span>&#160;         h[nc+<span class="stringliteral">&#39;Veto_ineff&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(p)].Draw(<span class="stringliteral">&#39;colz&#39;</span>)</div>
+<div class="line"><a name="l01031"></a><span class="lineno"> 1031</span>&#160;       tc = h[nc+<span class="stringliteral">&#39;VetoInEff&#39;</span>].cd(nVetoPlanes+1)</div>
+<div class="line"><a name="l01032"></a><span class="lineno"> 1032</span>&#160;       tc.SetLogz(1)</div>
+<div class="line"><a name="l01033"></a><span class="lineno"> 1033</span>&#160;       h[nc+<span class="stringliteral">&#39;Veto_ineff1110&#39;</span>].Draw(<span class="stringliteral">&#39;colz&#39;</span>)</div>
+<div class="line"><a name="l01034"></a><span class="lineno"> 1034</span>&#160;       tc = h[nc+<span class="stringliteral">&#39;VetoInEff&#39;</span>].cd(nVetoPlanes+2)</div>
+<div class="line"><a name="l01035"></a><span class="lineno"> 1035</span>&#160;       tc.SetLogz(1)</div>
+<div class="line"><a name="l01036"></a><span class="lineno"> 1036</span>&#160;       h[nc+<span class="stringliteral">&#39;Veto_ineff000&#39;</span>].Draw(<span class="stringliteral">&#39;colz&#39;</span>)</div>
+<div class="line"><a name="l01037"></a><span class="lineno"> 1037</span>&#160;<span class="comment"># make some printout</span></div>
+<div class="line"><a name="l01038"></a><span class="lineno"> 1038</span>&#160;       Ntot = h[nc+<span class="stringliteral">&#39;PosVeto_0&#39;</span>].Clone(<span class="stringliteral">&#39;Ntot&#39;</span>)</div>
+<div class="line"><a name="l01039"></a><span class="lineno"> 1039</span>&#160;       Ntot.Add(h[nc+<span class="stringliteral">&#39;XPosVeto_0&#39;</span>])</div>
+<div class="line"><a name="l01040"></a><span class="lineno"> 1040</span>&#160;       ineff0 =  h[nc+<span class="stringliteral">&#39;XPosVeto_0&#39;</span>].GetEntries()/(Ntot.GetEntries()+1E-20)</div>
+<div class="line"><a name="l01041"></a><span class="lineno"> 1041</span>&#160;       ineff1 = h[nc+<span class="stringliteral">&#39;XPosVeto_1&#39;</span>].GetEntries()/(Ntot.GetEntries()+1E-20)</div>
+<div class="line"><a name="l01042"></a><span class="lineno"> 1042</span>&#160;       ineff2, ineffAND_old, ineffOR_old = 0, 0, 0</div>
+<div class="line"><a name="l01043"></a><span class="lineno"> 1043</span>&#160;       <span class="keywordflow">if</span> nVetoPlanes &gt; 2:</div>
+<div class="line"><a name="l01044"></a><span class="lineno"> 1044</span>&#160;         ineff2 = h[nc+<span class="stringliteral">&#39;XPosVeto_2&#39;</span>].GetEntries()/(Ntot.GetEntries()+1E-20)</div>
+<div class="line"><a name="l01045"></a><span class="lineno"> 1045</span>&#160;         ineffOR_old =  h[nc+<span class="stringliteral">&#39;XPosVeto_11&#39;</span>].GetEntries()/(Ntot.GetEntries()+1E-20)</div>
+<div class="line"><a name="l01046"></a><span class="lineno"> 1046</span>&#160;         ineffAND_old = 1.-h[nc+<span class="stringliteral">&#39;PosVeto_11&#39;</span>].GetEntries()/(Ntot.GetEntries()+1E-20)</div>
+<div class="line"><a name="l01047"></a><span class="lineno"> 1047</span>&#160;       ineffOR =  h[nc+<span class="stringliteral">&#39;XPosVeto_1110&#39;</span>].GetEntries()/(Ntot.GetEntries()+1E-20)</div>
+<div class="line"><a name="l01048"></a><span class="lineno"> 1048</span>&#160;       ineffAND = 1.-h[nc+<span class="stringliteral">&#39;PosVeto_1110&#39;</span>].GetEntries()/(Ntot.GetEntries()+1E-20)</div>
+<div class="line"><a name="l01049"></a><span class="lineno"> 1049</span>&#160;       region = [21,91,34,89]</div>
+<div class="line"><a name="l01050"></a><span class="lineno"> 1050</span>&#160;       xax = h[nc+<span class="stringliteral">&#39;PosVeto_0&#39;</span>].GetXaxis()</div>
+<div class="line"><a name="l01051"></a><span class="lineno"> 1051</span>&#160;       yax = h[nc+<span class="stringliteral">&#39;PosVeto_0&#39;</span>].GetYaxis()</div>
+<div class="line"><a name="l01052"></a><span class="lineno"> 1052</span>&#160;       Ntot_r = Ntot.Integral(region[0],region[1],region[2],region[3])+1E-20</div>
+<div class="line"><a name="l01053"></a><span class="lineno"> 1053</span>&#160;       ineff0_r = h[nc+<span class="stringliteral">&#39;XPosVeto_0&#39;</span>].Integral(region[0],region[1],region[2],region[3])/Ntot_r</div>
+<div class="line"><a name="l01054"></a><span class="lineno"> 1054</span>&#160;       ineff1_r = h[nc+<span class="stringliteral">&#39;XPosVeto_1&#39;</span>].Integral(region[0],region[1],region[2],region[3])/Ntot_r</div>
+<div class="line"><a name="l01055"></a><span class="lineno"> 1055</span>&#160;       ineff2_r, ineffAND_old_r, ineffOR_old_r = 0, 0, 0</div>
+<div class="line"><a name="l01056"></a><span class="lineno"> 1056</span>&#160;       <span class="keywordflow">if</span> nVetoPlanes &gt; 2:</div>
+<div class="line"><a name="l01057"></a><span class="lineno"> 1057</span>&#160;         ineff2_r = h[nc+<span class="stringliteral">&#39;XPosVeto_2&#39;</span>].Integral(region[0],region[1],region[2],region[3])/Ntot_r</div>
+<div class="line"><a name="l01058"></a><span class="lineno"> 1058</span>&#160;         ineffOR_r_old =  h[nc+<span class="stringliteral">&#39;XPosVeto_11&#39;</span>].Integral(region[0],region[1],region[2],region[3])/Ntot_r</div>
+<div class="line"><a name="l01059"></a><span class="lineno"> 1059</span>&#160;         ineffAND_r_old = 1.-h[nc+<span class="stringliteral">&#39;PosVeto_11&#39;</span>].Integral(region[0],region[1],region[2],region[3])/Ntot_r</div>
+<div class="line"><a name="l01060"></a><span class="lineno"> 1060</span>&#160;       ineffOR_r =  h[nc+<span class="stringliteral">&#39;XPosVeto_1110&#39;</span>].Integral(region[0],region[1],region[2],region[3])/Ntot_r</div>
+<div class="line"><a name="l01061"></a><span class="lineno"> 1061</span>&#160;       ineffAND_r = 1.-h[nc+<span class="stringliteral">&#39;PosVeto_1110&#39;</span>].Integral(region[0],region[1],region[2],region[3])/Ntot_r</div>
+<div class="line"><a name="l01062"></a><span class="lineno"> 1062</span>&#160;       print(<span class="stringliteral">&#39;noise cut = &#39;</span>,noiseCut, <span class="stringliteral">&#39;previous event:&#39;</span>,c)</div>
+<div class="line"><a name="l01063"></a><span class="lineno"> 1063</span>&#160;       print(<span class="stringliteral">&#39;global inefficiency veto0: %5.2F%% veto1: %5.2F%% veto2: %5.2F%%&#39;</span></div>
+<div class="line"><a name="l01064"></a><span class="lineno"> 1064</span>&#160;                                  %(ineff0*100,ineff1*100,ineff2*100),</div>
+<div class="line"><a name="l01065"></a><span class="lineno"> 1065</span>&#160;             <span class="stringliteral">&#39;vetoAND: %5.2F%% vetoOR: %5.2F%% veto0AND1: %5.2F%% veto0OR1: %5.2F%%&#39;</span></div>
+<div class="line"><a name="l01066"></a><span class="lineno"> 1066</span>&#160;                                  %(ineffAND*100,ineffOR*100,ineffAND_old*100,ineffOR_old*100))</div>
+<div class="line"><a name="l01067"></a><span class="lineno"> 1067</span>&#160;       print(<span class="stringliteral">&#39;region %5.2F &lt; X &lt; %5.2F and %5.2F &lt; Y &lt; %5.2F &#39;</span>%(xax.GetBinCenter(region[0]),</div>
+<div class="line"><a name="l01068"></a><span class="lineno"> 1068</span>&#160;          xax.GetBinCenter(region[1]),yax.GetBinCenter(region[0]),yax.GetBinCenter(region[1])))</div>
+<div class="line"><a name="l01069"></a><span class="lineno"> 1069</span>&#160;       print(<span class="stringliteral">&#39;veto0: %5.2F%% veto1: %5.2F%% veto2: %5.2F%%&#39;</span></div>
+<div class="line"><a name="l01070"></a><span class="lineno"> 1070</span>&#160;              %(ineff0_r*100,ineff1_r*100,ineff2_r*100),</div>
+<div class="line"><a name="l01071"></a><span class="lineno"> 1071</span>&#160;             <span class="stringliteral">&#39;vetoAND: %5.2F%% vetoOR: %5.2F%% veto0AND1: %5.2F%% veto0OR1: %5.2F%%&#39;</span></div>
+<div class="line"><a name="l01072"></a><span class="lineno"> 1072</span>&#160;             %(ineffAND_r*100,ineffOR_r*100,ineffAND_old*100,ineffOR_old*100))</div>
+<div class="line"><a name="l01073"></a><span class="lineno"> 1073</span>&#160;<span class="comment">#</span></div>
+<div class="line"><a name="l01074"></a><span class="lineno"> 1074</span>&#160;     <span class="keywordflow">for</span> p <span class="keywordflow">in</span> range(1,nVetoPlanes):</div>
+<div class="line"><a name="l01075"></a><span class="lineno"> 1075</span>&#160;       <span class="keywordflow">if</span> p == 1:</div>
+<div class="line"><a name="l01076"></a><span class="lineno"> 1076</span>&#160;         h[<span class="stringliteral">&#39;hitVeto_X&#39;</span>] = h[<span class="stringliteral">&#39;hitVeto_0&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(p)].ProjectionX(<span class="stringliteral">&#39;hitVeto_X&#39;</span>)</div>
+<div class="line"><a name="l01077"></a><span class="lineno"> 1077</span>&#160;         h[<span class="stringliteral">&#39;hitVeto_X&#39;</span>].SetStats(0)</div>
+<div class="line"><a name="l01078"></a><span class="lineno"> 1078</span>&#160;         h[<span class="stringliteral">&#39;hitVeto_X&#39;</span>].SetLineColor(ROOT.kOrange)</div>
+<div class="line"><a name="l01079"></a><span class="lineno"> 1079</span>&#160;         h[<span class="stringliteral">&#39;hitVeto_X&#39;</span>].SetLineWidth(3)</div>
+<div class="line"><a name="l01080"></a><span class="lineno"> 1080</span>&#160;       h[<span class="stringliteral">&#39;hitVeto_Y&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(p)] = h[<span class="stringliteral">&#39;hitVeto_0&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(p)].ProjectionY(<span class="stringliteral">&#39;hitVeto_Y&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(p))</div>
+<div class="line"><a name="l01081"></a><span class="lineno"> 1081</span>&#160;       h[<span class="stringliteral">&#39;hitVeto_Y&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(p)].SetLineColor(ROOT.kBlue-2*p)</div>
+<div class="line"><a name="l01082"></a><span class="lineno"> 1082</span>&#160;       h[<span class="stringliteral">&#39;hitVeto_Y&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(p)].SetStats(0)    </div>
+<div class="line"><a name="l01083"></a><span class="lineno"> 1083</span>&#160;     ut.bookCanvas(h,<span class="stringliteral">&#39;ThitVeto&#39;</span>,<span class="stringliteral">&#39;&#39;</span>,900,600,1,1)</div>
+<div class="line"><a name="l01084"></a><span class="lineno"> 1084</span>&#160;     tc = h[<span class="stringliteral">&#39;ThitVeto&#39;</span>].cd()</div>
+<div class="line"><a name="l01085"></a><span class="lineno"> 1085</span>&#160;     tc.SetLogy(1)</div>
+<div class="line"><a name="l01086"></a><span class="lineno"> 1086</span>&#160;     h[<span class="stringliteral">&#39;hitVeto_X&#39;</span>].Draw(<span class="stringliteral">&#39;hist&#39;</span>)</div>
+<div class="line"><a name="l01087"></a><span class="lineno"> 1087</span>&#160;     <span class="keywordflow">for</span> p <span class="keywordflow">in</span> range(1,nVetoPlanes): h[<span class="stringliteral">&#39;hitVeto_Y&#39;</span>+<a class="code" href="namespaceadd__noise__to__field.html#ac8c461fc99cff345995bf60fcdfefa01">str</a>(p)].Draw(<span class="stringliteral">&#39;histsame&#39;</span>)</div>
+<div class="line"><a name="l01088"></a><span class="lineno"> 1088</span>&#160; </div>
+<div class="line"><a name="l01089"></a><span class="lineno"> 1089</span>&#160;     <span class="comment">#save the Veto inefficiency plots to file</span></div>
+<div class="line"><a name="l01090"></a><span class="lineno"> 1090</span>&#160;     self.M.presenterFile.mkdir(<span class="stringliteral">&#39;mufilter/VetoIneff&#39;</span>)</div>
+<div class="line"><a name="l01091"></a><span class="lineno"> 1091</span>&#160;     <span class="keywordflow">for</span> item <span class="keywordflow">in</span> h:</div>
+<div class="line"><a name="l01092"></a><span class="lineno"> 1092</span>&#160;       <span class="keywordflow">if</span> isinstance(h[item], ROOT.TCanvas) <span class="keywordflow">and</span> \</div>
+<div class="line"><a name="l01093"></a><span class="lineno"> 1093</span>&#160;          (item.find(<span class="stringliteral">&#39;Eff&#39;</span>)&gt;0 <span class="keywordflow">or</span> item.find(<span class="stringliteral">&#39;ThitVeto&#39;</span>)&gt;0):</div>
+<div class="line"><a name="l01094"></a><span class="lineno"> 1094</span>&#160;              self.M.<a class="code" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#aae411ccf90592c600dcb31946faabc91">myPrint</a>(h[item],item,subdir=<span class="stringliteral">&#39;mufilter/VetoIneff&#39;</span>)</div>
+<div class="ttc" id="anamespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring_html_aae411ccf90592c600dcb31946faabc91"><div class="ttname"><a href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#aae411ccf90592c600dcb31946faabc91">conditionsDatabase.demo.drifttubeMonitoring.myPrint</a></div><div class="ttdeci">def myPrint(obj, aname)</div><div class="ttdef"><b>Definition:</b> <a href="drifttubeMonitoring_8py_source.html#l07449">drifttubeMonitoring.py:7449</a></div></div>
 <div class="ttc" id="anamespacegeometry__config_html_a669b957607386750ed2077d789c9434e"><div class="ttname"><a href="namespacegeometry__config.html#a669b957607386750ed2077d789c9434e">geometry_config.max</a></div><div class="ttdeci">max</div><div class="ttdef"><b>Definition:</b> <a href="geometry__config_8py_source.html#l00178">geometry_config.py:178</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -682,7 +722,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Mufi__monitoring_8py_source.html#l00668">668</a> of file <a class="el" href="Mufi__monitoring_8py_source.html">Mufi_monitoring.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Mufi__monitoring_8py_source.html#l00673">673</a> of file <a class="el" href="Mufi__monitoring_8py_source.html">Mufi_monitoring.py</a>.</p>
 
 </div>
 </div>
@@ -698,7 +738,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Mufi__monitoring_8py_source.html#l00667">667</a> of file <a class="el" href="Mufi__monitoring_8py_source.html">Mufi_monitoring.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Mufi__monitoring_8py_source.html#l00672">672</a> of file <a class="el" href="Mufi__monitoring_8py_source.html">Mufi_monitoring.py</a>.</p>
 
 </div>
 </div>
@@ -714,7 +754,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Mufi__monitoring_8py_source.html#l00671">671</a> of file <a class="el" href="Mufi__monitoring_8py_source.html">Mufi_monitoring.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Mufi__monitoring_8py_source.html#l00676">676</a> of file <a class="el" href="Mufi__monitoring_8py_source.html">Mufi_monitoring.py</a>.</p>
 
 </div>
 </div>
@@ -730,7 +770,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Mufi__monitoring_8py_source.html#l00669">669</a> of file <a class="el" href="Mufi__monitoring_8py_source.html">Mufi_monitoring.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Mufi__monitoring_8py_source.html#l00674">674</a> of file <a class="el" href="Mufi__monitoring_8py_source.html">Mufi_monitoring.py</a>.</p>
 
 </div>
 </div>
@@ -746,7 +786,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Mufi__monitoring_8py_source.html#l00679">679</a> of file <a class="el" href="Mufi__monitoring_8py_source.html">Mufi_monitoring.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Mufi__monitoring_8py_source.html#l00684">684</a> of file <a class="el" href="Mufi__monitoring_8py_source.html">Mufi_monitoring.py</a>.</p>
 
 </div>
 </div>
@@ -762,7 +802,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Mufi__monitoring_8py_source.html#l00677">677</a> of file <a class="el" href="Mufi__monitoring_8py_source.html">Mufi_monitoring.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Mufi__monitoring_8py_source.html#l00682">682</a> of file <a class="el" href="Mufi__monitoring_8py_source.html">Mufi_monitoring.py</a>.</p>
 
 </div>
 </div>
@@ -778,7 +818,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Mufi__monitoring_8py_source.html#l00674">674</a> of file <a class="el" href="Mufi__monitoring_8py_source.html">Mufi_monitoring.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Mufi__monitoring_8py_source.html#l00679">679</a> of file <a class="el" href="Mufi__monitoring_8py_source.html">Mufi_monitoring.py</a>.</p>
 
 </div>
 </div>
@@ -794,7 +834,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Mufi__monitoring_8py_source.html#l00680">680</a> of file <a class="el" href="Mufi__monitoring_8py_source.html">Mufi_monitoring.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Mufi__monitoring_8py_source.html#l00685">685</a> of file <a class="el" href="Mufi__monitoring_8py_source.html">Mufi_monitoring.py</a>.</p>
 
 </div>
 </div>
