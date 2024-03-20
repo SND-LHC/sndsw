@@ -137,7 +137,7 @@ else:
 # works only for runs on EOS
    elif not options.server.find('eos')<0:
       if options.path.find('2023')>0:
-          rawDataPath = "/eos/experiment/sndlhc/raw_data/physics/2023_tmp/"
+          rawDataPath = "/eos/experiment/sndlhc/raw_data/physics/2023/"
       elif options.path.find('2022')>0:
           rawDataPath = "/eos/experiment/sndlhc/raw_data/physics/2022/"
       else:
