@@ -319,5 +319,5 @@ universe_mean_density = 1.e-25*g/cm3
 speedOfLight = 299792458*m/s
 # specific SNDLHC constants
 snd_freq   = 160.316*megahertz # sndlhc clock
-snd_TDC2ns = (1E9/freq)*ns
+snd_TDC2ns = (1E9/snd_freq)*ns
 
