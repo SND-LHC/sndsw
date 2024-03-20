@@ -38,6 +38,7 @@ class reversChannelMapping:
       for s in range(1,3):
         for o in ['Left','Right']: 
            self.offMap['Veto_'+str(s)+o] =[10000 + (s-1)*1000+ 0,8,2]    # first channel, nSiPMs, nSides, from bottom to top
+      self.offMap['Veto_3Vert'] = [10000+2*1000+0,8,1] # third vertical Veto plane
       for s in range(1,6):
           for o in ['Left','Right']: 
             self.offMap['US_'+str(s)+o] =[20000 + (s-1)*1000+ 9,-8,2]     # from top to bottom
@@ -81,7 +82,8 @@ class reversChannelMapping:
       bar_number   = fDetectorID%1000
       nSiPMs = aHit.GetnSiPMs()
       nSides = aHit.GetnSides()
-      if subsystem==3 and bar_number>59: side="Vert"
+      if (subsystem==3 and bar_number>59) or (subsystem==1 and plane==2):
+        side="Vert"
       elif channel <  nSiPMs: side = 'Left'
       else: side = 'Right'
       tag = self.sdict[subsystem]+'_'+str(plane+1)+side
