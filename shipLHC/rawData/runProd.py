@@ -131,7 +131,7 @@ class prodManager():
                print('run not complete',r)
                continue  # not all files converted.
            print('executing DQ for run %i'%(r))
-           geoFile =  "../geofile_sndlhc_TI18_V1_2023.root"
+           geoFile =  "../geofile_sndlhc_TI18_V0_2024.root"
            os.system(monitorCommand.replace('XXXX',str(r)).replace('GGGG',geoFile)+" &")
            while self.count_python_processes('run_Monitoring')>(ncpus-2) or psutil.virtual_memory()[2]>90 : time.sleep(1800)
 
@@ -149,7 +149,8 @@ class prodManager():
            elif r  < 4855:   geoFile =  "../geofile_sndlhc_TI18_V5_14August2022.root"
            elif r  < 5172:  geoFile =  "../geofile_sndlhc_TI18_V6_08October2022.root"
            elif r  < 5485: geoFile =  "../geofile_sndlhc_TI18_V7_22November2022.root"
-           else: geoFile =  "../geofile_sndlhc_TI18_V1_2023.root"
+           elif r  < 7357: geoFile =  "../geofile_sndlhc_TI18_V1_2023.root"
+           else: geoFile =  "../geofile_sndlhc_TI18_V0_2024.root"
            os.system(monitorCommand.replace('XXXX',str(r)).replace('GGGG',geoFile)+" &")
            time.sleep(20)
            while self.count_python_processes('run_Monitoring')>(ncpus-5) or psutil.virtual_memory()[2]>90 : time.sleep(300)
@@ -391,8 +392,8 @@ if __name__ == '__main__':
        if options.server.find('eospublic')<0:
           path = "/mnt/raid1/data_online/" 
        else:
-          path = "/eos/experiment/sndlhc/raw_data/physics/2023_tmp/"
-          pathConv = "/eos/experiment/sndlhc/convertedData/physics/2023/"
+          path = "/eos/experiment/sndlhc/raw_data/physics/2024/ecc_run_06/"
+          pathConv = "/eos/experiment/sndlhc/convertedData/physics/2024/ecc_run_06/"
        
     elif options.prod == "reproc2022":
        path = "/eos/experiment/sndlhc/raw_data/physics/2022/"

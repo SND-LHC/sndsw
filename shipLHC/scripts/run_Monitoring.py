@@ -82,6 +82,7 @@ if not options.geoFile:
    if options.path.find('TI18')<0:
      if options.path.find('2022')>0 : options.geoFile =  "geofile_sndlhc_TI18_V0_2022.root"
      if options.path.find('2023')>0 : options.geoFile =  "geofile_sndlhc_TI18_V1_2023.root"
+     if options.path.find('2024')>0 : options.geoFile =  "geofile_sndlhc_TI18_V0_2024.root"
    else:
      if options.runNumber < 4575:
            options.geoFile =  "geofile_sndlhc_TI18_V3_08August2022.root"
@@ -136,7 +137,10 @@ else:
    if options.rawDataPath: rawDataPath = options.rawDataPath
 # works only for runs on EOS
    elif not options.server.find('eos')<0:
-      if options.path.find('2023')>0:
+      if options.path.find('2024')>0:
+          em_run = options.path[len(options.path) - 3:]
+          rawDataPath = "/eos/experiment/sndlhc/raw_data/physics/2024/ecc_run_"+em_run
+      elif options.path.find('2023')>0:
           rawDataPath = "/eos/experiment/sndlhc/raw_data/physics/2023/"
       elif options.path.find('2022')>0:
           rawDataPath = "/eos/experiment/sndlhc/raw_data/physics/2022/"
