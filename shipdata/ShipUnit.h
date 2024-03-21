@@ -324,7 +324,12 @@ namespace ShipUnit
     //
     static const Double_t universe_mean_density = 1.e-25*g/cm3;
     
+    // speed of light in vacuum
+    static const Double_t speedOfLight = 299792458*m/s;
     
+    // specific SNDLHC constants
+    static const Double_t snd_freq = 160.316*megahertz; // sndlhc clock
+    static const Double_t snd_TDC2ns = (1E9/snd_freq)*ns;
     };
     
 #endif /* defined(____ShipUnit__) */
