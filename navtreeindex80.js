@@ -1,5 +1,6 @@
 var NAVTREEINDEX80 =
 {
+"namespacesndLHC__geom__config.html#ace8ca52e7f7872e7341d8f3bee02b4b5":[11,0,168,3],
 "namespacesndLHC__geom__config.html#aceadfcb57ac32a78baf767f9eeda658c":[11,0,168,45],
 "namespacesndLHC__geom__config.html#acff4be2285cb02f08cc90136b7d6a197":[11,0,168,177],
 "namespacesndLHC__geom__config.html#ad0e0807abddbbca830f3a7458dabeace":[11,0,168,15],
@@ -248,6 +249,5 @@ var NAVTREEINDEX80 =
 "namespacethermalNeutrons.html#a7e87c698304b0b071b090c56a64efe1a":[11,0,184,2],
 "namespacethermalNeutrons.html#a8508ac163eb44ffe669bd948e85bfc8e":[11,0,184,8],
 "namespacethermalNeutrons.html#a88a2d38dcef38ef52a9eac112bce786f":[11,0,184,25],
-"namespacethermalNeutrons.html#a9b982b4ce1b2a9c15fbb525ed22c9354":[11,0,184,34],
-"namespacethermalNeutrons.html#a9c2e6638fcaa829692fc77c352c1bebc":[11,0,184,15]
+"namespacethermalNeutrons.html#a9b982b4ce1b2a9c15fbb525ed22c9354":[11,0,184,34]
 };

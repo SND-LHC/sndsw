@@ -2805,6 +2805,7 @@ var namespaces_dup =
       [ "dest", "namespacerun__Monitoring.html#a7b40df110930f2f1471a66b67b9509dd", null ],
       [ "dirlist", "namespacerun__Monitoring.html#a71439fa635f37eb15a58e5e6170f2f95", null ],
       [ "dN", "namespacerun__Monitoring.html#a4a96b19533262b7c32fc33b55fc4086a", null ],
+      [ "em_run", "namespacerun__Monitoring.html#a39cba5a7198af0737775f5e06f17fe88", null ],
       [ "event", "namespacerun__Monitoring.html#a3fca1dee4e6c36e9052b12daf4f80615", null ],
       [ "exit_code", "namespacerun__Monitoring.html#a7915755205186d1ef3a4f9949e7fe47d", null ],
       [ "FairTasks", "namespacerun__Monitoring.html#a5bd938418630b9983630646f94754709", null ],

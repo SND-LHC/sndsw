@@ -1,5 +1,7 @@
 var NAVTREEINDEX92 =
 {
+"structDriftTubes_1_1ChannelId.html#af0b5cd97ba9c38430a1d063123fc0add":[12,0,4,0,0],
+"structHitData.html":[12,0,106],
 "structHitData.html#a404d2cb9ea4bdb35df83b063bce85a5e":[12,0,106,2],
 "structHitData.html#a8c1494a3f1cf3de21c65966faa0b0b57":[12,0,106,1],
 "structHitData.html#a8d72eb541e03034e25bdec1e30364e89":[12,0,106,5],
@@ -72,8 +74,8 @@ var NAVTREEINDEX92 =
 "structgenfit_1_1RKStep.html#a4340cf43a2ccdf7d95f965ce01d38887":[12,0,13,49,2],
 "structgenfit_1_1RKStep.html#a5031ba3b89a869a5c733c2dde23d68e7":[12,0,13,49,3],
 "structgenfit_1_1RKStep.html#a5aca22ad48723a9ee41b27329aa9d9a3":[12,0,13,49,4],
-"structgenfit_1_1RKStep.html#a99d6dd2eac81744ad17b140ee9db0e66":[12,0,13,49,1],
 "structgenfit_1_1RKStep.html#a99d6dd2eac81744ad17b140ee9db0e66":[12,0,13,49,0],
+"structgenfit_1_1RKStep.html#a99d6dd2eac81744ad17b140ee9db0e66":[12,0,13,49,1],
 "structgenfit_1_1fieldCache.html":[12,0,13,10],
 "structgenfit_1_1fieldCache.html#a68ab943c56a996f17f372f5db8b45b69":[12,0,13,10,3],
 "structgenfit_1_1fieldCache.html#ab1e642cc0844b54686b45d72987d8e4b":[12,0,13,10,2],
@@ -247,7 +249,5 @@ var NAVTREEINDEX92 =
 "study__thinTarget_8py.html#abaa775c5250e8ce07fadf4e7e30a299b":[13,0,11,27,13],
 "study__thinTarget_8py.html#abab42de4ec96b6e76ef8b5f2320acbf2":[13,0,11,27,29],
 "study__thinTarget_8py.html#abf343d15ac513f7c099b042aa8b8910d":[13,0,11,27,7],
-"study__thinTarget_8py.html#ac3f196cd26ff2630d910b2e92cd43c45":[13,0,11,27,24],
-"study__thinTarget_8py.html#acfe8f7003b30bc4e01342aca947b7c29":[13,0,11,27,42],
-"study__thinTarget_8py.html#ad42514fa94c85147992a2838f87d2465":[13,0,11,27,23]
+"study__thinTarget_8py.html#ac3f196cd26ff2630d910b2e92cd43c45":[13,0,11,27,24]
 };
