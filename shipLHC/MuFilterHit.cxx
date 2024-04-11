@@ -89,8 +89,9 @@ MuFilterHit::MuFilterHit(Int_t detID, std::vector<MuFilterPoint*> V)
         MuFilterDet->GetPosition(fDetectorID,vLeft, vRight);
         Double_t distance_Left    =  (vLeft-impact).Mag();
         Double_t distance_Right =  (vRight-impact).Mag();
-        signalLeft+=signal*TMath::Exp(-distance_Left/attLength);
-        signalRight+=signal*TMath::Exp(-distance_Right/attLength);
+        // Simple model: divide signal between nSides
+        signalLeft+=signal/nSides*TMath::Exp(-distance_Left/attLength);
+        signalRight+=signal/nSides*TMath::Exp(-distance_Right/attLength);
 
       // for the timing, find earliest particle and smear with time resolution
         Double_t ptime    = (*p)->GetTime();
