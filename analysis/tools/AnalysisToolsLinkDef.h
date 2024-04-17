@@ -20,9 +20,8 @@
 #pragma link C++ function snd::analysis_tools::findScifiStation(TClonesArray *, float);
 #pragma link C++ function snd::analysis_tools::peakScifiHits(TClonesArray *, int, float, float);
 #pragma link C++ function snd::analysis_tools::getScifiHits(TClonesArray *, int, bool);
-#pragma link C++ function snd::analysis_tools::getScifiHits(TClonesArray *, int, bool, int, float, float, float, float, bool);
-#pragma link C++ function snd::analysis_tools::getScifiHits(TClonesArray *, int, bool, int, float, float, float, bool);
-#pragma link C++ function snd::analysis_tools::getScifiHits(TClonesArray *, int, bool, std::vector<float> &, bool);
+#pragma link C++ function snd::analysis_tools::selectScifiHits(TClonesArray *, int, bool, int, float, float, float, float, bool);
+#pragma link C++ function snd::analysis_tools::selectScifiHits(TClonesArray *, int, bool, std::vector<float> &, bool);
 #pragma link C++ function snd::analysis_tools::filterScifiHits(TClonesArray *, int, std::vector<float> &, int, std::string);
 #pragma link C++ function snd::analysis_tools::densityScifi(int, TClonesArray *, int, int, bool);
 #pragma link C++ function snd::analysis_tools::densityCheck(TClonesArray *, int, int, bool);

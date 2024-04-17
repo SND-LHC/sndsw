@@ -4,12 +4,12 @@
 #include <algorithm>
 #include <set>
 
-#include "TH1D.h"
+#include "TH1F.h"
 #include "FairLogger.h"
 #include "TClonesArray.h"
 #include "sndScifiHit.h"
 
-void snd::analysis_tools::getSciFiHitsPerStation(TClonesArray * digiHits, std::vector<int> &horizontal_hits, std::vector<int> &vertical_hits){
+void snd::analysis_tools::getSciFiHitsPerStation(const TClonesArray * digiHits, std::vector<int> &horizontal_hits, std::vector<int> &vertical_hits){
 
   // Clear hits per plane vectors
   std::fill(horizontal_hits.begin(), horizontal_hits.end(), 0);
@@ -19,12 +19,13 @@ void snd::analysis_tools::getSciFiHitsPerStation(TClonesArray * digiHits, std::v
   sndScifiHit * hit;
   TIter hitIterator(digiHits);
 
-  while ( (hit = (sndScifiHit*) hitIterator.Next()) ){
+  while ( (hit = dynamic_cast<sndScifiHit*>(hitIterator.Next())) ){
     if (hit->isValid()){
       int station = hit->GetStation();
       if (hit->isVertical()){
 	vertical_hits[station-1]++;
-      } else {
+      }
+      else {
 	horizontal_hits[station-1]++;
       }
     }
@@ -39,7 +40,7 @@ int snd::analysis_tools::getTotalSciFiHits(std::vector<int> &horizontal_hits, st
 }
 
 
-int snd::analysis_tools::getTotalSciFiHits(TClonesArray * digiHits){
+int snd::analysis_tools::getTotalSciFiHits(const TClonesArray * digiHits){
   std::vector<int> horizontal_hits = std::vector<int>(5);
   std::vector<int> vertical_hits = std::vector<int>(5);
     
@@ -65,7 +66,7 @@ std::vector<float> snd::analysis_tools::getFractionalHitsPerScifiPlane(std::vect
     
 }
 
-std::vector<float> snd::analysis_tools::getFractionalHitsPerScifiPlane(TClonesArray * digiHits){
+std::vector<float> snd::analysis_tools::getFractionalHitsPerScifiPlane(const TClonesArray * digiHits){
   std::vector<int> horizontal_hits = std::vector<int>(5);
   std::vector<int> vertical_hits = std::vector<int>(5);
     
@@ -92,7 +93,7 @@ int snd::analysis_tools::findScifiStation(std::vector<int> &horizontal_hits, std
     
 }
 
-int snd::analysis_tools::findScifiStation(TClonesArray * digiHits, float threshold){
+int snd::analysis_tools::findScifiStation(const TClonesArray * digiHits, float threshold){
   std::vector<int> horizontal_hits = std::vector<int>(5);
   std::vector<int> vertical_hits = std::vector<int>(5);
     
@@ -117,11 +118,11 @@ bool validateHit(sndScifiHit * aHit, int ref_station, bool ref_orientation){
 // Getting the max for the ScifiHits timing distribution in order to select hits within \pm 3ns
 // min_x and max_x should be given in ns
 // The code automatically filters for hits within the same station and orientation as the first hit
-float snd::analysis_tools::peakScifiTiming(TClonesArray * digiHits, int bins, float min_x, float max_x){
+float snd::analysis_tools::peakScifiTiming(const TClonesArray * digiHits, int bins, float min_x, float max_x){
 
   if (digiHits == NULL || digiHits->GetEntries() <= 0){return -1.0;}
 
-  TH1D ScifiTiming("Timing", "Scifi Timing", bins, min_x, max_x);
+  TH1F ScifiTiming("Timing", "Scifi Timing", bins, min_x, max_x);
 
   sndScifiHit * hit;
   TIter hitIterator(digiHits);
@@ -130,7 +131,7 @@ float snd::analysis_tools::peakScifiTiming(TClonesArray * digiHits, int bins, fl
   bool refOrientation = ((sndScifiHit*)digiHits->At(0))->isVertical();
   float hitTime = -1.0;
 
-  while ( (hit = (sndScifiHit*) hitIterator.Next()) ){
+  while ( (hit = dynamic_cast<sndScifiHit*>(hitIterator.Next())) ){
     if (!validateHit(hit, refStation, refOrientation)){continue;}
     hitTime = hit->GetTime()*1E9/160.316E6;
     if (hitTime < min_x || hitTime > max_x){continue;}
@@ -144,17 +145,17 @@ float snd::analysis_tools::peakScifiTiming(TClonesArray * digiHits, int bins, fl
 }
 
 // Getting all the Scifi hits for a specific station and orientation
-std::shared_ptr<TClonesArray> snd::analysis_tools::getScifiHits(TClonesArray * digiHits, int station, bool orientation){
+std::unique_ptr<TClonesArray> snd::analysis_tools::getScifiHits(const TClonesArray * digiHits, int station, bool orientation){
 
   sndScifiHit * hit;
   TIter hitIterator(digiHits);
 
   int length = digiHits->GetEntries();
 
-  std::shared_ptr<TClonesArray> selectedHits = std::make_shared<TClonesArray>("sndScifiHit", length);
+  std::unique_ptr<TClonesArray> selectedHits = std::make_unique<TClonesArray>("sndScifiHit", length);
 
   int i = 0;
-  while ( (hit = (sndScifiHit*) hitIterator.Next()) ){
+  while ( (hit = dynamic_cast<sndScifiHit*>(hitIterator.Next())) ){
     if (!validateHit(hit, station, orientation)){continue;}
     (*selectedHits)[i] = hit->Clone();
     i++;  
@@ -173,19 +174,10 @@ std::shared_ptr<TClonesArray> snd::analysis_tools::getScifiHits(TClonesArray * d
 // make_selection == true allows you to first perform a selection of the relevant hits, and only
 // afterwards apply the filter. This is recomended for when the selection has not been made
 // previously
-std::shared_ptr<TClonesArray> snd::analysis_tools::getScifiHits(TClonesArray * digiHits, int station, bool orientation, int bins_x, float min_x, float max_x, float range_lower, float range_upper, bool make_selection){
+std::unique_ptr<TClonesArray> snd::analysis_tools::selectScifiHits(const TClonesArray * digiHits, int station, bool orientation, int bins_x, float min_x, float max_x, float range_lower, float range_upper, bool make_selection){
 
   if (bins_x < 1){
-    LOG (warning) << "bins_x in selection_parameters cannot be <1. Default value of 52 used instead.\n";
-    bins_x = 52;
-  }
-  if (min_x < 0.0){
-    LOG (warning) << "In selection_parameters min_x < 0.0. Default value of 0.0 will be set. \n";
-    min_x = 0.0;
-  }
-  if (max_x < 0.0){
-    LOG (warning) << "In selection_parameters max_x < 0.0. Default value of 26.0 will be set. \n";
-    max_x = 26.0;
+    LOG (FATAL) << "bins_x in selection_parameters cannot be <1. Consider using the default value of 52 instead.\n";
   }
   if (min_x > max_x){
     LOG (warning) << "In selection_parameters min_x > max_x. Values will be swapped. \n";
@@ -193,16 +185,20 @@ std::shared_ptr<TClonesArray> snd::analysis_tools::getScifiHits(TClonesArray * d
     min_x = max_x;
     max_x = aux_float;
   }
+  if (min_x < 0.0){
+    LOG (warning) << "In selection_parameters min_x < 0.0. Consider using the default value of 0.0. \n";
+  }
+  if (max_x < 0.0){
+    LOG (FATAL) << "In selection_parameters max_x < 0.0. Consider using the default value of 26.0. \n";
+  }
   if (range_lower <= 0.0){
-    LOG (warning) << "In selection_parameters range_upper <= 0.0. Default value of 0.5*1E9/160.316E6 will be set. \n";
-    range_lower = 0.5*1E9/160.316E6;
+    LOG (FATAL) << "In selection_parameters range_lower <= 0.0. Value should always be positive, in ns. \n";
   }
   if (range_upper <= 0.0){
-    LOG (warning) << "In selection_parameters range_upper <= 0.0. Default value of 2.0*1E9/160.316E6 will be set. \n";
-    range_upper = 2.0*1E9/160.316E6;
+    LOG (FATAL) << "In selection_parameters range_upper <= 0.0. Value should always be positive, in ns. \n";
   }
 
-  std::shared_ptr<TClonesArray> filteredHits = std::make_shared<TClonesArray>("sndScifiHit", digiHits->GetEntries());
+  std::unique_ptr<TClonesArray> filteredHits = std::make_unique<TClonesArray>("sndScifiHit", digiHits->GetEntries());
 
   float peakTiming = -1.0;
 
@@ -210,15 +206,15 @@ std::shared_ptr<TClonesArray> snd::analysis_tools::getScifiHits(TClonesArray * d
 
   if (make_selection) {
 
-    std::shared_ptr<TClonesArray> selectedHits = std::make_shared<TClonesArray>("sndScifiHit", digiHits->GetEntries());
+    std::unique_ptr<TClonesArray> selectedHits = std::make_unique<TClonesArray>("sndScifiHit", digiHits->GetEntries());
     selectedHits = getScifiHits(digiHits, station, orientation);
 
-    peakTiming = peakScifiTiming(&(*selectedHits), bins_x, min_x, max_x);
+    peakTiming = peakScifiTiming((&(*selectedHits)), bins_x, min_x, max_x);
 
     TIter hitIterator(&(*selectedHits)); 
-  
+ 
     int i = 0;
-    while ( (hit = (sndScifiHit*) hitIterator.Next()) ){
+    while ( (hit = dynamic_cast<sndScifiHit*>(hitIterator.Next())) ){
       if (!validateHit(hit, station, orientation)){continue;}
       if ((peakTiming - range_lower > hit->GetTime()*1E9/160.316E6) || (hit->GetTime()*1E9/160.316E6 > peakTiming + range_upper)){continue;}
       (*filteredHits)[i] = hit->Clone();
@@ -226,7 +222,7 @@ std::shared_ptr<TClonesArray> snd::analysis_tools::getScifiHits(TClonesArray * d
     }
   }
 
-  // Does not create selectedHits and just uses digiHits (not shared_ptr)
+  // Does not create selectedHits and just uses digiHits (not unique_ptr)
   else{
 
     peakTiming = peakScifiTiming(digiHits, bins_x, min_x, max_x);
@@ -234,7 +230,7 @@ std::shared_ptr<TClonesArray> snd::analysis_tools::getScifiHits(TClonesArray * d
     TIter hitIterator(digiHits);
   
     int i = 0;
-    while ( (hit = (sndScifiHit*) hitIterator.Next()) ){
+    while ( (hit = dynamic_cast<sndScifiHit*>(hitIterator.Next())) ){
       if (!validateHit(hit, station, orientation)){continue;}
       if ((peakTiming - range_lower > hit->GetTime()*1E9/160.316E6) || (hit->GetTime()*1E9/160.316E6 > peakTiming + range_upper)){continue;}
       (*filteredHits)[i] = hit->Clone();
@@ -247,26 +243,13 @@ std::shared_ptr<TClonesArray> snd::analysis_tools::getScifiHits(TClonesArray * d
 }
 
 
-// Takes 1 input for range and selects events within a symmetric interval of peakTiming \pm range
-std::shared_ptr<TClonesArray> snd::analysis_tools::getScifiHits(TClonesArray * digiHits, int station, bool orientation, int bins_x, float min_x, float max_x, float window_range, bool make_selection){
-
-  return getScifiHits(digiHits, station, orientation, bins_x, min_x, max_x, window_range, window_range, make_selection);
-}
-
-
-
 // Takes a vector with 4 or 5 arguments as an input
 // When vector as fewer than 4 arguments corrects them to a default of [52, 0.0, 26.0,
 // 1E9/(2*160.316E6)] and runs for the symmetric interval
-std::shared_ptr<TClonesArray> snd::analysis_tools::getScifiHits(TClonesArray * digiHits, int station, bool orientation, std::vector<float> &selection_parameters, bool make_selection){
+std::unique_ptr<TClonesArray> snd::analysis_tools::selectScifiHits(const TClonesArray * digiHits, int station, bool orientation, const std::vector<float> &selection_parameters, bool make_selection){
 
   if (selection_parameters.size() < 4){
-    LOG (warning) << "Dimensions of selection_parameters are incorrect. Will use default values of [bins_x=52; min_x=0.0; max_x=26.0; range=\\pm 1E9/(2*160.316E6)] \n";
-    for (int j = 0; j<4-selection_parameters.size();j++){selection_parameters.push_back(-1.);}
-    selection_parameters[0]=52.0;
-    selection_parameters[1]=0.0;
-    selection_parameters[2]=26.0;
-    selection_parameters[3]=1E9/(2*160.316E6);
+    LOG (FATAL) << "Dimensions of selection_parameters are incorrect. Please provide a vector with either 4 or 5 arguments. Consider using the default values of [bins_x=52; min_x=0.0; max_x=26.0; range_lower=1E9/(2*160.316E6); range_upper=2E9/(160.316E6)]. Providing 4 arguments makes range_upper=range_lower. \n";
   }
 
   float range_lower = -1.;
@@ -281,15 +264,14 @@ std::shared_ptr<TClonesArray> snd::analysis_tools::getScifiHits(TClonesArray * d
     range_upper = selection_parameters[4];
   }
 
-  return getScifiHits(digiHits, station, orientation, int(selection_parameters[0]), selection_parameters[1], selection_parameters[2], range_lower, range_upper, make_selection);
+  return selectScifiHits(digiHits, station, orientation, int(selection_parameters[0]), selection_parameters[1], selection_parameters[2], range_lower, range_upper, make_selection);
 
 }
 
 
-// Filter currently applies to TI18 (5 Scifi Planes)
-std::shared_ptr<TClonesArray> snd::analysis_tools::filterScifiHits(TClonesArray * digiHits, std::vector<float> &selection_parameters, int method, std::string setup){
+std::unique_ptr<TClonesArray> snd::analysis_tools::filterScifiHits(const TClonesArray * digiHits, const std::vector<float> &selection_parameters, int method, std::string setup){
   TClonesArray emptyArray("sndScifiHit",0);
-  std::shared_ptr<TClonesArray> filteredHits = std::make_shared<TClonesArray>("sndScifiHit",digiHits->GetEntries());
+  std::unique_ptr<TClonesArray> filteredHits = std::make_unique<TClonesArray>("sndScifiHit",digiHits->GetEntries());
   int filteredHitsIndex = 0;
   int ScifiStations = 5;
   if(setup == "H8"){ScifiStations = 4;}
@@ -303,17 +285,17 @@ std::shared_ptr<TClonesArray> snd::analysis_tools::filterScifiHits(TClonesArray 
     //This is overwriting the previous arrays with the newest one
     for(int station = 1; station < ScifiStations+1; station++){
       
-      emptyArray = (*getScifiHits(digiHits, station, false, selection_parameters, true));
+      emptyArray = (*selectScifiHits(digiHits, station, false, selection_parameters, true));
       hitIterator.Reset();
-      while ( (hit = (sndScifiHit*) hitIterator.Next()) ){
+      while ( (hit = dynamic_cast<sndScifiHit*>(hitIterator.Next())) ){
         if (hit->isValid()){
 	  (*filteredHits)[filteredHitsIndex] = hit->Clone();
 	  filteredHitsIndex++;
 	}
       }
-      emptyArray = (*getScifiHits(digiHits, station, true, selection_parameters, true));
+      emptyArray = (*selectScifiHits(digiHits, station, true, selection_parameters, true));
       hitIterator.Reset();
-      while ( (hit = (sndScifiHit*) hitIterator.Next()) ){
+      while ( (hit = dynamic_cast<sndScifiHit*>(hitIterator.Next())) ){
         if (hit->isValid()){
 	  (*filteredHits)[filteredHitsIndex] = hit->Clone();
 	  filteredHitsIndex++;
@@ -325,7 +307,7 @@ std::shared_ptr<TClonesArray> snd::analysis_tools::filterScifiHits(TClonesArray 
   else{
   LOG (error) << "Please provide a valid time filter method from: \n";
   LOG (error) << "(0): Events within \\mp range_lower range_upper of the peak of the time distribution for Scifi Hits within each station and orientation\n";
-  LOG (error) << "selection_parameters = [bins_x, min_x, max_x, range_lower, range_upper].\n";
+  LOG (FATAL) << "selection_parameters = [bins_x, min_x, max_x, range_lower, range_upper].\n";
   return filteredHits;
   }
 
@@ -334,7 +316,7 @@ std::shared_ptr<TClonesArray> snd::analysis_tools::filterScifiHits(TClonesArray 
 }
 
 
-int snd::analysis_tools::densityScifi(int reference_SiPM, TClonesArray * digiHits, int radius, int min_hit_density, bool min_check){
+int snd::analysis_tools::densityScifi(int reference_SiPM, const TClonesArray * digiHits, int radius, int min_hit_density, bool min_check){
 
   int hit_density = 0;
  
@@ -349,7 +331,7 @@ int snd::analysis_tools::densityScifi(int reference_SiPM, TClonesArray * digiHit
 
   int referenceChannel = (int(reference_SiPM%10000)/1000)*128+ reference_SiPM%1000;
 
-  while ( (hit = (sndScifiHit*) hitIterator.Next()) ){
+  while ( (hit = dynamic_cast<sndScifiHit*>(hitIterator.Next())) ){
     if (!validateHit(hit, ref_station, orientation)){continue;}
     int hitChannel = hit->GetSiPM()*128 + hit->GetSiPMChan(); 
     if (radius == -1){
@@ -384,7 +366,7 @@ int getElementN(std::set<int>& set, int n){
 
 
 //Perform a density check for a specific station and orientation (dafault is horizontal)
-bool snd::analysis_tools::densityCheck(TClonesArray * digiHits, int radius, int min_hit_density, bool orientation=false){
+bool snd::analysis_tools::densityCheck(const TClonesArray * digiHits, int radius, int min_hit_density, bool orientation=false){
 
   if(min_hit_density > 2*radius){
     LOG (warning) << "Warning! Radius of density check does not allow for the required minimum density! \n";
@@ -401,7 +383,7 @@ bool snd::analysis_tools::densityCheck(TClonesArray * digiHits, int radius, int 
 
   //Only fill the set with hits from the same station and with the same orientation as given in
   //argument (false==horizontal and true==vertical)
-  while ( (hit = (sndScifiHit*) hitIterator.Next()) ){
+  while ( (hit = dynamic_cast<sndScifiHit*>(hitIterator.Next())) ){
     if (!validateHit(hit, ref_station, orientation)){continue;}
     fired_channels.insert(hit->GetSiPM()*128 + hit->GetSiPMChan());   
   }
