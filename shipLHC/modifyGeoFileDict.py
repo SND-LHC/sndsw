@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import json
 import ROOT,os
 from rootpyPickler import Pickler
 from rootpyPickler import Unpickler
@@ -21,7 +22,50 @@ def modifyDicts():
          pkl = Unpickler(fg)
          sGeo = pkl.load('ShipGeo')
          fg.Close()
-         
+        
+         # Veto and US part
+         sample_runs = ['5097','5408','5999']
+         tag_runs = ["4361","5117", "5478"]
+         for n, run in enumerate(sample_runs):
+           fa  = open('/eos/experiment/sndlhc/calibration/MuFilter/VetoUS/alignmentparams_run'+run+'.json')
+           ftw = open('/eos/experiment/sndlhc/calibration/MuFilter/VetoUS/twparams_run'+run+'.json')
+           d_tw = json.load(ftw)
+           d_a = json.load(fa)
+           constants_twa= {}
+           for i in d_tw.items():
+              detID  = int(i[0].split('_')[0])
+              chanID = int(i[0].split('_')[1])
+              # safety net for missing tw constants
+              if len(i[1]) != 6: 
+                print('Got', len(i[1]),'out of 6 time walk parameters for', detID, chanID,
+                      '\nCheck json values!')
+                return
+              if detID not in constants_twa: constants_twa[detID]={}
+              constants_twa[detID][chanID]=[float(i[1][0]),float(i[1][1]),float(i[1][2]),
+                                              float(i[1][3]),float(i[1][4]),float(i[1][5])]
+           # the part relative to DS is put at the vector's end
+           for i in d_a.items():
+              detID  = int(i[0].split('_')[0])
+              chanID = int(i[0].split('_')[1])
+              constants_twa[detID][chanID].append(float(i[1][0]))
+           # put zeroes for uncalibrated channels
+           detID_list = []
+           subsystem = {"Veto":1,"Upstream":2}
+           for sys in subsystem:
+             for nplanes in range(sGeo.MuFilter['N'+sys+'Planes']):
+               for nbar in range(sGeo.MuFilter['N'+sys+'Bars']):
+                  detID_list.append(int(subsystem[sys]*1e4+nplanes*1e3+nbar))
+           for detID in detID_list:
+               if detID not in constants_twa: constants_twa[detID]={}
+               for chanID in range(16):
+                 if chanID not in constants_twa[detID]:
+                    constants_twa[detID][chanID] = [0,1E-20,0,0,0,0,0]
+           # put these into the detector map before going to next run
+           for detID in constants_twa:
+             for chanID in constants_twa[detID]:
+              setattr(sGeo.MuFilter,'TW_DSa_'+str(detID)+'_'+str(chanID)+'t_'+tag_runs[n], constants_twa[detID][chanID])
+              sGeo.MuFilter['TW_DSa_'+str(detID)+'_'+str(chanID)+'t_'+tag_runs[n]] = constants_twa[detID][chanID]
+            
          # DS part
          setattr(sGeo.MuFilter,'DsPropSpeed',14.9*u.cm/u.nanosecond)
          sGeo.MuFilter['DsPropSpeed'] = 14.9*u.cm/u.nanosecond
