@@ -22,8 +22,11 @@
 #pragma link C++ function snd::analysis_tools::getScifiHits(TClonesArray *, int, bool);
 #pragma link C++ function snd::analysis_tools::selectScifiHits(TClonesArray *, int, bool, int, float, float, float, float, bool);
 #pragma link C++ function snd::analysis_tools::selectScifiHits(TClonesArray *, int, bool, std::vector<float> &, bool);
-#pragma link C++ function snd::analysis_tools::filterScifiHits(TClonesArray *, int, std::vector<float> &, int, std::string);
+#pragma link C++ function snd::analysis_tools::filterScifiHits(TClonesArray *, std::vector<float> &, int, std::string);
+#pragma link C++ function snd::analysis_tools::filterScifiHits(TClonesArray *, int, std::string);
 #pragma link C++ function snd::analysis_tools::densityScifi(int, TClonesArray *, int, int, bool);
-#pragma link C++ function snd::analysis_tools::densityCheck(TClonesArray *, int, int, bool);
+#pragma link C++ function snd::analysis_tools::densityCheck(TClonesArray *, int, int, int, bool);
+#pragma link C++ function snd::analysis_tools::showerInteractionBlock(TClonesArray *, std::vector<float> &, int, std::string);
+#pragma link C++ function snd::analysis_tools::showerInteractionBlock(TClonesArray *, int, std::string);
 
 #endif

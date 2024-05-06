@@ -2,7 +2,6 @@
 
 #include <numeric>
 #include <algorithm>
-#include <set>
 
 #include "TH1F.h"
 #include "FairLogger.h"
@@ -140,7 +139,7 @@ float snd::analysis_tools::peakScifiTiming(const TClonesArray * digiHits, int bi
   }
 
   float peakTiming = (ScifiTiming.GetMaximumBin()-0.5)*(max_x-min_x)/bins + min_x;
-	 
+
   return peakTiming;
 }
 
@@ -220,6 +219,7 @@ std::unique_ptr<TClonesArray> snd::analysis_tools::selectScifiHits(const TClones
       (*filteredHits)[i] = hit->Clone();
       i++;
     }
+    selectedHits->Clear("C");
   }
 
   // Does not create selectedHits and just uses digiHits (not unique_ptr)
@@ -285,6 +285,7 @@ std::unique_ptr<TClonesArray> snd::analysis_tools::filterScifiHits(const TClones
     //This is overwriting the previous arrays with the newest one
     for(int station = 1; station < ScifiStations+1; station++){
       
+      emptyArray.Clear("C");
       emptyArray = (*selectScifiHits(digiHits, station, false, selection_parameters, true));
       hitIterator.Reset();
       while ( (hit = dynamic_cast<sndScifiHit*>(hitIterator.Next())) ){
@@ -293,6 +294,7 @@ std::unique_ptr<TClonesArray> snd::analysis_tools::filterScifiHits(const TClones
 	  filteredHitsIndex++;
 	}
       }
+      emptyArray.Clear("C");
       emptyArray = (*selectScifiHits(digiHits, station, true, selection_parameters, true));
       hitIterator.Reset();
       while ( (hit = dynamic_cast<sndScifiHit*>(hitIterator.Next())) ){
@@ -310,11 +312,21 @@ std::unique_ptr<TClonesArray> snd::analysis_tools::filterScifiHits(const TClones
   LOG (FATAL) << "selection_parameters = [bins_x, min_x, max_x, range_lower, range_upper].\n";
   return filteredHits;
   }
-
+  emptyArray.Clear("C");
   return filteredHits;
 
 }
 
+std::unique_ptr<TClonesArray> snd::analysis_tools::filterScifiHits(const TClonesArray * digiHits, int method, std::string setup){
+
+  if (method != 0){
+    LOG (FATAL) << "Please use method=0. No other methods implemented so far.\n";
+  }
+
+  std::vector<float> selection_parameters{52.0, 0.0, 26.0, 1E9/(2160.316E6), 2E9/(160.316E6)};
+
+  return filterScifiHits(digiHits, selection_parameters, method, setup);
+}
 
 int snd::analysis_tools::densityScifi(int reference_SiPM, const TClonesArray * digiHits, int radius, int min_hit_density, bool min_check){
 
@@ -350,33 +362,18 @@ int snd::analysis_tools::densityScifi(int reference_SiPM, const TClonesArray * d
 }
 
 
-//Auxiliary function to access the nth element of the sets used to store the useful hits
-//that perform the densityCheck. else should never happen, but in case it does it returns -1
-//which should never happen since the set to be checked contains the SiPM channel number
-int getElementN(std::set<int>& set, int n){
-
-  int val=-1;
-
-  if(set.size() > n){
-    auto it = std::next(set.begin(), n);
-    val = *it;
-  }
-  return val;
-}
-
-
 //Perform a density check for a specific station and orientation (dafault is horizontal)
-bool snd::analysis_tools::densityCheck(const TClonesArray * digiHits, int radius, int min_hit_density, bool orientation=false){
+bool snd::analysis_tools::densityCheck(const TClonesArray * digiHits, int radius, int min_hit_density, int station, bool orientation){
+
+  if(digiHits->GetEntries() <= 0){return false;}
 
   if(min_hit_density > 2*radius){
     LOG (warning) << "Warning! Radius of density check does not allow for the required minimum density! \n";
     return false;}
 
-  //Creating a set that stores the fired SiPM channels (already ordered)
-  std::set<int> fired_channels{};
-
-  // Making sure we only look at hits on the same station (defined by the first hit in the array)
-  int ref_station = static_cast<sndScifiHit*>(digiHits->At(0))->GetStation();
+  //Creating a vector that stores the fired SiPM channels (should already be ordered but we sort
+  //afterwards to make sure)
+  std::vector<int> fired_channels{};
 
   sndScifiHit * hit;
   TIter hitIterator(digiHits);
@@ -384,23 +381,70 @@ bool snd::analysis_tools::densityCheck(const TClonesArray * digiHits, int radius
   //Only fill the set with hits from the same station and with the same orientation as given in
   //argument (false==horizontal and true==vertical)
   while ( (hit = dynamic_cast<sndScifiHit*>(hitIterator.Next())) ){
-    if (!validateHit(hit, ref_station, orientation)){continue;}
-    fired_channels.insert(hit->GetSiPM()*128 + hit->GetSiPMChan());   
+    if (!validateHit(hit, station, orientation)){continue;}
+    fired_channels.push_back(hit->GetSiPM()*128 + hit->GetSiPMChan());   
   }
 
-  if(fired_channels.size() < min_hit_density){return false;}
+  int n_fired_channels = fired_channels.size();
+
+  if(n_fired_channels < min_hit_density){return false;}
 
   //Looping over the ordered hits, checking whether within an interval of "min_hit_density" the
   //difference between the channel IDs is smaller than "radius". If so, then we have the required
   //density. Else, we check the next combination until we meet the criterion, or end the loop,
   //returning false
-  int n_fired_channels = fired_channels.size();
+  std::sort(fired_channels.begin(), fired_channels.end());
   for(int i=0; i<n_fired_channels-min_hit_density; i++){
     
-    if(getElementN(fired_channels,i+min_hit_density) - getElementN(fired_channels,i) <= radius*2){return true;}
+    if(fired_channels[i+min_hit_density] - fired_channels[i] <= radius*2){return true;}
 
   }
-
-
   return false;
 }
+
+
+//Retrieve the target block where the shower starts
+int snd::analysis_tools::showerInteractionBlock(const TClonesArray * digiHits, const std::vector<float> & selection_parameters, int method, std::string setup){
+
+  int totalScifiStations = 5;
+  if(setup=="H8"){totalScifiStations = 4;}
+  else{LOG (info) << "\"TI18\" setup will be used by default, please provide \"H8\" for the Testbeam setup.\n";}
+
+  //There is always 1 more Scifi Station than a target block. As such, showerStart == totalScifiStations
+  //means that the shower did not start developing in the target, before the last Scifi Station
+  int showerStart = totalScifiStations;
+
+  if(method==0){
+
+    if (selection_parameters.size() < 2){
+      LOG (FATAL) << "Dimensions of select_parameters are incorrect. Please provide a vector with 2 arguments. Consider using the default values of [radius=64; minHits=50].\n";
+    }
+
+    for(int scifiStation = 1; scifiStation <= totalScifiStations; scifiStation++){
+    
+      //For each ScifiStation we check whether we see clusters with the desired parameters on both
+      //the horizontal and vertical mats
+      bool horizontalCheck = densityCheck(digiHits, int(selection_parameters[0]), int(selection_parameters[1]), scifiStation, false);
+      bool verticalCheck = densityCheck(digiHits, int(selection_parameters[0]), int(selection_parameters[1]), scifiStation, true);
+      if((horizontalCheck) && (verticalCheck)){
+        showerStart = scifiStation-1;
+	return showerStart;
+      }
+    }
+  }
+
+  return showerStart;
+}
+
+int snd::analysis_tools::showerInteractionBlock(const TClonesArray * digiHits, int method, std::string setup){
+
+  if(method != 0){
+  LOG (FATAL) << "Please use method=0. No other methods implemented so far.\n";
+  }
+
+  std::vector<float> selection_parameters{64, 50};
+
+  return showerInteractionBlock(digiHits, selection_parameters, method, setup);
+
+}
+
