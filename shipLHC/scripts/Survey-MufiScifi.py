@@ -3544,10 +3544,13 @@ def Scifi_residuals(Nev=options.nEvents,NbinsRes=100,xmin=-2000.,alignPar=False,
 
 # analysis and plots 
     P = {'':'','X':'colz','Y':'colz','C':'colz'}
-    Par = {'mean':1,'sigma':2}
     h['globalPos'] = {'meanH':ROOT.TGraphErrors(),'sigmaH':ROOT.TGraphErrors(),'meanV':ROOT.TGraphErrors(),'sigmaV':ROOT.TGraphErrors()}
     h['globalPosM'] = {'meanH':ROOT.TGraphErrors(),'sigmaH':ROOT.TGraphErrors(),'meanV':ROOT.TGraphErrors(),'sigmaV':ROOT.TGraphErrors()}
     globalPos = h['globalPos']
+    # params for the double symmetrical Crystal Ball - symetric core and tails 
+    x = ROOT.RooRealVar("x", "residual [cm]", xmin, xmax)
+    a1 = ROOT.RooRealVar("alpha", "alpha", 2, 1e-3, 10.)
+    p1 = ROOT.RooRealVar("n", "n", 1, 1e-3, 10.)
     for proj in P:
       ut.bookCanvas(h,'scifiRes'+proj,'',1600,1900,2,5)
       k=1
@@ -3560,31 +3563,41 @@ def Scifi_residuals(Nev=options.nEvents,NbinsRes=100,xmin=-2000.,alignPar=False,
             hname = 'res'+proj+projs[o]+'_Scifi'+str(so)
             h[hname].Draw(P[proj])
             if proj == '':
-                rc = h[hname].Fit('gaus','SQ')
-                fitResult = rc.Get()
-                tc.Update()
-                stats = h[hname].FindObject('stats')
-                stats.SetOptFit(1111111)
-                stats.SetX1NDC(0.76)
-                stats.SetY1NDC(0.30)
-                stats.SetX2NDC(0.98)
-                stats.SetY2NDC(0.92)
-                h[hname].Draw()
+                #fit using a double sided CB shape with symmetric tails
+                mu = ROOT.RooRealVar("mu", "mu", h[hname].GetMean(), h[hname].GetMean()-200, h[hname].GetMean()+200)
+                width = ROOT.RooRealVar("width", "width",  h[hname].GetRMS(), 1e-5,  h[hname].GetRMS()+1e+3)
+                Par = {'mean':mu,'sigma':width}
+                dcbPdf = ROOT.RooCrystalBall("dcbPdf", "DoubleSidedCB", x, mu, width, a1, p1, True)
+                roofit_hist = ROOT.RooDataHist("roofit_hist", "roofit_hist", ROOT.RooArgList(x), ROOT.RooFit.Import(h[hname]))
+                fitResult = dcbPdf.fitTo(roofit_hist, ROOT.RooFit.PrintLevel(-1), ROOT.RooFit.Save(True))
+                pl = x.frame()
+                roofit_hist.plotOn(pl)
+                dcbPdf.plotOn(pl)
+                pl.Draw()
+                latex.DrawLatexNDC(0.13,0.8, "#mu = {:.3f} +/- {:.3f}".format(mu.getVal(), mu.getError()))
+                latex.DrawLatexNDC(0.13,0.7,"#sigma = {:.3f} +/- {:.3f}".format(width.getVal(), width.getError()))
                 tc.Update()
                 for p in Par:
-                   globalPos[p+projs[o]].SetPoint(s-1,s,fitResult.Parameter(Par[p]))
-                   globalPos[p+projs[o]].SetPointError(s-1,0.5,fitResult.ParError(1))
+                   globalPos[p+projs[o]].SetPoint(s-1,s,Par[p].getVal())
+                   globalPos[p+projs[o]].SetPointError(s-1,0.5,Par[p].getError())
                 globalPos[p+projs[o]].SetMarkerStyle(21)
                 globalPos[p+projs[o]].SetMarkerColor(ROOT.kBlue)
             if proj == 'C':
                 for m in range(nMats):
                      h[hname+str(m)] = h[hname].ProjectionX(hname+str(m),m*512,m*512+512)
-                     rc = h[hname+str(m)].Fit('gaus','SQ0')
-                     fitResult = rc.Get()
+                     mu = ROOT.RooRealVar("mu", "residual [cm]", h[hname+str(m)].GetMean(), h[hname+str(m)].GetMean()-200, h[hname+str(m)].GetMean()+200)
+                     width = ROOT.RooRealVar("width", "width", h[hname+str(m)].GetRMS(), 1e-5,  h[hname+str(m)].GetRMS()+1e+3)
+                     dcbPdf = ROOT.RooCrystalBall("dcbPdf", "DoubleSidedCB", x, mu, width, a1, p1, True)
+                     roofit_hist = ROOT.RooDataHist("roofit_hist", "roofit_hist", ROOT.RooArgList(x), ROOT.RooFit.Import(h[hname+str(m)]))
+                     fitResult = dcbPdf.fitTo(roofit_hist, ROOT.RooFit.PrintLevel(-1), ROOT.RooFit.Save(True))
                      if not fitResult: continue
+                     pl = x.frame()
+                     roofit_hist.plotOn(pl)
+                     dcbPdf.plotOn(pl)
+                     pl.Draw()                    
                      for p in Par:
-                        h['globalPosM'][p+projs[o]].SetPoint(j[o], s*10+m,   fitResult.Parameter(Par[p]))
-                        h['globalPosM'][p+projs[o]].SetPointError(j[o],0.5,fitResult.ParError(1))
+                        h['globalPosM'][p+projs[o]].SetPoint(j[o], s*10+m,Par[p].getVal())
+                        h['globalPosM'][p+projs[o]].SetPointError(j[o],0.5,Par[p].getError())
                      j[o]+=1
                      h['globalPosM'][p+projs[o]].SetMarkerStyle(21)
                      h['globalPosM'][p+projs[o]].SetMarkerColor(ROOT.kBlue)
