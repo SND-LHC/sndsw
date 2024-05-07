@@ -4,24 +4,33 @@ from rootpyPickler import Pickler
 from rootpyPickler import Unpickler
 import shipunit as u
 import saveBasicParameters
+from XRootD import client
 
-path = os.environ['EOSSHIP']+"/eos/experiment/sndlhc/convertedData/physics/2022/"
-
+theClient = client.FileSystem('root://eospublic.cern.ch')
+commonPath = "/eos/experiment/sndlhc/convertedData/physics/"
 
 '''supportedGeoFiles = ["geofile_sndlhc_TI18_V1_06July2022.root","geofile_sndlhc_TI18_V2_12July2022.root","geofile_sndlhc_TI18_V3_08August2022.root",
                      "geofile_sndlhc_TI18_V4_10August2022.root","geofile_sndlhc_TI18_V5_14August2022.root","geofile_sndlhc_TI18_V6_08October2022.root",
                      "geofile_sndlhc_TI18_V7_22November2022.root"]
 '''
-supportedGeoFiles = ["geofile_sndlhc_TI18_V7_22November2022.root"]
-            
-def modifyDicts():
-   for g in supportedGeoFiles:
-         os.system('xrdcp -f '+os.environ['EOSSHIP']+'/eos/experiment/sndlhc/convertedData/commissioning/TI18/'+g+' '+g)
-         fg  = ROOT.TFile(g)
+supportedGeoFiles = {"geofile_sndlhc_TI18_V7_22November2022.root":commonPath+"commissioning/TI18",
+                     "geofile_sndlhc_TI18_V0_2024.root":commonPath+"2024/"}
+
+def modifyDicts(year=2024):
+   for geoFileName in supportedGeoFiles:
+         if (year == 2024 and geoFileName.find(str(year)) > 0) or \
+            (year != 2024 and geoFileName.find('2022') > 0):
+            # override locally existing file with the same name
+            status = theClient.copy(supportedGeoFiles[geoFileName]+geoFileName,
+                                    os.getcwd()+'/'+geoFileName, force=True)
+            if not status[0].ok: 
+               print('Bad status of the local copy process', status)
+         else: continue
+         fg  = ROOT.TFile(geoFileName)
          pkl = Unpickler(fg)
          sGeo = pkl.load('ShipGeo')
          fg.Close()
-         
+
          # DS part
          setattr(sGeo.MuFilter,'DsPropSpeed',14.9*u.cm/u.nanosecond)
          sGeo.MuFilter['DsPropSpeed'] = 14.9*u.cm/u.nanosecond
@@ -30,24 +39,18 @@ def modifyDicts():
          constants['t_4361'] =  [-5.61,-5.63,-5.90,-5.39,-5.40,-5.58,-5.99,-6.08,-6.27,-6.43,-5.94,-6.20,-5.45,-5.52,-5.75,-5.93,-5.40,-5.56,-5.46,-5.74]
          constants['t_5117'] =  [-6.56,-6.53,-6.75,-6.27,-6.34,-6.46,-7.50,-7.60,-7.79,-7.94,-7.51,-7.72,-8.09,-8.15,-8.38,-8.55,-8.04,-8.14,-8.02,-8.24]
          constants['t_5478'] =  [-5.28,-5.38,-5.71,-5.76,-5.28,-5.46,-4.22,-4.38,-4.55,-4.70,-4.27,-4.46,-5.31,-5.43,-5.71,-5.88,-5.34,-5.45,-5.38,-5.57]
-         constants['t_6208'] =  [-6.53,-6.68,-6.75,-6.81,-6.37,-6.52,-5.81,-5.97,-6.19,-6.31,-5.90,-6.10,-8.06,-8.17,-8.38,-8.54,-8.06,-8.15,-8.07,-8.29]
-       #time delay corrections first order, only for DS at the moment
-         for p in ["t_0","t_4361","t_5117", "t_5478", "t_6208"]:
-            if p=='t_0':
-               setattr(sGeo.MuFilter,'DSTcorslope'+p,0.000)
-               sGeo.MuFilter['DSTcorslope'+p] = 0.000
-            if p=='t_4361':
-               setattr(sGeo.MuFilter,'DSTcorslope'+p,0.082)
-               sGeo.MuFilter['DSTcorslope'+p] = 0.082
-            if p=='t_5117':
-               setattr(sGeo.MuFilter,'DSTcorslope'+p,0.085)
-               sGeo.MuFilter['DSTcorslope'+p] = 0.085
-            if p=='t_5478':
-               setattr(sGeo.MuFilter,'DSTcorslope'+p,0.082)
-               sGeo.MuFilter['DSTcorslope'+p] = 0.082
-            if p=='t_6208':
-               setattr(sGeo.MuFilter,'DSTcorslope'+p,0.086)
-               sGeo.MuFilter['DSTcorslope'+p] = 0.086
+         constants['t_6208'] =  [-6.00,-5.92,-6.33,-6.22,-5.94,-6.15,-5.53,-5.49,-5.81,-5.86,-5.53,-5.77,-7.74,-7.71,-8.01,-8.04,-7.68,-7.82,-7.65,-7.87]
+         # 2024 and later on
+         constants['t_7648'] =  [-6.53,-6.68,-6.75,-6.81,-6.37,-6.52,-5.81,-5.97,-6.19,-6.31,-5.90,-6.10,-8.06,-8.17,-8.38,-8.54,-8.06,-8.15,-8.07,-8.29]
+         slopes_dict_2022 = {"t_0":0.000, "t_4361":0.082, "t_5117":0.085, "t_5478":0.082, "t_6208":0.086}
+         # new constants for 2024 and later on
+         slopes_dict_2024 = {"t_0":0.000, "t_7648":0.085}
+         if year == 2024: slopes_dict = slopes_dict_2024
+         else: slopes_dict = slopes_dict_2022
+         #time delay corrections first order, only for DS at the moment
+         for p in slopes_dict.keys():
+            setattr(sGeo.MuFilter,'DSTcorslope'+p,slopes_dict[p])
+            sGeo.MuFilter['DSTcorslope'+p] = slopes_dict[p]
             for i in range(len(constants[p])): 
                setattr(sGeo.MuFilter,'DSTcorC'+str(i)+p,constants[p][i])
                sGeo.MuFilter['DSTcorC'+str(i)+p] = constants[p][i]
@@ -79,8 +82,17 @@ def modifyDicts():
   -1.042*u.ns,  0.000*u.ns,  -0.140*u.ns,  0.515*u.ns,   0.728*u.ns,  -0.572*u.ns,  0.673*u.ns, 
   -0.432*u.ns,  0.000*u.ns,  -1.366*u.ns,  0.326*u.ns,   -2.076*u.ns,  -1.152*u.ns,  -1.075*u.ns, 
   -1.067*u.ns,  0.000*u.ns,  -1.021*u.ns,  -0.873*u.ns,   0.623*u.ns,  -1.094*u.ns,  1.365*u.ns ]
-  
-         for c in ['t_0', 't_4361','t_5117', 't_5478', 't_6208']:
+         constants['t_7648']=[     0.000*u.ns,  0.000*u.ns,  -0.299*u.ns,  -0.510*u.ns,   0.217*u.ns,  -0.401*u.ns,  0.016*u.ns,
+  -1.194*u.ns,  0.000*u.ns,  0.547*u.ns,  -0.473*u.ns,   -0.080*u.ns,  0.500*u.ns,  0.002*u.ns,
+  -1.017*u.ns,  0.000*u.ns,  -0.129*u.ns,  0.513*u.ns,   0.736*u.ns,  -0.466*u.ns,  0.963*u.ns,
+  -0.359*u.ns,  0.000*u.ns,  -1.346*u.ns,  0.307*u.ns,   -2.019*u.ns,  -1.096*u.ns,  -1.012*u.ns,
+  -1.032*u.ns,  0.000*u.ns,  -1.002*u.ns,  -0.860*u.ns,   0.630*u.ns,  -1.134*u.ns,  1.393*u.ns ]
+#   
+         scifi_time_tags_2022 = ['t_0', 't_4361','t_5117', 't_5478', 't_6208']
+         scifi_time_tags_2024 = ['t_0', 't_7648']
+         if year == 2024: scifi_time_tags = scifi_time_tags_2024
+         else: scifi_time_tags = scifi_time_tags_2022
+         for c in scifi_time_tags:
           k=0
           for s in range(1,6):
             setattr(sGeo.Scifi,'station'+str(s)+c,constants[c][k])
@@ -204,8 +216,29 @@ def modifyDicts():
    0.00*u.mrad, 0.00*u.mrad, 0.00*u.mrad,
    0.00*u.mrad, 0.88*u.mrad, 0.00*u.mrad,
    0.00*u.mrad, 0.07*u.mrad, 0.00*u.mrad]
-   
-         for c in ['t_0', 't_4361','t_4575','t_4855','t_5172','t_5431', 't_6305']:
+# 2024
+         alignment['t_7648']=[       # 2024 emuslsion run 8
+   509.86*u.um, 732.95*u.um, 621.19*u.um,
+  -10.56*u.um, 153.93*u.um, 92.22*u.um,
+   94.54*u.um, 342.84*u.um, 168.64*u.um,
+   164.88*u.um, 397.75*u.um, 246.37*u.um,
+   185.00*u.um, 430.61*u.um, 245.85*u.um,
+   0.76*u.um, 175.09*u.um, 166.33*u.um,
+   0.00*u.um, 274.57*u.um, 185.82*u.um,
+   50.00*u.um, 249.06*u.um, 175.30*u.um,
+   313.78*u.um, 526.78*u.um, 361.02*u.um,
+  -267.73*u.um, 339.17*u.um, 37.59*u.um,
+   0.00*u.mrad, -0.61*u.mrad, 0.00*u.mrad,
+   0.00*u.mrad, 0.34*u.mrad, 0.00*u.mrad,
+   0.00*u.mrad, 0.00*u.mrad, 0.00*u.mrad,
+   0.00*u.mrad, 0.20*u.mrad, 0.00*u.mrad,
+   0.00*u.mrad, -0.55*u.mrad, 0.00*u.mrad]
+
+         scifi_spatial_tags_2022 = ['t_0', 't_4361','t_4575','t_4855','t_5172','t_5431', 't_6305']
+         scifi_spatial_tags_2024 = ['t_0', 't_7648']
+         if year == 2024: scifi_spatial_tags = scifi_spatial_tags_2024
+         else: scifi_spatial_tags = scifi_spatial_tags_2022
+         for c in scifi_spatial_tags:
           k=0
           for s in range(1,6):
            for o in range(0,2):
@@ -220,7 +253,7 @@ def modifyDicts():
                sGeo.Scifi[o+str(s)+c] = alignment[c][k]
                k+=1
 
-         print('save',g)
-         saveBasicParameters.execute(g,sGeo)
+         print('save',geoFileName)
+         saveBasicParameters.execute(geoFileName,sGeo)
          
 
