@@ -158,8 +158,8 @@ systemAndChannels     = {1:[MuFilter.GetConfParI("MuFilter/VetonSiPMs"),0],
                          3:[MuFilter.GetConfParI("MuFilter/DownstreamnSiPMs"),0]}
 sdict                 = {1:'Veto',2:'US',3:'DS'}
 
-freq      = 160.316E6
-TDC2ns = 1E9/freq
+freq   = u.snd_freq
+TDC2ns = u.snd_TDC2ns
 
 # some helper functions
 
