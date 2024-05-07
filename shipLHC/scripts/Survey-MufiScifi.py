@@ -149,8 +149,8 @@ systemAndBars     = {1:MuFilter.GetConfParI("MuFilter/NVetoBars"),
                      3:MuFilter.GetConfParI("MuFilter/NDownstreamBars")}
 
 def systemAndOrientation(s,plane):
-   if s==1 or s==2: return "horizontal"
-   if plane%2==1 or plane == 6: return "vertical"
+   if s==1 and plane==2: return "vertical"
+   if s==3 and (plane%2==1 or plane == 6): return "vertical"
    return "horizontal"
 
 systemAndChannels     = {1:[MuFilter.GetConfParI("MuFilter/VetonSiPMs"),0],
@@ -1314,11 +1314,15 @@ def Mufi_Efficiency(Nev=options.nEvents,optionTrack=options.trackType,withReco='
         for proj in ['X','Y']:
           xmin = -X*NbinsRes/100. * scale
           xmax = -xmin
-          ut.bookHist(h,'res'+proj+'_'+sdict[s]+side+str(s*10+l),'residual  '+proj+str(s*10+l),NbinsRes,xmin,xmax,100,-100.,100.)
-          ut.bookHist(h,'gres'+proj+'_'+sdict[s]+side+str(s*10+l),'residual  '+proj+str(s*10+l),NbinsRes,xmin,xmax,100,-100.,100.)
+          ut.bookHist(h,'res'+proj+'_'+sdict[s]+side+str(s*10+l),'residual  '+proj+str(s*10+l)+
+                        '; residual [cm]; local position [cm]',NbinsRes,xmin,xmax,100,-100.,100.)
+          ut.bookHist(h,'gres'+proj+'_'+sdict[s]+side+str(s*10+l),'residual  '+proj+str(s*10+l)+
+                        '; residual [cm]; global position [cm]',NbinsRes,xmin,xmax,100,-100.,100.)
           if side=='S': continue
           if side=='':
-             if s==1: ut.bookHist(h,'resBar'+proj+'_'+sdict[s]+str(s*10+l),'residual '+proj+str(s*10+l),NbinsRes,xmin,xmax,7,-0.5,6.5)
+             if s==1: 
+               ut.bookHist(h,'resBar'+proj+'_'+sdict[s]+str(s*10+l),'residual '+proj+str(s*10+l)+
+                             '; residual [cm]; bar number',NbinsRes,xmin,xmax,7,-0.5,6.5)
         if side=='':
              ut.bookHist(h,'track_'+sdict[s]+str(s*10+l),'track x/y '+str(s*10+l)+';X [cm];Y [cm]',100,-90.,10.,100,-20.,80.)
              ut.bookHist(h,'locBarPos_'+sdict[s]+str(s*10+l),'bar sizes;X [cm];Y [cm]',100,-100,100,100,-100,100)
@@ -1351,6 +1355,7 @@ def Mufi_Efficiency(Nev=options.nEvents,optionTrack=options.trackType,withReco='
 
  ut.bookHist(h,'resVETOY_1','channel vs residual  1',NbinsRes,xmin,xmax,112,-0.5,111.5)
  ut.bookHist(h,'resVETOY_2','channel vs residual  2',NbinsRes,xmin,xmax,112,-0.5,111.5)
+ ut.bookHist(h,'resVETOX_3','channel vs residual  3',NbinsRes,xmin,xmax,112,-0.5,111.5)
 
  ut.bookHist(h,'trackslxy','track direction',200,-0.1,0.1,200,-0.1,0.1)
  ut.bookHist(h,'trackslxy_badChi2','track direction',200,-0.1,0.1,200,-0.1,0.1)
@@ -1497,8 +1502,10 @@ def Mufi_Efficiency(Nev=options.nEvents,optionTrack=options.trackType,withReco='
          bar = (aHit.GetDetectorID()%1000)%60
          plane = s*10+p
          if s==3:
-           if aHit.isVertical(): plane = s*10+2*p+1
-           else:                     plane = s*10+2*p
+           if aHit.isVertical(): 
+             plane = s*10+2*p+1
+             if p==3: plane = s*10+2*p
+           else: plane = s*10+2*p
          muHits[plane].append(aHit)
 
 # get T0 from VETO
@@ -1506,7 +1513,7 @@ def Mufi_Efficiency(Nev=options.nEvents,optionTrack=options.trackType,withReco='
     Z0Veto = zPos['MuFilter'][1*10+0]
     dZ = zPos['MuFilter'][1*10+1] - zPos['MuFilter'][1*10+0]
     avT = {}
-    for p in range(systemAndPlanes[s]): 
+    for p in range(systemAndPlanes[s]-1):# exclude the vertical Veto3
          plane = s*10+p
          if len(muHits[plane])!=1: continue
          aHit = muHits[plane][0]
@@ -1523,7 +1530,7 @@ def Mufi_Efficiency(Nev=options.nEvents,optionTrack=options.trackType,withReco='
     if len(avT)==2:
          T0Veto = (avT[10]+(avT[11]-dZ/u.speedOfLight))/2.
 
-    vetoHits = {0:[],1:[]}
+    vetoHits = {0:[],1:[], 2:[]}
     for s in sdict:
      name = str(s)
      for plane in range(systemAndPlanes[s]):
@@ -1567,13 +1574,21 @@ def Mufi_Efficiency(Nev=options.nEvents,optionTrack=options.trackType,withReco='
               S = map2Dict(aHit,'GetAllSignals')
               # check for signal in left / right or small sipm
               left,right,smallL,smallR,Sleft,Sright,SleftS,SrightS = 0,0,0,0,0,0,0,0
-              if  s==1:        
+              if s==1:
+                 if plane<2:
                     vetoHits[plane].append( [gdy,bar] )
                     rc = h['resBarY_'+sdict[s]+str(s*10+plane)].Fill(gdy,bar)
+                 elif plane==2:
+                    vetoHits[plane].append( [gdx,bar] )
+                    rc = h['resBarX_'+sdict[s]+str(s*10+plane)].Fill(gdx,bar)
               for x in S:
-                  if  s==1:
-                      nc = x + 2*nSiPMs*bar
-                      h['resVETOY_'+str(plane+1)].Fill(dy,nc)
+                  if s==1:
+                     if plane<2:
+                        nc = x + 2*nSiPMs*bar
+                        h['resVETOY_'+str(plane+1)].Fill(dy,nc)
+                     elif plane==2:
+                        nc = x + nSiPMs*bar
+                        h['resVETOX_'+str(plane+1)].Fill(dx,nc)
                   if x<nSiPMs: 
                        if s==2 and smallSiPMchannel(x):  smallL+=1
                        else:    left+=1
@@ -2656,26 +2671,36 @@ def analyze_EfficiencyAndResiduals(readHists=False,mode='S',local=True,zoom=Fals
   h['tracksChi2Ndof'].Draw('colz')
   h['Tracks'].cd(2)
   h['trackslxy'].Draw('colz')
+  
+  # params for the double symmetrical Crystal Ball - symetric core and tails 
+  a1 = ROOT.RooRealVar("alpha", "alpha", 2, 1e-3, 10.)
+  p1 = ROOT.RooRealVar("n", "n", 1, 1e-3, 10.)
 
   if local:  res = 'res'
   else: res='gres'
   for proj in ['X','Y']:
    if mode == "S":
       if proj=="Y": ut.bookCanvas(h,'EVetoUS'+proj,'',1200,2000,2,7)
-      if proj=="Y": ut.bookCanvas(h,'EDS'+proj,'',1200,2000,2,3)
-      if proj=="X": ut.bookCanvas(h,'EDS'+proj,'',1200,2000,2,4)
+      if proj=="Y": ut.bookCanvas(h,'EDS'+proj,'',1400,2100,2,3)
+      if proj=="X": 
+         ut.bookCanvas(h,'EDS'+proj,'',1000,2000,2,4)
+         ut.bookCanvas(h,'EVeto'+proj,'',800,400,2,1)
    else:
-      ut.bookCanvas(h,'EVetoUS'+proj,'',1200,2000,4,7)
+      ut.bookCanvas(h,'EVetoUS'+proj,'',1200,2000,4,8)
       ut.bookCanvas(h,'EDS'+proj,'',1200,2000,3,7)
    k = 1
    residualsAndSigma = {}
    for s in  [1,2,3]:
-    if mode == "S" and s<3 and proj=="X": continue
+    if mode == "S" and s==2 and proj=="X": continue
     if s==3: k=1
     sy = sdict[s]
-    if s<3: tname = 'EVetoUS'+proj
+    if s<3: tname = 'EVetoUS'+proj # changed for veto3 in the plane loop below
     else: tname = 'EDS'+proj
     for plane in range(systemAndPlanes[s]):
+     if mode == "S" and s==1 and proj=="X" and plane<2: continue
+     if s==1 and plane==2: 
+        if proj=="Y": continue# vertical Veto3
+        tname = 'EVeto'+proj
      if s==3 and proj=="X" and (plane%2==0 and plane<5): continue
      if s==3 and proj=="Y" and (plane%2==1 or plane==6): continue
      tc = h[tname].cd(k)
@@ -2698,15 +2723,35 @@ def analyze_EfficiencyAndResiduals(readHists=False,mode='S',local=True,zoom=Fals
       resH.Draw()
       binw = resH.GetBinWidth(1)
       if resH.GetEntries()>10:
+         #fit using a double sided CB shape with symmetric tails
+         x = ROOT.RooRealVar("x", "residual [cm]", -10., 10.)
+         mu = ROOT.RooRealVar("mu", "mu", resH.GetMean(), resH.GetMean()-1, resH.GetMean()+1)
+         width = ROOT.RooRealVar("width", "width",  resH.GetRMS(), 1e-5,  resH.GetRMS()+2)
+         dcbPdf = ROOT.RooCrystalBall("dcbPdf", "DoubleSidedCB", x, mu, width, a1, p1, True)
+         roofit_hist = ROOT.RooDataHist("roofit_hist", "roofit_hist", ROOT.RooArgList(x), ROOT.RooFit.Import(resH))
+         fitResult = dcbPdf.fitTo(roofit_hist, ROOT.RooFit.PrintLevel(-1), ROOT.RooFit.Save(True))
+         pl = x.frame()
+         roofit_hist.plotOn(pl)
+         dcbPdf.plotOn(pl)
+         pl.Draw()
+         latex.DrawLatexNDC(0.13,0.8, "#mu = {:.3f} +/- {:.3f}".format(mu.getVal(), mu.getError()))
+         latex.DrawLatexNDC(0.13,0.7,"#sigma = {:.3f} +/- {:.3f}".format(width.getVal(), width.getError()))
+         ''' 
+         # changed to CB fit function so commenting the modified Gaussian fit
+         # Keeping it however since Thomas was able to get resolutions ~ bar_size/sqrt(12) in 2022.
+         # For the 2024 data that is not the case, so swapped with CB
          myGauss = ROOT.TF1('gauss','abs([0])*'+str(binw)+'/(abs([2])*sqrt(2*pi))*exp(-0.5*((x-[1])/[2])**2)+abs([3])',4)
          myGauss.SetParameter(0,resH.GetEntries())
          myGauss.SetParameter(1,0)
          myGauss.SetParameter(2,2.)
          rc = resH.Fit(myGauss,'SL','',-15.,15.)
          fitResult = rc.Get()
+         '''
          if not (s*10+plane) in residualsAndSigma:
-             residualsAndSigma[s*10+plane] = [fitResult.Parameter(1)/u.mm,fitResult.ParError(1)/u.mm,abs(fitResult.Parameter(2)/u.cm),fitResult.ParError(2)/u.cm]
+             residualsAndSigma[s*10+plane] = [mu.getVal()/u.mm,mu.getError()/u.mm,abs(width.getVal()/u.cm),width.getError()/u.cm]
+             #residualsAndSigma[s*10+plane] = [fitResult.Parameter(1)/u.mm,fitResult.ParError(1)/u.mm,abs(fitResult.Parameter(2)/u.cm),fitResult.ParError(2)/u.cm]
          tc.Update()
+         '''
          stats = resH.FindObject('stats')
          stats.SetOptFit(111111)
          stats.SetX1NDC(0.63)
@@ -2718,7 +2763,9 @@ def analyze_EfficiencyAndResiduals(readHists=False,mode='S',local=True,zoom=Fals
              eff = fitResult.Parameter(0)/tracks
              effErr = fitResult.ParError(0)/tracks
              latex.DrawLatexNDC(0.2,0.8,'eff=%5.2F+/-%5.2F%%'%(eff,effErr))
+         '''
    if 'EVetoUS'+proj in h: myPrint(h['EVetoUS'+proj],'EVetoUS'+proj)
+   if 'EVeto'+proj in h: myPrint(h['EVeto'+proj],'EVeto'+proj)
    if 'EDS'+proj in h:        myPrint(h['EDS'+proj],'EDS'+proj)
 # summary plot of residuals
    h['gResiduals'], h['gSigma'] = ROOT.TGraphErrors(), ROOT.TGraphErrors()
@@ -2731,18 +2778,18 @@ def analyze_EfficiencyAndResiduals(readHists=False,mode='S',local=True,zoom=Fals
        k+=1
    h['gResiduals'].SetLineWidth(2)
    h['gSigma'].SetLineWidth(2)
-   ut.bookCanvas(h,'MufiRes','Mufi residuals',750,750,1,1)
-   tc = h['MufiRes'].cd()
+   ut.bookCanvas(h,'MufiRes'+proj,'Mufi residuals',750,750,1,1)
+   tc = h['MufiRes'+proj].cd()
    h['gResiduals'].SetTitle(';station; offset [mm]')
    h['gResiduals'].Draw("AP")
    ut.bookCanvas(h,'MufiSigm','Mufi sigma',750,750,1,1)
    tc = h['MufiSigm'].cd()
    h['gSigma'].SetTitle(';station; #sigma [cm]')
    h['gSigma'].Draw("AP")
-   myPrint(h['MufiRes'],'MufiResiduals')
-   myPrint(h['MufiSigm'],'MufiSigma')
+   myPrint(h['MufiRes'+proj],'MufiResiduals'+proj)
+   myPrint(h['MufiSigm'],'MufiSigma'+proj)
 
-  ut.bookCanvas(h,'TVE','',800,900,1,2)
+  ut.bookCanvas(h,'TVE','',800,900,1,3)
   ut.bookCanvas(h,'TUS','',800,2000,1,5)
   ut.bookCanvas(h,'TDS','',800,1200,1,3)
   latex.SetTextColor(ROOT.kRed)
@@ -2753,6 +2800,9 @@ def analyze_EfficiencyAndResiduals(readHists=False,mode='S',local=True,zoom=Fals
     tname = S[s]
     k=1
     for plane in range(systemAndPlanes[s]):
+     if s==1 and proj=="X" and plane<2: continue
+     if s==1 and plane==2: 
+        if proj=="Y": continue# vertical Veto3
      if s==3 and proj=="X" and (plane%2==0 and plane<5): continue
      if s==3 and proj=="Y" and (plane%2==1 or plane==6): continue
      tc = h[tname].cd(k)
@@ -2830,8 +2880,9 @@ def analyze_EfficiencyAndResiduals(readHists=False,mode='S',local=True,zoom=Fals
 #for VETO
   ut.bookCanvas(h,'veto','',800,1600,1,7)
   s=1
-  for plane in [0,1]:
-    hname = 'resBarY_'+sdict[s]+str(s*10+plane)
+  for plane in range(systemAndPlanes[s]):
+    if plane<2: hname = 'resBarY_'+sdict[s]+str(s*10+plane)
+    elif plane==2: hname = 'resBarX_'+sdict[s]+str(s*10+plane)
     for nbar in range(1,h[hname].GetNbinsY()+1):
         vname = 'veto'+str(s*10+plane)+'_'+str(nbar)
         h[vname] = h[hname].ProjectionX(vname,nbar+1,nbar+1)
