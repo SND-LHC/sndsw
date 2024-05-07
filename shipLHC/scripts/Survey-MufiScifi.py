@@ -1396,10 +1396,13 @@ def Mufi_Efficiency(Nev=options.nEvents,optionTrack=options.trackType,withReco='
     rc = h['NdofvsNMeas'].Fill(fitStatus.getNdf(),theTrack.getNumPointsWithMeasurement())
 # map clusters to hit keys
     DetID2Key={}
-    if hasattr(event,"Cluster_Scifi"):
-               clusters = event.Cluster_Scifi
+    if not hasattr(event,"Cluster_Scifi"): # or remakeClusters
+       if hasattr(trackTask,"clusScifi"): 
+          trackTask.clusScifi.Clear()
+       trackTask.scifiCluster()
+       clusters = trackTask.clusScifi
     else:
-               clusters = Cluster_Scifi
+       clusters = event.Cluster_Scifi
 
     for aCluster in clusters:
         for nHit in range(event.Digi_ScifiHits.GetEntries()):
@@ -1450,7 +1453,7 @@ def Mufi_Efficiency(Nev=options.nEvents,optionTrack=options.trackType,withReco='
          L0 = X.Mag()/v
          # need to correct for signal propagation along fibre
          clkey  = W.getHitId()
-         aCl = event.Cluster_Scifi[clkey]
+         aCl = clusters[clkey]
          T0track = aCl.GetTime() - L0
          TZero    = aCl.GetTime()
          Z0track = pos[2]
@@ -1462,7 +1465,7 @@ def Mufi_Efficiency(Nev=options.nEvents,optionTrack=options.trackType,withReco='
             W = M.getRawMeasurement()
             detID = W.getDetId()
             clkey = W.getHitId()
-            aCl = event.Cluster_Scifi[clkey]
+            aCl = clusters[clkey]
             aHit = event.Digi_ScifiHits[ DetID2Key[detID] ]
             Scifi.GetSiPMPosition(detID,A,B)
             if aHit.isVertical(): X = B-posM
