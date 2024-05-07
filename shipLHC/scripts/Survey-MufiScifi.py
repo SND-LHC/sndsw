@@ -136,6 +136,8 @@ nav = ROOT.gGeoManager.GetCurrentNavigator()
 nScifi = Scifi.GetConfParI("Scifi/nscifi")
 nMats = Scifi.GetConfParI("Scifi/nmats")
 
+nVeto = MuFilter.GetConfParI("MuFilter/NVetoPlanes")
+
 A,B,locA,locB,globA,globB    = ROOT.TVector3(),ROOT.TVector3(),ROOT.TVector3(),ROOT.TVector3(),ROOT.TVector3(),ROOT.TVector3()
 latex = ROOT.TLatex()
 
@@ -1296,7 +1298,8 @@ def USDSEnergy(Nev=options.nEvents,nproc=15):
 def Mufi_Efficiency(Nev=options.nEvents,optionTrack=options.trackType,withReco='True',NbinsRes=100,X=10.):
  
  projs = {1:'Y',0:'X'}
- for s in range(1,6):
+ v = Scifi.GetConfParF("Scifi/signalSpeed") #signal propagation in fibre
+ for s in range(1,nScifi+1):
      for p in projs:
          ut.bookHist(h,'dtScifivsX_'+str(s)+projs[p],'dt vs x track '+projs[p]+";X [cm]; dt [ns]",100,-10.,40.,260,-8.,5.)
          ut.bookHist(h,'clN_'+str(s)+projs[p],'cluster size '+projs[p],10,-0.5,9.5)
@@ -1362,8 +1365,6 @@ def Mufi_Efficiency(Nev=options.nEvents,optionTrack=options.trackType,withReco='
  ut.bookHist(h,'tracksChi2Ndof','chi2/ndof',100,0.0,100.,10,-0.5,9.5)
  ut.bookHist(h,'NdofvsNMeas','ndof Nmeas',20,-0.5,19.5,20,-0.5,19.5)
 
- Scifi = geo.modules['Scifi']
- v = Scifi.GetConfParF("Scifi/signalSpeed") #signal propagation in fibre
  if Nev < 0 : Nev = eventTree.GetEntries()
  N=0
  for event in eventTree:
@@ -1477,7 +1478,7 @@ def Mufi_Efficiency(Nev=options.nEvents,optionTrack=options.trackType,withReco='
                  l = posM[1]
             rc = h['dtScifivsX_'+ss+prj].Fill(X.Mag(),dT)
             times[ss+prj]=[aCl.GetTime(),L*v,detID,l]
-         for s in range(1,6):
+         for s in range(1,nScifi+1):
             if str(s)+'X' in times and  str(s)+'Y' in times:
                deltaT = times[str(s)+'X'][0] - times[str(s)+'Y'][0]
                deltaL = times[str(s)+'X'][1] - times[str(s)+'Y'][1]
@@ -2789,7 +2790,7 @@ def analyze_EfficiencyAndResiduals(readHists=False,mode='S',local=True,zoom=Fals
    myPrint(h['MufiRes'+proj],'MufiResiduals'+proj)
    myPrint(h['MufiSigm'],'MufiSigma'+proj)
 
-  ut.bookCanvas(h,'TVE','',800,900,1,3)
+  ut.bookCanvas(h,'TVE','',800,900,1,nVeto)
   ut.bookCanvas(h,'TUS','',800,2000,1,5)
   ut.bookCanvas(h,'TDS','',800,1200,1,3)
   latex.SetTextColor(ROOT.kRed)
