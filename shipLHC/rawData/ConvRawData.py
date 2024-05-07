@@ -252,7 +252,7 @@ class ConvRawDataPY(ROOT.FairTask):
        for s in range(1,3):
            for o in ['Left','Right']: 
               self.offMap['Veto_'+str(s)+o] =[10000 + (s-1)*1000+ 0,8,2]    # first channel, nSiPMs, nSides, from bottom to top
-       self.offMap['Veto_3Vert'] = [10000 + 2*1000+ 0,8,1]
+       self.offMap['Veto_3Vert'] = [10000 + 2*1000+ 6,-8,1]
        for s in range(1,6):
            for o in ['Left','Right']: 
               self.offMap['US_'+str(s)+o] =[20000 + (s-1)*1000+ 9,-8,2]     # from top to bottom

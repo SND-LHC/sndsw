@@ -856,7 +856,7 @@ void ConvRawData::DetMapping(string Path)
       offMap[Form("Veto_%iLeft",i)]  = {10000 + (i-1)*1000+ 0, 8, 2};//first channel, nSiPMs, nSides
       offMap[Form("Veto_%iRight",i)] = {10000 + (i-1)*1000+ 0, 8, 2};
     }
-    if (i==3) offMap[Form("Veto_%iVert",i)] = {10000 + (i-1)*1000+ 0, 8, 1};// 3rd Veto plane
+    if (i==3) offMap[Form("Veto_%iVert",i)] = {10000 + (i-1)*1000+ 6, -8, 1};// 3rd Veto plane
     if (i<4)
     {
       // DS
