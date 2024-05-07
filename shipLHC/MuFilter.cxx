@@ -654,7 +654,7 @@ void MuFilter::GetPosition(Int_t fDetectorID, TVector3& vLeft, TVector3& vRight)
       barName = "/volVetoBar_";
       // the third Veto plane is vertical
       if (plane>=2) barName+="ver_";
-      shift = conf_floats["MuFilter/Veto"+std::to_string(plane+1)+"ShiftY"];
+      shift = conf_floats["MuFilter/Veto"+std::to_string(plane+1)+"ShiftX"];
       break;
   case 2: 
       path+="volMuFilter_1/volMuUpstreamDet_"+std::to_string(plane)+"_"
