@@ -38,7 +38,7 @@ def start0(plist=['tmp4705p9'],s=3):
    for x in ['','cor']:
     for d in ['','B2noB1','B1only']:
      for l in range(S[s][2]*S[s][3]):
-              if s==3 and l>7: continue
+              if s==3 and l>6: continue
               n = l+1
               tag = str(10*s+l)+d
               if s==3 and n==7: n=8
@@ -118,7 +118,7 @@ def execute(s=3):
   h['c1'].cd()
   fitLimits ={1:[-15,-5],11:[-15,-5],3:[-10,-2],13:[-25,-15]}
   for l in range(S[s][2]*S[s][3]):
-    if s==3 and l>7: continue
+    if s==3 and l>6: continue
     tag = str(s*10+l)
     hist = h[detector+'dT_'+tag]
     alignTpar[s*10+l] = {}
@@ -145,7 +145,7 @@ def execute(s=3):
   ut.bookHist(h,'tres','time diff res;channel;sigma [ns]',nbins,-0.5,nbins-0.5)
   ut.bookHist(h,'t12','time diff B1 B2;channel;sigma [ns]',nbins,-0.5,nbins-0.5)
   for l in range(S[s][2]*S[s][3]):
-    if s==3 and l>7: continue
+    if s==3 and l>6: continue
     for i in range(hist.GetNbinsY()):
        k = l*channelsPerPlane[s]
        rc = h['talign'].Fill(k+i,alignTpar[s*10+l][i][0])
@@ -259,7 +259,7 @@ def execute(s=3):
       print("%i slope %5.3F b = %5.2F"%(p,res.Parameter(1),res.Parameter(0)))
     h[c].GetXaxis().SetRange(1,600)
     h[c].Draw()
-    h['results'+c].Print(sstem+'timeAlignFit'+str(l)+'-run004705.png')
+    h['results'+c].Print(system+'timeAlignFit'+str(l)+'-run004705.png')
     
    c = 'talignReorder3'
    ut.bookHist(h,'resT','t residuals',100,-3.,3.)
