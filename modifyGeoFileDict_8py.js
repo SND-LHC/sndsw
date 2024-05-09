@@ -1,6 +1,7 @@
 var modifyGeoFileDict_8py =
 [
-    [ "modifyDicts", "modifyGeoFileDict_8py.html#a7c2d0b6c3eaef6be39e544c612658b6d", null ],
-    [ "path", "modifyGeoFileDict_8py.html#a9a975b2f71e72370731d35fdc228e0d0", null ],
-    [ "supportedGeoFiles", "modifyGeoFileDict_8py.html#a96015d348b63ae52c982e1388f7e6f23", null ]
+    [ "modifyDicts", "modifyGeoFileDict_8py.html#aa4f10595dc8ec0c479194e8ebf58b394", null ],
+    [ "commonPath", "modifyGeoFileDict_8py.html#af5b9466910c8a2c77807832f499b8d7e", null ],
+    [ "supportedGeoFiles", "modifyGeoFileDict_8py.html#a2fcf4262f60ec0290c4d429b7041cc1b", null ],
+    [ "theClient", "modifyGeoFileDict_8py.html#ab13f5fafbbfa14532174aa9745a0f537", null ]
 ];

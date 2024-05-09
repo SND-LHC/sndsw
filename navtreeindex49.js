@@ -1,5 +1,6 @@
 var NAVTREEINDEX49 =
 {
+"geometry__config_8py.html#ac4e0c6b2e261bf98d7436b1795dcec35":[13,0,6,2,36],
 "geometry__config_8py.html#ac4e3103dcaec406289b7b50264b59702":[13,0,6,2,261],
 "geometry__config_8py.html#ac4f8dd163acdf0dad119f4c99e0866f6":[13,0,6,2,33],
 "geometry__config_8py.html#ac59dba70c1ba33a531b0bb13de2db94e":[13,0,6,2,49],
@@ -153,14 +154,14 @@ var NAVTREEINDEX49 =
 "getconditions__condDB_8py_source.html":[13,0,1,5],
 "global__variables_8py.html":[13,0,17,13],
 "global__variables_8py_source.html":[13,0,17,13],
-"globals.html":[13,1,0,0],
 "globals.html":[13,1,0],
+"globals.html":[13,1,0,0],
 "globals_a.html":[13,1,0,1],
 "globals_b.html":[13,1,0,2],
 "globals_c.html":[13,1,0,3],
 "globals_d.html":[13,1,0,4],
-"globals_defs.html":[13,1,6],
 "globals_defs.html":[13,1,6,0],
+"globals_defs.html":[13,1,6],
 "globals_defs_a.html":[13,1,6,1],
 "globals_defs_b.html":[13,1,6,2],
 "globals_defs_c.html":[13,1,6,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX49 =
 "goliath2root_8py_source.html":[13,0,17,14],
 "group__EventDisplay.html":[10,1],
 "group__GFRave.html":[10,2],
-"group__RKTrackRep.html":[10,3],
-"group__genfit.html":[10,0]
+"group__RKTrackRep.html":[10,3]
 };

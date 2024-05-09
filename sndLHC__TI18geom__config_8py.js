@@ -193,7 +193,7 @@ var sndLHC__TI18geom__config_8py =
     [ "Veto2ShiftY", "sndLHC__TI18geom__config_8py.html#a39154a6f7b240f4b251e5d25b4f304aa", null ],
     [ "Veto3BarZ", "sndLHC__TI18geom__config_8py.html#af71a9710958b28f9ff92b637c8da7cdf", null ],
     [ "Veto3Dz", "sndLHC__TI18geom__config_8py.html#a11d4eb26761a141e27e8dea0f6d29655", null ],
-    [ "Veto3ShiftY", "sndLHC__TI18geom__config_8py.html#af1259f270a4bb26723fcf4dbab9ae4cb", null ],
+    [ "Veto3ShiftX", "sndLHC__TI18geom__config_8py.html#a98685722bcc6740cb69f71468d5fd05a", null ],
     [ "VetoBarGap", "sndLHC__TI18geom__config_8py.html#a02ab90381a84b49aa806eeb6f678e779", null ],
     [ "VetoBarZ", "sndLHC__TI18geom__config_8py.html#a23169c10c47be1811592f1b1098fba0f", null ],
     [ "VETOBoxX1", "sndLHC__TI18geom__config_8py.html#a08fd0044f13e2f9f79b793ddf2a17fc3", null ],

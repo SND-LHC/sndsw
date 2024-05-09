@@ -1917,9 +1917,10 @@ var namespaces_dup =
       [ "symortho", "namespaceminresqlpmodule.html#af827a771499cbe406df432ef1d5d758b", null ]
     ] ],
     [ "modifyGeoFileDict", "namespacemodifyGeoFileDict.html", [
-      [ "modifyDicts", "namespacemodifyGeoFileDict.html#a7c2d0b6c3eaef6be39e544c612658b6d", null ],
-      [ "path", "namespacemodifyGeoFileDict.html#a9a975b2f71e72370731d35fdc228e0d0", null ],
-      [ "supportedGeoFiles", "namespacemodifyGeoFileDict.html#a96015d348b63ae52c982e1388f7e6f23", null ]
+      [ "modifyDicts", "namespacemodifyGeoFileDict.html#aa4f10595dc8ec0c479194e8ebf58b394", null ],
+      [ "commonPath", "namespacemodifyGeoFileDict.html#af5b9466910c8a2c77807832f499b8d7e", null ],
+      [ "supportedGeoFiles", "namespacemodifyGeoFileDict.html#a2fcf4262f60ec0290c4d429b7041cc1b", null ],
+      [ "theClient", "namespacemodifyGeoFileDict.html#ab13f5fafbbfa14532174aa9745a0f537", null ]
     ] ],
     [ "Monitor", "namespaceMonitor.html", "namespaceMonitor" ],
     [ "mpbits", "namespacempbits.html", [
@@ -4778,7 +4779,7 @@ var namespaces_dup =
       [ "Veto2ShiftY", "namespacesndLHC__TI18geom__config.html#a39154a6f7b240f4b251e5d25b4f304aa", null ],
       [ "Veto3BarZ", "namespacesndLHC__TI18geom__config.html#af71a9710958b28f9ff92b637c8da7cdf", null ],
       [ "Veto3Dz", "namespacesndLHC__TI18geom__config.html#a11d4eb26761a141e27e8dea0f6d29655", null ],
-      [ "Veto3ShiftY", "namespacesndLHC__TI18geom__config.html#af1259f270a4bb26723fcf4dbab9ae4cb", null ],
+      [ "Veto3ShiftX", "namespacesndLHC__TI18geom__config.html#a98685722bcc6740cb69f71468d5fd05a", null ],
       [ "VetoBarGap", "namespacesndLHC__TI18geom__config.html#a02ab90381a84b49aa806eeb6f678e779", null ],
       [ "VetoBarZ", "namespacesndLHC__TI18geom__config.html#a23169c10c47be1811592f1b1098fba0f", null ],
       [ "VETOBoxX1", "namespacesndLHC__TI18geom__config.html#a08fd0044f13e2f9f79b793ddf2a17fc3", null ],
@@ -4971,7 +4972,7 @@ var namespaces_dup =
       [ "eventTree", "namespaceSurvey-MufiScifi.html#a88052666f279ca831bbc4d22c7c2e9ed", null ],
       [ "f", "namespaceSurvey-MufiScifi.html#a4a3ab21dbac3076c6eb0f15677924df4", null ],
       [ "False", "namespaceSurvey-MufiScifi.html#a771648e533f7a09f146f650451dad5bf", null ],
-      [ "freq", "namespaceSurvey-MufiScifi.html#a5b577c074561be5a7b31d8fe378cbf44", null ],
+      [ "freq", "namespaceSurvey-MufiScifi.html#a5987c3835196df8f039940a8dd2409b1", null ],
       [ "geo", "namespaceSurvey-MufiScifi.html#adc6e283377b45f4ae0238435362b4668", null ],
       [ "globA", "namespaceSurvey-MufiScifi.html#a9fd1467ceaa5970b61adeb8e8b93f736", null ],
       [ "globB", "namespaceSurvey-MufiScifi.html#ab7ae1d683c2e139591c672475765651d", null ],
@@ -4990,6 +4991,7 @@ var namespaces_dup =
       [ "nMats", "namespaceSurvey-MufiScifi.html#af3bb4f5cd4db6a353154c648a448734a", null ],
       [ "None", "namespaceSurvey-MufiScifi.html#aac8014efb7cbf9a708281e13512729db", null ],
       [ "nScifi", "namespaceSurvey-MufiScifi.html#aaa2b933e6cfb18c05a590b715066b5f3", null ],
+      [ "nVeto", "namespaceSurvey-MufiScifi.html#a8497524950582b8c9482d490043901ba", null ],
       [ "options", "namespaceSurvey-MufiScifi.html#a884175eacd665ea3b132917dd7964ee9", null ],
       [ "OT", "namespaceSurvey-MufiScifi.html#ac36770811662e3145ddf4d679f0232b2", null ],
       [ "outFile", "namespaceSurvey-MufiScifi.html#a68dd5bc2803e7d04ef19ae16b8276ac9", null ],
@@ -5009,7 +5011,7 @@ var namespaces_dup =
       [ "systemAndBars", "namespaceSurvey-MufiScifi.html#a2d7869b2031a00f54579b02eddfbb2ea", null ],
       [ "systemAndChannels", "namespaceSurvey-MufiScifi.html#a6fb4f0368ecd81a8d7eac97405a861ea", null ],
       [ "systemAndPlanes", "namespaceSurvey-MufiScifi.html#afb6081f2168489c7752d1d28c3246d28", null ],
-      [ "TDC2ns", "namespaceSurvey-MufiScifi.html#a77d86287e3b81b0f472e7c33bf4cdacb", null ],
+      [ "TDC2ns", "namespaceSurvey-MufiScifi.html#aca10918fdda57d5af5e462e3e3736847", null ],
       [ "Tkey", "namespaceSurvey-MufiScifi.html#a0ca44961814930bb014bafad72dc57d9", null ],
       [ "tmp", "namespaceSurvey-MufiScifi.html#a77f631d8aef86559254524581ff0d3c4", null ],
       [ "trackTask", "namespaceSurvey-MufiScifi.html#a46f67a499e68109412becdc4f523e741", null ],
