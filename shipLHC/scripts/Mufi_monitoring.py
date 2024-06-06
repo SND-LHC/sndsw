@@ -2,6 +2,7 @@
 import ROOT,os,sys
 import rootUtils as ut
 import shipunit as u
+import numpy as np
 
 A,B  = ROOT.TVector3(),ROOT.TVector3()
 detector = "mufi-"
@@ -24,12 +25,16 @@ class Mufi_hitMaps(ROOT.FairTask):
        ioman = ROOT.FairRootManager.Instance()
        self.OT = ioman.GetSink().GetOutTree()
        self.mufi_vsignal = self.M.Scifi.GetConfParF("Scifi/signalSpeed")
+       
+       channelsPerSystem = {1:self.M.MuFilter.GetConfParI("MuFilter/VetonSiPMs"),
+                            2:self.M.MuFilter.GetConfParI("MuFilter/UpstreamnSiPMs"),
+                            3:self.M.MuFilter.GetConfParI("MuFilter/DownstreamnSiPMs")}
 
 # type of crossing, check for b1only,b2nob1,nobeam
        if self.M.fsdict or self.M.hasBunchInfo:   self.xing = {'':True,'B1only':False,'B2noB1':False,'noBeam':False}
        else:   self.xing = {'':True}
        for xi in self.xing:
-         ut.bookHist(h,detector+'Noise'+xi,'events with hits in single plane; s*10+l;',40,0.5,39.5)
+         ut.bookHist(h,detector+'Noise'+xi,'events with hits in single plane; s*10+l;',40,0.5,39.5)         
          for s in monitor.systemAndPlanes:
             ut.bookHist(h,sdict[s]+'Mult'+xi,'QDCs vs nr hits; #hits; QDC [a.u.]',200,0.,800.,200,0.,300.)
             for l in range(monitor.systemAndPlanes[s]):
@@ -37,15 +42,35 @@ class Mufi_hitMaps(ROOT.FairTask):
                   ut.bookHist(h,detector+'hit_'+str(s*10+l)+xi,'channel map / plane '+sdict[s]+str(l)+'; #channel',160,-0.5,159.5)
                   ut.bookHist(h,detector+'Xhit_'+str(s*10+l)+xi,'Xchannel map / plane '+sdict[s]+str(l)+'; #channel',160,-0.5,159.5)
 
+                  ut.bookHist(h,detector+'chanActiveRight_'+str(s*10+l),
+                              sdict[s]+' '+str(l)+'R channel hit multiplicity; #channel; bar',
+                              channelsPerSystem[s],-0.5,channelsPerSystem[s]-0.5,
+                              monitor.systemAndBars[s],-0.5,monitor.systemAndBars[s]-0.5)
+                  ut.bookHist(h,detector+'chanNfiredRight_'+str(s*10+l),
+                              sdict[s]+' '+str(l)+'R number of fired channels ; N fired channels; bar',
+                              channelsPerSystem[s]+1,-0.5,channelsPerSystem[s]+0.5,
+                              monitor.systemAndBars[s],-0.5,monitor.systemAndBars[s]-0.5)
+                  side = 'L'
+                  if (s==1 and l==2) or (s==3 and (l%2==1 or l==6)):
+                    side = 'T'
+                  ut.bookHist(h,detector+'chanActiveLeft_'+str(s*10+l),
+                              sdict[s]+' '+str(l)+side+' channel hit multiplicity; #channel; bar',
+                              channelsPerSystem[s],-0.5,channelsPerSystem[s]-0.5,
+                              monitor.systemAndBars[s],-0.5,monitor.systemAndBars[s]-0.5)
+                  ut.bookHist(h,detector+'chanNfiredLeft_'+str(s*10+l),
+                              sdict[s]+' '+str(l)+side+' number of fired channels; N fired channels; bar',
+                              channelsPerSystem[s]+1,-0.5,channelsPerSystem[s]+0.5,
+                              monitor.systemAndBars[s],-0.5,monitor.systemAndBars[s]-0.5)
+
                   if s==3:  
-                        ut.bookHist(h,detector+'bar_'+str(s*10+l)+xi,'bar map / plane '+sdict[s]+str(l)+'; #bar',60,-0.5,59.5)
+                        ut.bookHist(h,detector+'bar_'+str(s*10+l)+xi,'bar map / plane '+sdict[s]+str(l)+'; bar',60,-0.5,59.5)
                         ut.bookHist(h,detector+'dT_'+str(s*10+l)+xi,'dT with respect to first scifi '+sdict[s]+str(l)+'; dt [ns] ;# bar + channel',      100,-25.,5.,120,-0.5,2*60-0.5)
                         ut.bookHist(h,detector+'dTcor_'+str(s*10+l)+xi,'dTcor with respect to first scifi '+sdict[s]+str(l)+'; dt [ns] ;# bar + channel',100,-25.,5.,120,-0.5,2*60-0.5)
                         if l == 4:
                           for ss in range(1,6):
                              ut.bookHist(h,'deltaTScifiMufiHit_'+str(ss)+xi,'deltaT scifi earliest hit versus DS hit 2H',200,-25.,25.)
                   else:       
-                        ut.bookHist(h,detector+'bar_'+str(s*10+l)+xi,'bar map / plane '+sdict[s]+str(l)+'; #bar',10,-0.5,9.5)
+                        ut.bookHist(h,detector+'bar_'+str(s*10+l)+xi,'bar map / plane '+sdict[s]+str(l)+'; bar',10,-0.5,9.5)
                         if s==1:
                            ut.bookHist(h,detector+'dT_'+str(s*10+l)+xi,'dT with respect to first scifi '+sdict[s]+str(l)+'; dt [ns] ;# bar + channel',      100,-25.,5.,120,-0.5,2*8*7-0.5)
                         ut.bookHist(h,detector+'dTcor_'+str(s*10+l)+xi,'dTcor with respect to first scifi '+sdict[s]+str(l)+'; dt [ns] ;# bar + channel',100,-25.,5.,120,-0.5,2*8*7-0.5)
@@ -74,13 +99,13 @@ class Mufi_hitMaps(ROOT.FairTask):
                   ut.bookHist(h,detector+'dtimem'+xi,'delta event time; dt [ms]',100,0.0,1000.)
 
                   ut.bookHist(h,detector+'bs'+xi,'beam spot; x[cm]; y[cm]',100,-100.,10.,100,0.,80.)
-                  ut.bookHist(h,detector+'bsDS'+xi,'beam spot, #bar X, #bar Y',60,-0.5,59.5,60,-0.5,59.5)
+                  ut.bookHist(h,detector+'bsDS'+xi,'beam spot,#bar X, #bar Y',60,-0.5,59.5,60,-0.5,59.5)
                   ut.bookHist(h,detector+'slopes'+xi,'muon DS track slopes; slope X [rad]; slope Y [rad]',150,-1.5,1.5,150,-1.5,1.5)
                   ut.bookHist(h,detector+'trackPos'+xi,'muon DS track pos; x [cm]; y [cm]',100,-90,10.,80,0.,80.)
                   ut.bookHist(h,detector+'trackPosBeam'+xi,'beam track pos slopes<0.1rad; x [cm]; y [cm]',100,-90,10.,80,0.,80.)
 
                   for bar in range(monitor.systemAndBars[s]):
-                     ut.bookHist(h,detector+'chanmult_'+str(s*1000+100*l+bar)+xi,'channel mult / bar '+sdict[s]+str(l)+"-"+str(bar)+'; #channels',20,-0.5,19.5)
+                     ut.bookHist(h,detector+'chanmult_'+str(s*1000+100*l+bar)+xi,'channels firing per bar '+sdict[s]+str(l)+" bar "+str(bar)+'; fired channels',20,-0.5,19.5)
 #
                   xmin = options.Mufixmin
                   xmax = -xmin
@@ -89,6 +114,9 @@ class Mufi_hitMaps(ROOT.FairTask):
                   ut.bookHist(h,detector+'resY_'+sdict[s]+str(s*10+l)+xi,'residual  Y'+str(s*10+l)+'; [#cm]',
                       100,xmin,xmax,70,2.,68.)
 
+       for x in h:
+         if isinstance(h[x], ROOT.TH2):
+           h[x].SetStats(0)
 
        self.listOfHits = {1:[],2:[],3:[]}
    def ExecuteEvent(self,event):
@@ -131,11 +159,15 @@ class Mufi_hitMaps(ROOT.FairTask):
               if  nSiPMs > c:  # left side
                     Nleft+=1
                     Sleft+=allChannels[c]
+                    h[detector+'chanActiveLeft_'+str(s*10+l)].Fill(c, bar)
               else:
                     Nright+=1
                     Sright+=allChannels[c]
+                    h[detector+'chanActiveRight_'+str(s*10+l)].Fill(c-nSiPMs, bar)
            self.M.fillHist1(detector+'chanmult_'+str(s*1000+100*l+bar),Nleft)
            self.M.fillHist1(detector+'chanmult_'+str(s*1000+100*l+bar),10+Nright)
+           h[detector+'chanNfiredLeft_'+str(s*10+l)].Fill(Nleft, bar)
+           h[detector+'chanNfiredRight_'+str(s*10+l)].Fill(Nright, bar)
            if not aHit.isVertical():  # vertical DS plane is read out only on one side
               self.M.fillHist2(detector+'leftvsright_'+str(s),Nleft,Nright)
               self.M.fillHist2(detector+'leftvsright_signal_'+str(s),Sleft,Sright)
@@ -404,30 +436,141 @@ class Mufi_hitMaps(ROOT.FairTask):
            h[detector+'lLRinEff'+str(s)+xi].AddEntry(h[name+'1Y'],'right all',"f")
            h[detector+'lLRinEff'+str(s)+xi].Draw()
 
+       listSipmTypes = ['L','R','S']
+       plane_label = {}
+       # parameters for the signal median
+       q05=np.array([0.5])
+       signal_attributes={}
+#
        for tag in ["","T"]:
         ut.bookCanvas(h,tag+'signalUSVeto'+xi,' ',1200,1600,3,self.M.systemAndPlanes[1]+self.M.systemAndPlanes[2])
         s = 1
         l = 1
+        Xaxis_bin = 1
         for plane in range(self.M.systemAndPlanes[1]):
-                for side in ['L','R','S']:
+                for side in listSipmTypes:
                    tc = h[tag+'signalUSVeto'+xi].cd(l)
                    l+=1 
                    if side=='S' or (plane==2 and side =='R'): continue
-                   h[detector+tag+'sig'+side+'_'+str( s*10+plane)+xi].Draw()
+                   rc = h[detector+tag+'sig'+side+'_'+str( s*10+plane)+xi]
+                   rc.Draw()
+                   if side=='S' or tag=='T': continue
+                   if plane==2: plane_label[Xaxis_bin] = "Veto "+str(plane)+" T" 
+                   else: plane_label[Xaxis_bin] = "Veto "+str(plane)+" "+side
+                   med=np.array([0.])        
+                   rc.GetQuantiles(1,med,q05)
+                   signal_attributes[Xaxis_bin]={
+                                  "median":med[0],
+                                  "std":rc.GetStdDev(),
+                                  "max":rc.FindLastBinAbove(0),
+                                  "percent_overflow":rc.GetBinContent(rc.GetNbinsX()+1)/rc.Integral()*100. if rc.Integral()>0 else 0.}
+                   Xaxis_bin += 1
         s=2
         for plane in range(self.M.systemAndPlanes[2]):
-                for side in ['L','R','S']:
+                for side in listSipmTypes:
                    tc = h[tag+'signalUSVeto'+xi].cd(l)
                    l+=1
-                   h[detector+tag+'sig'+side+'_'+str( s*10+plane)+xi].Draw()
-        ut.bookCanvas(h,tag+'signalDS'+xi,' ',900,1600,2,7)
+                   rc = h[detector+tag+'sig'+side+'_'+str( s*10+plane)+xi]
+                   rc.Draw()
+                   if side=='S' or tag=='T': continue
+                   plane_label[Xaxis_bin] = "US "+str(plane)+" "+side
+                   med=np.array([0.])
+                   rc.GetQuantiles(1,med,q05)
+                   signal_attributes[Xaxis_bin]={
+                                   "median":med[0],
+                                   "std":rc.GetStdDev(),
+                                   "max":rc.FindLastBinAbove(0),
+                                   "percent_overflow":rc.GetBinContent(rc.GetNbinsX()+1)/rc.Integral()*100. if rc.Integral()>0 else 0.}
+                   Xaxis_bin += 1
+        ut.bookCanvas(h,tag+'signalDS'+xi,' ',900,1600,2,self.M.systemAndPlanes[3])
         s = 3
         l = 1
-        for plane in range(7):
-               for side in ['L','R']:
+        for plane in range(self.M.systemAndPlanes[3]):
+               for side in listSipmTypes:
+                  if side == 'S': continue
                   tc = h[tag+'signalDS'+xi].cd(l)
                   l+=1
-                  h[detector+tag+'sig'+side+'_'+str( s*10+plane)+xi].Draw()
+                  if (plane%2==1 or plane==6) and side=='R': continue
+                  rc = h[detector+tag+'sig'+side+'_'+str( s*10+plane)+xi]
+                  rc.Draw()
+                  if () or tag=='T': continue
+                  if plane%2==1 or plane==6: plane_label[Xaxis_bin] = "DS "+str(plane//2+1)+" T"
+                  else:plane_label[Xaxis_bin] = "DS "+str(plane//2+1)+" "+side
+                  med=np.array([0.])
+                  rc.GetQuantiles(1,med,q05)
+                  signal_attributes[Xaxis_bin]={
+                                   "median":med[0],
+                                   "std":rc.GetStdDev(),
+                                   "max":rc.FindLastBinAbove(0),
+                                   "percent_overflow":rc.GetBinContent(rc.GetNbinsX()+1)/rc.Integral()*100. if rc.Integral()>0 else 0.}
+                  Xaxis_bin += 1
+
+# summary canvases of the median, maximum and overflow of signals
+       ut.bookCanvas(h,detector+'signalsSummary'+xi,' ',1024,768,1,3)
+       signal_medians = [ROOT.TGraphErrors(), ROOT.TGraphErrors(), ROOT.TGraphErrors()]
+       signal_maxima = [ROOT.TGraphErrors(), ROOT.TGraphErrors(), ROOT.TGraphErrors()]
+       signal_overflow = [ROOT.TGraphErrors(), ROOT.TGraphErrors(), ROOT.TGraphErrors()]
+       Area = {}
+       point_count = {}
+       for s in self.M.systemAndPlanes:
+         point_count[s-1]=-1
+         if s ==1:
+           signal_medians[s-1].SetTitle("Median of signal per plane and per side")
+           signal_medians[s-1].GetYaxis().SetTitle("median QDC [a.u.]")
+           signal_maxima[s-1].SetTitle("Maximal signal per plane and per side")
+           signal_maxima[s-1].GetYaxis().SetTitle("maximum QDC [a.u.]")
+           signal_overflow[s-1].SetTitle("Overflow/All QDC per plane and per side")
+           signal_overflow[s-1].GetYaxis().SetTitle("overflow QDC [%]")
+         for item in signal_attributes.keys():
+            if s==2 and plane_label[item].find('US')<0 : continue
+            if s==3 and plane_label[item].find('DS')<0 : continue
+            point_count[s-1] += 1
+            signal_medians[s-1].SetPoint(point_count[s-1],item,signal_attributes[item]["median"])
+            signal_medians[s-1].SetPointError(point_count[s-1],0,signal_attributes[item]["std"])
+            signal_maxima[s-1].SetPoint(point_count[s-1],item,signal_attributes[item]["max"])
+            signal_maxima[s-1].SetPointError(point_count[s-1],0,0)
+            signal_overflow[s-1].SetPoint(point_count[s-1],item,signal_attributes[item]["percent_overflow"])
+            signal_overflow[s-1].SetPointError(point_count[s-1],0,0)
+       graph_list = [signal_medians, signal_maxima, signal_overflow]
+       for counter, graph in enumerate([item[0] for item in graph_list]):
+         h[detector+'signalsSummary'+xi].cd(counter+1)
+         ROOT.gPad.SetBottomMargin(0.2)
+         ROOT.gPad.SetGrid(0)
+         graph.Draw('AP')
+         xAxis = graph.GetXaxis()
+         # get rid of the original ticks
+         xAxis.SetTickLength(0)
+         ymin = graph.GetHistogram().GetMinimum()
+         ymax = graph.GetHistogram().GetMaximum()
+         for index, item in enumerate(signal_attributes.keys()):
+           bin_index = xAxis.FindBin(item)
+           xAxis.SetBinLabel(bin_index,plane_label[item])
+           # Draw custom grid lines for the X axis
+           grid = ROOT.TLine(graph.GetPointX(index), ymin, graph.GetPointX(index), ymax)
+           grid.SetLineStyle(3)
+           grid.DrawClone()
+           # Draw ticks
+           tick = ROOT.TLine(graph.GetPointX(index), ymin, graph.GetPointX(index), ymin + 0.03*(ymax-ymin))
+           tick.DrawClone()         
+         # redraw the 1st veto graph and draw the graphs for the US and DS
+         graph.Draw('P,same')
+         graph_list[counter][1].Draw('P,same')
+         graph_list[counter][2].Draw('P,same')
+         for s in self.M.systemAndPlanes:
+            if s==1: Area[counter]={}
+            Area[counter][s-1] = ROOT.TBox(ROOT.TMath.MinElement(graph_list[counter][s-1].GetN(), graph_list[counter][s-1].GetX())-0.5,
+                                graph.GetHistogram().GetMinimum(), 
+                                ROOT.TMath.MaxElement(graph_list[counter][s-1].GetN(), graph_list[counter][s-1].GetX())+0.5,
+                                graph.GetHistogram().GetMaximum())
+            Area[counter][s-1].SetLineWidth(0)
+            Area[counter][s-1].SetFillStyle(3003)
+            Area[counter][s-1].SetFillColor(s+1) 
+            Area[counter][s-1].Draw("same")
+            graph_list[counter][s-1].SetMarkerStyle(21)
+            graph_list[counter][s-1].SetMarkerColor(s+1)
+            graph_list[counter][s-1].SetLineColor(s+1)
+# end of the summary QDC shifter canvases
+
        ut.bookCanvas(h,detector+"chanbar"+xi,' ',1800,700,3,1)
        for s in self.M.systemAndPlanes:
             opt = ""
@@ -438,7 +581,6 @@ class Mufi_hitMaps(ROOT.FairTask):
                ut.bookCanvas(h,sdict[s]+"chanbar"+xi,' ',1800,700,y,self.M.systemAndBars[s])
             h[sdict[s]+"chanbar"+xi].cd(1)
             for l in range(self.M.systemAndPlanes[s]):
-               if s==1 and (l==2):continue
                if s==3 and (l==1 or l==3 or l==5 or l==6):continue
                maxN = 0
                for bar in range(self.M.systemAndBars[s]):
@@ -460,18 +602,60 @@ class Mufi_hitMaps(ROOT.FairTask):
                    h[sdict[s]+"chanbar"+xi].cd(i)
                    h[hname].SetMaximum(h[hname].GetBinContent(h[hname].GetMaximumBin())*1.2)
                    h[hname].Draw()
-                   
+ 
+# shifter summary plots
+       for item in ["Active", "Nfired"]:
+         ut.bookCanvas(h,detector+item+'ChannelsPerBarVeto',' ',1024,768,2,3)
+         counter = 1
+         s = 1
+         for l in range(self.M.systemAndPlanes[s]):
+           for i in range(2):
+             h[detector+item+'ChannelsPerBarVeto'].cd(counter)
+             counter += 1
+             if l==2 and i==1: continue # vertical planes have readout on the top only
+             if i%2==0: h[detector+'chan'+item+'Left_'+str(s*10+l)].Draw("colz")
+             else: h[detector+'chan'+item+'Right_'+str(s*10+l)].Draw("colz")
+         self.M.myPrint(h[detector+item+'ChannelsPerBarVeto'],detector+item+'ChannelsPerBarUSVeto',subdir='mufilter/shifter')
+
+         ut.bookCanvas(h,detector+item+'ChannelsPerBarUS',' ',1024,768,2,5)
+         counter = 1
+         s = 2
+         for l in range(self.M.systemAndPlanes[s]):
+           for i in range(2):
+             h[detector+item+'ChannelsPerBarUS'].cd(counter)
+             if i%2==0: h[detector+'chan'+item+'Left_'+str(s*10+l)].Draw("colz")
+             else: h[detector+'chan'+item+'Right_'+str(s*10+l)].Draw("colz")
+             counter += 1
+         self.M.myPrint(h[detector+item+'ChannelsPerBarUS'],detector+item+'ChannelsPerBarUSVeto',subdir='mufilter/shifter')
+
+         ut.bookCanvas(h,detector+item+'ChannelsPerBarDS',' ',1024,768,3,4)
+         s=3
+         counter = 1
+         for l in range(self.M.systemAndPlanes[s]):
+           for i in range(2):# sides left <-> right
+             h[detector+item+'ChannelsPerBarDS'].cd(counter)
+             if (l%2==1 or l==6) and i==1: continue# vertical planes have readout on the top only
+             if i%2==0: h[detector+'chan'+item+'Left_'+str(s*10+l)].Draw("colz")
+             else: h[detector+'chan'+item+'Right_'+str(s*10+l)].Draw("colz")
+             counter += 1
+             if l==5 and i==0: counter += 2
+         self.M.myPrint(h[detector+item+'ChannelsPerBarDS'],detector+item+'ChannelsPerBarDS',subdir='mufilter/shifter')
+#expert plots
+       canvas = detector+'signalsSummary'+xi
+       self.M.h[canvas].Update()
+       if xi!='': self.M.myPrint(self.M.h[canvas],canvas,subdir='mufilter/shifter/'+xi)
+       else:     self.M.myPrint(self.M.h[canvas],canvas,subdir='mufilter/shifter')
        for canvas in ['signalUSVeto'+xi,'signalDS'+xi,detector+'LR'+xi,'USBars'+xi,
                      "Vetochanbar"+xi,"USchanbar"+xi,"DSchanbar"+xi,'noise'+xi]:
               h[canvas].Update()
-              if x!='': self.M.myPrint(h[canvas],canvas,subdir='mufilter/'+xi)
-              else: self.M.myPrint(h[canvas],canvas,subdir='mufilter')
+              if x!='': self.M.myPrint(h[canvas],canvas,subdir='mufilter/expert/'+xi)
+              else: self.M.myPrint(h[canvas],canvas,subdir='mufilter/expert')
        for canvas in [detector+'hitmaps',detector+'Xhitmaps',detector+'barmaps',detector+'dTScifi',detector+'dTcorScifi']:
               for s in range(1,4):
                   if s<3 and canvas.find('dT')>0: continue
                   h[canvas+sdict[s]+xi].Update()
-                  if x!='': self.M.myPrint(h[canvas+sdict[s]+xi],canvas+sdict[s],subdir='mufilter/'+xi)
-                  else: self.M.myPrint(h[canvas+sdict[s]+xi],canvas+sdict[s],subdir='mufilter')
+                  if x!='': self.M.myPrint(h[canvas+sdict[s]+xi],canvas+sdict[s],subdir='mufilter/expert/'+xi)
+                  else: self.M.myPrint(h[canvas+sdict[s]+xi],canvas+sdict[s],subdir='mufilter/expert')
 
 # tracking
        ut.bookCanvas(h,"muonDSTracks"+xi,' ',1200,1200,3,1)
@@ -488,11 +672,11 @@ class Mufi_hitMaps(ROOT.FairTask):
        h[detector+'TtrackPos'+xi].cd(2)
        rc = h[detector+'trackPos'+xi].Draw('colz')
        if x!='': 
-           self.M.myPrint(h["muonDSTracks"+xi],"muonDSTrackdirection"+xi,subdir='mufilter/'+xi)
-           self.M.myPrint(self.M.h[detector+'TtrackPos'+xi],detector+'trackPos'+xi,subdir='mufilter/'+xi)
+           self.M.myPrint(h["muonDSTracks"+xi],"muonDSTrackdirection"+xi,subdir='mufilter/shifter/'+xi)
+           self.M.myPrint(self.M.h[detector+'TtrackPos'+xi],detector+'trackPos'+xi,subdir='mufilter/shifter/'+xi)
        else: 
-           self.M.myPrint(h["muonDSTracks"+xi],"muonDSTrackdirection"+xi,subdir='mufilter')
-           self.M.myPrint(self.M.h[detector+'TtrackPos'+xi],detector+'trackPos'+xi,subdir='mufilter')
+           self.M.myPrint(h["muonDSTracks"+xi],"muonDSTrackdirection"+xi,subdir='mufilter/shifter')
+           self.M.myPrint(self.M.h[detector+'TtrackPos'+xi],detector+'trackPos'+xi,subdir='mufilter/shifter')
 
 # residuals
        # fit all mufi planes in the canvas depending on # veto planes
@@ -527,13 +711,13 @@ class Mufi_hitMaps(ROOT.FairTask):
                         h[hname+'proj'].Draw()
                 i+=1
        if x!='':
-         self.M.myPrint(self.M.h[detector+'residualsVsX'+xi],detector+'residualsVsX',subdir='mufilter/'+xi)
-         self.M.myPrint(self.M.h[detector+'residualsVsY'+xi],detector+'residualsVsY',subdir='mufilter/'+xi)
-         self.M.myPrint(self.M.h[detector+'residuals'+xi],detector+'residuals',subdir='mufilter/'+xi)
+         self.M.myPrint(self.M.h[detector+'residualsVsX'+xi],detector+'residualsVsX',subdir='mufilter/expert/'+xi)
+         self.M.myPrint(self.M.h[detector+'residualsVsY'+xi],detector+'residualsVsY',subdir='mufilter/expert/'+xi)
+         self.M.myPrint(self.M.h[detector+'residuals'+xi],detector+'residuals',subdir='mufilter/expert/'+xi)
        else:
-         self.M.myPrint(self.M.h[detector+'residualsVsX'+xi],detector+'residualsVsX',subdir='mufilter')
-         self.M.myPrint(self.M.h[detector+'residualsVsY'+xi],detector+'residualsVsY',subdir='mufilter')
-         self.M.myPrint(self.M.h[detector+'residuals'+xi],detector+'residuals',subdir='mufilter')
+         self.M.myPrint(self.M.h[detector+'residualsVsX'+xi],detector+'residualsVsX',subdir='mufilter/expert')
+         self.M.myPrint(self.M.h[detector+'residualsVsY'+xi],detector+'residualsVsY',subdir='mufilter/expert')
+         self.M.myPrint(self.M.h[detector+'residuals'+xi],detector+'residuals',subdir='mufilter/expert')
          
        ut.bookCanvas(self.M.h,'dt'+xi,'',1200,1200,1,2)
        self.M.h['dt'].cd(1)
@@ -549,7 +733,7 @@ class Mufi_hitMaps(ROOT.FairTask):
           self.M.h['deltaTScifiMufiHit_'+str(s)+'B2noB1'].SetStats(0)
           self.M.h['deltaTScifiMufiHit_'+str(s)+'B2noB1'].SetLineColor(s+1)
           self.M.h['deltaTScifiMufiHit_'+str(s)+'B2noB1'].Draw('samehist')
-       self.M.myPrint(self.M.h['dt'+xi],'scifi DS hit difference',subdir='mufilter')
+       self.M.myPrint(self.M.h['dt'+xi],'scifi DS hit difference',subdir='mufilter/expert')
 
 class Mufi_largeVSsmall(ROOT.FairTask):
    """
@@ -596,7 +780,7 @@ class Mufi_largeVSsmall(ROOT.FairTask):
               if s==2 and self.M.smallSiPMchannel(c) : 
                   sumS+= allChannels[c]
                   nS += 1
-              else:                                              
+              else:
                   sumL+= allChannels[c]
                   nL+=1
           if nL>0: SumL=sumL/nL
@@ -636,7 +820,7 @@ class Mufi_largeVSsmall(ROOT.FairTask):
           nmax = aHist.GetBinContent(aHist.GetMaximumBin())
           aHist.SetMaximum( 0.1*nmax )
           tc = h['sVSl_'+str(l)].Draw('colz')
-       self.M.myPrint(h['TSL'],"largeSiPMvsSmallSiPM",subdir='mufilter')
+       self.M.myPrint(h['TSL'],"largeSiPMvsSmallSiPM",subdir='mufilter/expert')
        for l in range(systemAndPlanes[S]):
           tc = h['STSL'].cd(l+1)
           tc.SetLogz(1)
@@ -645,7 +829,7 @@ class Mufi_largeVSsmall(ROOT.FairTask):
           nmax = aHist.GetBinContent(aHist.GetMaximumBin())
           aHist.SetMaximum( 0.1*nmax )
           tc = h['SVSl_'+str(l)].Draw('colz')
-       self.M.myPrint(h['STSL'],"SumlargeSiPMvsSmallSiPM",subdir='mufilter')
+       self.M.myPrint(h['STSL'],"SumlargeSiPMvsSmallSiPM",subdir='mufilter/expert')
        for S in [1,2]:
          for l in range(systemAndPlanes[S]):
           for side in ['L','R']:
@@ -664,7 +848,7 @@ class Mufi_largeVSsmall(ROOT.FairTask):
                       if bar == 0: h[sdict[S]+'cor'+tag+'_'+side+str(l)+str(bar)].Draw('colz')
                       else: h[sdict[S]+'cor'+tag+'_'+side+str(l)+str(bar)].Draw('colzsame')
                   k+=1
-             self.M.myPrint(h[sdict[S]+'cor'+side+str(l)],'QDCcor'+side+str(l),subdir='mufilter')
+             self.M.myPrint(h[sdict[S]+'cor'+side+str(l)],'QDCcor'+side+str(l),subdir='mufilter/expert')
 
 class Veto_Efficiency(ROOT.FairTask):
    " calculate Veto efficiency against Scifi tracks "
@@ -700,7 +884,7 @@ class Veto_Efficiency(ROOT.FairTask):
             if l == 0:
               ut.bookHist(h,nc+'PosVeto_11','track pos at veto AND hit'+';X [cm]; Y [cm]',110,-55.,0.,110,10.,65.)
               ut.bookHist(h,nc+'XPosVeto_11','track pos at veto no hit'+';X [cm]; Y [cm]',110,-55.,0.,110,10.,65.)
-          ut.bookHist(h,nc+'PosVeto_000','track pos at veto OR hit'+';X [cm]; Y [cm]',110,-55.,0.,110,10.,65.)          
+          ut.bookHist(h,nc+'PosVeto_000','track pos at veto OR hit'+';X [cm]; Y [cm]',110,-55.,0.,110,10.,65.)
           for x in h:
             if isinstance(h[x], ROOT.TH2) and x.find("PosVeto")>0:
               h[x].SetStats(0)
@@ -1079,7 +1263,7 @@ class Veto_Efficiency(ROOT.FairTask):
          h['hitVeto_X'].SetLineWidth(3)
        h['hitVeto_Y'+str(p)] = h['hitVeto_0'+str(p)].ProjectionY('hitVeto_Y'+str(p))
        h['hitVeto_Y'+str(p)].SetLineColor(ROOT.kBlue-2*p)
-       h['hitVeto_Y'+str(p)].SetStats(0)    
+       h['hitVeto_Y'+str(p)].SetStats(0)
      ut.bookCanvas(h,'ThitVeto','',900,600,1,1)
      tc = h['ThitVeto'].cd()
      tc.SetLogy(1)
@@ -1091,4 +1275,4 @@ class Veto_Efficiency(ROOT.FairTask):
      for item in h:
        if isinstance(h[item], ROOT.TCanvas) and \
           (item.find('Eff')>0 or item.find('ThitVeto')>0):
-              self.M.myPrint(h[item],item,subdir='mufilter/VetoIneff')
+              self.M.myPrint(h[item],item,subdir='mufilter/expert/VetoIneff')
