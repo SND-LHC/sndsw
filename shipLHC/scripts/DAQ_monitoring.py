@@ -62,7 +62,7 @@ class DAQ_boards(ROOT.FairTask):
        h['scifiboard0'].ProfileX().Draw()
        h['boardmaps'].cd(6)
        h['mufiboard0'].ProfileX().Draw()
-       self.M.myPrint(h['boardmaps'],'boardmaps',subdir='daq')
+       self.M.myPrint(h['boardmaps'],'boardmaps',subdir='daq/expert')
 
 class Time_evolution(ROOT.FairTask):
    " time evolution of run"
@@ -73,8 +73,11 @@ class Time_evolution(ROOT.FairTask):
        self.gtime = {'all':{0:[],1:[],3:[]}, 'B1only':{0:[],1:[],3:[]}, 'B2noB1':{0:[],1:[],3:[]}, 'noBeam':{0:[],1:[],3:[]}}
        self.QDCtime = {0:ROOT.TGraph(),1:ROOT.TGraph(),2:ROOT.TGraph(),3:ROOT.TGraph()}
 
-       # 8*2*2*8 + 10*5*2*8 + 60*3*2 + 60*4
-       self.offsets = {1:[0,8*16,16],2:[8*2*2*8,10*16,16],3:[8*2*2*8+10*5*2*8,60*2,2],4:[8*2*2*8+10*5*2*8+3*60*2,60,1]}
+       # the offsets encode the Nchannels per detector plane type: veto1&2, veto3, us, dsH, dsV
+       # Veto3 is single plane, but part f the Veto system and the second item in its list is
+       # set 0 to account of that
+       # 7*2*2*8 + 7*8 + 10*5*2*8 + 60*3*2 + 60*4
+       self.offsets = {1:[0,7*16,16],2:[7*2*2*8,0,8],3:[7*2*2*8+7*8,10*16,16],4:[7*2*2*8+7*8+10*5*2*8,60*2,2],5:[7*2*2*8+7*8+10*5*2*8+3*60*2,60,1]}
        ut.bookHist(h,'ctime','delta event time per channel; dt [s]'  ,1000,0.0,10.,1700,-0.5,1699.5)
        ut.bookHist(h,'ctimeZ','delta event time per channel; dt [us]',10000,0.0,100.,1700,-0.5,1699.5)
        ut.bookHist(h,'ctimeM','delta event time per channel; dt [ms]',1000,0.0,10.,1700,-0.5,1699.5)
@@ -90,9 +93,9 @@ class Time_evolution(ROOT.FairTask):
            ut.bookHist(h,'trackDir'+x,'track direction;',300,-0.5,0.25)
            ut.bookHist(h,'trackDirSig'+x,'track direction significance;',100,-20,10)
 
-       ut.bookHist(h,'Tboard','hit time per board',70,0.5,70.5,100,-5.,5.)
-       ut.bookHist(h,'Cckboard','160Mhz bunch nr',70,0.5,70.5,100,0.,16.)
-       ut.bookHist(h,'CckboardB2','160Mhz bunch nr',70,0.5,70.5,100,0.,16.)
+       ut.bookHist(h,'Tboard','Hit time per board, wrt SciFi 4Y board 40; board id; t_{hit} - t_{board 40 mean} [clock cycles]',62,0.5,62.5,100,-5.,5.)
+       ut.bookHist(h,'Cckboard','160 MHz bunch number; board id; SND clock align phase wrt LHC [clock cycles]',62,0.5,62.5,100,0.,16.)
+       ut.bookHist(h,'CckboardB2','160 MHz bunch number; board id; SND clock align phase wrt LHC [clock cycles]',62,0.5,62.5,100,0.,16.)
        self.board0 = 40
 
        self.boardsVsTime = {}
@@ -151,8 +154,14 @@ class Time_evolution(ROOT.FairTask):
           allChannels = self.M.map2Dict(aHit,'GetAllSignals')
           for c in allChannels:
              qdc[s]+= allChannels[c]
-             if b<60:                  cNr = self.offsets[s][0] + self.offsets[s][1]*p + self.offsets[s][2]*b + c 
-             else:                     cNr = self.offsets[s+1][0] + self.offsets[s+1][1]*p + self.offsets[s+1][2]*(b-60) + c 
+             if b<60:
+               # Veto 1 and 2
+               if s==1 and p<2: s_index = s
+               # Veto 3, US and DSH
+               if (s==1 and p==2) or s==2 or s==3: s_index = s+1
+               cNr = self.offsets[s_index][0] + self.offsets[s_index][1]*p + self.offsets[s_index][2]*b + c
+             else: # only DSV
+               cNr = self.offsets[s+2][0] + self.offsets[s+2][1]*p + self.offsets[s+2][2]*(b-60) + c
              if self.Tprev[cNr]>0:
                 dT = (T - self.Tprev[cNr])/self.M.freq
                 if dT<5E-9: print('something wrong',self.Nevent,s,p,b,c,dT,T,self.Tprev[cNr])
@@ -219,7 +228,7 @@ class Time_evolution(ROOT.FairTask):
        if 'time' in h:
           if self.M.TStart < 0:
              for x in Xi:
-                for y in ['time','timeWt','timeWtDS']: 
+                for y in ['time','timeWt','timeWtDS']:
                    h.pop(y+x).Delete()
              h.pop('boardVStime').Delete()
        if not 'time' in h:
@@ -228,10 +237,13 @@ class Time_evolution(ROOT.FairTask):
                 ut.bookHist(h,'timeWt'+x,'events with Scifi(red) DS(cyan) tracks; elapsed time from start t [s];'+yunit,nbins,0,tmax)
                 ut.bookHist(h,'timeWtDS'+x,'elapsed time from start, events with DS tracks; t [s];'+yunit,nbins,0,tmax)
 # time evolution of boards
-         ut.bookHist(h,'boardVStime','board vs time; t [s];'+yunit,nbins,0,tmax,len(self.boardsVsTime),0.5,len(self.boardsVsTime)+0.5)
+         ut.bookHist(h,'boardVStime','board vs time; t [s]; board id',nbins,0,tmax,len(self.boardsVsTime),0.5,len(self.boardsVsTime)+0.5)
        if not 'Etime' in h:
          ut.bookHist(h,'Etime','delta event time; dt [s]',100,0.0,1.)
          ut.bookHist(h,'EtimeZ','delta event time; dt [us]',10000,0.0,100.)
+       for x in h:
+            if isinstance(h[x], ROOT.TH2):
+              h[x].SetStats(0)
 
        for n in range(1,len(gtime['all'][0])):
            dT = gtime['all'][0][n]-gtime['all'][0][n-1]
@@ -255,12 +267,14 @@ class Time_evolution(ROOT.FairTask):
           snb = str(nb)
           yAx.SetBinLabel(i,snb)
           for t in self.boardsVsTime[nb]:
-             rc = h['boardVStime'].Fill(t-T0,i,self.boardsVsTime[nb][t]) 
+             rc = h['boardVStime'].Fill(t-T0,i,self.boardsVsTime[nb][t])
           i+=1     
-       ut.bookCanvas(h,'bT','board nr vs time',2000,1600,1,1)
-       h['bT'].cd()
+       ut.bookCanvas(h,'boardsVsTimeStats','board nr vs time',2000,1600,1,1)
+       tc = h['boardsVsTimeStats'].cd()
        h['boardVStime'].Draw('colz')
-       self.M.myPrint(h['bT'],"board nr versus time",subdir='daq')
+       tc.SetLogz()
+       self.M.myPrint(h['boardsVsTimeStats'],"board nr versus time",subdir='daq/expert')
+       self.M.myPrint(h['boardsVsTimeStats'],"board nr versus time",subdir='daq/shifter')
        
 # analyse splash events
        withTGraph = False
@@ -324,8 +338,8 @@ class Time_evolution(ROOT.FairTask):
                h[systems[sy]+'Qsplash'+str(s[0])].SetName(systems[sy]+'Gsplash'+str(s[0]))
                h[systems[sy]+'Qsplash'+str(s[0])].Draw('Bsame')
             n+=1
-          self.M.myPrint(h['Tsplash'],"Splashes",subdir='daq')   
-          for sy in systems: self.M.myPrint(h[systems[sy]+'splash'],systems[sy]+" qdc sum",subdir='daq')   
+          self.M.myPrint(h['Tsplash'],"Splashes",subdir='daq/expert')
+          for sy in systems: self.M.myPrint(h[systems[sy]+'splash'],systems[sy]+" qdc sum",subdir='daq/expert')
 
        elif anaSplash:
 # analyse splash events
@@ -366,16 +380,16 @@ class Time_evolution(ROOT.FairTask):
                h[systems[sy]+'splash'+str(s[0])].Divide(h['splash'+str(s[0])])
                h[systems[sy]+'splash'+str(s[0])].Draw('hist')
             n+=1
-          self.M.myPrint(h['Tsplash'],"Splashes",subdir='daq')
-          for sy in systems: self.M.myPrint(h[systems[sy]+'splash'],systems[sy]+" qdc sum",subdir='daq')   
+          self.M.myPrint(h['Tsplash'],"Splashes",subdir='daq/expert')
+          for sy in systems: self.M.myPrint(h[systems[sy]+'splash'],systems[sy]+" qdc sum",subdir='daq/expert')
 
-       ut.bookCanvas(h,'T','rates',1024,3*768,1,3)
+       ut.bookCanvas(h,'eventAndTrackRates','rates',1024,3*768,1,3)
        ut.bookCanvas(h,'Txing','rates per xing type',1024,3*768,1,4)
 
-       tc = h['T'].cd(1)
+       tc = h['eventAndTrackRates'].cd(1)
        h['time'].SetStats(0)
        h['time'].Draw()
-       tc = h['T'].cd(2)
+       tc = h['eventAndTrackRates'].cd(2)
        h['timeWt'].SetStats(0)
        h['timeWt'].SetLineColor(ROOT.kRed)
        h['timeWtDS'].SetStats(0)
@@ -385,22 +399,22 @@ class Time_evolution(ROOT.FairTask):
        h['timeWt'].SetMaximum(mx)
        h['timeWt'].Draw()
        h['timeWtDS'].Draw('same')
-       tc = h['T'].cd(3)
+       tc = h['eventAndTrackRates'].cd(3)
        tc.SetLogy(1)
        h['EtimeZ'].Draw()
        #rc = h['EtimeZ'].Fit('expo','S','',0.,250.)
-       h['T'].Update()
+       h['eventAndTrackRates'].Update()
        stats = h['EtimeZ'].FindObject('stats')
        stats.SetOptFit(1111111)
-       tc = h['T'].cd(4)
+       tc = h['eventAndTrackRates'].cd(4)
        tc.SetLogy(1)
        h['Etime'].Draw()
        #rc = h['Etime'].Fit('expo','S')
-       h['T'].Update()
+       h['eventAndTrackRates'].Update()
        stats = h['Etime'].FindObject('stats')
        stats.SetOptFit(1111111)
-       h['T'].Update()
-       self.M.myPrint(h['T'],"Rates",subdir='daq')
+       h['eventAndTrackRates'].Update()
+       self.M.myPrint(h['eventAndTrackRates'],"Rates",subdir='daq/shifter')
        if self.fsdict or self.M.hasBunchInfo:
             j = 1
             for x in ['B1only', 'B2noB1','noBeam']:
@@ -434,24 +448,24 @@ class Time_evolution(ROOT.FairTask):
             h['bnrnoBeam'].SetLineColor(ROOT.kOrange)
             h['bnrnoBeam'].Draw('same')
             h['Txing'].Update()
-            self.M.myPrint(h['Txing'],"RatesXing",subdir='daq')
+            self.M.myPrint(h['Txing'],"RatesXing",subdir='daq/expert')
 
        if self.fsdict or self.M.hasBunchInfo:
-          ut.bookCanvas(h,'TD',' ',1024,768,4,2)
+          ut.bookCanvas(h,'trackDirection',' ',1024,768,4,2)
           j=1
           for x in self.xing:
-              h['TD'].cd(j)
+              h['trackDirection'].cd(j)
               h['trackDir'+x].Draw()
-              h['TD'].cd(4+j)
+              h['trackDirection'].cd(4+j)
               h['trackDir'+x].Draw()
               j+=1
        else:
-          ut.bookCanvas(h,'TD',' ',1024,768,2,1)
-          h['TD'].cd(1)
+          ut.bookCanvas(h,'trackDirection',' ',1024,768,2,1)
+          h['trackDirection'].cd(1)
           h['trackDirall'].Draw()
-          h['TD'].cd(2)
+          h['trackDirection'].cd(2)
           h['trackDirSigall'].Draw()
-       self.M.myPrint(h['TD'],'trackdirections',subdir='daq')
+       self.M.myPrint(h['trackDirection'],'trackdirections',subdir='scifi/expert')
 
        ut.bookCanvas(h,'bunchNumber','bunch nr',2048,1600,1,3)
        tc = h['bunchNumber'].cd(1)
@@ -463,13 +477,13 @@ class Time_evolution(ROOT.FairTask):
        tc = h['bunchNumber'].cd(3)
        h['bnrB'].SetStats(0)
        h['bnrB'].Draw()
-       self.M.myPrint(h['bunchNumber'],"BunchNr",subdir='daq')
+       self.M.myPrint(h['bunchNumber'],"BunchNr",subdir='daq/shifter')
 
        ut.bookCanvas(h,'sndclock','snd bunch nr',1200,900,1,1)
        tc = h['sndclock'].cd()
        h['Xbnr'].SetStats(0)
        h['Xbnr'].Draw()
-       self.M.myPrint(h['sndclock'],"XBunchNr",subdir='daq')
+       self.M.myPrint(h['sndclock'],"XBunchNr",subdir='daq/expert')
 
        ut.bookCanvas(h,'channels',' channel dt',1024,4*768,1,4)
        tc = h['channels'].cd(1)
@@ -480,12 +494,16 @@ class Time_evolution(ROOT.FairTask):
        h['ctime'].Draw('colz')
        tc = h['channels'].cd(4)
        h['btime'].Draw('colz')
-       self.M.myPrint(h['channels'],"mufilter channel dT",subdir='daq')
+       self.M.myPrint(h['channels'],"mufilter channel dT",subdir='daq/expert')
 
-       ut.bookCanvas(h,'boards','',1800,900,2,1)
-       h['boards'].cd(1)
-       h['Tboard'].Draw('lego')
-       h['boards'].cd(2)
-       h['Cckboard'].Draw('lego')
-       h['CckboardB2'].Draw('legosame')
-       self.M.myPrint(h['boards'],"board time diff",subdir='daq')
+       ut.bookCanvas(h,'boardsAlignment','',1024,768,2,1)
+       h['boardsAlignment'].cd(1)
+       ROOT.gPad.SetMargin(0.15,0.15,0.1,0.1)
+       ROOT.gPad.SetGrid()
+       h['Tboard'].Draw('colz')
+       h['boardsAlignment'].cd(2)
+       ROOT.gPad.SetMargin(0.15,0.15,0.1,0.1)
+       h['Cckboard'].Draw('colz')
+       ROOT.gPad.SetGrid()
+       h['CckboardB2'].Draw('colz,same')
+       self.M.myPrint(h['boardsAlignment'],"board time diff",subdir='daq/shifter')
