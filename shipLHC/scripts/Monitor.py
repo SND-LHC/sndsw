@@ -107,13 +107,17 @@ class Monitoring():
 
         self.runNr   = str(options.runNumber).zfill(6)
 # presenter file
-        name = 'run'+self.runNr+'.root'
+        if options.saveTo!="":
+          name = options.saveTo+'run'+self.runNr+'_'+str(options.nStart//1000000)+'.root'
+        else:
+           name = 'run'+self.runNr+'.root'
         if options.interactive: name = 'I-'+name
         self.presenterFile = ROOT.TFile(name,'recreate')
-        self.presenterFile.mkdir('scifi')
-        self.presenterFile.mkdir('mufilter')
-        self.presenterFile.mkdir('daq')
-        self.presenterFile.mkdir('eventdisplay')
+        for role in ['','shifter', 'expert']:
+          self.presenterFile.mkdir('scifi/'+role)
+          self.presenterFile.mkdir('mufilter/'+role)
+          self.presenterFile.mkdir('daq/'+role)
+          self.presenterFile.mkdir('eventdisplay/'+role)
         self.FairTasks = {}
         for x in FairTasks:   #  keeps extended methods if from python class
                  self.FairTasks[x.GetName()] = x
@@ -243,8 +247,9 @@ class Monitoring():
            print('extract bunch info from filling scheme')
         if self.fsdict or self.hasBunchInfo: 
           for x in ['B1only','B2noB1','noBeam']:
-             self.presenterFile.mkdir('mufilter/'+x)
-             self.presenterFile.mkdir('scifi/'+x)
+            for role in ['shifter', 'expert']:
+             self.presenterFile.mkdir('mufilter/'+role+'/'+x)
+             self.presenterFile.mkdir('scifi/'+role+'/'+x)
 
    def GetEntries(self):
        if  self.options.online:
@@ -643,7 +648,8 @@ class Monitoring():
 
    def myPrint(self,tc,name,subdir='',withRootFile=True):
      srun = 'run'+str(self.options.runNumber)
-     tc.Update()
+     if isinstance(tc, ROOT.TCanvas) :
+       tc.Update()
      if withRootFile:
          self.presenterFile.cd(subdir)
          tc.Write()
