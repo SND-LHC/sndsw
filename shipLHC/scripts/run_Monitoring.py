@@ -15,6 +15,10 @@ def pyExit():
        os.system('kill '+str(os.getpid()))
 atexit.register(pyExit)
 
+ROOT.gStyle.SetTitleSize(0.045, "XYZ")
+ROOT.gStyle.SetLabelSize(0.045, "XYZ")
+ROOT.gROOT.ForceStyle()
+
 from argparse import ArgumentParser
 
 parser = ArgumentParser()
@@ -60,6 +64,8 @@ parser.add_argument("--interactive", dest="interactive", action='store_true',def
 parser.add_argument("--parallel", dest="parallel",default=1,type=int)
 
 parser.add_argument("--postScale", dest="postScale",help="post scale events, 1..10..100", default=-1,type=int)
+
+parser.add_argument("--saveTo", dest="saveTo", help="output storage path", default="")
 
 options = parser.parse_args()
 options.slowStream = True
@@ -255,7 +261,11 @@ if not options.auto:   # default online/offline mode
         if tmp in os.listdir('.'):         ut.readHists(M.h,tmp)
         else: print('file missing ',tmp)
      M.presenterFile.Close()
-     M.presenterFile = ROOT.TFile('run'+M.runNr+'.root','update')
+     if options.saveTo=="":
+       name = 'run'+self.runNr+'.root'
+     else:
+       name = options.saveTo+'run'+M.runNr+'_'+str(options.nStart//1000000)+'.root'
+     M.presenterFile = ROOT.TFile(name,'update')
 
      for m in monitorTasks:
           monitorTasks[m].Plot()
@@ -332,4 +342,3 @@ else:
             time.sleep(10) # sleep 10 seconds and check for new events
             print('DAQ inactive for 10sec. Last event = ',M.GetEntries(), curRun,curPart,N0)
             nStart = nLast
-
