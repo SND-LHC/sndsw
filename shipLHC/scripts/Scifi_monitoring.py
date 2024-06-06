@@ -4,6 +4,7 @@ import rootUtils as ut
 import shipunit as u
 import ctypes
 from array import array
+import numpy as np
 
 A,B  = ROOT.TVector3(),ROOT.TVector3()
 parallelToZ = ROOT.TVector3(0., 0., 1.)
@@ -17,13 +18,17 @@ class Scifi_hitMaps(ROOT.FairTask):
        self.OT = ioman.GetSink().GetOutTree()
        if self.M.fsdict or self.M.hasBunchInfo :   self.xing = {'':True,'B1only':False,'B2noB1':False,'noBeam':False}
        else:   self.xing = {'':True}
+       self.mat_label = {}
+       self.nScifi = self.M.Scifi.GetConfParI("Scifi/nscifi")
+       self.nMats = self.M.Scifi.GetConfParI("Scifi/nmats")
+       self.nMatsAll = self.nScifi*self.nMats*2
        for xi in self.xing:
-        for s in range(10):
+        for s in range(2*self.nScifi):
           ut.bookHist(h,detector+'posX_'+str(s)+xi,'x; x [cm]',2000,-100.,100.)
           ut.bookHist(h,detector+'posY_'+str(s)+xi,'y; y[cm]',2000,-100.,100.)
           if s%2==1: ut.bookHist(h,detector+'mult_'+str(s)+xi,'mult vertical station '+str(s//2+1)+'; #hits',100,-0.5,99.5)
           else: ut.bookHist(h,detector+'mult_'+str(s)+xi,'mult horizontal station '+str(s//2+1)+'; #hits',100,-0.5,99.5)
-        for mat in range(30):
+        for mat in range(self.nMatsAll):
           s = mat//6
           p = 'H'
           if mat%6>2: p='V'
@@ -31,6 +36,7 @@ class Scifi_hitMaps(ROOT.FairTask):
           ut.bookHist(h,detector+'mat_'+str(mat)+xi,'hit map station '+str(s)+p+' mat '+str(m)+'; #channel',512,-0.5,511.5)
           ut.bookHist(h,detector+'sig_'+str(mat)+xi,'signal '+str(s)+p+' mat '+str(m)+'; QDC [a.u.]',200,-50.0,150.)
           ut.bookHist(h,detector+'tdc_'+str(mat)+xi,'tdc '+str(s)+p+' mat '+str(m)+'; timestamp [LHC clock cycles]',200,-1.,4.)
+          if xi=='': self.mat_label[mat] = str(s)+p+' mat '+str(m)
    def ExecuteEvent(self,event):
        h = self.M.h
        W = self.M.Weight
@@ -49,18 +55,81 @@ class Scifi_hitMaps(ROOT.FairTask):
           self.M.fillHist1(detector+'mult_'+str(s),mult[s])
    def Plot(self):
       h = self.M.h
+      # parameters for the signal median
+      q05=np.array([0.5])
+      med=np.array([0.])
+      signal_attributes={}
       for xi in self.xing:
        if not self.M.fsdict and not self.M.hasBunchInfo and xi!='': continue
        ut.bookCanvas(h,detector+'hitmaps'+xi,' ',1024,768,6,5)
        ut.bookCanvas(h,detector+'signal'+xi,' ',1024,768,6,5)
        ut.bookCanvas(h,detector+'tdc'+xi,' ',1024,768,6,5)
-       for mat in range(30):
+       for mat in range(self.nMatsAll):
            tc = self.M.h[detector+'hitmaps'+xi].cd(mat+1)
+           tc.SetLogy(1)
            self.M.h[detector+'mat_'+str(mat)+xi].Draw()
+           ROOT.gStyle.SetOptStat(10)
            tc = self.M.h[detector+'signal'+xi].cd(mat+1)
-           self.M.h[detector+'sig_'+str(mat)+xi].Draw()
+           rc = self.M.h[detector+'sig_'+str(mat)+xi]
+           rc.Draw()
+           rc.GetQuantiles(1,med,q05)
+           signal_attributes[mat]={"median":med[0],
+                                   "std":rc.GetStdDev(),
+                                   "max":rc.FindLastBinAbove(0),
+                                   "percent_overflow":rc.GetBinContent(rc.GetNbinsX()+1)/rc.Integral()*100. if rc.Integral()>0 else 0.}
            tc = self.M.h[detector+'tdc'+xi].cd(mat+1)
            self.M.h[detector+'tdc_'+str(mat)+xi].Draw()
+
+# summary canvases of the median, maximum and overflow of signals
+       # overflow is always 0, so skip it
+       ut.bookCanvas(h,detector+'signalsSummary'+xi,' ',1024,768,1,1)
+       signal_medians, signal_maxima = ROOT.TGraphErrors(), ROOT.TGraphErrors()
+       signal_medians.SetTitle("Median of signal per mat")
+       signal_medians.GetYaxis().SetTitle("median QDC [a.u.]")
+       signal_maxima.SetTitle("Maximal signal per mat")
+       signal_maxima.GetYaxis().SetTitle("maximum QDC [a.u.]")
+       Area = {}
+       for mat in range(self.nMatsAll):
+          signal_medians.SetPoint(mat, mat,signal_attributes[mat]["median"])
+          signal_medians.SetPointError(mat,0,signal_attributes[mat]["std"])
+          signal_maxima.SetPoint(mat, mat,signal_attributes[mat]["max"])
+          signal_maxima.SetPointError(mat,0,0)
+       graph_list = [signal_medians]
+       for counter, graph in enumerate(graph_list):
+         h[detector+'signalsSummary'+xi].cd(counter+1)
+         ROOT.gPad.SetBottomMargin(0.2)
+         ROOT.gPad.SetGrid(0)
+         graph.Draw('AP')
+         xAxis = graph.GetXaxis()
+         # get rid of the original ticks
+         xAxis.SetTickLength(0)
+         ymin = graph.GetHistogram().GetMinimum()
+         ymax = graph.GetHistogram().GetMaximum()
+         for mat in range(self.nMatsAll):
+           bin_index = xAxis.FindBin(mat)
+           xAxis.SetBinLabel(bin_index,self.mat_label[mat])
+           # Draw custom grid lines for the X axis
+           grid = ROOT.TLine(graph.GetPointX(mat), ymin, graph.GetPointX(mat), ymax)
+           grid.SetLineStyle(3)
+           grid.DrawClone()
+           # Draw ticks
+           tick = ROOT.TLine(graph.GetPointX(mat), ymin, graph.GetPointX(mat), ymin + 0.03*(ymax-ymin))
+           tick.DrawClone()
+         # redraw the graph
+         graph.Draw('P,same')
+         # draw a bkg 
+         Area[counter] = ROOT.TBox(ROOT.TMath.MinElement(graph.GetN(), graph.GetX()),
+                          graph.GetHistogram().GetMinimum(), 
+                          ROOT.TMath.MaxElement(graph.GetN(), graph.GetX()),
+                          graph.GetHistogram().GetMaximum())
+         Area[counter].SetLineWidth(0)
+         Area[counter].SetFillStyle(3003)
+         Area[counter].SetFillColor(ROOT.kBlue) 
+         Area[counter].Draw("same")
+         graph.SetMarkerStyle(20)
+         graph.SetMarkerColor(ROOT.kBlue)
+         graph.SetLineColor(ROOT.kBlue)
+# end of the summary QDC shifter canvases
 
        ut.bookCanvas(h,detector+'positions'+xi,' ',2048,768,5,2)
        ut.bookCanvas(h,detector+'mult'+xi,' ',2048,768,5,2)
@@ -77,10 +146,21 @@ class Scifi_hitMaps(ROOT.FairTask):
            tc.SetLogy(1)
            self.M.h[detector+'mult_'+str(2*s+1)+xi].Draw()
 
+       for item in h:
+          if isinstance(h[item], ROOT.TH2):
+            h[item].SetStats(0)
+       
+       canvas = detector+'signalsSummary'+xi
+       self.M.h[canvas].Update()
+       if xi!='': self.M.myPrint(self.M.h[canvas],"Scifi-"+canvas,subdir='scifi/shifter/'+xi)
+       else:     self.M.myPrint(self.M.h[canvas],"Scifi-"+canvas,subdir='scifi/shifter')
+
        for canvas in [detector+'hitmaps'+xi,detector+'signal'+xi,detector+'mult'+xi]:
            self.M.h[canvas].Update()
-           if xi!='': self.M.myPrint(self.M.h[canvas],"Scifi-"+canvas,subdir='scifi/'+xi)
-           else:     self.M.myPrint(self.M.h[canvas],"Scifi-"+canvas,subdir='scifi')
+           if canvas.find('hitmaps')>0: role='shifter'
+           else : role='expert'
+           if xi!='': self.M.myPrint(self.M.h[canvas],"Scifi-"+canvas,subdir='scifi/'+role+'/'+xi)
+           else:     self.M.myPrint(self.M.h[canvas],"Scifi-"+canvas,subdir='scifi/'+role)
 
 class Scifi_residuals(ROOT.FairTask):
    " produce residuals for Scifi"
@@ -123,6 +203,9 @@ class Scifi_residuals(ROOT.FairTask):
           ut.bookHist(h,detector+'trackSlopesXL'+xi,'track slope; x/z [rad]; y/z [rad]',2200,-1.1,1.1,2200,-1.1,1.1)
           ut.bookHist(h,detector+'trackPos'+xi,'track pos; x [cm]; y [cm]',100,-90,10.,80,0.,80.)
           ut.bookHist(h,detector+'trackPosBeam'+xi,'beam track pos slopes<0.1rad; x [cm]; y [cm]',100,-90,10.,80,0.,80.)
+          for item in h:
+            if isinstance(h[item], ROOT.TH2) and (item.find('trackPos')>0 or item.find('trackSlopes')>0): 
+              h[item].SetTitleOffset(1.1, 'Y')
 
        if alignPar:
             for x in alignPar:
@@ -380,7 +463,7 @@ class Scifi_residuals(ROOT.FairTask):
        T = ['mean&sigma']
        for proj in P: T.append('scifiRes'+proj)
        for canvas in T:
-           self.M.myPrint(self.M.h[canvas],"Scifi-"+canvas,subdir='scifi')
+           self.M.myPrint(self.M.h[canvas],"Scifi-"+canvas,subdir='scifi/expert')
        for xi in self.xing:
            if not self.M.fsdict and not self.M.hasBunchInfo and xi!='': continue
            tname = detector+'trackDir'+xi
@@ -388,25 +471,33 @@ class Scifi_residuals(ROOT.FairTask):
            h[tname].cd(1)
            rc = h[detector+'trackSlopes'+xi].Draw('colz')
            h[tname].cd(2)
-           rc = h[detector+'trackSlopes'+xi].ProjectionX("slopeX"+xi).Draw()
+           rc = h[detector+'trackSlopes'+xi].ProjectionX("slopeX"+xi)
+           rc.Draw()
+           rc.SetTitle('track X slope')
            h[tname].cd(3)
-           rc = h[detector+'trackSlopes'+xi].ProjectionY("slopeY"+xi).Draw()
+           rc = h[detector+'trackSlopes'+xi].ProjectionY("slopeY"+xi)
+           rc.Draw()
+           rc.SetTitle('track Y slope')
            h[tname].cd(4)
            rc = h[detector+'trackSlopesXL'+xi].Draw('colz')
            h[tname].cd(5)
-           rc = h[detector+'trackSlopesXL'+xi].ProjectionX("slopeXL"+xi).Draw()
+           rc = h[detector+'trackSlopesXL'+xi].ProjectionX("slopeXL"+xi)
+           rc.Draw()
+           rc.SetTitle('track X slope')
            h[tname].cd(6)
-           rc = h[detector+'trackSlopesXL'+xi].ProjectionY("slopeYL"+xi).Draw()
-           if x=='': self.M.myPrint(self.M.h[tname],tname,subdir='scifi')
-           else:     self.M.myPrint(self.M.h[tname],tname,subdir='scifi/'+xi)
+           rc = h[detector+'trackSlopesXL'+xi].ProjectionY("slopeYL"+xi)
+           rc.Draw()
+           rc.SetTitle('track Y slope')
+           if x=='': self.M.myPrint(self.M.h[tname],tname,subdir='scifi/shifter')
+           else:     self.M.myPrint(self.M.h[tname],tname,subdir='scifi/shifter/'+xi)
            tname = detector+'TtrackPos'+xi
-           ut.bookCanvas(h,tname,"track position first state",1200,800,1,2)
+           ut.bookCanvas(h,tname,"track position first state",600,1200,1,2)
            h[tname].cd(1)
            rc = h[detector+'trackPosBeam'+xi].Draw('colz')
            h[tname].cd(2)
            rc = h[detector+'trackPos'+xi].Draw('colz')
-           if x=='': self.M.myPrint(self.M.h[tname],detector+'trackPos'+xi,subdir='scifi')
-           else:     self.M.myPrint(self.M.h[tname],detector+'trackPos'+xi,subdir='scifi/'+xi)
+           if x=='': self.M.myPrint(self.M.h[tname],detector+'trackPos'+xi,subdir='scifi/shifter')
+           else:     self.M.myPrint(self.M.h[tname],detector+'trackPos'+xi,subdir='scifi/shifter/'+xi)
            
 class Scifi_trackEfficiency(ROOT.FairTask):
    " track efficiency tag with DS track"
@@ -633,7 +724,7 @@ class Scifi_trackEfficiency(ROOT.FairTask):
        h['Xdx'].Draw()
        tc = h['dxdy'].cd(2)
        h['Xdy'].Draw()
-       self.M.myPrint(h['dxdy'],'ScifiMufiPulls',subdir='scifi')
+       self.M.myPrint(h['dxdy'],'ScifiMufiPulls',subdir='scifi/expert')
        ut.bookCanvas(h,'scifiEff','',1600,800,3,1)
        tc = h['scifiEff'].cd(1)
        h['DStag'].Draw('colz')
@@ -643,7 +734,7 @@ class Scifi_trackEfficiency(ROOT.FairTask):
        h['eff'].Divide(h['DStag'])
        tc = h['scifiEff'].cd(3)
        h['eff'].DrawCopy('colz')
-       self.M.myPrint(h['scifiEff'],'ScifiTrackEfficiency',subdir='scifi')
+       self.M.myPrint(h['scifiEff'],'ScifiTrackEfficiency',subdir='scifi/expert')
        limits = {1:{'X':[-44,-8],'Y':[16,50]},2:{'X':[-40,-12],'Y':[18,47]}}
        bins = {}
        for l in limits :
@@ -678,8 +769,8 @@ class Scifi_trackEfficiency(ROOT.FairTask):
           for l in limits :
             e = h['XscifiTrack_'+str(s)].Integral(bins[l][0],bins[l][1],bins[l][2],bins[l][3])/h['scifiTrack'].Integral(bins[l][0],bins[l][1],bins[l][2],bins[l][3])
             print('average efficiency station: %2i %5.2F<X<%5.2F %5.2F<Y<%5.2F = %5.2G'%(s,limits[l]['X'][0],limits[l]['X'][1],limits[l]['Y'][0],limits[l]['Y'][1],e))
-       self.M.myPrint(h['Tsineff'],'ScifiStationInEfficiency',subdir='scifi')
+       self.M.myPrint(h['Tsineff'],'ScifiStationInEfficiency',subdir='scifi/expert')
        ut.bookCanvas(h,'Tqdc','',1200,900,1,1)
        tc = h['Tqdc'].cd()
        h['USQDC'].Draw()
-       self.M.myPrint(h['Tqdc'],'US QDC for muon track',subdir='mufilter')
+       self.M.myPrint(h['Tqdc'],'US QDC for muon track',subdir='mufilter/expert')
