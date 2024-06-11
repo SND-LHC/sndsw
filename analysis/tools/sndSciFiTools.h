@@ -56,7 +56,7 @@ namespace snd {
 
     // Function to check efficiently wether a plane has a required hit density within a radius of r
     // SiPM channels
-    bool densityCheck(const TClonesArray &digiHits, int radius=64, int min_hit_density=50, int station=1, bool orientation=false);
+    bool densityCheck(const TClonesArray &digiHits, int radius=64, int min_hit_density=36, int station=1, bool orientation=false);
 
     // Function to get the starting block for a shower in the Scifi
     // Method 0 uses the Scifi Cluster density to determine whether a shower is propagating on a
