@@ -30,6 +30,8 @@ ${FAIRROOT_LIBRARY_DIR}
 )
  
 link_directories( ${LINK_DIRECTORIES})
+link_directories(${genfit2_LIBDIR})
+link_directories(${Rave_LIBDIR})
 
 Set(HEADERS )
 Set(LINKDEF AnalysisCutsLinkDef.h)

@@ -18,6 +18,8 @@ ${FAIRROOT_LIBRARY_DIR}
 )
  
 link_directories( ${LINK_DIRECTORIES})
+link_directories(${genfit2_LIBDIR})
+link_directories(${Rave_LIBDIR})
 
 add_executable(neutrinoFilterGoldenSample neutrinoFilterGoldenSample.cxx)
 target_link_libraries(neutrinoFilterGoldenSample ${ROOT_LIBRARIES} snd_analysis_tools snd_analysis_cuts)
