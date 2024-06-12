@@ -172,7 +172,7 @@ std::unique_ptr<TClonesArray> snd::analysis_tools::getScifiHits(const TClonesArr
 // make_selection == true allows you to first perform a selection of the relevant hits, and only
 // afterwards apply the filter. This is recomended for when the selection has not been made
 // previously
-std::unique_ptr<TClonesArray> snd::analysis_tools::selectScifiHits(const TClonesArray &digiHits, int station, bool orientation, int bins_x, float min_x, float max_x, float range_lower, float range_upper, bool make_selection){
+std::unique_ptr<TClonesArray> snd::analysis_tools::selectScifiHits(const TClonesArray &digiHits, int station, bool orientation, int bins_x, float min_x, float max_x, float time_lower_range, float time_upper_range, bool make_selection){
 
   if (bins_x < 1){
     LOG (FATAL) << "bins_x in selection_parameters cannot be <1. Consider using the default value of 52 instead.";
@@ -189,11 +189,11 @@ std::unique_ptr<TClonesArray> snd::analysis_tools::selectScifiHits(const TClones
   if (max_x < 0.0){
     LOG (FATAL) << "In selection_parameters max_x < 0.0. Consider using the default value of 26.0.";
   }
-  if (range_lower <= 0.0){
-    LOG (FATAL) << "In selection_parameters range_lower <= 0.0. Value should always be positive, in ns.";
+  if (time_lower_range <= 0.0){
+    LOG (FATAL) << "In selection_parameters time_lower_range <= 0.0. Value should always be positive, in ns.";
   }
-  if (range_upper <= 0.0){
-    LOG (FATAL) << "In selection_parameters range_upper <= 0.0. Value should always be positive, in ns.";
+  if (time_upper_range <= 0.0){
+    LOG (FATAL) << "In selection_parameters time_upper_range <= 0.0. Value should always be positive, in ns.";
   }
 
   auto filteredHits = std::make_unique<TClonesArray>("sndScifiHit", digiHits.GetEntries());
@@ -214,7 +214,7 @@ std::unique_ptr<TClonesArray> snd::analysis_tools::selectScifiHits(const TClones
     int i = 0;
     while ( hit = dynamic_cast<sndScifiHit*>(hitIterator.Next()) ){
       if (!validateHit(hit, station, orientation)){continue;}
-      if ((peakTiming - range_lower > hit->GetTime()*1E9/160.316E6) || (hit->GetTime()*1E9/160.316E6 > peakTiming + range_upper)){continue;}
+      if ((peakTiming - time_lower_range > hit->GetTime()*1E9/160.316E6) || (hit->GetTime()*1E9/160.316E6 > peakTiming + time_upper_range)){continue;}
       (*filteredHits)[i] = hit->Clone();
       i++;
     }
@@ -230,7 +230,7 @@ std::unique_ptr<TClonesArray> snd::analysis_tools::selectScifiHits(const TClones
     int i = 0;
     while ( hit = dynamic_cast<sndScifiHit*>(hitIterator.Next()) ){
       if (!validateHit(hit, station, orientation)){continue;}
-      if ((peakTiming - range_lower > hit->GetTime()*1E9/160.316E6) || (hit->GetTime()*1E9/160.316E6 > peakTiming + range_upper)){continue;}
+      if ((peakTiming - time_lower_range > hit->GetTime()*1E9/160.316E6) || (hit->GetTime()*1E9/160.316E6 > peakTiming + time_upper_range)){continue;}
       (*filteredHits)[i] = hit->Clone();
       i++;
     }
@@ -247,21 +247,21 @@ std::unique_ptr<TClonesArray> snd::analysis_tools::selectScifiHits(const TClones
 std::unique_ptr<TClonesArray> snd::analysis_tools::selectScifiHits(const TClonesArray &digiHits, int station, bool orientation, const std::vector<float> &selection_parameters, bool make_selection){
 
   if (selection_parameters.size() < 4){
-    LOG (FATAL) << "Dimensions of selection_parameters are incorrect. Please provide a vector with either 4 or 5 arguments. \nConsider using the default values of [bins_x=52; min_x=0.0; max_x=26.0; range_lower=1E9/(2*160.316E6); range_upper=2E9/(160.316E6)]. \nProviding 4 arguments makes range_upper=range_lower.";
+    LOG (FATAL) << "Dimensions of selection_parameters are incorrect. Please provide a vector with either 4 or 5 arguments. \nConsider using the default values of [bins_x=52; min_x=0.0; max_x=26.0; time_lower_range=1E9/(2*160.316E6); time_upper_range=2E9/(160.316E6)]. \nProviding 4 arguments makes time_upper_range=tim_lower_range.";
   }
 
-  float range_lower = -1.;
-  float range_upper = -1.;
+  float time_lower_range = -1.;
+  float time_upper_range = -1.;
 
   if (selection_parameters.size() == 4){
-    range_lower = selection_parameters[3];
-    range_upper = selection_parameters[3];
+    time_lower_range = selection_parameters[3];
+    time_upper_range = selection_parameters[3];
   } else{
-    range_lower = selection_parameters[3];
-    range_upper = selection_parameters[4];
+    time_lower_range = selection_parameters[3];
+    time_upper_range = selection_parameters[4];
   }
 
-  return selectScifiHits(digiHits, station, orientation, int(selection_parameters[0]), selection_parameters[1], selection_parameters[2], range_lower, range_upper, make_selection);
+  return selectScifiHits(digiHits, station, orientation, int(selection_parameters[0]), selection_parameters[1], selection_parameters[2], time_lower_range, time_upper_range, make_selection);
 
 }
 
@@ -303,8 +303,8 @@ std::unique_ptr<TClonesArray> snd::analysis_tools::filterScifiHits(const TClones
     }
   } else{
   LOG (error) << "Please provide a valid time filter method from:";
-  LOG (error) << "(0): Events within \\mp range_lower range_upper of the peak of the time distribution for Scifi Hits within each station and orientation";
-  LOG (FATAL) << "selection_parameters = [bins_x, min_x, max_x, range_lower, range_upper].";
+  LOG (error) << "(0): Events within \\mp time_lower_range time_upper_range of the peak of the time distribution for Scifi Hits within each station and orientation";
+  LOG (FATAL) << "selection_parameters = [bins_x, min_x, max_x, time_lower_range, time_upper_range].";
   return filteredHits;
   }
   supportArray.Clear("C");
@@ -398,7 +398,7 @@ bool snd::analysis_tools::densityCheck(const TClonesArray &digiHits, int radius,
 
 
 //Retrieve the target block where the shower starts
-int snd::analysis_tools::showerInteractionBlock(const TClonesArray &digiHits, const std::vector<float> &selection_parameters, int method, std::string setup){
+int snd::analysis_tools::showerInteractionWall(const TClonesArray &digiHits, const std::vector<float> &selection_parameters, int method, std::string setup){
 
   int totalScifiStations = 5;
   if(setup=="H8"){totalScifiStations = 4;}
@@ -430,7 +430,7 @@ int snd::analysis_tools::showerInteractionBlock(const TClonesArray &digiHits, co
   return showerStart;
 }
 
-int snd::analysis_tools::showerInteractionBlock(const TClonesArray &digiHits, int method, std::string setup){
+int snd::analysis_tools::showerInteractionWall(const TClonesArray &digiHits, int method, std::string setup){
 
   if(method != 0){
   LOG (FATAL) << "Please use method=0. No other methods implemented so far.";
@@ -438,7 +438,7 @@ int snd::analysis_tools::showerInteractionBlock(const TClonesArray &digiHits, in
 
   std::vector<float> selection_parameters{64, 50};
 
-  return showerInteractionBlock(digiHits, selection_parameters, method, setup);
+  return showerInteractionWall(digiHits, selection_parameters, method, setup);
 
 }
 
