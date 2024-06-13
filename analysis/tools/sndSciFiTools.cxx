@@ -145,18 +145,15 @@ float snd::analysis_tools::peakScifiTiming(const TClonesArray &digiHits, int bin
 // Getting all the Scifi hits for a specific station and orientation
 std::unique_ptr<TClonesArray> snd::analysis_tools::getScifiHits(const TClonesArray &digiHits, int station, bool orientation){
 
-  sndScifiHit * hit;
-  TIter hitIterator(&digiHits);
-
-  int length = digiHits.GetEntries();
-
-  auto selectedHits = std::make_unique<TClonesArray>("sndScifiHit", length);
+  auto selectedHits = std::make_unique<TClonesArray>("sndScifiHit");
 
   int i = 0;
-  while ( hit = dynamic_cast<sndScifiHit*>(hitIterator.Next()) ){
-    if (!validateHit(hit, station, orientation)){continue;}
-    (*selectedHits)[i] = hit->Clone();
-    i++;  
+  for (auto *p: digiHits) {
+    auto *hit = dynamic_cast<sndScifiHit*>(p);
+    if (!validateHit(hit, station, orientation)){
+      continue;
+    }
+    new ((*selectedHits)[i++]) sndScifiHit(*hit);
   }
 
   return selectedHits;
