@@ -381,6 +381,9 @@ if __name__ == '__main__':
     parser.add_argument("-rMax", dest="rMax",help="last run to process", default=9999,type=int)
     parser.add_argument("-p", dest="path", help="path to data",required=False,default="")
     parser.add_argument("-d", dest="pathConv", help="path to converted data",required=False,default="")
+    parser.add_argument("--saveTo", dest="saveTo", help="output storage path", default="")
+    parser.add_argument("-n", "--nEvents", dest="nEvents", help="number of events", default=-1,type=int)
+    parser.add_argument("-s", "--nStart", dest="nStart", help="first event", default=0,type=int)
 
     
     options = parser.parse_args()
