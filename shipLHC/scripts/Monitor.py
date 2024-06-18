@@ -404,7 +404,7 @@ class Monitoring():
 
    def updateHtml(self):
       if self.options.online: destination="online"
-      elif self.options.path.find('2022'): destination="reprocessing"
+      elif self.options.path.find('2022')>0: destination="reprocessing"
       else: destination="offline"
       rc = os.system("xrdcp -f "+os.environ['EOSSHIP']+"/eos/experiment/sndlhc/www/"+destination+".html  . ")
       old = open(destination+".html")
