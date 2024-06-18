@@ -107,7 +107,7 @@ class Monitoring():
 
         self.runNr   = str(options.runNumber).zfill(6)
 # presenter file
-        if options.saveTo!="":
+        if hasattr(self, "saveTo") and options.saveTo!="":
           name = options.saveTo+'run'+self.runNr+'_'+str(options.nStart//1000000)+'.root'
         else:
            name = 'run'+self.runNr+'.root'
@@ -117,7 +117,7 @@ class Monitoring():
           self.presenterFile.mkdir('scifi/'+role)
           self.presenterFile.mkdir('mufilter/'+role)
           self.presenterFile.mkdir('daq/'+role)
-          self.presenterFile.mkdir('eventdisplay/'+role)
+          if options.interactive: self.presenterFile.mkdir('eventdisplay/'+role)
         self.FairTasks = {}
         for x in FairTasks:   #  keeps extended methods if from python class
                  self.FairTasks[x.GetName()] = x
@@ -404,7 +404,7 @@ class Monitoring():
 
    def updateHtml(self):
       if self.options.online: destination="online"
-      elif self.options.path.find('2022'): destination="reprocessing"
+      elif self.options.path.find('2022')>0: destination="reprocessing"
       else: destination="offline"
       rc = os.system("xrdcp -f "+os.environ['EOSSHIP']+"/eos/experiment/sndlhc/www/"+destination+".html  . ")
       old = open(destination+".html")
