@@ -6,6 +6,14 @@ import numpy as np
 
 A,B  = ROOT.TVector3(),ROOT.TVector3()
 detector = "mufi-"
+# a dictionary to keep track of US sides with gel/no gel
+# L first, next R as usual
+US_gel_dict = {20:["no GEL", "with GEL"],
+               21:["with GEL", "no GEL"],
+               22:["no GEL", "with GEL"],
+               23:["with GEL", "no GEL"],
+               24:["with GEL", "no GEL"]}
+
 class Mufi_hitMaps(ROOT.FairTask):
    " produce hitmaps for MuFilter, Veto/US/DS"
    """
@@ -86,11 +94,17 @@ class Mufi_hitMaps(ROOT.FairTask):
                   if s==2:    
                       ut.bookHist(h,detector+'sigS_'+str(s*10+l)+xi,'signal / plane '+sdict[s]+str(l)+'; QDC [a.u.]',200,0.0,200.)
                       ut.bookHist(h,detector+'TsigS_'+str(s*10+l)+xi,'signal / plane '+sdict[s]+str(l)+'; QDC [a.u.]',200,0.0,200.)
-                  ut.bookHist(h,detector+'sigL_'+str(s*10+l)+xi,'signal / plane '+sdict[s]+str(l)+'; QDC [a.u.]',200,0.0,200.)
-                  ut.bookHist(h,detector+'sigR_'+str(s*10+l)+xi,'signal / plane '+sdict[s]+str(l)+'; QDC [a.u.]',200,0.0,200.)
-                  ut.bookHist(h,detector+'Tsig_'+str(s*10+l)+xi,'signal / plane '+sdict[s]+str(l)+'; QDC [a.u.]',200,0.0,200.)
-                  ut.bookHist(h,detector+'TsigL_'+str(s*10+l)+xi,'signal / plane '+sdict[s]+str(l)+'; QDC [a.u.]',200,0.0,200.)
-                  ut.bookHist(h,detector+'TsigR_'+str(s*10+l)+xi,'signal / plane '+sdict[s]+str(l)+'; QDC [a.u.]',200,0.0,200.)
+                      tagL = US_gel_dict[s*10+l][0]+": "
+                      tagR = US_gel_dict[s*10+l][1]+": "
+                  else:
+                      tagL = ""
+                      tagR = ""
+                  histo_title_helper = 'signal / plane '+sdict[s]+str(l)
+                  ut.bookHist(h,detector+'sigL_'+str(s*10+l)+xi,tagL+histo_title_helper+'; QDC [a.u.]',200,0.0,200.)
+                  ut.bookHist(h,detector+'sigR_'+str(s*10+l)+xi,tagR+histo_title_helper+'; QDC [a.u.]',200,0.0,200.)
+                  ut.bookHist(h,detector+'Tsig_'+str(s*10+l)+xi,histo_title_helper+'; QDC [a.u.]',200,0.0,200.)
+                  ut.bookHist(h,detector+'TsigL_'+str(s*10+l)+xi,tagL+histo_title_helper+'; QDC [a.u.]',200,0.0,200.)
+                  ut.bookHist(h,detector+'TsigR_'+str(s*10+l)+xi,tagR+histo_title_helper+'; QDC [a.u.]',200,0.0,200.)
                   # not used currently?
                   ut.bookHist(h,detector+'occ_'+str(s*10+l)+xi,'channel occupancy '+sdict[s]+str(l),100,0.0,200.)
                   ut.bookHist(h,detector+'occTag_'+str(s*10+l)+xi,'channel occupancy '+sdict[s]+str(l),100,0.0,200.)
