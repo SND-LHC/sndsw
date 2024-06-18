@@ -32,7 +32,7 @@ parser.add_argument("-M", "--online", dest="online", help="online mode",default=
 parser.add_argument("--batch", dest="batch", help="batch mode",default=False,action='store_true')
 parser.add_argument("--server", dest="server", help="xrootd server",default=os.environ["EOSSHIP"])
 parser.add_argument("-r", "--runNumber", dest="runNumber", help="run number", type=int,default=-1)
-parser.add_argument("-p", "--path", dest="path", help="path to data",required=False,default="")
+parser.add_argument("-p", "--path", dest="path", help="path to converted data",required=False,default="")
 parser.add_argument("-praw", dest="rawDataPath", help="path to raw data",required=False,default=False)
 parser.add_argument("-P", "--partition", dest="partition", help="partition of data", type=int,required=False,default=-1)
 parser.add_argument("-d", "--Debug", dest="debug", help="debug", default=False)
@@ -144,8 +144,7 @@ else:
 # works only for runs on EOS
    elif not options.server.find('eos')<0:
       if options.path.find('2024')>0:
-          em_run = options.path[len(options.path) - 3:]
-          rawDataPath = "/eos/experiment/sndlhc/raw_data/physics/2024/ecc_run_"+em_run
+          rawDataPath = "/eos/experiment/sndlhc/raw_data/physics/2024/run_241"
       elif options.path.find('2023')>0:
           rawDataPath = "/eos/experiment/sndlhc/raw_data/physics/2023/"
       elif options.path.find('2022')>0:
