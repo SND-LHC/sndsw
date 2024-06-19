@@ -117,6 +117,10 @@ Collaboration diagram for sndScifiHit:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a9e8f7350a15283d7bd1d566bdad5e044"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsndScifiHit.html#a9e8f7350a15283d7bd1d566bdad5e044">sndScifiHit</a> ()</td></tr>
 <tr class="separator:a9e8f7350a15283d7bd1d566bdad5e044"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02b713b8d2c35e6c633363416e90625c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsndScifiHit.html#a02b713b8d2c35e6c633363416e90625c">sndScifiHit</a> (const <a class="el" href="classsndScifiHit.html">sndScifiHit</a> &amp;hit)=default</td></tr>
+<tr class="separator:a02b713b8d2c35e6c633363416e90625c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98d436d792b9cea504ed19decef2d44b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsndScifiHit.html">sndScifiHit</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsndScifiHit.html#a98d436d792b9cea504ed19decef2d44b">operator=</a> (const <a class="el" href="classsndScifiHit.html">sndScifiHit</a> &amp;hit)=default</td></tr>
+<tr class="separator:a98d436d792b9cea504ed19decef2d44b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40d63b20e5737e4e06ad29b293fb92a5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsndScifiHit.html#a40d63b20e5737e4e06ad29b293fb92a5">sndScifiHit</a> (Int_t detID)</td></tr>
 <tr class="separator:a40d63b20e5737e4e06ad29b293fb92a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a94e210489dfebbd60b6489ac6c59ac46"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsndScifiHit.html#a94e210489dfebbd60b6489ac6c59ac46">sndScifiHit</a> (int detID, std::vector&lt; <a class="el" href="classScifiPoint.html">ScifiPoint</a> * &gt;, std::vector&lt; Float_t &gt;)</td></tr>
@@ -184,24 +188,20 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a4fb905745dab93bce959dd19238dd2e6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsndScifiHit.html#a4fb905745dab93bce959dd19238dd2e6">sndScifiHit</a> (const <a class="el" href="classsndScifiHit.html">sndScifiHit</a> &amp;hit)</td></tr>
-<tr class="separator:a4fb905745dab93bce959dd19238dd2e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a253e9fce5469d7419366e34249a4400a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsndScifiHit.html">sndScifiHit</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsndScifiHit.html#a253e9fce5469d7419366e34249a4400a">operator=</a> (const <a class="el" href="classsndScifiHit.html">sndScifiHit</a> &amp;hit)</td></tr>
-<tr class="separator:a253e9fce5469d7419366e34249a4400a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad469b5f0e723480182c0e1b8a51d62fd"><td class="memItemLeft" align="right" valign="top">Float_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsndScifiHit.html#ad469b5f0e723480182c0e1b8a51d62fd">ly_loss_mean</a> (Float_t distance, Float_t *params)</td></tr>
-<tr class="separator:ad469b5f0e723480182c0e1b8a51d62fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c76fdf612781ddb67205c258eadb9ff"><td class="memItemLeft" align="right" valign="top">Float_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsndScifiHit.html#a2c76fdf612781ddb67205c258eadb9ff">MeanAndRMS</a> (Double_t ly, Float_t T)</td></tr>
-<tr class="separator:a2c76fdf612781ddb67205c258eadb9ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a071d600729f55c0c81122c04f69c462b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsndScifiHit.html#a071d600729f55c0c81122c04f69c462b">ClassDef</a> (<a class="el" href="classsndScifiHit.html">sndScifiHit</a>, 3)</td></tr>
-<tr class="separator:a071d600729f55c0c81122c04f69c462b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19b914648e75231ee67cc5b93b03759e"><td class="memItemLeft" align="right" valign="top">Float_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsndScifiHit.html#a19b914648e75231ee67cc5b93b03759e">ly_loss</a> (Float_t distance)</td></tr>
+<tr class="separator:a19b914648e75231ee67cc5b93b03759e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acef714ad993ed52dd63dcd01d0c8cf57"><td class="memItemLeft" align="right" valign="top">Float_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsndScifiHit.html#acef714ad993ed52dd63dcd01d0c8cf57">sipm_saturation</a> (Float_t ly, Float_t nphe_max)</td></tr>
+<tr class="separator:acef714ad993ed52dd63dcd01d0c8cf57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbc28fb6e27a69317f1597a71a3f9d6b"><td class="memItemLeft" align="right" valign="top">Float_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsndScifiHit.html#abbc28fb6e27a69317f1597a71a3f9d6b">npix_to_qdc</a> (Float_t npix)</td></tr>
+<tr class="separator:abbc28fb6e27a69317f1597a71a3f9d6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0b686c432a403d864d6680377c8cade"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsndScifiHit.html#ad0b686c432a403d864d6680377c8cade">ClassDef</a> (<a class="el" href="classsndScifiHit.html">sndScifiHit</a>, 4)</td></tr>
+<tr class="separator:ad0b686c432a403d864d6680377c8cade"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a9a6aa11da753f6f523a8620974adb633"><td class="memItemLeft" align="right" valign="top">Float_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsndScifiHit.html#a9a6aa11da753f6f523a8620974adb633">flag</a></td></tr>
 <tr class="memdesc:a9a6aa11da753f6f523a8620974adb633"><td class="mdescLeft">&#160;</td><td class="mdescRight">flag  <a href="classsndScifiHit.html#a9a6aa11da753f6f523a8620974adb633">More...</a><br /></td></tr>
 <tr class="separator:a9a6aa11da753f6f523a8620974adb633"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c30d14ee783a5f71536bf03b5251c3f"><td class="memItemLeft" align="right" valign="top">Float_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsndScifiHit.html#a4c30d14ee783a5f71536bf03b5251c3f">ly_loss_params</a> [4] = {20.78, -0.26, 7.89, -3.06}</td></tr>
-<tr class="separator:a4c30d14ee783a5f71536bf03b5251c3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -248,21 +248,51 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 <p>Default constructor </p>
 
-<p class="definition">Definition at line <a class="el" href="sndScifiHit_8cxx_source.html#l00024">24</a> of file <a class="el" href="sndScifiHit_8cxx_source.html">sndScifiHit.cxx</a>.</p>
-<div class="fragment"><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  : <a class="code" href="classSndlhcHit.html#a2fcfbe62017961ad255ed7b48f57c9c9">SndlhcHit</a>()</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; <a class="code" href="classsndScifiHit.html#a9a6aa11da753f6f523a8620974adb633">flag</a> = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="sndScifiHit_8cxx_source.html#l00018">18</a> of file <a class="el" href="sndScifiHit_8cxx_source.html">sndScifiHit.cxx</a>.</p>
+<div class="fragment"><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  : <a class="code" href="classSndlhcHit.html#a2fcfbe62017961ad255ed7b48f57c9c9">SndlhcHit</a>()</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; <a class="code" href="classsndScifiHit.html#a9a6aa11da753f6f523a8620974adb633">flag</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}</div>
 <div class="ttc" id="aclassSndlhcHit_html_a2fcfbe62017961ad255ed7b48f57c9c9"><div class="ttname"><a href="classSndlhcHit.html#a2fcfbe62017961ad255ed7b48f57c9c9">SndlhcHit::SndlhcHit</a></div><div class="ttdeci">SndlhcHit()</div><div class="ttdef"><b>Definition:</b> <a href="SndlhcHit_8cxx_source.html#l00005">SndlhcHit.cxx:5</a></div></div>
-<div class="ttc" id="aclasssndScifiHit_html_a9a6aa11da753f6f523a8620974adb633"><div class="ttname"><a href="classsndScifiHit.html#a9a6aa11da753f6f523a8620974adb633">sndScifiHit::flag</a></div><div class="ttdeci">Float_t flag</div><div class="ttdoc">flag</div><div class="ttdef"><b>Definition:</b> <a href="sndScifiHit_8h_source.html#l00047">sndScifiHit.h:47</a></div></div>
+<div class="ttc" id="aclasssndScifiHit_html_a9a6aa11da753f6f523a8620974adb633"><div class="ttname"><a href="classsndScifiHit.html#a9a6aa11da753f6f523a8620974adb633">sndScifiHit::flag</a></div><div class="ttdeci">Float_t flag</div><div class="ttdoc">flag</div><div class="ttdef"><b>Definition:</b> <a href="sndScifiHit_8h_source.html#l00048">sndScifiHit.h:48</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a40d63b20e5737e4e06ad29b293fb92a5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a40d63b20e5737e4e06ad29b293fb92a5">&#9670;&nbsp;</a></span>sndScifiHit() <span class="overload">[2/4]</span></h2>
+<a id="a02b713b8d2c35e6c633363416e90625c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02b713b8d2c35e6c633363416e90625c">&#9670;&nbsp;</a></span>sndScifiHit() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">sndScifiHit::sndScifiHit </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsndScifiHit.html">sndScifiHit</a> &amp;&#160;</td>
+          <td class="paramname"><em>hit</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Copy constructor </p>
+
+</div>
+</div>
+<a id="a40d63b20e5737e4e06ad29b293fb92a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40d63b20e5737e4e06ad29b293fb92a5">&#9670;&nbsp;</a></span>sndScifiHit() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">sndScifiHit::sndScifiHit </td>
@@ -272,18 +302,23 @@ Additional Inherited Members</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sndScifiHit_8cxx_source.html#l00030">30</a> of file <a class="el" href="sndScifiHit_8cxx_source.html">sndScifiHit.cxx</a>.</p>
-<div class="fragment"><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  : <a class="code" href="classSndlhcHit.html#a2fcfbe62017961ad255ed7b48f57c9c9">SndlhcHit</a>(detID)</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; <a class="code" href="classsndScifiHit.html#a9a6aa11da753f6f523a8620974adb633">flag</a> = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="sndScifiHit_8cxx_source.html#l00024">24</a> of file <a class="el" href="sndScifiHit_8cxx_source.html">sndScifiHit.cxx</a>.</p>
+<div class="fragment"><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  : <a class="code" href="classSndlhcHit.html#a2fcfbe62017961ad255ed7b48f57c9c9">SndlhcHit</a>(detID)</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; <a class="code" href="classsndScifiHit.html#a9a6aa11da753f6f523a8620974adb633">flag</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
 <a id="a94e210489dfebbd60b6489ac6c59ac46"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a94e210489dfebbd60b6489ac6c59ac46">&#9670;&nbsp;</a></span>sndScifiHit() <span class="overload">[3/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a94e210489dfebbd60b6489ac6c59ac46">&#9670;&nbsp;</a></span>sndScifiHit() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -314,64 +349,74 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sndScifiHit_8cxx_source.html#l00036">36</a> of file <a class="el" href="sndScifiHit_8cxx_source.html">sndScifiHit.cxx</a>.</p>
-<div class="fragment"><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;     <a class="code" href="classScifi.html">Scifi</a>* ScifiDet = <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classScifi.html">Scifi</a>*<span class="keyword">&gt;</span> (gROOT-&gt;GetListOfGlobals()-&gt;FindObject(<span class="stringliteral">&quot;Scifi&quot;</span>) );</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;     Float_t nphe_min = ScifiDet-&gt;<a class="code" href="classScifi.html#a970fbf703ef2e02df8da973ef1091d78">GetConfParF</a>(<span class="stringliteral">&quot;Scifi/nphe_min&quot;</span>);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;     Float_t nphe_max = ScifiDet-&gt;<a class="code" href="classScifi.html#a970fbf703ef2e02df8da973ef1091d78">GetConfParF</a>(<span class="stringliteral">&quot;Scifi/nphe_max&quot;</span>);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;     Float_t <a class="code" href="namespacesndLHC__geom__config.html#aaded892a492b21278f991bf218f1b495">timeResol</a> = ScifiDet-&gt;<a class="code" href="classScifi.html#a970fbf703ef2e02df8da973ef1091d78">GetConfParF</a>(<span class="stringliteral">&quot;Scifi/timeResol&quot;</span>);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;     Float_t <a class="code" href="namespacesndLHC__geom__config.html#ae2eb8c6b3aa2b45eeb6b8cadfdb657cf">signalSpeed</a> = ScifiDet-&gt;<a class="code" href="classScifi.html#a970fbf703ef2e02df8da973ef1091d78">GetConfParF</a>(<span class="stringliteral">&quot;Scifi/signalSpeed&quot;</span>);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;     </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;     <a class="code" href="classSndlhcHit.html#a8d75216587d37622469f268e29eec728">nSides</a>   = 1;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;     <a class="code" href="classSndlhcHit.html#a037949791245d523b80c7a359f2069ad">nSiPMs</a>   = 1;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;     <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="namespaceconditionsDatabase_1_1snd__conDB.html#aefe45588482a96fe32b00d4855c3a4df">j</a>=0; <a class="code" href="namespaceconditionsDatabase_1_1snd__conDB.html#aefe45588482a96fe32b00d4855c3a4df">j</a>&lt;16; ++<a class="code" href="namespaceconditionsDatabase_1_1snd__conDB.html#aefe45588482a96fe32b00d4855c3a4df">j</a>){</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <a class="code" href="classSndlhcHit.html#a909edea1e089a822a53020c735790bfa">signals</a>[<a class="code" href="namespaceconditionsDatabase_1_1snd__conDB.html#aefe45588482a96fe32b00d4855c3a4df">j</a>] = -1;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <a class="code" href="classSndlhcHit.html#a2810f9422cde6281c92b612c55faad1c">times</a>[<a class="code" href="namespaceconditionsDatabase_1_1snd__conDB.html#aefe45588482a96fe32b00d4855c3a4df">j</a>]    =-1;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;     }</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;     <a class="code" href="classSndlhcHit.html#a836f646fa492caea1cf66ace3444450d">fDetectorID</a>  = SiPMChan;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;     Float_t signalTotal    = 0;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;     Float_t earliestToA   = 1E20;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;     <span class="keywordflow">for</span>( <span class="keywordtype">int</span> <a class="code" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a> = 0; <a class="code" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a> &lt;<a class="code" href="namespacepi0Reco.html#a1aa5dc9c03ee8cd23d0c329c69e198d2">V</a>.size();<a class="code" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>++) {</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        Double_t <a class="code" href="namespacerunPythia8.html#ad61d71e1d6b6f549424ee3d80ebab35f">signal</a> = <a class="code" href="namespacepi0Reco.html#a1aa5dc9c03ee8cd23d0c329c69e198d2">V</a>[<a class="code" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>]-&gt;GetEnergyLoss()*W[<a class="code" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>];</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="comment">// Find distances from MCPoint centre to ends of fibre</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        TVector3 <a class="code" href="namespaceneutrinoFilterGoldenSample__stage2.html#a5168014afe6a6542fec6b1a26ad9abc7">a</a>, <a class="code" href="namespaceneutrinoFilterGoldenSample__stage2.html#a4d3a35309dfc41a14adb6865aa8238ae">b</a>;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        TVector3 impact(<a class="code" href="namespacepi0Reco.html#a1aa5dc9c03ee8cd23d0c329c69e198d2">V</a>[<a class="code" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>]-&gt;GetX(),<a class="code" href="namespacepi0Reco.html#a1aa5dc9c03ee8cd23d0c329c69e198d2">V</a>[<a class="code" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>]-&gt;GetY() ,<a class="code" href="namespacepi0Reco.html#a1aa5dc9c03ee8cd23d0c329c69e198d2">V</a>[<a class="code" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>]-&gt;GetZ() );</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        ScifiDet-&gt;<a class="code" href="classScifi.html#a1b931ff9f46817177b0595f65c1e8f8f">GetSiPMPosition</a>(<a class="code" href="namespacepi0Reco.html#a1aa5dc9c03ee8cd23d0c329c69e198d2">V</a>[<a class="code" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>]-&gt;<a class="code" href="classSndlhcHit.html#a4e9473a321e1c0caef51c3e51e44f5a8">GetDetectorID</a>(),<a class="code" href="namespaceneutrinoFilterGoldenSample__stage2.html#a5168014afe6a6542fec6b1a26ad9abc7">a</a>, <a class="code" href="namespaceneutrinoFilterGoldenSample__stage2.html#a4d3a35309dfc41a14adb6865aa8238ae">b</a>);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;         </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    Double_t distance;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">bool</span> verticalHit = <a class="code" href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">int</a>(<a class="code" href="classSndlhcHit.html#a836f646fa492caea1cf66ace3444450d">fDetectorID</a>/100000)%10 == 1;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="comment">// Calculate distance from energy deposit to SiPM.</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="comment">// Vertical</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">if</span> (verticalHit) {</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;      distance = (<a class="code" href="namespaceneutrinoFilterGoldenSample__stage2.html#a4d3a35309dfc41a14adb6865aa8238ae">b</a> - impact).Mag();</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;      <span class="comment">// Horizontal</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;      distance = (impact - <a class="code" href="namespaceneutrinoFilterGoldenSample__stage2.html#a5168014afe6a6542fec6b1a26ad9abc7">a</a>).Mag();</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    }</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    signalTotal+= <a class="code" href="namespacerunPythia8.html#ad61d71e1d6b6f549424ee3d80ebab35f">signal</a>*<a class="code" href="classsndScifiHit.html#ad469b5f0e723480182c0e1b8a51d62fd">ly_loss_mean</a>(distance,<a class="code" href="classsndScifiHit.html#a4c30d14ee783a5f71536bf03b5251c3f">ly_loss_params</a>);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="comment">// for the timing, find earliest light to arrive at SiPM and smear with time resolution</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    Float_t arrival_time = <a class="code" href="namespacepi0Reco.html#a1aa5dc9c03ee8cd23d0c329c69e198d2">V</a>[<a class="code" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>]-&gt;GetTime() + distance/<a class="code" href="namespacesndLHC__geom__config.html#ae2eb8c6b3aa2b45eeb6b8cadfdb657cf">signalSpeed</a>;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">if</span> (arrival_time &lt; earliestToA){earliestToA = arrival_time;}</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;     }</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;     Float_t ly = signalTotal/0.180*1000.*20.; <span class="comment">// 20 p.e. per 180 keV</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;     <a class="code" href="classSndlhcHit.html#a909edea1e089a822a53020c735790bfa">signals</a>[0] =<a class="code" href="classsndScifiHit.html#a2c76fdf612781ddb67205c258eadb9ff">MeanAndRMS</a>(ly,nphe_max);</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;     <span class="keywordflow">if</span> (ly &gt;nphe_min){   <span class="comment">// nominal threshold at 3.5 p.e.</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            <a class="code" href="classsndScifiHit.html#a9a6aa11da753f6f523a8620974adb633">flag</a>=<span class="keyword">true</span>;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;      }<span class="keywordflow">else</span>{</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            <a class="code" href="classsndScifiHit.html#a9a6aa11da753f6f523a8620974adb633">flag</a>=<span class="keyword">false</span>;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;      }</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;      <a class="code" href="classSndlhcHit.html#a2810f9422cde6281c92b612c55faad1c">times</a>[0] = gRandom-&gt;Gaus(earliestToA, <a class="code" href="namespacesndLHC__geom__config.html#aaded892a492b21278f991bf218f1b495">timeResol</a>);</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;     LOG(DEBUG) &lt;&lt; <span class="stringliteral">&quot;signal created&quot;</span>;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="sndScifiHit_8cxx_source.html#l00030">30</a> of file <a class="el" href="sndScifiHit_8cxx_source.html">sndScifiHit.cxx</a>.</p>
+<div class="fragment"><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;     <a class="code" href="classScifi.html">Scifi</a>* ScifiDet = <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classScifi.html">Scifi</a>*<span class="keyword">&gt;</span> (gROOT-&gt;GetListOfGlobals()-&gt;FindObject(<span class="stringliteral">&quot;Scifi&quot;</span>) );</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;     Float_t nphe_min = ScifiDet-&gt;<a class="code" href="classScifi.html#a970fbf703ef2e02df8da973ef1091d78">GetConfParF</a>(<span class="stringliteral">&quot;Scifi/nphe_min&quot;</span>);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;     Float_t nphe_max = ScifiDet-&gt;<a class="code" href="classScifi.html#a970fbf703ef2e02df8da973ef1091d78">GetConfParF</a>(<span class="stringliteral">&quot;Scifi/nphe_max&quot;</span>);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;     Float_t <a class="code" href="namespacesndLHC__geom__config.html#aaded892a492b21278f991bf218f1b495">timeResol</a> = ScifiDet-&gt;<a class="code" href="classScifi.html#a970fbf703ef2e02df8da973ef1091d78">GetConfParF</a>(<span class="stringliteral">&quot;Scifi/timeResol&quot;</span>);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;     Float_t <a class="code" href="namespacesndLHC__geom__config.html#ae2eb8c6b3aa2b45eeb6b8cadfdb657cf">signalSpeed</a> = ScifiDet-&gt;<a class="code" href="classScifi.html#a970fbf703ef2e02df8da973ef1091d78">GetConfParF</a>(<span class="stringliteral">&quot;Scifi/signalSpeed&quot;</span>);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;     </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;     <a class="code" href="classSndlhcHit.html#a8d75216587d37622469f268e29eec728">nSides</a>   = 1;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;     <a class="code" href="classSndlhcHit.html#a037949791245d523b80c7a359f2069ad">nSiPMs</a>   = 1;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;     <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="namespaceconditionsDatabase_1_1snd__conDB.html#aefe45588482a96fe32b00d4855c3a4df">j</a>=0; <a class="code" href="namespaceconditionsDatabase_1_1snd__conDB.html#aefe45588482a96fe32b00d4855c3a4df">j</a>&lt;16; ++<a class="code" href="namespaceconditionsDatabase_1_1snd__conDB.html#aefe45588482a96fe32b00d4855c3a4df">j</a>){</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="classSndlhcHit.html#a909edea1e089a822a53020c735790bfa">signals</a>[<a class="code" href="namespaceconditionsDatabase_1_1snd__conDB.html#aefe45588482a96fe32b00d4855c3a4df">j</a>] = -1;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <a class="code" href="classSndlhcHit.html#a2810f9422cde6281c92b612c55faad1c">times</a>[<a class="code" href="namespaceconditionsDatabase_1_1snd__conDB.html#aefe45588482a96fe32b00d4855c3a4df">j</a>]    =-1;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;     }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;     <a class="code" href="classSndlhcHit.html#a836f646fa492caea1cf66ace3444450d">fDetectorID</a>  = SiPMChan;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;     Float_t ly_total = 0;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;     Float_t earliestToA   = 1E20;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;     <span class="keywordflow">for</span>( <span class="keywordtype">int</span> <a class="code" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a> = 0; <a class="code" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a> &lt;<a class="code" href="namespacepi0Reco.html#a1aa5dc9c03ee8cd23d0c329c69e198d2">V</a>.size();<a class="code" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>++) {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        Double_t <a class="code" href="namespacerunPythia8.html#ad61d71e1d6b6f549424ee3d80ebab35f">signal</a> = <a class="code" href="namespacepi0Reco.html#a1aa5dc9c03ee8cd23d0c329c69e198d2">V</a>[<a class="code" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>]-&gt;GetEnergyLoss()*W[<a class="code" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>];</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="comment">// Find distances from MCPoint centre to ends of fibre</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        TVector3 <a class="code" href="namespaceneutrinoFilterGoldenSample__stage2.html#a5168014afe6a6542fec6b1a26ad9abc7">a</a>, <a class="code" href="namespaceneutrinoFilterGoldenSample__stage2.html#a4d3a35309dfc41a14adb6865aa8238ae">b</a>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        TVector3 impact(<a class="code" href="namespacepi0Reco.html#a1aa5dc9c03ee8cd23d0c329c69e198d2">V</a>[<a class="code" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>]-&gt;GetX(),<a class="code" href="namespacepi0Reco.html#a1aa5dc9c03ee8cd23d0c329c69e198d2">V</a>[<a class="code" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>]-&gt;GetY() ,<a class="code" href="namespacepi0Reco.html#a1aa5dc9c03ee8cd23d0c329c69e198d2">V</a>[<a class="code" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>]-&gt;GetZ() );</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        ScifiDet-&gt;<a class="code" href="classScifi.html#a1b931ff9f46817177b0595f65c1e8f8f">GetSiPMPosition</a>(<a class="code" href="namespacepi0Reco.html#a1aa5dc9c03ee8cd23d0c329c69e198d2">V</a>[<a class="code" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>]-&gt;<a class="code" href="classSndlhcHit.html#a4e9473a321e1c0caef51c3e51e44f5a8">GetDetectorID</a>(),<a class="code" href="namespaceneutrinoFilterGoldenSample__stage2.html#a5168014afe6a6542fec6b1a26ad9abc7">a</a>, <a class="code" href="namespaceneutrinoFilterGoldenSample__stage2.html#a4d3a35309dfc41a14adb6865aa8238ae">b</a>);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;         </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    Double_t distance;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">bool</span> verticalHit = <a class="code" href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">int</a>(<a class="code" href="classSndlhcHit.html#a836f646fa492caea1cf66ace3444450d">fDetectorID</a>/100000)%10 == 1;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="comment">// Calculate distance from energy deposit to SiPM.</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="comment">// Vertical</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordflow">if</span> (verticalHit) {</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;      distance = (<a class="code" href="namespaceneutrinoFilterGoldenSample__stage2.html#a4d3a35309dfc41a14adb6865aa8238ae">b</a> - impact).Mag();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;      <span class="comment">// Horizontal</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      distance = (impact - <a class="code" href="namespaceneutrinoFilterGoldenSample__stage2.html#a5168014afe6a6542fec6b1a26ad9abc7">a</a>).Mag();</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="comment">// convert energy deposit to light yield (here Np.e. == avg. N fired pixels)</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        Float_t ly = <a class="code" href="namespacerunPythia8.html#ad61d71e1d6b6f549424ee3d80ebab35f">signal</a>*1<a class="code" href="namespacemakeMuonDIS.html#ad916c51f2653b60d746cf521ef14f685">E</a>+6*0.16; <span class="comment">//0.16 p.e per 1 keV</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="comment">// account for the light attenuation in the fibers</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        ly*= <a class="code" href="classsndScifiHit.html#a19b914648e75231ee67cc5b93b03759e">ly_loss</a>(distance);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    ly_total+= ly;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="comment">// for the timing, find earliest light to arrive at SiPM and smear with time resolution</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    Float_t arrival_time = <a class="code" href="namespacepi0Reco.html#a1aa5dc9c03ee8cd23d0c329c69e198d2">V</a>[<a class="code" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>]-&gt;GetTime() + distance/<a class="code" href="namespacesndLHC__geom__config.html#ae2eb8c6b3aa2b45eeb6b8cadfdb657cf">signalSpeed</a>;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordflow">if</span> (arrival_time &lt; earliestToA){earliestToA = arrival_time;}</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;     }</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;     <span class="comment">// smear the total light yield using Poisson distribution</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;     ly_total= gRandom-&gt;Poisson(ly_total);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;     <span class="comment">// account for limited SiPM dyn. range</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;     Float_t Npix = <a class="code" href="classsndScifiHit.html#acef714ad993ed52dd63dcd01d0c8cf57">sipm_saturation</a>(ly_total,nphe_max);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;     <span class="comment">// convert Npix to QDC</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;     <a class="code" href="classSndlhcHit.html#a909edea1e089a822a53020c735790bfa">signals</a>[0] = <a class="code" href="classsndScifiHit.html#abbc28fb6e27a69317f1597a71a3f9d6b">npix_to_qdc</a>(Npix);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;     </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;     <span class="keywordflow">if</span> (ly_total &gt; nphe_min){   <span class="comment">// nominal threshold at 3.5 p.e.</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            <a class="code" href="classsndScifiHit.html#a9a6aa11da753f6f523a8620974adb633">flag</a>=<span class="keyword">true</span>;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;      }<span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            <a class="code" href="classsndScifiHit.html#a9a6aa11da753f6f523a8620974adb633">flag</a>=<span class="keyword">false</span>;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;      }</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;      <a class="code" href="classSndlhcHit.html#a2810f9422cde6281c92b612c55faad1c">times</a>[0] = gRandom-&gt;Gaus(earliestToA, <a class="code" href="namespacesndLHC__geom__config.html#aaded892a492b21278f991bf218f1b495">timeResol</a>);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;     LOG(DEBUG) &lt;&lt; <span class="stringliteral">&quot;signal created&quot;</span>;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;}</div>
 <div class="ttc" id="aclassScifi_html"><div class="ttname"><a href="classScifi.html">Scifi</a></div><div class="ttdef"><b>Definition:</b> <a href="Scifi_8h_source.html#l00019">Scifi.h:20</a></div></div>
 <div class="ttc" id="aclassScifi_html_a1b931ff9f46817177b0595f65c1e8f8f"><div class="ttname"><a href="classScifi.html#a1b931ff9f46817177b0595f65c1e8f8f">Scifi::GetSiPMPosition</a></div><div class="ttdeci">void GetSiPMPosition(Int_t SiPMChan, TVector3 &amp;A, TVector3 &amp;B)</div><div class="ttdef"><b>Definition:</b> <a href="Scifi_8cxx_source.html#l00623">Scifi.cxx:623</a></div></div>
 <div class="ttc" id="aclassScifi_html_a970fbf703ef2e02df8da973ef1091d78"><div class="ttname"><a href="classScifi.html#a970fbf703ef2e02df8da973ef1091d78">Scifi::GetConfParF</a></div><div class="ttdeci">Float_t GetConfParF(TString name)</div><div class="ttdef"><b>Definition:</b> <a href="Scifi_8h_source.html#l00049">Scifi.h:49</a></div></div>
@@ -381,12 +426,13 @@ Additional Inherited Members</h2></td></tr>
 <div class="ttc" id="aclassSndlhcHit_html_a836f646fa492caea1cf66ace3444450d"><div class="ttname"><a href="classSndlhcHit.html#a836f646fa492caea1cf66ace3444450d">SndlhcHit::fDetectorID</a></div><div class="ttdeci">Int_t fDetectorID</div><div class="ttdoc">Detector unique identifier.</div><div class="ttdef"><b>Definition:</b> <a href="SndlhcHit_8h_source.html#l00072">SndlhcHit.h:72</a></div></div>
 <div class="ttc" id="aclassSndlhcHit_html_a8d75216587d37622469f268e29eec728"><div class="ttname"><a href="classSndlhcHit.html#a8d75216587d37622469f268e29eec728">SndlhcHit::nSides</a></div><div class="ttdeci">Int_t nSides</div><div class="ttdoc">number of SiPMs per side</div><div class="ttdef"><b>Definition:</b> <a href="SndlhcHit_8h_source.html#l00074">SndlhcHit.h:74</a></div></div>
 <div class="ttc" id="aclassSndlhcHit_html_a909edea1e089a822a53020c735790bfa"><div class="ttname"><a href="classSndlhcHit.html#a909edea1e089a822a53020c735790bfa">SndlhcHit::signals</a></div><div class="ttdeci">Float_t signals[16]</div><div class="ttdoc">number of sides</div><div class="ttdef"><b>Definition:</b> <a href="SndlhcHit_8h_source.html#l00075">SndlhcHit.h:75</a></div></div>
-<div class="ttc" id="aclasssndScifiHit_html_a2c76fdf612781ddb67205c258eadb9ff"><div class="ttname"><a href="classsndScifiHit.html#a2c76fdf612781ddb67205c258eadb9ff">sndScifiHit::MeanAndRMS</a></div><div class="ttdeci">Float_t MeanAndRMS(Double_t ly, Float_t T)</div><div class="ttdef"><b>Definition:</b> <a href="sndScifiHit_8cxx_source.html#l00011">sndScifiHit.cxx:11</a></div></div>
-<div class="ttc" id="aclasssndScifiHit_html_a4c30d14ee783a5f71536bf03b5251c3f"><div class="ttname"><a href="classsndScifiHit.html#a4c30d14ee783a5f71536bf03b5251c3f">sndScifiHit::ly_loss_params</a></div><div class="ttdeci">Float_t ly_loss_params[4]</div><div class="ttdef"><b>Definition:</b> <a href="sndScifiHit_8h_source.html#l00050">sndScifiHit.h:50</a></div></div>
-<div class="ttc" id="aclasssndScifiHit_html_ad469b5f0e723480182c0e1b8a51d62fd"><div class="ttname"><a href="classsndScifiHit.html#ad469b5f0e723480182c0e1b8a51d62fd">sndScifiHit::ly_loss_mean</a></div><div class="ttdeci">Float_t ly_loss_mean(Float_t distance, Float_t *params)</div><div class="ttdef"><b>Definition:</b> <a href="sndScifiHit_8cxx_source.html#l00106">sndScifiHit.cxx:106</a></div></div>
+<div class="ttc" id="aclasssndScifiHit_html_a19b914648e75231ee67cc5b93b03759e"><div class="ttname"><a href="classsndScifiHit.html#a19b914648e75231ee67cc5b93b03759e">sndScifiHit::ly_loss</a></div><div class="ttdeci">Float_t ly_loss(Float_t distance)</div><div class="ttdef"><b>Definition:</b> <a href="sndScifiHit_8cxx_source.html#l00110">sndScifiHit.cxx:110</a></div></div>
+<div class="ttc" id="aclasssndScifiHit_html_abbc28fb6e27a69317f1597a71a3f9d6b"><div class="ttname"><a href="classsndScifiHit.html#abbc28fb6e27a69317f1597a71a3f9d6b">sndScifiHit::npix_to_qdc</a></div><div class="ttdeci">Float_t npix_to_qdc(Float_t npix)</div><div class="ttdef"><b>Definition:</b> <a href="sndScifiHit_8cxx_source.html#l00121">sndScifiHit.cxx:121</a></div></div>
+<div class="ttc" id="aclasssndScifiHit_html_acef714ad993ed52dd63dcd01d0c8cf57"><div class="ttname"><a href="classsndScifiHit.html#acef714ad993ed52dd63dcd01d0c8cf57">sndScifiHit::sipm_saturation</a></div><div class="ttdeci">Float_t sipm_saturation(Float_t ly, Float_t nphe_max)</div><div class="ttdef"><b>Definition:</b> <a href="sndScifiHit_8cxx_source.html#l00115">sndScifiHit.cxx:115</a></div></div>
 <div class="ttc" id="anamespaceShipAna_html_aa4bf87f4d17f9d38b1d8f4d009bb54b3"><div class="ttname"><a href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">ShipAna.i</a></div><div class="ttdeci">int i</div><div class="ttdef"><b>Definition:</b> <a href="ShipAna_8py_source.html#l00086">ShipAna.py:86</a></div></div>
 <div class="ttc" id="anamespaceadd__noise__to__field_html_a4aa6f75233f1922a97b2d4c15285c18e"><div class="ttname"><a href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">add_noise_to_field.int</a></div><div class="ttdeci">int</div><div class="ttdef"><b>Definition:</b> <a href="add__noise__to__field_8py_source.html#l00057">add_noise_to_field.py:57</a></div></div>
 <div class="ttc" id="anamespaceconditionsDatabase_1_1snd__conDB_html_aefe45588482a96fe32b00d4855c3a4df"><div class="ttname"><a href="namespaceconditionsDatabase_1_1snd__conDB.html#aefe45588482a96fe32b00d4855c3a4df">conditionsDatabase.snd_conDB.j</a></div><div class="ttdeci">int j</div><div class="ttdef"><b>Definition:</b> <a href="snd__conDB_8py_source.html#l00197">snd_conDB.py:197</a></div></div>
+<div class="ttc" id="anamespacemakeMuonDIS_html_ad916c51f2653b60d746cf521ef14f685"><div class="ttname"><a href="namespacemakeMuonDIS.html#ad916c51f2653b60d746cf521ef14f685">makeMuonDIS.E</a></div><div class="ttdeci">E</div><div class="ttdef"><b>Definition:</b> <a href="makeMuonDIS_8py_source.html#l00077">makeMuonDIS.py:77</a></div></div>
 <div class="ttc" id="anamespaceneutrinoFilterGoldenSample__stage2_html_a4d3a35309dfc41a14adb6865aa8238ae"><div class="ttname"><a href="namespaceneutrinoFilterGoldenSample__stage2.html#a4d3a35309dfc41a14adb6865aa8238ae">neutrinoFilterGoldenSample_stage2.b</a></div><div class="ttdeci">b</div><div class="ttdef"><b>Definition:</b> <a href="neutrinoFilterGoldenSample__stage2_8py_source.html#l00493">neutrinoFilterGoldenSample_stage2.py:493</a></div></div>
 <div class="ttc" id="anamespaceneutrinoFilterGoldenSample__stage2_html_a5168014afe6a6542fec6b1a26ad9abc7"><div class="ttname"><a href="namespaceneutrinoFilterGoldenSample__stage2.html#a5168014afe6a6542fec6b1a26ad9abc7">neutrinoFilterGoldenSample_stage2.a</a></div><div class="ttdeci">a</div><div class="ttdef"><b>Definition:</b> <a href="neutrinoFilterGoldenSample__stage2_8py_source.html#l00492">neutrinoFilterGoldenSample_stage2.py:492</a></div></div>
 <div class="ttc" id="anamespacepi0Reco_html_a1aa5dc9c03ee8cd23d0c329c69e198d2"><div class="ttname"><a href="namespacepi0Reco.html#a1aa5dc9c03ee8cd23d0c329c69e198d2">pi0Reco.V</a></div><div class="ttdeci">V</div><div class="ttdef"><b>Definition:</b> <a href="pi0Reco_8py_source.html#l00008">pi0Reco.py:8</a></div></div>
@@ -420,41 +466,14 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 <p>Destructor </p>
 
-<p class="definition">Definition at line <a class="el" href="sndScifiHit_8cxx_source.html#l00096">96</a> of file <a class="el" href="sndScifiHit_8cxx_source.html">sndScifiHit.cxx</a>.</p>
-<div class="fragment"><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;{ }</div>
+<p class="definition">Definition at line <a class="el" href="sndScifiHit_8cxx_source.html#l00100">100</a> of file <a class="el" href="sndScifiHit_8cxx_source.html">sndScifiHit.cxx</a>.</p>
+<div class="fragment"><div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;{ }</div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a4fb905745dab93bce959dd19238dd2e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4fb905745dab93bce959dd19238dd2e6">&#9670;&nbsp;</a></span>sndScifiHit() <span class="overload">[4/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">sndScifiHit::sndScifiHit </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classsndScifiHit.html">sndScifiHit</a> &amp;&#160;</td>
-          <td class="paramname"><em>hit</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Copy constructor </p>
-
-</div>
-</div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a071d600729f55c0c81122c04f69c462b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a071d600729f55c0c81122c04f69c462b">&#9670;&nbsp;</a></span>ClassDef()</h2>
+<a id="ad0b686c432a403d864d6680377c8cade"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0b686c432a403d864d6680377c8cade">&#9670;&nbsp;</a></span>ClassDef()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -471,7 +490,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">3&#160;</td>
+          <td class="paramtype">4&#160;</td>
           <td class="paramname">&#160;</td>
         </tr>
         <tr>
@@ -512,8 +531,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sndScifiHit_8h_source.html#l00036">36</a> of file <a class="el" href="sndScifiHit_8h_source.html">sndScifiHit.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{<span class="keywordflow">return</span> <a class="code" href="classSndlhcHit.html#a836f646fa492caea1cf66ace3444450d">fDetectorID</a>;}</div>
+<p class="definition">Definition at line <a class="el" href="sndScifiHit_8h_source.html#l00039">39</a> of file <a class="el" href="sndScifiHit_8h_source.html">sndScifiHit.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{<span class="keywordflow">return</span> <a class="code" href="classSndlhcHit.html#a836f646fa492caea1cf66ace3444450d">fDetectorID</a>;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -532,11 +551,11 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sndScifiHit_8cxx_source.html#l00100">100</a> of file <a class="el" href="sndScifiHit_8cxx_source.html">sndScifiHit.cxx</a>.</p>
-<div class="fragment"><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;{</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  <span class="comment">// to be calculated from digis and calibration constants, missing!</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="classSndlhcHit.html#a909edea1e089a822a53020c735790bfa">signals</a>[0];</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="sndScifiHit_8cxx_source.html#l00104">104</a> of file <a class="el" href="sndScifiHit_8cxx_source.html">sndScifiHit.cxx</a>.</p>
+<div class="fragment"><div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;{</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  <span class="comment">// to be calculated from digis and calibration constants, missing!</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="classSndlhcHit.html#a909edea1e089a822a53020c735790bfa">signals</a>[0];</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -563,8 +582,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sndScifiHit_8h_source.html#l00033">33</a> of file <a class="el" href="sndScifiHit_8h_source.html">sndScifiHit.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{<span class="keywordflow">return</span> ( <span class="keywordtype">int</span>(<a class="code" href="classSndlhcHit.html#a836f646fa492caea1cf66ace3444450d">fDetectorID</a>/10000)%10);}</div>
+<p class="definition">Definition at line <a class="el" href="sndScifiHit_8h_source.html#l00036">36</a> of file <a class="el" href="sndScifiHit_8h_source.html">sndScifiHit.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{<span class="keywordflow">return</span> ( <span class="keywordtype">int</span>(<a class="code" href="classSndlhcHit.html#a836f646fa492caea1cf66ace3444450d">fDetectorID</a>/10000)%10);}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -591,8 +610,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sndScifiHit_8h_source.html#l00034">34</a> of file <a class="el" href="sndScifiHit_8h_source.html">sndScifiHit.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{<span class="keywordflow">return</span> ( <span class="keywordtype">int</span>(<a class="code" href="classSndlhcHit.html#a836f646fa492caea1cf66ace3444450d">fDetectorID</a>/1000)%10);}</div>
+<p class="definition">Definition at line <a class="el" href="sndScifiHit_8h_source.html#l00037">37</a> of file <a class="el" href="sndScifiHit_8h_source.html">sndScifiHit.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{<span class="keywordflow">return</span> ( <span class="keywordtype">int</span>(<a class="code" href="classSndlhcHit.html#a836f646fa492caea1cf66ace3444450d">fDetectorID</a>/1000)%10);}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -619,8 +638,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sndScifiHit_8h_source.html#l00035">35</a> of file <a class="el" href="sndScifiHit_8h_source.html">sndScifiHit.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{<span class="keywordflow">return</span> ( <a class="code" href="classSndlhcHit.html#a836f646fa492caea1cf66ace3444450d">fDetectorID</a>%1000);}</div>
+<p class="definition">Definition at line <a class="el" href="sndScifiHit_8h_source.html#l00038">38</a> of file <a class="el" href="sndScifiHit_8h_source.html">sndScifiHit.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{<span class="keywordflow">return</span> ( <a class="code" href="classSndlhcHit.html#a836f646fa492caea1cf66ace3444450d">fDetectorID</a>%1000);}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -647,8 +666,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sndScifiHit_8h_source.html#l00028">28</a> of file <a class="el" href="sndScifiHit_8h_source.html">sndScifiHit.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{<span class="keywordflow">return</span> floor(<a class="code" href="classSndlhcHit.html#a836f646fa492caea1cf66ace3444450d">fDetectorID</a>/1000000);}</div>
+<p class="definition">Definition at line <a class="el" href="sndScifiHit_8h_source.html#l00031">31</a> of file <a class="el" href="sndScifiHit_8h_source.html">sndScifiHit.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{<span class="keywordflow">return</span> floor(<a class="code" href="classSndlhcHit.html#a836f646fa492caea1cf66ace3444450d">fDetectorID</a>/1000000);}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -675,8 +694,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sndScifiHit_8h_source.html#l00027">27</a> of file <a class="el" href="sndScifiHit_8h_source.html">sndScifiHit.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{<span class="keywordflow">return</span> <a class="code" href="classsndScifiHit.html#a9a6aa11da753f6f523a8620974adb633">flag</a>;}</div>
+<p class="definition">Definition at line <a class="el" href="sndScifiHit_8h_source.html#l00030">30</a> of file <a class="el" href="sndScifiHit_8h_source.html">sndScifiHit.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{<span class="keywordflow">return</span> <a class="code" href="classsndScifiHit.html#a9a6aa11da753f6f523a8620974adb633">flag</a>;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -703,16 +722,16 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sndScifiHit_8h_source.html#l00029">29</a> of file <a class="el" href="sndScifiHit_8h_source.html">sndScifiHit.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                     {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordflow">if</span> ( <span class="keywordtype">int</span>(<a class="code" href="classSndlhcHit.html#a836f646fa492caea1cf66ace3444450d">fDetectorID</a>/100000)%10 == 1){<span class="keywordflow">return</span> <span class="keyword">true</span>;}</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordflow">else</span>{<span class="keywordflow">return</span> (<span class="keyword">false</span>);}</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    }</div>
+<p class="definition">Definition at line <a class="el" href="sndScifiHit_8h_source.html#l00032">32</a> of file <a class="el" href="sndScifiHit_8h_source.html">sndScifiHit.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                     {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordflow">if</span> ( <span class="keywordtype">int</span>(<a class="code" href="classSndlhcHit.html#a836f646fa492caea1cf66ace3444450d">fDetectorID</a>/100000)%10 == 1){<span class="keywordflow">return</span> <span class="keyword">true</span>;}</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordflow">else</span>{<span class="keywordflow">return</span> (<span class="keyword">false</span>);}</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="ad469b5f0e723480182c0e1b8a51d62fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad469b5f0e723480182c0e1b8a51d62fd">&#9670;&nbsp;</a></span>ly_loss_mean()</h2>
+<a id="a19b914648e75231ee67cc5b93b03759e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19b914648e75231ee67cc5b93b03759e">&#9670;&nbsp;</a></span>ly_loss()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -721,21 +740,11 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Float_t sndScifiHit::ly_loss_mean </td>
+          <td class="memname">Float_t sndScifiHit::ly_loss </td>
           <td>(</td>
           <td class="paramtype">Float_t&#160;</td>
-          <td class="paramname"><em>distance</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>distance</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">Float_t *&#160;</td>
-          <td class="paramname"><em>params</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -745,18 +754,17 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sndScifiHit_8cxx_source.html#l00106">106</a> of file <a class="el" href="sndScifiHit_8cxx_source.html">sndScifiHit.cxx</a>.</p>
-<div class="fragment"><div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                                                                  {</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="comment">//  It returns the light yield depending on the distance to SiPM</span></div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    Double_t att = <a class="code" href="namespacegeometry__config.html#aa313304f40f24acaf601de3eb247e62b">params</a>[0] * TMath::Exp(<a class="code" href="namespacegeometry__config.html#aa313304f40f24acaf601de3eb247e62b">params</a>[1] * distance / 100.) + <a class="code" href="namespacegeometry__config.html#aa313304f40f24acaf601de3eb247e62b">params</a>[2] * TMath::Exp(<a class="code" href="namespacegeometry__config.html#aa313304f40f24acaf601de3eb247e62b">params</a>[3] * distance / 100.);</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordflow">return</span> att/(<a class="code" href="namespacegeometry__config.html#aa313304f40f24acaf601de3eb247e62b">params</a>[0]+<a class="code" href="namespacegeometry__config.html#aa313304f40f24acaf601de3eb247e62b">params</a>[2]);</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;}</div>
-<div class="ttc" id="anamespacegeometry__config_html_aa313304f40f24acaf601de3eb247e62b"><div class="ttname"><a href="namespacegeometry__config.html#aa313304f40f24acaf601de3eb247e62b">geometry_config.params</a></div><div class="ttdeci">params</div><div class="ttdef"><b>Definition:</b> <a href="geometry__config_8py_source.html#l00357">geometry_config.py:357</a></div></div>
+<p class="definition">Definition at line <a class="el" href="sndScifiHit_8cxx_source.html#l00110">110</a> of file <a class="el" href="sndScifiHit_8cxx_source.html">sndScifiHit.cxx</a>.</p>
+<div class="fragment"><div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                                            {</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="comment">//  It returns the light yield attenuation depending on the distance to SiPM</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordflow">return</span> TMath::Exp(-(distance-<a class="code" href="namespaceScifiCluster.html#ae7c042a8910266970310bce9ba868061">ly_loss_params</a>[0])/<a class="code" href="namespaceScifiCluster.html#ae7c042a8910266970310bce9ba868061">ly_loss_params</a>[1]);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;}</div>
+<div class="ttc" id="anamespaceScifiCluster_html_ae7c042a8910266970310bce9ba868061"><div class="ttname"><a href="namespaceScifiCluster.html#ae7c042a8910266970310bce9ba868061">ScifiCluster.ly_loss_params</a></div><div class="ttdeci">float ly_loss_params</div><div class="ttdef"><b>Definition:</b> <a href="ScifiCluster_8py_source.html#l00153">ScifiCluster.py:153</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a2c76fdf612781ddb67205c258eadb9ff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2c76fdf612781ddb67205c258eadb9ff">&#9670;&nbsp;</a></span>MeanAndRMS()</h2>
+<a id="abbc28fb6e27a69317f1597a71a3f9d6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbc28fb6e27a69317f1597a71a3f9d6b">&#9670;&nbsp;</a></span>npix_to_qdc()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -765,21 +773,11 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Float_t sndScifiHit::MeanAndRMS </td>
+          <td class="memname">Float_t sndScifiHit::npix_to_qdc </td>
           <td>(</td>
-          <td class="paramtype">Double_t&#160;</td>
-          <td class="paramname"><em>ly</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">Float_t&#160;</td>
-          <td class="paramname"><em>T</em>&#160;</td>
-        </tr>
-        <tr>
+          <td class="paramname"><em>npix</em></td><td>)</td>
           <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -789,24 +787,20 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sndScifiHit_8cxx_source.html#l00011">11</a> of file <a class="el" href="sndScifiHit_8cxx_source.html">sndScifiHit.cxx</a>.</p>
-<div class="fragment"><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;                                                            {</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;     Double_t mean = 0.274572+0.980999*ly</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;                       -0.00435048*ly*ly + 1.0901e-05*pow(ly,3)</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;                        -1.47437e-08*pow(ly,4) + 8.28684e-12*pow(ly,5);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;     Double_t RMS = -0.00055223   + 0.0667554*ly</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;                       -0.000478245*ly*ly + 1.48809e-06*pow(ly,3)</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;                       -2.26064e-09*pow(ly,4) + 1.35786e-12*pow(ly,5);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;     Float_t <a class="code" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#aede22303843a29a0e309f77331129bf9">r</a> = gRandom-&gt;Gaus(mean, RMS);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;     Float_t <a class="code" href="namespacerunPythia8.html#ad61d71e1d6b6f549424ee3d80ebab35f">signal</a> = std::min(nphe_max,<a class="code" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#aede22303843a29a0e309f77331129bf9">r</a>);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;     <span class="keywordflow">return</span> <a class="code" href="namespacerunPythia8.html#ad61d71e1d6b6f549424ee3d80ebab35f">signal</a>;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div>
-<div class="ttc" id="anamespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring_html_aede22303843a29a0e309f77331129bf9"><div class="ttname"><a href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#aede22303843a29a0e309f77331129bf9">conditionsDatabase.demo.drifttubeMonitoring.r</a></div><div class="ttdeci">r</div><div class="ttdef"><b>Definition:</b> <a href="drifttubeMonitoring_8py_source.html#l00678">drifttubeMonitoring.py:678</a></div></div>
+<p class="definition">Definition at line <a class="el" href="sndScifiHit_8cxx_source.html#l00121">121</a> of file <a class="el" href="sndScifiHit_8cxx_source.html">sndScifiHit.cxx</a>.</p>
+<div class="fragment"><div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                                            {</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="comment">//  It returns QDC per channel after Gaussian smearing of the parameters</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        Float_t <a class="code" href="namespacerunPythia8.html#a3f77e7ead348cea83692a18f52d78a62">A</a> = gRandom-&gt;Gaus(npix_to_qdc_params[0], npix_to_qdc_params[2]);</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        Float_t <a class="code" href="namespacegeometry__config.html#aa52009c79b19f5c569b183e74aa588c7">B</a> = gRandom-&gt;Gaus(npix_to_qdc_params[1], npix_to_qdc_params[3]);</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespacerunPythia8.html#a3f77e7ead348cea83692a18f52d78a62">A</a>*npix + <a class="code" href="namespacegeometry__config.html#aa52009c79b19f5c569b183e74aa588c7">B</a>;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;}</div>
+<div class="ttc" id="anamespacegeometry__config_html_aa52009c79b19f5c569b183e74aa588c7"><div class="ttname"><a href="namespacegeometry__config.html#aa52009c79b19f5c569b183e74aa588c7">geometry_config.B</a></div><div class="ttdeci">B</div><div class="ttdef"><b>Definition:</b> <a href="geometry__config_8py_source.html#l00512">geometry_config.py:512</a></div></div>
+<div class="ttc" id="anamespacerunPythia8_html_a3f77e7ead348cea83692a18f52d78a62"><div class="ttname"><a href="namespacerunPythia8.html#a3f77e7ead348cea83692a18f52d78a62">runPythia8.A</a></div><div class="ttdeci">dictionary A</div><div class="ttdef"><b>Definition:</b> <a href="runPythia8_8py_source.html#l00122">runPythia8.py:122</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a253e9fce5469d7419366e34249a4400a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a253e9fce5469d7419366e34249a4400a">&#9670;&nbsp;</a></span>operator=()</h2>
+<a id="a98d436d792b9cea504ed19decef2d44b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98d436d792b9cea504ed19decef2d44b">&#9670;&nbsp;</a></span>operator=()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -815,7 +809,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classsndScifiHit.html">sndScifiHit</a> sndScifiHit::operator= </td>
+          <td class="memname"><a class="el" href="classsndScifiHit.html">sndScifiHit</a>&amp; sndScifiHit::operator= </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classsndScifiHit.html">sndScifiHit</a> &amp;&#160;</td>
           <td class="paramname"><em>hit</em></td><td>)</td>
@@ -824,7 +818,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -847,17 +841,17 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 <p>Output to screen </p>
 
-<p class="definition">Definition at line <a class="el" href="sndScifiHit_8cxx_source.html#l00113">113</a> of file <a class="el" href="sndScifiHit_8cxx_source.html">sndScifiHit.cxx</a>.</p>
-<div class="fragment"><div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;{</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  std::cout &lt;&lt; <span class="stringliteral">&quot;-I- sndScifiHit: Scifi hit &quot;</span> &lt;&lt; <span class="stringliteral">&quot; in station &quot;</span> &lt;&lt; <a class="code" href="classsndScifiHit.html#a18eb9526024996df83366096a1e41b0b">GetStation</a>();</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  <span class="keywordflow">if</span> ( <a class="code" href="classsndScifiHit.html#ac527f08d5770476f38f11f33efbf849e">isVertical</a>()) {     std::cout &lt;&lt; <span class="stringliteral">&quot; vertical plane &quot;</span>;}</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  <span class="keywordflow">else</span> {     std::cout &lt;&lt; <span class="stringliteral">&quot; horizontal plane &quot;</span>;}</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  std::cout &lt;&lt; <span class="stringliteral">&quot;SiPM nr &quot;</span>&lt;&lt;<a class="code" href="classsndScifiHit.html#a5d67090f0904befabbdba0bdeb4d2de9">GetSiPM</a>()&lt;&lt; <span class="stringliteral">&quot; SiPM channel &quot;</span>&lt;&lt;<a class="code" href="classsndScifiHit.html#a2e559314a9befac2f98f10c0b45e9834">GetSiPMChan</a>()&lt;&lt;std::endl;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;}</div>
-<div class="ttc" id="aclasssndScifiHit_html_a18eb9526024996df83366096a1e41b0b"><div class="ttname"><a href="classsndScifiHit.html#a18eb9526024996df83366096a1e41b0b">sndScifiHit::GetStation</a></div><div class="ttdeci">Int_t GetStation()</div><div class="ttdef"><b>Definition:</b> <a href="sndScifiHit_8h_source.html#l00028">sndScifiHit.h:28</a></div></div>
-<div class="ttc" id="aclasssndScifiHit_html_a2e559314a9befac2f98f10c0b45e9834"><div class="ttname"><a href="classsndScifiHit.html#a2e559314a9befac2f98f10c0b45e9834">sndScifiHit::GetSiPMChan</a></div><div class="ttdeci">Int_t GetSiPMChan()</div><div class="ttdef"><b>Definition:</b> <a href="sndScifiHit_8h_source.html#l00035">sndScifiHit.h:35</a></div></div>
-<div class="ttc" id="aclasssndScifiHit_html_a5d67090f0904befabbdba0bdeb4d2de9"><div class="ttname"><a href="classsndScifiHit.html#a5d67090f0904befabbdba0bdeb4d2de9">sndScifiHit::GetSiPM</a></div><div class="ttdeci">Int_t GetSiPM()</div><div class="ttdef"><b>Definition:</b> <a href="sndScifiHit_8h_source.html#l00034">sndScifiHit.h:34</a></div></div>
-<div class="ttc" id="aclasssndScifiHit_html_ac527f08d5770476f38f11f33efbf849e"><div class="ttname"><a href="classsndScifiHit.html#ac527f08d5770476f38f11f33efbf849e">sndScifiHit::isVertical</a></div><div class="ttdeci">bool isVertical()</div><div class="ttdef"><b>Definition:</b> <a href="sndScifiHit_8h_source.html#l00029">sndScifiHit.h:29</a></div></div>
+<p class="definition">Definition at line <a class="el" href="sndScifiHit_8cxx_source.html#l00129">129</a> of file <a class="el" href="sndScifiHit_8cxx_source.html">sndScifiHit.cxx</a>.</p>
+<div class="fragment"><div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;{</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;  std::cout &lt;&lt; <span class="stringliteral">&quot;-I- sndScifiHit: Scifi hit &quot;</span> &lt;&lt; <span class="stringliteral">&quot; in station &quot;</span> &lt;&lt; <a class="code" href="classsndScifiHit.html#a18eb9526024996df83366096a1e41b0b">GetStation</a>();</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;  <span class="keywordflow">if</span> ( <a class="code" href="classsndScifiHit.html#ac527f08d5770476f38f11f33efbf849e">isVertical</a>()) {     std::cout &lt;&lt; <span class="stringliteral">&quot; vertical plane &quot;</span>;}</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;  <span class="keywordflow">else</span> {     std::cout &lt;&lt; <span class="stringliteral">&quot; horizontal plane &quot;</span>;}</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;  std::cout &lt;&lt; <span class="stringliteral">&quot;SiPM nr &quot;</span>&lt;&lt;<a class="code" href="classsndScifiHit.html#a5d67090f0904befabbdba0bdeb4d2de9">GetSiPM</a>()&lt;&lt; <span class="stringliteral">&quot; SiPM channel &quot;</span>&lt;&lt;<a class="code" href="classsndScifiHit.html#a2e559314a9befac2f98f10c0b45e9834">GetSiPMChan</a>()&lt;&lt;std::endl;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;}</div>
+<div class="ttc" id="aclasssndScifiHit_html_a18eb9526024996df83366096a1e41b0b"><div class="ttname"><a href="classsndScifiHit.html#a18eb9526024996df83366096a1e41b0b">sndScifiHit::GetStation</a></div><div class="ttdeci">Int_t GetStation()</div><div class="ttdef"><b>Definition:</b> <a href="sndScifiHit_8h_source.html#l00031">sndScifiHit.h:31</a></div></div>
+<div class="ttc" id="aclasssndScifiHit_html_a2e559314a9befac2f98f10c0b45e9834"><div class="ttname"><a href="classsndScifiHit.html#a2e559314a9befac2f98f10c0b45e9834">sndScifiHit::GetSiPMChan</a></div><div class="ttdeci">Int_t GetSiPMChan()</div><div class="ttdef"><b>Definition:</b> <a href="sndScifiHit_8h_source.html#l00038">sndScifiHit.h:38</a></div></div>
+<div class="ttc" id="aclasssndScifiHit_html_a5d67090f0904befabbdba0bdeb4d2de9"><div class="ttname"><a href="classsndScifiHit.html#a5d67090f0904befabbdba0bdeb4d2de9">sndScifiHit::GetSiPM</a></div><div class="ttdeci">Int_t GetSiPM()</div><div class="ttdef"><b>Definition:</b> <a href="sndScifiHit_8h_source.html#l00037">sndScifiHit.h:37</a></div></div>
+<div class="ttc" id="aclasssndScifiHit_html_ac527f08d5770476f38f11f33efbf849e"><div class="ttname"><a href="classsndScifiHit.html#ac527f08d5770476f38f11f33efbf849e">sndScifiHit::isVertical</a></div><div class="ttdeci">bool isVertical()</div><div class="ttdef"><b>Definition:</b> <a href="sndScifiHit_8h_source.html#l00032">sndScifiHit.h:32</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -884,8 +878,51 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sndScifiHit_8h_source.html#l00026">26</a> of file <a class="el" href="sndScifiHit_8h_source.html">sndScifiHit.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{<a class="code" href="classsndScifiHit.html#a9a6aa11da753f6f523a8620974adb633">flag</a> = <span class="keyword">false</span>;}</div>
+<p class="definition">Definition at line <a class="el" href="sndScifiHit_8h_source.html#l00029">29</a> of file <a class="el" href="sndScifiHit_8h_source.html">sndScifiHit.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{<a class="code" href="classsndScifiHit.html#a9a6aa11da753f6f523a8620974adb633">flag</a> = <span class="keyword">false</span>;}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="acef714ad993ed52dd63dcd01d0c8cf57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acef714ad993ed52dd63dcd01d0c8cf57">&#9670;&nbsp;</a></span>sipm_saturation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Float_t sndScifiHit::sipm_saturation </td>
+          <td>(</td>
+          <td class="paramtype">Float_t&#160;</td>
+          <td class="paramname"><em>ly</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Float_t&#160;</td>
+          <td class="paramname"><em>nphe_max</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="sndScifiHit_8cxx_source.html#l00115">115</a> of file <a class="el" href="sndScifiHit_8cxx_source.html">sndScifiHit.cxx</a>.</p>
+<div class="fragment"><div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                                                                {</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="comment">//  It returns the number of fired pixels per channel</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        Float_t factor = 1 - TMath::Exp(-ly/nphe_max);</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordflow">return</span> nphe_max*factor;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -912,31 +949,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>flag </p>
 
-<p class="definition">Definition at line <a class="el" href="sndScifiHit_8h_source.html#l00047">47</a> of file <a class="el" href="sndScifiHit_8h_source.html">sndScifiHit.h</a>.</p>
-
-</div>
-</div>
-<a id="a4c30d14ee783a5f71536bf03b5251c3f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4c30d14ee783a5f71536bf03b5251c3f">&#9670;&nbsp;</a></span>ly_loss_params</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Float_t sndScifiHit::ly_loss_params[4] = {20.78, -0.26, 7.89, -3.06}</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="sndScifiHit_8h_source.html#l00050">50</a> of file <a class="el" href="sndScifiHit_8h_source.html">sndScifiHit.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sndScifiHit_8h_source.html#l00048">48</a> of file <a class="el" href="sndScifiHit_8h_source.html">sndScifiHit.h</a>.</p>
 
 </div>
 </div>
