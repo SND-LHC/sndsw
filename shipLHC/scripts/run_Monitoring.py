@@ -71,7 +71,7 @@ options = parser.parse_args()
 options.slowStream = True
 if options.cosmics: options.slowStream = False
 options.startTime = ""
-options.dashboard = "/mnt/raid1/data_online/run_status.json"
+options.dashboard = "/mnt/raid5/data_online/run_status.json"
 options.monitorTag = ''
 if (options.auto and not options.interactive) or options.batch: ROOT.gROOT.SetBatch(True)
 
