@@ -12,7 +12,10 @@ class sndScifiHit : public SndlhcHit
 
     /** Default constructor **/
     sndScifiHit();
-    sndScifiHit(Int_t detID);
+    /** Copy constructor **/
+    sndScifiHit(const sndScifiHit& hit) = default;
+    sndScifiHit& operator=(const sndScifiHit& hit) = default;
+    explicit sndScifiHit(Int_t detID);
     //  Constructor from ScifiPoint
     sndScifiHit(int detID,std::vector<ScifiPoint*>,std::vector<Float_t>);
 
@@ -39,15 +42,12 @@ class sndScifiHit : public SndlhcHit
 	1 SiPM channel has 104 pixels, pixel can only see 0 or >0 photons.
 */
   private:
-    /** Copy constructor **/
-    sndScifiHit(const sndScifiHit& hit);
-    sndScifiHit operator=(const sndScifiHit& hit);
     Float_t ly_loss(Float_t distance);
     Float_t sipm_saturation(Float_t ly, Float_t nphe_max);
     Float_t npix_to_qdc(Float_t npix);
     Float_t flag;   ///< flag
 
-    ClassDef(sndScifiHit,4);
+    ClassDef(sndScifiHit, 4);
 
 };
 
