@@ -309,7 +309,7 @@ class prodManager():
        self.eosInventory = self.getFileList(path,latest,rlast)
        tmp = self.options.server 
        self.options.server = "root://snd-server-1.cern.ch/"
-       self.daqInventory = self.getFileList('/mnt/raid1/data_online/',latest,rlast)
+       self.daqInventory = self.getFileList('/mnt/raid5/data_online/',latest,rlast)
        self.options.server = tmp
        self.missing = {}
        for r in self.daqInventory:
@@ -323,7 +323,7 @@ class prodManager():
                dirname ='run_'+str(r).zfill(6)
                for p in self.missing[r]:
                    filename = 'data_'+str(p).zfill(4)+'.root'
-                   source = '/mnt/raid1/data_online/'+dirname+'/'+filename
+                   source = '/mnt/raid5/data_online/'+dirname+'/'+filename
                    target = path+dirname+'/'+filename
                    os.system("xrdcp -f "+source+" "+os.environ['EOSSHIP']+target)
        
@@ -392,7 +392,7 @@ if __name__ == '__main__':
     runList = []
     if options.prod == "TI18":
        if options.server.find('eospublic')<0:
-          path = "/mnt/raid1/data_online/" 
+          path = "/mnt/raid5/data_online/" 
        else:
           path = options.path
           pathConv = options.pathConv
