@@ -142,8 +142,9 @@ else:
        os._exit(1)
    if options.rawDataPath: rawDataPath = options.rawDataPath
 # works only for runs on EOS
-   elif not options.server.find('eos')<0:
-      if options.path.find('2024')>0:
+   if not options.server.find('eos')<0:
+      if options.rawDataPath: rawDataPath = options.rawDataPath
+      elif options.path.find('2024')>0:
           rawDataPath = "/eos/experiment/sndlhc/raw_data/physics/2024/run_241"
       elif options.path.find('2023')>0:
           rawDataPath = "/eos/experiment/sndlhc/raw_data/physics/2023/"
