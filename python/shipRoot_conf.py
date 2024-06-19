@@ -1,4 +1,3 @@
-from __future__ import print_function
 import ROOT
 import atexit
 import sys
@@ -6,10 +5,11 @@ import os
 from pythia8_conf_utils import addHNLtoROOT
 from pythia8darkphoton_conf import addDPtoROOT
 
-# Try to check if config has been executed...
-if os.environ.get('FAIRSHIP_ROOT', '') == '' and os.environ.get('Linux_Flavour_', '') == '':
-   print("Do first: source config.[c]sh")
-   quit()
+# Check whether we are in the SND@LHC environment
+if not os.environ.get("SNDSW_ROOT"):
+    print("ERROR: SNDSW_ROOT unset. Exiting.")
+    print("ERROR: Please make sure that you're running in the SND@LHC environment.")
+    quit(1)
 
 # When on Darwin load all needed shared libs as DYLD_LIBRARY_PATH is not
 # passed to system Python out of security reasons...
