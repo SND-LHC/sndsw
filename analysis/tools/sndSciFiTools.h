@@ -2,6 +2,7 @@
 
 #include <map>
 #include "TClonesArray.h"
+#include "ShipUnit.h"
 
 namespace snd {
   namespace analysis_tools {
@@ -37,7 +38,7 @@ namespace snd {
     // selection_parameters[3]
     // make_selection determines whether you want to select the hits for the respective plane
     // or not and skip that step (in case the hits are already curated)
-    std::unique_ptr<TClonesArray> selectScifiHits(const TClonesArray &digiHits, int station, bool orientation, int bins_x=52, float min_x=0.0, float max_x=26.0, float time_lower_range=1E9/(2*160.316E6), float time_upper_range=2E9/(160.316E6), bool make_selection=true);
+    std::unique_ptr<TClonesArray> selectScifiHits(const TClonesArray &digiHits, int station, bool orientation, int bins_x=52, float min_x=0.0, float max_x=26.0, float time_lower_range=1E9/(2*ShipUnit::snd_freq), float time_upper_range=2E9/(ShipUnit::snd_freq/ShipUnit::hertz), bool make_selection=true);
     std::unique_ptr<TClonesArray> selectScifiHits(const TClonesArray &digiHits, int station, bool orientation, const std::map<std::string, float> &selection_parameters, bool make_selection=true);
 
     // Function to obtain the ScifiHits that are considered to be useful from an event
