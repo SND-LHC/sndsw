@@ -1,5 +1,6 @@
 #pragma once
 
+#include <map>
 #include "TClonesArray.h"
 
 namespace snd {
@@ -31,14 +32,13 @@ namespace snd {
     // Function to select the Scifi hits of station n and plane X or Y that are in the range
     // [peakTiming-range_lower; peakTiming+range_upper] of the peak of its time distribution
     // selection_parameters should have the form [bins_x, min_x, max_x, time_lower_range,
-    // time_upper_range ]
-    // (bins_x is converted to int before creating the histogram)
+    // time_upper_range ] (bins_x is converted to int before creating the histogram)
     // if len(selection_parameters) == 4 => time_lower_range = time_upper_range =
     // selection_parameters[3]
     // make_selection determines whether you want to select the hits for the respective plane
     // or not and skip that step (in case the hits are already curated)
     std::unique_ptr<TClonesArray> selectScifiHits(const TClonesArray &digiHits, int station, bool orientation, int bins_x=52, float min_x=0.0, float max_x=26.0, float time_lower_range=1E9/(2*160.316E6), float time_upper_range=2E9/(160.316E6), bool make_selection=true);
-    std::unique_ptr<TClonesArray> selectScifiHits(const TClonesArray &digiHits, int station, bool orientation, const std::vector<float> &selection_parameters, bool make_selection=true);
+    std::unique_ptr<TClonesArray> selectScifiHits(const TClonesArray &digiHits, int station, bool orientation, const std::map<std::string, float> &selection_parameters, bool make_selection=true);
 
     // Function to obtain the ScifiHits that are considered to be useful from an event
     // selection_parameters is the number of bins for the histogram, min_x, max_x and
@@ -46,7 +46,7 @@ namespace snd {
     // Methods available are as follows:
     // (0) Events within \pm range of the peak of the time distribution for Scifi Hits within
     // each station and orientation
-    std::unique_ptr<TClonesArray> filterScifiHits(const TClonesArray &digiHits, const std::vector<float> &selection_parameters, int method=0, std::string setup="TI18");
+    std::unique_ptr<TClonesArray> filterScifiHits(const TClonesArray &digiHits, const std::map<std::string, float> &selection_parameters, int method=0, std::string setup="TI18");
     //Foregoing the selection_parameters option runs with the default values
     std::unique_ptr<TClonesArray> filterScifiHits(const TClonesArray &digiHits, int method=0, std::string setup="TI18");
 
@@ -64,7 +64,10 @@ namespace snd {
     // Method 0 checks for a minimum Scifi Cluster density to determine whether a shower is
     // propagating on a given Scifi station or not by checking both orientations of the station,
     // and declares the interaction block as being the previous one to pass the check
-    int showerInteractionWall(const TClonesArray &digiHits, const std::vector<float> &selection_parameters, int method=0, std::string setup="TI18");
+    // selection_parameters must contain "radius" and "min_hit_density". In case you want the
+    // selection to be made relying on a single orientation, then "orientation" can be provided
+    // in the for of 0 or 1, for the horizontal and vertical orientations, respectively
+    int showerInteractionWall(const TClonesArray &digiHits, const std::map<std::string, float> &selection_parameters, int method=0, std::string setup="TI18");
     //Foregoing the selection_parameters option runs with the default values
     int showerInteractionWall(const TClonesArray &digiHits, int method=0, std::string setup="TI18");
 

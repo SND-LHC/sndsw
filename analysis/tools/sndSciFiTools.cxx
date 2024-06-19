@@ -241,32 +241,29 @@ std::unique_ptr<TClonesArray> snd::analysis_tools::selectScifiHits(const TClones
 }
 
 
-// Takes a vector with 4 or 5 arguments as an input
-// When vector as fewer than 4 arguments corrects them to a default of [52, 0.0, 26.0,
-// 1E9/(2*160.316E6)] and runs for the symmetric interval
-std::unique_ptr<TClonesArray> snd::analysis_tools::selectScifiHits(const TClonesArray &digiHits, int station, bool orientation, const std::vector<float> &selection_parameters, bool make_selection){
+// Takes a map with 4 or 5 arguments as an input {"bins_x", "min_x", "max_x", "time_lower_range",
+//  "time_upper_range"}
+// User may foreit "time_upper_range" and function will assume a symmetric time interval
+std::unique_ptr<TClonesArray> snd::analysis_tools::selectScifiHits(const TClonesArray &digiHits, int station, bool orientation, const std::map<std::string, float> &selection_parameters, bool make_selection){
 
-  if (selection_parameters.size() < 4){
-    LOG (FATAL) << "Dimensions of selection_parameters are incorrect. Please provide a vector with either 4 or 5 arguments. \nConsider using the default values of [bins_x=52; min_x=0.0; max_x=26.0; time_lower_range=1E9/(2*160.316E6); time_upper_range=2E9/(160.316E6)]. \nProviding 4 arguments makes time_upper_range=tim_lower_range.";
+  if ((selection_parameters.find("bins_x") == selection_parameters.end()) || (selection_parameters.find("min_x") == selection_parameters.end()) || (selection_parameters.find("max_x") == selection_parameters.end()) || (selection_parameters.find("time_lower_range") == selection_parameters.end())){
+    LOG (FATAL) << "In order to use method 0 please provide the correct selection_parameters. Consider the default = {{\"bins_x\", 52.}, {\"min_x\", 0.}, {\"max_x\", 26.}, {\"time_lower_range\", 1E9/(2*160.316E6)}, {\"time_upper_range\", 2E9/(160.316E6)}}";
   }
 
-  float time_lower_range = -1.;
   float time_upper_range = -1.;
 
-  if (selection_parameters.size() == 4){
-    time_lower_range = selection_parameters[3];
-    time_upper_range = selection_parameters[3];
+  if (selection_parameters.find("time_upper_range") == selection_parameters.end()){
+    time_upper_range = selection_parameters.at("time_lower_range");
   } else{
-    time_lower_range = selection_parameters[3];
-    time_upper_range = selection_parameters[4];
+    time_upper_range = selection_parameters.at("time_upper_range");
   }
 
-  return selectScifiHits(digiHits, station, orientation, int(selection_parameters[0]), selection_parameters[1], selection_parameters[2], time_lower_range, time_upper_range, make_selection);
+  return selectScifiHits(digiHits, station, orientation, int(selection_parameters.at("bins_x")), selection_parameters.at("min_x"), selection_parameters.at("max_x"), selection_parameters.at("time_lower_range"), time_upper_range, make_selection);
 
 }
 
 
-std::unique_ptr<TClonesArray> snd::analysis_tools::filterScifiHits(const TClonesArray &digiHits, const std::vector<float> &selection_parameters, int method, std::string setup){
+std::unique_ptr<TClonesArray> snd::analysis_tools::filterScifiHits(const TClonesArray &digiHits, const std::map<std::string, float> &selection_parameters, int method, std::string setup){
   TClonesArray supportArray("sndScifiHit",0);
   auto filteredHits = std::make_unique<TClonesArray>("sndScifiHit",digiHits.GetEntries());
   int filteredHitsIndex = 0;
@@ -278,6 +275,10 @@ std::unique_ptr<TClonesArray> snd::analysis_tools::filterScifiHits(const TClones
   TIter hitIterator(&supportArray);
 
   if (method == 0){
+
+    if ((selection_parameters.find("bins_x") == selection_parameters.end()) || (selection_parameters.find("min_x") == selection_parameters.end()) || (selection_parameters.find("max_x") == selection_parameters.end()) || (selection_parameters.find("time_lower_range") == selection_parameters.end())){
+      LOG (FATAL) << "In order to use method 0 please provide the correct selection_parameters. Consider the default = {{\"bins_x\", 52.}, {\"min_x\", 0.}, {\"max_x\", 26.}, {\"time_lower_range\", 1E9/(2*160.316E6)}, {\"time_upper_range\", 2E9/(160.316E6)}}";
+    }
 
     //This is overwriting the previous arrays with the newest one
     for(int station = 1; station < ScifiStations+1; station++){
@@ -304,7 +305,7 @@ std::unique_ptr<TClonesArray> snd::analysis_tools::filterScifiHits(const TClones
   } else{
   LOG (error) << "Please provide a valid time filter method from:";
   LOG (error) << "(0): Events within \\mp time_lower_range time_upper_range of the peak of the time distribution for Scifi Hits within each station and orientation";
-  LOG (FATAL) << "selection_parameters = [bins_x, min_x, max_x, time_lower_range, time_upper_range].";
+  LOG (FATAL) << "selection_parameters = {bins_x, min_x, max_x, time_lower_range, time_upper_range}.";
   return filteredHits;
   }
   supportArray.Clear("C");
@@ -314,11 +315,19 @@ std::unique_ptr<TClonesArray> snd::analysis_tools::filterScifiHits(const TClones
 
 std::unique_ptr<TClonesArray> snd::analysis_tools::filterScifiHits(const TClonesArray &digiHits, int method, std::string setup){
 
-  if (method != 0){
+  std::map<std::string, float> selection_parameters;
+
+  if (method == 0){
+
+    selection_parameters.insert(std::pair<std::string, float>("bins_x", 52.0));
+    selection_parameters.insert(std::pair<std::string, float>("min_x", 0.0));
+    selection_parameters.insert(std::pair<std::string, float>("max_x", 26.0));
+    selection_parameters.insert(std::pair<std::string, float>("time_lower_range", 1E9/(2*160.316E6)));
+    selection_parameters.insert(std::pair<std::string, float>("time_upper_range", 2E9/(160.316E6)));
+
+  } else{
     LOG (FATAL) << "Please use method=0. No other methods implemented so far.";
   }
-
-  std::vector<float> selection_parameters{52.0, 0.0, 26.0, 1E9/(2160.316E6), 2E9/(160.316E6)};
 
   return filterScifiHits(digiHits, selection_parameters, method, setup);
 }
@@ -332,7 +341,7 @@ int snd::analysis_tools::densityScifi(int reference_SiPM, const TClonesArray &di
   int ref_station = reference_SiPM/1000000;
 
 
-  // Add valid hits to hits per plane vectors
+  // Add valid hits to hits per plane
   sndScifiHit * hit;
   TIter hitIterator(&digiHits);
 
@@ -398,7 +407,12 @@ bool snd::analysis_tools::densityCheck(const TClonesArray &digiHits, int radius,
 
 
 //Retrieve the target block where the shower starts
-int snd::analysis_tools::showerInteractionWall(const TClonesArray &digiHits, const std::vector<float> &selection_parameters, int method, std::string setup){
+//Method 0 checks for a minimum number of hits in a specific range (2*radius) in a station to
+//consider that a shower as started before said station. User must provide a map 
+//"selection_parameters" with at least 2 elements "radius" and "min_hit_density"
+//In order to only require 1 orientation to pass the criterion, "selection_parameters" may also
+//include "orientation", which can be 0. and 1. for the horizontal and vertical orientations respec.
+int snd::analysis_tools::showerInteractionWall(const TClonesArray &digiHits, const std::map<std::string, float> &selection_parameters, int method, std::string setup){
 
   int totalScifiStations = 5;
   if(setup=="H8"){totalScifiStations = 4;}
@@ -410,16 +424,24 @@ int snd::analysis_tools::showerInteractionWall(const TClonesArray &digiHits, con
 
   if(method==0){
 
-    if (selection_parameters.size() < 2){
-      LOG (FATAL) << "Dimensions of select_parameters are incorrect. Please provide a vector with 2 arguments. Consider using the default values of [radius=64; minHits=50].";
+    if ((selection_parameters.find("radius") == selection_parameters.end()) || (selection_parameters.find("min_hit_density") == selection_parameters.end() )){
+      LOG (FATAL) << "Argument of select_parameters is incorrect. Please provide a map with the arguments \"radius\" and \"min_hit_density\". Consider using the default values of {{\"radius\",64}, {\"min_hit_density\",36}}.";
     }
 
     for(int scifiStation = 1; scifiStation <= totalScifiStations; scifiStation++){
     
-      //For each ScifiStation we check whether we see clusters with the desired parameters on both
-      //the horizontal and vertical mats
-      bool horizontalCheck = densityCheck(digiHits, int(selection_parameters[0]), int(selection_parameters[1]), scifiStation, false);
-      bool verticalCheck = densityCheck(digiHits, int(selection_parameters[0]), int(selection_parameters[1]), scifiStation, true);
+      //For each ScifiStation we check whether we see clusters with the desired parameters
+      //By default, we require passing the check on both the horizontal and vertical mats
+      //In case selection_parameters["orientation"] was provided, we set the NOT CHOSEN orientation
+      //as true by default, so as to only need to pass the chosen orientation check
+      bool horizontalCheck = false;
+      bool verticalCheck = false;
+      if (selection_parameters.find("orientation") != selection_parameters.end()){
+        if (int(selection_parameters.at("orientation")) == 0){verticalCheck = true;}
+	if (int(selection_parameters.at("orientation")) == 1){horizontalCheck = true;}
+      }
+      horizontalCheck = (densityCheck(digiHits, int(selection_parameters.at("radius")), int(selection_parameters.at("min_hit_density")), scifiStation, false) || horizontalCheck);
+      verticalCheck = (densityCheck(digiHits, int(selection_parameters.at("radius")), int(selection_parameters.at("min_hit_density")), scifiStation, true) || verticalCheck);
       if((horizontalCheck) && (verticalCheck)){
         showerStart = scifiStation-1;
 	return showerStart;
@@ -436,9 +458,8 @@ int snd::analysis_tools::showerInteractionWall(const TClonesArray &digiHits, int
   LOG (FATAL) << "Please use method=0. No other methods implemented so far.";
   }
 
-  std::vector<float> selection_parameters{64, 50};
+  std::map<std::string, float> selection_parameters = {{"radius",64.},{"min_hit_density",36.}};
 
   return showerInteractionWall(digiHits, selection_parameters, method, setup);
 
 }
-
