@@ -65,7 +65,7 @@ def pyExit():
     print("Exit normally")
 
 def configure(darkphoton=None):
-   ROOT.gROOT.ProcessLine('#include "'+os.environ["FAIRSHIP"]+'/shipdata/ShipGlobals.h"')
+   ROOT.gROOT.ProcessLine('#include "ShipGlobals.h"')
    pdg = ROOT.TDatabasePDG.Instance()
    # pythia stuff not known to ROOT
    pdg.AddParticle('system','system',     0., False, 0., 0., 'XXX', 90)
