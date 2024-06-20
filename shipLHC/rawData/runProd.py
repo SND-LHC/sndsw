@@ -92,7 +92,7 @@ class prodManager():
           if r>=rMin and r<=rMax:  self.dqDataFiles.append(r)
    def runDataQuality(self,latest):
       monitorCommand = "python $SNDSW_ROOT/shipLHC/scripts/run_Monitoring.py -r XXXX --server=$EOSSHIP \
-                        -b 100000 -p "+pathConv+" -g GGGG "\
+                        -b 100000 -p "+pathConv+" -praw "+path+" -g GGGG "\
                         +" --postScale "+str(options.postScale)+ " --ScifiResUnbiased 1 --batch --sudo  "
       if options.parallel>1: monitorCommand += " --parallel "+str(options.parallel)
       convDataFiles = self.getFileList(pathConv,latest,options.rMax,minSize=0)
@@ -131,8 +131,7 @@ class prodManager():
                print('run not complete',r)
                continue  # not all files converted.
            print('executing DQ for run %i'%(r))
-           geoFile =  "../geofile_sndlhc_TI18_V0_2024.root"
-           os.system(monitorCommand.replace('XXXX',str(r)).replace('GGGG',geoFile)+" &")
+           os.system(monitorCommand.replace('XXXX',str(r)).replace('GGGG',options.geofile)+" &")
            while self.count_python_processes('run_Monitoring')>(ncpus-2) or psutil.virtual_memory()[2]>90 : time.sleep(1800)
 
    def RerunDataQuality(self,runNrs=[],rMin=-1,rMax=9999):
@@ -150,7 +149,7 @@ class prodManager():
            elif r  < 5172:  geoFile =  "../geofile_sndlhc_TI18_V6_08October2022.root"
            elif r  < 5485: geoFile =  "../geofile_sndlhc_TI18_V7_22November2022.root"
            elif r  < 7357: geoFile =  "../geofile_sndlhc_TI18_V1_2023.root"
-           else: geoFile =  "../geofile_sndlhc_TI18_V0_2024.root"
+           else: geoFile =  options.geofile
            os.system(monitorCommand.replace('XXXX',str(r)).replace('GGGG',geoFile)+" &")
            time.sleep(20)
            while self.count_python_processes('run_Monitoring')>(ncpus-5) or psutil.virtual_memory()[2]>90 : time.sleep(300)
@@ -310,7 +309,7 @@ class prodManager():
        self.eosInventory = self.getFileList(path,latest,rlast)
        tmp = self.options.server 
        self.options.server = "root://snd-server-1.cern.ch/"
-       self.daqInventory = self.getFileList('/mnt/raid1/data_online/',latest,rlast)
+       self.daqInventory = self.getFileList('/mnt/raid5/data_online/',latest,rlast)
        self.options.server = tmp
        self.missing = {}
        for r in self.daqInventory:
@@ -324,7 +323,7 @@ class prodManager():
                dirname ='run_'+str(r).zfill(6)
                for p in self.missing[r]:
                    filename = 'data_'+str(p).zfill(4)+'.root'
-                   source = '/mnt/raid1/data_online/'+dirname+'/'+filename
+                   source = '/mnt/raid5/data_online/'+dirname+'/'+filename
                    target = path+dirname+'/'+filename
                    os.system("xrdcp -f "+source+" "+os.environ['EOSSHIP']+target)
        
@@ -379,8 +378,11 @@ if __name__ == '__main__':
     parser.add_argument("--parallel", dest="parallel",default=1,type=int)
     parser.add_argument("-rMin", dest="rMin",help="first run to process", default=-1,type=int)
     parser.add_argument("-rMax", dest="rMax",help="last run to process", default=9999,type=int)
-    parser.add_argument("-p", dest="path", help="path to data",required=False,default="")
+    parser.add_argument("-p", dest="path", help="path to raw data",required=False,default="")
     parser.add_argument("-d", dest="pathConv", help="path to converted data",required=False,default="")
+    parser.add_argument("--saveTo", dest="saveTo", help="output storage path", default="")
+    parser.add_argument("-n", "--nEvents", dest="nEvents", help="number of events", default=-1,type=int)
+    parser.add_argument("-s", "--nStart", dest="nStart", help="first event", default=0,type=int)
 
     
     options = parser.parse_args()
@@ -390,10 +392,10 @@ if __name__ == '__main__':
     runList = []
     if options.prod == "TI18":
        if options.server.find('eospublic')<0:
-          path = "/mnt/raid1/data_online/" 
+          path = "/mnt/raid5/data_online/" 
        else:
-          path = "/eos/experiment/sndlhc/raw_data/physics/2024/ecc_run_06/"
-          pathConv = "/eos/experiment/sndlhc/convertedData/physics/2024/ecc_run_06/"
+          path = options.path
+          pathConv = options.pathConv
        
     elif options.prod == "reproc2022":
        path = "/eos/experiment/sndlhc/raw_data/physics/2022/"
