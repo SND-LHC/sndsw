@@ -327,11 +327,11 @@ std::unique_ptr<TClonesArray> snd::analysis_tools::filterScifiHits(const TClones
 
   if (method == 0){
 
-    selection_parameters.insert(std::pair<std::string, float>("bins_x", 52.0));
-    selection_parameters.insert(std::pair<std::string, float>("min_x", 0.0));
-    selection_parameters.insert(std::pair<std::string, float>("max_x", 26.0));
-    selection_parameters.insert(std::pair<std::string, float>("time_lower_range", 1E9/(2*(ShipUnit::snd_freq/ShipUnit::hertz))));
-    selection_parameters.insert(std::pair<std::string, float>("time_upper_range", 2E9/(ShipUnit::snd_freq/ShipUnit::hertz)));
+    selection_parameters["bins_x"] = 52.0;
+    selection_parameters["min_x"] = 0.0;
+    selection_parameters["max_x"] = 26.0;
+    selection_parameters["time_lower_range"] = 1E9/(2*ShipUnit::snd_freq/ShipUnit::hertz);
+    selection_parameters["time_upper_range"] = 2E9/(ShipUnit::snd_freq/ShipUnit::hertz);
 
   } else{
     LOG (FATAL) << "Please use method=0. No other methods implemented so far.";
