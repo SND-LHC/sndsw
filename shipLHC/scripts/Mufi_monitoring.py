@@ -84,7 +84,7 @@ class Mufi_hitMaps(ROOT.FairTask):
                         ut.bookHist(h,detector+'dTcor_'+str(s*10+l)+xi,'dTcor with respect to first scifi '+sdict[s]+str(l)+'; dt [ns] ;# bar + channel',100,-25.,5.,120,-0.5,2*60-0.5)
                         if l == 4:
                           for ss in range(1,6):
-                             ut.bookHist(h,'deltaTScifiMufiHit_'+str(ss)+xi,'deltaT scifi earliest hit versus DS hit 2H',200,-25.,25.)
+                             ut.bookHist(h,'deltaTScifiMufiHit_'+str(ss)+xi,'deltaT SciFi earliest hit versus DS hit 2H; t_{earliest DS 2H hit} - t_{earliest SciFi hit} [ns]',200,-25.,25.)
                   else:       
                         ut.bookHist(h,detector+'bar_'+str(s*10+l)+xi,'bar map / plane '+sdict[s]+str(l)+'; bar',10,-0.5,9.5)
                         if s==1:
@@ -313,7 +313,7 @@ class Mufi_hitMaps(ROOT.FairTask):
             for s in scifiHitTimes:
                 if len(scifiHitTimes[s])<1: continue
                 scifiHitTimes[s].sort()
-                deltaT = dsHitTimes[0] - scifiHitTimes[s][0] - (self.M.zPos['MuFilter'][34]-self.M.zPos['Scifi'][s*10])/u.speedOfLight
+                deltaT = dsHitTimes[0] - scifiHitTimes[s][0] - (self.M.zPos['MuFilter'][33]-self.M.zPos['Scifi'][s*10])/u.speedOfLight
                 self.M.fillHist1('deltaTScifiMufiHit_'+str(s),deltaT)
    def beamSpot(self,event):
       if not self.trackTask: return
@@ -970,7 +970,7 @@ class Veto_Efficiency(ROOT.FairTask):
        ut.bookHist(h,'hitVeto_02','nr hits 0 vs 2;n sipm; n sipm',25,-0.5,24.5,25,-0.5,24.5)
        ut.bookHist(h,'hitVeto_12','nr hits 1 vs 2;n sipm; n sipm',25,-0.5,24.5,25,-0.5,24.5)
        ut.bookHist(h,'scaler','all no prevEvent',25,-0.5,24.5)
-       ut.bookHist(h,'deltaT','delta T DS 2 and Scifi 1',100,-20.0,20.)
+       ut.bookHist(h,'deltaT','delta T DS 2H and SciFi 1; t_{earliest DS 2H hit} - t_{earliest SciFi hit} [ns]',100,-20.0,20.)
        ut.bookHist(h,'X/Y','xy matching of scifi DS',100,-20.0,20.,100,-20.0,20.)
 
    def ExecuteEvent(self,event):
@@ -1111,7 +1111,7 @@ class Veto_Efficiency(ROOT.FairTask):
             for s in scifiHitTimes:
                 if len(scifiHitTimes[s])<1: continue
                 scifiHitTimes[s].sort()
-                deltaT = dsHitTimes[0] - scifiHitTimes[s][0] - (self.M.zPos['MuFilter'][34]-self.M.zPos['Scifi'][s*10])/u.speedOfLight
+                deltaT = dsHitTimes[0] - scifiHitTimes[s][0] - (self.M.zPos['MuFilter'][33]-self.M.zPos['Scifi'][s*10])/u.speedOfLight
            rc = h['deltaT'].Fill(deltaT)
            if deltaT < -10: continue
            #look for previous event time
