@@ -323,8 +323,6 @@ std::unique_ptr<TClonesArray> snd::analysis_tools::filterScifiHits(const TClones
 
   std::map<std::string, float> selection_parameters;
 
-  std::cout << ShipUnit::snd_freq/ShipUnit::hertz;
-
   if (method == 0){
 
     selection_parameters["bins_x"] = 52.0;
