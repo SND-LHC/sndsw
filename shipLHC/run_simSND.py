@@ -2,6 +2,7 @@
 import os
 import sys
 import ROOT
+import numpy as np
 
 import shipunit as u
 import shipRoot_conf
@@ -29,9 +30,16 @@ parser.add_argument("--PG",      dest="pg",      help="Use Particle Gun", requir
 parser.add_argument("--pID",     dest="pID",     help="id of particle used by the gun (default=22)", required=False, default=22, type=int)
 parser.add_argument("--Estart",  dest="Estart",  help="start of energy range of particle gun for muflux detector (default=10 GeV)", required=False, default=10, type=float)
 parser.add_argument("--Eend",    dest="Eend",    help="end of energy range of particle gun for muflux detector (default=10 GeV)", required=False, default=10, type=float)
-parser.add_argument("--EVx",    dest="EVx",    help="particle gun xpos", required=False, default=0, type=float)
-parser.add_argument("--EVy",    dest="EVy",    help="particle gun ypos", required=False, default=0, type=float)
-parser.add_argument("--EVz",    dest="EVz",    help="particle gun zpos", required=False, default=0, type=float)
+
+parser.add_argument("--multiplePGSources", dest="multiplePGSources", help="multiple particle guns at various positions", action="store_true")
+parser.add_argument("--EVx", dest="EVx", help="particle gun start xpos", required=False, default=0, type=float)
+parser.add_argument("--EVy", dest="EVy", help="particle gun start ypos", required=False, default=0, type=float)
+parser.add_argument("--EVz", dest="EVz", help="particle gun start zpos", required=False, default=0, type=float)
+parser.add_argument("--Dx",  dest="Dx",  help="full spread of PG xpos",  required=False, default=0, type=float)
+parser.add_argument("--Dy",  dest="Dy",  help="full spread of PG ypos",  required=False, default=0, type=float)
+parser.add_argument("--nZSlices", dest="nZSlices", help="number of Z slices for the PG sources", required=False, default=0, type=int)
+parser.add_argument("--zSliceStep", dest="zSliceStep", help="distance between the Z slices for the PG sources", required=False, default=0, type=float)
+
 parser.add_argument("--FollowMuon",dest="followMuon", help="Make muonshield active to follow muons", required=False, action="store_true")
 parser.add_argument("--FastMuon",  dest="fastMuon",  help="Only transport muons for a fast muon only background estimate", required=False, action="store_true")
 parser.add_argument('--eMin', type=float, help="energy cut", dest='ecut', default=-1.)
@@ -162,9 +170,28 @@ if simEngine == "PG":
   myPgun = ROOT.FairBoxGenerator(options.pID,1)
   myPgun.SetPRange(options.Estart,options.Eend)
   myPgun.SetPhiRange(0, 360) # // Azimuth angle range [degree]
-  myPgun.SetXYZ(options.EVx*u.cm, options.EVy*u.cm, options.EVz*u.cm) 
   myPgun.SetThetaRange(0,0) # // Polar angle in lab system range [degree]
+  if options.multiplePGSources:
+    # multiple PG sources in the x-y plane; z is always the same!
+    myPgun.SetBoxXYZ(options.EVx*u.cm, options.EVy*u.cm,
+                     (options.EVx+options.Dx)*u.cm, (options.EVy+options.Dy)*u.cm,
+                     options.EVz*u.cm)
+  else:
+     # point source
+     myPgun.SetXYZ(options.EVx*u.cm, options.EVy*u.cm, options.EVz*u.cm)
   primGen.AddGenerator(myPgun)
+  # To generate particle guns along the Z axis, create Z 'target' layers with a set step
+  # For an !unknown! reason simply setting target Z thickness doesn't produce the desired result
+  if options.multiplePGSources:
+    zSlices=[]
+    for i in range(options.nZSlices):
+       zSlices.append(i*options.zSliceStep) # these are set wrt the EVz
+    targetZpos = np.array(zSlices, dtype='d')
+    primGen.SetMultTarget(len(targetZpos), targetZpos, 0*u.cm) # dummy thickness set to 0
+  print('===> Setting particle gun sources starting from (x1,y1,z1)=('+
+        str(options.EVx)+','+str(options.EVy)+','+str(options.EVz)+')[cm x cm x cm] \n'+
+        'with an x-y multiple of (Dx,Dy)=('+str(options.Dx)+','+str(options.Dy)+')[cm x cm]'+
+        ' and '+str(options.nZSlices)+' number of Z slices separated by '+str(options.zSliceStep)+'[cm].')
   ROOT.FairLogger.GetLogger().SetLogScreenLevel("WARNING") # otherwise stupid printout for each event
 # -----muon DIS Background------------------------
 if simEngine == "muonDIS":
