@@ -21,7 +21,10 @@
  #include "sndCluster.h"	     // for Clusters
  #include "Hit2MCPoints.h"           // for linking hits to true MC points
 
-using namespace std;
+using std::map;
+using std::vector;
+using std::pair;
+using std::make_pair;
 
 DigiTaskSND::DigiTaskSND()
     : FairTask("DigTaskSND")
@@ -42,9 +45,7 @@ InitStatus DigiTaskSND::Init()
 {
     FairRootManager* ioman = FairRootManager::Instance();
     if (!ioman) {
-        cout << "-E- DigiTaskSND::Init: "   /// todo replace with logger!
-                  << "RootManager not instantiated!" << endl;
-        return kFATAL;
+        LOG(FATAL) << "DigiTaskSND::Init: RootManager not instantiated!";
     }
 
     // Get the SciFi detector and sipm to fibre mapping
@@ -66,8 +67,7 @@ InitStatus DigiTaskSND::Init()
     fEmulsionPointArray = static_cast<TClonesArray*>(ioman->GetObject("EmulsionDetPoint"));
     fMuFilterPointArray = static_cast<TClonesArray*>(ioman->GetObject("MuFilterPoint"));
     if (!fScifiPointArray and !fMuFilterPointArray) {
-        cout << "-W- DigiTaskSND::Init: "
-                  << "No Scifi and no MuFilter MC Point array!" << endl;
+        LOG(ERROR) << "No Scifi and no MuFilter MC Point array!";
         return kERROR;
     }
     // copy branches from input file:
