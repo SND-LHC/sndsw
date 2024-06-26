@@ -7,6 +7,7 @@
 #include "FairLogger.h"
 #include "TClonesArray.h"
 #include "sndScifiHit.h"
+#include "ROOT/TSeq.hxx"
 
 void snd::analysis_tools::getSciFiHitsPerStation(const TClonesArray * digiHits, std::vector<int> &horizontal_hits, std::vector<int> &vertical_hits){
 
@@ -151,18 +152,15 @@ float snd::analysis_tools::peakScifiTiming(const TClonesArray &digiHits, int bin
 // Getting all the Scifi hits for a specific station and orientation
 std::unique_ptr<TClonesArray> snd::analysis_tools::getScifiHits(const TClonesArray &digiHits, int station, bool orientation){
 
-  sndScifiHit * hit;
-  TIter hitIterator(&digiHits);
+  auto selectedHits = std::make_unique<TClonesArray>("sndScifiHit");
 
-  int length = digiHits.GetEntries();
-
-  auto selectedHits = std::make_unique<TClonesArray>("sndScifiHit", length);
-
-  int i = 0;
-  while ( hit = dynamic_cast<sndScifiHit*>(hitIterator.Next()) ){
-    if (!validateHit(hit, station, orientation)){continue;}
-    (*selectedHits)[i] = hit->Clone();
-    i++;  
+  int i = 0; 
+  for (auto *p: digiHits) {
+    auto *hit = dynamic_cast<sndScifiHit*>(p);
+    if (!validateHit(hit, station, orientation)){
+      continue;
+    }
+    new ((*selectedHits)[i++]) sndScifiHit(*hit);
   }
 
   return selectedHits;
@@ -206,39 +204,43 @@ std::unique_ptr<TClonesArray> snd::analysis_tools::selectScifiHits(const TClones
 
   float peakTiming = -1.0;
 
-  sndScifiHit * hit;
-
   if (make_selection) {
 
-    auto selectedHits = std::make_unique<TClonesArray>("sndScifiHit", digiHits.GetEntries());
-    selectedHits = getScifiHits(digiHits, station, orientation);
+    auto selectedHits = getScifiHits(digiHits, station, orientation);
 
     peakTiming = peakScifiTiming(*selectedHits, bins_x, min_x, max_x);
 
-    TIter hitIterator(&(*selectedHits)); 
- 
     int i = 0;
-    while ( hit = dynamic_cast<sndScifiHit*>(hitIterator.Next()) ){
-      if (!validateHit(hit, station, orientation)){continue;}
-      if ((peakTiming - time_lower_range > hit->GetTime()*1E9/(ShipUnit::snd_freq/ShipUnit::hertz)) || (hit->GetTime()*1E9/(ShipUnit::snd_freq/ShipUnit::hertz) > peakTiming + time_upper_range)){continue;}
-      (*filteredHits)[i] = hit->Clone();
-      i++;
+    for (auto *p: *selectedHits) {
+      auto *hit = dynamic_cast<sndScifiHit*>(p);
+      if (!validateHit(hit, station, orientation)){
+        continue;
+      }
+      if (
+        (peakTiming - time_lower_range > hit->GetTime()*1E9/(ShipUnit::snd_freq/ShipUnit::hertz)) ||
+        (hit->GetTime()*1E9/(ShipUnit::snd_freq/ShipUnit::hertz) > peakTiming + time_upper_range)){
+        continue;
+      }
+      new ((*filteredHits)[i++]) sndScifiHit(*hit);
     }
-    selectedHits->Clear("C");
 
   } else{
     // Does not create selectedHits and just uses digiHits (not unique_ptr)
 
     peakTiming = peakScifiTiming(digiHits, bins_x, min_x, max_x);
 
-    TIter hitIterator(&digiHits);
-  
     int i = 0;
-    while ( hit = dynamic_cast<sndScifiHit*>(hitIterator.Next()) ){
-      if (!validateHit(hit, station, orientation)){continue;}
-      if ((peakTiming - time_lower_range > hit->GetTime()*1E9/(ShipUnit::snd_freq/ShipUnit::hertz)) || (hit->GetTime()*1E9/(ShipUnit::snd_freq/ShipUnit::hertz) > peakTiming + time_upper_range)){continue;}
-      (*filteredHits)[i] = hit->Clone();
-      i++;
+    for (auto *p: digiHits) {
+      auto *hit = dynamic_cast<sndScifiHit*>(p);
+      if (!validateHit(hit, station, orientation)){
+        continue;
+      }
+      if (
+        (peakTiming - time_lower_range > hit->GetTime()*1E9/(ShipUnit::snd_freq/ShipUnit::hertz)) ||
+        (hit->GetTime()*1E9/(ShipUnit::snd_freq/ShipUnit::hertz) > peakTiming + time_upper_range)){
+        continue;
+      }
+      new ((*filteredHits)[i++]) sndScifiHit(*hit);
     }
   }
 
@@ -287,36 +289,24 @@ std::unique_ptr<TClonesArray> snd::analysis_tools::filterScifiHits(const TClones
     }
 
     //This is overwriting the previous arrays with the newest one
-    for(int station = 1; station < ScifiStations+1; station++){
-      
-      supportArray.Clear("C");
-      supportArray = (*selectScifiHits(digiHits, station, false, selection_parameters, true));
-      hitIterator.Reset();
-      while ( hit = dynamic_cast<sndScifiHit*>(hitIterator.Next()) ){
-        if (hit->isValid()){
-	  (*filteredHits)[filteredHitsIndex] = hit->Clone();
-	  filteredHitsIndex++;
-	}
-      }
-      supportArray.Clear("C");
-      supportArray = (*selectScifiHits(digiHits, station, true, selection_parameters, true));
-      hitIterator.Reset();
-      while ( hit = dynamic_cast<sndScifiHit*>(hitIterator.Next()) ){
-        if (hit->isValid()){
-	  (*filteredHits)[filteredHitsIndex] = hit->Clone();
-	  filteredHitsIndex++;
-	}
+    for(auto station : ROOT::MakeSeq(1, ScifiStations+1)){
+      for (auto orientation : {false, true}){
+
+        auto supportArray = selectScifiHits(digiHits, station, orientation, selection_parameters, true);
+        for (auto *p: *supportArray) {
+          auto *hit = dynamic_cast<sndScifiHit*>(p);
+          if (hit->isValid()){
+            new ((*filteredHits)[filteredHitsIndex++]) sndScifiHit(*hit);
+          }
+        }
       }
     }
   } else{
   LOG (error) << "Please provide a valid time filter method from:";
   LOG (error) << "(0): Events within \\mp time_lower_range time_upper_range of the peak of the time distribution for Scifi Hits within each station and orientation";
   LOG (FATAL) << "selection_parameters = {bins_x, min_x, max_x, time_lower_range, time_upper_range}.";
-  return filteredHits;
   }
-  supportArray.Clear("C");
   return filteredHits;
-
 }
 
 std::unique_ptr<TClonesArray> snd::analysis_tools::filterScifiHits(const TClonesArray &digiHits, int method, std::string setup){
