@@ -43,9 +43,10 @@ def modifyDicts(year=2024):
          # 2024 and later on
          constants['t_7648'] =  [-6.53,-6.68,-6.75,-6.81,-6.37,-6.52,-5.81,-5.97,-6.19,-6.31,-5.90,-6.10,-8.06,-8.17,-8.38,-8.54,-8.06,-8.15,-8.07,-8.29]
          constants['t_8318'] =  [-6.52,-6.60,-6.69,-6.73,-6.37,-6.53,-5.84,-5.97,-6.20,-6.34,-5.96,-6.17,-8.10,-8.19,-8.35,-8.51,-8.10,-8.22,-8.11,-8.33]
+         constants['t_8582'] =  [-6.60,-6.68,-6.78,-6.80,-6.46,-6.57,-6.01,-6.14,-6.23,-6.37,-6.02,-6.23,-8.15,-8.25,-8.44,-8.60,-8.21,-8.30,-8.29,-8.49]
          slopes_dict_2022 = {"t_0":0.000, "t_4361":0.082, "t_5117":0.085, "t_5478":0.082, "t_6208":0.086}
          # new constants for 2024 and later on
-         slopes_dict_2024 = {"t_0":0.000, "t_7648":0.085, "t_8318":0.086}
+         slopes_dict_2024 = {"t_0":0.000, "t_7648":0.085, "t_8318":0.086, "t_8582":0.085}
          if year == 2024: slopes_dict = slopes_dict_2024
          else: slopes_dict = slopes_dict_2022
          #time delay corrections first order, only for DS at the moment
@@ -93,9 +94,14 @@ def modifyDicts(year=2024):
   -0.957*u.ns,  0.000*u.ns,  -0.102*u.ns,  0.507*u.ns,   0.786*u.ns,  -0.420*u.ns,  0.987*u.ns,
   -0.365*u.ns,  0.000*u.ns,  -1.311*u.ns,  0.362*u.ns,   -2.152*u.ns,  -0.970*u.ns,  -0.725*u.ns,
   -0.982*u.ns,  0.000*u.ns,  -0.994*u.ns,  -0.895*u.ns,   0.454*u.ns,  -1.216*u.ns,  1.361*u.ns ]
-#   
+         constants['t_8582']=[      0.000*u.ns,  0.000*u.ns,  -0.327*u.ns,  -0.494*u.ns,   0.226*u.ns,  -0.377*u.ns,  0.077*u.ns,
+  -0.902*u.ns,  0.000*u.ns,  0.270*u.ns,  -0.751*u.ns,   -0.345*u.ns,  0.243*u.ns,  -0.259*u.ns,
+  -0.937*u.ns,  0.000*u.ns,  -0.172*u.ns,  0.427*u.ns,   0.696*u.ns,  -0.478*u.ns,  0.916*u.ns,
+  -0.355*u.ns,  0.000*u.ns,  -1.380*u.ns,  0.301*u.ns,   -1.998*u.ns,  -1.108*u.ns,  -1.020*u.ns,
+  -1.021*u.ns,  0.000*u.ns,  -0.994*u.ns,  -0.892*u.ns,   0.591*u.ns,  -1.051*u.ns,  1.368*u.ns ]
+#
          scifi_time_tags_2022 = ['t_0', 't_4361','t_5117', 't_5478', 't_6208']
-         scifi_time_tags_2024 = ['t_0', 't_7648', 't_8318']
+         scifi_time_tags_2024 = ['t_0', 't_7648', 't_8318', 't_8582']
          if year == 2024: scifi_time_tags = scifi_time_tags_2024
          else: scifi_time_tags = scifi_time_tags_2022
          for c in scifi_time_tags:
@@ -255,9 +261,25 @@ def modifyDicts(year=2024):
    0.00*u.mrad, 0.12*u.mrad, 0.00*u.mrad,
    0.00*u.mrad, -1.55*u.mrad, 0.00*u.mrad,
    0.00*u.mrad, 2.31*u.mrad, 0.00*u.mrad]
+         alignment['t_8582']=[       # 2024 emuslsion run 10
+   611.7976*u.um, 889.86*u.um, 879.801*u.um,
+   413.6267*u.um, 363.6332*u.um, 105.825*u.um,
+   127.2448*u.um, 487.3149*u.um, 364.0717*u.um,
+   707.2705*u.um, 849.2645*u.um, 589.3346*u.um,
+   271.2779*u.um, 655.8296*u.um, 414.7906*u.um,
+   686.1134*u.um, 851.719*u.um, 798.134*u.um,
+   135.175*u.um, 614.5551*u.um, 442.9096*u.um,
+   821.2312*u.um, 1189.1332*u.um, 1063.688*u.um,
+   255.8865*u.um, 731.2859*u.um, 392.1363*u.um,
+   507.8946*u.um, 1421.0582*u.um, 1139.182*u.um,
+   0.00*u.mrad, -3.49*u.mrad, 0.00*u.mrad,
+   0.00*u.mrad, -1.13*u.mrad, 0.00*u.mrad,
+   0.00*u.mrad, 0.10*u.mrad, 0.00*u.mrad,
+   0.00*u.mrad, 1.44*u.mrad, 0.00*u.mrad,
+   0.00*u.mrad, 2.09*u.mrad, 0.00*u.mrad]
 
          scifi_spatial_tags_2022 = ['t_0', 't_4361','t_4575','t_4855','t_5172','t_5431', 't_6305']
-         scifi_spatial_tags_2024 = ['t_0', 't_7648', 't_8318']
+         scifi_spatial_tags_2024 = ['t_0', 't_7648', 't_8318', 't_8582']
          if year == 2024: scifi_spatial_tags = scifi_spatial_tags_2024
          else: scifi_spatial_tags = scifi_spatial_tags_2022
          for c in scifi_spatial_tags:
