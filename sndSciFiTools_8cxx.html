@@ -81,6 +81,8 @@ $(document).ready(function(){initNavTree('sndSciFiTools_8cxx.html',''); initResi
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">sndSciFiTools.cxx File Reference</div>  </div>
 </div><!--header-->
@@ -88,33 +90,96 @@ $(document).ready(function(){initNavTree('sndSciFiTools_8cxx.html',''); initResi
 <div class="textblock"><code>#include &quot;<a class="el" href="sndSciFiTools_8h_source.html">sndSciFiTools.h</a>&quot;</code><br />
 <code>#include &lt;numeric&gt;</code><br />
 <code>#include &lt;algorithm&gt;</code><br />
+<code>#include &quot;TH1F.h&quot;</code><br />
+<code>#include &quot;FairLogger.h&quot;</code><br />
 <code>#include &quot;TClonesArray.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="sndScifiHit_8h_source.html">sndScifiHit.h</a>&quot;</code><br />
+<code>#include &quot;ROOT/TSeq.hxx&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for sndSciFiTools.cxx:</div>
 <div class="dyncontent">
 <div class="center"><img src="sndSciFiTools_8cxx__incl.png" border="0" usemap="#aanalysis_2tools_2sndSciFiTools_8cxx" alt=""/></div>
 <map name="aanalysis_2tools_2sndSciFiTools_8cxx" id="aanalysis_2tools_2sndSciFiTools_8cxx">
-<area shape="rect" title=" " alt="" coords="119,5,349,32"/>
-<area shape="rect" href="sndSciFiTools_8h.html" title=" " alt="" coords="53,80,173,107"/>
-<area shape="rect" title=" " alt="" coords="5,155,124,181"/>
-<area shape="rect" title=" " alt="" coords="197,80,271,107"/>
-<area shape="rect" title=" " alt="" coords="295,80,381,107"/>
-<area shape="rect" href="sndScifiHit_8h.html" title=" " alt="" coords="405,80,508,107"/>
-<area shape="rect" href="SndlhcHit_8h.html" title=" " alt="" coords="631,155,727,181"/>
-<area shape="rect" title=" " alt="" coords="229,237,313,263"/>
-<area shape="rect" title=" " alt="" coords="473,237,563,263"/>
-<area shape="rect" href="ScifiPoint_8h.html" title=" " alt="" coords="357,155,452,181"/>
-<area shape="rect" title=" " alt="" coords="588,237,667,263"/>
-<area shape="rect" title=" " alt="" coords="691,237,774,263"/>
-<area shape="rect" title=" " alt="" coords="799,237,923,263"/>
-<area shape="rect" title=" " alt="" coords="947,229,1089,271"/>
-<area shape="rect" title=" " alt="" coords="1113,229,1256,271"/>
-<area shape="rect" title=" " alt="" coords="337,237,448,263"/>
+<area shape="rect" title=" " alt="" coords="363,5,593,32"/>
+<area shape="rect" href="sndSciFiTools_8h.html" title=" " alt="" coords="90,80,210,107"/>
+<area shape="rect" title=" " alt="" coords="195,155,313,181"/>
+<area shape="rect" title=" " alt="" coords="287,80,362,107"/>
+<area shape="rect" title=" " alt="" coords="386,80,471,107"/>
+<area shape="rect" title=" " alt="" coords="495,80,562,107"/>
+<area shape="rect" title=" " alt="" coords="587,80,687,107"/>
+<area shape="rect" href="sndScifiHit_8h.html" title=" " alt="" coords="711,80,813,107"/>
+<area shape="rect" title=" " alt="" coords="838,80,961,107"/>
+<area shape="rect" title=" " alt="" coords="119,155,170,181"/>
+<area shape="rect" href="ShipUnit_8h.html" title=" " alt="" coords="5,155,95,181"/>
+<area shape="rect" href="SndlhcHit_8h.html" title=" " alt="" coords="539,155,635,181"/>
+<area shape="rect" title=" " alt="" coords="707,237,791,263"/>
+<area shape="rect" title=" " alt="" coords="815,237,906,263"/>
+<area shape="rect" href="ScifiPoint_8h.html" title=" " alt="" coords="825,155,920,181"/>
+<area shape="rect" title=" " alt="" coords="496,237,575,263"/>
+<area shape="rect" title=" " alt="" coords="599,237,682,263"/>
+<area shape="rect" title=" " alt="" coords="15,237,139,263"/>
+<area shape="rect" title=" " alt="" coords="163,229,305,271"/>
+<area shape="rect" title=" " alt="" coords="329,229,472,271"/>
+<area shape="rect" title=" " alt="" coords="931,237,1041,263"/>
 </map>
 </div>
 </div>
 <p><a href="sndSciFiTools_8cxx_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a1fd0777019d2b6e914490ff374f2f922"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sndSciFiTools_8cxx.html#a1fd0777019d2b6e914490ff374f2f922">validateHit</a> (<a class="el" href="classsndScifiHit.html">sndScifiHit</a> *aHit, int ref_station, bool ref_orientation)</td></tr>
+<tr class="separator:a1fd0777019d2b6e914490ff374f2f922"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a1fd0777019d2b6e914490ff374f2f922"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fd0777019d2b6e914490ff374f2f922">&#9670;&nbsp;</a></span>validateHit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool validateHit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsndScifiHit.html">sndScifiHit</a> *&#160;</td>
+          <td class="paramname"><em>aHit</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ref_station</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>ref_orientation</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="sndSciFiTools_8cxx_source.html#l00106">106</a> of file <a class="el" href="sndSciFiTools_8cxx_source.html">sndSciFiTools.cxx</a>.</p>
+<div class="fragment"><div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                                                                           {</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  <span class="keywordflow">if</span> (!(aHit-&gt;<a class="code" href="classsndScifiHit.html#a99afbc5a294dfd9f9ddcf9bada3d90ba">isValid</a>())){<span class="keywordflow">return</span> <span class="keyword">false</span>;}</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <span class="keywordflow">if</span> (aHit-&gt;<a class="code" href="classsndScifiHit.html#a18eb9526024996df83366096a1e41b0b">GetStation</a>() != ref_station){<span class="keywordflow">return</span> <span class="keyword">false</span>;}</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  <span class="keywordflow">if</span> (aHit-&gt;<a class="code" href="classsndScifiHit.html#ac527f08d5770476f38f11f33efbf849e">isVertical</a>() != ref_orientation){<span class="keywordflow">return</span> <span class="keyword">false</span>;}</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;}</div>
+<div class="ttc" id="aclasssndScifiHit_html_a18eb9526024996df83366096a1e41b0b"><div class="ttname"><a href="classsndScifiHit.html#a18eb9526024996df83366096a1e41b0b">sndScifiHit::GetStation</a></div><div class="ttdeci">Int_t GetStation()</div><div class="ttdef"><b>Definition:</b> <a href="sndScifiHit_8h_source.html#l00031">sndScifiHit.h:31</a></div></div>
+<div class="ttc" id="aclasssndScifiHit_html_a99afbc5a294dfd9f9ddcf9bada3d90ba"><div class="ttname"><a href="classsndScifiHit.html#a99afbc5a294dfd9f9ddcf9bada3d90ba">sndScifiHit::isValid</a></div><div class="ttdeci">bool isValid() const</div><div class="ttdef"><b>Definition:</b> <a href="sndScifiHit_8h_source.html#l00030">sndScifiHit.h:30</a></div></div>
+<div class="ttc" id="aclasssndScifiHit_html_ac527f08d5770476f38f11f33efbf849e"><div class="ttname"><a href="classsndScifiHit.html#ac527f08d5770476f38f11f33efbf849e">sndScifiHit::isVertical</a></div><div class="ttdeci">bool isVertical()</div><div class="ttdef"><b>Definition:</b> <a href="sndScifiHit_8h_source.html#l00032">sndScifiHit.h:32</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

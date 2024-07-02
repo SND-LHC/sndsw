@@ -88,14 +88,18 @@ $(document).ready(function(){initNavTree('sndSciFiTools_8h.html',''); initResiza
 <div class="title">sndSciFiTools.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;TClonesArray.h&quot;</code><br />
+<div class="textblock"><code>#include &lt;map&gt;</code><br />
+<code>#include &quot;TClonesArray.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="ShipUnit_8h_source.html">ShipUnit.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for sndSciFiTools.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="sndSciFiTools_8h__incl.png" border="0" usemap="#aanalysis_2tools_2sndSciFiTools_8h" alt=""/></div>
 <map name="aanalysis_2tools_2sndSciFiTools_8h" id="aanalysis_2tools_2sndSciFiTools_8h">
-<area shape="rect" title=" " alt="" coords="5,5,220,32"/>
-<area shape="rect" title=" " alt="" coords="53,80,172,107"/>
+<area shape="rect" title=" " alt="" coords="33,5,247,32"/>
+<area shape="rect" title=" " alt="" coords="5,80,56,107"/>
+<area shape="rect" title=" " alt="" coords="81,80,199,107"/>
+<area shape="rect" href="ShipUnit_8h.html" title=" " alt="" coords="223,80,313,107"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -122,20 +126,40 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ae6d366e54bc86ccdc3f11627c4d62545"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesnd_1_1analysis__tools.html#ae6d366e54bc86ccdc3f11627c4d62545">snd::analysis_tools::getSciFiHitsPerStation</a> (TClonesArray *digiHits, std::vector&lt; int &gt; &amp;horizontal_hits, std::vector&lt; int &gt; &amp;vertical_hits)</td></tr>
-<tr class="separator:ae6d366e54bc86ccdc3f11627c4d62545"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4366cddb81edce8fb50a4dedd3875e84"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesnd_1_1analysis__tools.html#a4366cddb81edce8fb50a4dedd3875e84">snd::analysis_tools::getSciFiHitsPerStation</a> (const TClonesArray *digiHits, std::vector&lt; int &gt; &amp;horizontal_hits, std::vector&lt; int &gt; &amp;vertical_hits)</td></tr>
+<tr class="separator:a4366cddb81edce8fb50a4dedd3875e84"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add38a36ae42dce4c3e48621c2c4d0b23"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesnd_1_1analysis__tools.html#add38a36ae42dce4c3e48621c2c4d0b23">snd::analysis_tools::getTotalSciFiHits</a> (std::vector&lt; int &gt; &amp;horizontal_hits, std::vector&lt; int &gt; &amp;vertical_hits)</td></tr>
 <tr class="separator:add38a36ae42dce4c3e48621c2c4d0b23"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b5ca887a58ebfafeb84999585e4912f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesnd_1_1analysis__tools.html#a9b5ca887a58ebfafeb84999585e4912f">snd::analysis_tools::getTotalSciFiHits</a> (TClonesArray *digiHits)</td></tr>
-<tr class="separator:a9b5ca887a58ebfafeb84999585e4912f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2e65a7ac6bc899bf97748cab9c03da6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesnd_1_1analysis__tools.html#ab2e65a7ac6bc899bf97748cab9c03da6">snd::analysis_tools::getTotalSciFiHits</a> (const TClonesArray *digiHits)</td></tr>
+<tr class="separator:ab2e65a7ac6bc899bf97748cab9c03da6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab110e213c86b26c581a9c7456a140ebc"><td class="memItemLeft" align="right" valign="top">std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesnd_1_1analysis__tools.html#ab110e213c86b26c581a9c7456a140ebc">snd::analysis_tools::getFractionalHitsPerScifiPlane</a> (std::vector&lt; int &gt; &amp;horizontal_hits, std::vector&lt; int &gt; &amp;vertical_hits)</td></tr>
 <tr class="separator:ab110e213c86b26c581a9c7456a140ebc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af5e62052bcb88fbcf911834a2bf5b3c8"><td class="memItemLeft" align="right" valign="top">std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesnd_1_1analysis__tools.html#af5e62052bcb88fbcf911834a2bf5b3c8">snd::analysis_tools::getFractionalHitsPerScifiPlane</a> (TClonesArray *digiHits)</td></tr>
-<tr class="separator:af5e62052bcb88fbcf911834a2bf5b3c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb1bd3e6aa09e4d65a9c92a5133a8ac9"><td class="memItemLeft" align="right" valign="top">std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesnd_1_1analysis__tools.html#adb1bd3e6aa09e4d65a9c92a5133a8ac9">snd::analysis_tools::getFractionalHitsPerScifiPlane</a> (const TClonesArray *digiHits)</td></tr>
+<tr class="separator:adb1bd3e6aa09e4d65a9c92a5133a8ac9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1cfa1e0acecf53005048a0b11c125b57"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesnd_1_1analysis__tools.html#a1cfa1e0acecf53005048a0b11c125b57">snd::analysis_tools::findScifiStation</a> (std::vector&lt; int &gt; &amp;horizontal_hits, std::vector&lt; int &gt; &amp;vertical_hits, float threshold)</td></tr>
 <tr class="separator:a1cfa1e0acecf53005048a0b11c125b57"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab124b95c73f51f841f5c12caeef146bb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesnd_1_1analysis__tools.html#ab124b95c73f51f841f5c12caeef146bb">snd::analysis_tools::findScifiStation</a> (TClonesArray *digiHits, float threshold)</td></tr>
-<tr class="separator:ab124b95c73f51f841f5c12caeef146bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf671a252762c6da49f48a7e6cc31431"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesnd_1_1analysis__tools.html#aaf671a252762c6da49f48a7e6cc31431">snd::analysis_tools::findScifiStation</a> (const TClonesArray *digiHits, float threshold)</td></tr>
+<tr class="separator:aaf671a252762c6da49f48a7e6cc31431"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5159d7eeb2993eba4f46fcd69f625612"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesnd_1_1analysis__tools.html#a5159d7eeb2993eba4f46fcd69f625612">snd::analysis_tools::peakScifiTiming</a> (const TClonesArray &amp;digiHits, int bins, float min_x, float max_x)</td></tr>
+<tr class="separator:a5159d7eeb2993eba4f46fcd69f625612"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a898b9cbb7bac8c95c59069b6aecbe9b3"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; TClonesArray &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesnd_1_1analysis__tools.html#a898b9cbb7bac8c95c59069b6aecbe9b3">snd::analysis_tools::getScifiHits</a> (const TClonesArray &amp;digiHits, int station, bool orientation)</td></tr>
+<tr class="separator:a898b9cbb7bac8c95c59069b6aecbe9b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb14e67896089cd76dae5e5131de402e"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; TClonesArray &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesnd_1_1analysis__tools.html#aeb14e67896089cd76dae5e5131de402e">snd::analysis_tools::selectScifiHits</a> (const TClonesArray &amp;digiHits, int station, bool orientation, int bins_x=52, float min_x=0.0, float max_x=26.0, float time_lower_range=1E9/(2 *ShipUnit::snd_freq), float time_upper_range=2E9/(ShipUnit::snd_freq/ShipUnit::hertz), bool make_selection=true)</td></tr>
+<tr class="separator:aeb14e67896089cd76dae5e5131de402e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeca7f1eae2a9e2ff5c2aabf1319c954a"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; TClonesArray &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesnd_1_1analysis__tools.html#aeca7f1eae2a9e2ff5c2aabf1319c954a">snd::analysis_tools::selectScifiHits</a> (const TClonesArray &amp;digiHits, int station, bool orientation, const std::map&lt; std::string, float &gt; &amp;selection_parameters, bool make_selection=true)</td></tr>
+<tr class="separator:aeca7f1eae2a9e2ff5c2aabf1319c954a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78c74efd98070d9f53be87caa79640bb"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; TClonesArray &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesnd_1_1analysis__tools.html#a78c74efd98070d9f53be87caa79640bb">snd::analysis_tools::filterScifiHits</a> (const TClonesArray &amp;digiHits, const std::map&lt; std::string, float &gt; &amp;selection_parameters, int method=0, std::string setup=&quot;TI18&quot;)</td></tr>
+<tr class="separator:a78c74efd98070d9f53be87caa79640bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a0743bec57ce3c0441563fab456f415"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; TClonesArray &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesnd_1_1analysis__tools.html#a2a0743bec57ce3c0441563fab456f415">snd::analysis_tools::filterScifiHits</a> (const TClonesArray &amp;digiHits, int method=0, std::string setup=&quot;TI18&quot;)</td></tr>
+<tr class="separator:a2a0743bec57ce3c0441563fab456f415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a898d2da7d9071ef733eb86625ed1cc7d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesnd_1_1analysis__tools.html#a898d2da7d9071ef733eb86625ed1cc7d">snd::analysis_tools::densityScifi</a> (int reference_SiPM, const TClonesArray &amp;digiHits, int radius, int min_hit_density, bool min_check)</td></tr>
+<tr class="separator:a898d2da7d9071ef733eb86625ed1cc7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6dd4352f5c110708f8070ad1c88a907"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesnd_1_1analysis__tools.html#aa6dd4352f5c110708f8070ad1c88a907">snd::analysis_tools::densityCheck</a> (const TClonesArray &amp;digiHits, int radius=64, int min_hit_density=36, int station=1, bool orientation=false)</td></tr>
+<tr class="separator:aa6dd4352f5c110708f8070ad1c88a907"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3efcc7ce16eb9a30afcdcedd2c4f4ac2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesnd_1_1analysis__tools.html#a3efcc7ce16eb9a30afcdcedd2c4f4ac2">snd::analysis_tools::showerInteractionWall</a> (const TClonesArray &amp;digiHits, const std::map&lt; std::string, float &gt; &amp;selection_parameters, int method=0, std::string setup=&quot;TI18&quot;)</td></tr>
+<tr class="separator:a3efcc7ce16eb9a30afcdcedd2c4f4ac2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78b08ea6c3c2d141709d92390c1f87b8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesnd_1_1analysis__tools.html#a78b08ea6c3c2d141709d92390c1f87b8">snd::analysis_tools::showerInteractionWall</a> (const TClonesArray &amp;digiHits, int method=0, std::string setup=&quot;TI18&quot;)</td></tr>
+<tr class="separator:a78b08ea6c3c2d141709d92390c1f87b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
