@@ -425,7 +425,7 @@ if __name__ == '__main__':
     if options.command == "DQ":
       while 1 > 0:
          M.runDataQuality(options.latest)  
-         time.sleep(36)
+         time.sleep(360)
       exit(0)
     elif options.command == "rerunDQ":
         runList = []
