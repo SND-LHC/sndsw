@@ -1,5 +1,6 @@
 var NAVTREEINDEX81 =
 {
+"namespacethermalNeutrons.html#a42d71d504e9eaaf9f4a73a2ffa0a86ad":[11,0,184,23],
 "namespacethermalNeutrons.html#a43fc9ceb5e04a2f83c7b153854e24532":[11,0,184,32],
 "namespacethermalNeutrons.html#a4d664ec4a4d752ea0f0ef767ea85f4e2":[11,0,184,26],
 "namespacethermalNeutrons.html#a4d9450e4d8dc9f5a0c53757e42a090f2":[11,0,184,9],
@@ -248,6 +249,5 @@ var NAVTREEINDEX81 =
 "pi0Reco_8py.html#a1aa5dc9c03ee8cd23d0c329c69e198d2":[13,0,17,25,5],
 "pi0Reco_8py.html#a9098a391201bec77524d472db2d06795":[13,0,17,25,4],
 "pi0Reco_8py.html#a9ba03efe77f3f90678098cad22bd05d1":[13,0,17,25,6],
-"pi0Reco_8py.html#aac923c77c6e24564f5fca914711740ac":[13,0,17,25,0],
-"pi0Reco_8py.html#ac26f1daf3b645099d95bd34f21f18452":[13,0,17,25,2]
+"pi0Reco_8py.html#aac923c77c6e24564f5fca914711740ac":[13,0,17,25,0]
 };

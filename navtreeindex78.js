@@ -1,5 +1,6 @@
 var NAVTREEINDEX78 =
 {
+"namespacesndLHC__HXgeom__config.html#a9f0711587fcb7ce57e23c052cbf4ad78":[11,0,170,114],
 "namespacesndLHC__HXgeom__config.html#a9ff7d332e855e02124b0f0bc32034923":[11,0,170,206],
 "namespacesndLHC__HXgeom__config.html#aa1a9c53aa8a87b75022a0ebb7c74b8d5":[11,0,170,157],
 "namespacesndLHC__HXgeom__config.html#aa608fd4ea30187296d09a080b5a4293d":[11,0,170,190],
@@ -248,6 +249,5 @@ var NAVTREEINDEX78 =
 "namespacesndLHC__TI18geom__config.html#aad56a11635d8eda920d98d343868ca75":[11,0,171,52],
 "namespacesndLHC__TI18geom__config.html#aaf02a438f326a396facb1e0a874d7df9":[11,0,171,180],
 "namespacesndLHC__TI18geom__config.html#aaf11666d8fcac37145ebf419b93b5b14":[11,0,171,108],
-"namespacesndLHC__TI18geom__config.html#aaf3fc6ee8cf80810557e29980326fe68":[11,0,171,162],
-"namespacesndLHC__TI18geom__config.html#aaf4660d74903f1e0c2c4fb1777fc6966":[11,0,171,9]
+"namespacesndLHC__TI18geom__config.html#aaf3fc6ee8cf80810557e29980326fe68":[11,0,171,162]
 };
