@@ -187,9 +187,9 @@ if simEngine == "PG":
   if options.multiplePGSources:
     targetZpos = np.array(np.arange(options.nZSlices)*options.zSliceStep*u.cm, dtype='d')
     primGen.SetMultTarget(len(targetZpos), targetZpos, 0*u.cm) # dummy thickness set to 0
-  print(f'===> Setting particle gun sources starting at (x1,y1,z1)=('+
-        f'{options.EVx},{options.EVy},{options.EVz})[cm × cm × cm] \n'+
-        f'with a uniform x-y spread of (Dx,Dy)=({options.Dx},{options.Dy})[cm × cm]'+
+  print('===> Setting particle gun sources starting at (x1,y1,z1)='
+        f'({options.EVx},{options.EVy},{options.EVz})[cm × cm × cm] \n'
+        f'with a uniform x-y spread of (Dx,Dy)=({options.Dx},{options.Dy})[cm × cm]'
         f' and {options.nZSlices} z slices in steps of {options.zSliceStep}[cm].')
   ROOT.FairLogger.GetLogger().SetLogScreenLevel("WARNING") # otherwise stupid printout for each event
 # -----muon DIS Background------------------------
