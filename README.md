@@ -8,10 +8,16 @@ sndsw
     - [Contact and communication](#contact-and-communication)
     - [Branches](#branches)
 - [Build instructions](#build-instructions)
+    - [Introduction to `aliBuild`](#introduction-to-alibuild)
     - [On lxplus or systems with CVMFS](#on-lxplus-or-systems-with-cvmfs)
     - [On systems without access to CVMFS](#on-systems-without-access-to-cvmfs)
-- [Run Instructions](#run-instructions)
-- [Development](#development) 
+- [Run instructions](#run-instructions)
+    - [Use cases covered by `run_simSND.py`](#use-cases-covered-by-run_simsndpy)
+    - [Digitization of MC data](#digitization-of-mc-data)
+    - [Converting raw data to sndsw format](#converting-raw-data-to-sndsw-format)
+    - [Example scripts for accessing the raw data and making histograms](#example-scripts-for-accessing-the-raw-data-and-making-histograms)
+    - [simple 2d event display with Scifi tracking](#simple-2d-event-display-with-scifi-tracking)
+- [Development](#development)
     - [How to keep branches up to date](#how-to-keep-branches-up-to-date)
     - [How to contribute code](#how-to-contribute-code)
 - [Docker Instructions](#docker-instructions)
@@ -27,7 +33,7 @@ PyROOT.
 
 ## Contact and communication
 
-If you have questions or problems, please feel free to contact the 
+If you have questions or problems, please feel free to contact the
 @SND-LHC/core-developers. For troubleshooting and development, we plan to discuss on [Mattermost](https://mattermost.web.cern.ch/sndlhc-daq/channels/software-and-analysis).
 
 The [snd-software](mailto:snd-software@cern.ch) mailing list can be used to discuss the software and report issues. Important annoucements will be made there.
@@ -50,7 +56,7 @@ Both mailing lists are self-subscribe CERN e-groups.
 The `aliBuild` family of tools developed by ALICE is used to set up `sndsw` and
 its dependencies.
 
-### Introduction to `aliBuild`
+## Introduction to `aliBuild`
 
 The basic commands are the same regardless of whether CVMFS is used:
 
@@ -111,13 +117,6 @@ eval $(alienv load sndsw/latest --no-refresh)
 
 If you modify `sndsw`, simply repeat step 4 from `sndsw`'s parent directory.
 
-Note for Ubuntu 20.04: currently there is a version (March 2022) of CVMFS built with Ubuntu 20.04. However, standard ubuntu 20.04 still have python2 has default, while we moved to python3.
-So, it is needed to do 
-```bash
-sudo apt-get install python-is-python3
-```
-
-Then, the above procedure works
 ## On systems without access to CVMFS
 
 Commands are similar to the previous case, but without access to CVMFS you need to build the required packages from source.
@@ -136,7 +135,7 @@ Commands are similar to the previous case, but without access to CVMFS you need 
     git checkout <branch>
     cd ..
     ```
-    
+
 3. Install [aliBuild](https://github.com/alisw/alibuild)
     ``` bash
     pip3 install --user alibuild
@@ -156,96 +155,93 @@ Commands are similar to the previous case, but without access to CVMFS you need 
     alienv enter sndsw/latest
     ```
 
+# Run instructions
 
-# Run Instructions
+ Set up the bulk of the environment from CVMFS.
 
-updated  11 October 2021 for the use with raw data
-
- Set up the bulk of the environment from CVMFS. 
-
- ```bash 
- source /cvmfs/sndlhc.cern.ch/latest/setUp.sh 
- ``` 
-
- Load your local sndsw environment. 
-
- ```bash 
- alienv enter (--shellrc) sndsw/latest 
- ```     
-
-  ```bash 
- python $SNDSW_ROOT/shipLHC/run_simSND.py  --Ntuple  -n 100 -f /eos/experiment/sndlhc/MonteCarlo/FLUKA/muons_up/version1/unit30_Nm.root  --eMin 1.0
- >> Macro finished succesfully. 
+ ```bash
+ source /cvmfs/sndlhc.cern.ch/SNDLHC-2024/June25/setUp.sh
  ```
- >> Output files are  sndLHC.Ntuple-TGeant4.root (events) and  geofile_full.Ntuple-TGeant4.root  (setup) 
 
- Run the event display: 
+ Load your local sndsw environment.
 
- ```bash 
- python -i $SNDSW_ROOT/macro/eventDisplay.py -f sndLHC.Ntuple-TGeant4.root -g geofile_full.Ntuple-TGeant4.root 
- // use SHiP Event Display GUI 
- Use quit() or Ctrl-D (i.e. EOF) to exit 
- ``` 
+ ```bash
+ alienv enter (--shellrc) sndsw/latest
+ ```
+
+  ```bash
+ python $SNDSW_ROOT/shipLHC/run_simSND.py  --Ntuple  -n 100 -f /eos/experiment/sndlhc/MonteCarlo/FLUKA/muons_up/version1/unit30_Nm.root  --eMin 1.0
+ >> Macro finished succesfully.
+ ```
+ >> Output files are  sndLHC.Ntuple-TGeant4.root (events) and  geofile_full.Ntuple-TGeant4.root  (setup)
+
+ Run the event display:
+
+ ```bash
+ python -i $SNDSW_ROOT/macro/eventDisplay.py -f sndLHC.Ntuple-TGeant4.root -g geofile_full.Ntuple-TGeant4.root
+ // use SHiP Event Display GUI
+ Use quit() or Ctrl-D (i.e. EOF) to exit
+ ```
  a) Use the GUI to display  events: SHiP actions / next event
 
- b) Hoovering over trajectory will display additional information : 
- 
- c) At python prompt: sTree.MCTrack.Dump() will display info about all MC particles 
+ b) Hovering over trajectory will display additional information :
 
-## Use cases covered by `run_simSND.py`:
+ c) At python prompt: `sTree.MCTrack.Dump()` will display info about all MC particles
+
+## Use cases covered by `run_simSND.py`
 
 1. Transport muons, output of FLUKA simulation, to TI18 and the detector. Positive and negative muons, up and down crossing angles, exist.
 Possible options are setting minimum energy for transporting particles, transport only muons, increase EM cross sections of muons.
 
- ```bash 
+ ```bash
  python $SNDSW_ROOT/shipLHC/run_simSND.py  --Ntuple  -n nEvents  -f /eos/experiment/sndlhc/MonteCarlo/FLUKA/muons_up/version1/unit30_Nm.root  --eMin ecut
  ```
 
-2. Muon deep inelastic scattering events, produced with pythia6, and then positioned in T18 and transported by Geant4:
- ```bash 
+2. Muon deep inelastic scattering events, produced with pythia6, and then positioned in TI18 and transported by Geant4:
+ ```bash
  python  $SNDSW_ROOT/shipLHC/run_simSND.py  -F --MuDIS -n nEvents -f  /eos/experiment/sndlhc/MonteCarlo/Pythia6/MuonDIS/muonDis_1001.root  --eMin ecut
  ```
-3. WORK ONGOING: Neutrino events, produced by GENIE, sndsw/macro/makeSNDGenieEvents.py, and then positioned in T18 and transported by Geant4:
- ```bash 
+3. Neutrino events, produced by GENIE and then positioned in TI18 and transported by Geant4:
+ ```bash
  python  $SNDSW_ROOT/shipLHC/run_simSND.py  --Genie -n nEvents -f ...
  ```
 
-## Digitization of MC data:
+## Digitization of MC data
 
 1. Convert MC points to detector hits. Input required, data from simulation together with the geometry file created when running simulation. New objects created are `Digi_ScifiHits` together with `Cluster_Scifi` and `Digi_MuFilterHit`, and in parallel objects to make the link to the original MC points, `Digi_MuFilterHits2MCPoints` and `Digi_ScifiHits2MCPoints`.
 
- ```bash 
+ ```bash
  python $SNDSW_ROOT/shipLHC/run_digiSND.py   -f sndLHC.Ntuple-TGeant4.root -g geofile_full.Ntuple-TGeant4.root
  ```
 
-## Converting raw data to sndsw format:
+## Converting raw data to sndsw format
 
 1. Runs the calibration procedure and creates `Digi_ScifiHits` and `Digi_MuFilterHit` with signal and time information from SiPM channels.
 
- ```bash 
+ ```bash
  python $SNDSW_ROOT/shipLHC/rawData/convertRawData.py -p /eos/experiment/sndlhc/testbeam/scifi-cosmic/ -r 35
  ```
 2. For the MuFilter testbeam in H8, a specialized script needs to be used to also synchronize the readout boards.
 
- ```bash 
+ ```bash
  python $SNDSW_ROOT/shipLHC/rawData/convertRawData_convertRawData_muTestbeam.py -p /eos/experiment/sndlhc/testbeam/MuFilter/TB_data_commissioning/ -n 5000000  -r 91
  ```
-## Example scripts for accessing the raw data and making histograms:
+## Example scripts for accessing the raw data and making histograms
 1.  For scifi data:
- ```bash 
- python $SNDSW_ROOT/shipLHC/rawData/scifiHitMaps.py -p /eos/experiment/sndlhc/testbeam/scifi/sndsw/ -r 1 -g geofile_full.Ntuple-TGeant4.root 
+ ```bash
+ python $SNDSW_ROOT/shipLHC/rawData/scifiHitMaps.py -p /eos/experiment/sndlhc/testbeam/scifi/sndsw/ -r 1 -g geofile_full.Ntuple-TGeant4.root
  ```
 
 2. For MuFi data:
- ```bash 
- python $SNDSW_ROOT/shipLHC/rawData/mufiHitMaps.py -p /eos/experiment/sndlhc/testbeam/MuFilter/TB_data_commissioning/sndsw/ -r 90 -g geofile_full.Ntuple-TGeant4.root 
+ ```bash
+ python $SNDSW_ROOT/shipLHC/rawData/mufiHitMaps.py -p /eos/experiment/sndlhc/testbeam/MuFilter/TB_data_commissioning/sndsw/ -r 90 -g geofile_full.Ntuple-TGeant4.root
  ```
 Two methods implemented, hitMaps(Nev = -1) and eventTime().
 
-## simple 2d event display with Scifi tracking:
+## simple 2d event display with Scifi tracking
 1. Use method loopEvents(start=0,save=False,goodEvents=False,withTrack=False)
- ```bash 
- python $SNDSW_ROOT/shipLHC/scripts/scifiHitMaps.py -p /eos/experiment/sndlhc/testbeam/scifi/sndsw/ -r 1 -g geofile_full.Ntuple-TGeant4.root 
+ ```bash
+ python $SNDSW_ROOT/shipLHC/scripts/scifiHitMaps.py -p /eos/experiment/sndlhc/testbeam/scifi/sndsw/ -r 1 -g geofile_full.Ntuple-TGeant4.root
  ```
 
 # Development
@@ -322,16 +318,16 @@ desirable.
     git clone https://github.com/SND-LHC/sndsw.git
     cd sndsw
     docker build -t sndsw .
-    ``` 
+    ```
 2. Run the `sndsw` docker image:
     ```bash
     docker run -i -t --rm sndsw /bin/bash
-    ``` 
+    ```
 3. Advanced docker run options:
     ```bash
     docker run -i -t --rm \
     -e DISPLAY=unix$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix \
     -v /local\_workdir:/image\_workdir \
     sndsw /bin/bash
-    ``` 
+    ```
     The option `-e DISPLAY=unix$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix` forwards graphics from the docker to your local system (similar to `ssh -X`). The option `-v /local_workdir:/image_workdir` mounts `/local_workdir` on the local system as `/image_workdir` within docker.
