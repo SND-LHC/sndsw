@@ -116,7 +116,7 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="shipRoot__conf_8py_source.html#l00067">67</a> of file <a class="el" href="shipRoot__conf_8py_source.html">shipRoot_conf.py</a>.</p>
 <div class="fragment"><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceshipRoot__conf.html#a5e8544883bc78700546fa8c4c116ca7d">configure</a>(darkphoton=None):</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;   ROOT.gROOT.ProcessLine(<span class="stringliteral">&#39;#include &quot;&#39;</span>+os.environ[<span class="stringliteral">&quot;FAIRSHIP&quot;</span>]+<span class="stringliteral">&#39;/shipdata/ShipGlobals.h&quot;&#39;</span>)</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;   ROOT.gROOT.ProcessLine(<span class="stringliteral">&#39;#include &quot;ShipGlobals.h&quot;&#39;</span>)</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;   pdg = ROOT.TDatabasePDG.Instance()</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;   <span class="comment"># pythia stuff not known to ROOT</span></div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;   pdg.AddParticle(<span class="stringliteral">&#39;system&#39;</span>,<span class="stringliteral">&#39;system&#39;</span>,     0., <span class="keyword">False</span>, 0., 0., <span class="stringliteral">&#39;XXX&#39;</span>, 90)</div>
