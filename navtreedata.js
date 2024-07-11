@@ -54,15 +54,16 @@ var NAVTREE =
         [ "Branches", "md_README.html#autotoc_md23", null ]
       ] ],
       [ "Build instructions", "md_README.html#autotoc_md24", [
+        [ "Introduction to <tt>aliBuild</tt>", "md_README.html#autotoc_md25", null ],
         [ "On lxplus or systems with CVMFS", "md_README.html#autotoc_md26", null ],
         [ "On systems without access to CVMFS", "md_README.html#autotoc_md27", null ]
       ] ],
-      [ "Run Instructions", "md_README.html#autotoc_md28", [
-        [ "Use cases covered by <tt>run_simSND.py</tt>:", "md_README.html#autotoc_md29", null ],
-        [ "Digitization of MC data:", "md_README.html#autotoc_md30", null ],
-        [ "Converting raw data to sndsw format:", "md_README.html#autotoc_md31", null ],
-        [ "Example scripts for accessing the raw data and making histograms:", "md_README.html#autotoc_md32", null ],
-        [ "simple 2d event display with Scifi tracking:", "md_README.html#autotoc_md33", null ]
+      [ "Run instructions", "md_README.html#autotoc_md28", [
+        [ "Use cases covered by <tt>run_simSND.py</tt>", "md_README.html#autotoc_md29", null ],
+        [ "Digitization of MC data", "md_README.html#autotoc_md30", null ],
+        [ "Converting raw data to sndsw format", "md_README.html#autotoc_md31", null ],
+        [ "Example scripts for accessing the raw data and making histograms", "md_README.html#autotoc_md32", null ],
+        [ "simple 2d event display with Scifi tracking", "md_README.html#autotoc_md33", null ]
       ] ],
       [ "Development", "md_README.html#autotoc_md34", [
         [ "How to keep branches up to date", "md_README.html#autotoc_md35", null ],

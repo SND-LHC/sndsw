@@ -4,7 +4,6 @@ var namespaces_dup =
       [ "How to generate test database", "md_conditionsDatabase_tests_test_mongodb_README.html#autotoc_md17", null ],
       [ "How to execute PyTest", "md_conditionsDatabase_tests_test_mongodb_README.html#autotoc_md18", null ],
       [ "How to see test coverage", "md_conditionsDatabase_tests_test_mongodb_README.html#autotoc_md19", null ],
-      [ "Introduction to <tt>aliBuild</tt>", "md_README.html#autotoc_md25", null ],
       [ "addTrack", "namespace2dEventDisplay.html#ab6b45944390fff2b18238394c71d7f4e", null ],
       [ "bunchXtype", "namespace2dEventDisplay.html#aca4f4496412086aeb86fa83f9592b87d", null ],
       [ "checkOtherTriggers", "namespace2dEventDisplay.html#a32e01f83d697927d64ab3adaeff93f51", null ],

@@ -93,11 +93,19 @@ $(document).ready(function(){initNavTree('md_README.html',''); initResizable(); 
 </ul>
 </li>
 <li><a href="#build-instructions">Build instructions</a><ul>
+<li><a href="#introduction-to-alibuild">Introduction to <code>aliBuild</code></a></li>
 <li><a href="#on-lxplus-or-systems-with-cvmfs">On lxplus or systems with CVMFS</a></li>
 <li><a href="#on-systems-without-access-to-cvmfs">On systems without access to CVMFS</a></li>
 </ul>
 </li>
-<li><a href="#run-instructions">Run Instructions</a></li>
+<li><a href="#run-instructions">Run instructions</a><ul>
+<li><a href="#use-cases-covered-by-run_simsndpy">Use cases covered by <code>run_simSND.py</code></a></li>
+<li><a href="#digitization-of-mc-data">Digitization of MC data</a></li>
+<li><a href="#converting-raw-data-to-sndsw-format">Converting raw data to sndsw format</a></li>
+<li><a href="#example-scripts-for-accessing-the-raw-data-and-making-histograms">Example scripts for accessing the raw data and making histograms</a></li>
+<li><a href="#simple-2d-event-display-with-scifi-tracking">simple 2d event display with Scifi tracking</a></li>
+</ul>
+</li>
 <li><a href="#development">Development</a><ul>
 <li><a href="#how-to-keep-branches-up-to-date">How to keep branches up to date</a></li>
 <li><a href="#how-to-contribute-code">How to contribute code</a></li>
@@ -123,8 +131,8 @@ Branches</h2>
 <h1><a class="anchor" id="autotoc_md24"></a>
 Build instructions</h1>
 <p>The <code>aliBuild</code> family of tools developed by ALICE is used to set up <code>sndsw</code> and its dependencies.</p>
-<h3><a class="anchor" id="autotoc_md25"></a>
-Introduction to &lt;tt&gt;aliBuild&lt;/tt&gt;</h3>
+<h2><a class="anchor" id="autotoc_md25"></a>
+Introduction to &lt;tt&gt;aliBuild&lt;/tt&gt;</h2>
 <p>The basic commands are the same regardless of whether CVMFS is used:</p>
 <dl>
 <dt><code>aliBuild build &lt;package-name&gt; -c snddist</code> </dt>
@@ -151,8 +159,6 @@ On lxplus or systems with CVMFS</h2>
 <p>However, this won't work if you are using HTCondor. In such case you can do:</p>
 <div class="fragment"><div class="line">eval $(alienv load sndsw/latest --no-refresh)</div>
 </div><!-- fragment --><p>If you modify <code>sndsw</code>, simply repeat step 4 from <code>sndsw</code>'s parent directory.</p>
-<p>Note for Ubuntu 20.04: currently there is a version (March 2022) of CVMFS built with Ubuntu 20.04. However, standard ubuntu 20.04 still have python2 has default, while we moved to python3. So, it is needed to do </p><div class="fragment"><div class="line">sudo apt-get install python-is-python3</div>
-</div><!-- fragment --><p>Then, the above procedure works </p>
 <h2><a class="anchor" id="autotoc_md27"></a>
 On systems without access to CVMFS</h2>
 <p>Commands are similar to the previous case, but without access to CVMFS you need to build the required packages from source.</p>
@@ -164,46 +170,45 @@ On systems without access to CVMFS</h2>
 <li>Load the environment ```bash alienv enter sndsw/latest ```</li>
 </ol>
 <h1><a class="anchor" id="autotoc_md28"></a>
-Run Instructions</h1>
-<p>updated 11 October 2021 for the use with raw data</p>
+Run instructions</h1>
 <p>Set up the bulk of the environment from CVMFS.</p>
-<div class="fragment"><div class="line">source /cvmfs/sndlhc.cern.ch/latest/setUp.sh </div>
+<div class="fragment"><div class="line">source /cvmfs/sndlhc.cern.ch/SNDLHC-2024/June25/setUp.sh</div>
 </div><!-- fragment --><p>Load your local sndsw environment.</p>
-<div class="fragment"><div class="line">alienv enter (--shellrc) sndsw/latest </div>
+<div class="fragment"><div class="line">alienv enter (--shellrc) sndsw/latest</div>
 </div><!-- fragment --><div class="fragment"><div class="line">python $SNDSW_ROOT/shipLHC/run_simSND.py  --Ntuple  -n 100 -f /eos/experiment/sndlhc/MonteCarlo/FLUKA/muons_up/version1/unit30_Nm.root  --eMin 1.0</div>
-<div class="line">&gt;&gt; Macro finished succesfully. </div>
+<div class="line">&gt;&gt; Macro finished succesfully.</div>
 </div><!-- fragment --> <blockquote class="doxtable">
 <blockquote class="doxtable">
 <p>Output files are sndLHC.Ntuple-TGeant4.root (events) and geofile_full.Ntuple-TGeant4.root (setup) </p>
 </blockquote>
 </blockquote>
 <p>Run the event display:</p>
-<div class="fragment"><div class="line">python -i $SNDSW_ROOT/macro/eventDisplay.py -f sndLHC.Ntuple-TGeant4.root -g geofile_full.Ntuple-TGeant4.root </div>
-<div class="line">// use SHiP Event Display GUI </div>
-<div class="line">Use quit() or Ctrl-D (i.e. EOF) to exit </div>
+<div class="fragment"><div class="line">python -i $SNDSW_ROOT/macro/eventDisplay.py -f sndLHC.Ntuple-TGeant4.root -g geofile_full.Ntuple-TGeant4.root</div>
+<div class="line">// use SHiP Event Display GUI</div>
+<div class="line">Use quit() or Ctrl-D (i.e. EOF) to exit</div>
 </div><!-- fragment --><p> a) Use the GUI to display events: SHiP actions / next event</p>
-<p>b) Hoovering over trajectory will display additional information :</p>
-<p>c) At python prompt: <a class="el" href="namespacedecorators.html#a3c7af73e472ea77e011ed0d4520bbbab">sTree.MCTrack.Dump()</a> will display info about all MC particles</p>
+<p>b) Hovering over trajectory will display additional information :</p>
+<p>c) At python prompt: <code><a class="el" href="namespacedecorators.html#a3c7af73e472ea77e011ed0d4520bbbab">sTree.MCTrack.Dump()</a></code> will display info about all MC particles</p>
 <h2><a class="anchor" id="autotoc_md29"></a>
-Use cases covered by &lt;tt&gt;run_simSND.py&lt;/tt&gt;:</h2>
+Use cases covered by &lt;tt&gt;run_simSND.py&lt;/tt&gt;</h2>
 <ol type="1">
 <li>Transport muons, output of FLUKA simulation, to TI18 and the detector. Positive and negative muons, up and down crossing angles, exist. Possible options are setting minimum energy for transporting particles, transport only muons, increase EM cross sections of muons.</li>
 </ol>
 <div class="fragment"><div class="line">python $SNDSW_ROOT/shipLHC/run_simSND.py  --Ntuple  -n nEvents  -f /eos/experiment/sndlhc/MonteCarlo/FLUKA/muons_up/version1/unit30_Nm.root  --eMin ecut</div>
 </div><!-- fragment --><ol type="1">
-<li>Muon deep inelastic scattering events, produced with pythia6, and then positioned in T18 and transported by Geant4: <div class="fragment"><div class="line">python  $SNDSW_ROOT/shipLHC/run_simSND.py  -F --MuDIS -n nEvents -f  /eos/experiment/sndlhc/MonteCarlo/Pythia6/MuonDIS/muonDis_1001.root  --eMin ecut</div>
+<li>Muon deep inelastic scattering events, produced with pythia6, and then positioned in TI18 and transported by Geant4: <div class="fragment"><div class="line">python  $SNDSW_ROOT/shipLHC/run_simSND.py  -F --MuDIS -n nEvents -f  /eos/experiment/sndlhc/MonteCarlo/Pythia6/MuonDIS/muonDis_1001.root  --eMin ecut</div>
 </div><!-- fragment --></li>
-<li>WORK ONGOING: Neutrino events, produced by GENIE, <a class="el" href="makeSNDGenieEvents_8py.html">sndsw/macro/makeSNDGenieEvents.py</a>, and then positioned in T18 and transported by Geant4: <div class="fragment"><div class="line">python  $SNDSW_ROOT/shipLHC/run_simSND.py  --Genie -n nEvents -f ...</div>
+<li>Neutrino events, produced by GENIE and then positioned in TI18 and transported by Geant4: <div class="fragment"><div class="line">python  $SNDSW_ROOT/shipLHC/run_simSND.py  --Genie -n nEvents -f ...</div>
 </div><!-- fragment --></li>
 </ol>
 <h2><a class="anchor" id="autotoc_md30"></a>
-Digitization of MC data:</h2>
+Digitization of MC data</h2>
 <ol type="1">
 <li>Convert MC points to detector hits. Input required, data from simulation together with the geometry file created when running simulation. New objects created are <code>Digi_ScifiHits</code> together with <code>Cluster_Scifi</code> and <code>Digi_MuFilterHit</code>, and in parallel objects to make the link to the original MC points, <code>Digi_MuFilterHits2MCPoints</code> and <code>Digi_ScifiHits2MCPoints</code>.</li>
 </ol>
 <div class="fragment"><div class="line">python $SNDSW_ROOT/shipLHC/run_digiSND.py   -f sndLHC.Ntuple-TGeant4.root -g geofile_full.Ntuple-TGeant4.root</div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md31"></a>
-Converting raw data to sndsw format:</h2>
+Converting raw data to sndsw format</h2>
 <ol type="1">
 <li>Runs the calibration procedure and creates <code>Digi_ScifiHits</code> and <code>Digi_MuFilterHit</code> with signal and time information from SiPM channels.</li>
 </ol>
@@ -213,17 +218,17 @@ Converting raw data to sndsw format:</h2>
 </ol>
 <div class="fragment"><div class="line">python $SNDSW_ROOT/shipLHC/rawData/convertRawData_convertRawData_muTestbeam.py -p /eos/experiment/sndlhc/testbeam/MuFilter/TB_data_commissioning/ -n 5000000  -r 91</div>
 </div><!-- fragment --> <h2><a class="anchor" id="autotoc_md32"></a>
-Example scripts for accessing the raw data and making histograms:</h2>
+Example scripts for accessing the raw data and making histograms</h2>
 <ol type="1">
-<li>For scifi data: <div class="fragment"><div class="line">python $SNDSW_ROOT/shipLHC/rawData/scifiHitMaps.py -p /eos/experiment/sndlhc/testbeam/scifi/sndsw/ -r 1 -g geofile_full.Ntuple-TGeant4.root </div>
+<li>For scifi data: <div class="fragment"><div class="line">python $SNDSW_ROOT/shipLHC/rawData/scifiHitMaps.py -p /eos/experiment/sndlhc/testbeam/scifi/sndsw/ -r 1 -g geofile_full.Ntuple-TGeant4.root</div>
 </div><!-- fragment --></li>
-<li>For MuFi data: <div class="fragment"><div class="line">python $SNDSW_ROOT/shipLHC/rawData/mufiHitMaps.py -p /eos/experiment/sndlhc/testbeam/MuFilter/TB_data_commissioning/sndsw/ -r 90 -g geofile_full.Ntuple-TGeant4.root </div>
+<li>For MuFi data: <div class="fragment"><div class="line">python $SNDSW_ROOT/shipLHC/rawData/mufiHitMaps.py -p /eos/experiment/sndlhc/testbeam/MuFilter/TB_data_commissioning/sndsw/ -r 90 -g geofile_full.Ntuple-TGeant4.root</div>
 </div><!-- fragment --> Two methods implemented, hitMaps(Nev = -1) and <a class="el" href="namespacemufiHitMaps.html#aaf61f493002a3f19a5e9384eac1c257e">eventTime()</a>.</li>
 </ol>
 <h2><a class="anchor" id="autotoc_md33"></a>
-simple 2d event display with Scifi tracking:</h2>
+simple 2d event display with Scifi tracking</h2>
 <ol type="1">
-<li>Use method loopEvents(start=0,save=False,goodEvents=False,withTrack=False) <div class="fragment"><div class="line">python $SNDSW_ROOT/shipLHC/scripts/scifiHitMaps.py -p /eos/experiment/sndlhc/testbeam/scifi/sndsw/ -r 1 -g geofile_full.Ntuple-TGeant4.root </div>
+<li>Use method loopEvents(start=0,save=False,goodEvents=False,withTrack=False) <div class="fragment"><div class="line">python $SNDSW_ROOT/shipLHC/scripts/scifiHitMaps.py -p /eos/experiment/sndlhc/testbeam/scifi/sndsw/ -r 1 -g geofile_full.Ntuple-TGeant4.root</div>
 </div><!-- fragment --></li>
 </ol>
 <h1><a class="anchor" id="autotoc_md34"></a>
