@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['linesrch_10354',['linesrch',['../namespacelinesrch.html',1,'']]],
-  ['logger_10355',['logger',['../namespacelogger.html',1,'']]]
+  ['linesrch_10369',['linesrch',['../namespacelinesrch.html',1,'']]],
+  ['logger_10370',['logger',['../namespacelogger.html',1,'']]]
 ];

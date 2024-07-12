@@ -104,6 +104,7 @@ var NAVTREEINDEX2 =
 "Mufi__monitoring_8py.html#a81c61924524c6a6d31a7f387e8b18ba4":[13,0,20,1,8,5],
 "Mufi__monitoring_8py.html#a96359c0da8161ce41c4151913a7a4fce":[13,0,20,1,8,3],
 "Mufi__monitoring_8py.html#ab452e361ad07122c2ced6622888607fb":[13,0,20,1,8,4],
+"Mufi__monitoring_8py.html#ab4d809b160aecff45dfb73602c0ee043":[13,0,20,1,8,6],
 "Mufi__monitoring_8py_source.html":[13,0,20,1,8],
 "MufluxDigiReco_8py.html":[13,0,17,21],
 "MufluxDigiReco_8py.html#a20b5b65b9b5ff92744639b945bc4502d":[13,0,17,21,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX2 =
 "ProlateSpacepointMeasurement_8cc_source.html":[13,0,5,8,1,8],
 "ProlateSpacepointMeasurement_8h.html":[13,0,5,8,0,7],
 "ProlateSpacepointMeasurement_8h_source.html":[13,0,5,8,0,7],
-"Pythia6Generator_8cxx.html":[13,0,19,26],
-"Pythia6Generator_8cxx_source.html":[13,0,19,26]
+"Pythia6Generator_8cxx.html":[13,0,19,26]
 };

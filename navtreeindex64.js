@@ -1,5 +1,11 @@
 var NAVTREEINDEX64 =
 {
+"namespaceextract__interacting__neutrinos.html#ad3842a773edea12249c66fc322fc19a4":[11,0,42,19],
+"namespaceextract__interacting__neutrinos.html#af22d34688f17c65b330c898ed5ee9d90":[11,0,42,4],
+"namespaceflux__map.html":[11,0,46],
+"namespaceflux__map.html#a0a534466aad410c85e90044a42a9fa87":[11,0,46,1],
+"namespaceflux__map.html#a1e7a8c61a88a7cbb36c21af7285ca627":[11,0,46,2],
+"namespaceflux__map.html#aa4396f692c5693680cc3d484d8f92451":[11,0,46,0],
 "namespaceg4Ex.html":[11,0,47],
 "namespaceg4Ex.html#a02c31619785527bb2d8dffa1bda0698c":[11,0,47,18],
 "namespaceg4Ex.html#a061659168e123a4f98f22d3f2d8717fb":[11,0,47,6],
@@ -243,11 +249,5 @@ var NAVTREEINDEX64 =
 "namespacegenfit_1_1tools.html#a409cdc24f5908845f845bf0c4a2d4961":[11,0,52,1,2],
 "namespacegenfit_1_1tools.html#a97e35224c7d7ec5d63f23ffda85aef4c":[11,0,52,1,5],
 "namespacegenfit_1_1tools.html#a98e2c1ec0611289beb34a8bfb13980a7":[11,0,52,1,6],
-"namespacegenfit_1_1tools.html#a99071af64076652ebc806de12fac3127":[11,0,52,1,0],
-"namespacegenfit_1_1tools.html#abb8ddf6bbcd1a5c6389977e4efd9d623":[11,0,52,1,1],
-"namespacegenfit_1_1tools.html#ac274865dfcc40aab153c2b5211ebaeef":[11,0,52,1,3],
-"namespacegenfit_1_1tools.html#ad01f5f3f93d60193d1460088a53d91f0":[11,0,52,1,4],
-"namespacegenie__interface.html":[11,0,53],
-"namespacegenie__interface.html#a16e0d3f3bbbd110b54bc1771de36325c":[11,0,53,5],
-"namespacegenie__interface.html#a180e9f487c5eb0867697f5ab37c78549":[11,0,53,4]
+"namespacegenfit_1_1tools.html#a99071af64076652ebc806de12fac3127":[11,0,52,1,0]
 };

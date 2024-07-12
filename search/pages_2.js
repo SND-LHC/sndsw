@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['major_20changes_20141',['Major changes',['../changes_page.html',1,'index']]]
+  ['major_20changes_20169',['Major changes',['../changes_page.html',1,'index']]]
 ];
