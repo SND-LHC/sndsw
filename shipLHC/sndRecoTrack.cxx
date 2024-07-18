@@ -10,6 +10,7 @@
 #include "StateOnPlane.h"  /* genfit */
 #include "FitStatus.h"
 #include "RKTrackRep.h"
+#include "DetPlane.h"
 #include "ConstField.h"
 #include "FieldManager.h"
 #include "TGeoMaterialInterface.h"
@@ -184,6 +185,7 @@ TVector3 sndRecoTrack::extrapolateToPlaneAtZ(float z)
    /* line below assumes that plane in global coordinates
       is perpendicular to z-axis, which is not true for TI18 geometry. */
    TVector3 parallelToZ = TVector3(0., 0., 1.);
+   auto plane = std::make_shared<genfit::DetPlane>(NewPosition, parallelToZ);
    RKTrackRep rep = RKTrackRep(13);
    StateOnPlane state = StateOnPlane(&rep);
    // find index(!) of track point closest in z
@@ -194,7 +196,7 @@ TVector3 sndRecoTrack::extrapolateToPlaneAtZ(float z)
    }
    TVector3 Closest_pos = fTrackPoints[index];
    rep.setPosMom(state, Closest_pos, fTrackMom);
-   rep.extrapolateToPlane(state, NewPosition, parallelToZ);
+   rep.extrapolateToPlane(state, plane);
 
    return state.getPos();
 }
