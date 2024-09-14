@@ -1091,7 +1091,7 @@ def timingOfEvent(makeCluster=False,debug=False):
        z=(A[2]+B[2])/2.
        pos = (A[1]+B[1])/2.
        L = abs(A[0]-B[0])/2.
-       if isVertical: 
+       if aHit.isVertical(): 
           pos = (A[0]+B[0])/2.
           L = abs(A[1]-B[1])/2.
        for i in range(nmax):
