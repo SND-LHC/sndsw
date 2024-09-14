@@ -66,6 +66,7 @@ parser.add_argument("--parallel", dest="parallel",default=1,type=int)
 parser.add_argument("--postScale", dest="postScale",help="post scale events, 1..10..100", default=-1,type=int)
 
 parser.add_argument("--saveTo", dest="saveTo", help="output storage path", default="")
+parser.add_argument("--only_Veto_Efficiency",help="run only the Veto_Efficiency task", action='store_true')
 
 options = parser.parse_args()
 options.slowStream = True
@@ -136,6 +137,8 @@ if options.auto:
         lastRun = curRun
         if options.slowStream:   options.partition = 0   #   monitoring file set to data_0000.root   int(curPart.split('_')[1].split('.')[0])
         else:                             options.partition = int(curPart.split('_')[1].split('.')[0])
+elif options.only_Veto_Efficiency:
+  print("Running only Veto Efficiency module, no raw-data checks being made.")
 else:
    if options.runNumber < 0:
        print("run number required for non-auto mode")
@@ -190,10 +193,15 @@ if not options.fname:
    monitorTasks['daq']     = DAQ_monitoring.DAQ_boards()
    monitorTasks['rates']   = DAQ_monitoring.Time_evolution()
 monitorTasks['Scifi_hitMaps']   = Scifi_monitoring.Scifi_hitMaps()
+monitorTasks['Scifi_residuals'] = Scifi_monitoring.Scifi_residuals()   # time consuming
 monitorTasks['Mufi_hitMaps']   = Mufi_monitoring.Mufi_hitMaps()
 monitorTasks['Mufi_QDCcorellations']   = Mufi_monitoring.Mufi_largeVSsmall()
-if options.postScale<2: monitorTasks['Veto_Efficiency']   = Mufi_monitoring.Veto_Efficiency()
-#monitorTasks['Scifi_residuals'] = Scifi_monitoring.Scifi_residuals()   # time consuming
+# run only the Veto_Efficiency task
+if  options.only_Veto_Efficiency:
+   # it makes sense only if postScale = 1, so force it
+   options.postScale = 1
+   monitorTasks.clear()
+if options.postScale<2:  monitorTasks['Veto_Efficiency'] = Mufi_monitoring.Veto_Efficiency()
 if options.interactive:  monitorTasks['EventDisplay']   = EventDisplay_Task.twod()
 
 for m in monitorTasks:

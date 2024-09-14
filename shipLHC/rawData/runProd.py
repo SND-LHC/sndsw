@@ -136,7 +136,7 @@ class prodManager():
 
    def RerunDataQuality(self,runNrs=[],rMin=-1,rMax=99999):
       monitorCommand = "python $SNDSW_ROOT/shipLHC/scripts/run_Monitoring.py -r XXXX --server=$EOSSHIP \
-                        -b 100000 -p "+pathConv+" -g GGGG "\
+                        -b 100000 -p "+pathConv+" -praw "+path+" -g GGGG "\
                         +" --postScale "+str(options.postScale)+ " --ScifiResUnbiased 1 --batch --sudo "
       if options.parallel>1: monitorCommand += " --postScale "+str(options.parallel)
       if len(runNrs) ==0:
@@ -153,6 +153,26 @@ class prodManager():
            os.system(monitorCommand.replace('XXXX',str(r)).replace('GGGG',geoFile)+" &")
            time.sleep(20)
            while self.count_python_processes('run_Monitoring')>(ncpus-5) or psutil.virtual_memory()[2]>90 : time.sleep(300)
+
+   def RunVetoEfficiency(self,runNrs=[],rMin=-1,rMax=9999):
+      monitorCommand = "python $SNDSW_ROOT/shipLHC/scripts/run_Monitoring.py -r XXXX --server=$EOSSHIP \
+                        -b 100000 -p "+pathConv+" -praw "+path+" -g GGGG "\
+                        +" --postScale 1 --only_Veto_Efficiency --batch  --nStart "\
+                        +str(options.nStart)+ " --nEvents "+str(options.nEvents) + " --saveTo " + options.saveTo
+      if len(runNrs) ==0 and rMin!=rMax:
+         self.getRunNrFromOffline(rMin,rMax)
+         runNrs = self.dqDataFiles
+      if rMin==rMax: 
+        runNrs = [rMin]
+      for r in runNrs:
+           print('executing DQ for run %i'%(r))
+           if   r  < 4575:  geoFile =  "../geofile_sndlhc_TI18_V3_08August2022.root"
+           elif r  < 4855:   geoFile =  "../geofile_sndlhc_TI18_V5_14August2022.root"
+           elif r  < 5172:  geoFile =  "../geofile_sndlhc_TI18_V6_08October2022.root"
+           elif r  < 5485: geoFile =  "../geofile_sndlhc_TI18_V7_22November2022.root"
+           elif r  < 7357: geoFile =  "../geofile_sndlhc_TI18_V1_2023.root"
+           else: geoFile =  options.geofile
+           os.system(monitorCommand.replace('XXXX',str(r)).replace('GGGG',geoFile))
 
    def check4NewFiles(self,latest,rmax):
       rawDataFiles = self.getFileList(path,latest,rmax,minSize=10E6)
@@ -383,7 +403,6 @@ if __name__ == '__main__':
     parser.add_argument("--saveTo", dest="saveTo", help="output storage path", default="")
     parser.add_argument("-n", "--nEvents", dest="nEvents", help="number of events", default=-1,type=int)
     parser.add_argument("-s", "--nStart", dest="nStart", help="first event", default=0,type=int)
-
     
     options = parser.parse_args()
     M = prodManager()
@@ -432,6 +451,12 @@ if __name__ == '__main__':
         for r in options.runNumbers.split(','):
             if r!= '': runList.append(int(r))
         M.RerunDataQuality(runList,options.rMin,options.rMax)
+
+    elif options.command == "VetoEff":
+        runList = []
+        for r in options.runNumbers.split(','):
+            if r!= '': runList.append(int(r))
+        M.RunVetoEfficiency(runList,options.rMin,options.rMax)
 
     elif options.command == "convert":
         for r in options.runNumbers.split(','):
