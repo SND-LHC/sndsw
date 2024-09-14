@@ -157,11 +157,11 @@ std::map<Int_t,Float_t> MuFilterHit::GetAllSignals(Bool_t mask,Bool_t positive)
               for (unsigned int j=0; j<nSiPMs; ++j){
                unsigned int channel = j+s*nSiPMs;
                if (signals[channel]<-900){continue;}
-               if (signals[channel]> 0 || !positive){
+               //if (signals[channel]> 0 || !positive){
                  if (!fMasked[channel] || !mask){
                     allSignals[channel] = signals[channel];
                     }
-                }
+               //}
               }
           }
           return allSignals;
