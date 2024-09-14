@@ -107,7 +107,7 @@ class Monitoring():
 
         self.runNr   = str(options.runNumber).zfill(6)
 # presenter file
-        if hasattr(self, "saveTo") and options.saveTo!="":
+        if hasattr(options, "saveTo") and options.saveTo!="":
           name = options.saveTo+'run'+self.runNr+'_'+str(options.nStart//1000000)+'.root'
         else:
            name = 'run'+self.runNr+'.root'
