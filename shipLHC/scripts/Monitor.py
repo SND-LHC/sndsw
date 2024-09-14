@@ -81,8 +81,8 @@ class Monitoring():
              path = path.replace("raw_data","convertedData").replace("data/","")
              self.myclient = client.FileSystem(options.server)
 # setup geometry
-        if (options.geoFile).find('../')<0: self.snd_geo = SndlhcGeo.GeoInterface(path+options.geoFile)
-        else:                                         self.snd_geo = SndlhcGeo.GeoInterface(options.geoFile[3:])
+        if (options.geoFile).find('../')<0: self.snd_geo = SndlhcGeo.GeoInterface(options.geoFile)
+        else:                                         self.snd_geo = SndlhcGeo.GeoInterface(path+options.geoFile[3:])
         self.MuFilter = self.snd_geo.modules['MuFilter']
         self.Scifi       = self.snd_geo.modules['Scifi']
 
@@ -107,7 +107,7 @@ class Monitoring():
 
         self.runNr   = str(options.runNumber).zfill(6)
 # presenter file
-        if hasattr(self, "saveTo") and options.saveTo!="":
+        if hasattr(options, "saveTo") and options.saveTo!="":
           name = options.saveTo+'run'+self.runNr+'_'+str(options.nStart//1000000)+'.root'
         else:
            name = 'run'+self.runNr+'.root'
