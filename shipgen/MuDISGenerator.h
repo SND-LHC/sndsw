@@ -28,9 +28,14 @@ class MuDISGenerator : public FairGenerator
   virtual Bool_t Init(const char*); //!
   Int_t GetNevents();
 
-  void SetPositions(Double_t zTa, Double_t zS=-3400., Double_t zE=2650.){ 
-    startZ      = zS;
-    endZ        = zE; 
+  /** set the 3D position of the muonDIS interaction  **/
+  void SetPositions(Double_t zS=-3400., Double_t zE=2650., Double_t xS=-999., Double_t xE=999., Double_t yS=-999., Double_t yE=999.){
+    startZ = zS;
+    endZ   = zE; 
+    startX = xS;
+    endX   = xE;
+    startY = yS;
+    endY   = yE;
   }
 
  private:
@@ -38,7 +43,7 @@ class MuDISGenerator : public FairGenerator
 
   
  protected:
-  Double_t startZ,endZ;
+  Double_t startZ, endZ, startX, endX, startY, endY;
   TClonesArray* iMuon ;
   TClonesArray* dPart ; 
   FairLogger*  fLogger; //!   don't make it persistent, magic ROOT command
@@ -47,6 +52,6 @@ class MuDISGenerator : public FairGenerator
   int fNevents;
   int fn;
   bool fFirst;
-  ClassDef(MuDISGenerator,1);
+  ClassDef(MuDISGenerator,2);
 };
 #endif /* !PNDMuGENERATOR_H */
