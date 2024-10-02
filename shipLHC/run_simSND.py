@@ -45,7 +45,12 @@ parser.add_argument("--FastMuon",  dest="fastMuon",  help="Only transport muons 
 parser.add_argument('--eMin', type=float, help="energy cut", dest='ecut', default=-1.)
 parser.add_argument('--zMax', type=float, help="max distance to apply energy cut", dest='zmax', default=70000.)
 parser.add_argument("--Nuage",     dest="nuage",  help="Use Nuage, neutrino generator of OPERA", required=False, action="store_true")
-parser.add_argument("--MuDIS",     dest="mudis",  help="Use muon deep inelastic scattering generator", required=False, action="store_true")
+
+parser.add_argument("--MuDIS",  dest="mudis",  help="Use muon deep inelastic scattering generator", required=False, action="store_true")
+parser.add_argument("--xRange", dest="mudis_x_range", nargs=2, help="Lower and upper x limit of DIS interaction", required=False, default=[-999,999], type=float)
+parser.add_argument("--yRange", dest="mudis_y_range", nargs=2, help="Lower and upper y limit of DIS interaction", required=False, default=[-999,999], type=float)
+parser.add_argument('--zRange', dest="mudis_z_range", nargs=2, help='Lower and upper z limit of DIS interaction', required=False, default=[(-3.7-2.0)*u.m , -0.3*u.m], type=float)
+
 parser.add_argument("-n", "--nEvents",dest="nEvents",  help="Number of events to generate", required=False,  default=100, type=int)
 parser.add_argument("-i", "--firstEvent",dest="firstEvent",  help="First event of input file to use", required=False,  default=0, type=int)
 parser.add_argument("-s", "--seed",dest="theSeed",  help="Seed for random number. Only for experts, see TRrandom::SetSeed documentation", required=False,  default=0, type=int)
@@ -197,13 +202,19 @@ if simEngine == "muonDIS":
    ut.checkFileExists(inputFile)
    primGen.SetTarget(0., 0.) 
    DISgen = ROOT.MuDISGenerator()
-   mu_start, mu_end = (-3.7-2.0)*u.m , -0.3*u.m # tunnel wall -30cm in front of SND
-   DISgen.SetPositions(0, mu_start, mu_end)
+   # defaults for SND are z = [(-3.7-2.0)*u.m , -0.3*u.m] as the tunnel wall -30cm in front of SND
+   # Note that the accessible x-y range, before x-y range selection is made,
+   # will always be restricted by the size of the scoring plane and the primary muon angles!
+   DISgen.SetPositions(options.mudis_z_range[0], options.mudis_z_range[1],
+                       options.mudis_x_range[0], options.mudis_x_range[1],
+                       options.mudis_y_range[0], options.mudis_y_range[1])
    DISgen.Init(inputFile,options.firstEvent) 
    primGen.AddGenerator(DISgen)
    options.nEvents = min(options.nEvents,DISgen.GetNevents())
    inactivateMuonProcesses = True # avoid unwanted hadronic events of "incoming" muon flying backward
-   print('MuDIS position info input=',mu_start, mu_end)
+   print('MuDIS position info input:\nx_range =', options.mudis_x_range,
+                                   '; y_range =', options.mudis_y_range,
+                                   '; z_range =', options.mudis_z_range)
    print('Generate ',options.nEvents,' with DIS input', ' first event',options.firstEvent)
 
 # -----neutrino interactions from nuage------------------------
