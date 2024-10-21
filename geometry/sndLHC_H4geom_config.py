@@ -326,7 +326,7 @@ with ConfigRegistry.register_config("basic") as c:
              c.EmulsionDet.zdim = c.EmulsionDet.wall* c.EmulsionDet.TotalWallZDim + c.EmulsionDet.wall*c.EmulsionDet.TTz
 
              c.EmulsionDet.n_plates = 59 # the most downstream 28 layers are W+plastic
-             c.EmulsionDet.n_tungsten_plates = 28
+             c.EmulsionDet.n_tungsten_plates_tb24 = 28
              c.EmulsionDet.EmX = 19.2 * u.cm
              c.EmulsionDet.EmY = 19.2 * u.cm
              c.EmulsionDet.EmTh = 0.0 * u.cm # no emulsion 
