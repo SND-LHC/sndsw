@@ -205,6 +205,8 @@ void Scifi::ConstructGeometry()
 	Double_t fBigGap = conf_floats["Scifi/sipm_diegap"]; //Gap between two arrays
 	Int_t fNSiPMChan = conf_ints["Scifi/nsipm_channels"]; //Number of channels in each SiPM
 	Double_t firstChannelX = conf_floats["Scifi/firstChannelX"]; //local X Position of first channel in plane
+	
+	Int_t PassiveBlockNotCenterred = conf_ints["Scifi/PassiveBlocknotCenterred"]; // flag showing whether the passive material (FeBlocks) are to be centerred wrt the Scifi
 
 //edge positions in TI18 survey system:
         std::map<int,TVector3> Vedges;
@@ -454,8 +456,8 @@ void Scifi::ConstructGeometry()
        volFeTarget[istation] = gGeoManager->MakeBox(TString("volFeTarget"+station),Fe,fFeTargetX[istation]/2., fFeTargetY[istation]/2., fFeTargetZ[istation]/2.);
        volFeTarget[istation]->SetLineColor(kGreen-4);
        volTarget->AddNode(volFeTarget[istation],1,
-                                         new TGeoTranslation(DeltasV[istation][0] ,
-                                                             DeltasH[istation][1] ,
+                                         new TGeoTranslation(DeltasV[istation][0] - PassiveBlockNotCenterred*fabs(fXDimension-fFeTargetX[istation])/2.,
+                                                             DeltasH[istation][1] + PassiveBlockNotCenterred*fabs(fYDimension-fFeTargetY[istation])/2.,
                                                              DeltasH[istation][2] - fStationOffset[istation] - fFeTargetZ[istation]/2.));
     }
 
