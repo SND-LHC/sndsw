@@ -59,6 +59,7 @@ lsOfGlobals.Add(geo.modules['Scifi'])
 lsOfGlobals.Add(geo.modules['MuFilter'])
 
 detSize = {}
+em = geo.snd_geo.EmulsionDet
 si = geo.snd_geo.Scifi
 detSize[0] =[si.channel_width, si.channel_width, si.scifimat_z ]
 mi = geo.snd_geo.MuFilter
@@ -245,7 +246,7 @@ def drawLegend(max_density, max_QDC, n_legend_points):
        """Draws legend for hit colour"""
        h['simpleDisplay'].cd(1)
        n_legend_points = 5
-       padLegScifi = ROOT.TPad("legend","legend",0.4,0.15,0.4+0.25, 0.15+0.25)
+       padLegScifi = ROOT.TPad("legend","legend",0.4,0.15,0.4+0.27, 0.15+0.25)
        padLegScifi.SetFillStyle(4000)
        padLegScifi.Draw()
        padLegScifi.cd()
@@ -302,16 +303,25 @@ def loopEvents(
               ):
  if 'simpleDisplay' not in h: ut.bookCanvas(h,key='simpleDisplay',title='simple event display',nx=1200,ny=1600,cx=1,cy=2)
  h['simpleDisplay'].cd(1)
- zStart = 250. # TI18 coordinate system
+ # TI18 coordinate system
+ zStart = 250.
+ zEnd = 600.
+ xStart = -100.
+ yStart =  -30.
  if Setup == 'H6': zStart = 60.
  if Setup == 'TP': zStart = -50. # old coordinate system with origin in middle of target
+ if Setup == 'H4': 
+   xStart = -110.
+   yStart = -10.
+   zStart = 300.
+   zEnd = 430.
  if 'xz' in h: 
     h.pop('xz').Delete()
     h.pop('yz').Delete()
  else:
-    h['xmin'],h['xmax'] = -100.,10.
-    h['ymin'],h['ymax'] = -30.,80.
-    h['zmin'],h['zmax'] = zStart,zStart+350.
+    h['xmin'],h['xmax'] = xStart,xStart+110.
+    h['ymin'],h['ymax'] = yStart,yStart+110.
+    h['zmin'],h['zmax'] = zStart,zEnd
     for d in ['xmin','xmax','ymin','ymax','zmin','zmax']: h['c'+d]=h[d]
  ut.bookHist(h,'xz','; z [cm]; x [cm]',500,h['czmin'],h['czmax'],100,h['cxmin'],h['cxmax'])
  ut.bookHist(h,'yz','; z [cm]; y [cm]',500,h['czmin'],h['czmax'],100,h['cymin'],h['cymax'])
@@ -725,6 +735,12 @@ def drawDetectors():
          if i==2: nodes['volVeto_1/volVetoPlane_{}_{}/volVetoBar_ver_1{}{:0>3d}'.format(i, i, i, j)]=ROOT.kRed
       if i<2: nodes['volVeto_1/subVetoBox_{}'.format(i)]=ROOT.kGray+1
       if i==2: nodes['volVeto_1/subVeto3Box_{}'.format(i)]=ROOT.kGray+1
+   for i in range(si.nscifi): # number of scifi stations
+      nodes['volTarget_1/ScifiVolume{}_{}000000'.format(i+1, i+1)]=ROOT.kBlue+1
+      # iron blocks btw SciFi planes in the testbeam 2023-2024 det layout
+      nodes['volTarget_1/volFeTarget{}_1'.format(i+1)]=ROOT.kGreen-6
+   for i in range(em.wall): # number of target walls
+      nodes['volTarget_1/volWallborder_{}'.format(i)]=ROOT.kGray
    for i in range(mi.NDownstreamPlanes):
       nodes['volMuFilter_1/volMuDownstreamDet_{}_{}'.format(i, i+mi.NVetoPlanes+mi.NUpstreamPlanes)]=ROOT.kBlue+1
       for j in range(mi.NDownstreamBars):
@@ -734,12 +750,8 @@ def drawDetectors():
    for i in range(mi.NDownstreamPlanes):
       nodes['volMuFilter_1/subDSBox_{}'.format(i+mi.NVetoPlanes+mi.NUpstreamPlanes)]=ROOT.kGray+1
    for i in range(mi.NUpstreamPlanes):
-      nodes['volTarget_1/ScifiVolume{}_{}000000'.format(i+1, i+1)]=ROOT.kBlue+1
-      nodes['volTarget_1/volWallborder_{}'.format(i)]=ROOT.kGray
       nodes['volMuFilter_1/subUSBox_{}'.format(i+mi.NVetoPlanes)]=ROOT.kGray+1
       nodes['volMuFilter_1/volMuUpstreamDet_{}_{}'.format(i, i+mi.NVetoPlanes)]=ROOT.kBlue+1
-      # iron blocks btw SciFi planes in the testbeam 2023 det layout
-      nodes['volTarget_1/volFeTarget{}_1'.format(i+1)]=ROOT.kGreen-6
       for j in range(mi.NUpstreamBars):
          nodes['volMuFilter_1/volMuUpstreamDet_{}_{}/volMuUpstreamBar_2{}00{}'.format(i, i+mi.NVetoPlanes, i, j)]=ROOT.kBlue+1
       nodes['volMuFilter_1/volFeBlock_{}'.format(i)]=ROOT.kGreen-6
