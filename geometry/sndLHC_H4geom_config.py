@@ -2,10 +2,12 @@ import ROOT as r
 import shipunit as u
 from ShipGeoConfig import AttrDict, ConfigRegistry
 
+with_tungsten = False
 if "tb_2024_mc" in globals():
     tb_2024_mc = True
+    if  globals()["target_material"]=="W":
+      with_tungsten = True
 else: tb_2024_mc = False
-
 with ConfigRegistry.register_config("basic") as c:
 # cave parameters
         c.cave = AttrDict(z=0*u.cm)
@@ -287,7 +289,6 @@ with ConfigRegistry.register_config("basic") as c:
         
 # for H4 / H6 / H8 / HX testbeam and commissioning
         H4 = True
-        with_tungsten = True
         if H4:
            c.Floor.z = 0   # no tunnel, no slope
 
