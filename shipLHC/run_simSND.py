@@ -23,6 +23,7 @@ parser = ArgumentParser()
 parser.add_argument("--H6",   dest="testbeam",   help="use geometry of H8/H6 testbeam setup", action="store_true")
 parser.add_argument("--HX",   dest="testbeam2023",   help="use geometry of 2023 testbeam setup", action="store_true")
 parser.add_argument("--H4",   dest="testbeam2024",   help="use geometry of 2024 testbeam setup", action="store_true")
+parser.add_argument("--target", help="target material for the 2024 testbeam setup", choices=["W","Fe"], default="W", type = str)
 parser.add_argument("--Genie",   dest="genie",   help="Genie for reading and processing neutrino interactions (1 standard, 2 FLUKA, 3 Pythia, 4 GENIE geometry driver)", required=False, default = 0, type = int)
 parser.add_argument("--Ntuple",  dest="ntuple",  help="Use ntuple as input", required=False, action="store_true")
 parser.add_argument("--MuonBack",dest="muonback",  help="Generate events from muon background file, --Cosmics=0 for cosmic generator data", required=False, action="store_true")
@@ -122,7 +123,8 @@ elif options.testbeam2023:
                                    tb_2023_mc = options.testbeam2023)
 elif options.testbeam2024:
   snd_geo = ConfigRegistry.loadpy("$SNDSW_ROOT/geometry/sndLHC_H4geom_config.py",
-                                   tb_2024_mc = options.testbeam2024)
+                                   tb_2024_mc = options.testbeam2024,
+                                   target_material = options.target)
 else:
   snd_geo = ConfigRegistry.loadpy("$SNDSW_ROOT/geometry/sndLHC_geom_config.py",
                                    nuTargetPassive = options.nuTargetPassive,
