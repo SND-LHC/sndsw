@@ -59,7 +59,7 @@ parser.add_argument("-D", "--display", dest="eventDisplay", help="store trajecto
 parser.add_argument("--EmuDet","--nuTargetActive",dest="nuTargetPassive",help="activate emulsiondetector", required=False,action="store_false")
 parser.add_argument("--NagoyaEmu","--useNagoyaEmulsions",dest="useNagoyaEmulsions",help="use bricks of 57 Nagoya emulsion films instead of 60 Slavich", required=False,action="store_true")
 parser.add_argument("-y", dest="year", help="specify the year to generate the respective TI18 detector setup", required=False, type=int, default=2024)
-
+parser.add_argument("--muonDataProfile", help="Path to the ROOT file with muon track data")
 options = parser.parse_args()
 
 # user hook
@@ -166,6 +166,7 @@ modules = sndDet_conf.configure(run,snd_geo)
 primGen = ROOT.FairPrimaryGenerator()
 
 # -----Particle Gun-----------------------
+
 if simEngine == "PG": 
   myPgun = ROOT.FairBoxGenerator(options.pID,1)
   myPgun.SetPRange(options.Estart,options.Eend)
@@ -191,7 +192,33 @@ if simEngine == "PG":
         f'({options.EVx},{options.EVy},{options.EVz})[cm × cm × cm] \n'
         f'with a uniform x-y spread of (Dx,Dy)=({options.Dx},{options.Dy})[cm × cm]'
         f' and {options.nZSlices} z slices in steps of {options.zSliceStep}[cm].')
+
   ROOT.FairLogger.GetLogger().SetLogScreenLevel("WARNING") # otherwise stupid printout for each event
+#________NTUPLE--------
+if options.muonDataProfile:
+    print(f"Using file: {options.muonDataProfile}")
+    file = ROOT.TFile(options.muonDataProfile)
+    ntuple = file.Get("muon_tracks")
+    primGen = ROOT.FairPrimaryGenerator()
+    z_plane = 250.0 * u.cm
+    pgun = ROOT.FairBoxGenerator(13, 1)  # Particle ID 13 for muons, charge is irrelevant
+    pgun.SetPRange(30, 3500)  # Set momentum range
+    n_entries = ntuple.GetEntries()  # Number of entries to cycle through
+    if options.nEvents > n_entries:
+        print("Warning: The number of events requested exceeds the number of entries in the data profile. Cycling through entries.")
+    for i in range(options.nEvents):
+        ntuple.GetEntry(i % n_entries)  # Cycle through entries
+        x_plane = ntuple.x
+        y_plane = ntuple.y
+        slope_xz = ntuple.slopes_xz
+        slope_yz = ntuple.slopes_yz
+        x0 = x_plane - slope_xz * z_plane
+        y0 = y_plane - slope_yz * z_plane
+        z0 = 0
+        pgun.SetXYZ(x0 * u.cm, y0 * u.cm, z0 * u.cm)  # Set the coordinates of each muon
+        primGen.AddGenerator(pgun)
+    run.SetGenerator(primGen)
+    ROOT.FairLogger.GetLogger().SetLogScreenLevel("WARNING")
 # -----muon DIS Background------------------------
 if simEngine == "muonDIS":
    ut.checkFileExists(inputFile)
