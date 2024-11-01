@@ -191,7 +191,7 @@ monitorTasks['Scifi_hitMaps']   = Scifi_monitoring.Scifi_hitMaps()
 monitorTasks['Mufi_hitMaps']   = Mufi_monitoring.Mufi_hitMaps()
 monitorTasks['Mufi_QDCcorellations']   = Mufi_monitoring.Mufi_largeVSsmall()
 if options.postScale<2: monitorTasks['Veto_Efficiency']   = Mufi_monitoring.Veto_Efficiency()
-monitorTasks['Scifi_residuals'] = Scifi_monitoring.Scifi_residuals()   # time consuming
+#monitorTasks['Scifi_residuals'] = Scifi_monitoring.Scifi_residuals()   # time consuming
 if options.interactive:  monitorTasks['EventDisplay']   = EventDisplay_Task.twod()
 
 for m in monitorTasks:

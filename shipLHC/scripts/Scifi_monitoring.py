@@ -197,6 +197,7 @@ class Scifi_residuals(ROOT.FairTask):
        ut.bookHist(h,detector+'trackChi2/ndof','track chi2/ndof vs ndof; #chi^{2}/Ndof; Ndof',100,0,100,20,0,20)
 # type of crossing, check for b1only,b2nob1,nobeam
        self.xing = {'':True,'B1only':False,'B2noB1':False,'noBeam':False}
+       '''
        for xi in self.xing:
           if not self.M.fsdict and not self.M.hasBunchInfo and xi!='': continue
           ut.bookHist(h,detector+'trackSlopes'+xi,'track slope; x/z [mrad]; y/z [mrad]',1000,-100,100,1000,-100,100)
@@ -206,7 +207,7 @@ class Scifi_residuals(ROOT.FairTask):
           for item in h:
             if isinstance(h[item], ROOT.TH2) and (item.find('trackPos')>0 or item.find('trackSlopes')>0): 
               h[item].SetTitleOffset(1.1, 'Y')
-
+       '''
        if alignPar:
             for x in alignPar:
                self.M.Scifi.SetConfPar(x,alignPar[x])
@@ -285,11 +286,12 @@ class Scifi_residuals(ROOT.FairTask):
                  slopeX = mom.X()/mom.Z()
                  slopeY = mom.Y()/mom.Z()
                  rc = h[detector+'trackChi2/ndof'].Fill(fitStatus.getChi2()/(fitStatus.getNdf()+1E-10),fitStatus.getNdf())
+                 '''
                  self.M.fillHist2(detector+'trackSlopes',slopeX*1000-pos.X()/48.2,slopeY*1000-pos.Y()/48.2)
                  self.M.fillHist2(detector+'trackSlopesXL',slopeX-pos.X()/48200,slopeY-pos.Y()/48200)
                  self.M.fillHist2(detector+'trackPos',pos.X(),pos.Y())
                  if abs(slopeX)<0.1 and abs(slopeY)<0.1:  self.M.fillHist2(detector+'trackPosBeam',pos.X(),pos.Y())
-
+                 '''
 
        if not theTrack: return
 
@@ -464,6 +466,7 @@ class Scifi_residuals(ROOT.FairTask):
        for proj in P: T.append('scifiRes'+proj)
        for canvas in T:
            self.M.myPrint(self.M.h[canvas],"Scifi-"+canvas,subdir='scifi/expert')
+       '''
        for xi in self.xing:
            if not self.M.fsdict and not self.M.hasBunchInfo and xi!='': continue
            tname = detector+'trackDir'+xi
@@ -498,6 +501,7 @@ class Scifi_residuals(ROOT.FairTask):
            rc = h[detector+'trackPos'+xi].Draw('colz')
            if x=='': self.M.myPrint(self.M.h[tname],detector+'trackPos'+xi,subdir='scifi/shifter')
            else:     self.M.myPrint(self.M.h[tname],detector+'trackPos'+xi,subdir='scifi/shifter/'+xi)
+       '''
            
 class Scifi_trackEfficiency(ROOT.FairTask):
    " track efficiency tag with DS track"

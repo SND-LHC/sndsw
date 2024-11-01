@@ -90,8 +90,20 @@ class Time_evolution(ROOT.FairTask):
        self.xing = {'all':True,'B1only':False,'B2noB1':False,'noBeam':False}
        for x in self.xing:
            ut.bookHist(h,'bnr'+x,'bunch number; ',3564,-0.5,3564-0.5)
+           # The SciFi track monitoring plots are made in this module.
+           # These histograms are present in the SciFi_residuals module as well. Since running the latter is
+           # time-consuming, it is excluded from the baseline monitoring, while the relevant SciFi track
+           # plots are moved here. The DS track plots are defined in the MuFilter monitoring module.
            ut.bookHist(h,'trackDir'+x,'track direction;',300,-0.5,0.25)
            ut.bookHist(h,'trackDirSig'+x,'track direction significance;',100,-20,10)
+           if not self.M.fsdict and not self.M.hasBunchInfo and x!='all': continue
+           ut.bookHist(h,'trackSlopes'+x,'track slope; x/z [mrad]; y/z [mrad]',1000,-100,100,1000,-100,100)
+           ut.bookHist(h,'trackSlopesXL'+x,'track slope; x/z [rad]; y/z [rad]',2200,-1.1,1.1,2200,-1.1,1.1)
+           ut.bookHist(h,'trackPos'+x,'track pos; x [cm]; y [cm]',100,-90,10.,80,0.,80.)
+           ut.bookHist(h,'trackPosBeam'+x,'beam track pos slopes<0.1rad; x [cm]; y [cm]',100,-90,10.,80,0.,80.)
+       for item in h:
+           if isinstance(h[item], ROOT.TH2) and (item.find('trackPos')>0 or item.find('trackSlopes')>0): 
+             h[item].SetTitleOffset(1.1, 'Y')
 
        ut.bookHist(h,'Tboard','Hit time per board, wrt SciFi 4Y board 40; board id; t_{hit} - t_{board 40 mean} [clock cycles]',62,0.5,62.5,100,-5.,5.)
        ut.bookHist(h,'Cckboard','160 MHz bunch number; board id; SND clock align phase wrt LHC [clock cycles]',62,0.5,62.5,100,0.,16.)
@@ -120,6 +132,19 @@ class Time_evolution(ROOT.FairTask):
             if theTrack.GetUniqueID()!=1: 
                 DStrack = True
                 continue
+            # get the slopes and track positions
+            state = theTrack.getFittedState()
+            pos    = state.getPos()
+            mom = state.getMom()
+            slopeX = mom.X()/mom.Z()
+            slopeY = mom.Y()/mom.Z()
+            for x in self.xing:
+              if self.M.xing[x]:
+                 self.M.fillHist2('trackSlopes'+x,slopeX*1000-pos.X()/48.2,slopeY*1000-pos.Y()/48.2)
+                 self.M.fillHist2('trackSlopesXL'+x,slopeX-pos.X()/48200,slopeY-pos.Y()/48200)
+                 self.M.fillHist2('trackPos'+x,pos.X(),pos.Y())
+                 if abs(slopeX)<0.1 and abs(slopeY)<0.1:  self.M.fillHist2('trackPosBeam'+x,pos.X(),pos.Y())
+            # get the track direction
             SL = trackTask.trackDir(theTrack)
             if not SL: continue
             SFtrack = True
@@ -451,22 +476,60 @@ class Time_evolution(ROOT.FairTask):
             h['Txing'].Update()
             self.M.myPrint(h['Txing'],"RatesXing",subdir='daq/expert')
 
+       for xi in self.xing:
+           if not self.M.fsdict and not self.M.hasBunchInfo and xi!='all': continue
+           # to make the titles better use 'x'
+           x = xi
+           if xi =='all': x=''
+           tname = 'scifi-trackSlopes'+x
+           ut.bookCanvas(h,tname,"track directions",1600,1800,3,2)
+           h[tname].cd(1)
+           rc = h['trackSlopes'+xi].Draw('colz')
+           h[tname].cd(2)
+           rc = h['trackSlopes'+xi].ProjectionX("slopeX"+xi)
+           rc.Draw()
+           rc.SetTitle('track X slope')
+           h[tname].cd(3)
+           rc = h['trackSlopes'+xi].ProjectionY("slopeY"+xi)
+           rc.Draw()
+           rc.SetTitle('track Y slope')
+           h[tname].cd(4)
+           rc = h['trackSlopesXL'+xi].Draw('colz')
+           h[tname].cd(5)
+           rc = h['trackSlopesXL'+xi].ProjectionX("slopeXL"+xi)
+           rc.Draw()
+           rc.SetTitle('track X slope')
+           h[tname].cd(6)
+           rc = h['trackSlopesXL'+xi].ProjectionY("slopeYL"+xi)
+           rc.Draw()
+           rc.SetTitle('track Y slope')
+           if xi=='all': self.M.myPrint(self.M.h[tname],tname,subdir='scifi/shifter')
+           else:     self.M.myPrint(self.M.h[tname],tname,subdir='scifi/shifter/'+xi)
+           tname = 'scifi-trackPos'+x
+           ut.bookCanvas(h,tname,"track position first state",600,1200,1,2)
+           h[tname].cd(1)
+           rc = h['trackPosBeam'+xi].Draw('colz')
+           h[tname].cd(2)
+           rc = h['trackPos'+xi].Draw('colz')
+           if xi=='all': self.M.myPrint(self.M.h[tname],'trackPos'+xi,subdir='scifi/shifter')
+           else:     self.M.myPrint(self.M.h[tname],'trackPos'+xi,subdir='scifi/shifter/'+xi)
+
        if self.fsdict or self.M.hasBunchInfo:
-          ut.bookCanvas(h,'trackDirection',' ',1024,768,4,2)
+          ut.bookCanvas(h,'scifi-trackDirection',' ',1024,768,4,2)
           j=1
           for x in self.xing:
-              h['trackDirection'].cd(j)
+              h['scifi-trackDirection'].cd(j)
               h['trackDir'+x].Draw()
-              h['trackDirection'].cd(4+j)
+              h['scifi-trackDirection'].cd(4+j)
               h['trackDir'+x].Draw()
               j+=1
        else:
-          ut.bookCanvas(h,'trackDirection',' ',1024,768,2,1)
-          h['trackDirection'].cd(1)
+          ut.bookCanvas(h,'scifi-trackDirection',' ',1024,768,2,1)
+          h['scifi-trackDirection'].cd(1)
           h['trackDirall'].Draw()
-          h['trackDirection'].cd(2)
+          h['scifi-trackDirection'].cd(2)
           h['trackDirSigall'].Draw()
-       self.M.myPrint(h['trackDirection'],'trackdirections',subdir='scifi/expert')
+       self.M.myPrint(h['scifi-trackDirection'],'trackdirections',subdir='scifi/expert')
 
        ut.bookCanvas(h,'bunchNumber','bunch nr',2048,1600,1,3)
        tc = h['bunchNumber'].cd(1)
