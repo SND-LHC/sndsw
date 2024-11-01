@@ -81,7 +81,7 @@ class prodManager():
          for p in partitions[r]:
              self.runSinglePartition(path,runNr,str(p).zfill(4),EOScopy=True,check=True)
 
-   def getRunNrFromOffline(self,rMin=-1,rMax=9999):
+   def getRunNrFromOffline(self,rMin=-1,rMax=99999):
       self.dqDataFiles = []
       hList = str( subprocess.check_output("xrdfs "+os.environ['EOSSHIP']+" ls /eos/experiment/sndlhc/www/offline",shell=True) )
       for x in hList.split('\\n'):
@@ -134,7 +134,7 @@ class prodManager():
            os.system(monitorCommand.replace('XXXX',str(r)).replace('GGGG',options.geofile)+" &")
            while self.count_python_processes('run_Monitoring')>(ncpus-2) or psutil.virtual_memory()[2]>90 : time.sleep(1800)
 
-   def RerunDataQuality(self,runNrs=[],rMin=-1,rMax=9999):
+   def RerunDataQuality(self,runNrs=[],rMin=-1,rMax=99999):
       monitorCommand = "python $SNDSW_ROOT/shipLHC/scripts/run_Monitoring.py -r XXXX --server=$EOSSHIP \
                         -b 100000 -p "+pathConv+" -g GGGG "\
                         +" --postScale "+str(options.postScale)+ " --ScifiResUnbiased 1 --batch --sudo "
@@ -247,7 +247,7 @@ class prodManager():
            if rc==0: success[r].append(x)
      return success
 
-   def getFileList(self,p,latest,rmax=99999,minSize=10E6):
+   def getFileList(self,p,latest,rmax=999999,minSize=10E6):
       inventory = {}
       dirList = str( subprocess.check_output("xrdfs "+self.options.server+" ls "+p,shell=True) )
       for x in dirList.split('\\n'):
@@ -305,7 +305,7 @@ class prodManager():
                 eventChain.Add(options.server+pathConv+'run_'+str(r).zfill(6)+'/'+p)
            return eventChain.GetEntries()
 
-   def checkEOS(self,copy=False,latest=4361,rlast=99999):
+   def checkEOS(self,copy=False,latest=4361,rlast=999999):
        self.eosInventory = self.getFileList(path,latest,rlast)
        tmp = self.options.server 
        self.options.server = "root://snd-server-1.cern.ch/"
@@ -377,7 +377,7 @@ if __name__ == '__main__':
     parser.add_argument("--postScale", dest="postScale",help="post scale events, 1..10..100", default=-1,type=int)
     parser.add_argument("--parallel", dest="parallel",default=1,type=int)
     parser.add_argument("-rMin", dest="rMin",help="first run to process", default=-1,type=int)
-    parser.add_argument("-rMax", dest="rMax",help="last run to process", default=9999,type=int)
+    parser.add_argument("-rMax", dest="rMax",help="last run to process", default=99999,type=int)
     parser.add_argument("-p", dest="path", help="path to raw data",required=False,default="")
     parser.add_argument("-d", dest="pathConv", help="path to converted data",required=False,default="")
     parser.add_argument("--saveTo", dest="saveTo", help="output storage path", default="")
