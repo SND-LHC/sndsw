@@ -335,14 +335,14 @@ int snd::analysis_tools::densityScifi(int reference_SiPM, const TClonesArray &di
   bool orientation = false;
   if (int(reference_SiPM/100000)%10 == 1){orientation = true;}
   int ref_station = reference_SiPM/1000000;
-  int referenceChannel = (int(reference_SiPM%10000)/1000)*128+ reference_SiPM%1000;
+  int referenceChannel = (int(reference_SiPM%100000)/10000)*4*128 + (int(reference_SiPM%10000)/1000)*128+ reference_SiPM%1000;
 
   for (auto *p: digiHits) {
     auto *hit = dynamic_cast<sndScifiHit*>(p);
     if (!validateHit(hit, ref_station, orientation)){
       continue;
     }
-    int hitChannel = hit->GetSiPM()*128 + hit->GetSiPMChan(); 
+    int hitChannel = hit->GetMat()*128*4 + hit->GetSiPM()*128 + hit->GetSiPMChan(); 
     if (radius == -1){
       hit_density++;
     } else{
@@ -363,6 +363,14 @@ bool snd::analysis_tools::densityCheck(const TClonesArray &digiHits, int radius,
 
   if(digiHits.GetEntries() <= 0){return false;}
 
+  if(radius <= 0){
+    LOG (FATAL) << "Radius<=0. Please provide a radius bigger than 0.";
+    return false;}
+
+  if(min_hit_density < 0){
+    LOG (FATAL) << "Min_hit_density < 0. Please provide a min_hit_density >= 0.";
+    return false;}
+
   if(min_hit_density > 2*radius){
     LOG (warning) << "Warning! Radius of density check does not allow for the required minimum density!";
     return false;}
@@ -378,7 +386,7 @@ bool snd::analysis_tools::densityCheck(const TClonesArray &digiHits, int radius,
     if (!validateHit(hit, station, orientation)){
       continue;
     }
-    fired_channels.push_back(hit->GetSiPM()*128 + hit->GetSiPMChan());   
+    fired_channels.push_back(hit->GetMat()*4*128 + hit->GetSiPM()*128 + hit->GetSiPMChan());   
   }
 
   int n_fired_channels = fired_channels.size();
@@ -392,7 +400,7 @@ bool snd::analysis_tools::densityCheck(const TClonesArray &digiHits, int radius,
   std::sort(fired_channels.begin(), fired_channels.end());
   for(int i=0; i<n_fired_channels-min_hit_density; i++){
     
-    if(fired_channels[i+min_hit_density] - fired_channels[i] <= radius*2){return true;}
+    if(fired_channels[i+min_hit_density-1] - fired_channels[i] <= radius*2){return true;}
 
   }
   return false;
