@@ -5,6 +5,15 @@ theSeed      = 0
 ROOT.gRandom.SetSeed(theSeed)
 ROOT.gSystem.Load("libpythia8")
 
+# this C++ code is needed to avoid segmentation violation
+# when accessing pythia.generator.info in PyROOT+Pythia8(since at least v8.309)
+# This issue is likely due to broken python binding of Pythia's infoPython() method.
+ROOT.gInterpreter.Declare('''
+const Pythia8::Info& generator_info(Pythia8::Pythia& pythia) {
+    return pythia.info;
+}
+''')
+
 nudict = {12: "nue", -12: "anue", 14: "numu", -14: "anumu", 16: "nutau", -16: "anutau"}
 
 from argparse import ArgumentParser
@@ -60,7 +69,6 @@ else:
 generator.init()
 
 rc = generator.next()
-processes = generator.info.codesHard()
 hname = 'pythia8_'+tag+'_PDFpset'+options.PDFpSet+'_'+nunames
 hname = hname.replace('*','star')
 hname = hname.replace('->','to')
@@ -120,9 +128,10 @@ timer.Stop()
 rtime = timer.RealTime()
 ctime = timer.CpuTime()
 totalXsec = 0   # unit = mb,1E12 fb
-processes = generator.info.codesHard()
+info = ROOT.generator_info(generator)
+processes = info.codesHard()
 for p in processes:
-   totalXsec+=generator.info.sigmaGen(p)   
+   totalXsec+=info.sigmaGen(p)   
 # nobias: 78.4mb, ccbar=4.47mb, bbbar=0.35mb
 
 IntLumi = options.Np / totalXsec * 1E-12
