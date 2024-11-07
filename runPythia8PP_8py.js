@@ -20,6 +20,7 @@ var runPythia8PP_8py =
     [ "gm", "runPythia8PP_8py.html#ab814f1ebd38b94de3a301c0107ea0424", null ],
     [ "help", "runPythia8PP_8py.html#aae2c95e0cd485f97c77d58509d1b3c47", null ],
     [ "hname", "runPythia8PP_8py.html#ab383581f849cbb8fbb96fc14bb1f4628", null ],
+    [ "info", "runPythia8PP_8py.html#ab88840b147fdc1a1b19d96be690b0b4b", null ],
     [ "int", "runPythia8PP_8py.html#adf9f5b68a2d639a37baa2802ad0f3287", null ],
     [ "IntLumi", "runPythia8PP_8py.html#a3a5ddb97f1e8bbeebbda9722a236e505", null ],
     [ "L", "runPythia8PP_8py.html#a9b1b96dba9f767e36f1908228166011d", null ],

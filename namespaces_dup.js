@@ -3299,6 +3299,7 @@ var namespaces_dup =
       [ "gm", "namespacerunPythia8PP.html#ab814f1ebd38b94de3a301c0107ea0424", null ],
       [ "help", "namespacerunPythia8PP.html#aae2c95e0cd485f97c77d58509d1b3c47", null ],
       [ "hname", "namespacerunPythia8PP.html#ab383581f849cbb8fbb96fc14bb1f4628", null ],
+      [ "info", "namespacerunPythia8PP.html#ab88840b147fdc1a1b19d96be690b0b4b", null ],
       [ "int", "namespacerunPythia8PP.html#adf9f5b68a2d639a37baa2802ad0f3287", null ],
       [ "IntLumi", "namespacerunPythia8PP.html#a3a5ddb97f1e8bbeebbda9722a236e505", null ],
       [ "L", "namespacerunPythia8PP.html#a9b1b96dba9f767e36f1908228166011d", null ],

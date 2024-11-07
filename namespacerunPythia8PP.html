@@ -132,8 +132,6 @@ Variables</h2></td></tr>
 <tr class="separator:ace9e38b749fc1f9352dcc02df1662133"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8446b30b7e710e21cd690ef6a4bd822"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerunPythia8PP.html#ae8446b30b7e710e21cd690ef6a4bd822">rc</a> = generator.next()</td></tr>
 <tr class="separator:ae8446b30b7e710e21cd690ef6a4bd822"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1f2cf1f0cf5830a39eec726f2c80e7c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerunPythia8PP.html#ae1f2cf1f0cf5830a39eec726f2c80e7c">processes</a> = generator.info.codesHard()</td></tr>
-<tr class="separator:ae1f2cf1f0cf5830a39eec726f2c80e7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab383581f849cbb8fbb96fc14bb1f4628"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerunPythia8PP.html#ab383581f849cbb8fbb96fc14bb1f4628">hname</a> = 'pythia8_'+<a class="el" href="namespacerunPythia8PP.html#ace9e38b749fc1f9352dcc02df1662133">tag</a>+'_PDFpset'+options.PDFpSet+'<a class="el" href="cfortran_8h.html#ae5cd5aa262ffbc853d773293d00e4323">_</a>'+<a class="el" href="namespacerunPythia8PP.html#a3ebffc0f4e5f544a7aca62548afbeb61">nunames</a></td></tr>
 <tr class="separator:ab383581f849cbb8fbb96fc14bb1f4628"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adcde9d80ace2efad95557556ec23db79"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerunPythia8PP.html#adcde9d80ace2efad95557556ec23db79">fout</a> = ROOT.TFile(<a class="el" href="namespacerunPythia8PP.html#ab383581f849cbb8fbb96fc14bb1f4628">hname</a>+&quot;.root&quot;,&quot;RECREATE&quot;)</td></tr>
@@ -174,6 +172,10 @@ Variables</h2></td></tr>
 <tr class="separator:a5eebe31d20d1746262ddb2eccfb545d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac54d86bfd5b4fd181822185d7dbca0e1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacerunPythia8PP.html#adf9f5b68a2d639a37baa2802ad0f3287">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerunPythia8PP.html#ac54d86bfd5b4fd181822185d7dbca0e1">totalXsec</a> = 0</td></tr>
 <tr class="separator:ac54d86bfd5b4fd181822185d7dbca0e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab88840b147fdc1a1b19d96be690b0b4b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerunPythia8PP.html#ab88840b147fdc1a1b19d96be690b0b4b">info</a> = ROOT.generator_info(<a class="el" href="namespacerunPythia8PP.html#ac36f89910ac099353364a2d518b30408">generator</a>)</td></tr>
+<tr class="separator:ab88840b147fdc1a1b19d96be690b0b4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1f2cf1f0cf5830a39eec726f2c80e7c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerunPythia8PP.html#ae1f2cf1f0cf5830a39eec726f2c80e7c">processes</a> = info.codesHard()</td></tr>
+<tr class="separator:ae1f2cf1f0cf5830a39eec726f2c80e7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3a5ddb97f1e8bbeebbda9722a236e505"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacerunPythia8PP.html#adf9f5b68a2d639a37baa2802ad0f3287">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerunPythia8PP.html#a3a5ddb97f1e8bbeebbda9722a236e505">IntLumi</a> = options.Np / <a class="el" href="namespacerunPythia8PP.html#ac54d86bfd5b4fd181822185d7dbca0e1">totalXsec</a> * 1E-12</td></tr>
 <tr class="separator:a3a5ddb97f1e8bbeebbda9722a236e505"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -194,10 +196,10 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00137">137</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="keyword">def </span><a class="code" href="namespacerunPythia8PP.html#a972783ea415c745ecdabe612bb945aed">debugging</a>(g):</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;   generator.settings.listAll()</div>
-<div class="ttc" id="anamespacerunPythia8PP_html_a972783ea415c745ecdabe612bb945aed"><div class="ttname"><a href="namespacerunPythia8PP.html#a972783ea415c745ecdabe612bb945aed">runPythia8PP.debugging</a></div><div class="ttdeci">def debugging(g)</div><div class="ttdef"><b>Definition:</b> <a href="runPythia8PP_8py_source.html#l00137">runPythia8PP.py:137</a></div></div>
+<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00146">146</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="keyword">def </span><a class="code" href="namespacerunPythia8PP.html#a972783ea415c745ecdabe612bb945aed">debugging</a>(g):</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;   generator.settings.listAll()</div>
+<div class="ttc" id="anamespacerunPythia8PP_html_a972783ea415c745ecdabe612bb945aed"><div class="ttname"><a href="namespacerunPythia8PP.html#a972783ea415c745ecdabe612bb945aed">runPythia8PP.debugging</a></div><div class="ttdeci">def debugging(g)</div><div class="ttdef"><b>Definition:</b> <a href="runPythia8PP_8py_source.html#l00146">runPythia8PP.py:146</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -214,7 +216,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00012">12</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00021">21</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
 
 </div>
 </div>
@@ -234,7 +236,7 @@ Variables</h2></td></tr>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;                               evtM.px(),evtM.py(),evtM.pz(),evtM.e(),</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;                               evtM.xProd(),evtM.yProd(),evtM.zProd(),evtM.tProd())</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00104">104</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00112">112</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
 
 </div>
 </div>
@@ -250,7 +252,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00121">121</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00129">129</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
 
 </div>
 </div>
@@ -266,7 +268,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00071">71</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00079">79</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
 
 </div>
 </div>
@@ -282,7 +284,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00075">75</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00083">83</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
 
 </div>
 </div>
@@ -298,7 +300,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00012">12</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00021">21</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
 
 </div>
 </div>
@@ -314,7 +316,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00012">12</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00021">21</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
 
 </div>
 </div>
@@ -330,7 +332,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00078">78</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00086">86</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
 
 </div>
 </div>
@@ -346,7 +348,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00070">70</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00078">78</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
 
 </div>
 </div>
@@ -362,7 +364,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00091">91</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00099">99</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
 
 </div>
 </div>
@@ -378,7 +380,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00090">90</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00098">98</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
 
 </div>
 </div>
@@ -394,7 +396,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00077">77</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00085">85</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
 
 </div>
 </div>
@@ -410,7 +412,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00103">103</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00111">111</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
 
 </div>
 </div>
@@ -426,7 +428,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00015">15</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00024">24</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
 
 </div>
 </div>
@@ -442,7 +444,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00069">69</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00077">77</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
 
 </div>
 </div>
@@ -458,7 +460,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00037">37</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00046">46</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
 
 </div>
 </div>
@@ -474,7 +476,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00100">100</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00108">108</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
 
 </div>
 </div>
@@ -490,7 +492,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00012">12</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00021">21</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
 
 </div>
 </div>
@@ -506,7 +508,23 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00064">64</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00072">72</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
+
+</div>
+</div>
+<a id="ab88840b147fdc1a1b19d96be690b0b4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab88840b147fdc1a1b19d96be690b0b4b">&#9670;&nbsp;</a></span>info</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">runPythia8PP.info = ROOT.generator_info(<a class="el" href="namespacerunPythia8PP.html#ac36f89910ac099353364a2d518b30408">generator</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00131">131</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
 
 </div>
 </div>
@@ -522,7 +540,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00012">12</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00021">21</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
 
 </div>
 </div>
@@ -538,7 +556,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00128">128</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00137">137</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
 
 </div>
 </div>
@@ -554,7 +572,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00031">31</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00040">40</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
 
 </div>
 </div>
@@ -570,7 +588,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00108">108</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00116">116</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
 
 </div>
 </div>
@@ -590,7 +608,7 @@ Variables</h2></td></tr>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;                            evt.px(),evt.py(),evt.pz(),evt.e(),</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;                            evt.xProd(),evt.yProd(),evt.zProd(),evt.tProd())</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00094">94</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00102">102</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
 
 </div>
 </div>
@@ -606,7 +624,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00083">83</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00091">91</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
 
 </div>
 </div>
@@ -622,7 +640,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00008">8</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00017">17</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
 
 </div>
 </div>
@@ -638,7 +656,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00030">30</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00039">39</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
 
 </div>
 </div>
@@ -654,7 +672,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00027">27</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00036">36</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
 
 </div>
 </div>
@@ -670,7 +688,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00011">11</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00020">20</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
 
 </div>
 </div>
@@ -681,12 +699,12 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">runPythia8PP.processes = generator.info.codesHard()</td>
+          <td class="memname">runPythia8PP.processes = info.codesHard()</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00063">63</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00132">132</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
 
 </div>
 </div>
@@ -702,7 +720,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00084">84</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00092">92</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
 
 </div>
 </div>
@@ -718,7 +736,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00062">62</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00071">71</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
 
 </div>
 </div>
@@ -734,7 +752,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00120">120</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00128">128</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
 
 </div>
 </div>
@@ -750,7 +768,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00019">19</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00028">28</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
 
 </div>
 </div>
@@ -766,7 +784,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00047">47</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00056">56</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
 
 </div>
 </div>
@@ -798,7 +816,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00080">80</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00088">88</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
 
 </div>
 </div>
@@ -814,7 +832,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00122">122</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00130">130</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
 
 </div>
 </div>
@@ -830,7 +848,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00012">12</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00021">21</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
 
 </div>
 </div>
@@ -846,7 +864,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00028">28</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="runPythia8PP_8py_source.html#l00037">37</a> of file <a class="el" href="runPythia8PP_8py_source.html">runPythia8PP.py</a>.</p>
 
 </div>
 </div>
