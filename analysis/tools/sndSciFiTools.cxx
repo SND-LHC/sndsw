@@ -328,6 +328,21 @@ std::unique_ptr<TClonesArray> snd::analysis_tools::filterScifiHits(const TClones
   return filterScifiHits(digiHits, selection_parameters, method, setup);
 }
 
+//Caculate the number of the SiPM channel in the whole station by inputing its number in the
+//sndScifiHit->GetChannelID() format
+int snd::analysis_tools::calculateSiPMNumber(int reference_SiPM){
+
+  int ref_matAux = reference_SiPM%100000;
+  int ref_mat = ref_matAux/10000;
+  int ref_arrayAux = reference_SiPM%10000;
+  int ref_array = ref_arrayAux/1000;
+  int ref_channel = reference_SiPM%1000;
+  int referenceChannel = ref_mat*4*128 + ref_array*128 + ref_channel;
+
+  return referenceChannel;
+}
+
+
 int snd::analysis_tools::densityScifi(int reference_SiPM, const TClonesArray &digiHits, int radius, int min_hit_density, bool min_check){
 
   int hit_density = 0;
@@ -335,14 +350,14 @@ int snd::analysis_tools::densityScifi(int reference_SiPM, const TClonesArray &di
   bool orientation = false;
   if (int(reference_SiPM/100000)%10 == 1){orientation = true;}
   int ref_station = reference_SiPM/1000000;
-  int referenceChannel = (int(reference_SiPM%100000)/10000)*4*128 + (int(reference_SiPM%10000)/1000)*128+ reference_SiPM%1000;
+  int referenceChannel = calculateSiPMNumber(reference_SiPM);
 
   for (auto *p: digiHits) {
     auto *hit = dynamic_cast<sndScifiHit*>(p);
     if (!validateHit(hit, ref_station, orientation)){
       continue;
     }
-    int hitChannel = hit->GetMat()*128*4 + hit->GetSiPM()*128 + hit->GetSiPMChan(); 
+    int hitChannel = calculateSiPMNumber(hit->GetChannelID()); 
     if (radius == -1){
       hit_density++;
     } else{
@@ -386,7 +401,7 @@ bool snd::analysis_tools::densityCheck(const TClonesArray &digiHits, int radius,
     if (!validateHit(hit, station, orientation)){
       continue;
     }
-    fired_channels.push_back(hit->GetMat()*4*128 + hit->GetSiPM()*128 + hit->GetSiPMChan());   
+    fired_channels.push_back(calculateSiPMNumber(hit->GetChannelID()));   
   }
 
   int n_fired_channels = fired_channels.size();

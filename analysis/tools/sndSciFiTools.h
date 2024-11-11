@@ -51,6 +51,10 @@ namespace snd {
     //Foregoing the selection_parameters option runs with the default values
     std::unique_ptr<TClonesArray> filterScifiHits(const TClonesArray &digiHits, int method=0, std::string setup="TI18");
 
+    // Function to calculate the number of the SiPM channel with respect to the whole station
+    // referene_SiPM given in the format of sndScifiHit->GetChannelID()
+    int calculateSiPMNumber(int reference_SiPM);
+
     // Function to determine SciFi hit density for channel reference_SiPM around a radius of r 
     // SiPM channels
     // If min_check == True the function stops checking the density once it reaches the minimum

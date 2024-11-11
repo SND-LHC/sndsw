@@ -24,6 +24,7 @@
 #pragma link C++ function snd::analysis_tools::selectScifiHits(const TClonesArray &, int, bool, const std::map<std::string, float> &, bool);
 #pragma link C++ function snd::analysis_tools::filterScifiHits(const TClonesArray &, std::map<std::string, float> &, int, std::string);
 #pragma link C++ function snd::analysis_tools::filterScifiHits(const TClonesArray &, int, std::string);
+#pragma link C++ function snd::analysis_tools::calculateSiPMNumber(int);
 #pragma link C++ function snd::analysis_tools::densityScifi(int,const TClonesArray &, int, int, bool);
 #pragma link C++ function snd::analysis_tools::densityCheck(const TClonesArray &, int, int, int, bool);
 #pragma link C++ function snd::analysis_tools::showerInteractionWall(const TClonesArray &,const std::map<std::string, float> &, int, std::string);
