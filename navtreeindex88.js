@@ -1,5 +1,6 @@
 var NAVTREEINDEX88 =
 {
+"sndDSActivityCut_8h.html":[13,0,0,0,7],
 "sndDSActivityCut_8h_source.html":[13,0,0,0,7],
 "sndDSVetoCut_8cxx.html":[13,0,0,0,8],
 "sndDSVetoCut_8cxx_source.html":[13,0,0,0,8],
@@ -248,6 +249,5 @@ var NAVTREEINDEX88 =
 "sndLHC__HXgeom__config_8py.html#a3ad56082f5d62be195941fb0edcecfbb":[13,0,6,5,160],
 "sndLHC__HXgeom__config_8py.html#a3b90599baf0b1acc2ad0341f0496317f":[13,0,6,5,19],
 "sndLHC__HXgeom__config_8py.html#a3bbefba2a267dc81a16ab5dea6a63a31":[13,0,6,5,145],
-"sndLHC__HXgeom__config_8py.html#a3c0653bacdb3f6db784473dbc48c6b81":[13,0,6,5,27],
-"sndLHC__HXgeom__config_8py.html#a3d23abfc8c1d1c40c8372e7538bb07ac":[13,0,6,5,166]
+"sndLHC__HXgeom__config_8py.html#a3c0653bacdb3f6db784473dbc48c6b81":[13,0,6,5,27]
 };

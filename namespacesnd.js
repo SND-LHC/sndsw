@@ -2,6 +2,7 @@ var namespacesnd =
 [
     [ "analysis_cuts", "namespacesnd_1_1analysis__cuts.html", "namespacesnd_1_1analysis__cuts" ],
     [ "analysis_tools", "namespacesnd_1_1analysis__tools.html", [
+      [ "calculateSiPMNumber", "namespacesnd_1_1analysis__tools.html#a072fe05f5196e2d1f0baf54ac8c62793", null ],
       [ "densityCheck", "namespacesnd_1_1analysis__tools.html#aa6dd4352f5c110708f8070ad1c88a907", null ],
       [ "densityScifi", "namespacesnd_1_1analysis__tools.html#a898d2da7d9071ef733eb86625ed1cc7d", null ],
       [ "filterScifiHits", "namespacesnd_1_1analysis__tools.html#a78c74efd98070d9f53be87caa79640bb", null ],

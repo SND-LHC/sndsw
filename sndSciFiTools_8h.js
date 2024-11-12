@@ -1,5 +1,6 @@
 var sndSciFiTools_8h =
 [
+    [ "calculateSiPMNumber", "sndSciFiTools_8h.html#a072fe05f5196e2d1f0baf54ac8c62793", null ],
     [ "densityCheck", "sndSciFiTools_8h.html#aa6dd4352f5c110708f8070ad1c88a907", null ],
     [ "densityScifi", "sndSciFiTools_8h.html#a898d2da7d9071ef733eb86625ed1cc7d", null ],
     [ "filterScifiHits", "sndSciFiTools_8h.html#a78c74efd98070d9f53be87caa79640bb", null ],
