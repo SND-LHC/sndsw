@@ -200,7 +200,6 @@ if options.muonDataProfile:
     file = ROOT.TFile(options.muonDataProfile)
     ntuple = file.Get("muon_tracks")
     primGen = ROOT.FairPrimaryGenerator()
-    z_plane = 250.0 * u.cm
     n_entries = ntuple.GetEntries()  # Number of entries to cycle through
     if options.nEvents > n_entries:
         print("Warning: The number of events requested exceeds the number of entries in the data profile. Cycling through entries.")
@@ -208,15 +207,16 @@ if options.muonDataProfile:
         ntuple.GetEntry(i % n_entries)  # Cycle through entries if needed
         x_plane = ntuple.x
         y_plane = ntuple.y
-        slope_xz = ntuple.slopes_xz
-        slope_yz = ntuple.slopes_yz
-        x0 = x_plane - slope_xz * z_plane
-        y0 = y_plane - slope_yz * z_plane
-        z0 = 0
+        z_plane = ntuple.z
+        theta = ntuple.theta
+        phi = ntuple.phi
         pgun = ROOT.FairBoxGenerator(13, 1) #Particle ID 13 for muons, charge is irrelevent
-        pgun.SetPRange(30, 3500) # Set momentum range
-        pgun.SetXYZ(x0 * u.cm, y0 * u.cm, z0 * u.cm)  # Set the coordinates of each muon
+        pgun.SetThetaRange(theta, theta)
+        pgun.SetPhiRange(phi,phi)
+        pgun.SetMomentumRange(30,35000)
+        pgun.SetXYZ(x_plane * u.cm, y_plane * u.cm, z_plane * u.cm)  # Set the coordinates of each muon
         primGen.AddGenerator(pgun)
+    run.SetGenerator(primGen)
     run.SetGenerator(primGen)
     ROOT.FairLogger.GetLogger().SetLogScreenLevel("WARNING")
 # -----muon DIS Background------------------------
