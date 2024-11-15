@@ -194,7 +194,7 @@ if simEngine == "PG":
         f' and {options.nZSlices} z slices in steps of {options.zSliceStep}[cm].')
 
   ROOT.FairLogger.GetLogger().SetLogScreenLevel("WARNING") # otherwise stupid printout for each event
-#------NTUPLE------
+#________NTUPLE--------
 if options.muonDataProfile:
     print(f"Using file: {options.muonDataProfile}")
     file = ROOT.TFile(options.muonDataProfile)
@@ -216,7 +216,6 @@ if options.muonDataProfile:
         pgun.SetMomentumRange(30,35000)
         pgun.SetXYZ(x_plane * u.cm, y_plane * u.cm, z_plane * u.cm)  # Set the coordinates of each muon
         primGen.AddGenerator(pgun)
-    run.SetGenerator(primGen)
     run.SetGenerator(primGen)
     ROOT.FairLogger.GetLogger().SetLogScreenLevel("WARNING")
 # -----muon DIS Background------------------------
