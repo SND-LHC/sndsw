@@ -1,30 +1,32 @@
 #!/usr/bin/env python
 import ROOT
-import numpy as np
-import os
+import argparse
 
 ROOT.gROOT.SetBatch(True)
 
-# Define the fixed z coordinate where we will extract x, y positions
-z_plane = 250.0  # adjust as needed
+# Parse command-line arguments
+parser = argparse.ArgumentParser(description="Extract muon track data at a specific z-plane.")
+parser.add_argument("--zplane", type=float, required=True,
+                    help="Fixed z-plane value for extrapolation.")
+parser.add_argument("--inputfile", type=str, required=True,
+                    help="Input ROOT file containing muon tracks.")
+parser.add_argument("--outputfile", type=str, default="extracted_muon_tracks.root",
+                    help="Output ROOT file to save the extracted data.")
+args = parser.parse_args()
 
-# Set up the TChain for the ROOT files
+# Get the z-plane value and file paths from user input
+z_plane = args.zplane
+input_file = args.inputfile
+output_file_name = args.outputfile
+
+# Set up the TChain for the ROOT file
 track_chain = ROOT.TChain("rawConv")  # Ensure the TTree name matches
-
-# Directory containing ROOT files
-root_files_dir = "/eos/experiment/sndlhc/users/sii/4705/"
-file_pattern = "sndsw_raw-{}_{}_4705_muonReco.root"
-
-# Adding all ROOT files to the TChain
-for part in range(10, 15):
-    for it in range(10):
-        file_path = os.path.join(root_files_dir, file_pattern.format(it, part))
-        track_chain.Add(file_path)
+track_chain.Add(input_file)  # Add the specified input file to the TChain
 
 # Prepare output ROOT file and TTree
-output_file = ROOT.TFile("extracted_muon_tracks.root", "RECREATE")
+output_file = ROOT.TFile(output_file_name, "RECREATE")
 ntuple = ROOT.TNtuple("muon_tracks", "Extrapolated Muon Tracks",
-                      "event:x:y:slopes_xz:slopes_yz")
+                      "event:x:y:z:theta:phi")
 
 # Loop over each event and track
 for i_event, event in enumerate(track_chain):
@@ -32,23 +34,23 @@ for i_event, event in enumerate(track_chain):
         if track.getTrackType() != 11 or track.getTrackFlag() != 1:
             continue  # Skip non-Scifi tracks or bad quality tracks
 
-        # Extrapolate position and calculate slopes
-        pos = track.getStart()
-        mom = track.getTrackMom()
+        # Extract position and momentum
+        pos = track.getStart()  # pos.x(), pos.y(), pos.z()
+        mom = track.getTrackMom()  # mom.x(), mom.y(), mom.z()
 
-        # Calculate lamda for z-plane intersection
+        # Calculate lambda for z-plane intersection
         lam = (z_plane - pos.z()) / mom.z()
         extrap_x = pos.x() + lam * mom.x()
         extrap_y = pos.y() + lam * mom.y()
 
-        # Slopes
-        slope_xz = mom.x() / mom.z()
-        slope_yz = mom.y() / mom.z()
+        # Calculate theta and phi angles
+        theta = ROOT.TMath.ATan(ROOT.TMath.Sqrt((mom.x() ** 2 + mom.y() ** 2) / mom.z() ** 2))
+        phi = ROOT.TMath.ATan2(mom.y(), mom.x())
 
         # Store in the ntuple
-        ntuple.Fill(i_event, extrap_x, extrap_y, slope_xz, slope_yz)
+        ntuple.Fill(i_event, extrap_x, extrap_y, z_plane, theta, phi)
 
 # Write to the output file and close it
 output_file.Write()
 output_file.Close()
-print("Extraction completed. Results are saved in 'extracted_muon_tracks.root'.")
+print(f"Extraction completed. Results are saved in '{output_file_name}'. Used z-plane: {z_plane}")
