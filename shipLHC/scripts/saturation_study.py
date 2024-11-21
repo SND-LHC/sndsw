@@ -754,7 +754,7 @@ def MIP_study(Nev_st = 0, Nev_en = 1, list_of_events_key = False, title = "defau
  us_qdc_list = []
  label = ""
  negative_signal = 0
- calib = 1.5
+ calib = 1.0
  non_saturated_bars = [0, 1, 2, 3, 6, 7, 8, 9,]
  if muon:
      saturation = False
@@ -1038,7 +1038,7 @@ def run_energy(run):
 import pickle
 
 def find_parameters(plane, bar, sipm):
-    with open('saturation/param', 'r') as file:
+    with open('/eos/user/e/ekhaliko/Documents/saturation_code/param', 'r') as file:
         for line in file:
             columns = line.strip().split(' ')
             if len(columns) >= 5 and int(columns[0]) == plane and int(columns[1]) == bar and int(columns[2]) == sipm:
@@ -1046,21 +1046,21 @@ def find_parameters(plane, bar, sipm):
     return 1.,0.
     
 
-# label = "muon 100 GeV"
+label = "muon 100 GeV"
 #title = "august"
-label = "pion 100 GeV"
-#title = "test_tagwall1_100k_muons_1"
-title = "test_tagwall1_10k_300GeV_calib1.5"
+#label = "pion 300 GeV"
+title = "test_100k_muons"
+#title = "test_tagwall1_10k_300GeV_calib1.5"
 MIP_study(Nev_st = options.Nstart,
    Nev_en = options.Nstart + options.nEvents, 
-   list_of_events_key = True, #this key activated shower origin tagging by selecting only the events tagged in a specific wall
+   list_of_events_key = False, #this key activated shower origin tagging by selecting only the events tagged in a specific wall
    title = title,
    label_0 = label,
    conv_mech = "dir", # this key chooses a method of reading data, direct or using map2Dict
    offset = 0., # this key establishes the offset value
    side_bar_key = False, # if this key is activated only the unsaturated bars are taken into account
-   mc = True, # turn on this key to analyze Monte-Carlo data
-   muon = False, # turn on this key to analyze muon data
+   mc = False, # turn on this key to analyze Monte-Carlo data
+   muon = True, # turn on this key to analyze muon data
    small_count = True, # this key turns on the account of small SiPMs
    large_count = True, # this key turns on the account of large SiPMs
    write_data = False) # this key writes down the full signal info
