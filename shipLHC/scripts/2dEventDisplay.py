@@ -1144,19 +1144,21 @@ def drawInfo(pad, k, run, event, timestamp,moreEventInfo=[]):
       pad.cd(k)
 
 def drawCollisionAxis(pad, k):
-   h["collision_axis_line_" + str(k)] = ROOT.TLine(h["zmin"], 0, h["zmax"], 0)
-   h["collision_axis_line_" + str(k)].SetLineColor(ROOT.kRed)
-   h["collision_axis_line_" + str(k)].SetLineStyle(2)
-   
-   h["collision_axis_text_" + str(k)] = ROOT.TText(h["zmin"] + 8, 0 + 2, "Collision axis")
-   h["collision_axis_text_" + str(k)].SetTextAlign(12)
-   h["collision_axis_text_" + str(k)].SetTextFont(43)
-   h["collision_axis_text_" + str(k)].SetTextSize(13 * resolution_factor)
-   h["collision_axis_text_" + str(k)].SetTextColor(ROOT.kRed)   
+   line_name = "collision_axis_line_" + str(k)
+   h[line_name] = ROOT.TLine(h["zmin"], 0, h["zmax"], 0)
+   h[line_name].SetLineColor(ROOT.kRed)
+   h[line_name].SetLineStyle(2)
+
+   text_name = "collision_axis_text_" + str(k)
+   h[text_name] = ROOT.TText(h["zmin"] + 8, 0 + 2, "Collision axis")
+   h[text_name].SetTextAlign(12)
+   h[text_name].SetTextFont(43)
+   h[text_name].SetTextSize(13 * resolution_factor)
+   h[text_name].SetTextColor(ROOT.kRed)   
    
    pad.cd(k)
-   h["collision_axis_line_" + str(k)].Draw()
-   h["collision_axis_text_" + str(k)].Draw()
+   h[line_name].Draw()
+   h[text_name].Draw()
 
    
        
