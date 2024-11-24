@@ -14,8 +14,8 @@ import json
 import uproot
 
 # the MC data files for testbeam 2023 are located at /eos/user/e/ekhaliko/Documents/SND_Data/test_300GeV_n100k_aug2023_pi-_new/
-# the data is available for the following energies: 
-# Pions (pi-): 100 (100k events), 140 (10k) 180 (100k), 240 (10k), 300 (100k), 500 (100k), 750 (100k), 1000 (100k), and 1500 (48k) GeV
+# the data is available for the following energies (100k events): 
+# Pions (pi-): 100, 140, 180, 240, 300, 500, 750, 1000, and 1500 (48k events) GeV
 # Muons (mu-): 160 GeV (100k events)
 
 def linearFunc(x,intercept,slope):
@@ -909,7 +909,8 @@ def MIP_study(Nev_st = 0, Nev_en = 1, list_of_events_key = False, title = "defau
             if saturation and not smallSiPMchannel(Si):
                qdcmax, alpha = find_parameters(l,bar,Si)
                qdc_1 = qdc_1*calib
-               qdc_1 = (1 - math.exp(-alpha*qdc_1/qdcmax))*qdcmax
+               qdc_1 = aHit.SaturationMC(qdc_1, qdcmax, alpha)
+               #qdc_1 = (1 - math.exp(-alpha*qdc_1/qdcmax))*qdcmax
             if smallSiPMchannel(Si):
                h_small_sipm.Fill(allChannels[Si])
             if small_count:
@@ -1046,21 +1047,21 @@ def find_parameters(plane, bar, sipm):
     return 1.,0.
     
 
-label = "muon 100 GeV"
+#label = "muon 100 GeV"
 #title = "august"
-#label = "pion 300 GeV"
-title = "test_100k_muons"
-#title = "test_tagwall1_10k_300GeV_calib1.5"
+label = "pion 300 GeV"
+#title = "test_100k_muons"
+title = "test_tagwall1_10k_300GeV_calib1.0"
 MIP_study(Nev_st = options.Nstart,
    Nev_en = options.Nstart + options.nEvents, 
-   list_of_events_key = False, #this key activated shower origin tagging by selecting only the events tagged in a specific wall
+   list_of_events_key = True, #this key activated shower origin tagging by selecting only the events tagged in a specific wall
    title = title,
    label_0 = label,
    conv_mech = "dir", # this key chooses a method of reading data, direct or using map2Dict
    offset = 0., # this key establishes the offset value
    side_bar_key = False, # if this key is activated only the unsaturated bars are taken into account
-   mc = False, # turn on this key to analyze Monte-Carlo data
-   muon = True, # turn on this key to analyze muon data
+   mc = True, # turn on this key to analyze Monte-Carlo data
+   muon = False, # turn on this key to analyze muon data
    small_count = True, # this key turns on the account of small SiPMs
    large_count = True, # this key turns on the account of large SiPMs
    write_data = False) # this key writes down the full signal info

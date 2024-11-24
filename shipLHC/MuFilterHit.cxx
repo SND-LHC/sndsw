@@ -111,8 +111,13 @@ MuFilterHit::MuFilterHit(Int_t detID, std::vector<MuFilterPoint*> V)
            times[j] = gRandom->Gaus(earliestToAL, timeResol);
         }
         if (nSides>1){ 
-            signals[j+nSiPMs] = signalRight/float(nSiPMs) * siPMcalibration;   // most simplest model, divide signal individually.
-            times[j+nSiPMs] = gRandom->Gaus(earliestToAR, timeResol);
+                  if ( floor(detID/10000)==2 && (j+nSiPMs == 10 or j+nSiPMs == 13)){
+                    signals[j+nSiPMs] = signalRight/float(nSiPMs) * siPMcalibrationS;   // most simplest model, divide signal individually. Small SiPMS special
+                    times[j+nSiPMs] = gRandom->Gaus(earliestToAL, timeResol);
+                  }else{
+                    signals[j+nSiPMs] = signalRight/float(nSiPMs) * siPMcalibration;   // most simplest model, divide signal individually.
+                    times[j+nSiPMs] = gRandom->Gaus(earliestToAR, timeResol);
+                  }
         }
      }
      flag = true;
@@ -319,6 +324,14 @@ void MuFilterHit::Print() const
      }
  }
 std::cout << std::endl;
+}
+// -------------------------------------------------------------------------
+
+// -----   Public method to apply the saturation formula   -----------------
+Float_t MuFilterHit::SaturationMC(Float_t qdc, Float_t qdcmax, Float_t alpha) 
+{
+     qdc = (1 - TMath::Exp(-alpha*qdc/qdcmax))*qdcmax;
+     return qdc;
 }
 // -------------------------------------------------------------------------
 
