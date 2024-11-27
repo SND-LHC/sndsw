@@ -285,21 +285,21 @@ with ConfigRegistry.register_config("basic") as c:
         c.MuFilter.VETOBoxY4        = c.MuFilter.Veto3BarZ/2 + c.MuFilter.SupportBoxD
 
        # VETO/US/DS plane alignment
-        c.MuFilter.Veto1ShiftY =  0.19 * u.cm
-        c.MuFilter.Veto2ShiftY = -0.06 * u.cm
-        c.MuFilter.Veto3ShiftX = -0.65 * u.cm
-        c.MuFilter.US1ShiftY =    0.25 * u.cm
-        c.MuFilter.US2ShiftY =    0.39 * u.cm
-        c.MuFilter.US3ShiftY =    0.49 * u.cm
-        c.MuFilter.US4ShiftY =    0.58 * u.cm
-        c.MuFilter.US5ShiftY =    0.70 * u.cm
-        c.MuFilter.DS1ShiftY =    0.43 * u.cm
-        c.MuFilter.DS1ShiftX =    0.58 * u.cm
-        c.MuFilter.DS2ShiftY =    0.89 * u.cm
-        c.MuFilter.DS2ShiftX =    0.72 * u.cm
-        c.MuFilter.DS3ShiftY =    1.02 * u.cm
-        c.MuFilter.DS3ShiftX =    0.81 * u.cm
-        c.MuFilter.DS4ShiftX =    0.80 * u.cm
+        c.MuFilter.Veto1ShiftY =  -0.06 * u.cm
+        c.MuFilter.Veto2ShiftY =  0.04 * u.cm
+        c.MuFilter.Veto3ShiftX =  0.65 * u.cm
+        c.MuFilter.US1ShiftY =    -0.15 * u.cm
+        c.MuFilter.US2ShiftY =    -0.12 * u.cm
+        c.MuFilter.US3ShiftY =    -0.26 * u.cm
+        c.MuFilter.US4ShiftY =    -0.29 * u.cm
+        c.MuFilter.US5ShiftY =    -0.36 * u.cm
+        c.MuFilter.DS1ShiftY =    0.0 * u.cm
+        c.MuFilter.DS1ShiftX =    0.35 * u.cm
+        c.MuFilter.DS2ShiftY =    -0.37 * u.cm
+        c.MuFilter.DS2ShiftX =    0.38* u.cm
+        c.MuFilter.DS3ShiftY =    -0.41 * u.cm
+        c.MuFilter.DS3ShiftX =    0.30 * u.cm
+        c.MuFilter.DS4ShiftX =    0.35 * u.cm
         
        #digitization parameters
         c.MuFilter.DsAttenuationLength   =  350 * u.cm                #  values between 300 cm and 400cm observed for H6 testbeam
