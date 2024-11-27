@@ -8,6 +8,7 @@ if "tb_2024_mc" in globals():
     if  globals()["target_material"]=="W":
       with_tungsten = True
 else: tb_2024_mc = False
+
 with ConfigRegistry.register_config("basic") as c:
 # cave parameters
         c.cave = AttrDict(z=0*u.cm)
@@ -323,7 +324,7 @@ with ConfigRegistry.register_config("basic") as c:
              c.EmulsionDet.WallYDim = 38.6 *u.cm
              c.EmulsionDet.WallZDim = 8.15 *u.cm
              c.EmulsionDet.WallZBorder_offset = 4.75 * u.mm
-             c.EmulsionDet.TTz = 3.0*u.cm
+             c.EmulsionDet.TTz = 4.0*u.cm # thickness of target station!
              c.EmulsionDet.zdim = c.EmulsionDet.wall* c.EmulsionDet.TotalWallZDim + c.EmulsionDet.wall*c.EmulsionDet.TTz
 
              c.EmulsionDet.n_plates = 59 # the most downstream 28 layers are W+plastic
@@ -352,14 +353,14 @@ with ConfigRegistry.register_config("basic") as c:
              c.EmulsionDet.zC = 0.# c.EmulsionDet.startpos + c.EmulsionDet.zdim/2.
 
              # survey points in survey coordinate system!
-             c.EmulsionDet.Xpos0,c.EmulsionDet.Ypos0,c.EmulsionDet.Zpos0 = 318.6*u.mm,3236.3*u.mm,380.2*u.mm
-             c.EmulsionDet.Xpos1,c.EmulsionDet.Ypos1,c.EmulsionDet.Zpos1 = 318.6*u.mm,3426.3*u.mm,380.2*u.mm
+             c.EmulsionDet.Xpos0,c.EmulsionDet.Ypos0,c.EmulsionDet.Zpos0 = 318.6*u.mm,3218.8*u.mm,380.2*u.mm
+             c.EmulsionDet.Xpos1,c.EmulsionDet.Ypos1,c.EmulsionDet.Zpos1 = 318.6*u.mm,3383.8*u.mm,380.2*u.mm
 
 
            # set SciFi modules
            c.Scifi.xdim = 13.0*u.cm #sensitive only
            c.Scifi.ydim = 13.0*u.cm
-           c.Scifi.zdim = 3*u.cm # maybe not needed
+           c.Scifi.zdim = 3*u.cm # seems like this is not used, look at c.EmulsionDet.TTz instead
            c.Scifi.nmats = 1
            c.Scifi.nscifi = 4
            c.Scifi.scifimat_length  = c.Scifi.ydim
@@ -376,15 +377,12 @@ with ConfigRegistry.register_config("basic") as c:
 
 # absolute edge point positions in survey coordinate system (survey is 'by eye' for now)
            c.Scifi.Xpos0,c.Scifi.Ypos0,c.Scifi.Zpos0 = 156.6*u.mm,3186.3*u.mm,218.2*u.mm
-           c.Scifi.Xpos1,c.Scifi.Ypos1,c.Scifi.Zpos1 = 156.6*u.mm,3381.3*u.mm,221.7*u.mm
-           c.Scifi.Xpos2,c.Scifi.Ypos2,c.Scifi.Zpos2 = 156.6*u.mm,3576.3*u.mm,225.1*u.mm
-           c.Scifi.Xpos3,c.Scifi.Ypos3,c.Scifi.Zpos3 = 156.6*u.mm,3694.3*u.mm,228.5*u.mm # 10cm step
-           if with_tungsten:
-             c.Scifi.Xpos3,c.Scifi.Ypos3,c.Scifi.Zpos3 = 156.6*u.mm,3766.3*u.mm,228.5*u.mm # 16 cm step
+           c.Scifi.Xpos1,c.Scifi.Ypos1,c.Scifi.Zpos1 = 156.6*u.mm,3351.3*u.mm,221.7*u.mm # 16.5cm step
+           c.Scifi.Xpos2,c.Scifi.Ypos2,c.Scifi.Zpos2 = 156.6*u.mm,3516.3*u.mm,225.1*u.mm # 16.5cm step
+           c.Scifi.Xpos3,c.Scifi.Ypos3,c.Scifi.Zpos3 = 156.6*u.mm,3676.3*u.mm,228.5*u.mm # 16cm step
 
            # DS1 - since there are no US planes, we take the item labelled Muon1!
            c.MuFilter.Muon1Dx,c.MuFilter.Muon1Dy,c.MuFilter.Muon1Dz = 318.6*u.mm, 4066.3*u.mm, 230.2*u.mm
-           #-46.6*u.mm, 3760.2*u.mm, 128.6 *u.mm  
 
 # from Scifi track alignment
            if tb_2024_mc :
