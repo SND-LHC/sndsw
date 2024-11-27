@@ -1,5 +1,17 @@
 var NAVTREEINDEX87 =
 {
+"shipPatRec__prev_8py.html#acb4b3d791784790e34488f05d239490c":[13,0,17,47,1],
+"shipPatRec__prev_8py.html#ad8e4a71724d57a4e73e8d0ba9368e1c8":[13,0,17,47,13],
+"shipPatRec__prev_8py.html#addc69fbef103c103d823d5f25b5fa619":[13,0,17,47,43],
+"shipPatRec__prev_8py.html#ae4a4d65bbc2f2474c9d22b5ca0e8fe6d":[13,0,17,47,15],
+"shipPatRec__prev_8py.html#ae9ad578230004c49e16111cf0b2a0a89":[13,0,17,47,40],
+"shipPatRec__prev_8py.html#aeb7c2be538e477bbadd3119870d932ef":[13,0,17,47,57],
+"shipPatRec__prev_8py.html#aee3ba49ae8b97ba7744573bae601c696":[13,0,17,47,52],
+"shipPatRec__prev_8py.html#af1667e2b6f269aab41d6bd975f33b26d":[13,0,17,47,31],
+"shipPatRec__prev_8py.html#afb1b873461c91b3073c337d49a7b5019":[13,0,17,47,32],
+"shipPatRec__prev_8py.html#afe6548c2ccf2276d9c56bb727c1ff3ad":[13,0,17,47,50],
+"shipPatRec__prev_8py.html#affee9a325f58bd2893b53f3ea6b112be":[13,0,17,47,4],
+"shipPatRec__prev_8py_source.html":[13,0,17,47],
 "shipPid_8py.html":[13,0,17,48],
 "shipPid_8py_source.html":[13,0,17,48],
 "shipRoot__conf_8py.html":[13,0,17,49],
@@ -237,17 +249,5 @@ var NAVTREEINDEX87 =
 "sndAvgDSFiducialCut_8cxx.html":[13,0,0,0,1],
 "sndAvgDSFiducialCut_8cxx_source.html":[13,0,0,0,1],
 "sndAvgDSFiducialCut_8h.html":[13,0,0,0,2],
-"sndAvgDSFiducialCut_8h_source.html":[13,0,0,0,2],
-"sndAvgSciFiFiducialCut_8cxx.html":[13,0,0,0,3],
-"sndAvgSciFiFiducialCut_8cxx_source.html":[13,0,0,0,3],
-"sndAvgSciFiFiducialCut_8h.html":[13,0,0,0,4],
-"sndAvgSciFiFiducialCut_8h_source.html":[13,0,0,0,4],
-"sndBaseCut_8h.html":[13,0,0,0,5],
-"sndBaseCut_8h_source.html":[13,0,0,0,5],
-"sndCluster_8cxx.html":[13,0,20,31],
-"sndCluster_8cxx_source.html":[13,0,20,31],
-"sndCluster_8h.html":[13,0,20,32],
-"sndCluster_8h_source.html":[13,0,20,32],
-"sndDSActivityCut_8cxx.html":[13,0,0,0,6],
-"sndDSActivityCut_8cxx_source.html":[13,0,0,0,6]
+"sndAvgDSFiducialCut_8h_source.html":[13,0,0,0,2]
 };

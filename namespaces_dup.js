@@ -2250,9 +2250,15 @@ var namespaces_dup =
       [ "alignTpar", "namespaceMufiCTR.html#a1ead112cb160c510bfffd7d6a4f54784", null ],
       [ "alignTparB2", "namespaceMufiCTR.html#a9dac930935e390045ac8cceacdd18363", null ],
       [ "channelsPerPlane", "namespaceMufiCTR.html#afcb30b727e3f3b7d0fbb9725e4636a28", null ],
+      [ "default", "namespaceMufiCTR.html#ad8c7d5c2c99f8be6fb5dbcfb8e6c8a54", null ],
+      [ "dest", "namespaceMufiCTR.html#a8d8fc8f6199dd35f68d8711ba4019ce2", null ],
       [ "f", "namespaceMufiCTR.html#aef597613a146970a5b73d0b986a3ac3f", null ],
       [ "h", "namespaceMufiCTR.html#a10fc23b9c93747d2a683a1d7928d0448", null ],
+      [ "help", "namespaceMufiCTR.html#a3741e8b08358059b7f15041f0c2a4a63", null ],
+      [ "options", "namespaceMufiCTR.html#ab91aaac08d3a3b841ed1c6e5fd961656", null ],
+      [ "parser", "namespaceMufiCTR.html#a54fd61b5888021ce3a6d8be02fca100a", null ],
       [ "Planes", "namespaceMufiCTR.html#a2e9cda9d28b88d11c25592656c5b023f", null ],
+      [ "runN", "namespaceMufiCTR.html#a154f0b70b35104c98743516cf95ea978", null ],
       [ "S", "namespaceMufiCTR.html#a722154c7f017f1114fd48f12d8b8f3e8", null ]
     ] ],
     [ "mufiHitMaps", "namespacemufiHitMaps.html", [

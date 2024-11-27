@@ -1,5 +1,11 @@
 var NAVTREEINDEX13 =
 {
+"classCosmicsGenerator.html#af4ba75dd2c9db32945463ab232a7af9a":[12,0,54,3],
+"classCosmicsGenerator.html#af6cb5a65302e33c9370b8398ba137b39":[12,0,54,1],
+"classCosmicsGenerator.html#af8162d3e012f5a60e07da678a7d0d514":[12,0,54,7],
+"classDAQ__monitoring_1_1DAQ__boards.html":[12,0,2,0],
+"classDAQ__monitoring_1_1DAQ__boards.html#a0e54401b2f24ead7bf2af4e01fde57f6":[12,0,2,0,4],
+"classDAQ__monitoring_1_1DAQ__boards.html#a3412ee206ae452eac2e2eb5f24d65636":[12,0,2,0,2],
 "classDAQ__monitoring_1_1DAQ__boards.html#a3ede5b945b4ddd535e6376a77e67f302":[12,0,2,0,1],
 "classDAQ__monitoring_1_1DAQ__boards.html#a55ee76e52490add9fe1aa428b2e820e9":[12,0,2,0,0],
 "classDAQ__monitoring_1_1DAQ__boards.html#acd2cb5cfba43d40c9270eb4ad8b1819b":[12,0,2,0,3],
@@ -243,11 +249,5 @@ var NAVTREEINDEX13 =
 "classEmulsionMagnet.html#a2aa6738d7bb72b31ede7b800b76b323c":[12,0,90,33],
 "classEmulsionMagnet.html#a2b4b805bda8b4cddeb3b4e5eda8b309c":[12,0,90,0],
 "classEmulsionMagnet.html#a3420b1e8e41006a0bdcc0e161c6a8f16":[12,0,90,31],
-"classEmulsionMagnet.html#a379d7341214491fc38de007e48c0fb1d":[12,0,90,5],
-"classEmulsionMagnet.html#a3efd06c4f73c95ff549f823cb96b407e":[12,0,90,7],
-"classEmulsionMagnet.html#a4248c9f194820400fce5fe2fd68eea72":[12,0,90,18],
-"classEmulsionMagnet.html#a464320fdcae0f1522e88816afa77674e":[12,0,90,25],
-"classEmulsionMagnet.html#a47ba4cbb5012f93b749be5317785ec80":[12,0,90,27],
-"classEmulsionMagnet.html#a51df7fe2ddf8d91630d72032d9ac851c":[12,0,90,14],
-"classEmulsionMagnet.html#a5e47abf446b8d01210589d99b6e2581f":[12,0,90,29]
+"classEmulsionMagnet.html#a379d7341214491fc38de007e48c0fb1d":[12,0,90,5]
 };

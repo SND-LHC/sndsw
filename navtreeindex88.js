@@ -1,5 +1,17 @@
 var NAVTREEINDEX88 =
 {
+"sndAvgSciFiFiducialCut_8cxx.html":[13,0,0,0,3],
+"sndAvgSciFiFiducialCut_8cxx_source.html":[13,0,0,0,3],
+"sndAvgSciFiFiducialCut_8h.html":[13,0,0,0,4],
+"sndAvgSciFiFiducialCut_8h_source.html":[13,0,0,0,4],
+"sndBaseCut_8h.html":[13,0,0,0,5],
+"sndBaseCut_8h_source.html":[13,0,0,0,5],
+"sndCluster_8cxx.html":[13,0,20,31],
+"sndCluster_8cxx_source.html":[13,0,20,31],
+"sndCluster_8h.html":[13,0,20,32],
+"sndCluster_8h_source.html":[13,0,20,32],
+"sndDSActivityCut_8cxx.html":[13,0,0,0,6],
+"sndDSActivityCut_8cxx_source.html":[13,0,0,0,6],
 "sndDSActivityCut_8h.html":[13,0,0,0,7],
 "sndDSActivityCut_8h_source.html":[13,0,0,0,7],
 "sndDSVetoCut_8cxx.html":[13,0,0,0,8],
@@ -237,17 +249,5 @@ var NAVTREEINDEX88 =
 "sndLHC__HXgeom__config_8py.html#a2d53941863c2e449afa9e071bd64399f":[13,0,6,5,63],
 "sndLHC__HXgeom__config_8py.html#a2e94cb921f79be223a9da326d0f2bfc4":[13,0,6,5,55],
 "sndLHC__HXgeom__config_8py.html#a2ebda5bc0a6024c2866418276e7eae54":[13,0,6,5,113],
-"sndLHC__HXgeom__config_8py.html#a31e003a36b5c55674b7f37e5cb92be4e":[13,0,6,5,118],
-"sndLHC__HXgeom__config_8py.html#a3273f768df2789bca0fbd86baa063e4b":[13,0,6,5,85],
-"sndLHC__HXgeom__config_8py.html#a328c064bd1398c84736ceb06b4e61343":[13,0,6,5,58],
-"sndLHC__HXgeom__config_8py.html#a343b34be8eef281548d417ac799317ae":[13,0,6,5,9],
-"sndLHC__HXgeom__config_8py.html#a34a1858b54badbd7aac564f798a25c2e":[13,0,6,5,188],
-"sndLHC__HXgeom__config_8py.html#a34bb6153feb1e87482378a9f982a77a1":[13,0,6,5,136],
-"sndLHC__HXgeom__config_8py.html#a34c3ee8801b2a78e7d2cca0503acd655":[13,0,6,5,127],
-"sndLHC__HXgeom__config_8py.html#a3790857214e0ce7ed23970c49b444acd":[13,0,6,5,140],
-"sndLHC__HXgeom__config_8py.html#a3995f01cccbe5f55187ccf1fd6b3072f":[13,0,6,5,89],
-"sndLHC__HXgeom__config_8py.html#a3ad56082f5d62be195941fb0edcecfbb":[13,0,6,5,160],
-"sndLHC__HXgeom__config_8py.html#a3b90599baf0b1acc2ad0341f0496317f":[13,0,6,5,19],
-"sndLHC__HXgeom__config_8py.html#a3bbefba2a267dc81a16ab5dea6a63a31":[13,0,6,5,145],
-"sndLHC__HXgeom__config_8py.html#a3c0653bacdb3f6db784473dbc48c6b81":[13,0,6,5,27]
+"sndLHC__HXgeom__config_8py.html#a31e003a36b5c55674b7f37e5cb92be4e":[13,0,6,5,118]
 };
