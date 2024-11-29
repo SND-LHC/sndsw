@@ -408,20 +408,20 @@ with ConfigRegistry.register_config("basic") as c:
              c.Scifi.station4t,c.Scifi.station4H0t,c.Scifi.station4V0t  =  0.000*u.ns,  0.000*u.ns,  0.000*u.ns
            else :
 # spatial
-             c.Scifi.LocM100, c.Scifi.LocM110 = 667.33*u.um, 429.73*u.um
-             c.Scifi.LocM200, c.Scifi.LocM210 = 0.000*u.um, 51.80*u.um
-             c.Scifi.LocM300, c.Scifi.LocM310 = 32.36*u.um, 803.10*u.um
-             c.Scifi.LocM400, c.Scifi.LocM410 = 105.10*u.um, 371.07*u.um
-             c.Scifi.RotPhiS10,c.Scifi.RotPsiS10,c.Scifi.RotThetaS10 =     0.00*u.mrad,    3.29*u.mrad,    0.00*u.mrad
-             c.Scifi.RotPhiS11,c.Scifi.RotPsiS11,c.Scifi.RotThetaS11 =     0.00*u.mrad,   -0.89*u.mrad,    0.00*u.mrad
-             c.Scifi.RotPhiS20,c.Scifi.RotPsiS20,c.Scifi.RotThetaS20 =     0.00*u.mrad,    0.00*u.mrad,    0.00*u.mrad
-             c.Scifi.RotPhiS21,c.Scifi.RotPsiS21,c.Scifi.RotThetaS21 =     0.00*u.mrad,    0.25*u.mrad,    0.00*u.mrad
-             c.Scifi.RotPhiS30,c.Scifi.RotPsiS30,c.Scifi.RotThetaS30 =     0.00*u.mrad,    0.93*u.mrad,    0.00*u.mrad
-             c.Scifi.RotPhiS31,c.Scifi.RotPsiS31,c.Scifi.RotThetaS31 =     0.00*u.mrad,    2.86*u.mrad,    0.00*u.mrad
-             c.Scifi.RotPhiS40,c.Scifi.RotPsiS40,c.Scifi.RotThetaS40 =     0.00*u.mrad,    0.15*u.mrad,    0.00*u.mrad
-             c.Scifi.RotPhiS41,c.Scifi.RotPsiS41,c.Scifi.RotThetaS41 =     0.00*u.mrad,    3.13*u.mrad,    0.00*u.mrad
+             c.Scifi.LocM100, c.Scifi.LocM110 = 2800.00*u.um, 420.01*u.um
+             c.Scifi.LocM200, c.Scifi.LocM210 = 554.35*u.um, 374.96*u.um
+             c.Scifi.LocM300, c.Scifi.LocM310 = -614.41**u.um, 56.48*u.um
+             c.Scifi.LocM400, c.Scifi.LocM410 = -154.11*u.um, 472.07*u.um
+             c.Scifi.RotPhiS10,c.Scifi.RotPsiS10,c.Scifi.RotThetaS10 =     0.00*u.mrad,    0.00*u.mrad,    0.00*u.mrad
+             c.Scifi.RotPhiS11,c.Scifi.RotPsiS11,c.Scifi.RotThetaS11 =     0.00*u.mrad,    1.65*u.mrad,    0.00*u.mrad
+             c.Scifi.RotPhiS20,c.Scifi.RotPsiS20,c.Scifi.RotThetaS20 =     0.00*u.mrad,    2.23*u.mrad,    0.00*u.mrad
+             c.Scifi.RotPhiS21,c.Scifi.RotPsiS21,c.Scifi.RotThetaS21 =     0.00*u.mrad,    0.68*u.mrad,    0.00*u.mrad
+             c.Scifi.RotPhiS30,c.Scifi.RotPsiS30,c.Scifi.RotThetaS30 =     0.00*u.mrad,    1.06*u.mrad,    0.00*u.mrad
+             c.Scifi.RotPhiS31,c.Scifi.RotPsiS31,c.Scifi.RotThetaS31 =     0.00*u.mrad,    0.82*u.mrad,    0.00*u.mrad
+             c.Scifi.RotPhiS40,c.Scifi.RotPsiS40,c.Scifi.RotThetaS40 =     0.00*u.mrad,    1.61*u.mrad,    0.00*u.mrad
+             c.Scifi.RotPhiS41,c.Scifi.RotPsiS41,c.Scifi.RotThetaS41 =     0.00*u.mrad,    2.22*u.mrad,    0.00*u.mrad
 # Time alignment Scifi, T0 = station 0,  mat 0 
-             c.Scifi.station1t,c.Scifi.station1H0t,c.Scifi.station1V0t =  0.000*u.ns,  0.000*u.ns,  1.535*u.ns
-             c.Scifi.station2t,c.Scifi.station2H0t,c.Scifi.station2V0t =  1.246*u.ns,  0.000*u.ns,  -0.281*u.ns
-             c.Scifi.station3t,c.Scifi.station3H0t,c.Scifi.station3V0t =  3.240*u.ns,  0.000*u.ns,  -0.913*u.ns
-             c.Scifi.station4t,c.Scifi.station4H0t,c.Scifi.station4V0t =  1.750*u.ns,  0.000*u.ns,  -0.145*u.ns
+             c.Scifi.station1t,c.Scifi.station1H0t,c.Scifi.station1V0t  =  0.000*u.ns,  0.000*u.ns,  0.000*u.ns
+             c.Scifi.station2t,c.Scifi.station2H0t,c.Scifi.station2V0t  =  0.000*u.ns,  0.000*u.ns,  0.000*u.ns
+             c.Scifi.station3t,c.Scifi.station3H0t,c.Scifi.station3V0t  =  0.000*u.ns,  0.000*u.ns,  0.000*u.ns
+             c.Scifi.station4t,c.Scifi.station4H0t,c.Scifi.station4V0t  =  0.000*u.ns,  0.000*u.ns,  0.000*u.ns
