@@ -1,3 +1,15 @@
+# the MC data files for testbeam 2023 are located at /eos/experiment/sndlhc/users/ekhalikov/
+# the data is available for the following energies (100k events): 
+# Pions (pi-): 100, 140, 180, 240, 300, 500, 750, 1000, and 1500 (48k events) GeV
+# Muons (mu-): 160 GeV (100k events)
+
+# run this code like this for MC data:
+# python -i saturation_study.py -r 0 -p [path to MC data folder] -f [path to MC data digitized root file] -g geofile_full.PG_-211-TGeant4.root [name of geometry file, -13 instead of -211 for muons] --nStart [number of the first event to analyze] --nEvents [number of the last event to analyze]
+# for example, python -i saturation_study.py -r 0 -p /eos/experiment/sndlhc/users/ekhalikov/aug2023_pi-_300GeV_100k/ -f /eos/experiment/sndlhc/users/ekhalikov/aug2023_pi-_300GeV_100k/dig.root -g geofile_full.PG_-211-TGeant4.root --nStart 0 --nEvents 10000
+# run this code like this for testbeam data:
+# python -i saturation_study.py -r [run number] -p [path to testbeam data folder] -g [name of geometry file] --nStart [number of the first event to analyze] --nEvents [number of the last event to analyze]
+# for example, python -i saturation_study.py -r 100639 -p /eos/experiment/sndlhc/convertedData/commissioning/testbeam_June2023_H8/ -g geofile_sndlhc_H8_2023_3walls.root --nStart 0 --nEvents 100000
+
 import ROOT,os,subprocess
 ROOT.gStyle.SetOptStat(0)
 import atexit
@@ -13,10 +25,6 @@ from scipy.optimize import curve_fit
 import json
 import uproot
 
-# the MC data files for testbeam 2023 are located at /eos/user/e/ekhaliko/Documents/SND_Data/test_300GeV_n100k_aug2023_pi-_new/
-# the data is available for the following energies (100k events): 
-# Pions (pi-): 100, 140, 180, 240, 300, 500, 750, 1000, and 1500 (48k events) GeV
-# Muons (mu-): 160 GeV (100k events)
 
 def linearFunc(x,intercept,slope):
     y = intercept + slope * x
