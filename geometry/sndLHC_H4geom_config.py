@@ -360,7 +360,7 @@ with ConfigRegistry.register_config("basic") as c:
            # set SciFi modules
            c.Scifi.xdim = 13.0*u.cm #sensitive only
            c.Scifi.ydim = 13.0*u.cm
-           c.Scifi.zdim = 3*u.cm # seems like this is not used, look at c.EmulsionDet.TTz instead
+           c.Scifi.zdim = 4.0*u.cm # z thickness of Scifi station, must match c.EmulsionDet.TTz
            c.Scifi.nmats = 1
            c.Scifi.nscifi = 4
            c.Scifi.scifimat_length  = c.Scifi.ydim
