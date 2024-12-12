@@ -408,7 +408,6 @@ void Scifi::ConstructGeometry()
 	ScifiVolume->AddNode(PlasticGlueAirVolume, 0, new TGeoTranslation(0, 0, fZCarbonFiber + fZGlue + fZHoneycomb + fZGlue + fZCarbonFiber + fZGlue + fZEpoxyMat + fZGlue/2));
 	ScifiVolume->AddNode(PlasticAirVolume, 0, new TGeoTranslation(0, 0, fZCarbonFiber + fZGlue + fZHoneycomb + fZGlue + fZCarbonFiber + fZGlue + fZEpoxyMat + fZGlue + fZPlastBar/2));
 
-
 	Double_t first_half_z = fZCarbonFiber + fZGlue + fZHoneycomb + fZGlue + fZCarbonFiber + fZGlue + fZEpoxyMat + fZGlue + fZPlastBar;
 	ScifiVolume->AddNode(AirGapVolume, 0, new TGeoTranslation(0, 0, first_half_z + fZAirgap/2));
 
@@ -458,7 +457,7 @@ void Scifi::ConstructGeometry()
        volFeTarget[istation]->SetLineColor(kGreen-4);
        volTarget->AddNode(volFeTarget[istation],1,
                                          new TGeoTranslation(DeltasV[istation][0] - PassiveBlockNotCenterred*fabs(fXDimension-fFeTargetX[istation])/2.,
-                                                             DeltasH[istation][1]+ PassiveBlockNotCenterred*(DeltasH[0][1]-DeltasH[istation][1]
+                                                             DeltasH[istation][1] + PassiveBlockNotCenterred*(DeltasH[0][1]-DeltasH[istation][1]
                                                                                                              +fabs(fYDimension-fFeTargetY[istation])/2.),
                                                              DeltasH[istation][2] - fStationOffset[istation] - fFeTargetZ[istation]/2.));
     }
