@@ -351,7 +351,7 @@ void Scifi::ConstructGeometry()
     ScifiVolume->AddNode(HoneycombVolume, 1, new TGeoTranslation(0, 0, 3*fZCarbonFiber + fZHoneycomb + fZEpoxyMat + 2*fZPlastBar + fZEpoxyMat + fZHoneycomb/2));
     ScifiVolume->AddNode(CarbonFiberVolume, 3, new TGeoTranslation(0, 0, 3*fZCarbonFiber + 2*fZHoneycomb + fZEpoxyMat + 2*fZPlastBar + fZEpoxyMat + fZCarbonFiber/2));
 
-    Double_t totalThickness = 4*fZCarbonFiber + 2*fZHoneycomb + 2*fZEpoxyMat + 2*fZPlastBar;
+    Double_t totalThickness = 4*fZCarbonFiber + 2*fZHoneycomb + 2*fZEpoxyMat + 2*fZPlastBar; // adds up to 1.19cm
 
     volTarget->AddNode(ScifiVolume, node, 
                new TGeoTranslation(DeltasV[istation][0], DeltasH[istation][1], DeltasH[istation][2]));
@@ -359,14 +359,15 @@ void Scifi::ConstructGeometry()
     //std::cout<<"deltas "<<DeltasV[istation][0]<<" "<< DeltasH[istation][1]<<" "<< DeltasH[istation][2]<<" "<<totalThickness<<std::endl;
     // for 2023 testbeam put iron blocks of variable length in between SciFi planes - the planes are dowstream of the blocks!
     // for the 2024 testbeam, the iron blocks are aligned to Brick 1 and laid on the concrete (same as SciFi 1)
+    // Leave space for the station support - a station is ~3cm thick in z, which must be taken into account when placing the Fe walls! 
     if (fNScifi==4 && istation != 0) {
        volFeTarget[istation] = gGeoManager->MakeBox(TString("volFeTarget"+station),Fe,fFeTargetX[istation]/2., fFeTargetY[istation]/2., fFeTargetZ[istation]/2.);
        volFeTarget[istation]->SetLineColor(kGreen-4);
-       volTarget->AddNode(volFeTarget[istation],1,
+       volTarget->AddNode(volFeTarget[istation],1,//fZDimension
                                          new TGeoTranslation(DeltasV[istation][0] - PassiveBlockNotCenterred*fabs(fXDimension-fFeTargetX[istation])/2.,
                                                              DeltasH[istation][1]+ PassiveBlockNotCenterred*(DeltasH[0][1]-DeltasH[istation][1]
                                                                                                              +fabs(fYDimension-fFeTargetY[istation])/2.),
-                                                             DeltasH[istation][2] - fFeTargetZ[istation]/2.));
+                                                             DeltasH[istation][2] - 0.5*(fZDimension-totalThickness) - fFeTargetZ[istation]/2.));
     }
 
     //Creating Scifi planes by appending fiber mats
