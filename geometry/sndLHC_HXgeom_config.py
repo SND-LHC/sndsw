@@ -320,9 +320,9 @@ with ConfigRegistry.register_config("basic") as c:
 
 # absolute edge point positions in survey coordinate system (survey is 'by eye' for now)
            c.Scifi.Xpos0,c.Scifi.Ypos0,c.Scifi.Zpos0 = 156.6*u.mm,3186.3*u.mm,218.2*u.mm
-           c.Scifi.Xpos1,c.Scifi.Ypos1,c.Scifi.Zpos1 = 156.6*u.mm,3304.4*u.mm,218.4*u.mm
-           c.Scifi.Xpos2,c.Scifi.Ypos2,c.Scifi.Zpos2 = 156.6*u.mm,3422.5*u.mm,218.5*u.mm
-           c.Scifi.Xpos3,c.Scifi.Ypos3,c.Scifi.Zpos3 = 156.6*u.mm,3540.6*u.mm,218.6*u.mm
+           c.Scifi.Xpos1,c.Scifi.Ypos1,c.Scifi.Zpos1 = 156.6*u.mm,3316.3*u.mm,218.4*u.mm
+           c.Scifi.Xpos2,c.Scifi.Ypos2,c.Scifi.Zpos2 = 156.6*u.mm,3446.3*u.mm,218.5*u.mm
+           c.Scifi.Xpos3,c.Scifi.Ypos3,c.Scifi.Zpos3 = 156.6*u.mm,3576.3*u.mm,218.6*u.mm
 # and MuFilter - survey measurements
            c.MuFilter.Iron1Dx, c.MuFilter.Iron1Dy, c.MuFilter.Iron1Dz = -22.1*u.mm, 3559.6*u.mm, 128.6*u.mm
            # US1
