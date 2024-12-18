@@ -487,8 +487,18 @@ void ConvRawData::Process1()
   fSNDLHCEventHeader->SetUTCtimestamp(eventTime*6.23768*1e-9 + runStartUTC);
   fSNDLHCEventHeader->SetEventNumber(fEventTree->GetLeaf("evtNumber")->GetValue());
   // Fill filling scheme data into the event header
-  if (FSmap->GetEntries()>1)
-      fSNDLHCEventHeader->SetBunchType(stoi(((TObjString*)FSmap->GetValue(Form("%d", int((eventTime%(4*3564))/4))))->GetString().Data()));
+  if (FSmap->GetEntries()>1){
+      // ion runs
+      if (fSNDLHCEventHeader->GetAccMode()== 12){
+         fSNDLHCEventHeader->SetBunchType(stoi(((TObjString*)FSmap->GetValue(Form("%d",
+                                             int((eventTime%(4*3564))/8+0.5))))->GetString().Data()));
+      }
+      // proton runs
+      else{
+         fSNDLHCEventHeader->SetBunchType(stoi(((TObjString*)FSmap->GetValue(Form("%d",
+                                             int((eventTime%(4*3564))/4))))->GetString().Data()));
+      }
+  }    
   else
       fSNDLHCEventHeader->SetBunchType(stoi(((TObjString*)FSmap->GetValue("0"))->GetString().Data())); 
   

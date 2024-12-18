@@ -41,7 +41,7 @@ class ConvRawDataPY(ROOT.FairTask):
          self.outFile = ROOT.TMemFile('monitorRawData', 'recreate')
 
 # get filling scheme per run
-      self.fsdict = False
+      self.fsdict = False      
       try:
          if options.path.find('2022')!=-1: fpath = "/eos/experiment/sndlhc/convertedData/physics/2022/"
          elif options.path.find('2023')!=-1: fpath = "/eos/experiment/sndlhc/convertedData/physics/2023/"
@@ -57,10 +57,14 @@ class ConvRawDataPY(ROOT.FairTask):
       
       # put the run's FS in format to be passed to FairTasks as input
       self.FSmap = ROOT.TMap()
-      if self.fsdict:         
-         for bunchNumber in range (0, 3564):
-             nb1 = (3564 + bunchNumber - self.fsdict['phaseShift1'])%3564
-             nb2 = (3564 + bunchNumber - self.fsdict['phaseShift1']- self.fsdict['phaseShift2'])%3564
+      if self.fsdict:   
+         # For LHC ion runs the phase shift of beam 2 could not be
+         # determined and is assigned 0 in the FS dict
+         if self.fsdict['phaseShift2'] == 0: Nbunches = 1782
+         else: Nbunches = 3564 # proton runs
+         for bunchNumber in range (0, Nbunches):
+             nb1 = (Nbunches + bunchNumber - self.fsdict['phaseShift1'])%Nbunches
+             nb2 = (Nbunches + bunchNumber - self.fsdict['phaseShift1']- self.fsdict['phaseShift2'])%Nbunches
              b1 = nb1 in self.fsdict['B1']
              b2 = nb2 in self.fsdict['B2']
              IP1 = False
@@ -430,7 +434,10 @@ class ConvRawDataPY(ROOT.FairTask):
      self.header.SetFlags(event.evt_flags)
      self.header.SetRunId( self.options.runNumber )
      if self.FSmap.GetEntries()>1:
-          self.header.SetBunchType(int(str(self.FSmap.GetValue(str(int((event.evt_timestamp%(4*3564))/4))))))
+          if self.header.GetAccMode()== 12: # ion runs
+            self.header.SetBunchType(int(str(self.FSmap.GetValue(str(int((event.evt_timestamp%(4*3564))/8))))))
+          else: # proton runs
+            self.header.SetBunchType(int(str(self.FSmap.GetValue(str(int((event.evt_timestamp%(4*3564))/4))))))
      else:
           self.header.SetBunchType(int(str(self.FSmap.GetValue("0"))))
 
