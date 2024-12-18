@@ -227,6 +227,14 @@ class Monitoring():
            self.snd_geo.modules['Scifi'].InitEvent(eventChain.EventHeader)
            self.snd_geo.modules['MuFilter'].InitEvent(eventChain.EventHeader)
 
+        # define the number of bunches in the LHC
+        if eventChain.EventHeader.GetAccMode()==12: # ion runs
+          self.Nbunches = 1782
+          self.div = 8
+        else: # proton runs
+          self.Nbunches = 3564
+          self.div = 4
+        
         # get filling scheme, only necessary if not encoded in EventHeader, before 2022 reprocessing
         self.hasBunchInfo = False
         self.fsdict = False
@@ -341,9 +349,9 @@ class Monitoring():
              self.xing['noBeam']  = binfo.isNoBeam()
       elif self.fsdict:
              T   = self.eventTree.EventHeader.GetEventTime()
-             bunchNumber = (T%(4*3564))//4
-             nb1 = (3564 + bunchNumber - self.fsdict['phaseShift1'])%3564
-             nb2 = (3564 + bunchNumber - self.fsdict['phaseShift1']- self.fsdict['phaseShift2'])%3564
+             bunchNumber = int((T%(self.div*self.Nbunches))/self.div+0.5)
+             nb1 = (self.Nbunches + bunchNumber - self.fsdict['phaseShift1'])%self.Nbunches
+             nb2 = (self.Nbunches + bunchNumber - self.fsdict['phaseShift1']- self.fsdict['phaseShift2'])%self.Nbunches
              b1 = nb1 in self.fsdict['B1']
              b2 = nb2 in self.fsdict['B2']
              IP1 = False

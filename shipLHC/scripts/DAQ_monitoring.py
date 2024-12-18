@@ -81,15 +81,15 @@ class Time_evolution(ROOT.FairTask):
        ut.bookHist(h,'ctime','delta event time per channel; dt [s]'  ,1000,0.0,10.,1700,-0.5,1699.5)
        ut.bookHist(h,'ctimeZ','delta event time per channel; dt [us]',10000,0.0,100.,1700,-0.5,1699.5)
        ut.bookHist(h,'ctimeM','delta event time per channel; dt [ms]',1000,0.0,10.,1700,-0.5,1699.5)
-       ut.bookHist(h,'btime','delta timestamp per channel; ',3564*4+200,-0.5,3564*4-0.5+200,1700,-0.5,1699.5)
-       ut.bookHist(h,'bnr','bunch number; LHC bunch number', 3564,-0.5,3564-0.5)
-       ut.bookHist(h,'Xbnr','bunch number; 4x LHC bunch number [event_timestamp % (4 * 3564)]',3564*4,-0.5,3564*4-0.5)
-       ut.bookHist(h,'bnrF','bunch number forward tracks; LHC bunch number',3564,-0.5,3564-0.5)
-       ut.bookHist(h,'bnrB','bunch number backward tracks; LHC bunch number',3564,-0.5,3564-0.5)
+       ut.bookHist(h,'btime','delta timestamp per channel; ',self.M.Nbunches*4+200,-0.5,self.M.Nbunches*4-0.5+200,1700,-0.5,1699.5)
+       ut.bookHist(h,'bnr','bunch number; ',self.M.Nbunches,-0.5,self.M.Nbunches-0.5)
+       ut.bookHist(h,'Xbnr','bunch number; ',self.M.Nbunches*4,-0.5,self.M.Nbunches*4-0.5)
+       ut.bookHist(h,'bnrF','bunch number forward tracks; ',self.M.Nbunches,-0.5,self.M.Nbunches-0.5)
+       ut.bookHist(h,'bnrB','bunch number backward tracks; ',self.M.Nbunches,-0.5,self.M.Nbunches-0.5)
 # type of crossing, check for b1only,b2nob1,nobeam
        self.xing = {'all':True,'B1only':False,'B2noB1':False,'noBeam':False}
        for x in self.xing:
-           ut.bookHist(h,'bnr'+x,'bunch number; ',3564,-0.5,3564-0.5)
+           ut.bookHist(h,'bnr'+x,'bunch number; ',self.M.Nbunches,-0.5,self.M.Nbunches-0.5)
            # The SciFi track monitoring plots are made in this module.
            # These histograms are present in the SciFi_residuals module as well. Since running the latter is
            # time-consuming, it is excluded from the baseline monitoring, while the relevant SciFi track
@@ -150,8 +150,8 @@ class Time_evolution(ROOT.FairTask):
             SFtrack = True
             if abs(SL[0])<0.03:  direction = 1
             elif SL[0]<-0.07:     direction = -1
-       bn = (T%(4*3564))//4
-       sbn = T%(4*3564)
+       bn =  int((T%(self.M.div*self.M.Nbunches))/self.M.div+0.5)
+       sbn = T%(self.M.div*self.M.Nbunches)
        rc = h['bnr'].Fill( bn ,W)
        rc = h['Xbnr'].Fill( sbn,W)
        for x in self.xing:
