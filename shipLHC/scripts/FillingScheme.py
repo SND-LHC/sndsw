@@ -446,6 +446,13 @@ class fillingScheme():
        return 0
 
    def extractPhaseShift(self,fillNr,runNumber):
+         
+         R = ROOT.TFile.Open(www+"offline/run"+str(runNumber).zfill(6)+".root")
+         ROOT.gROOT.cd()
+         self.h['bnr'] = R.daq.Get('bunchNumber').FindObject('bnr').Clone('bnr')
+         Nbunches = self.h['bnr'].GetNbinsX()
+         R.Close()
+#Filling scheme         
          self.F = ROOT.TFile(self.path+'fillingScheme-'+fillNr+'.root')
          self.fs = self.F.Get('fill'+fillNr)
 # convert to dictionary
@@ -453,38 +460,40 @@ class fillingScheme():
          fsdict = self.FSdict[runNumber]
          for x in self.fs:
               if x.IsB2>0:
-                   fsdict['B2'][(x.B1-1)/10]={'IP1':x.IP1>0,'IP2':x.IP2>0}
+                   if Nbunches==3564:
+                     fsdict['B2'][(x.B1-1)/10]={'IP1':x.IP1>0,'IP2':x.IP2>0}
+                   if Nbunches==1782:
+                     fsdict['B2'][(x.B1-1)//20]={'IP1':x.IP1>0,'IP2':x.IP2>0}
               else:
-                   fsdict['B1'][(x.B1-1)/10]={'IP1':x.IP1>0,'IP2':x.IP2>0}
-         R = ROOT.TFile.Open(www+"offline/run"+str(runNumber).zfill(6)+".root")
-         ROOT.gROOT.cd()
-         self.h['bnr'] = R.daq.Get('bunchNumber').FindObject('bnr').Clone('bnr')
-         R.Close()
+                   if Nbunches==3564:
+                     fsdict['B1'][(x.B1-1)/10]={'IP1':x.IP1>0,'IP2':x.IP2>0}
+                   if Nbunches==1782:
+                     fsdict['B1'][(x.B1-1)//20]={'IP1':x.IP1>0,'IP2':x.IP2>0}
          self.matches = {}
-         for phase1 in range(0,3564):
+         for phase1 in range(0,Nbunches):
                self.matches[phase1]=0
-               for n in range(0,3564):
+               for n in range(0,Nbunches):
                    if not n in fsdict['B1']: continue
-                   j = (n+phase1)%3564 + 1
+                   j = (n+phase1)%Nbunches + 1
                    if fsdict['B1'][n]['IP1']: self.matches[phase1]+=self.h['bnr'].GetBinContent(j)
          self.phaseShift1 = max(self.matches,key=self.matches.get)
-         print('phaseShift1 found:',self.phaseShift1,3564-self.phaseShift1)
+         print('phaseShift1 found:',self.phaseShift1,Nbunches-self.phaseShift1)
          self.matches = {}
-         for phase2 in range(0,3564):
+         for phase2 in range(0,Nbunches):
                self.matches[phase2]=0
-               for n in range(0,3564):
+               for n in range(0,Nbunches):
                    if not n in fsdict['B2']: continue
-                   j = (n+self.phaseShift1+phase2)%3564 + 1    # bin number
-                   ip1 = (j-1+3564-self.phaseShift1)%3564
+                   j = (n+self.phaseShift1+phase2)%Nbunches + 1    # bin number
+                   ip1 = (j-1+Nbunches-self.phaseShift1)%Nbunches
                    # take only bins which are not associated to collisions in IP1
                    if ip1 in fsdict['B1']:
                        if fsdict['B1'][ip1]['IP1']: continue
                    if fsdict['B2'][n]['IP2'] or 1>0: 
                       self.matches[phase2]+=self.h['bnr'].GetBinContent(j)
          self.phaseShift2 = max(self.matches,key=self.matches.get)
-         print('phaseShift2 found:',self.phaseShift2,3564-self.phaseShift2)
-         if not (3564-self.phaseShift2) == 129:
-            print('There is a problem with phaseshift2 for run',runNumber,3564-self.phaseShift2)
+         print('phaseShift2 found:',self.phaseShift2,Nbunches-self.phaseShift2)
+         if not (Nbunches-self.phaseShift2) == 129:
+            print('There is a problem with phaseshift2 for run',runNumber,Nbunches-self.phaseShift2)
             if self.phaseShift2 == 129:
                      print("!!! Probably beam 1 and beam 2 are interchanged. Try reverse")
                      self.phaseShift1 = FS.phaseShift1 +129
@@ -514,20 +523,28 @@ class fillingScheme():
                 self.phaseShift1 =  2598 +129
 
          fsdict['phaseShift1'] = self.phaseShift1
-         fsdict['phaseShift2'] = 3564 - 129
+         fsdict['phaseShift2'] = Nbunches - 129
          self.phaseShift2 = fsdict['phaseShift2']
 
    def plotBunchStructure(self,fillNr,runNumber):
          h=self.h
          self.F = ROOT.TFile(self.path+'fillingScheme-'+fillNr+'.root')
          self.fs = self.F.Get('fill'+fillNr)
+
+         R = ROOT.TFile.Open(www+"offline/run"+str(runNumber).zfill(6)+".root")
+         ROOT.gROOT.cd()
+         bCanvas = R.daq.Get('bunchNumber')
+         h['bnr']= bCanvas.FindObject('bnr').Clone('bnr')
+         Nbunches = h['bnr'].GetNbinsX()
+         ROOT.gROOT.cd()
+
          ut.bookHist(h,'b1','b1',35640,-0.5,35639.5)
          ut.bookHist(h,'IP1','IP1',35640,-0.5,35639.5)
          ut.bookHist(h,'IP2','IP2',35640,-0.5,35639.5)
-         ut.bookHist(h,'b1z','b1',3564,-0.5,3563.5)
-         ut.bookHist(h,'b2z','b2',3564,-0.5,3563.5)
-         ut.bookHist(h,'IP1z','IP1',3564,-0.5,3563.5)
-         ut.bookHist(h,'IP2z','IP2',3564,-0.5,3563.5)
+         ut.bookHist(h,'b1z','b1',Nbunches,-0.5,Nbunches-0.5)
+         ut.bookHist(h,'b2z','b2',Nbunches,-0.5,Nbunches-0.5)
+         ut.bookHist(h,'IP1z','IP1',Nbunches,-0.5,Nbunches-0.5)
+         ut.bookHist(h,'IP2z','IP2',Nbunches,-0.5,Nbunches-0.5)
          h['b1'].Draw()
          h['b1z'].SetLineColor(ROOT.kBlue)
          h['b2z'].SetLineColor(ROOT.kCyan)
@@ -538,21 +555,21 @@ class fillingScheme():
          h['IP1z'].SetStats(0)
          h['IP2z'].SetStats(0)
 
-         R = ROOT.TFile.Open(www+"offline/run"+str(runNumber).zfill(6)+".root")
-         ROOT.gROOT.cd()
-         bCanvas = R.daq.Get('bunchNumber')
-         h['bnr']= bCanvas.FindObject('bnr').Clone('bnr')
-         ROOT.gROOT.cd()
-
          self.Draw()
 
    def Draw(self):
          h = self.h
+         Nbunches = h['bnr'].GetNbinsX()
+         eq = ''
+         if Nbunches==1782: 
+           equation_str ='floor((B1-1)/20)'
+         if Nbunches==3564: 
+           equation_str = '(B1-1)/10'
          h['c1'].cd()
-         self.fs.Draw('(( (B1-1)/10+'+str(self.phaseShift1)+')%3564)>>b1z','!(IsB2>0)','hist')
-         self.fs.Draw('(( (B1-1)/10+'+str(self.phaseShift1)+')%3564)>>IP1z','IP1>-0.6&&(!(IsB2>0))','hist')
-         self.fs.Draw('(( (B1-1)/10+'+str(self.phaseShift1+ self.phaseShift2)+')%3564)>>IP2z','IP2>-0.6&&IsB2>0','hist')
-         self.fs.Draw('(( (B1-1)/10+'+str(self.phaseShift1+ self.phaseShift2)+')%3564)>>b2z','IsB2>0','hist')
+         self.fs.Draw('(( '+equation_str+'+'+str(self.phaseShift1)+')%'+str(Nbunches)+')>>b1z','!(IsB2>0)','hist')
+         self.fs.Draw('(( '+equation_str+'+'+str(self.phaseShift1)+')%'+str(Nbunches)+')>>IP1z','IP1>-0.6&&(!(IsB2>0))','hist')
+         self.fs.Draw('(( '+equation_str+'+'+str(self.phaseShift1+ self.phaseShift2)+')%'+str(Nbunches)+')>>IP2z','IP2>-0.6&&IsB2>0','hist')
+         self.fs.Draw('(( '+equation_str+'+'+str(self.phaseShift1+ self.phaseShift2)+')%'+str(Nbunches)+')>>b2z','IsB2>0','hist')
          norm = h['bnr'].GetBinContent(h['bnr'].GetMaximumBin())
          h['b1z'].Scale(norm*1.5)
          h['IP1z'].Scale(norm*1.0)
@@ -564,13 +581,14 @@ class fillingScheme():
          h['b1z'].Draw('hist')
          h['bnr'].Draw('histsame')
          h['b1z'].Draw('histsame')
-         txt = 'phase shift B1, B2: '+str(3564-self.phaseShift1)+','+str(3564-self.phaseShift2)+' for run '+str(options.runNumbers)
+         txt = 'phase shift B1, B2: '+str(Nbunches-self.phaseShift1)+','+str(Nbunches-self.phaseShift2)+' for run '+str(options.runNumbers)
          txt += " fill nr "+options.fillNumbers
          h['b1z'].SetTitle(txt)
          if self.options.withIP2: 
                h['IP2z'].Draw('histsame')
                h['b2z'].Draw('histsame')
          h['IP1z'].Draw('histsame')
+         h['bnr'].Draw('histsame')
 
    def Xbunch(self):
          h = self.h
@@ -608,7 +626,8 @@ class fillingScheme():
          h['Xb1z'].Draw('hist')
          h['Xbnr'].Draw('histsame')
          h['Xb1z'].Draw('histsame')
-         txt = 'phase shift B1, B2: '+str(3564-self.phaseShift1)+','+str(3564-self.phaseShift2)+' for run '+str(options.runNumbers)
+         Nbunches = h['bnr'].GetNbinsX()
+         txt = 'phase shift B1, B2: '+str(Nbunches-self.phaseShift1)+','+str(Nbunches-self.phaseShift2)+' for run '+str(options.runNumbers)
          txt += " fill nr "+options.fillNumbers
          h['Xb1z'].SetTitle(txt)
          h['XIP2z'].Draw('histsame')
@@ -616,9 +635,11 @@ class fillingScheme():
          h['XIP1z'].Draw('histsame')
          # overlay all snd subcycles
          ut.bookHist(h,'scycle','overlay',4,-0.5,3.5)
+         if Nbunches == 3564: div=4
+         if Nbunches == 1782: div=8
          for n in range(h['XIP1z'].GetNbinsX()):
             if h['XIP1z'].GetBinContent(n+1)>0:
-              rc = h['scycle'].Fill(n%4, h['Xbnr'].GetBinContent(n+1))
+              rc = h['scycle'].Fill(n%div, h['Xbnr'].GetBinContent(n+1))
 
    def Extract(self):
         if self.options.fillNumbers=='':
@@ -639,6 +660,7 @@ class fillingScheme():
 
    def test(self,runnr,I=True):
        h = self.h
+       Nbunches = h['bnr'].GetNbinsX()
        p = open("FSdict.pkl",'rb')
        self.FSdict = pickle.load(p)
        if runnr in self.FSdict: fsdict = self.FSdict[runnr]
@@ -659,7 +681,7 @@ class fillingScheme():
           print(keys)
           A = X[keys['A6R4.B2']//2].replace('\n','').split(',')
           print(len(A))
-          for bunchNumber in range(1,3565):
+          for bunchNumber in range(1,Nbunches+1):
              b1 = (bunchNumber-1) in fsdict['B1']
              if b1 and float(A[bunchNumber])>1: continue
              if not b1 and float(A[bunchNumber])<1: continue
@@ -671,25 +693,27 @@ class fillingScheme():
        for x in ['b1z','IP1z','b2z','IP2z']:
           w[x]=h[x].GetMaximum()
           h[x].Reset()
-       for bunchNumber in range(0,3564):
-             nb1 = ( 3564+bunchNumber - fsdict['phaseShift1'])%3564
+       for bunchNumber in range(0,Nbunches):
+             nb1 = ( Nbunches+bunchNumber - fsdict['phaseShift1'])%Nbunches
              if nb1 in fsdict['B1']:
                  rc = h['b1z'].Fill(bunchNumber,w['b1z'])
                  if fsdict['B1'][nb1]['IP1']: rc = h['IP1z'].Fill(bunchNumber,w['IP1z'])
-             nb2 = ( 3564 + bunchNumber - fsdict['phaseShift1'] - fsdict['phaseShift2'])%3564
+             nb2 = ( Nbunches + bunchNumber - fsdict['phaseShift1'] - fsdict['phaseShift2'])%Nbunches
              if nb2 in fsdict['B2']:
                  rc = h['b2z'].Fill(bunchNumber,w['b2z'])
                  if fsdict['B2'][nb2]['IP2']: rc = h['IP2z'].Fill(bunchNumber,w['IP2z'])
 
    def b1b2(self,runnr,b):
+     Nbunches = self.h['bnr'].GetNbinsX()
      if runnr in self.FSdict: 
             fsdict = self.FSdict[runnr]
-            nb1 = ( 3564 + b - fsdict['phaseShift1'])%3564
-            nb2 = ( 3564 + b - fsdict['phaseShift1'] - fsdict['phaseShift2'])%3564
+            nb1 = ( Nbunches + b - fsdict['phaseShift1'])%Nbunches
+            nb2 = ( Nbunches + b - fsdict['phaseShift1'] - fsdict['phaseShift2'])%Nbunches
             print('b1 bunch number',nb1,nb2)
 
    def calcMu(self):
        sigma = 80E6 # 80mb
+       Nbunches = self.h['bnr'].GetNbinsX()
        self.L = ROOT.TFile.Open("Lumi.root")
        L = self.L
        h = self.h
@@ -713,7 +737,7 @@ class fillingScheme():
            tag = 2
            if fs.find('Multi')==0: tag=3
            IP1 = int(fs.split('_')[tag])
-           collPerTurn = IP1/3564
+           collPerTurn = IP1/Nbunches
            i=-1
            for x in tc.GetListOfPrimitives():
                 i+=1
@@ -1130,6 +1154,7 @@ class fillingScheme():
 
    def lhcNumbering(self):
         h = self.h
+        Nbunches = h['bnr'].GetNbinsX()
         F = ROOT.TFile('BunchStructure.root')
         p = open("FSdict.pkl",'rb')
         self.FSdict = pickle.load(p)
@@ -1155,10 +1180,10 @@ class fillingScheme():
                    histo=X[hname]
                    if not hasattr(histo,'GetBinContent'): continue
                    tmp = {}
-                   for i in range(3564):
+                   for i in range(Nbunches):
                       tmp[i+1] = histo.GetBinContent(i+1)
-                   for i in range(3564):
-                        newBin = (3564 - phaseShift1 + i)%3564
+                   for i in range(Nbunches):
+                        newBin = (Nbunches - phaseShift1 + i)%Nbunches
                         histo.SetBinContent(newBin,tmp[i+1])
                 h[newname].Update()
                 h[newname].Write()
@@ -1652,10 +1677,11 @@ class fillingScheme():
 
    def fillStats(self,runNr):
        fsdict = self.FSdict[runNr]
+       Nbunches = self.h['bnr'].GetNbinsX()
        self.stats = {'B2noB1':0,'B1only':0,'noBeam':0,'IP1':0,'B2andB1':0,'B1':0,'B2':0}
-       for bunchNumber in range(3564):
-             nb1 = (3564 + bunchNumber - fsdict['phaseShift1'])%3564
-             nb2 = (3564 + bunchNumber - fsdict['phaseShift1']- fsdict['phaseShift2'])%3564
+       for bunchNumber in range(Nbunches):
+             nb1 = (Nbunches + bunchNumber - fsdict['phaseShift1'])%Nbunches
+             nb2 = (Nbunches + bunchNumber - fsdict['phaseShift1']- fsdict['phaseShift2'])%Nbunches
              b1 = nb1 in fsdict['B1']
              b2 = nb2 in fsdict['B2']
              IP1 = False
@@ -1676,9 +1702,10 @@ class fillingScheme():
        marker = {'B2noB1':22,'B1only':21,'noBeam':20}
        colors = {'B2noB1':ROOT.kRed,'B1only':ROOT.kOrange,'noBeam':ROOT.kGreen}
        h=self.h
+       Nbunches = self.h['bnr'].GetNbinsX()
        self.fillStats(runNumber)
        stats = self.stats
-       norm = {'B2noB1':stats['B2'],'B1only':stats['B1'],'noBeam':3564}
+       norm = {'B2noB1':stats['B2'],'B1only':stats['B1'],'noBeam':Nbunches}
        R = ROOT.TFile.Open(www+"offline/run"+str(runNumber).zfill(6)+".root")
        ROOT.gROOT.cd()
        for hitmaps in ['mufi-barmapsVeto','mufi-barmapsUS','mufi-barmapsDS']:
@@ -1721,7 +1748,7 @@ class fillingScheme():
                  if plane.ClassName().find('TH')==0:
                     hname = plane.GetName()
                     h[hname] = plane.Clone(hname)
-                    h[hname].Scale(3564/stats[B])
+                    h[hname].Scale(Nbunches/stats[B])
                     h[hname].SetStats(0)
                     h[hname].SetMarkerStyle(marker[B])
                     h[hname].SetLineColor(colors[B])
@@ -1936,6 +1963,7 @@ if __name__ == '__main__':
            # os.system('pdflatex LumiSummary.tex')
            
            print('problems',problems)
+           print('do not forget to copy to EOS:')
            print('do not forget to copy to EOS:')
            print('xrdcp -f  Lumi.root              $EOSSHIP/eos/experiment/sndlhc/www/offline/Lumi2023.root')
            print('xrdcp -f Lumidict.root          $EOSSHIP//eos/experiment/sndlhc/convertedData/physics/2023/')
