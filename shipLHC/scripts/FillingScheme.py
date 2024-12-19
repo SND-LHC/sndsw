@@ -406,27 +406,37 @@ class fillingScheme():
        return alternative
        
    def extractFillingScheme(self,fillNr):
-       if fillNr in []: # only exists a binary csv file
+       alternative = self.alternativeFill(str(fillNr))
+       # Get the FS name from the all-year LPC table
+       fs_name_table = self.getNameOfFillingscheme(int(fillNr))
+       print(fs_name_table)
+       if fillNr in ['']:
             F=urlopen('https://lpc.web.cern.ch/fillingSchemes/2022/candidates/25ns_156b_144_90_96_48bpi_4inj_MD7003.csv')
             X = F.read()
             F.close()
             csv = X.decode().split('\n')
        else:
-        alternative = self.alternativeFill(str(fillNr))
-        if alternative: 
-          with urlopen('https://lpc.web.cern.ch/cgi-bin/schemeInfo.py?fill='+alternative+'&fmt=json') as webpage:
+            fs_url="https://lpc.web.cern.ch/cgi-bin/schemeInfo.py?fill="
+            if alternative:
+              fs_url=fs_url+alternative+'&fmt=json'
+            else:
+              fs_url = fs_url+fillNr+'&fmt=json'
+            with urlopen(fs_url) as webpage:
               tmp = webpage.read().decode()
-        else:
-          with urlopen('https://lpc.web.cern.ch/cgi-bin/schemeInfo.py?fill='+fillNr+'&fmt=json') as webpage:
-              tmp = webpage.read().decode()
-        exec("self.content = "+tmp)
-        if len(self.content['fills']) < 1: 
+              
+            exec("self.content = "+tmp)
+            if len(self.content['fills']) < 1: 
               print('Filling scheme not yet known',fillNr,self.options.runNumbers)
               return -1
-        if alternative:           
+            if alternative:
                self.content['fills'][fillNr] = self.content['fills'][alternative]
-        csv = self.content['fills'][fillNr]['csv'].split('\n')
-
+            if (self.content['fills'][fillNr]['name'] != fs_name_table ):
+               print('FS data differs btw the LPC JSON and the all-year LPC table, check!', '\n', \
+                     'JSON:',  fillNr, self.content['fills'][fillNr]['name'], '\n', \
+                     'all-year table:', fs_name_table)
+               return -1
+            csv = self.content['fills'][fillNr]['csv'].split('\n')
+            
        nB1 = csv.index('B1 bucket number,IP1,IP2,IP5,IP8')
        F = ROOT.TFile(self.path+'fillingScheme-'+fillNr+'.root','recreate')
        nt = ROOT.TNtuple('fill'+fillNr,'b1 IP1 IP2','B1:IP1:IP2:IsB2')
@@ -654,6 +664,9 @@ class fillingScheme():
                  r = int(self.options.runNumbers)
                  self.plotBunchStructure(self.options.fillNumbers,r)
                  self.myPrint('c1','FS-run'+str(r).zfill(6))
+                 # add the FS to the file without running all other modules
+                 self.merge()
+                 self.storeDict(self.FSdict,'FSdict','FSdict') 
         else:
            for r in options.fillNumbers.split(','):
               self.extractFillingScheme(r)
@@ -1853,13 +1866,13 @@ if __name__ == '__main__':
     
     options = parser.parse_args()
     www = options.www
-    if options.rawData.find('2022')>0 and options.path.find('TI18')>0: 
-       options.path="/mnt/hgfs/microDisk/SND@LHC/2022/FillingSchemes/"
+    if options.rawData.find('2022')>0: #and options.path.find('TI18')>0: 
+       #options.path="/mnt/hgfs/microDisk/SND@LHC/2022/FillingSchemes/"
        options.convpath = "/eos/experiment/sndlhc/convertedData/physics/2022/"
        options.rmin = 4361-1
        offline =www+"offline.html"
-    elif options.rawData.find('2023')>0 and options.path.find('TI18')>0: 
-       options.path="/mnt/hgfs/microDisk/SND@LHC/2023/FillingSchemes/"
+    elif options.rawData.find('2023')>0: #and options.path.find('TI18')>0: 
+       #options.path="/mnt/hgfs/microDisk/SND@LHC/2023/FillingSchemes/"
        options.convpath = "/eos/experiment/sndlhc/convertedData/physics/2023/"
        options.rmin = 5413-1
        offline =www+"offline2023.html"
@@ -1961,7 +1974,8 @@ if __name__ == '__main__':
            print('make Latex', 'requires up to date files on EOS! pdflatex LumiSummary.tex')
            FS.makeLatex()
            # os.system('pdflatex LumiSummary.tex')
-           
+           # other functionalities of this manager that will be skipped for now
+           '''
            print('problems',problems)
            print('do not forget to copy to EOS:')
            print('do not forget to copy to EOS:')
@@ -1973,7 +1987,7 @@ if __name__ == '__main__':
            print('xrdcp -f RunInfodict.root      $EOSSHIP//eos/experiment/sndlhc/convertedData/physics/2023/')
            print('xrdcp -f RunInfodict.pkl       $EOSSHIP//eos/experiment/sndlhc/convertedData/physics/2023/')
            print('xrdcp -f Lumi-tracks.root     $EOSSHIP//eos/experiment/sndlhc/www/offline/Lumi-tracks2023.root')
-           print('xrdcp -f LumiSummary.pdf   $EOSSHIP//eos/experiment/sndlhc/www/offline/RunSummary2023.pdf')
+           print('xrdcp -f LumiSummary.pdf   $EOSSHIP//eos/experiment/sndlhc/www/offline/RunSummary2023.pdf')'''
 
 
 
