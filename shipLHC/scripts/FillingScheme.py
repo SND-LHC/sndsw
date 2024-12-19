@@ -489,7 +489,9 @@ class fillingScheme():
          self.phaseShift1 = max(self.matches,key=self.matches.get)
          print('phaseShift1 found:',self.phaseShift1,Nbunches-self.phaseShift1)
          self.matches = {}
-         for phase2 in range(0,Nbunches):
+         if Nbunches == 1782: self.phaseShift2 = Nbunches-64
+         else:
+           for phase2 in range(0,Nbunches):
                self.matches[phase2]=0
                for n in range(0,Nbunches):
                    if not n in fsdict['B2']: continue
@@ -500,7 +502,7 @@ class fillingScheme():
                        if fsdict['B1'][ip1]['IP1']: continue
                    if fsdict['B2'][n]['IP2'] or 1>0: 
                       self.matches[phase2]+=self.h['bnr'].GetBinContent(j)
-         self.phaseShift2 = max(self.matches,key=self.matches.get)
+               self.phaseShift2 = max(self.matches,key=self.matches.get)
          print('phaseShift2 found:',self.phaseShift2,Nbunches-self.phaseShift2)
          if not (Nbunches-self.phaseShift2) == 129:
             print('There is a problem with phaseshift2 for run',runNumber,Nbunches-self.phaseShift2)
@@ -532,9 +534,8 @@ class fillingScheme():
                 print('run with very low lumi at IP1, beam 2 background dominates')
                 self.phaseShift1 =  2598 +129
 
+         fsdict['phaseShift2'] = self.phaseShift2
          fsdict['phaseShift1'] = self.phaseShift1
-         fsdict['phaseShift2'] = Nbunches - 129
-         self.phaseShift2 = fsdict['phaseShift2']
 
    def plotBunchStructure(self,fillNr,runNumber):
          h=self.h
