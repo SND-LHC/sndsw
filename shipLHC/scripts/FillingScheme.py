@@ -9,6 +9,9 @@ import pickle
 from rootpyPickler import Pickler
 from rootpyPickler import Unpickler
 import atexit
+import requests
+import json
+import re
 
 def pyExit():
        print("Make suicide until solution found for freezing")
@@ -113,19 +116,29 @@ class fillingScheme():
         if alternative: tmp = alternative
         Y = "2022"
         if fillnr > 8500 : Y = "2023"
+        if fillnr >= 9323 : Y="2024"
         if not self.lpcFillingscheme:
              with urlopen('https://lpc.web.cern.ch/cgi-bin/fillTable.py?year='+Y) as webpage:
                self.lpcFillingscheme = webpage.read().decode()
                self.tagi = '<td>XXXX</td>'
                self.tagj = 'fillingSchemes/'+Y+'/candidates/'
+               # end of line
+               self.tagl = '</td></tr>'
         fs = 0
         i = self.lpcFillingscheme.find(self.tagi.replace('XXXX',str(tmp)))
-        if i>0:
-          j = self.lpcFillingscheme[i:].find(self.tagj)+i+len(self.tagj)
-          if j>0:
-             k = self.lpcFillingscheme[j:].find('.csv')
-             if k>0:
-               fs = self.lpcFillingscheme[j:j+k]
+        if int(Y)>=2024:
+          if i>0:
+            end_of_line = self.lpcFillingscheme[i:].find(self.tagl)
+            line_of_interest = self.lpcFillingscheme[i:i+end_of_line]
+            last_separator = line_of_interest.rfind("<td>")
+            fs = line_of_interest[last_separator+4:]
+        else:
+          if i>0:
+            j = self.lpcFillingscheme[i:].find(self.tagj)+i+len(self.tagj)
+            if j>0:
+               k = self.lpcFillingscheme[j:].find('.csv')
+               if k>0:
+                 fs = self.lpcFillingscheme[j:j+k]
         return fs
         
    def getFillNrFromRunNr(self,runNumber):
@@ -153,6 +166,7 @@ class fillingScheme():
    def getLumiAtIP1(self,fillnr=None,fromnxcals=False, fromAtlas=False):
      Y = "2022"
      if fillnr>8500: Y = "2023"
+     if fillnr>=9323: Y="2024"
      if not fromnxcals and not fromAtlas:
        try:
           with urlopen('https://lpc.web.cern.ch/cgi-bin/fillAnalysis.py?year='+Y+'&action=fillData&exp=ATLAS&fillnr='+str(fillnr)) as webpage:
@@ -406,16 +420,89 @@ class fillingScheme():
        return alternative
        
    def extractFillingScheme(self,fillNr):
-       alternative = self.alternativeFill(str(fillNr))
-       # Get the FS name from the all-year LPC table
-       fs_name_table = self.getNameOfFillingscheme(int(fillNr))
-       print(fs_name_table)
-       if fillNr in ['']:
+        alternative = self.alternativeFill(str(fillNr))
+        # Get the FS name from the all-year LPC table
+        fs_name_table = self.getNameOfFillingscheme(int(fillNr))
+        print(fs_name_table)
+        # since 2024 new there is new storage of FS in json files, no csv
+        fs_url="https://gitlab.cern.ch/lhc-injection-scheme/injection-schemes/-/raw/master/"+\
+                 fs_name_table+".json"
+        F = ROOT.TFile(self.path+'fillingScheme-'+fillNr+'.root','recreate')
+        nt = ROOT.TNtuple('fill'+fillNr,'b1 IP1 IP2','B1:IP1:IP2:IsB2')
+        # Get the 2024 data
+        # 9323 is first fillNr for 2024
+        if int(fillNr) >= 9323: 
+          # Get the JSON file content from the web
+          response = requests.get(fs_url)
+          response.raise_for_status()
+          fs_data_json = response.json()
+          # check name of file and fs_name in file are the same
+          if 'schemeName' in fs_data_json:
+           fs_name_json = fs_data_json['schemeName']
+           if fs_name_json!=fs_name_table:
+             print('FS name differs btw the LPC JSON and the all-year LPC table, check!', '\n', \
+                    'JSON:',  fillNr, fs_name_json, '\n', \
+                    'all-year table:', fs_name_table)
+             return -1
+             
+           nB1 = fs_data_json['collsPatternB1']#B1 bucket number,IP1,IP2,IP5,IP8
+           nB2 = fs_data_json['collsPatternB2']#B2 bucket number,IP1,IP2,IP5,IP8
+           # Sanity checks.
+           if not len(nB1)==5 or not len(nB2)==5:
+             print("missing collsPattern data in the FS JSON file")	
+             return
+
+           # Get N colliding bunches from name of the FS json file
+           # Convention is {spacing}_{bunches}_{IP1/5}_{IP2}_{IP8}_{trainlength}_{injections}_{special info}
+           fs_n_bunches = re.findall(r'(?<=_)\d+(?=_)', fs_name_table)
+           n_ip1_in_title = int(fs_n_bunches[0])
+           n_ip2_in_title = int(fs_n_bunches[1])
+           n_ip8_in_title = int(fs_n_bunches[2])
+           
+           summary_collisions = {'B1':[], 'B2':[]}
+           collsPatterns = {'B1':nB1, 'B2':nB2}
+           for beam in collsPatterns.keys():
+             for i in range(1,5): 
+               summary_collisions[beam].append(numpy.count_nonzero(numpy.array(collsPatterns[beam][i])))
+               if i==1 or i==3: #IP1/5
+                  if not summary_collisions[beam][i-1]== n_ip1_in_title:
+                    print("For the number of IP1/5 bunches for {0} got {1} expected {2}. Check the FS!".format(beam,summary_collisions[beam][i-1],n_ip1_in_title))
+               if beam=='B1': # asymmetric collisions in IP2 and IP8
+                 if i==2: #IP2
+                   if not summary_collisions[beam][i-1]== n_ip2_in_title:
+                     print("For the number of IP2 bunches for {0} got {1} expected {2}. Check the FS!".format(beam,summary_collisions[beam][i-1],n_ip2_in_title))
+                 if i==4: #IP8
+                   if not summary_collisions[beam][i-1]== n_ip8_in_title:
+                     print("For the number of IP8 bunches for {0} got {1} expected {2}. Check the FS!".format(beam,summary_collisions[beam][i-1],n_ip8_in_title))
+           print("From the json file, we got:\nBeam1:\nIP1 {0}, IP2 {1}, IP5 {2}, IP8 {3}".format(*summary_collisions['B1']))
+           print("Beam2:\nIP1 {0}, IP2 {1}, IP5 {2}, IP8 {3}".format(*summary_collisions['B2']))
+           
+           for i in range(len(nB1[0])):
+             if nB1[1][i]==1: # 1 if headon in IP1
+                 b1_ip1_id = int(nB1[0][i])
+             else: b1_ip1_id = -1
+             if nB1[2][i]==1: # 1 if headon in IP2
+                b1_ip2_id = int(nB1[0][i])
+             else: b1_ip2_id = -1
+             rc = nt.Fill(int(nB1[0][i]),b1_ip1_id,b1_ip2_id,0)
+           for i in range(len(nB2[0])):
+             if nB2[1][i]==1: # 1 if headon in IP1
+                b2_ip1_id = int(nB2[0][i])
+             else: b2_ip1_id = -1
+             if nB2[2][i]==1: # 1 if headon in IP2
+                b2_ip2_id = int(nB2[0][i])
+             else: b2_ip2_id = -1
+             rc = nt.Fill(int(nB2[0][i]),b2_ip1_id, b2_ip2_id,1)
+             
+        else:
+          # 2022-2023 FS storage in csv files
+          # cases where only a binary csv file exists or the json file is wrong
+          if fillNr in ['']:
             F=urlopen('https://lpc.web.cern.ch/fillingSchemes/2022/candidates/25ns_156b_144_90_96_48bpi_4inj_MD7003.csv')
             X = F.read()
             F.close()
             csv = X.decode().split('\n')
-       else:
+          else:
             fs_url="https://lpc.web.cern.ch/cgi-bin/schemeInfo.py?fill="
             if alternative:
               fs_url=fs_url+alternative+'&fmt=json'
@@ -437,32 +524,33 @@ class fillingScheme():
                return -1
             csv = self.content['fills'][fillNr]['csv'].split('\n')
             
-       nB1 = csv.index('B1 bucket number,IP1,IP2,IP5,IP8')
-       F = ROOT.TFile(self.path+'fillingScheme-'+fillNr+'.root','recreate')
-       nt = ROOT.TNtuple('fill'+fillNr,'b1 IP1 IP2','B1:IP1:IP2:IsB2')
-       while nB1>0:
-           tmp = csv[nB1+1].split(',')
-           if len(tmp)!=5: break
-           nB1+=1
-           rc = nt.Fill(int(tmp[0]),int(tmp[1].replace('-','-1')),int(tmp[2].replace('-','-1')),0)
-       nB2 = csv.index('B2 bucket number,IP1,IP2,IP5,IP8')
-       while nB2>0:
-           tmp = csv[nB2+1].split(',')
-           if len(tmp)!=5: break
-           nB2+=1
-           rc = nt.Fill(int(tmp[0]),int(tmp[1].replace('-','-1')),int(tmp[2].replace('-','-1')),1)
-       nt.Write()
-       F.Close()
-       return 0
+          nB1 = csv.index('B1 bucket number,IP1,IP2,IP5,IP8')
+          while nB1>0:
+            tmp = csv[nB1+1].split(',')
+            if len(tmp)!=5: break
+            nB1+=1
+            rc = nt.Fill(int(tmp[0]),int(tmp[1].replace('-','-1')),int(tmp[2].replace('-','-1')),0)
+          nB2 = csv.index('B2 bucket number,IP1,IP2,IP5,IP8')
+          while nB2>0:
+            tmp = csv[nB2+1].split(',')
+            if len(tmp)!=5: break
+            nB2+=1
+            rc = nt.Fill(int(tmp[0]),int(tmp[1].replace('-','-1')),int(tmp[2].replace('-','-1')),1)
+
+        nt.Write()
+        F.Close()
+        return 0
 
    def extractPhaseShift(self,fillNr,runNumber):
-         
          R = ROOT.TFile.Open(www+"offline/run"+str(runNumber).zfill(6)+".root")
          ROOT.gROOT.cd()
-         self.h['bnr'] = R.daq.Get('bunchNumber').FindObject('bnr').Clone('bnr')
+         try:
+          self.h['bnr'] = R.daq.Get('bunchNumber').FindObject('bnr').Clone('bnr')
+         except:
+           self.h['bnr'] = R.daq.Get('shifter/bunchNumber').FindObject('bnr').Clone('bnr')         
          Nbunches = self.h['bnr'].GetNbinsX()
          R.Close()
-#Filling scheme         
+#Filling scheme
          self.F = ROOT.TFile(self.path+'fillingScheme-'+fillNr+'.root')
          self.fs = self.F.Get('fill'+fillNr)
 # convert to dictionary
@@ -494,43 +582,46 @@ class fillingScheme():
            for phase2 in range(0,Nbunches):
                self.matches[phase2]=0
                for n in range(0,Nbunches):
-                   if not n in fsdict['B2']: continue
+                   if not n in fsdict['B2']:
+                       continue
+                   # calculate the bunch number of SND events
                    j = (n+self.phaseShift1+phase2)%Nbunches + 1    # bin number
+                   # adjust it with the found B1 phase to determine(and exclude)
+                   # bunches associated with IP1 collisions
                    ip1 = (j-1+Nbunches-self.phaseShift1)%Nbunches
-                   # take only bins which are not associated to collisions in IP1
                    if ip1 in fsdict['B1']:
                        if fsdict['B1'][ip1]['IP1']: continue
                    if fsdict['B2'][n]['IP2'] or 1>0: 
                       self.matches[phase2]+=self.h['bnr'].GetBinContent(j)
-               self.phaseShift2 = max(self.matches,key=self.matches.get)
-         print('phaseShift2 found:',self.phaseShift2,Nbunches-self.phaseShift2)
-         if not (Nbunches-self.phaseShift2) == 129:
-            print('There is a problem with phaseshift2 for run',runNumber,Nbunches-self.phaseShift2)
-            if self.phaseShift2 == 129:
+           self.phaseShift2 = max(self.matches,key=self.matches.get)
+           print('phaseShift2 found:',self.phaseShift2,Nbunches-self.phaseShift2)
+           if not (Nbunches-self.phaseShift2) == 129:
+              print('There is a problem with phaseshift2 for run',runNumber,Nbunches-self.phaseShift2)
+              if self.phaseShift2 == 129:
                      print("!!! Probably beam 1 and beam 2 are interchanged. Try reverse")
                      self.phaseShift1 = FS.phaseShift1 +129
-         if fillNr=="8178":
+           if fillNr=="8178":
                 print('special LHCf run. Phaseshift determined by hand: 430-1017+3564')
                 self.phaseShift1 = 430-1017+3564
-         if fillNr=="8056":
+           if fillNr=="8056":
                 print('run with very low lumi at IP1, beam 2 background dominates')
                 self.phaseShift1 = 3564-1732+129
-         if fillNr=="8056":
+           if fillNr=="8056":
                 print('run with very low lumi at IP1, beam 2 background dominates')
                 self.phaseShift1 = 3564-1603
-         if fillNr=="8140" or fillNr=="8070" or fillNr=="8045":
+           if fillNr=="8140" or fillNr=="8070" or fillNr=="8045":
                 print('run with very low lumi at IP1, beam 2 background dominates')
                 self.phaseShift1 = 3564-1456
-         if fillNr == "8383":
+           if fillNr == "8383":
                 print('run with very low lumi at IP1, fit does not converge correctly')
                 self.phaseShift1 = 1978 + 130
-         if fillNr == "8342":
+           if fillNr == "8342":
                 print('run with very low lumi at IP1, beam 2 background dominates')
                 self.phaseShift1 = 2107
-         if fillNr == "8256":
+           if fillNr == "8256":
                 print('run with very low lumi at IP1, beam 2 background dominates')
                 self.phaseShift1 = 2108
-         if fillNr == "8294":
+           if fillNr == "8294":
                 print('run with very low lumi at IP1, beam 2 background dominates')
                 self.phaseShift1 =  2598 +129
 
@@ -541,10 +632,12 @@ class fillingScheme():
          h=self.h
          self.F = ROOT.TFile(self.path+'fillingScheme-'+fillNr+'.root')
          self.fs = self.F.Get('fill'+fillNr)
-
+         
          R = ROOT.TFile.Open(www+"offline/run"+str(runNumber).zfill(6)+".root")
          ROOT.gROOT.cd()
          bCanvas = R.daq.Get('bunchNumber')
+         if not bCanvas:
+           bCanvas = R.daq.shifter.Get('bunchNumber')
          h['bnr']= bCanvas.FindObject('bnr').Clone('bnr')
          Nbunches = h['bnr'].GetNbinsX()
          ROOT.gROOT.cd()
@@ -661,13 +754,14 @@ class fillingScheme():
                rc = self.extractFillingScheme(str(fillNumber))
                if not rc<0:
                  self.options.fillNumbers = str(fillNumber)
-                 self.extractPhaseShift(self.options.fillNumbers,self.options.runNumbers)
+                 self.extractPhaseShift(self.options.fillNumbers,int(self.options.runNumbers))
                  r = int(self.options.runNumbers)
                  self.plotBunchStructure(self.options.fillNumbers,r)
                  self.myPrint('c1','FS-run'+str(r).zfill(6))
                  # add the FS to the file without running all other modules
                  self.merge()
                  self.storeDict(self.FSdict,'FSdict','FSdict') 
+       
         else:
            for r in options.fillNumbers.split(','):
               self.extractFillingScheme(r)
@@ -1858,25 +1952,29 @@ if __name__ == '__main__':
     parser.add_argument("-r", "--runNumbers", dest="runNumbers", help="list of run numbers",required=False, type=str,default="")
     parser.add_argument("-F", "--fillNumbers",  dest="fillNumbers",   help="corresponding fill number",type=str,required=False,default="")
     parser.add_argument("-c", "--command", dest="command",       help="command", default=None)
-    parser.add_argument("-p", dest="path",       help="path to filling scheme", default="/mnt/hgfs/microDisk/SND@LHC/TI18/FillingSchemes/")
+    parser.add_argument("-p", dest="path",       help="path to filling scheme", default="./")
     parser.add_argument("-L", dest="lumiversion", help="offline or online lumi from ATLAS", default="offline")
     parser.add_argument("-ip2", dest="withIP2", help="with IP2",default=True)
-    parser.add_argument("-raw", dest="rawData", help="path to rawData",default="/eos/experiment/sndlhc/raw_data/physics/2023_tmp")   # before "/eos/experiment/sndlhc/raw_data/commissioning/TI18/data"
+    parser.add_argument("-raw", dest="rawData", help="path to rawData",default="/eos/experiment/sndlhc/raw_data/physics/2023")   # before "/eos/experiment/sndlhc/raw_data/commissioning/TI18/data"
     parser.add_argument("-www", dest="www", help="path to offline folder",default=os.environ['EOSSHIP']+"/eos/experiment/sndlhc/www/")
     parser.add_argument("-nMin", dest="nMin", help="min entries for a run",default=100000)
     
     options = parser.parse_args()
     www = options.www
-    if options.rawData.find('2022')>0: #and options.path.find('TI18')>0: 
-       #options.path="/mnt/hgfs/microDisk/SND@LHC/2022/FillingSchemes/"
+    if options.rawData.find('2022')>0:
        options.convpath = "/eos/experiment/sndlhc/convertedData/physics/2022/"
        options.rmin = 4361-1
        offline =www+"offline.html"
-    elif options.rawData.find('2023')>0: #and options.path.find('TI18')>0: 
-       #options.path="/mnt/hgfs/microDisk/SND@LHC/2023/FillingSchemes/"
+    elif options.rawData.find('2023')>0:
        options.convpath = "/eos/experiment/sndlhc/convertedData/physics/2023/"
        options.rmin = 5413-1
-       offline =www+"offline2023.html"
+       offline =www+"offline.html"
+    elif options.rawData.find('2024')>0:
+       # extract the em target run from the rawData path
+       em_run = options.rawData[options.rawData.find("run_"):]
+       options.convpath = "/eos/experiment/sndlhc/convertedData/physics/2024/"+em_run
+       options.rmin = 7649-1
+       offline =www+"offline.html"
     FS = fillingScheme()
     FS.Init(options)
     ut.bookCanvas(FS.h,'c1','c1',1800,900,1,1)
@@ -1954,7 +2052,6 @@ if __name__ == '__main__':
                                           'lumiAtIP1':FS.LumiInt[r][0],'lumiAtIP1withSNDLHC':FS.LumiInt[r][1],
                                           'OfflineMonitoring':"https://snd-lhc-monitoring.web.cern.ch/offline/run.html?file=run"+str(r).zfill(6)+".root&lastcycle",
                                           'FillingScheme':fillScheme}
-
            FS.merge()
            FS.storeDict(FS.FSdict,'FSdict','FSdict')
 
@@ -1975,10 +2072,10 @@ if __name__ == '__main__':
            print('make Latex', 'requires up to date files on EOS! pdflatex LumiSummary.tex')
            FS.makeLatex()
            # os.system('pdflatex LumiSummary.tex')
+           
+           print('problems',problems)
            # other functionalities of this manager that will be skipped for now
            '''
-           print('problems',problems)
-           print('do not forget to copy to EOS:')
            print('do not forget to copy to EOS:')
            print('xrdcp -f  Lumi.root              $EOSSHIP/eos/experiment/sndlhc/www/offline/Lumi2023.root')
            print('xrdcp -f Lumidict.root          $EOSSHIP//eos/experiment/sndlhc/convertedData/physics/2023/')
@@ -1989,7 +2086,3 @@ if __name__ == '__main__':
            print('xrdcp -f RunInfodict.pkl       $EOSSHIP//eos/experiment/sndlhc/convertedData/physics/2023/')
            print('xrdcp -f Lumi-tracks.root     $EOSSHIP//eos/experiment/sndlhc/www/offline/Lumi-tracks2023.root')
            print('xrdcp -f LumiSummary.pdf   $EOSSHIP//eos/experiment/sndlhc/www/offline/RunSummary2023.pdf')'''
-
-
-
-
