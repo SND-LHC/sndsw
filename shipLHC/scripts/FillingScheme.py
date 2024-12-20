@@ -624,7 +624,12 @@ class fillingScheme():
            if fillNr == "8294":
                 print('run with very low lumi at IP1, beam 2 background dominates')
                 self.phaseShift1 =  2598 +129
-
+           # force 129 for proton beams
+           # It is determined using ~480m distance to IP1 and 25-ns distance between bunches:
+           # 482.5m/speed of light/bunch distance = 64.33 
+           # This is multiplied by 2 to arrive at 129.
+           self.phaseShift2 = Nbunches - 129
+         print('phaseShift2 is set to:',self.phaseShift2,Nbunches-self.phaseShift2)
          fsdict['phaseShift2'] = self.phaseShift2
          fsdict['phaseShift1'] = self.phaseShift1
 
