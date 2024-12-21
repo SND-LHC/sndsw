@@ -128,10 +128,20 @@ class fillingScheme():
         i = self.lpcFillingscheme.find(self.tagi.replace('XXXX',str(tmp)))
         if int(Y)>=2024:
           if i>0:
-            end_of_line = self.lpcFillingscheme[i:].find(self.tagl)
+            end_of_line = self.lpcFillingscheme[i:].find(self.tagl)            
+            # In rare cases there is a link to download the FS file
+            # One needs to skip this link data
+            end_link_data = self.lpcFillingscheme[i:i+end_of_line].find('</a>')
+            if end_link_data!=-1: 
+              end_of_line = self.lpcFillingscheme[i:].find('</a>'+self.tagl)
             line_of_interest = self.lpcFillingscheme[i:i+end_of_line]
             last_separator = line_of_interest.rfind("<td>")
-            fs = line_of_interest[last_separator+4:]
+            # Skip download link data, if it exists
+            last_separator_link_check = line_of_interest.rfind('.csv">')
+            if last_separator_link_check!=-1:
+              fs = line_of_interest[last_separator_link_check+6:]
+            else:
+              fs = line_of_interest[last_separator+4:]
         else:
           if i>0:
             j = self.lpcFillingscheme[i:].find(self.tagj)+i+len(self.tagj)
@@ -423,7 +433,9 @@ class fillingScheme():
         alternative = self.alternativeFill(str(fillNr))
         # Get the FS name from the all-year LPC table
         fs_name_table = self.getNameOfFillingscheme(int(fillNr))
-        print(fs_name_table)
+        print('Name of filling scheme: ',fs_name_table)
+        if fs_name_table==0: 
+          return -1
         # since 2024 new there is new storage of FS in json files, no csv
         fs_url="https://gitlab.cern.ch/lhc-injection-scheme/injection-schemes/-/raw/master/"+\
                  fs_name_table+".json"
@@ -434,6 +446,11 @@ class fillingScheme():
         if int(fillNr) >= 9323: 
           # Get the JSON file content from the web
           response = requests.get(fs_url)
+          # If JSON file is not found, try adding char 's' to FS name
+          if response.status_code == 404:
+            fs_url="https://gitlab.cern.ch/lhc-injection-scheme/injection-schemes/-/raw/master/"+\
+                     fs_name_table+"s.json"
+            response = requests.get(fs_url)
           response.raise_for_status()
           fs_data_json = response.json()
           # check name of file and fs_name in file are the same
@@ -443,14 +460,16 @@ class fillingScheme():
              print('FS name differs btw the LPC JSON and the all-year LPC table, check!', '\n', \
                     'JSON:',  fillNr, fs_name_json, '\n', \
                     'all-year table:', fs_name_table)
-             return -1
+             # Accept if difference is char 's'
+             if fs_name_json!=fs_name_table+'s':
+               return -1
              
            nB1 = fs_data_json['collsPatternB1']#B1 bucket number,IP1,IP2,IP5,IP8
            nB2 = fs_data_json['collsPatternB2']#B2 bucket number,IP1,IP2,IP5,IP8
            # Sanity checks.
            if not len(nB1)==5 or not len(nB2)==5:
              print("missing collsPattern data in the FS JSON file")	
-             return
+             return -1
 
            # Get N colliding bunches from name of the FS json file
            # Convention is {spacing}_{bunches}_{IP1/5}_{IP2}_{IP8}_{trainlength}_{injections}_{special info}
