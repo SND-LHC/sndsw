@@ -542,14 +542,22 @@ class fillingScheme():
         return 0
 
    def extractPhaseShift(self,fillNr,runNumber):
-         R = ROOT.TFile.Open(www+"offline/run"+str(runNumber).zfill(6)+".root")
-         ROOT.gROOT.cd()
+         # Check if the offline monitoring file exists
          try:
-          self.h['bnr'] = R.daq.Get('bunchNumber').FindObject('bnr').Clone('bnr')
+           R = ROOT.TFile.Open(www+"offline/run"+str(runNumber).zfill(6)+".root")
+           ROOT.gROOT.cd()
+           try:
+             self.h['bnr'] = R.daq.Get('bunchNumber').FindObject('bnr').Clone('bnr')
+           except:
+             self.h['bnr'] = R.daq.Get('shifter/bunchNumber').FindObject('bnr').Clone('bnr')         
+           R.Close()
+         # create the bunch number plot if offline monitoring file is missing
          except:
-           self.h['bnr'] = R.daq.Get('shifter/bunchNumber').FindObject('bnr').Clone('bnr')         
+           try:
+             self.h['bnr']=self.h['bnr_from_data']
+           except:
+             self.h['bnr'] = self.BunchNumberPlotFromData(runNumber)         
          Nbunches = self.h['bnr'].GetNbinsX()
-         R.Close()
 #Filling scheme
          self.F = ROOT.TFile(self.path+'fillingScheme-'+fillNr+'.root')
          self.fs = self.F.Get('fill'+fillNr)
@@ -638,15 +646,22 @@ class fillingScheme():
          self.F = ROOT.TFile(self.path+'fillingScheme-'+fillNr+'.root')
          self.fs = self.F.Get('fill'+fillNr)
          
-         R = ROOT.TFile.Open(www+"offline/run"+str(runNumber).zfill(6)+".root")
-         ROOT.gROOT.cd()
-         bCanvas = R.daq.Get('bunchNumber')
-         if not bCanvas:
-           bCanvas = R.daq.shifter.Get('bunchNumber')
-         h['bnr']= bCanvas.FindObject('bnr').Clone('bnr')
+         try:
+           R = ROOT.TFile.Open(www+"offline/run"+str(runNumber).zfill(6)+".root")
+           ROOT.gROOT.cd()
+           bCanvas = R.daq.Get('bunchNumber')
+           if not bCanvas:
+             bCanvas = R.daq.shifter.Get('bunchNumber')
+           h['bnr']= bCanvas.FindObject('bnr').Clone('bnr')           
+         # create the bunch number plot if offline monitoring file is missing
+         except:
+            try:
+               h['bnr'] = h["bnr_from_data"]
+            except:
+               h['bnr'] = self.BunchNumberPlotFromData(runNumber)
          Nbunches = h['bnr'].GetNbinsX()
          ROOT.gROOT.cd()
-
+         
          ut.bookHist(h,'b1','b1',35640,-0.5,35639.5)
          ut.bookHist(h,'IP1','IP1',35640,-0.5,35639.5)
          ut.bookHist(h,'IP2','IP2',35640,-0.5,35639.5)
@@ -1300,6 +1315,36 @@ class fillingScheme():
                         histo.SetBinContent(newBin,tmp[i+1])
                 h[newname].Update()
                 h[newname].Write()
+
+   def BunchNumberPlotFromData(self,r):
+# check for partitions
+          runNr = str(r).zfill(6)
+          partitions = []
+          conv_data_path = options.rawData.replace("raw_data", "convertedData")
+          eventChain = ROOT.TChain('rawConv')
+          eventChain.Add(os.environ['EOSSHIP']+conv_data_path+'run_'+runNr+'/*.root')
+          nEvents = eventChain.GetEntries()
+# make the plot
+          # figure out the number of bunches in the LHC
+          rc = eventChain.GetEvent(0)
+          if eventChain.EventHeader.GetAccMode()==12: # ion runs
+            Nbunches = 1782
+            div = 8
+          else: # proton runs
+            Nbunches = 3564
+            div = 4
+          ut.bookHist(self.h,'bnr_from_data','bunch number; LHC bunch number', Nbunches,-0.5,Nbunches-0.5)
+          # use postscale, same logic as in the monitoring task
+          postScale = 0
+          if nEvents>10E6: postScale = 10
+          if nEvents>100E6: postScale = 100
+          print('using postScale ',postScale,' for run ',r)
+          for event in eventChain:
+            if postScale>0:
+              if ROOT.gRandom.Rndm()>1./postScale: continue
+            self.h['bnr_from_data'].Fill(int((event.EventHeader.GetEventTime()%(div*Nbunches))/div+0.5))
+          
+          return self.h['bnr_from_data']
 
    def getEntriesPerRun(self,r):
 # check for partitions
@@ -1963,8 +2008,11 @@ if __name__ == '__main__':
     parser.add_argument("-raw", dest="rawData", help="path to rawData",default="/eos/experiment/sndlhc/raw_data/physics/2023")   # before "/eos/experiment/sndlhc/raw_data/commissioning/TI18/data"
     parser.add_argument("-www", dest="www", help="path to offline folder",default=os.environ['EOSSHIP']+"/eos/experiment/sndlhc/www/")
     parser.add_argument("-nMin", dest="nMin", help="min entries for a run",default=100000)
+    parser.add_argument("--batch", help="run in batch mode",default=False,action='store_true')
     
     options = parser.parse_args()
+    if options.batch:
+      ROOT.gROOT.SetBatch(True)    
     www = options.www
     if options.rawData.find('2022')>0:
        options.convpath = "/eos/experiment/sndlhc/convertedData/physics/2022/"
