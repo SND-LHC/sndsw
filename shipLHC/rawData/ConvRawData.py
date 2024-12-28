@@ -45,6 +45,7 @@ class ConvRawDataPY(ROOT.FairTask):
       try:
          if options.path.find('2022')!=-1: fpath = "/eos/experiment/sndlhc/convertedData/physics/2022/"
          elif options.path.find('2023')!=-1: fpath = "/eos/experiment/sndlhc/convertedData/physics/2023/"
+         elif options.path.find('2024')!=-1: fpath = "/eos/experiment/sndlhc/convertedData/physics/2024/"
          else: fpath = "/eos/experiment/sndlhc/convertedData/commissioning/TI18/"
          fg = ROOT.TFile.Open(options.server+fpath+"/FSdict.root")
          pkl = Unpickler(fg)
