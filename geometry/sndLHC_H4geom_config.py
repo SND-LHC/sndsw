@@ -421,7 +421,72 @@ with ConfigRegistry.register_config("basic") as c:
              c.Scifi.RotPhiS40,c.Scifi.RotPsiS40,c.Scifi.RotThetaS40 =     0.00*u.mrad,    1.61*u.mrad,    0.00*u.mrad
              c.Scifi.RotPhiS41,c.Scifi.RotPsiS41,c.Scifi.RotThetaS41 =     0.00*u.mrad,    2.22*u.mrad,    0.00*u.mrad
 # Time alignment Scifi, T0 = station 0,  mat 0 
-             c.Scifi.station1t,c.Scifi.station1H0t,c.Scifi.station1V0t  =  0.000*u.ns,  0.000*u.ns,  0.000*u.ns
-             c.Scifi.station2t,c.Scifi.station2H0t,c.Scifi.station2V0t  =  0.000*u.ns,  0.000*u.ns,  0.000*u.ns
-             c.Scifi.station3t,c.Scifi.station3H0t,c.Scifi.station3V0t  =  0.000*u.ns,  0.000*u.ns,  0.000*u.ns
-             c.Scifi.station4t,c.Scifi.station4H0t,c.Scifi.station4V0t  =  0.000*u.ns,  0.000*u.ns,  0.000*u.ns
+             c.Scifi.station1t,c.Scifi.station1H0t,c.Scifi.station1V0t  =  0.000*u.ns,  0.000*u.ns,  -1.714*u.ns
+             c.Scifi.station2t,c.Scifi.station2H0t,c.Scifi.station2V0t  =  -0.510*u.ns,  0.000*u.ns,  0.003*u.ns
+             c.Scifi.station3t,c.Scifi.station3H0t,c.Scifi.station3V0t  =  1.447*u.ns,  0.000*u.ns,  0.520*u.ns
+             c.Scifi.station4t,c.Scifi.station4H0t,c.Scifi.station4V0t  =  -0.014*u.ns,  0.000*u.ns,  2.357*u.ns
+# Additional alignment for station 2H(one mat) perhaps needed due to calibration issue
+             c.Scifi.station2000XXXt = [-1.956*u.ns,-2.231*u.ns,-1.250*u.ns,-1.474*u.ns,-2.215*u.ns,-2.027*u.ns,-1.713*u.ns,-1.899*u.ns,
+                                        -1.875*u.ns,-1.848*u.ns,-1.862*u.ns,-2.184*u.ns,-1.855*u.ns,-2.066*u.ns,-1.252*u.ns,-2.268*u.ns,
+                                        -2.370*u.ns,-1.414*u.ns,-1.577*u.ns,-1.909*u.ns,-1.952*u.ns,-1.491*u.ns,-1.269*u.ns,-1.741*u.ns,
+                                        -1.823*u.ns,-2.120*u.ns,-2.224*u.ns,-1.758*u.ns,-1.715*u.ns,-2.037*u.ns,-2.219*u.ns,-2.667*u.ns,
+                                        -2.269*u.ns,-1.526*u.ns,-1.840*u.ns,-1.258*u.ns,-2.459*u.ns,-2.631*u.ns,-1.335*u.ns,-1.448*u.ns,
+                                        -1.364*u.ns,-1.589*u.ns,-1.647*u.ns,-1.677*u.ns,-1.508*u.ns,-1.548*u.ns,-1.289*u.ns,-1.249*u.ns,
+                                        -1.388*u.ns,-1.654*u.ns,-1.945*u.ns,-2.371*u.ns,-2.308*u.ns,-1.310*u.ns,-1.497*u.ns,-1.928*u.ns,
+                                        -2.160*u.ns,-1.470*u.ns,-1.452*u.ns,-2.263*u.ns,-2.291*u.ns,-1.557*u.ns,-1.396*u.ns,-1.003*u.ns,
+                                        -0.735*u.ns,-1.354*u.ns,-1.508*u.ns,-0.978*u.ns,-1.111*u.ns,-0.750*u.ns,-1.168*u.ns,-1.891*u.ns,
+                                        -2.219*u.ns,-0.647*u.ns,-0.557*u.ns,-0.518*u.ns,-0.937*u.ns,-1.397*u.ns,-1.702*u.ns,-1.624*u.ns,
+                                        -1.055*u.ns,-1.457*u.ns,-1.114*u.ns,-1.283*u.ns,-1.562*u.ns,-1.997*u.ns,-1.717*u.ns,-0.753*u.ns,
+                                        -0.628*u.ns,-1.031*u.ns,-1.405*u.ns,-0.910*u.ns,-0.723*u.ns,-0.214*u.ns,-0.762*u.ns,-1.101*u.ns,
+                                        -0.685*u.ns,-0.799*u.ns,-1.127*u.ns,-1.164*u.ns,-1.375*u.ns,-1.535*u.ns,-1.577*u.ns,-1.604*u.ns,
+                                        -1.492*u.ns,-1.137*u.ns,-1.454*u.ns,-1.812*u.ns,-1.558*u.ns,-1.551*u.ns,-1.475*u.ns,-1.361*u.ns,
+                                        -1.071*u.ns,-1.525*u.ns,-1.471*u.ns,-0.709*u.ns,-1.032*u.ns,-0.837*u.ns,-0.945*u.ns,-0.657*u.ns,
+                                        -1.457*u.ns,-1.759*u.ns,-1.442*u.ns,-1.124*u.ns,-1.246*u.ns,-1.320*u.ns,-1.457*u.ns,-0.479*u.ns]
+             c.Scifi.station2001XXXt = [-1.387*u.ns,-1.486*u.ns,-1.424*u.ns,-0.859*u.ns,-0.838*u.ns,-1.253*u.ns,-1.724*u.ns,-1.970*u.ns,
+                                        -1.731*u.ns,-0.977*u.ns,-0.948*u.ns,-1.277*u.ns,-1.225*u.ns,-1.032*u.ns,-1.747*u.ns,-1.799*u.ns,
+                                        -0.858*u.ns,-1.966*u.ns,-2.336*u.ns,-1.940*u.ns,-1.809*u.ns,-1.265*u.ns,-1.688*u.ns,-1.636*u.ns,
+                                        -1.602*u.ns,-1.785*u.ns,-1.958*u.ns,-2.064*u.ns,-2.039*u.ns,-1.870*u.ns,-2.055*u.ns,-1.428*u.ns,
+                                        -1.206*u.ns,-1.516*u.ns,-1.528*u.ns,-1.546*u.ns,-1.537*u.ns,-1.860*u.ns,-1.399*u.ns,-1.403*u.ns,
+                                        -1.581*u.ns,-1.223*u.ns,-1.864*u.ns,-2.190*u.ns,-1.152*u.ns,-1.617*u.ns,-1.435*u.ns,-0.957*u.ns,
+                                        -1.370*u.ns,-1.562*u.ns,-1.780*u.ns,-1.456*u.ns,-1.493*u.ns,-1.875*u.ns,-1.713*u.ns,-1.054*u.ns,
+                                        -1.241*u.ns,-1.240*u.ns,-0.540*u.ns,-0.872*u.ns,-1.132*u.ns,-1.139*u.ns,-1.130*u.ns,-0.897*u.ns,
+                                        -1.188*u.ns,-1.626*u.ns,-1.564*u.ns,-1.865*u.ns,-2.079*u.ns,-1.943*u.ns,-0.764*u.ns,-0.936*u.ns,
+                                        -1.313*u.ns,-1.005*u.ns,-1.335*u.ns,-1.594*u.ns,-1.639*u.ns,-1.580*u.ns,-1.701*u.ns,-1.572*u.ns,
+                                        -1.927*u.ns,-1.390*u.ns,-2.407*u.ns,-2.865*u.ns,-1.308*u.ns,-1.489*u.ns,-1.921*u.ns,-2.161*u.ns,
+                                        -1.243*u.ns,-1.563*u.ns,-1.855*u.ns,-2.163*u.ns,-1.930*u.ns,-2.251*u.ns,-1.584*u.ns,-1.448*u.ns,
+                                        -2.016*u.ns,-1.721*u.ns,-1.447*u.ns,-1.220*u.ns,-1.139*u.ns,-1.932*u.ns,-1.753*u.ns,-1.781*u.ns,
+                                        -1.751*u.ns,-1.583*u.ns,-1.193*u.ns,-1.516*u.ns,-1.061*u.ns,-1.206*u.ns,-1.236*u.ns,-1.638*u.ns,
+                                        -1.777*u.ns,-1.362*u.ns,-1.385*u.ns,-1.465*u.ns,-1.185*u.ns,-0.964*u.ns,-0.869*u.ns,-1.308*u.ns,
+                                        -1.806*u.ns,-1.900*u.ns,-1.898*u.ns,-1.365*u.ns,-1.008*u.ns,-1.479*u.ns,-1.907*u.ns,-1.474*u.ns]
+             c.Scifi.station2002XXXt = [0.627*u.ns,0.230*u.ns,0.202*u.ns,-0.234*u.ns,-0.176*u.ns,0.004*u.ns,0.302*u.ns,0.697*u.ns,
+                                        0.477*u.ns,-0.210*u.ns,-0.406*u.ns,-0.086*u.ns,-0.129*u.ns,-0.625*u.ns,0.104*u.ns,-0.002*u.ns,
+                                        -0.683*u.ns,-0.065*u.ns,0.746*u.ns,0.408*u.ns,0.226*u.ns,-0.507*u.ns,0.324*u.ns,0.330*u.ns,
+                                        0.244*u.ns,0.155*u.ns,0.552*u.ns,0.442*u.ns,0.462*u.ns,0.113*u.ns,0.477*u.ns,0.086*u.ns,
+                                        -0.384*u.ns,0.077*u.ns,-0.004*u.ns,0.095*u.ns,-0.264*u.ns,0.418*u.ns,0.051*u.ns,-0.134*u.ns,
+                                        0.239*u.ns,-0.055*u.ns,-0.113*u.ns,0.542*u.ns,-0.251*u.ns,-0.027*u.ns,0.067*u.ns,-0.707*u.ns,
+                                        0.018*u.ns,-0.017*u.ns,0.378*u.ns,0.002*u.ns,-0.178*u.ns,0.454*u.ns,0.334*u.ns,-0.379*u.ns,
+                                        -0.552*u.ns,-0.050*u.ns,-0.811*u.ns,-0.457*u.ns,-0.107*u.ns,-0.078*u.ns,-0.028*u.ns,0.149*u.ns,
+                                        0.348*u.ns,0.301*u.ns,0.234*u.ns,0.373*u.ns,0.573*u.ns,0.047*u.ns,-0.689*u.ns,-0.639*u.ns,
+                                        -0.169*u.ns,-0.484*u.ns,-0.015*u.ns,0.096*u.ns,0.154*u.ns,0.057*u.ns,0.078*u.ns,-0.102*u.ns,
+                                        0.180*u.ns,-0.130*u.ns,0.378*u.ns,0.407*u.ns,-0.073*u.ns,0.028*u.ns,-0.049*u.ns,0.214*u.ns,
+                                        -0.379*u.ns,0.009*u.ns,0.044*u.ns,0.302*u.ns,-0.012*u.ns,0.533*u.ns,-0.158*u.ns,-0.383*u.ns,
+                                        0.548*u.ns,0.160*u.ns,-0.058*u.ns,-0.617*u.ns,-0.862*u.ns,0.477*u.ns,0.282*u.ns,0.349*u.ns,
+                                        0.364*u.ns,-0.080*u.ns,-0.473*u.ns,-0.022*u.ns,-0.444*u.ns,-0.181*u.ns,-0.260*u.ns,0.240*u.ns,
+                                        0.452*u.ns,0.114*u.ns,0.192*u.ns,0.168*u.ns,-0.085*u.ns,-0.228*u.ns,-0.370*u.ns,-0.341*u.ns,
+                                        0.516*u.ns,0.463*u.ns,0.323*u.ns,-0.061*u.ns,-0.245*u.ns,-0.205*u.ns,0.531*u.ns,0.772*u.ns]
+             c.Scifi.station2003XXXt = [0.800*u.ns,0.586*u.ns,0.113*u.ns,0.188*u.ns,0.760*u.ns,0.724*u.ns,0.409*u.ns,0.613*u.ns,
+                                        0.644*u.ns,0.538*u.ns,0.316*u.ns,0.696*u.ns,0.334*u.ns,0.490*u.ns,-0.216*u.ns,-0.351*u.ns,
+                                        0.776*u.ns,0.123*u.ns,0.183*u.ns,0.488*u.ns,0.406*u.ns,0.024*u.ns,-0.253*u.ns,0.376*u.ns,
+                                        0.319*u.ns,0.505*u.ns,0.764*u.ns,0.352*u.ns,0.220*u.ns,0.437*u.ns,0.404*u.ns,0.831*u.ns,
+                                        0.377*u.ns,-0.279*u.ns,-0.166*u.ns,-0.778*u.ns,0.675*u.ns,0.466*u.ns,-0.063*u.ns,0.030*u.ns,
+                                        0.040*u.ns,0.165*u.ns,0.257*u.ns,0.241*u.ns,0.219*u.ns,0.165*u.ns,-0.029*u.ns,-0.041*u.ns,
+                                        0.163*u.ns,0.187*u.ns,0.488*u.ns,0.878*u.ns,0.561*u.ns,0.010*u.ns,0.133*u.ns,0.344*u.ns,
+                                        0.572*u.ns,-0.019*u.ns,-0.081*u.ns,0.634*u.ns,0.706*u.ns,0.339*u.ns,0.252*u.ns,0.203*u.ns,
+                                        -0.029*u.ns,0.007*u.ns,-0.018*u.ns,-0.370*u.ns,-0.266*u.ns,-0.621*u.ns,-0.403*u.ns,0.073*u.ns,
+                                        0.009*u.ns,-0.691*u.ns,-0.736*u.ns,-0.940*u.ns,-0.656*u.ns,-0.158*u.ns,0.097*u.ns,-0.492*u.ns,
+                                        -0.952*u.ns,-0.185*u.ns,-0.356*u.ns,-0.156*u.ns,-0.001*u.ns,0.237*u.ns,-0.179*u.ns,-0.736*u.ns,
+                                        -0.879*u.ns,-0.930*u.ns,-0.139*u.ns,-0.575*u.ns,-0.959*u.ns,-1.411*u.ns,-0.991*u.ns,-0.358*u.ns,
+                                        -0.799*u.ns,-0.879*u.ns,-0.304*u.ns,-0.227*u.ns,-0.089*u.ns,0.099*u.ns,0.153*u.ns,0.210*u.ns,
+                                        0.156*u.ns,-0.186*u.ns,-0.115*u.ns,0.372*u.ns,0.183*u.ns,0.129*u.ns,0.155*u.ns,-0.129*u.ns,
+                                        -0.415*u.ns,0.010*u.ns,-0.138*u.ns,-0.592*u.ns,-0.460*u.ns,-0.613*u.ns,-0.628*u.ns,-0.992*u.ns,
+                                        0.004*u.ns,0.323*u.ns,-0.042*u.ns,-0.180*u.ns,-0.041*u.ns,-0.095*u.ns,-0.092*u.ns,-0.173*u.ns]
