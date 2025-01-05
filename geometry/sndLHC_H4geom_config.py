@@ -365,6 +365,7 @@ with ConfigRegistry.register_config("basic") as c:
            c.Scifi.scifimat_length  = c.Scifi.ydim
            c.Scifi.fiber_length = c.Scifi.scifimat_length
            c.Scifi.plastbar_y = c.Scifi.ydim
+           c.Scifi.channelTimeAlignment = 1
 
            if not with_tungsten:
              # add variable size blocks upstream of SciFi stations

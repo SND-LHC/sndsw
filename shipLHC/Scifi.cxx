@@ -640,7 +640,7 @@ Double_t Scifi::GetCorrectedTime(Int_t fDetectorID, Double_t rawTime, Double_t L
 		      tag = "tA";
 		      if (fRunNumber>5116 && !(fRunNumber<5193 && fRunNumber>5174) ) {tag = "tB";}
 		  }
-		  // 2023 testbeam data doesn't have a custom tag
+		  // 2023 and 2024 testbeam data don't have custom tags
 		  if (fRunNumber>=1e5) {tag = "t";}
 		  last_time_alignment_tag = tag;
 		}
@@ -648,8 +648,13 @@ Double_t Scifi::GetCorrectedTime(Int_t fDetectorID, Double_t rawTime, Double_t L
 	sID.Form("%i",fDetectorID);
 	Double_t cor = conf_floats["Scifi/station"+TString(sID(0,1))+last_time_alignment_tag];
 	if (sID(1,1)=="0"){
+	        // In the teatbeam 2024, SciFi 2H needs internal time corrections per channel
+		if (conf_ints["Scifi/channelTimeAlignment"]==1 &&  floor(fDetectorID/100000)==20) {
+		   cor+=conf_vectors["Scifi/station"+TString(sID(0,4))+"XXX"+last_time_alignment_tag][fDetectorID%1000];
+		}
 		cor+=conf_floats["Scifi/station"+TString(sID(0,1))+"H"+TString(sID(2,1))+last_time_alignment_tag];
-	}else{
+	}
+	else{
 		cor+=conf_floats["Scifi/station"+TString(sID(0,1))+"V"+TString(sID(2,1))+last_time_alignment_tag];
 	}
 	cor += L/conf_floats["Scifi/signalSpeed"];
