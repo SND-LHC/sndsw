@@ -1,6 +1,6 @@
 var GblPoint_8h =
 [
-    [ "GblPoint", "classgbl_1_1GblPoint.html", "classgbl_1_1GblPoint" ],
+    [ "gbl::GblPoint", "classgbl_1_1GblPoint.html", "classgbl_1_1GblPoint" ],
     [ "SMatrix22", "GblPoint_8h.html#ae23cb4440c9a21894a07f97c8eabca99", null ],
     [ "SMatrix23", "GblPoint_8h.html#ae88660782080d14a08f64f98481d85e9", null ],
     [ "SMatrix25", "GblPoint_8h.html#a2adc01964b9ae869a8f2c0b98d3e9dba", null ],

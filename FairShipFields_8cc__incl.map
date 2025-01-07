@@ -1,12 +1,21 @@
 <map id="genfit/fields/src/FairShipFields.cc" name="genfit/fields/src/FairShipFields.cc">
-<area shape="rect" id="node1" title=" " alt="" coords="235,5,411,47"/>
-<area shape="rect" id="node2" href="$FairShipFields_8h.html" title=" " alt="" coords="123,95,245,121"/>
-<area shape="rect" id="node9" title=" " alt="" coords="269,95,376,121"/>
-<area shape="rect" id="node10" title=" " alt="" coords="400,95,480,121"/>
-<area shape="rect" id="node3" href="$AbsBField_8h.html" title=" " alt="" coords="65,169,164,196"/>
-<area shape="rect" id="node5" href="$ShipCompField_8h.html" title=" " alt="" coords="189,169,320,196"/>
-<area shape="rect" id="node4" title=" " alt="" coords="5,244,96,271"/>
-<area shape="rect" id="node6" title=" " alt="" coords="120,244,264,271"/>
-<area shape="rect" id="node7" title=" " alt="" coords="288,244,347,271"/>
-<area shape="rect" id="node8" title=" " alt="" coords="371,244,434,271"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="235,5,411,45"/>
+<area shape="rect" id="Node000002" href="$FairShipFields_8h.html" title=" " alt="" coords="123,93,245,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="291,48,218,89,215,84,288,43"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="269,93,376,119"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="325,46,325,79,320,79,320,46"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="400,93,480,119"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="353,43,413,84,410,88,350,48"/>
+<area shape="rect" id="Node000003" href="$AbsBField_8h.html" title=" " alt="" coords="65,167,164,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="174,121,137,159,133,155,171,117"/>
+<area shape="rect" id="Node000005" href="$ShipCompField_8h.html" title=" " alt="" coords="189,167,320,192"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="198,117,236,155,232,159,194,121"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,240,96,265"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="106,194,72,232,68,228,102,191"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="120,240,264,265"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="246,194,213,231,209,228,242,191"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="288,240,347,265"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="267,191,300,228,296,231,263,194"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="371,240,434,265"/>
+<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="280,190,367,232,365,236,277,194"/>
 </map>

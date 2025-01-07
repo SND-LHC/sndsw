@@ -1,6 +1,9 @@
 <map id="SndlhcHit" name="SndlhcHit">
-<area shape="rect" id="node1" title=" " alt="" coords="69,80,153,107"/>
-<area shape="rect" id="node3" href="$classMuFilterHit.html" title=" " alt="" coords="5,155,100,181"/>
-<area shape="rect" id="node4" href="$classsndScifiHit.html" title=" " alt="" coords="125,155,215,181"/>
-<area shape="rect" id="node2" title=" " alt="" coords="75,5,147,32"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="69,79,153,104"/>
+<area shape="rect" id="Node000003" href="$classMuFilterHit.html" title=" " alt="" coords="5,152,100,177"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="95,116,64,154,60,150,91,113"/>
+<area shape="rect" id="Node000004" href="$classsndScifiHit.html" title=" " alt="" coords="125,152,215,177"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="132,113,163,150,158,154,128,116"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="75,5,147,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="114,44,114,79,109,79,109,44"/>
 </map>

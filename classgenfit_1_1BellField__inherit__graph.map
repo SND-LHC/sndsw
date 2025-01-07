@@ -1,4 +1,6 @@
 <map id="genfit::BellField" name="genfit::BellField">
-<area shape="rect" id="node1" title="Bell Field for SHiP." alt="" coords="9,80,132,107"/>
-<area shape="rect" id="node2" href="$classgenfit_1_1AbsBField.html" title="Abstract Interface to magnetic fields in GENFIT." alt="" coords="5,5,136,32"/>
+<area shape="rect" id="Node000001" title="Bell Field for SHiP." alt="" coords="9,79,132,104"/>
+<area shape="rect" id="Node000002" href="$classgenfit_1_1AbsBField.html" title="Abstract Interface to magnetic fields in GENFIT." alt="" coords="5,5,136,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="65,44,66,78,61,79,59,45"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="82,45,80,79,75,78,77,44"/>
 </map>

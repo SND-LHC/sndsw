@@ -1,5 +1,7 @@
 <map id="gbl::BorderedBandMatrix" name="gbl::BorderedBandMatrix">
-<area shape="rect" id="node1" title="(Symmetric) Bordered Band Matrix." alt="" coords="48,109,232,136"/>
-<area shape="rect" id="node2" href="$classgbl_1_1VSymMatrix.html" title="Simple symmetric Matrix based on std::vector&lt;double&gt;" alt="" coords="5,5,136,32"/>
-<area shape="rect" id="node3" href="$classgbl_1_1VMatrix.html" title="Simple Matrix based on std::vector&lt;double&gt;" alt="" coords="160,5,261,32"/>
+<area shape="rect" id="Node000001" title="(Symmetric) Bordered Band Matrix." alt="" coords="48,108,232,133"/>
+<area shape="rect" id="Node000002" href="$classgbl_1_1VSymMatrix.html" title="Simple symmetric Matrix based on std::vector&lt;double&gt;" alt="" coords="5,5,136,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="87,41,114,82,132,106,128,109,110,86,83,44"/>
+<area shape="rect" id="Node000003" href="$classgbl_1_1VMatrix.html" title="Simple Matrix based on std::vector&lt;double&gt;" alt="" coords="160,5,261,31"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="205,45,183,86,158,110,155,106,179,82,200,43"/>
 </map>

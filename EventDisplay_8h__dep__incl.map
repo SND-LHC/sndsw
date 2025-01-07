@@ -1,9 +1,15 @@
 <map id="genfit/eventDisplay/include/EventDisplay.h" name="genfit/eventDisplay/include/EventDisplay.h">
-<area shape="rect" id="node1" title=" " alt="" coords="505,5,678,47"/>
-<area shape="rect" id="node2" href="$EventDisplay_8cc.html" title=" " alt="" coords="5,95,156,136"/>
-<area shape="rect" id="node3" href="$fitterTests_2main_8cc.html" title=" " alt="" coords="180,95,336,136"/>
-<area shape="rect" id="node4" href="$measurementFactoryExample_2main_8cc.html" title=" " alt="" coords="360,95,591,136"/>
-<area shape="rect" id="node5" href="$minimalFittingExample_2main_8cc.html" title=" " alt="" coords="615,95,802,136"/>
-<area shape="rect" id="node6" href="$streamerTest_2main_8cc.html" title=" " alt="" coords="827,95,1004,136"/>
-<area shape="rect" id="node7" href="$vertexingTest_2main_8cc.html" title=" " alt="" coords="1028,95,1208,136"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="505,5,678,45"/>
+<area shape="rect" id="Node000002" href="$EventDisplay_8cc.html" title=" " alt="" coords="5,93,156,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="492,43,168,96,157,98,156,93,167,91,491,38"/>
+<area shape="rect" id="Node000003" href="$fitterTests_2main_8cc.html" title=" " alt="" coords="180,93,336,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="506,51,332,96,330,91,504,46"/>
+<area shape="rect" id="Node000004" href="$measurementFactoryExample_2main_8cc.html" title=" " alt="" coords="360,93,591,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="556,56,503,95,499,91,553,52"/>
+<area shape="rect" id="Node000005" href="$minimalFittingExample_2main_8cc.html" title=" " alt="" coords="615,93,802,133"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="630,52,684,91,681,95,627,56"/>
+<area shape="rect" id="Node000006" href="$streamerTest_2main_8cc.html" title=" " alt="" coords="827,93,1004,133"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="676,46,845,91,844,96,675,51"/>
+<area shape="rect" id="Node000007" href="$vertexingTest_2main_8cc.html" title=" " alt="" coords="1028,93,1208,133"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="692,39,1017,91,1028,93,1028,98,1016,96,691,44"/>
 </map>

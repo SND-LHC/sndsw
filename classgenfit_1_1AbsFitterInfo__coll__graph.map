@@ -1,7 +1,14 @@
 <map id="genfit::AbsFitterInfo" name="genfit::AbsFitterInfo">
-<area shape="rect" id="node1" title="This class collects all information needed and produced by a specific AbsFitter and is specific to on..." alt="" coords="18,272,168,299"/>
-<area shape="rect" id="node2" title=" " alt="" coords="49,5,121,32"/>
-<area shape="rect" id="node3" href="$classgenfit_1_1TrackPoint.html" title="Object containing AbsMeasurement and AbsFitterInfo objects." alt="" coords="26,183,160,209"/>
-<area shape="rect" id="node4" href="$classgenfit_1_1Track.html" title="Collection of TrackPoint objects, AbsTrackRep objects and FitStatus objects." alt="" coords="78,81,180,108"/>
-<area shape="rect" id="node5" href="$classgenfit_1_1AbsTrackRep.html" title="Abstract base class for a track representation." alt="" coords="144,132,295,159"/>
+<area shape="rect" id="Node000001" title="This class collects all information needed and produced by a specific AbsFitter and is specific to on..." alt="" coords="17,267,168,292"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="49,5,121,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="67,43,43,74,21,115,9,159,9,181,15,203,27,222,42,239,75,264,71,269,38,243,22,225,10,205,4,182,3,159,16,113,39,72,63,39"/>
+<area shape="rect" id="Node000003" href="$classgenfit_1_1TrackPoint.html" title="Object containing AbsMeasurement and AbsFitterInfo objects." alt="" coords="25,179,160,204"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="78,44,69,80,68,108,73,135,89,178,84,180,68,136,63,108,63,80,73,43"/>
+<area shape="rect" id="Node000004" href="$classgenfit_1_1Track.html" title="Collection of TrackPoint objects, AbsTrackRep objects and FitStatus objects." alt="" coords="78,80,179,105"/>
+<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="101,42,124,78,119,81,97,44"/>
+<area shape="rect" id="Node000005" href="$classgenfit_1_1AbsTrackRep.html" title="Abstract base class for a track representation." alt="" coords="144,129,295,155"/>
+<area shape="poly" id="edge7_Node000005_Node000002" title=" " alt="" coords="130,34,163,53,193,78,210,104,219,128,214,130,205,106,189,82,160,57,127,39"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="95,218,95,266,90,266,90,218"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="100,116,89,130,85,155,90,178,85,179,80,155,84,128,95,112"/>
+<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="216,169,203,207,191,227,177,245,158,259,137,269,135,264,155,254,174,241,187,224,198,205,211,167"/>
 </map>

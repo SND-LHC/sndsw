@@ -1,7 +1,7 @@
 var classgenfit_1_1HMatrixV =
 [
     [ "HMatrixV", "classgenfit_1_1HMatrixV.html#a8e5e8440eb1323c88932df7c7660617a", null ],
-    [ "clone", "classgenfit_1_1HMatrixV.html#aae8485e822490a6579fad556b4908e28", null ],
+    [ "clone", "classgenfit_1_1HMatrixV.html#afc8ce64d06f2799392e96a4cf40620e4", null ],
     [ "getMatrix", "classgenfit_1_1HMatrixV.html#a6c204df8f7cc57de25d11e93a59ff498", null ],
     [ "HMHt", "classgenfit_1_1HMatrixV.html#aa55d0a06d28cc1f1cfd547e017df719a", null ],
     [ "Hv", "classgenfit_1_1HMatrixV.html#a50b767df9666deeb142fcea211f92936", null ],

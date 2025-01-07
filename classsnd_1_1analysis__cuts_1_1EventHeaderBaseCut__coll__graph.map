@@ -1,7 +1,11 @@
 <map id="snd::analysis_cuts::EventHeaderBaseCut" name="snd::analysis_cuts::EventHeaderBaseCut">
-<area shape="rect" id="node1" title=" " alt="" coords="79,213,247,255"/>
-<area shape="rect" id="node2" href="$classsnd_1_1analysis__cuts_1_1baseCut.html" title=" " alt="" coords="5,109,147,151"/>
-<area shape="rect" id="node3" title=" " alt="" coords="47,5,105,32"/>
-<area shape="rect" id="node4" href="$classSNDLHCEventHeader.html" title=" " alt="" coords="171,117,331,143"/>
-<area shape="rect" id="node5" title=" " alt="" coords="212,5,289,32"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="79,211,247,251"/>
+<area shape="rect" id="Node000002" href="$classsnd_1_1analysis__cuts_1_1baseCut.html" title=" " alt="" coords="5,108,147,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="103,157,148,209,144,212,99,160"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="47,5,105,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="79,45,79,108,73,108,73,45"/>
+<area shape="rect" id="Node000004" href="$classSNDLHCEventHeader.html" title=" " alt="" coords="171,115,331,141"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="233,153,181,212,177,209,229,150"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="212,5,289,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="253,44,253,115,248,115,248,44"/>
 </map>

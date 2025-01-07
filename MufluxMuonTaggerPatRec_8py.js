@@ -1,13 +1,13 @@
 var MufluxMuonTaggerPatRec_8py =
 [
-    [ "combine_tracks", "MufluxMuonTaggerPatRec_8py.html#a43083b055c4387745441909f4ce33a0a", null ],
-    [ "execute", "MufluxMuonTaggerPatRec_8py.html#a63db7e00f8d6237ea4cf81e1d338cf8b", null ],
-    [ "finalize", "MufluxMuonTaggerPatRec_8py.html#a9037486782fdcadc4c212096e880dbf4", null ],
-    [ "hit_in_window", "MufluxMuonTaggerPatRec_8py.html#a7add9c9de79cf64b4935661951eadd41", null ],
-    [ "initialize", "MufluxMuonTaggerPatRec_8py.html#a75f4506be4763ed8f952afa874fda134", null ],
-    [ "pat_rec_plane", "MufluxMuonTaggerPatRec_8py.html#ae187627fb051f02bc385315697cd175e", null ],
-    [ "reduce_clones", "MufluxMuonTaggerPatRec_8py.html#a4947b16f5a979473428d4c245946bb49", null ],
-    [ "sort_hits", "MufluxMuonTaggerPatRec_8py.html#a92f01a62c5ab9de73a2ee568e5199b57", null ],
-    [ "split_hits", "MufluxMuonTaggerPatRec_8py.html#a9b28ae3977f4c9f9b8852aec0de8913b", null ],
-    [ "__author__", "MufluxMuonTaggerPatRec_8py.html#aa4ee959a9821d7c1b18908e0e70df530", null ]
+    [ "combine_tracks", "MufluxMuonTaggerPatRec_8py.html#a5c7aa98b4243ad641318dfefc98fd301", null ],
+    [ "execute", "MufluxMuonTaggerPatRec_8py.html#a455e162350e421719336e4d3a584fc32", null ],
+    [ "finalize", "MufluxMuonTaggerPatRec_8py.html#ab5dc3ac60a9b4a141405e03efaf2ab5c", null ],
+    [ "hit_in_window", "MufluxMuonTaggerPatRec_8py.html#a6ae3b1f6d05c5529f7390e63bd7f8c4a", null ],
+    [ "initialize", "MufluxMuonTaggerPatRec_8py.html#a8cdfe896fc5ba3ae1199393f22a9d27b", null ],
+    [ "pat_rec_plane", "MufluxMuonTaggerPatRec_8py.html#a50210c236ff2f326b4c393ce881a38c7", null ],
+    [ "reduce_clones", "MufluxMuonTaggerPatRec_8py.html#ac77ec57495705eb2569435bf7490572e", null ],
+    [ "sort_hits", "MufluxMuonTaggerPatRec_8py.html#a620ea914dee56f092b3fbc49a1b81620", null ],
+    [ "split_hits", "MufluxMuonTaggerPatRec_8py.html#ae0fc190a61b7b9991f2cdd93555020c2", null ],
+    [ "__author__", "MufluxMuonTaggerPatRec_8py.html#a126e33e28b3e4914744b3af086addbcf", null ]
 ];

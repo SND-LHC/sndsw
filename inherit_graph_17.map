@@ -1,94 +1,185 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" title=" " alt="" coords="5,512,107,539"/>
-<area shape="rect" id="node2" href="$classEmulsionDet.html" title=" " alt="" coords="219,5,325,32"/>
-<area shape="rect" id="node3" href="$classFloor.html" title=" " alt="" coords="245,56,299,83"/>
-<area shape="rect" id="node4" href="$classHpt.html" title=" " alt="" coords="249,107,295,133"/>
-<area shape="rect" id="node5" href="$classMagneticSpectrometer.html" title=" " alt="" coords="187,157,357,184"/>
-<area shape="rect" id="node6" href="$classMuFilter.html" title=" " alt="" coords="235,208,309,235"/>
-<area shape="rect" id="node7" href="$classNuTauMudet.html" title=" " alt="" coords="221,259,323,285"/>
-<area shape="rect" id="node8" href="$classScifi.html" title=" " alt="" coords="247,309,297,336"/>
-<area shape="rect" id="node9" href="$classTarget.html" title=" " alt="" coords="241,360,303,387"/>
-<area shape="rect" id="node10" href="$classTargetTracker.html" title=" " alt="" coords="218,411,326,437"/>
-<area shape="rect" id="node11" href="$classTimeDet.html" title=" " alt="" coords="233,461,311,488"/>
-<area shape="rect" id="node12" href="$classUpstreamTagger.html" title=" " alt="" coords="207,512,337,539"/>
-<area shape="rect" id="node14" href="$classboxTarget.html" title=" " alt="" coords="229,563,315,589"/>
-<area shape="rect" id="node15" href="$classecal.html" title=" " alt="" coords="247,613,297,640"/>
-<area shape="rect" id="node16" href="$classexitHadronAbsorber.html" title=" " alt="" coords="196,664,348,691"/>
-<area shape="rect" id="node17" href="$classhcal.html" title=" " alt="" coords="247,715,297,741"/>
-<area shape="rect" id="node18" href="$classmuon.html" title=" " alt="" coords="243,765,301,792"/>
-<area shape="rect" id="node19" href="$classpreshower.html" title=" " alt="" coords="227,816,317,843"/>
-<area shape="rect" id="node20" href="$classsimpleTarget.html" title=" " alt="" coords="219,867,325,893"/>
-<area shape="rect" id="node21" href="$classsplitcal.html" title=" " alt="" coords="237,917,307,944"/>
-<area shape="rect" id="node22" href="$classstrawtubes.html" title=" " alt="" coords="225,968,319,995"/>
-<area shape="rect" id="node23" href="$classveto.html" title=" " alt="" coords="247,1019,297,1045"/>
-<area shape="rect" id="node13" href="$classUpstreamTaggerHit.html" title=" " alt="" coords="478,740,626,767"/>
-<area shape="rect" id="node24" title=" " alt="" coords="20,2007,92,2033"/>
-<area shape="rect" id="node25" href="$classHit2MCPoints.html" title=" " alt="" coords="217,1069,327,1096"/>
-<area shape="rect" id="node26" href="$structPrimaryTrack.html" title=" " alt="" coords="219,1120,325,1147"/>
-<area shape="rect" id="node27" href="$classShipHit.html" title=" " alt="" coords="237,1171,307,1197"/>
-<area shape="rect" id="node33" href="$classShipMCTrack.html" title=" " alt="" coords="219,1221,325,1248"/>
-<area shape="rect" id="node34" href="$classSndlhcHit.html" title=" " alt="" coords="230,1272,314,1299"/>
-<area shape="rect" id="node37" href="$classTrackInfo.html" title=" " alt="" coords="231,1323,313,1349"/>
-<area shape="rect" id="node38" href="$classTracklet.html" title=" " alt="" coords="235,1373,309,1400"/>
-<area shape="rect" id="node39" href="$classecalCell.html" title=" " alt="" coords="235,1424,309,1451"/>
-<area shape="rect" id="node42" href="$classecalCluster.html" title=" " alt="" coords="225,1475,319,1501"/>
-<area shape="rect" id="node43" href="$classecalInf.html" title=" " alt="" coords="239,1525,305,1552"/>
-<area shape="rect" id="node44" href="$classecalMaximum.html" title=" " alt="" coords="215,1576,329,1603"/>
-<area shape="rect" id="node45" href="$classecalReconstructed.html" title=" " alt="" coords="201,1627,343,1653"/>
-<area shape="rect" id="node46" href="$classgenfit_1_1AbsFitterInfo.html" title="This class collects all information needed and produced by a specific AbsFitter and is specific to on..." alt="" coords="197,1677,347,1704"/>
-<area shape="rect" id="node48" href="$classgenfit_1_1AbsHMatrix.html" title="HMatrix for projecting from AbsTrackRep parameters to measured parameters in a DetPlane." alt="" coords="201,1728,343,1755"/>
-<area shape="rect" id="node54" href="$classgenfit_1_1AbsMaterialInterface.html" title="Abstract base class for geometry interfacing." alt="" coords="171,1779,373,1805"/>
-<area shape="rect" id="node56" href="$classgenfit_1_1AbsMeasurement.html" title="Contains the measurement and covariance in raw detector coordinates." alt="" coords="181,1829,363,1856"/>
-<area shape="rect" id="node64" href="$classgenfit_1_1AbsTrackRep.html" title="Abstract base class for a track representation." alt="" coords="197,1880,347,1907"/>
-<area shape="rect" id="node66" href="$classgenfit_1_1DetPlane.html" title="Detector plane." alt="" coords="209,1931,335,1957"/>
-<area shape="rect" id="node67" href="$classgenfit_1_1Exception.html" title="Exception class for error handling in GENFIT (provides storage for diagnostic information)" alt="" coords="207,1981,337,2008"/>
-<area shape="rect" id="node68" href="$classgenfit_1_1GFRaveTrackParameters.html" title="GFRaveTrackParameters class Contains a pointer to the original genfit::Track, the weight of the track..." alt="" coords="159,2032,385,2059"/>
-<area shape="rect" id="node69" href="$classgenfit_1_1GFRaveVertex.html" title="GFRaveVertex class." alt="" coords="192,2083,352,2109"/>
-<area shape="rect" id="node70" href="$classgenfit_1_1HelixTrackModel.html" title="Helix track model for testing purposes." alt="" coords="185,2133,359,2160"/>
-<area shape="rect" id="node71" href="$classgenfit_1_1MaterialProperties.html" title="Material properties needed e.g. for material effects calculation." alt="" coords="179,2184,365,2211"/>
-<area shape="rect" id="node72" href="$classgenfit_1_1MeasurementCreator.html" title="Create different measurement types along a HelixTrackModel for testing purposes." alt="" coords="169,2235,375,2261"/>
-<area shape="rect" id="node73" href="$classgenfit_1_1StateOnPlane.html" title="A state with arbitrary dimension defined in a DetPlane." alt="" coords="195,2285,349,2312"/>
-<area shape="rect" id="node78" href="$classgenfit_1_1ThinScatterer.html" title="Thin or thick scatterer." alt="" coords="195,2336,349,2363"/>
-<area shape="rect" id="node79" href="$classgenfit_1_1Track.html" title="Collection of TrackPoint objects, AbsTrackRep objects and FitStatus objects." alt="" coords="221,2387,323,2413"/>
-<area shape="rect" id="node80" href="$classgenfit_1_1TrackCand.html" title="Track candidate – seed values and indices." alt="" coords="205,2437,339,2464"/>
-<area shape="rect" id="node81" href="$classgenfit_1_1TrackCandHit.html" title="Hit object for use in TrackCand. Provides IDs and sorting parameters." alt="" coords="195,2488,349,2515"/>
-<area shape="rect" id="node83" href="$classgenfit_1_1TrackPoint.html" title="Object containing AbsMeasurement and AbsFitterInfo objects." alt="" coords="205,2539,339,2565"/>
-<area shape="rect" id="node84" href="$classgenfit_1_1mySpacepointDetectorHit.html" title="Example class for a spacepoint detector hit." alt="" coords="155,2589,389,2616"/>
-<area shape="rect" id="node85" href="$classhcalInf.html" title=" " alt="" coords="239,2640,305,2667"/>
-<area shape="rect" id="node86" href="$classhcalModule.html" title=" " alt="" coords="223,2691,321,2717"/>
-<area shape="rect" id="node88" href="$classpid.html" title=" " alt="" coords="251,2741,293,2768"/>
-<area shape="rect" id="node89" href="$classsndCluster.html" title=" " alt="" coords="227,2792,317,2819"/>
-<area shape="rect" id="node90" href="$classsndRecoTrack.html" title=" " alt="" coords="217,2843,327,2869"/>
-<area shape="rect" id="node91" href="$classsplitcalCluster.html" title=" " alt="" coords="215,2893,329,2920"/>
-<area shape="rect" id="node92" href="$classvetoHitOnTrack.html" title=" " alt="" coords="211,2944,333,2971"/>
-<area shape="rect" id="node28" href="$classTimeDetHit.html" title=" " alt="" coords="503,1019,601,1045"/>
-<area shape="rect" id="node29" href="$classmuonHit.html" title=" " alt="" coords="513,1069,591,1096"/>
-<area shape="rect" id="node30" href="$classsplitcalHit.html" title=" " alt="" coords="508,1120,596,1147"/>
-<area shape="rect" id="node31" href="$classstrawtubesHit.html" title=" " alt="" coords="495,1171,609,1197"/>
-<area shape="rect" id="node32" href="$classvetoHit.html" title=" " alt="" coords="517,1221,587,1248"/>
-<area shape="rect" id="node35" href="$classMuFilterHit.html" title=" " alt="" coords="505,1272,599,1299"/>
-<area shape="rect" id="node36" href="$classsndScifiHit.html" title=" " alt="" coords="507,1323,597,1349"/>
-<area shape="rect" id="node40" href="$classecalCellMC.html" title=" " alt="" coords="505,1373,599,1400"/>
-<area shape="rect" id="node41" href="$classecalModule.html" title=" " alt="" coords="503,1424,601,1451"/>
-<area shape="rect" id="node47" href="$classgenfit_1_1KalmanFitterInfo.html" title="Collects information needed and produced by a AbsKalmanFitter implementations and is specific to one ..." alt="" coords="464,1475,640,1501"/>
-<area shape="rect" id="node49" href="$classgenfit_1_1HMatrixPhi.html" title="AbsHMatrix implementation for one&#45;dimensional MeasurementOnPlane and RKTrackRep parameterization." alt="" coords="483,1525,621,1552"/>
-<area shape="rect" id="node50" href="$classgenfit_1_1HMatrixU.html" title="AbsHMatrix implementation for one&#45;dimensional MeasurementOnPlane and RKTrackRep parameterization." alt="" coords="487,1576,617,1603"/>
-<area shape="rect" id="node51" href="$classgenfit_1_1HMatrixUV.html" title="AbsHMatrix implementation for two&#45;dimensional MeasurementOnPlane and RKTrackRep parameterization." alt="" coords="483,1627,621,1653"/>
-<area shape="rect" id="node52" href="$classgenfit_1_1HMatrixUnit.html" title="AbsHMatrix implementation for 5&#45;dimensional MeasurementOnPlane and RKTrackRep parameterization." alt="" coords="479,1677,625,1704"/>
-<area shape="rect" id="node53" href="$classgenfit_1_1HMatrixV.html" title="AbsHMatrix implementation for one&#45;dimensional MeasurementOnPlane and RKTrackRep parameterization." alt="" coords="488,1728,616,1755"/>
-<area shape="rect" id="node55" href="$classgenfit_1_1TGeoMaterialInterface.html" title="AbsMaterialInterface implementation for use with ROOT&#39;s TGeoManager." alt="" coords="445,1779,659,1805"/>
-<area shape="rect" id="node57" href="$classgenfit_1_1FullMeasurement.html" title="Measurement class implementing a measurement of all track parameters." alt="" coords="462,1829,642,1856"/>
-<area shape="rect" id="node58" href="$classgenfit_1_1PlanarMeasurement.html" title="Measurement class implementing a planar hit geometry (1 or 2D)." alt="" coords="453,1880,651,1907"/>
-<area shape="rect" id="node59" href="$classgenfit_1_1SpacepointMeasurement.html" title="Class for measurements implementing a space point hit geometry." alt="" coords="437,1931,667,1957"/>
-<area shape="rect" id="node62" href="$classgenfit_1_1WireMeasurement.html" title="Class for measurements in wire detectors (Straw tubes and drift chambers) which do not measure the co..." alt="" coords="459,1981,645,2008"/>
-<area shape="rect" id="node60" href="$classgenfit_1_1ProlateSpacepointMeasurement.html" title="Class for measurements implementing a space point hit geometry with a very prolate form of the covari..." alt="" coords="747,1865,933,1906"/>
-<area shape="rect" id="node61" href="$classgenfit_1_1mySpacepointMeasurement.html" title="Example class for a spacepoint measurement which can be created from mySpacepointDetectorHit via the ..." alt="" coords="715,1931,965,1957"/>
-<area shape="rect" id="node63" href="$classgenfit_1_1WirePointMeasurement.html" title="Class for measurements in wire detectors (Straw tubes and drift chambers) which can measure the coord..." alt="" coords="730,1981,950,2008"/>
-<area shape="rect" id="node65" href="$classgenfit_1_1RKTrackRep.html" title="AbsTrackRep with 5D track parameterization in plane coordinates: (q/p, u&#39;, v&#39;, u, v)" alt="" coords="481,2032,623,2059"/>
-<area shape="rect" id="node74" href="$classgenfit_1_1MeasuredStateOnPlane.html" title="StateOnPlane with additional covariance matrix." alt="" coords="443,2256,661,2283"/>
-<area shape="rect" id="node77" href="$classgenfit_1_1ReferenceStateOnPlane.html" title="StateOnPlane with linearized transport to that ReferenceStateOnPlane from previous and next Reference..." alt="" coords="459,2307,645,2349"/>
-<area shape="rect" id="node75" href="$classgenfit_1_1KalmanFittedStateOnPlane.html" title="MeasuredStateOnPlane with additional info produced by a Kalman filter or DAF." alt="" coords="746,2219,934,2261"/>
-<area shape="rect" id="node76" href="$classgenfit_1_1MeasurementOnPlane.html" title="Measured coordinates on a plane." alt="" coords="735,2285,945,2312"/>
-<area shape="rect" id="node82" href="$classgenfit_1_1WireTrackCandHit.html" title="Hit object for use in TrackCand. Provides additional left/right parameter." alt="" coords="461,2488,643,2515"/>
-<area shape="rect" id="node87" href="$classhcalModuleMC.html" title=" " alt="" coords="493,2691,611,2717"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,499,107,524"/>
+<area shape="rect" id="Node000001" href="$classEmulsionDet.html" title=" " alt="" coords="219,5,325,31"/>
+<area shape="poly" id="edge23_Node000000_Node000001" title=" " alt="" coords="56,485,65,387,83,254,96,186,111,125,130,74,153,40,167,29,184,21,219,14,220,19,186,26,170,34,157,44,135,77,116,126,101,187,88,254,70,388,62,485"/>
+<area shape="rect" id="Node000002" href="$classFloor.html" title=" " alt="" coords="245,55,299,80"/>
+<area shape="poly" id="edge24_Node000000_Node000002" title=" " alt="" coords="57,484,67,396,86,277,99,218,114,164,132,120,153,89,174,75,198,67,244,63,245,68,199,72,176,80,157,93,137,122,119,165,104,219,92,278,73,396,62,485"/>
+<area shape="rect" id="Node000003" href="$classHpt.html" title=" " alt="" coords="249,104,295,129"/>
+<area shape="poly" id="edge25_Node000000_Node000003" title=" " alt="" coords="58,485,70,405,90,302,117,203,134,165,153,139,175,124,201,116,249,112,249,118,202,121,178,129,157,143,139,167,122,205,95,303,75,406,63,485"/>
+<area shape="rect" id="Node000004" href="$classMagneticSpectrometer.html" title=" " alt="" coords="187,153,357,179"/>
+<area shape="poly" id="edge26_Node000000_Node000004" title=" " alt="" coords="54,485,58,424,71,344,83,301,100,260,123,221,153,188,168,177,185,170,187,175,171,182,156,192,128,225,105,262,88,303,76,345,63,424,60,485"/>
+<area shape="rect" id="Node000005" href="$classMuFilter.html" title=" " alt="" coords="235,203,309,228"/>
+<area shape="poly" id="edge27_Node000000_Node000005" title=" " alt="" coords="56,484,62,432,78,365,90,330,107,296,127,265,153,237,172,225,192,217,234,211,235,217,194,223,174,230,156,241,131,268,111,299,95,332,83,366,68,433,61,485"/>
+<area shape="rect" id="Node000006" href="$classNuTauMudet.html" title=" " alt="" coords="221,252,323,277"/>
+<area shape="poly" id="edge28_Node000000_Node000006" title=" " alt="" coords="58,484,68,441,85,387,113,333,131,308,153,287,185,270,220,262,221,268,187,275,156,291,135,311,117,335,90,389,73,442,64,485"/>
+<area shape="rect" id="Node000007" href="$classScifi.html" title=" " alt="" coords="247,301,297,327"/>
+<area shape="poly" id="edge29_Node000000_Node000007" title=" " alt="" coords="62,485,74,450,93,410,119,370,153,336,176,323,201,316,247,311,247,316,202,321,178,328,156,340,123,373,97,412,79,452,67,486"/>
+<area shape="rect" id="Node000008" href="$classTarget.html" title=" " alt="" coords="241,351,303,376"/>
+<area shape="poly" id="edge30_Node000000_Node000008" title=" " alt="" coords="68,485,101,433,125,407,153,385,175,375,197,368,240,361,241,367,199,373,177,380,156,390,129,411,106,437,72,488"/>
+<area shape="rect" id="Node000009" href="$classTargetTracker.html" title=" " alt="" coords="218,400,326,425"/>
+<area shape="poly" id="edge31_Node000000_Node000009" title=" " alt="" coords="78,487,112,459,154,434,185,423,217,416,218,421,187,428,156,439,115,464,81,491"/>
+<area shape="rect" id="Node000010" href="$classTimeDet.html" title=" " alt="" coords="233,449,311,475"/>
+<area shape="poly" id="edge32_Node000000_Node000010" title=" " alt="" coords="117,493,154,483,232,467,233,472,155,489,118,498"/>
+<area shape="rect" id="Node000011" href="$classUpstreamTagger.html" title=" " alt="" coords="207,499,337,524"/>
+<area shape="poly" id="edge33_Node000000_Node000011" title=" " alt="" coords="120,509,207,509,207,514,120,514"/>
+<area shape="rect" id="Node000082" href="$classboxTarget.html" title=" " alt="" coords="229,548,315,573"/>
+<area shape="poly" id="edge35_Node000000_Node000082" title=" " alt="" coords="121,524,155,533,229,549,228,554,154,538,119,530"/>
+<area shape="rect" id="Node000083" href="$classecal.html" title=" " alt="" coords="247,597,297,623"/>
+<area shape="poly" id="edge36_Node000000_Node000083" title=" " alt="" coords="82,531,116,558,156,582,204,598,248,605,247,610,202,603,154,587,113,563,79,535"/>
+<area shape="rect" id="Node000084" href="$classexitHadronAbsorber.html" title=" " alt="" coords="196,647,348,672"/>
+<area shape="poly" id="edge37_Node000000_Node000084" title=" " alt="" coords="72,535,106,585,129,611,156,632,197,648,195,653,153,636,125,614,102,588,68,538"/>
+<area shape="rect" id="Node000085" href="$classhcal.html" title=" " alt="" coords="247,696,297,721"/>
+<area shape="poly" id="edge38_Node000000_Node000085" title=" " alt="" coords="67,536,79,570,98,609,123,649,156,681,178,693,202,701,247,706,247,712,201,706,176,698,153,685,119,652,93,612,74,572,62,538"/>
+<area shape="rect" id="Node000086" href="$classmuon.html" title=" " alt="" coords="243,745,301,771"/>
+<area shape="poly" id="edge39_Node000000_Node000086" title=" " alt="" coords="64,537,73,580,90,633,117,686,135,710,156,731,176,743,199,750,243,756,242,761,198,756,174,748,153,735,131,713,113,689,85,635,68,581,58,538"/>
+<area shape="rect" id="Node000087" href="$classpreshower.html" title=" " alt="" coords="227,795,317,820"/>
+<area shape="poly" id="edge40_Node000000_Node000087" title=" " alt="" coords="61,538,68,589,83,655,95,690,111,723,132,754,156,780,172,791,190,798,227,805,226,810,188,803,169,795,153,784,127,757,107,726,91,692,78,657,63,590,56,538"/>
+<area shape="rect" id="Node000088" href="$classsimpleTarget.html" title=" " alt="" coords="219,844,325,869"/>
+<area shape="poly" id="edge41_Node000000_Node000088" title=" " alt="" coords="60,537,63,598,76,677,89,719,106,759,128,797,156,829,186,846,219,854,218,859,184,851,153,833,124,800,101,762,84,720,71,678,58,598,54,538"/>
+<area shape="rect" id="Node000089" href="$classsplitcal.html" title=" " alt="" coords="237,893,307,919"/>
+<area shape="poly" id="edge42_Node000000_Node000089" title=" " alt="" coords="63,537,75,616,95,719,123,817,139,854,157,879,174,891,195,899,237,905,236,910,194,904,172,896,153,883,134,857,118,818,90,720,70,617,58,538"/>
+<area shape="rect" id="Node000090" href="$classstrawtubes.html" title=" " alt="" coords="225,943,319,968"/>
+<area shape="poly" id="edge43_Node000000_Node000090" title=" " alt="" coords="62,537,73,626,92,744,120,856,137,899,157,928,171,939,188,947,225,954,224,959,187,952,169,944,153,932,132,902,115,858,87,745,68,627,57,538"/>
+<area shape="rect" id="Node000091" href="$classveto.html" title=" " alt="" coords="247,992,297,1017"/>
+<area shape="poly" id="edge44_Node000000_Node000091" title=" " alt="" coords="62,537,71,635,88,767,101,834,117,895,135,944,157,977,177,992,200,1000,247,1004,246,1009,199,1005,174,996,153,981,130,947,112,897,96,836,83,768,65,635,56,538"/>
+<area shape="rect" id="Node000012" href="$classUpstreamTaggerHit.html" title=" " alt="" coords="478,721,626,747"/>
+<area shape="poly" id="edge34_Node000011_Node000012" title=" " alt="" coords="351,517,391,533,420,554,446,578,492,631,526,683,547,720,542,723,521,685,488,635,443,582,416,558,388,538,349,522"/>
+<area shape="rect" id="Node000019" title=" " alt="" coords="20,1953,92,1979"/>
+<area shape="rect" id="Node000020" href="$classHit2MCPoints.html" title=" " alt="" coords="217,1041,327,1067"/>
+<area shape="poly" id="edge45_Node000019_Node000020" title=" " alt="" coords="56,1939,65,1755,84,1481,97,1342,113,1220,131,1127,141,1096,153,1076,166,1065,182,1057,216,1049,217,1055,184,1062,169,1069,157,1080,146,1098,136,1129,118,1221,102,1343,89,1481,70,1755,61,1940"/>
+<area shape="rect" id="Node000021" href="$structPrimaryTrack.html" title=" " alt="" coords="219,1091,325,1116"/>
+<area shape="poly" id="edge46_Node000019_Node000021" title=" " alt="" coords="56,1940,66,1764,85,1506,99,1375,114,1261,132,1174,142,1144,153,1126,167,1114,183,1106,218,1099,219,1104,185,1111,170,1118,157,1129,147,1146,137,1175,119,1262,104,1376,91,1506,71,1765,61,1940"/>
+<area shape="rect" id="Node000013" href="$classShipHit.html" title=" " alt="" coords="237,1140,307,1165"/>
+<area shape="poly" id="edge47_Node000019_Node000013" title=" " alt="" coords="56,1939,67,1773,87,1530,100,1408,116,1301,133,1220,143,1192,153,1175,171,1161,193,1152,237,1147,237,1153,194,1157,174,1165,157,1178,147,1194,138,1221,121,1302,106,1409,92,1531,72,1773,61,1939"/>
+<area shape="rect" id="Node000022" href="$classShipMCTrack.html" title=" " alt="" coords="219,1189,325,1215"/>
+<area shape="poly" id="edge54_Node000019_Node000022" title=" " alt="" coords="54,1939,55,1792,66,1578,77,1467,95,1365,120,1281,135,1249,153,1224,167,1213,184,1205,219,1197,220,1203,185,1210,170,1217,157,1228,140,1252,125,1283,100,1366,83,1467,71,1578,60,1793,60,1939"/>
+<area shape="rect" id="Node000023" href="$classSndlhcHit.html" title=" " alt="" coords="230,1239,314,1264"/>
+<area shape="poly" id="edge55_Node000019_Node000023" title=" " alt="" coords="54,1940,57,1802,69,1602,80,1498,98,1404,121,1327,136,1296,153,1273,169,1261,189,1252,229,1246,230,1251,190,1257,172,1265,157,1277,141,1299,126,1328,103,1405,86,1499,74,1602,62,1802,60,1940"/>
+<area shape="rect" id="Node000026" href="$classTrackInfo.html" title=" " alt="" coords="231,1288,313,1313"/>
+<area shape="poly" id="edge58_Node000019_Node000026" title=" " alt="" coords="55,1939,58,1810,72,1625,84,1530,101,1443,123,1372,137,1344,153,1323,170,1310,190,1301,230,1296,231,1301,191,1307,172,1314,157,1327,142,1347,128,1374,106,1444,89,1530,77,1625,64,1810,60,1939"/>
+<area shape="rect" id="Node000027" href="$classTracklet.html" title=" " alt="" coords="235,1337,309,1363"/>
+<area shape="poly" id="edge59_Node000019_Node000027" title=" " alt="" coords="55,1939,60,1819,75,1648,87,1561,104,1482,125,1417,138,1391,153,1372,171,1359,192,1350,235,1345,236,1350,194,1355,174,1363,157,1376,143,1394,130,1419,109,1483,92,1562,80,1649,66,1819,61,1939"/>
+<area shape="rect" id="Node000028" href="$classecalCell.html" title=" " alt="" coords="235,1387,309,1412"/>
+<area shape="poly" id="edge60_Node000019_Node000028" title=" " alt="" coords="56,1940,62,1828,78,1672,91,1593,107,1521,127,1462,139,1439,153,1421,171,1408,192,1400,234,1394,235,1400,193,1405,173,1413,157,1425,144,1442,132,1464,112,1523,96,1594,83,1673,67,1828,61,1940"/>
+<area shape="rect" id="Node000031" href="$classecalCluster.html" title=" " alt="" coords="225,1436,319,1461"/>
+<area shape="poly" id="edge63_Node000019_Node000031" title=" " alt="" coords="56,1940,64,1837,81,1696,94,1625,110,1560,129,1507,153,1471,168,1459,186,1451,224,1444,225,1449,188,1456,171,1463,157,1474,134,1509,115,1562,99,1626,86,1697,69,1838,61,1940"/>
+<area shape="rect" id="Node000032" href="$classecalInf.html" title=" " alt="" coords="239,1485,305,1511"/>
+<area shape="poly" id="edge64_Node000019_Node000032" title=" " alt="" coords="57,1939,66,1846,85,1720,97,1657,113,1599,131,1552,153,1520,172,1506,194,1498,238,1493,239,1498,195,1503,174,1511,157,1524,136,1555,118,1601,103,1658,90,1721,72,1847,62,1940"/>
+<area shape="rect" id="Node000033" href="$classecalMaximum.html" title=" " alt="" coords="215,1535,329,1560"/>
+<area shape="poly" id="edge65_Node000019_Node000033" title=" " alt="" coords="58,1940,69,1856,88,1745,116,1639,133,1598,153,1569,182,1552,214,1544,215,1549,184,1557,156,1573,138,1600,121,1641,93,1746,74,1857,63,1940"/>
+<area shape="rect" id="Node000034" href="$classecalReconstructed.html" title=" " alt="" coords="201,1584,343,1609"/>
+<area shape="poly" id="edge66_Node000019_Node000034" title=" " alt="" coords="54,1940,55,1875,68,1788,80,1742,97,1697,122,1655,153,1619,175,1604,200,1596,201,1601,177,1609,156,1623,126,1658,102,1699,85,1744,73,1789,61,1875,59,1940"/>
+<area shape="rect" id="Node000035" href="$classgenfit_1_1AbsFitterInfo.html" title="This class collects all information needed and produced by a specific AbsFitter and is specific to on..." alt="" coords="197,1633,347,1659"/>
+<area shape="poly" id="edge67_Node000019_Node000035" title=" " alt="" coords="55,1939,60,1882,74,1809,87,1770,104,1733,125,1698,153,1668,173,1655,196,1647,197,1652,175,1660,156,1672,130,1701,108,1735,92,1772,79,1810,65,1883,60,1940"/>
+<area shape="rect" id="Node000037" href="$classgenfit_1_1AbsHMatrix.html" title="HMatrix for projecting from AbsTrackRep parameters to measured parameters in a DetPlane." alt="" coords="201,1683,343,1708"/>
+<area shape="poly" id="edge69_Node000019_Node000037" title=" " alt="" coords="57,1939,65,1891,82,1830,110,1769,129,1741,153,1717,175,1704,200,1696,201,1701,177,1709,156,1721,133,1745,114,1772,87,1832,70,1892,62,1939"/>
+<area shape="rect" id="Node000043" href="$classgenfit_1_1AbsMaterialInterface.html" title="Abstract base class for geometry interfacing." alt="" coords="171,1732,373,1757"/>
+<area shape="poly" id="edge75_Node000019_Node000043" title=" " alt="" coords="60,1939,71,1900,89,1853,116,1806,133,1785,153,1767,173,1755,175,1760,156,1771,137,1789,120,1809,94,1855,76,1902,65,1940"/>
+<area shape="rect" id="Node000045" href="$classgenfit_1_1AbsMeasurement.html" title="Contains the measurement and covariance in raw detector coordinates." alt="" coords="181,1781,363,1807"/>
+<area shape="poly" id="edge77_Node000019_Node000045" title=" " alt="" coords="64,1939,97,1877,122,1843,153,1816,180,1803,182,1807,156,1820,126,1847,101,1879,69,1942"/>
+<area shape="rect" id="Node000053" href="$classgenfit_1_1AbsTrackRep.html" title="Abstract base class for a track representation." alt="" coords="197,1831,347,1856"/>
+<area shape="poly" id="edge85_Node000019_Node000053" title=" " alt="" coords="72,1940,106,1901,129,1881,153,1865,196,1849,198,1854,156,1870,132,1886,110,1905,76,1944"/>
+<area shape="rect" id="Node000055" href="$classgenfit_1_1DetPlane.html" title="Detector plane." alt="" coords="209,1880,335,1905"/>
+<area shape="poly" id="edge87_Node000019_Node000055" title=" " alt="" coords="89,1944,154,1914,208,1900,209,1905,156,1919,92,1949"/>
+<area shape="rect" id="Node000056" href="$classgenfit_1_1Exception.html" title="Exception class for error handling in GENFIT (provides storage for diagnostic information)" alt="" coords="207,1929,337,1955"/>
+<area shape="poly" id="edge88_Node000019_Node000056" title=" " alt="" coords="105,1958,206,1947,207,1952,106,1963"/>
+<area shape="rect" id="Node000057" href="$classgenfit_1_1GFRaveTrackParameters.html" title="GFRaveTrackParameters class Contains a pointer to the original genfit::Track, the weight of the track..." alt="" coords="159,1979,385,2004"/>
+<area shape="poly" id="edge89_Node000019_Node000057" title=" " alt="" coords="106,1969,164,1976,163,1981,106,1974"/>
+<area shape="rect" id="Node000058" href="$classgenfit_1_1GFRaveVertex.html" title="GFRaveVertex class." alt="" coords="192,2028,352,2053"/>
+<area shape="poly" id="edge90_Node000019_Node000058" title=" " alt="" coords="92,1983,156,2013,199,2025,198,2030,154,2018,89,1988"/>
+<area shape="rect" id="Node000059" href="$classgenfit_1_1HelixTrackModel.html" title="Helix track model for testing purposes." alt="" coords="185,2077,359,2103"/>
+<area shape="poly" id="edge91_Node000019_Node000059" title=" " alt="" coords="76,1988,110,2027,132,2046,156,2062,186,2075,184,2080,153,2067,129,2050,106,2031,72,1991"/>
+<area shape="rect" id="Node000060" href="$classgenfit_1_1MaterialProperties.html" title="Material properties needed e.g. for material effects calculation." alt="" coords="179,2127,365,2152"/>
+<area shape="poly" id="edge92_Node000019_Node000060" title=" " alt="" coords="69,1990,102,2052,126,2085,156,2112,180,2124,178,2129,153,2116,122,2088,97,2055,65,1993"/>
+<area shape="rect" id="Node000061" href="$classgenfit_1_1MeasurementCreator.html" title="Create different measurement types along a HelixTrackModel for testing purposes." alt="" coords="169,2176,375,2201"/>
+<area shape="poly" id="edge93_Node000019_Node000061" title=" " alt="" coords="65,1992,76,2030,94,2076,120,2123,137,2143,156,2161,177,2174,175,2178,153,2165,133,2147,116,2126,89,2079,71,2032,60,1993"/>
+<area shape="rect" id="Node000062" href="$classgenfit_1_1StateOnPlane.html" title="A state with arbitrary dimension defined in a DetPlane." alt="" coords="195,2225,349,2251"/>
+<area shape="poly" id="edge94_Node000019_Node000062" title=" " alt="" coords="62,1993,70,2040,87,2099,114,2160,133,2187,156,2211,175,2222,195,2230,194,2235,172,2227,153,2215,129,2190,110,2163,82,2101,65,2041,57,1993"/>
+<area shape="rect" id="Node000067" href="$classgenfit_1_1ThinScatterer.html" title="Thin or thick scatterer." alt="" coords="195,2275,349,2300"/>
+<area shape="poly" id="edge99_Node000019_Node000067" title=" " alt="" coords="60,1992,65,2049,80,2121,92,2159,108,2196,130,2230,156,2260,174,2272,195,2280,193,2285,172,2277,153,2264,126,2234,104,2199,87,2161,75,2123,60,2049,55,1993"/>
+<area shape="rect" id="Node000068" href="$classgenfit_1_1Track.html" title="Collection of TrackPoint objects, AbsTrackRep objects and FitStatus objects." alt="" coords="221,2324,323,2349"/>
+<area shape="poly" id="edge100_Node000019_Node000068" title=" " alt="" coords="59,1992,61,2057,73,2143,85,2188,103,2233,126,2274,156,2309,171,2320,187,2327,222,2334,221,2340,185,2332,168,2324,153,2313,122,2277,98,2235,80,2190,68,2144,56,2058,54,1993"/>
+<area shape="rect" id="Node000069" href="$classgenfit_1_1TrackCand.html" title="Track candidate – seed values and indices." alt="" coords="205,2373,339,2399"/>
+<area shape="poly" id="edge101_Node000019_Node000069" title=" " alt="" coords="63,1992,74,2075,93,2186,121,2291,138,2332,157,2359,179,2374,205,2382,204,2387,177,2378,153,2363,133,2334,116,2293,88,2187,69,2076,58,1992"/>
+<area shape="rect" id="Node000070" href="$classgenfit_1_1TrackCandHit.html" title="Hit object for use in TrackCand. Provides IDs and sorting parameters." alt="" coords="195,2423,349,2448"/>
+<area shape="poly" id="edge102_Node000019_Node000070" title=" " alt="" coords="62,1992,72,2085,90,2211,103,2274,118,2331,136,2377,157,2408,175,2421,196,2429,194,2434,172,2426,153,2412,131,2380,113,2332,98,2275,85,2212,66,2086,57,1993"/>
+<area shape="rect" id="Node000072" href="$classgenfit_1_1TrackPoint.html" title="Object containing AbsMeasurement and AbsFitterInfo objects." alt="" coords="205,2472,339,2497"/>
+<area shape="poly" id="edge104_Node000019_Node000072" title=" " alt="" coords="61,1992,70,2094,87,2235,99,2306,115,2370,134,2422,157,2457,179,2473,205,2481,204,2486,177,2477,153,2461,129,2425,110,2372,94,2307,81,2235,64,2095,56,1992"/>
+<area shape="rect" id="Node000073" href="$classgenfit_1_1mySpacepointDetectorHit.html" title="Example class for a spacepoint detector hit." alt="" coords="155,2521,389,2547"/>
+<area shape="poly" id="edge105_Node000019_Node000073" title=" " alt="" coords="61,1992,68,2104,83,2259,96,2337,112,2409,132,2468,144,2490,157,2507,173,2519,170,2523,153,2511,139,2493,127,2470,107,2411,91,2338,78,2259,62,2104,56,1992"/>
+<area shape="rect" id="Node000074" href="$classhcalInf.html" title=" " alt="" coords="239,2571,305,2596"/>
+<area shape="poly" id="edge106_Node000019_Node000074" title=" " alt="" coords="61,1993,66,2113,80,2284,92,2371,109,2450,130,2514,143,2539,157,2557,174,2571,195,2578,239,2583,238,2588,194,2584,172,2575,153,2561,138,2542,125,2516,104,2451,87,2372,75,2284,60,2114,55,1993"/>
+<area shape="rect" id="Node000075" href="$classhcalModule.html" title=" " alt="" coords="223,2620,321,2645"/>
+<area shape="poly" id="edge107_Node000019_Node000075" title=" " alt="" coords="60,1993,64,2122,77,2308,89,2402,106,2489,128,2560,142,2587,157,2607,171,2618,187,2625,223,2632,222,2637,186,2630,168,2622,153,2611,137,2589,123,2562,101,2490,84,2403,72,2308,58,2123,55,1993"/>
+<area shape="rect" id="Node000077" href="$classpid.html" title=" " alt="" coords="251,2669,293,2695"/>
+<area shape="poly" id="edge109_Node000019_Node000077" title=" " alt="" coords="60,1992,62,2130,74,2331,86,2434,103,2528,126,2605,141,2634,157,2656,178,2671,203,2679,251,2682,250,2687,202,2684,175,2676,153,2660,136,2637,121,2607,98,2529,80,2434,68,2331,57,2131,54,1992"/>
+<area shape="rect" id="Node000078" href="$classsndCluster.html" title=" " alt="" coords="227,2719,317,2744"/>
+<area shape="poly" id="edge110_Node000019_Node000078" title=" " alt="" coords="60,1993,60,2140,71,2355,82,2466,100,2567,124,2650,140,2682,157,2705,171,2717,189,2725,227,2731,226,2736,187,2730,169,2722,153,2709,135,2684,119,2652,95,2568,77,2466,65,2355,55,2140,54,1993"/>
+<area shape="rect" id="Node000079" href="$classsndRecoTrack.html" title=" " alt="" coords="217,2768,327,2793"/>
+<area shape="poly" id="edge111_Node000019_Node000079" title=" " alt="" coords="61,1993,72,2159,92,2402,106,2524,121,2631,138,2712,147,2739,157,2755,169,2765,184,2773,217,2780,216,2785,182,2778,166,2770,153,2758,142,2741,133,2713,116,2632,100,2525,87,2403,67,2160,56,1993"/>
+<area shape="rect" id="Node000080" href="$classsplitcalCluster.html" title=" " alt="" coords="215,2817,329,2843"/>
+<area shape="poly" id="edge112_Node000019_Node000080" title=" " alt="" coords="61,1992,71,2168,91,2427,104,2557,119,2671,137,2758,147,2787,157,2804,169,2814,183,2822,215,2829,214,2834,181,2827,166,2819,153,2808,142,2789,132,2760,114,2672,99,2557,85,2427,66,2168,56,1992"/>
+<area shape="rect" id="Node000081" href="$classvetoHitOnTrack.html" title=" " alt="" coords="211,2867,333,2892"/>
+<area shape="poly" id="edge113_Node000019_Node000081" title=" " alt="" coords="61,1992,70,2177,89,2452,102,2590,118,2712,136,2805,146,2835,157,2854,181,2870,211,2878,210,2883,179,2875,153,2857,141,2837,131,2806,113,2713,97,2591,84,2452,65,2178,56,1993"/>
+<area shape="poly" id="edge49_Node000013_Node000012" title=" " alt="" coords="320,1150,356,1143,373,1136,388,1125,403,1109,412,1093,420,1060,424,1023,435,978,495,842,542,746,546,748,499,844,440,980,429,1024,426,1061,417,1095,407,1112,391,1129,375,1140,358,1148,321,1156"/>
+<area shape="rect" id="Node000014" href="$classTimeDetHit.html" title=" " alt="" coords="503,992,601,1017"/>
+<area shape="poly" id="edge48_Node000013_Node000014" title=" " alt="" coords="320,1149,355,1142,388,1125,399,1114,405,1102,411,1077,417,1052,424,1039,436,1027,468,1010,503,1003,504,1008,470,1015,439,1031,428,1042,422,1053,416,1079,410,1104,403,1117,391,1129,357,1147,321,1154"/>
+<area shape="rect" id="Node000015" href="$classmuonHit.html" title=" " alt="" coords="513,1041,591,1067"/>
+<area shape="poly" id="edge50_Node000013_Node000015" title=" " alt="" coords="320,1146,355,1138,388,1125,402,1114,411,1101,420,1088,436,1076,474,1061,512,1054,513,1059,476,1066,439,1080,424,1092,415,1104,406,1117,391,1130,356,1144,321,1151"/>
+<area shape="rect" id="Node000016" href="$classsplitcalHit.html" title=" " alt="" coords="508,1091,596,1116"/>
+<area shape="poly" id="edge51_Node000013_Node000016" title=" " alt="" coords="320,1142,507,1108,508,1114,320,1147"/>
+<area shape="rect" id="Node000017" href="$classstrawtubesHit.html" title=" " alt="" coords="495,1140,609,1165"/>
+<area shape="poly" id="edge52_Node000013_Node000017" title=" " alt="" coords="320,1150,495,1150,495,1155,320,1155"/>
+<area shape="rect" id="Node000018" href="$classvetoHit.html" title=" " alt="" coords="517,1189,587,1215"/>
+<area shape="poly" id="edge53_Node000013_Node000018" title=" " alt="" coords="321,1158,517,1193,516,1199,320,1164"/>
+<area shape="rect" id="Node000024" href="$classMuFilterHit.html" title=" " alt="" coords="505,1239,599,1264"/>
+<area shape="poly" id="edge56_Node000023_Node000024" title=" " alt="" coords="328,1249,504,1249,504,1254,328,1254"/>
+<area shape="rect" id="Node000025" href="$classsndScifiHit.html" title=" " alt="" coords="507,1288,597,1313"/>
+<area shape="poly" id="edge57_Node000023_Node000025" title=" " alt="" coords="328,1258,507,1290,506,1295,327,1264"/>
+<area shape="rect" id="Node000029" href="$classecalCellMC.html" title=" " alt="" coords="505,1337,599,1363"/>
+<area shape="poly" id="edge61_Node000028_Node000029" title=" " alt="" coords="323,1388,504,1356,505,1361,324,1393"/>
+<area shape="rect" id="Node000030" href="$classecalModule.html" title=" " alt="" coords="503,1387,601,1412"/>
+<area shape="poly" id="edge62_Node000028_Node000030" title=" " alt="" coords="323,1397,503,1397,503,1402,323,1402"/>
+<area shape="rect" id="Node000036" href="$classgenfit_1_1KalmanFitterInfo.html" title="Collects information needed and produced by a AbsKalmanFitter implementations and is specific to one ..." alt="" coords="464,1436,640,1461"/>
+<area shape="poly" id="edge68_Node000035_Node000036" title=" " alt="" coords="359,1635,388,1619,402,1602,409,1584,411,1546,413,1508,420,1489,436,1471,462,1455,465,1459,439,1475,425,1492,418,1509,416,1547,414,1585,406,1604,391,1623,362,1640"/>
+<area shape="rect" id="Node000038" href="$classgenfit_1_1HMatrixPhi.html" title="AbsHMatrix implementation for one&#45;dimensional MeasurementOnPlane and RKTrackRep parameterization." alt="" coords="483,1485,621,1511"/>
+<area shape="poly" id="edge70_Node000037_Node000038" title=" " alt="" coords="356,1686,373,1678,388,1668,402,1651,409,1633,411,1596,413,1558,420,1538,436,1520,457,1506,482,1498,483,1503,460,1511,439,1524,425,1541,418,1559,416,1596,414,1634,406,1654,391,1672,375,1683,358,1691"/>
+<area shape="rect" id="Node000039" href="$classgenfit_1_1HMatrixU.html" title="AbsHMatrix implementation for one&#45;dimensional MeasurementOnPlane and RKTrackRep parameterization." alt="" coords="487,1535,617,1560"/>
+<area shape="poly" id="edge71_Node000037_Node000039" title=" " alt="" coords="355,1684,388,1668,399,1657,405,1645,411,1620,417,1594,424,1581,436,1569,460,1556,486,1548,488,1553,462,1561,439,1573,428,1585,422,1596,416,1621,410,1647,403,1660,391,1672,358,1689"/>
+<area shape="rect" id="Node000040" href="$classgenfit_1_1HMatrixUV.html" title="AbsHMatrix implementation for two&#45;dimensional MeasurementOnPlane and RKTrackRep parameterization." alt="" coords="483,1584,621,1609"/>
+<area shape="poly" id="edge72_Node000037_Node000040" title=" " alt="" coords="356,1681,388,1668,402,1656,411,1644,420,1631,436,1618,482,1602,483,1607,439,1623,424,1634,415,1647,406,1660,391,1672,358,1686"/>
+<area shape="rect" id="Node000041" href="$classgenfit_1_1HMatrixUnit.html" title="AbsHMatrix implementation for 5&#45;dimensional MeasurementOnPlane and RKTrackRep parameterization." alt="" coords="479,1633,625,1659"/>
+<area shape="poly" id="edge73_Node000037_Node000041" title=" " alt="" coords="357,1678,479,1656,480,1661,358,1683"/>
+<area shape="rect" id="Node000042" href="$classgenfit_1_1HMatrixV.html" title="AbsHMatrix implementation for one&#45;dimensional MeasurementOnPlane and RKTrackRep parameterization." alt="" coords="488,1683,616,1708"/>
+<area shape="poly" id="edge74_Node000037_Node000042" title=" " alt="" coords="357,1693,488,1693,488,1698,357,1698"/>
+<area shape="rect" id="Node000044" href="$classgenfit_1_1TGeoMaterialInterface.html" title="AbsMaterialInterface implementation for use with ROOT&#39;s TGeoManager." alt="" coords="445,1732,659,1757"/>
+<area shape="poly" id="edge76_Node000043_Node000044" title=" " alt="" coords="387,1742,445,1742,445,1747,387,1747"/>
+<area shape="rect" id="Node000046" href="$classgenfit_1_1FullMeasurement.html" title="Measurement class implementing a measurement of all track parameters." alt="" coords="462,1781,642,1807"/>
+<area shape="poly" id="edge78_Node000045_Node000046" title=" " alt="" coords="377,1791,462,1791,462,1797,377,1797"/>
+<area shape="rect" id="Node000047" href="$classgenfit_1_1PlanarMeasurement.html" title="Measurement class implementing a planar hit geometry (1 or 2D)." alt="" coords="453,1831,651,1856"/>
+<area shape="poly" id="edge79_Node000045_Node000047" title=" " alt="" coords="359,1806,479,1828,479,1833,358,1812"/>
+<area shape="rect" id="Node000048" href="$classgenfit_1_1SpacepointMeasurement.html" title="Class for measurements implementing a space point hit geometry." alt="" coords="437,1880,667,1905"/>
+<area shape="poly" id="edge80_Node000045_Node000048" title=" " alt="" coords="377,1809,391,1816,406,1828,416,1841,424,1854,439,1865,469,1878,466,1882,436,1870,420,1857,411,1844,402,1832,388,1820,374,1814"/>
+<area shape="rect" id="Node000051" href="$classgenfit_1_1WireMeasurement.html" title="Class for measurements in wire detectors (Straw tubes and drift chambers) which do not measure the co..." alt="" coords="459,1929,645,1955"/>
+<area shape="poly" id="edge83_Node000045_Node000051" title=" " alt="" coords="377,1807,391,1816,403,1828,410,1841,416,1867,422,1892,428,1903,439,1915,460,1927,457,1932,436,1919,424,1907,417,1894,411,1868,405,1843,399,1831,388,1820,374,1812"/>
+<area shape="rect" id="Node000049" href="$classgenfit_1_1ProlateSpacepointMeasurement.html" title="Class for measurements implementing a space point hit geometry with a very prolate form of the covari..." alt="" coords="747,1815,933,1855"/>
+<area shape="poly" id="edge81_Node000048_Node000049" title=" " alt="" coords="630,1875,746,1851,747,1856,631,1880"/>
+<area shape="rect" id="Node000050" href="$classgenfit_1_1mySpacepointMeasurement.html" title="Example class for a spacepoint measurement which can be created from mySpacepointDetectorHit via the ..." alt="" coords="715,1880,965,1905"/>
+<area shape="poly" id="edge82_Node000048_Node000050" title=" " alt="" coords="681,1890,714,1890,714,1895,681,1895"/>
+<area shape="rect" id="Node000052" href="$classgenfit_1_1WirePointMeasurement.html" title="Class for measurements in wire detectors (Straw tubes and drift chambers) which can measure the coord..." alt="" coords="730,1929,950,1955"/>
+<area shape="poly" id="edge84_Node000051_Node000052" title=" " alt="" coords="659,1939,730,1939,730,1945,659,1945"/>
+<area shape="rect" id="Node000054" href="$classgenfit_1_1RKTrackRep.html" title="AbsTrackRep with 5D track parameterization in plane coordinates: (q/p, u&#39;, v&#39;, u, v)" alt="" coords="481,1979,623,2004"/>
+<area shape="poly" id="edge86_Node000053_Node000054" title=" " alt="" coords="362,1850,391,1865,403,1877,410,1890,416,1916,422,1941,428,1953,439,1964,459,1976,481,1983,480,1988,457,1981,436,1968,424,1956,417,1943,411,1917,405,1892,399,1881,388,1869,359,1854"/>
+<area shape="rect" id="Node000063" href="$classgenfit_1_1MeasuredStateOnPlane.html" title="StateOnPlane with additional covariance matrix." alt="" coords="443,2197,661,2223"/>
+<area shape="poly" id="edge95_Node000062_Node000063" title=" " alt="" coords="363,2226,442,2218,443,2224,363,2232"/>
+<area shape="rect" id="Node000066" href="$classgenfit_1_1ReferenceStateOnPlane.html" title="StateOnPlane with linearized transport to that ReferenceStateOnPlane from previous and next Reference..." alt="" coords="459,2247,645,2287"/>
+<area shape="poly" id="edge98_Node000062_Node000066" title=" " alt="" coords="363,2245,459,2255,459,2260,363,2250"/>
+<area shape="rect" id="Node000064" href="$classgenfit_1_1KalmanFittedStateOnPlane.html" title="MeasuredStateOnPlane with additional info produced by a Kalman filter or DAF." alt="" coords="746,2162,934,2202"/>
+<area shape="poly" id="edge96_Node000063_Node000064" title=" " alt="" coords="675,2195,746,2188,746,2194,676,2201"/>
+<area shape="rect" id="Node000065" href="$classgenfit_1_1MeasurementOnPlane.html" title="Measured coordinates on a plane." alt="" coords="735,2227,945,2252"/>
+<area shape="poly" id="edge97_Node000063_Node000065" title=" " alt="" coords="675,2220,735,2226,734,2231,675,2225"/>
+<area shape="rect" id="Node000071" href="$classgenfit_1_1WireTrackCandHit.html" title="Hit object for use in TrackCand. Provides additional left/right parameter." alt="" coords="461,2423,643,2448"/>
+<area shape="poly" id="edge103_Node000070_Node000071" title=" " alt="" coords="362,2433,460,2433,460,2438,362,2438"/>
+<area shape="rect" id="Node000076" href="$classhcalModuleMC.html" title=" " alt="" coords="493,2620,611,2645"/>
+<area shape="poly" id="edge108_Node000075_Node000076" title=" " alt="" coords="334,2630,493,2630,493,2635,334,2635"/>
 </map>

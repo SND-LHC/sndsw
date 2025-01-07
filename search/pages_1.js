@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['list_20of_20exit_20codes_20165',['List of exit codes',['../exit_code_page.html',1,'index']]],
-  ['list_20of_20options_20and_20commands_20166',['List of options and commands',['../option_page.html',1,'index']]]
+  ['changes_0',['Major changes',['../changes_page.html',1,'index']]],
+  ['class_20reference_1',['SNDSW Class Reference',['../index.html',1,'']]],
+  ['codes_2',['List of exit codes',['../exit_code_page.html',1,'index']]],
+  ['commands_3',['List of options and commands',['../option_page.html',1,'index']]],
+  ['conditionsdb_20package_4',['conditionsDB package',['../md_conditionsDatabase_2README.html',1,'']]]
 ];

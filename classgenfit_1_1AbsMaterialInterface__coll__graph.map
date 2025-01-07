@@ -1,4 +1,6 @@
 <map id="genfit::AbsMaterialInterface" name="genfit::AbsMaterialInterface">
-<area shape="rect" id="node1" title="Abstract base class for geometry interfacing." alt="" coords="5,80,208,107"/>
-<area shape="rect" id="node2" title=" " alt="" coords="71,5,143,32"/>
+<area shape="rect" id="Node000001" title="Abstract base class for geometry interfacing." alt="" coords="5,79,208,104"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="71,5,143,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="101,44,102,78,97,79,95,45"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="118,45,116,79,111,78,113,44"/>
 </map>

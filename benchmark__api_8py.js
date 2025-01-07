@@ -12,8 +12,8 @@ var benchmark__api_8py =
     [ "log_file", "benchmark__api_8py.html#a9530bde11be7823562d9d47b613121c5", null ],
     [ "logger", "benchmark__api_8py.html#a4991322a6dc9889e17150f55dad2140e", null ],
     [ "msg", "benchmark__api_8py.html#af371373db41c5f6b154ac84f2178550b", null ],
-    [ "reconstructed_detector_id", "benchmark__api_8py.html#a4c6e662e4587e56a39d42b5bb072c1f0", null ],
-    [ "values", "benchmark__api_8py.html#aeca4e65b8e311396c3ba18fd555d4b70", null ],
+    [ "reconstructed_detector_id", "benchmark__api_8py.html#a92f3e824665149583ae1609dc3655a61", null ],
+    [ "values", "benchmark__api_8py.html#ac1ed97d908ba6b9513ec2af00658e9f4", null ],
     [ "wall_time_end", "benchmark__api_8py.html#a4ebca2ce814a82fb44c9d417a11b45a4", null ],
     [ "wall_time_start", "benchmark__api_8py.html#a28af6de659382d2e9aad1d8c3b558afb", null ]
 ];

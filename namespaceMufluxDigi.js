@@ -1,12 +1,12 @@
 var namespaceMufluxDigi =
 [
     [ "MufluxDigi", "classMufluxDigi_1_1MufluxDigi.html", "classMufluxDigi_1_1MufluxDigi" ],
-    [ "StripX", "namespaceMufluxDigi.html#ae28465375a1e8dae699245c0a677f352", null ],
-    [ "StripY", "namespaceMufluxDigi.html#a68c8f20a456878fae0510b3ae06c1527", null ],
+    [ "StripX", "namespaceMufluxDigi.html#af03526ec04ce0b53eaab35aef0908080", null ],
+    [ "StripY", "namespaceMufluxDigi.html#a25536723c4b0ea1670f13985df9945b4", null ],
     [ "deadChannelsForMC", "namespaceMufluxDigi.html#a411bc9af6f067f4ad2ead8cd0ad778a5", null ],
     [ "EXT_STRIP_XWIDTH_L", "namespaceMufluxDigi.html#ae9ed11b8fa25ab13e43234f9ebe126b7", null ],
     [ "EXT_STRIP_XWIDTH_R", "namespaceMufluxDigi.html#ad5323997b37417bc32ceac49a19a12b2", null ],
-    [ "ineffiency", "namespaceMufluxDigi.html#a3ac42624085a60fe1ab137a6fef69663", null ],
+    [ "ineffiency", "namespaceMufluxDigi.html#abdc7cf669f692dd64db4b19aebd48fe7", null ],
     [ "NR_VER_STRIPS", "namespaceMufluxDigi.html#a55a778e0eba46a3467219bd799849fb6", null ],
     [ "reduced_width", "namespaceMufluxDigi.html#a4012be644922f319eb646f2dea4de7e8", null ],
     [ "start", "namespaceMufluxDigi.html#a542a15fc4fd0bfa91eeff476535c50b9", null ],

@@ -19,7 +19,7 @@ var classMuFilterHit =
     [ "isShort", "classMuFilterHit.html#a9d2a3ac4e6e75685a50660df7c9de26d", null ],
     [ "isValid", "classMuFilterHit.html#a65456b1467cf2561a876a09472a80e8e", null ],
     [ "isVertical", "classMuFilterHit.html#aa78361584f5562fe9d8adafd3f92b0f4", null ],
-    [ "operator=", "classMuFilterHit.html#a9c999fd006dd096c61df9392b46f5dcc", null ],
+    [ "operator=", "classMuFilterHit.html#a0eacd5c041e4e2a10553b189f7a89e76", null ],
     [ "Print", "classMuFilterHit.html#ada68c262fc968db21a5d552caab294b5", null ],
     [ "SetMasked", "classMuFilterHit.html#afe5d121167139bdffee23e68791ce9f8", null ],
     [ "SumOfSignals", "classMuFilterHit.html#a334c4a379bf5dc92233dd0898cc5fa8b", null ],

@@ -1,12 +1,12 @@
 var MufluxDigi_8py =
 [
-    [ "MufluxDigi", "classMufluxDigi_1_1MufluxDigi.html", "classMufluxDigi_1_1MufluxDigi" ],
-    [ "StripX", "MufluxDigi_8py.html#ae28465375a1e8dae699245c0a677f352", null ],
-    [ "StripY", "MufluxDigi_8py.html#a68c8f20a456878fae0510b3ae06c1527", null ],
+    [ "MufluxDigi.MufluxDigi", "classMufluxDigi_1_1MufluxDigi.html", "classMufluxDigi_1_1MufluxDigi" ],
+    [ "StripX", "MufluxDigi_8py.html#af03526ec04ce0b53eaab35aef0908080", null ],
+    [ "StripY", "MufluxDigi_8py.html#a25536723c4b0ea1670f13985df9945b4", null ],
     [ "deadChannelsForMC", "MufluxDigi_8py.html#a411bc9af6f067f4ad2ead8cd0ad778a5", null ],
     [ "EXT_STRIP_XWIDTH_L", "MufluxDigi_8py.html#ae9ed11b8fa25ab13e43234f9ebe126b7", null ],
     [ "EXT_STRIP_XWIDTH_R", "MufluxDigi_8py.html#ad5323997b37417bc32ceac49a19a12b2", null ],
-    [ "ineffiency", "MufluxDigi_8py.html#a3ac42624085a60fe1ab137a6fef69663", null ],
+    [ "ineffiency", "MufluxDigi_8py.html#abdc7cf669f692dd64db4b19aebd48fe7", null ],
     [ "NR_VER_STRIPS", "MufluxDigi_8py.html#a55a778e0eba46a3467219bd799849fb6", null ],
     [ "reduced_width", "MufluxDigi_8py.html#a4012be644922f319eb646f2dea4de7e8", null ],
     [ "start", "MufluxDigi_8py.html#a542a15fc4fd0bfa91eeff476535c50b9", null ],

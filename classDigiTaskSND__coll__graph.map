@@ -1,10 +1,17 @@
 <map id="DigiTaskSND" name="DigiTaskSND">
-<area shape="rect" id="node1" title=" " alt="" coords="278,304,383,331"/>
-<area shape="rect" id="node2" title=" " alt="" coords="79,193,153,219"/>
-<area shape="rect" id="node3" href="$classSNDLHCEventHeader.html" title=" " alt="" coords="284,81,444,108"/>
-<area shape="rect" id="node5" href="$classScifi.html" title=" " alt="" coords="178,193,227,219"/>
-<area shape="rect" id="node4" title=" " alt="" coords="325,5,403,32"/>
-<area shape="rect" id="node6" title=" " alt="" coords="5,81,107,108"/>
-<area shape="rect" id="node7" title=" " alt="" coords="131,81,250,108"/>
-<area shape="rect" id="node8" title=" " alt="" coords="491,185,672,227"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="145,271,250,296"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="73,183,148,208"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="134,216,187,268,183,272,130,219"/>
+<area shape="rect" id="Node000003" href="$classScifi.html" title=" " alt="" coords="173,183,222,208"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="200,222,200,270,195,270,195,222"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="237,185,245,189,249,196,240,204,223,206,222,200,238,200,243,195,241,193,235,190"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,80,107,105"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="85,111,183,180,180,185,82,115"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="131,80,250,105"/>
+<area shape="poly" id="edge5_Node000003_Node000005" title=" " alt="" coords="193,119,195,158,198,182,193,183,189,159,188,119"/>
+<area shape="rect" id="Node000006" href="$classSNDLHCEventHeader.html" title=" " alt="" coords="284,80,444,105"/>
+<area shape="poly" id="edge8_Node000001_Node000006" title=" " alt="" coords="366,119,358,165,349,189,334,210,310,231,284,248,232,273,230,268,281,244,307,227,330,206,344,186,353,163,361,118"/>
+<area shape="poly" id="edge6_Node000003_Node000006" title=" " alt="" coords="308,112,267,132,251,145,237,161,212,184,208,180,233,157,247,141,264,127,306,107"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="325,5,403,31"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="367,45,367,80,361,80,361,45"/>
 </map>

@@ -1,8 +1,15 @@
 <map id="genfit::WirePointMeasurement" name="genfit::WirePointMeasurement">
-<area shape="rect" id="node1" title="Class for measurements in wire detectors (Straw tubes and drift chambers) which can measure the coord..." alt="" coords="5,412,225,439"/>
-<area shape="rect" id="node2" href="$classgenfit_1_1WireMeasurement.html" title="Class for measurements in wire detectors (Straw tubes and drift chambers) which do not measure the co..." alt="" coords="22,336,209,363"/>
-<area shape="rect" id="node3" href="$classgenfit_1_1AbsMeasurement.html" title="Contains the measurement and covariance in raw detector coordinates." alt="" coords="25,260,206,287"/>
-<area shape="rect" id="node4" title=" " alt="" coords="109,5,181,32"/>
-<area shape="rect" id="node5" href="$classgenfit_1_1TrackPoint.html" title="Object containing AbsMeasurement and AbsFitterInfo objects." alt="" coords="132,171,267,197"/>
-<area shape="rect" id="node6" href="$classgenfit_1_1Track.html" title="Collection of TrackPoint objects, AbsTrackRep objects and FitStatus objects." alt="" coords="182,81,283,108"/>
+<area shape="rect" id="Node000001" title="Class for measurements in wire detectors (Straw tubes and drift chambers) which can measure the coord..." alt="" coords="5,405,225,431"/>
+<area shape="rect" id="Node000002" href="$classgenfit_1_1WireMeasurement.html" title="Class for measurements in wire detectors (Straw tubes and drift chambers) which do not measure the co..." alt="" coords="22,331,209,356"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="118,370,118,405,113,405,113,370"/>
+<area shape="rect" id="Node000003" href="$classgenfit_1_1AbsMeasurement.html" title="Contains the measurement and covariance in raw detector coordinates." alt="" coords="25,256,206,281"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="118,296,118,330,113,330,113,296"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="109,5,181,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="142,45,122,168,118,256,113,256,117,168,137,44"/>
+<area shape="rect" id="Node000005" href="$classgenfit_1_1TrackPoint.html" title="Object containing AbsMeasurement and AbsFitterInfo objects." alt="" coords="132,168,267,193"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="154,44,173,104,197,167,192,169,167,106,149,45"/>
+<area shape="rect" id="Node000006" href="$classgenfit_1_1Track.html" title="Collection of TrackPoint objects, AbsTrackRep objects and FitStatus objects." alt="" coords="182,80,283,105"/>
+<area shape="poly" id="edge7_Node000006_Node000004" title=" " alt="" coords="171,38,220,77,217,82,168,42"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="180,205,129,257,125,254,176,201"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="226,119,206,168,201,166,221,117"/>
 </map>

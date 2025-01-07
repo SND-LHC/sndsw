@@ -1,6 +1,6 @@
 var runMufluxDigi_8py =
 [
-    [ "mem_monitor", "runMufluxDigi_8py.html#ac55f8a8ce2336e709609cce97606bd71", null ],
+    [ "mem_monitor", "runMufluxDigi_8py.html#a1a04c858e8f07a46b4659d5f509729cb", null ],
     [ "debug", "runMufluxDigi_8py.html#a06467345fec48770c13a9e20e795179b", null ],
     [ "default", "runMufluxDigi_8py.html#a470cb79f48ee1891cdd77691ebe725e7", null ],
     [ "dest", "runMufluxDigi_8py.html#ac14f6b43e30e39d3720bce19fe73f17c", null ],

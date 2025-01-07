@@ -1,5 +1,8 @@
 <map id="genfit/utilities/include/mySpacepointDetectorHit.h" name="genfit/utilities/include/mySpacepointDetectorHit.h">
-<area shape="rect" id="node1" title=" " alt="" coords="17,5,224,47"/>
-<area shape="rect" id="node2" href="$measurementFactoryExample_2main_8cc.html" title=" " alt="" coords="5,184,236,225"/>
-<area shape="rect" id="node3" href="$mySpacepointMeasurement_8h.html" title=" " alt="" coords="85,95,306,136"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="17,5,224,45"/>
+<area shape="rect" id="Node000002" href="$measurementFactoryExample_2main_8cc.html" title=" " alt="" coords="5,181,236,221"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,58,84,75,75,94,71,113,75,132,88,158,104,179,100,182,83,161,70,134,66,113,70,93,79,73,91,55"/>
+<area shape="rect" id="Node000003" href="$mySpacepointMeasurement_8h.html" title=" " alt="" coords="85,93,306,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="148,54,181,91,177,95,144,58"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="172,146,139,183,135,179,168,142"/>
 </map>

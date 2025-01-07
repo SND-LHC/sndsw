@@ -1,5 +1,7 @@
 <map id="conditionsDatabase.databases.mongodb.mongodbadapter.MongoToCDBAPIAdapter" name="conditionsDatabase.databases.mongodb.mongodbadapter.MongoToCDBAPIAdapter">
-<area shape="rect" id="node1" title=" " alt="" coords="5,169,411,211"/>
-<area shape="rect" id="node2" href="$classconditionsDatabase_1_1interface_1_1APIInterface.html" title="Conditions Database Interface definition." alt="" coords="99,80,317,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="180,5,236,32"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,167,411,207"/>
+<area shape="rect" id="Node000002" href="$classconditionsDatabase_1_1interface_1_1APIInterface.html" title="Conditions Database Interface definition." alt="" coords="99,79,317,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="211,133,211,166,205,166,205,133"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="180,5,236,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="211,44,211,79,205,79,205,44"/>
 </map>

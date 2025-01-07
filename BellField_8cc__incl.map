@@ -1,6 +1,9 @@
 <map id="genfit/fields/src/BellField.cc" name="genfit/fields/src/BellField.cc">
-<area shape="rect" id="node1" title=" " alt="" coords="55,5,254,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,80,96,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="121,80,189,107"/>
-<area shape="rect" id="node4" title=" " alt="" coords="213,80,293,107"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="55,5,254,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,96,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="139,33,81,73,78,68,136,28"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="121,79,189,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="157,31,157,65,152,65,152,31"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="213,79,293,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="172,29,228,68,225,73,169,33"/>
 </map>

@@ -1,8 +1,13 @@
 <map id="genfit/core/include/DetPlane.h" name="genfit/core/include/DetPlane.h">
-<area shape="rect" id="node1" title=" " alt="" coords="187,5,330,47"/>
-<area shape="rect" id="node2" href="$AbsFinitePlane_8h.html" title=" " alt="" coords="5,95,136,121"/>
-<area shape="rect" id="node4" title=" " alt="" coords="161,95,245,121"/>
-<area shape="rect" id="node5" title=" " alt="" coords="269,95,360,121"/>
-<area shape="rect" id="node6" title=" " alt="" coords="384,95,544,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="31,169,110,196"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="187,5,330,45"/>
+<area shape="rect" id="Node000002" href="$AbsFinitePlane_8h.html" title=" " alt="" coords="5,93,136,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="215,48,112,90,110,85,213,43"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="161,93,245,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="247,47,221,84,217,80,243,44"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="269,93,360,119"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="274,44,301,80,296,84,270,47"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="384,93,544,119"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="309,43,422,86,420,91,307,48"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="31,167,110,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="73,119,73,153,68,153,68,119"/>
 </map>

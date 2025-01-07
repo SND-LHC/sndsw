@@ -1,7 +1,11 @@
 <map id="genfit::RKStep" name="genfit::RKStep">
-<area shape="rect" id="node1" title="Helper for RKTrackRep." alt="" coords="56,260,171,287"/>
-<area shape="rect" id="node2" href="$classgenfit_1_1StepLimits.html" title="Helper to store different limits on the stepsize for the RKTRackRep." alt="" coords="5,171,141,197"/>
-<area shape="rect" id="node3" href="$structgenfit_1_1MatStep.html" title="Simple struct containing MaterialProperties and stepsize in the material." alt="" coords="166,171,287,197"/>
-<area shape="rect" id="node4" href="$classgenfit_1_1MaterialProperties.html" title="Material properties needed e.g. for material effects calculation." alt="" coords="133,81,320,108"/>
-<area shape="rect" id="node5" title=" " alt="" coords="191,5,263,32"/>
+<area shape="rect" id="Node000001" title="Helper for RKTrackRep." alt="" coords="117,256,232,281"/>
+<area shape="rect" id="Node000002" href="$structgenfit_1_1MatStep.html" title="Simple struct containing MaterialProperties and stepsize in the material." alt="" coords="38,168,159,193"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="120,202,166,254,162,257,116,206"/>
+<area shape="rect" id="Node000003" href="$classgenfit_1_1MaterialProperties.html" title="Material properties needed e.g. for material effects calculation." alt="" coords="5,80,192,105"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="101,119,101,167,96,167,96,119"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="63,5,135,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="101,45,101,80,96,80,96,45"/>
+<area shape="rect" id="Node000005" href="$classgenfit_1_1StepLimits.html" title="Helper to store different limits on the stepsize for the RKTRackRep." alt="" coords="184,168,320,193"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="238,206,215,234,190,258,187,254,211,230,234,203"/>
 </map>

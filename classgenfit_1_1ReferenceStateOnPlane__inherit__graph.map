@@ -1,5 +1,7 @@
 <map id="genfit::ReferenceStateOnPlane" name="genfit::ReferenceStateOnPlane">
-<area shape="rect" id="node1" title="StateOnPlane with linearized transport to that ReferenceStateOnPlane from previous and next Reference..." alt="" coords="5,155,191,196"/>
-<area shape="rect" id="node2" href="$classgenfit_1_1StateOnPlane.html" title="A state with arbitrary dimension defined in a DetPlane." alt="" coords="21,80,175,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="62,5,134,32"/>
+<area shape="rect" id="Node000001" title="StateOnPlane with linearized transport to that ReferenceStateOnPlane from previous and next Reference..." alt="" coords="5,152,191,192"/>
+<area shape="rect" id="Node000002" href="$classgenfit_1_1StateOnPlane.html" title="A state with arbitrary dimension defined in a DetPlane." alt="" coords="21,79,175,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="101,118,101,152,95,152,95,118"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="62,5,134,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="101,44,101,79,95,79,95,44"/>
 </map>

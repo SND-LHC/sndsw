@@ -1,9 +1,9 @@
 var classMufi__monitoring_1_1Veto__Efficiency =
 [
-    [ "checkOtherTriggers", "classMufi__monitoring_1_1Veto__Efficiency.html#a7b980cd858080189aff7a3468f89317d", null ],
-    [ "ExecuteEvent", "classMufi__monitoring_1_1Veto__Efficiency.html#ae7e00cc5021c4f08d680559258964e75", null ],
-    [ "Init", "classMufi__monitoring_1_1Veto__Efficiency.html#aa3ec87d3f02edee900532c3fe7fe1ec6", null ],
-    [ "Plot", "classMufi__monitoring_1_1Veto__Efficiency.html#a07f2ea10227e2f40f1bbd189df05823a", null ],
+    [ "checkOtherTriggers", "classMufi__monitoring_1_1Veto__Efficiency.html#a03ec308f70cff372e7c837ee9d21b225", null ],
+    [ "ExecuteEvent", "classMufi__monitoring_1_1Veto__Efficiency.html#afe813ca18c0f3669e20093ab423e1c6c", null ],
+    [ "Init", "classMufi__monitoring_1_1Veto__Efficiency.html#a7ee9048c2c5a97e909573305494f6df0", null ],
+    [ "Plot", "classMufi__monitoring_1_1Veto__Efficiency.html#aff3eca7417d2f96d65907e4017e45458", null ],
     [ "deadTime", "classMufi__monitoring_1_1Veto__Efficiency.html#ae68dafe5ea8a2a14d91a2c2a62249f29", null ],
     [ "debug", "classMufi__monitoring_1_1Veto__Efficiency.html#ac436dec3e13770cc6f1a3d2b49248484", null ],
     [ "eventBefore", "classMufi__monitoring_1_1Veto__Efficiency.html#a5802ce73a828dd6abf8ecfa3dba47651", null ],

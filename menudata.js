@@ -25,7 +25,7 @@
 var menudata={children:[
 {text:"Main Page",url:"index.html"},
 {text:"Related Pages",url:"pages.html"},
-{text:"Modules",url:"modules.html"},
+{text:"Topics",url:"topics.html"},
 {text:"Namespaces",url:"namespaces.html",children:[
 {text:"Namespace List",url:"namespaces.html"},
 {text:"Namespace Members",url:"namespacemembers.html",children:[
@@ -219,12 +219,13 @@ var menudata={children:[
 {text:"Typedefs",url:"functions_type.html"},
 {text:"Enumerations",url:"functions_enum.html"},
 {text:"Enumerator",url:"functions_eval.html"},
-{text:"Related Functions",url:"functions_rela.html"}]}]},
+{text:"Related Symbols",url:"functions_rela.html"}]}]},
 {text:"Files",url:"files.html",children:[
 {text:"File List",url:"files.html"},
 {text:"File Members",url:"globals.html",children:[
 {text:"All",url:"globals.html",children:[
-{text:"_",url:"globals.html#index__5F"},
+{text:"$",url:"globals.html#index__24"},
+{text:"_",url:"globals__.html#index__5F"},
 {text:"a",url:"globals_a.html#index_a"},
 {text:"b",url:"globals_b.html#index_b"},
 {text:"c",url:"globals_c.html#index_c"},
@@ -277,6 +278,7 @@ var menudata={children:[
 {text:"x",url:"globals_func_x.html#index_x"},
 {text:"z",url:"globals_func_z.html#index_z"}]},
 {text:"Variables",url:"globals_vars.html",children:[
+{text:"$",url:"globals_vars.html#index__24"},
 {text:"a",url:"globals_vars.html#index_a"},
 {text:"b",url:"globals_vars.html#index_b"},
 {text:"c",url:"globals_vars.html#index_c"},
@@ -285,7 +287,6 @@ var menudata={children:[
 {text:"k",url:"globals_vars.html#index_k"},
 {text:"m",url:"globals_vars.html#index_m"},
 {text:"n",url:"globals_vars.html#index_n"},
-{text:"r",url:"globals_vars.html#index_r"},
 {text:"s",url:"globals_vars.html#index_s"},
 {text:"t",url:"globals_vars.html#index_t"},
 {text:"v",url:"globals_vars.html#index_v"}]},

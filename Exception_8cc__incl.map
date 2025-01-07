@@ -1,10 +1,17 @@
 <map id="genfit/core/src/Exception.cc" name="genfit/core/src/Exception.cc">
-<area shape="rect" id="node1" title=" " alt="" coords="179,5,379,32"/>
-<area shape="rect" id="node2" href="$Exception_8h.html" title=" " alt="" coords="230,80,329,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,155,92,181"/>
-<area shape="rect" id="node4" title=" " alt="" coords="117,155,175,181"/>
-<area shape="rect" id="node5" title=" " alt="" coords="200,155,263,181"/>
-<area shape="rect" id="node6" title=" " alt="" coords="287,155,367,181"/>
-<area shape="rect" id="node7" title=" " alt="" coords="391,155,466,181"/>
-<area shape="rect" id="node8" title=" " alt="" coords="491,155,585,181"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="179,5,379,31"/>
+<area shape="rect" id="Node000002" href="$Exception_8h.html" title=" " alt="" coords="230,79,329,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="282,31,282,65,277,65,277,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,152,92,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="243,107,100,151,98,145,241,101"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="117,152,175,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="259,106,181,148,179,143,257,102"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="200,152,263,177"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="274,106,249,142,244,139,269,103"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="287,152,367,177"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="289,103,314,139,310,142,285,106"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="391,152,466,177"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="304,102,393,144,391,148,302,106"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="491,152,585,177"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="322,101,484,146,482,151,320,107"/>
 </map>

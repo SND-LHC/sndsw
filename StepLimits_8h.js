@@ -1,6 +1,6 @@
 var StepLimits_8h =
 [
-    [ "StepLimits", "classgenfit_1_1StepLimits.html", "classgenfit_1_1StepLimits" ],
+    [ "genfit::StepLimits", "classgenfit_1_1StepLimits.html", "classgenfit_1_1StepLimits" ],
     [ "StepLimitType", "StepLimits_8h.html#a31706efb8d31465e314243eca3594f6d", [
       [ "stp_noLimit", "StepLimits_8h.html#a31706efb8d31465e314243eca3594f6da09a1aa99d6f1d0b3d655e793f8744268", null ],
       [ "stp_fieldCurv", "StepLimits_8h.html#a31706efb8d31465e314243eca3594f6da4da62c4f01005fa9d9b41383d919fb42", null ],

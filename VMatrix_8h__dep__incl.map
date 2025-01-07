@@ -1,13 +1,25 @@
 <map id="genfit/GBL/include/VMatrix.h" name="genfit/GBL/include/VMatrix.h">
-<area shape="rect" id="node1" title=" " alt="" coords="327,5,467,47"/>
-<area shape="rect" id="node2" href="$BorderedBandMatrix_8h.html" title=" " alt="" coords="131,95,303,136"/>
-<area shape="rect" id="node9" href="$GblData_8h.html" title=" " alt="" coords="327,95,467,136"/>
-<area shape="rect" id="node11" href="$VMatrix_8cc.html" title=" " alt="" coords="491,102,677,129"/>
-<area shape="rect" id="node3" href="$GblTrajectory_8h.html" title=" " alt="" coords="238,184,378,225"/>
-<area shape="rect" id="node8" href="$BorderedBandMatrix_8cc.html" title=" " alt="" coords="5,184,213,225"/>
-<area shape="rect" id="node4" href="$GFGbl_8h.html" title=" " alt="" coords="238,273,378,315"/>
-<area shape="rect" id="node5" href="$GFGbl_8cc.html" title=" " alt="" coords="113,370,287,397"/>
-<area shape="rect" id="node7" href="$GblTrajectory_8cc.html" title=" " alt="" coords="403,281,621,307"/>
-<area shape="rect" id="node6" href="$fitterTests_2main_8cc.html" title=" " alt="" coords="311,363,467,404"/>
-<area shape="rect" id="node10" href="$GblData_8cc.html" title=" " alt="" coords="403,191,589,218"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="327,5,467,45"/>
+<area shape="rect" id="Node000002" href="$BorderedBandMatrix_8h.html" title=" " alt="" coords="131,93,303,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="347,54,258,96,256,91,345,49"/>
+<area shape="rect" id="Node000009" href="$GblData_8h.html" title=" " alt="" coords="327,93,467,133"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="400,59,400,93,395,93,395,59"/>
+<area shape="rect" id="Node000011" href="$VMatrix_8cc.html" title=" " alt="" coords="491,101,677,126"/>
+<area shape="poly" id="edge12_Node000001_Node000011" title=" " alt="" coords="452,49,560,98,558,103,449,53"/>
+<area shape="rect" id="Node000003" href="$GblTrajectory_8h.html" title=" " alt="" coords="238,181,378,221"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="249,141,290,179,286,183,245,145"/>
+<area shape="rect" id="Node000008" href="$BorderedBandMatrix_8cc.html" title=" " alt="" coords="5,181,213,221"/>
+<area shape="poly" id="edge8_Node000002_Node000008" title=" " alt="" coords="184,144,135,183,132,179,181,140"/>
+<area shape="rect" id="Node000004" href="$GFGbl_8h.html" title=" " alt="" coords="238,269,378,309"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="311,235,311,269,305,269,305,235"/>
+<area shape="rect" id="Node000005" href="$GFGbl_8cc.html" title=" " alt="" coords="113,365,287,390"/>
+<area shape="poly" id="edge6_Node000003_Node000005" title=" " alt="" coords="266,232,245,250,228,271,216,295,209,321,203,365,198,364,203,320,211,293,223,268,241,246,262,228"/>
+<area shape="rect" id="Node000007" href="$GblTrajectory_8cc.html" title=" " alt="" coords="403,277,621,302"/>
+<area shape="poly" id="edge7_Node000003_Node000007" title=" " alt="" coords="367,224,486,274,484,279,365,229"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="275,320,217,366,213,362,272,316"/>
+<area shape="rect" id="Node000006" href="$fitterTests_2main_8cc.html" title=" " alt="" coords="311,357,467,397"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="337,318,373,355,369,359,334,321"/>
+<area shape="poly" id="edge10_Node000009_Node000003" title=" " alt="" coords="369,145,330,183,326,179,366,141"/>
+<area shape="rect" id="Node000010" href="$GblData_8cc.html" title=" " alt="" coords="403,189,589,214"/>
+<area shape="poly" id="edge11_Node000009_Node000010" title=" " alt="" coords="432,141,484,186,481,190,428,145"/>
 </map>

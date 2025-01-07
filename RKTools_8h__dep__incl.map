@@ -1,14 +1,27 @@
 <map id="genfit/trackReps/include/RKTools.h" name="genfit/trackReps/include/RKTools.h">
-<area shape="rect" id="node1" title=" " alt="" coords="465,5,643,47"/>
-<area shape="rect" id="node2" href="$include_2genfit_2MaterialEffects_8h.html" title=" " alt="" coords="5,273,156,315"/>
-<area shape="rect" id="node3" href="$include_2genfit_2RKTrackRep_8h.html" title=" " alt="" coords="124,95,275,136"/>
-<area shape="rect" id="node6" href="$fitterTests_2main_8cc.html" title=" " alt="" coords="299,95,455,136"/>
-<area shape="rect" id="node7" href="$unitTests_2main_8cc.html" title=" " alt="" coords="479,95,629,136"/>
-<area shape="rect" id="node8" href="$trackReps_2include_2MaterialEffects_8h.html" title=" " alt="" coords="578,273,757,315"/>
-<area shape="rect" id="node9" href="$trackReps_2include_2RKTrackRep_8h.html" title=" " alt="" coords="705,95,883,136"/>
-<area shape="rect" id="node12" href="$RKTools_8cc.html" title=" " alt="" coords="908,95,1059,136"/>
-<area shape="rect" id="node4" href="$include_2genfit_2AbsMaterialInterface_8h.html" title=" " alt="" coords="119,184,293,225"/>
-<area shape="rect" id="node5" href="$include_2genfit_2TGeoMaterialInterface_8h.html" title=" " alt="" coords="181,273,365,315"/>
-<area shape="rect" id="node10" href="$trackReps_2include_2AbsMaterialInterface_8h.html" title=" " alt="" coords="705,184,883,225"/>
-<area shape="rect" id="node11" href="$trackReps_2include_2TGeoMaterialInterface_8h.html" title=" " alt="" coords="781,273,965,315"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="465,5,643,45"/>
+<area shape="rect" id="Node000002" href="$include_2genfit_2MaterialEffects_8h.html" title=" " alt="" coords="5,269,156,309"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="451,31,356,37,256,48,169,67,136,80,113,95,98,114,87,136,77,185,76,232,80,269,75,270,71,232,71,184,82,135,94,112,110,91,133,75,167,62,255,43,356,31,451,26"/>
+<area shape="rect" id="Node000003" href="$include_2genfit_2RKTrackRep_8h.html" title=" " alt="" coords="124,93,275,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="464,51,276,96,275,91,462,46"/>
+<area shape="rect" id="Node000006" href="$fitterTests_2main_8cc.html" title=" " alt="" coords="299,93,455,133"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="504,54,417,96,414,91,502,49"/>
+<area shape="rect" id="Node000007" href="$unitTests_2main_8cc.html" title=" " alt="" coords="479,93,629,133"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="557,59,557,93,551,93,551,59"/>
+<area shape="rect" id="Node000008" href="$trackReps_2include_2MaterialEffects_8h.html" title=" " alt="" coords="578,269,757,309"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="603,51,625,69,643,92,662,139,671,188,673,234,672,269,667,269,668,234,666,189,657,140,638,95,621,73,600,55"/>
+<area shape="rect" id="Node000009" href="$trackReps_2include_2RKTrackRep_8h.html" title=" " alt="" coords="705,93,883,133"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="620,47,742,91,741,96,618,52"/>
+<area shape="rect" id="Node000012" href="$RKTools_8cc.html" title=" " alt="" coords="908,93,1059,133"/>
+<area shape="poly" id="edge13_Node000001_Node000012" title=" " alt="" coords="657,44,896,91,909,93,907,99,895,96,656,49"/>
+<area shape="rect" id="Node000004" href="$include_2genfit_2AbsMaterialInterface_8h.html" title=" " alt="" coords="119,181,293,221"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="205,147,207,181,202,181,199,147"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="168,232,110,271,107,267,165,227"/>
+<area shape="rect" id="Node000005" href="$include_2genfit_2TGeoMaterialInterface_8h.html" title=" " alt="" coords="181,269,365,309"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="231,231,260,267,256,271,227,234"/>
+<area shape="rect" id="Node000010" href="$trackReps_2include_2AbsMaterialInterface_8h.html" title=" " alt="" coords="705,181,883,221"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="797,147,797,181,791,181,791,147"/>
+<area shape="poly" id="edge11_Node000010_Node000008" title=" " alt="" coords="756,232,697,271,694,267,753,227"/>
+<area shape="rect" id="Node000011" href="$trackReps_2include_2TGeoMaterialInterface_8h.html" title=" " alt="" coords="781,269,965,309"/>
+<area shape="poly" id="edge12_Node000010_Node000011" title=" " alt="" coords="823,230,857,267,853,271,819,233"/>
 </map>

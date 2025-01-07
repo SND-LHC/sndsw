@@ -1,5 +1,7 @@
 <map id="analysis/cuts/sndSciFiStationCut.h" name="analysis/cuts/sndSciFiStationCut.h">
-<area shape="rect" id="node1" title=" " alt="" coords="123,5,333,47"/>
-<area shape="rect" id="node2" href="$sndSciFiStationCut_8cxx.html" title=" " alt="" coords="5,95,216,136"/>
-<area shape="rect" id="node3" href="$neutrinoFilterGoldenSample_8cxx.html" title=" " alt="" coords="240,95,453,136"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="123,5,333,45"/>
+<area shape="rect" id="Node000002" href="$sndSciFiStationCut_8cxx.html" title=" " alt="" coords="5,93,216,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="192,56,138,95,135,91,189,52"/>
+<area shape="rect" id="Node000003" href="$neutrinoFilterGoldenSample_8cxx.html" title=" " alt="" coords="240,93,453,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="267,51,322,91,319,95,264,56"/>
 </map>

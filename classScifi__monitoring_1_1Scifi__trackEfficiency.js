@@ -1,8 +1,8 @@
 var classScifi__monitoring_1_1Scifi__trackEfficiency =
 [
-    [ "ExecuteEvent", "classScifi__monitoring_1_1Scifi__trackEfficiency.html#a747e2a91c89242b8432ed62ea9d4c9e1", null ],
-    [ "Init", "classScifi__monitoring_1_1Scifi__trackEfficiency.html#ae61b93f61cbe969442e9a84cc50fb7d6", null ],
-    [ "Plot", "classScifi__monitoring_1_1Scifi__trackEfficiency.html#ae9a1871692d43e86839e1e68579bd841", null ],
+    [ "ExecuteEvent", "classScifi__monitoring_1_1Scifi__trackEfficiency.html#ab3f6cbbd65f241dfac36ea740eba17e8", null ],
+    [ "Init", "classScifi__monitoring_1_1Scifi__trackEfficiency.html#a881861243875dafb3830a9ef2ac30a67", null ],
+    [ "Plot", "classScifi__monitoring_1_1Scifi__trackEfficiency.html#a8f016481fad6db1833b562d883fdfdb1", null ],
     [ "deadTime", "classScifi__monitoring_1_1Scifi__trackEfficiency.html#a4c4b7abaec9dd7bd4a177cf0a5b059b7", null ],
     [ "debug", "classScifi__monitoring_1_1Scifi__trackEfficiency.html#a783e52bc45c522278b9fd44aeb49de4d", null ],
     [ "eventBefore", "classScifi__monitoring_1_1Scifi__trackEfficiency.html#a7c8d330b763c8b12b87deaf35d002347", null ],

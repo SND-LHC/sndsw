@@ -1,5 +1,7 @@
 <map id="genfit::DetPlane" name="genfit::DetPlane">
-<area shape="rect" id="node1" title="Detector plane." alt="" coords="27,124,154,151"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,77,32"/>
-<area shape="rect" id="node3" title=" " alt="" coords="102,5,181,32"/>
+<area shape="rect" id="Node000001" title="Detector plane." alt="" coords="27,123,154,148"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,77,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="54,42,88,122,83,124,49,44"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="102,5,181,31"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="133,44,98,124,93,122,128,42"/>
 </map>

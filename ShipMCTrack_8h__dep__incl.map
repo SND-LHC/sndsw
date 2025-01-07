@@ -1,10 +1,17 @@
 <map id="shipdata/ShipMCTrack.h" name="shipdata/ShipMCTrack.h">
-<area shape="rect" id="node1" title=" " alt="" coords="646,5,823,32"/>
-<area shape="rect" id="node2" href="$neutrinoFilterGoldenSample_8cxx.html" title=" " alt="" coords="5,80,219,121"/>
-<area shape="rect" id="node3" href="$ecalAnalysisMaterial_8cxx.html" title=" " alt="" coords="243,87,459,114"/>
-<area shape="rect" id="node4" href="$ecalDrawer_8cxx.html" title=" " alt="" coords="483,87,637,114"/>
-<area shape="rect" id="node5" href="$ecalMatch_8cxx.html" title=" " alt="" coords="661,87,808,114"/>
-<area shape="rect" id="node6" href="$ShipMCTrack_8cxx.html" title=" " alt="" coords="832,87,1024,114"/>
-<area shape="rect" id="node7" href="$ShipStack_8cxx.html" title=" " alt="" coords="1048,87,1221,114"/>
-<area shape="rect" id="node8" href="$MuonBackGenerator_8cxx.html" title=" " alt="" coords="1246,87,1482,114"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="646,5,823,31"/>
+<area shape="rect" id="Node000002" href="$neutrinoFilterGoldenSample_8cxx.html" title=" " alt="" coords="5,79,219,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="633,33,231,81,219,83,218,78,230,76,632,28"/>
+<area shape="rect" id="Node000003" href="$ecalAnalysisMaterial_8cxx.html" title=" " alt="" coords="243,86,459,111"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="666,36,407,89,406,83,665,31"/>
+<area shape="rect" id="Node000004" href="$ecalDrawer_8cxx.html" title=" " alt="" coords="483,86,637,111"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="698,39,587,88,584,84,696,34"/>
+<area shape="rect" id="Node000005" href="$ecalMatch_8cxx.html" title=" " alt="" coords="661,86,808,111"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="737,44,737,86,732,86,732,44"/>
+<area shape="rect" id="Node000006" href="$ShipMCTrack_8cxx.html" title=" " alt="" coords="832,86,1024,111"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="776,33,901,84,899,88,774,38"/>
+<area shape="rect" id="Node000007" href="$ShipStack_8cxx.html" title=" " alt="" coords="1048,86,1221,111"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="807,31,1077,83,1076,89,806,36"/>
+<area shape="rect" id="Node000008" href="$MuonBackGenerator_8cxx.html" title=" " alt="" coords="1246,86,1482,111"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="838,28,1234,76,1287,83,1286,89,1233,81,837,33"/>
 </map>

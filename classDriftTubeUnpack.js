@@ -7,7 +7,7 @@ var classDriftTubeUnpack =
     [ "DoUnpack", "classDriftTubeUnpack.html#a2592e8dfe3851d3e5b078b9b01e34caf", null ],
     [ "GetPartition", "classDriftTubeUnpack.html#a3b606d1948afec7ef51d2e740fece23b", null ],
     [ "Init", "classDriftTubeUnpack.html#a1e5d4173f437cc5e81e632453b5b5fe9", null ],
-    [ "operator=", "classDriftTubeUnpack.html#ac2e0785dc2faf4f012746dafff7cbae0", null ],
+    [ "operator=", "classDriftTubeUnpack.html#a90c9710873f21c3aa39d13776c2916b7", null ],
     [ "Register", "classDriftTubeUnpack.html#a4cd42bc2da08dd6ed95ee9fb125f303f", null ],
     [ "Reset", "classDriftTubeUnpack.html#af48316e37f78f8d4acfd2f44cdcf3bb8", null ],
     [ "fCharm", "classDriftTubeUnpack.html#a7b183fcb8bec343e53c0bdfb62eb6f5a", null ],

@@ -1,7 +1,11 @@
 <map id="genfit::AbsKalmanFitter" name="genfit::AbsKalmanFitter">
-<area shape="rect" id="node1" title="Abstract base class for Kalman fitter and derived fitting algorithms." alt="" coords="112,80,287,107"/>
-<area shape="rect" id="node3" href="$classgenfit_1_1DAF.html" title="Determinstic Annealing Filter (DAF) implementation." alt="" coords="5,155,100,181"/>
-<area shape="rect" id="node4" href="$classgenfit_1_1KalmanFitter.html" title="Simple Kalman filter implementation." alt="" coords="124,155,275,181"/>
-<area shape="rect" id="node5" href="$classgenfit_1_1KalmanFitterRefTrack.html" title="Kalman filter implementation with linearization around a reference track." alt="" coords="299,155,505,181"/>
-<area shape="rect" id="node2" href="$classgenfit_1_1AbsFitter.html" title="Abstract base class for fitters." alt="" coords="137,5,262,32"/>
+<area shape="rect" id="Node000001" title="Abstract base class for Kalman fitter and derived fitting algorithms." alt="" coords="112,79,287,104"/>
+<area shape="rect" id="Node000003" href="$classgenfit_1_1DAF.html" title="Determinstic Annealing Filter (DAF) implementation." alt="" coords="5,152,100,177"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="165,112,78,154,76,149,163,107"/>
+<area shape="rect" id="Node000004" href="$classgenfit_1_1KalmanFitter.html" title="Simple Kalman filter implementation." alt="" coords="124,152,275,177"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="202,118,202,152,197,152,197,118"/>
+<area shape="rect" id="Node000005" href="$classgenfit_1_1KalmanFitterRefTrack.html" title="Kalman filter implementation with linearization around a reference track." alt="" coords="299,152,505,177"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="245,106,370,149,368,154,244,111"/>
+<area shape="rect" id="Node000002" href="$classgenfit_1_1AbsFitter.html" title="Abstract base class for fitters." alt="" coords="137,5,262,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="202,44,202,79,197,79,197,44"/>
 </map>

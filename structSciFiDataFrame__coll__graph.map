@@ -1,5 +1,7 @@
 <map id="SciFiDataFrame" name="SciFiDataFrame">
-<area shape="rect" id="node1" title=" " alt="" coords="79,95,203,121"/>
-<area shape="rect" id="node2" href="$structDataFrameHeader.html" title=" " alt="" coords="5,5,147,32"/>
-<area shape="rect" id="node3" href="$structHitData.html" title=" " alt="" coords="171,5,243,32"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="79,93,203,119"/>
+<area shape="rect" id="Node000002" href="$structDataFrameHeader.html" title=" " alt="" coords="5,5,147,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,40,134,91,130,94,91,43"/>
+<area shape="rect" id="Node000003" href="$structHitData.html" title=" " alt="" coords="171,5,243,31"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="192,43,153,94,148,91,187,40"/>
 </map>

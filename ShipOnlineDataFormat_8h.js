@@ -3,7 +3,7 @@ var ShipOnlineDataFormat_8h =
     [ "RawDataHit", "structRawDataHit.html", "structRawDataHit" ],
     [ "DataFrameHeader", "structDataFrameHeader.html", "structDataFrameHeader" ],
     [ "DataFrame", "structDataFrame.html", "structDataFrame" ],
-    [ "ChannelId", "structDriftTubes_1_1ChannelId.html", "structDriftTubes_1_1ChannelId" ],
+    [ "DriftTubes::ChannelId", "structDriftTubes_1_1ChannelId.html", "structDriftTubes_1_1ChannelId" ],
     [ "Flag", "ShipOnlineDataFormat_8h.html#abb04b937b31586bc6141cd2e148977a5", [
       [ "All_OK", "ShipOnlineDataFormat_8h.html#abb04b937b31586bc6141cd2e148977a5a7d103e9c6d154173a298eaa20dbf9077", null ],
       [ "TDC0_PROBLEM", "ShipOnlineDataFormat_8h.html#abb04b937b31586bc6141cd2e148977a5a197c9b392a022fdc0259b18a5f92af80", null ],

@@ -1,16 +1,29 @@
 <map id="snd::analysis_cuts::baseCut" name="snd::analysis_cuts::baseCut">
-<area shape="rect" id="node1" title=" " alt="" coords="5,201,147,243"/>
-<area shape="rect" id="node2" href="$classsnd_1_1analysis__cuts_1_1EventHeaderBaseCut.html" title=" " alt="" coords="195,71,363,112"/>
-<area shape="rect" id="node4" href="$classsnd_1_1analysis__cuts_1_1MuFilterBaseCut.html" title=" " alt="" coords="208,201,349,243"/>
-<area shape="rect" id="node10" href="$classsnd_1_1analysis__cuts_1_1sciFiBaseCut.html" title=" " alt="" coords="208,463,349,504"/>
-<area shape="rect" id="node3" href="$classsnd_1_1analysis__cuts_1_1eventDeltatCut.html" title=" " alt="" coords="444,5,585,47"/>
-<area shape="rect" id="node5" href="$classsnd_1_1analysis__cuts_1_1DSActivityCut.html" title=" " alt="" coords="444,71,585,112"/>
-<area shape="rect" id="node6" href="$classsnd_1_1analysis__cuts_1_1DSVetoCut.html" title=" " alt="" coords="444,136,585,177"/>
-<area shape="rect" id="node7" href="$classsnd_1_1analysis__cuts_1_1USQDCCut.html" title=" " alt="" coords="444,201,585,243"/>
-<area shape="rect" id="node8" href="$classsnd_1_1analysis__cuts_1_1avgDSFiducialCut.html" title=" " alt="" coords="443,267,587,308"/>
-<area shape="rect" id="node9" href="$classsnd_1_1analysis__cuts_1_1vetoCut.html" title=" " alt="" coords="444,332,585,373"/>
-<area shape="rect" id="node11" href="$classsnd_1_1analysis__cuts_1_1avgSciFiFiducialCut.html" title=" " alt="" coords="437,397,593,439"/>
-<area shape="rect" id="node12" href="$classsnd_1_1analysis__cuts_1_1minSciFiConsecutivePlanes.html" title=" " alt="" coords="411,463,619,504"/>
-<area shape="rect" id="node13" href="$classsnd_1_1analysis__cuts_1_1minSciFiHits.html" title=" " alt="" coords="444,528,585,569"/>
-<area shape="rect" id="node14" href="$classsnd_1_1analysis__cuts_1_1sciFiStationCut.html" title=" " alt="" coords="444,593,585,635"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,197,147,237"/>
+<area shape="rect" id="Node000002" href="$classsnd_1_1analysis__cuts_1_1EventHeaderBaseCut.html" title=" " alt="" coords="195,69,363,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="119,188,244,107,247,112,122,192"/>
+<area shape="rect" id="Node000004" href="$classsnd_1_1analysis__cuts_1_1MuFilterBaseCut.html" title=" " alt="" coords="208,197,349,237"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="160,215,208,215,208,220,160,220"/>
+<area shape="rect" id="Node000010" href="$classsnd_1_1analysis__cuts_1_1sciFiBaseCut.html" title=" " alt="" coords="208,453,349,493"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="104,247,264,451,259,455,99,250"/>
+<area shape="rect" id="Node000003" href="$classsnd_1_1analysis__cuts_1_1eventDeltatCut.html" title=" " alt="" coords="444,5,585,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="366,63,443,42,445,47,367,68"/>
+<area shape="rect" id="Node000005" href="$classsnd_1_1analysis__cuts_1_1DSActivityCut.html" title=" " alt="" coords="444,69,585,109"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="311,186,356,152,409,119,443,105,445,110,412,124,359,156,315,190"/>
+<area shape="rect" id="Node000006" href="$classsnd_1_1analysis__cuts_1_1DSVetoCut.html" title=" " alt="" coords="444,133,585,173"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="362,192,443,170,445,175,363,197"/>
+<area shape="rect" id="Node000007" href="$classsnd_1_1analysis__cuts_1_1USQDCCut.html" title=" " alt="" coords="444,197,585,237"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="363,215,444,215,444,220,363,220"/>
+<area shape="rect" id="Node000008" href="$classsnd_1_1analysis__cuts_1_1avgDSFiducialCut.html" title=" " alt="" coords="443,261,587,301"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="363,237,443,259,442,265,362,243"/>
+<area shape="rect" id="Node000009" href="$classsnd_1_1analysis__cuts_1_1vetoCut.html" title=" " alt="" coords="444,325,585,365"/>
+<area shape="poly" id="edge8_Node000004_Node000009" title=" " alt="" coords="315,244,359,279,412,311,445,325,443,330,409,316,356,283,311,248"/>
+<area shape="rect" id="Node000011" href="$classsnd_1_1analysis__cuts_1_1avgSciFiFiducialCut.html" title=" " alt="" coords="437,389,593,429"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="362,448,439,427,441,432,363,453"/>
+<area shape="rect" id="Node000012" href="$classsnd_1_1analysis__cuts_1_1minSciFiConsecutivePlanes.html" title=" " alt="" coords="411,453,619,493"/>
+<area shape="poly" id="edge11_Node000010_Node000012" title=" " alt="" coords="363,471,411,471,411,476,363,476"/>
+<area shape="rect" id="Node000013" href="$classsnd_1_1analysis__cuts_1_1minSciFiHits.html" title=" " alt="" coords="444,517,585,557"/>
+<area shape="poly" id="edge12_Node000010_Node000013" title=" " alt="" coords="363,493,445,516,443,521,362,499"/>
+<area shape="rect" id="Node000014" href="$classsnd_1_1analysis__cuts_1_1sciFiStationCut.html" title=" " alt="" coords="444,581,585,621"/>
+<area shape="poly" id="edge13_Node000010_Node000014" title=" " alt="" coords="315,500,359,535,412,567,445,581,443,586,409,572,356,539,311,504"/>
 </map>

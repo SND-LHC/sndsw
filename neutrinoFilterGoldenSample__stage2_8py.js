@@ -1,12 +1,12 @@
 var neutrinoFilterGoldenSample__stage2_8py =
 [
-    [ "direction", "neutrinoFilterGoldenSample__stage2_8py.html#af05dc467263117be6efd007aa09659de", null ],
-    [ "eventHasOneTrack", "neutrinoFilterGoldenSample__stage2_8py.html#a61cb1b34d0150c851b2bd9e16198c9f1", null ],
-    [ "max_DS_hits", "neutrinoFilterGoldenSample__stage2_8py.html#a114ea208e0ab634c122b6cba1cf53b37", null ],
-    [ "min_scifi_hits", "neutrinoFilterGoldenSample__stage2_8py.html#a1e979ed7ed1782049057cd5d5fc73e6f", null ],
-    [ "min_US_QDC", "neutrinoFilterGoldenSample__stage2_8py.html#a9eef8ae0f260be16764ec28c5f999a01", null ],
-    [ "sum_min_dca", "neutrinoFilterGoldenSample__stage2_8py.html#a65258a2705cbe56726938569bb1a7988", null ],
-    [ "trackInScifiFiducial", "neutrinoFilterGoldenSample__stage2_8py.html#a19bad15076d5976530d609082db026cd", null ],
+    [ "direction", "neutrinoFilterGoldenSample__stage2_8py.html#ac0b59353a951d47702658d3f12521314", null ],
+    [ "eventHasOneTrack", "neutrinoFilterGoldenSample__stage2_8py.html#ae0720140986cff794024e41105206e77", null ],
+    [ "max_DS_hits", "neutrinoFilterGoldenSample__stage2_8py.html#aaf3f0c7c867363457b0cfa2844384404", null ],
+    [ "min_scifi_hits", "neutrinoFilterGoldenSample__stage2_8py.html#a10d0bb8254177ee5cfa90b582fa81df0", null ],
+    [ "min_US_QDC", "neutrinoFilterGoldenSample__stage2_8py.html#a189e66acba9a6512a273db8781c18fa7", null ],
+    [ "sum_min_dca", "neutrinoFilterGoldenSample__stage2_8py.html#ab92f300cbb9b6d84c5919d7abc489aff", null ],
+    [ "trackInScifiFiducial", "neutrinoFilterGoldenSample__stage2_8py.html#af46d41b860ced22a9ccf1659ffefb96c", null ],
     [ "a", "neutrinoFilterGoldenSample__stage2_8py.html#a5168014afe6a6542fec6b1a26ad9abc7", null ],
     [ "accept_event", "neutrinoFilterGoldenSample__stage2_8py.html#a93312938b72b107c40eca744e8b55fff", null ],
     [ "args", "neutrinoFilterGoldenSample__stage2_8py.html#aeefe8b237a7b99d0d7fe2e4af8f45d06", null ],
@@ -52,7 +52,7 @@ var neutrinoFilterGoldenSample__stage2_8py =
     [ "slope_X", "neutrinoFilterGoldenSample__stage2_8py.html#a2e36de455ff1d280270019390d5f34de", null ],
     [ "slope_Y", "neutrinoFilterGoldenSample__stage2_8py.html#abd137688ae316b8456ae97f29d676453", null ],
     [ "snd_geo", "neutrinoFilterGoldenSample__stage2_8py.html#ac9ab4529d0f8513890bc84f7410f4b56", null ],
-    [ "suffix_dict", "neutrinoFilterGoldenSample__stage2_8py.html#a74f4fb318f477bd3612b3bb1c048f2cd", null ],
+    [ "suffix_dict", "neutrinoFilterGoldenSample__stage2_8py.html#aea584050f78e9bca12352cd3ba1f9371", null ],
     [ "sum_min_dca_cut", "neutrinoFilterGoldenSample__stage2_8py.html#a7252b507e83f4aae286e9b9acb3bcdd7", null ],
     [ "summary", "neutrinoFilterGoldenSample__stage2_8py.html#ab81aed0771b98df8f9b0a6e6791a953e", null ],
     [ "TDC2ns", "neutrinoFilterGoldenSample__stage2_8py.html#ac94b80b90f7b31c7c43098c0beef45b4", null ],
@@ -67,7 +67,7 @@ var neutrinoFilterGoldenSample__stage2_8py =
     [ "track_stop", "neutrinoFilterGoldenSample__stage2_8py.html#aa025cb677d43a4e1978e3ccddcf60ba2", null ],
     [ "trackSFinterceptX", "neutrinoFilterGoldenSample__stage2_8py.html#a6cf06233df5d94945e506810df9eaed0", null ],
     [ "trackSFinterceptY", "neutrinoFilterGoldenSample__stage2_8py.html#af2e5e9fa48dc9119669696416af24456", null ],
-    [ "treeName", "neutrinoFilterGoldenSample__stage2_8py.html#a110fd6c49090beb836be120cc372088d", null ],
+    [ "treeName", "neutrinoFilterGoldenSample__stage2_8py.html#aa8686554bbafda67af8f080a9862e1b2", null ],
     [ "wallNo", "neutrinoFilterGoldenSample__stage2_8py.html#ab6ecc96f75a1b10e918d9cee703fee43", null ],
     [ "wallZ", "neutrinoFilterGoldenSample__stage2_8py.html#a09e55492463354e46e230ee9ab0c848e", null ]
 ];

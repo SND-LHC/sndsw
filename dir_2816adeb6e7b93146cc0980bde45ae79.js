@@ -4,67 +4,41 @@ var dir_2816adeb6e7b93146cc0980bde45ae79 =
     [ "scripts", "dir_689ed8b08a7631fea49f5efd0ffc8d5e.html", "dir_689ed8b08a7631fea49f5efd0ffc8d5e" ],
     [ "ana_thermalNeutrons.py", "ana__thermalNeutrons_8py.html", "ana__thermalNeutrons_8py" ],
     [ "boxTarget.cxx", "boxTarget_8cxx.html", null ],
-    [ "boxTarget.h", "boxTarget_8h.html", [
-      [ "boxTarget", "classboxTarget.html", "classboxTarget" ]
-    ] ],
+    [ "boxTarget.h", "boxTarget_8h.html", "boxTarget_8h" ],
     [ "EmulsionDet.cxx", "EmulsionDet_8cxx.html", null ],
-    [ "EmulsionDet.h", "EmulsionDet_8h.html", [
-      [ "EmulsionDet", "classEmulsionDet.html", "classEmulsionDet" ]
-    ] ],
+    [ "EmulsionDet.h", "EmulsionDet_8h.html", "EmulsionDet_8h" ],
     [ "EmulsionDetContFact.cxx", "EmulsionDetContFact_8cxx.html", "EmulsionDetContFact_8cxx" ],
-    [ "EmulsionDetContFact.h", "EmulsionDetContFact_8h.html", [
-      [ "EmulsionDetContFact", "classEmulsionDetContFact.html", "classEmulsionDetContFact" ]
-    ] ],
+    [ "EmulsionDetContFact.h", "EmulsionDetContFact_8h.html", "EmulsionDetContFact_8h" ],
     [ "EmulsionDetPoint.cxx", "EmulsionDetPoint_8cxx.html", null ],
-    [ "EmulsionDetPoint.h", "EmulsionDetPoint_8h.html", [
-      [ "EmulsionDetPoint", "classEmulsionDetPoint.html", "classEmulsionDetPoint" ]
-    ] ],
+    [ "EmulsionDetPoint.h", "EmulsionDetPoint_8h.html", "EmulsionDetPoint_8h" ],
     [ "extract_interacting_neutrinos.py", "extract__interacting__neutrinos_8py.html", "extract__interacting__neutrinos_8py" ],
     [ "Floor.cxx", "Floor_8cxx.html", null ],
-    [ "Floor.h", "Floor_8h.html", [
-      [ "Floor", "classFloor.html", "classFloor" ]
-    ] ],
+    [ "Floor.h", "Floor_8h.html", "Floor_8h" ],
     [ "makeGeoFile.py", "makeGeoFile_8py.html", "makeGeoFile_8py" ],
     [ "modifyGeoFileDict.py", "modifyGeoFileDict_8py.html", "modifyGeoFileDict_8py" ],
     [ "MuFilter.cxx", "MuFilter_8cxx.html", null ],
-    [ "MuFilter.h", "MuFilter_8h.html", [
-      [ "MuFilter", "classMuFilter.html", "classMuFilter" ]
-    ] ],
+    [ "MuFilter.h", "MuFilter_8h.html", "MuFilter_8h" ],
     [ "MuFilterHit.cxx", "MuFilterHit_8cxx.html", "MuFilterHit_8cxx" ],
-    [ "MuFilterHit.h", "MuFilterHit_8h.html", [
-      [ "MuFilterHit", "classMuFilterHit.html", "classMuFilterHit" ]
-    ] ],
+    [ "MuFilterHit.h", "MuFilterHit_8h.html", "MuFilterHit_8h" ],
     [ "MuFilterPoint.cxx", "MuFilterPoint_8cxx.html", null ],
-    [ "MuFilterPoint.h", "MuFilterPoint_8h.html", [
-      [ "MuFilterPoint", "classMuFilterPoint.html", "classMuFilterPoint" ]
-    ] ],
+    [ "MuFilterPoint.h", "MuFilterPoint_8h.html", "MuFilterPoint_8h" ],
     [ "muonDis.py", "muonDis_8py.html", "muonDis_8py" ],
     [ "run_digiSND.py", "run__digiSND_8py.html", "run__digiSND_8py" ],
     [ "run_muonRecoSND.py", "run__muonRecoSND_8py.html", "run__muonRecoSND_8py" ],
     [ "run_simSND.py", "run__simSND_8py.html", "run__simSND_8py" ],
     [ "Scifi.cxx", "Scifi_8cxx.html", null ],
-    [ "Scifi.h", "Scifi_8h.html", [
-      [ "Scifi", "classScifi.html", "classScifi" ]
-    ] ],
+    [ "Scifi.h", "Scifi_8h.html", "Scifi_8h" ],
     [ "ScifiPoint.cxx", "ScifiPoint_8cxx.html", null ],
-    [ "ScifiPoint.h", "ScifiPoint_8h.html", [
-      [ "ScifiPoint", "classScifiPoint.html", "classScifiPoint" ]
-    ] ],
+    [ "ScifiPoint.h", "ScifiPoint_8h.html", "ScifiPoint_8h" ],
     [ "shipLHCLinkDef.h", "shipLHCLinkDef_8h.html", null ],
     [ "sndCluster.cxx", "sndCluster_8cxx.html", null ],
-    [ "sndCluster.h", "sndCluster_8h.html", [
-      [ "sndCluster", "classsndCluster.html", "classsndCluster" ]
-    ] ],
+    [ "sndCluster.h", "sndCluster_8h.html", "sndCluster_8h" ],
     [ "SNDLHCEventHeader.cxx", "SNDLHCEventHeader_8cxx.html", "SNDLHCEventHeader_8cxx" ],
     [ "SNDLHCEventHeader.h", "SNDLHCEventHeader_8h.html", "SNDLHCEventHeader_8h" ],
     [ "SNDLHCEventHeaderConst.h", "SNDLHCEventHeaderConst_8h.html", "SNDLHCEventHeaderConst_8h" ],
     [ "sndRecoTrack.cxx", "sndRecoTrack_8cxx.html", null ],
-    [ "sndRecoTrack.h", "sndRecoTrack_8h.html", [
-      [ "sndRecoTrack", "classsndRecoTrack.html", "classsndRecoTrack" ]
-    ] ],
+    [ "sndRecoTrack.h", "sndRecoTrack_8h.html", "sndRecoTrack_8h" ],
     [ "sndScifiHit.cxx", "sndScifiHit_8cxx.html", null ],
-    [ "sndScifiHit.h", "sndScifiHit_8h.html", [
-      [ "sndScifiHit", "classsndScifiHit.html", "classsndScifiHit" ]
-    ] ],
+    [ "sndScifiHit.h", "sndScifiHit_8h.html", "sndScifiHit_8h" ],
     [ "thermalNeutrons.py", "thermalNeutrons_8py.html", "thermalNeutrons_8py" ]
 ];

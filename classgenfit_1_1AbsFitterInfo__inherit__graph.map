@@ -1,5 +1,7 @@
 <map id="genfit::AbsFitterInfo" name="genfit::AbsFitterInfo">
-<area shape="rect" id="node1" title="This class collects all information needed and produced by a specific AbsFitter and is specific to on..." alt="" coords="18,80,169,107"/>
-<area shape="rect" id="node3" href="$classgenfit_1_1KalmanFitterInfo.html" title="Collects information needed and produced by a AbsKalmanFitter implementations and is specific to one ..." alt="" coords="5,155,181,181"/>
-<area shape="rect" id="node2" title=" " alt="" coords="57,5,129,32"/>
+<area shape="rect" id="Node000001" title="This class collects all information needed and produced by a specific AbsFitter and is specific to on..." alt="" coords="18,79,169,104"/>
+<area shape="rect" id="Node000003" href="$classgenfit_1_1KalmanFitterInfo.html" title="Collects information needed and produced by a AbsKalmanFitter implementations and is specific to one ..." alt="" coords="5,152,181,177"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="96,118,96,152,91,152,91,118"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="57,5,129,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="96,44,96,79,91,79,91,44"/>
 </map>

@@ -1,5 +1,7 @@
 <map id="genfit/measurements/include/WireTrackCandHit.h" name="genfit/measurements/include/WireTrackCandHit.h">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,211,47"/>
-<area shape="rect" id="node2" href="$TrackCandHit_8h.html" title=" " alt="" coords="48,95,168,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="66,169,150,196"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,211,45"/>
+<area shape="rect" id="Node000002" href="$TrackCandHit_8h.html" title=" " alt="" coords="48,93,168,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,46,111,79,105,79,105,46"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="66,167,150,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="111,119,111,153,105,153,105,119"/>
 </map>

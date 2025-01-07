@@ -1,3 +1,7 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classScifiCTR_1_1histStore.html" title=" " alt="" coords="5,5,143,32"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,31,155,56"/>
+<area shape="rect" id="Node000001" href="$classstudy__GammaConv_1_1Block.html" title=" " alt="" coords="203,5,392,31"/>
+<area shape="poly" id="edge251_Node000000_Node000001" title=" " alt="" coords="168,30,202,26,203,32,169,36"/>
+<area shape="rect" id="Node000002" href="$classstudy__thinTarget_1_1Block.html" title=" " alt="" coords="212,55,383,80"/>
+<area shape="poly" id="edge252_Node000000_Node000002" title=" " alt="" coords="169,50,212,55,211,61,168,56"/>
 </map>

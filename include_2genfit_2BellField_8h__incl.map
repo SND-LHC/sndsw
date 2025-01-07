@@ -1,5 +1,7 @@
 <map id="genfit/include/genfit/BellField.h" name="genfit/include/genfit/BellField.h">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,156,47"/>
-<area shape="rect" id="node2" href="$AbsBField_8h.html" title=" " alt="" coords="31,95,130,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="35,169,126,196"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,156,45"/>
+<area shape="rect" id="Node000002" href="$AbsBField_8h.html" title=" " alt="" coords="31,93,130,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="83,46,83,79,78,79,78,46"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="35,167,126,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="83,119,83,153,78,153,78,119"/>
 </map>

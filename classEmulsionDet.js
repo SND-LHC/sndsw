@@ -19,7 +19,7 @@ var classEmulsionDet =
     [ "GetConfParS", "classEmulsionDet.html#a325f0765cf8fd613c5b08712365da6a8", null ],
     [ "Initialize", "classEmulsionDet.html#ae7adbc2cdaec9f9fc2787fdf746a1dbb", null ],
     [ "InitMedium", "classEmulsionDet.html#a5eb04191f546dd7fed462e358d321f68", null ],
-    [ "operator=", "classEmulsionDet.html#af5270d2284fef3a69740b2fac94d8ca7", null ],
+    [ "operator=", "classEmulsionDet.html#ab1b9cf9c2d4d28615211149592b8d63e", null ],
     [ "PathBrickID", "classEmulsionDet.html#ade8854dc9b4700b968699bcaaf4bb73e", null ],
     [ "PostTrack", "classEmulsionDet.html#a36cf7835f9d8967cf7c5163407719ac2", null ],
     [ "PreTrack", "classEmulsionDet.html#a801813f393c0ee15a6201d67276f4ee2", null ],

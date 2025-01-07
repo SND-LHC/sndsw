@@ -1,6 +1,9 @@
 <map id="genfit/finitePlanes/include/RectangularFinitePlane.h" name="genfit/finitePlanes/include/RectangularFinitePlane.h">
-<area shape="rect" id="node1" title=" " alt="" coords="229,5,420,61"/>
-<area shape="rect" id="node2" href="$RectangularFinitePlane_8cc.html" title=" " alt="" coords="5,109,223,151"/>
-<area shape="rect" id="node3" href="$fitterTests_2main_8cc.html" title=" " alt="" coords="247,109,403,151"/>
-<area shape="rect" id="node4" href="$unitTests_2main_8cc.html" title=" " alt="" coords="427,109,577,151"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="229,5,420,60"/>
+<area shape="rect" id="Node000002" href="$RectangularFinitePlane_8cc.html" title=" " alt="" coords="5,108,223,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="254,68,158,110,156,105,252,63"/>
+<area shape="rect" id="Node000003" href="$fitterTests_2main_8cc.html" title=" " alt="" coords="247,108,403,148"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="327,74,327,108,322,108,322,74"/>
+<area shape="rect" id="Node000004" href="$unitTests_2main_8cc.html" title=" " alt="" coords="427,108,577,148"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="388,64,467,105,465,110,385,69"/>
 </map>

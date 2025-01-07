@@ -1,14 +1,16 @@
 <map id="genfit/utilities" name="genfit/utilities">
-<area shape="rect" id="node1" href="dir_7a40b7556c10f243ca9453eab1d74876.html" title="core" alt="" coords="27,255,99,303"/>
-<area shape="rect" id="node2" href="dir_9268fb76a242d6fab4cb1d575f1746b1.html" title="measurements" alt="" coords="45,351,165,399"/>
-<area shape="rect" id="edge6-headlabel" href="dir_000032_000057.html" title="1" alt="" coords="81,323,91,338"/>
-<area shape="rect" id="edge1-headlabel" href="dir_000057_000032.html" title="24" alt="" coords="73,316,91,330"/>
-<area shape="rect" id="node4" href="dir_0077f0660cc58d7cbea471a115d9484f.html" title="include" alt="" coords="37,159,109,207"/>
-<area shape="rect" id="edge4-headlabel" href="dir_000069_000032.html" title="2" alt="" coords="71,230,80,245"/>
-<area shape="rect" id="edge5-headlabel" href="dir_000069_000057.html" title="1" alt="" coords="117,327,126,341"/>
-<area shape="rect" id="node5" href="dir_a28c30cacefe969df20d6090e8fdc294.html" title="src" alt="" coords="37,63,109,111"/>
-<area shape="rect" id="edge3-headlabel" href="dir_000070_000057.html" title="5" alt="" coords="121,327,130,342"/>
-<area shape="rect" id="edge2-headlabel" href="dir_000070_000069.html" title="2" alt="" coords="77,133,86,148"/>
-<area shape="rect" id="clust2" href="dir_3e5680e1368f3aa1fd19c22b9b8a1d88.html" alt="" coords="27,52,216,217"/>
-<area shape="rect" id="clust1" href="dir_a1ebdee7ea4e629a53aa4045c16b947a.html" title="genfit" alt="" coords="16,16,227,409"/>
+<area shape="rect" id="node1" href="dir_7a40b7556c10f243ca9453eab1d74876.html" title="core" alt="" coords="27,209,77,235"/>
+<area shape="rect" id="node2" href="dir_9268fb76a242d6fab4cb1d575f1746b1.html" title="measurements" alt="" coords="101,209,221,235"/>
+<area shape="rect" id="node4" href="dir_0077f0660cc58d7cbea471a115d9484f.html" title="include" alt="" coords="67,136,136,161"/>
+<area shape="poly" id="edge1" href="dir_000030_000002.html" alt="" coords="95,163,70,200,66,197,91,160"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000030_000002.html" title="2" alt="" coords="73,192,82,207"/>
+<area shape="poly" id="edge2" href="dir_000030_000033.html" alt="" coords="113,160,145,197,141,201,109,163"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000030_000033.html" title="1" alt="" coords="142,183,151,197"/>
+<area shape="rect" id="node5" href="dir_a28c30cacefe969df20d6090e8fdc294.html" title="src" alt="" coords="67,63,109,88"/>
+<area shape="poly" id="edge4" href="dir_000062_000033.html" alt="" coords="106,86,130,107,150,135,161,165,164,195,159,196,155,167,146,137,126,111,103,90"/>
+<area shape="rect" id="edge4-headlabel" href="dir_000062_000033.html" title="5" alt="" coords="165,183,174,198"/>
+<area shape="poly" id="edge3" href="dir_000062_000030.html" alt="" coords="93,88,99,122,94,123,88,89"/>
+<area shape="rect" id="edge3-headlabel" href="dir_000062_000030.html" title="2" alt="" coords="99,109,109,124"/>
+<area shape="rect" id="clust2" href="dir_3e5680e1368f3aa1fd19c22b9b8a1d88.html" alt="" coords="56,52,215,172"/>
+<area shape="rect" id="clust1" href="dir_a1ebdee7ea4e629a53aa4045c16b947a.html" title="genfit" alt="" coords="16,16,232,245"/>
 </map>

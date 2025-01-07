@@ -1,8 +1,9 @@
 <map id="sndFairTasks" name="sndFairTasks">
-<area shape="rect" id="node1" href="dir_4fa007d694165165d08521b7be8bf807.html" title="sndFairTasks" alt="" coords="28,5,132,53"/>
-<area shape="rect" id="node2" href="dir_2816adeb6e7b93146cc0980bde45ae79.html" title="shipLHC" alt="" coords="5,101,80,149"/>
-<area shape="rect" id="edge2-headlabel" href="dir_000018_000017.html" title="16" alt="" coords="58,80,75,95"/>
-<area shape="rect" id="node3" href="dir_d32c3015c3e8f785dc4289736c132c3d.html" title="shipdata" alt="" coords="41,197,119,245"/>
-<area shape="rect" id="edge3-headlabel" href="dir_000018_000015.html" title="2" alt="" coords="92,174,101,188"/>
-<area shape="rect" id="edge1-headlabel" href="dir_000017_000015.html" title="16" alt="" coords="63,170,81,185"/>
+<area shape="rect" id="node1" href="dir_4fa007d694165165d08521b7be8bf807.html" title="sndFairTasks" alt="" coords="41,5,145,31"/>
+<area shape="rect" id="node2" href="dir_2816adeb6e7b93146cc0980bde45ae79.html" title="shipLHC" alt="" coords="5,79,80,104"/>
+<area shape="poly" id="edge1" href="dir_000051_000050.html" alt="" coords="87,33,61,69,57,66,83,29"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000051_000050.html" title="16" alt="" coords="60,61,77,76"/>
+<area shape="rect" id="node3" href="dir_d32c3015c3e8f785dc4289736c132c3d.html" title="shipdata" alt="" coords="105,79,183,104"/>
+<area shape="poly" id="edge2" href="dir_000051_000048.html" alt="" coords="104,29,130,66,126,69,100,33"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000051_000048.html" title="2" alt="" coords="127,52,137,66"/>
 </map>

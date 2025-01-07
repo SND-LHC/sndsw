@@ -32,7 +32,7 @@ var classveto =
     [ "MakeLidSegments", "classveto.html#a8270f8aec1cd2e81857bf022ba88f05f", null ],
     [ "MakeMagnetSegment", "classveto.html#a46611406af2e471d9292e4fe29ef344c", null ],
     [ "MakeSegments", "classveto.html#ab0997acf4fb3333c94cde5668ca88d7b", null ],
-    [ "operator=", "classveto.html#a219c777c99da85f0f049cea1772b6a1c", null ],
+    [ "operator=", "classveto.html#aae108cbe53746255872a1c7e83540e1a", null ],
     [ "PostTrack", "classveto.html#a16298dd6e3defb5f8c3318b403b58d59", null ],
     [ "PreTrack", "classveto.html#a9cd585f655e41fdcc1ff48532314e5e2", null ],
     [ "ProcessHits", "classveto.html#a1bb33e33c0316c04d9b4c3ec70e2c3f5", null ],

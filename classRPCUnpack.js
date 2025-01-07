@@ -7,7 +7,7 @@ var classRPCUnpack =
     [ "GetNHitsTotal", "classRPCUnpack.html#a609eca3f3c0dd4d19eb819456fa47235", null ],
     [ "GetPartition", "classRPCUnpack.html#ae04b51ec4285574c945af134bf75db8e", null ],
     [ "Init", "classRPCUnpack.html#a5978e761e77fac98d897e515bc7f7f07", null ],
-    [ "operator=", "classRPCUnpack.html#ae9f664e47679dd118a388b1f7c59ff73", null ],
+    [ "operator=", "classRPCUnpack.html#a3773d7b4ca1ac65953329b785dcd0cca", null ],
     [ "Register", "classRPCUnpack.html#a7f370fde7da4ca13078c5aab69c55d25", null ],
     [ "Reset", "classRPCUnpack.html#a56a0cf1063a476df3af38f19d6337f2f", null ],
     [ "fNHits", "classRPCUnpack.html#a6e0a4530451741f9c4fa7aa3b5615559", null ],

@@ -24,7 +24,7 @@ var classMuFilter =
     [ "InitEvent", "classMuFilter.html#a3b62377daee7b9c7f652ec6ba082d9a9", null ],
     [ "Initialize", "classMuFilter.html#ab5ecbe0ffacd7dc2cbeb0513cc7c4a12", null ],
     [ "InitMedium", "classMuFilter.html#af593d8d2c6fb98053c662e594789fd6d", null ],
-    [ "operator=", "classMuFilter.html#a5e76ffe0b4a1852b340e8d5b5d39ea77", null ],
+    [ "operator=", "classMuFilter.html#ac9ee2bf6c2e99acef8f2be25ab7f621a", null ],
     [ "PostTrack", "classMuFilter.html#a60bdec79e226bc9dd1c2166cd00b84e9", null ],
     [ "PreTrack", "classMuFilter.html#afe2224c41d3376b7d5ed7bea963bf685", null ],
     [ "ProcessHits", "classMuFilter.html#acab8f74657245e3455ef48f899bf9275", null ],

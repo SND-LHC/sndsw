@@ -9,7 +9,7 @@ var classgenfit_1_1GFRaveVertex =
     [ "getId", "classgenfit_1_1GFRaveVertex.html#a287fad4253ae509682cf7c735b11542f", null ],
     [ "getNdf", "classgenfit_1_1GFRaveVertex.html#af5bbf013778d7bb8bafdd3318f482505", null ],
     [ "getNTracks", "classgenfit_1_1GFRaveVertex.html#a88d8d1e6764b187e2ae08fbacb1d47a1", null ],
-    [ "getParameters", "classgenfit_1_1GFRaveVertex.html#ad45663a7e84c23c33fb0756d03caf42a", null ],
+    [ "getParameters", "classgenfit_1_1GFRaveVertex.html#a9a9754496aa98d3a2d5f96becd6770c0", null ],
     [ "getPos", "classgenfit_1_1GFRaveVertex.html#a0bc9e402fcde8321f5da39b684fe97ef", null ],
     [ "operator=", "classgenfit_1_1GFRaveVertex.html#a8ccfd17871b10bb36f9a1e4e3de04e83", null ],
     [ "Print", "classgenfit_1_1GFRaveVertex.html#aefb7e556b25384705b6e822f2f0b03bc", null ],

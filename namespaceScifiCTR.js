@@ -1,12 +1,14 @@
 var namespaceScifiCTR =
 [
+    [ "histStore", "classScifiCTR_1_1histStore.html", null ],
     [ "Scifi_CTR", "classScifiCTR_1_1Scifi__CTR.html", "classScifiCTR_1_1Scifi__CTR" ],
     [ "Scifi_TimeOfTracks", "classScifiCTR_1_1Scifi__TimeOfTracks.html", "classScifiCTR_1_1Scifi__TimeOfTracks" ],
-    [ "histStore", "classScifiCTR_1_1histStore.html", null ],
-    [ "FCN", "namespaceScifiCTR.html#a50bef26cb44fbf8f0e15c35c507a17f0", null ],
-    [ "FCNS", "namespaceScifiCTR.html#ad42e8f786f8b9d16943436b76870bc0b", null ],
-    [ "pyExit", "namespaceScifiCTR.html#a932e362d125394863baffd71560597bf", null ],
+    [ "FCN", "namespaceScifiCTR.html#a0d13e50a99136eab316923e7c345e38f", null ],
+    [ "FCNS", "namespaceScifiCTR.html#a8ccb73ec9320782a29e6826ee19e602c", null ],
+    [ "pyExit", "namespaceScifiCTR.html#addb4492534fcc98706bcc847209ec011", null ],
+    [ "A", "namespaceScifiCTR.html#ae4b86aa456cfaeacba2f21266af7baf8", null ],
     [ "action", "namespaceScifiCTR.html#a8550e6de7dbf153551c9cb6fde55cd4c", null ],
+    [ "B", "namespaceScifiCTR.html#a6ce66a9f1926f5c33033be97fe61f751", null ],
     [ "b", "namespaceScifiCTR.html#a87a9336a17ef0557a1090c56e6990797", null ],
     [ "C", "namespaceScifiCTR.html#a6645e7cf8839f0d416f489f479c2b1f5", null ],
     [ "default", "namespaceScifiCTR.html#ae319d1828b709a7c0f23217f6cfad151", null ],

@@ -1,5 +1,7 @@
 <map id="quicktype::Info" name="quicktype::Info">
-<area shape="rect" id="node1" title=" " alt="" coords="70,109,189,136"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,136,32"/>
-<area shape="rect" id="node3" title=" " alt="" coords="160,5,219,32"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="34,108,153,133"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,64,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="51,42,89,107,84,109,46,44"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="88,5,219,31"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="143,44,120,85,104,109,99,106,115,83,138,42"/>
 </map>

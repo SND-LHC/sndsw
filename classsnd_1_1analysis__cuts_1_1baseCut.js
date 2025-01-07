@@ -1,10 +1,10 @@
 var classsnd_1_1analysis__cuts_1_1baseCut =
 [
     [ "getName", "classsnd_1_1analysis__cuts_1_1baseCut.html#af38a59a1baed03220f4a2319982053df", null ],
-    [ "getNbins", "classsnd_1_1analysis__cuts_1_1baseCut.html#af5c9d6d9cddf53f28f69d2ec6100fa25", null ],
-    [ "getPlotVar", "classsnd_1_1analysis__cuts_1_1baseCut.html#a196d4921663a03f8c4507a3f1b2d061d", null ],
-    [ "getRangeEnd", "classsnd_1_1analysis__cuts_1_1baseCut.html#ae12a8a47470cc19c6ec92d15a450f4d0", null ],
-    [ "getRangeStart", "classsnd_1_1analysis__cuts_1_1baseCut.html#a8da35e9d3c683e99a8d74df0ec4b683a", null ],
+    [ "getNbins", "classsnd_1_1analysis__cuts_1_1baseCut.html#a0d9ff8f0d49aae5e52f13b1ec684753b", null ],
+    [ "getPlotVar", "classsnd_1_1analysis__cuts_1_1baseCut.html#ae8d7a06e8b1df5f4af62833149b5576e", null ],
+    [ "getRangeEnd", "classsnd_1_1analysis__cuts_1_1baseCut.html#a6989897980d9256281889d8efc619a40", null ],
+    [ "getRangeStart", "classsnd_1_1analysis__cuts_1_1baseCut.html#a240cb89835746c3f234acaabdd824427", null ],
     [ "getShortName", "classsnd_1_1analysis__cuts_1_1baseCut.html#a81b5334e43554a18b3d14c08a93ce3b7", null ],
     [ "passCut", "classsnd_1_1analysis__cuts_1_1baseCut.html#a4f02e3a7e1553b5b1c7085c579a93722", null ],
     [ "cutName", "classsnd_1_1analysis__cuts_1_1baseCut.html#aab5b6f724432d60dd3661f36afccc14d", null ],

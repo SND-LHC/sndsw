@@ -1,6 +1,6 @@
 var AbsKalmanFitter_8h =
 [
-    [ "AbsKalmanFitter", "classgenfit_1_1AbsKalmanFitter.html", "classgenfit_1_1AbsKalmanFitter" ],
+    [ "genfit::AbsKalmanFitter", "classgenfit_1_1AbsKalmanFitter.html", "classgenfit_1_1AbsKalmanFitter" ],
     [ "eMultipleMeasurementHandling", "AbsKalmanFitter_8h.html#a2243c8ece1acd0220b857eb896791b02", [
       [ "weightedAverage", "AbsKalmanFitter_8h.html#a2243c8ece1acd0220b857eb896791b02af63583ff6b3aa5df8fc4492c069c90c2", null ],
       [ "unweightedAverage", "AbsKalmanFitter_8h.html#a2243c8ece1acd0220b857eb896791b02af4aec412279533e3300fdee6a658e020", null ],

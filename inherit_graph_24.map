@@ -1,6 +1,23 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" title=" " alt="" coords="5,56,153,83"/>
-<area shape="rect" id="node2" href="$classg4Ex_1_1MyEventAction.html" title=" " alt="" coords="219,5,375,32"/>
-<area shape="rect" id="node3" href="$classg4Ex__args_1_1MyEventAction.html" title=" " alt="" coords="201,56,392,83"/>
-<area shape="rect" id="node4" href="$classg4Ex__gap_1_1MyEventAction.html" title=" " alt="" coords="203,107,390,133"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,228,99,253"/>
+<area shape="rect" id="Node000001" href="$classEmulsionMagnet.html" title=" " alt="" coords="193,5,324,31"/>
+<area shape="poly" id="edge151_Node000000_Node000001" title=" " alt="" coords="55,214,65,175,83,127,108,80,125,59,145,40,168,27,192,19,194,24,170,32,148,44,129,62,113,83,87,130,70,176,61,215"/>
+<area shape="rect" id="Node000002" href="$classMufluxTargetStation.html" title=" " alt="" coords="183,55,335,80"/>
+<area shape="poly" id="edge152_Node000000_Node000002" title=" " alt="" coords="60,214,90,151,115,117,145,89,181,73,184,77,148,94,119,121,95,153,65,216"/>
+<area shape="rect" id="Node000003" href="$classShipCave.html" title=" " alt="" coords="217,104,300,129"/>
+<area shape="poly" id="edge153_Node000000_Node000003" title=" " alt="" coords="67,215,100,175,121,155,145,138,181,124,216,117,217,122,182,129,148,143,125,159,104,179,71,218"/>
+<area shape="rect" id="Node000004" href="$classShipChamber.html" title=" " alt="" coords="204,153,313,179"/>
+<area shape="poly" id="edge154_Node000000_Node000004" title=" " alt="" coords="84,218,146,188,203,172,204,177,148,192,86,223"/>
+<area shape="rect" id="Node000005" href="$classShipGoliath.html" title=" " alt="" coords="210,203,307,228"/>
+<area shape="poly" id="edge155_Node000000_Node000005" title=" " alt="" coords="112,231,210,219,210,224,113,236"/>
+<area shape="rect" id="Node000006" href="$classShipMagnet.html" title=" " alt="" coords="209,252,308,277"/>
+<area shape="poly" id="edge156_Node000000_Node000006" title=" " alt="" coords="113,245,210,256,209,262,112,250"/>
+<area shape="rect" id="Node000007" href="$classShipMuonShield.html" title=" " alt="" coords="195,301,322,327"/>
+<area shape="poly" id="edge157_Node000000_Node000007" title=" " alt="" coords="87,258,148,286,196,300,194,305,146,291,85,263"/>
+<area shape="rect" id="Node000008" href="$classShipTAUMagneticSpectrometer.html" title=" " alt="" coords="147,351,371,376"/>
+<area shape="poly" id="edge158_Node000000_Node000008" title=" " alt="" coords="72,263,104,301,125,320,148,336,177,348,175,353,145,340,122,324,101,305,68,266"/>
+<area shape="rect" id="Node000009" href="$classShipTargetStation.html" title=" " alt="" coords="191,400,327,425"/>
+<area shape="poly" id="edge159_Node000000_Node000009" title=" " alt="" coords="65,265,96,326,119,358,148,385,169,396,191,404,190,409,167,401,145,390,115,362,91,329,60,267"/>
+<area shape="rect" id="Node000010" href="$classpyFairModule.html" title=" " alt="" coords="204,449,313,475"/>
+<area shape="poly" id="edge160_Node000000_Node000010" title=" " alt="" coords="61,266,71,304,88,350,113,396,130,417,148,435,175,449,204,457,203,462,173,454,145,439,126,420,109,399,83,352,66,306,56,267"/>
 </map>

@@ -6,7 +6,7 @@ var classScalerUnpack =
     [ "DoUnpack", "classScalerUnpack.html#a647e53c06355d9db519b484567a7e51f", null ],
     [ "GetPartition", "classScalerUnpack.html#aec1321ae75ec532123e15e04f59fe357", null ],
     [ "Init", "classScalerUnpack.html#add1ad60138d3eb72c21b4c3dc73d7c97", null ],
-    [ "operator=", "classScalerUnpack.html#a47277c817d873d191931d9643d12ab88", null ],
+    [ "operator=", "classScalerUnpack.html#a83fae54c1c987c083db2eddd5393890b", null ],
     [ "Register", "classScalerUnpack.html#a4c359c701efd38e38059353751149ab9", null ],
     [ "Reset", "classScalerUnpack.html#af230955d29c2fc613c72bc26e1b013f4", null ],
     [ "fDavid", "classScalerUnpack.html#a9feef98fa4b00e1c23b23fcd865c9bd9", null ],

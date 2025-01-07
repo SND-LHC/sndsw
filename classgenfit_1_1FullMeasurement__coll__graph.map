@@ -1,7 +1,13 @@
 <map id="genfit::FullMeasurement" name="genfit::FullMeasurement">
-<area shape="rect" id="node1" title="Measurement class implementing a measurement of all track parameters." alt="" coords="6,336,186,363"/>
-<area shape="rect" id="node2" href="$classgenfit_1_1AbsMeasurement.html" title="Contains the measurement and covariance in raw detector coordinates." alt="" coords="5,260,187,287"/>
-<area shape="rect" id="node3" title=" " alt="" coords="89,5,161,32"/>
-<area shape="rect" id="node4" href="$classgenfit_1_1TrackPoint.html" title="Object containing AbsMeasurement and AbsFitterInfo objects." alt="" coords="113,171,247,197"/>
-<area shape="rect" id="node5" href="$classgenfit_1_1Track.html" title="Collection of TrackPoint objects, AbsTrackRep objects and FitStatus objects." alt="" coords="163,81,264,108"/>
+<area shape="rect" id="Node000001" title="Measurement class implementing a measurement of all track parameters." alt="" coords="6,331,186,356"/>
+<area shape="rect" id="Node000002" href="$classgenfit_1_1AbsMeasurement.html" title="Contains the measurement and covariance in raw detector coordinates." alt="" coords="5,256,187,281"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="99,296,99,330,93,330,93,296"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="89,5,161,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="123,45,103,168,99,256,93,256,97,168,117,44"/>
+<area shape="rect" id="Node000004" href="$classgenfit_1_1TrackPoint.html" title="Object containing AbsMeasurement and AbsFitterInfo objects." alt="" coords="113,168,247,193"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="135,44,153,104,178,167,173,169,148,106,130,45"/>
+<area shape="rect" id="Node000005" href="$classgenfit_1_1Track.html" title="Collection of TrackPoint objects, AbsTrackRep objects and FitStatus objects." alt="" coords="163,80,264,105"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="152,38,201,77,197,82,148,42"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="161,205,110,257,106,254,157,201"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="206,119,187,168,182,166,201,117"/>
 </map>

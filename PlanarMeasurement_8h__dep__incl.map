@@ -1,10 +1,17 @@
 <map id="genfit/measurements/include/PlanarMeasurement.h" name="genfit/measurements/include/PlanarMeasurement.h">
-<area shape="rect" id="node1" title=" " alt="" coords="563,5,783,47"/>
-<area shape="rect" id="node2" href="$Track_8cc.html" title=" " alt="" coords="5,102,176,129"/>
-<area shape="rect" id="node3" href="$EventDisplay_8cc.html" title=" " alt="" coords="201,95,351,136"/>
-<area shape="rect" id="node4" href="$GFGbl_8cc.html" title=" " alt="" coords="375,102,550,129"/>
-<area shape="rect" id="node5" href="$PlanarMeasurement_8cc.html" title=" " alt="" coords="574,95,773,136"/>
-<area shape="rect" id="node6" href="$fitterTests_2main_8cc.html" title=" " alt="" coords="797,95,953,136"/>
-<area shape="rect" id="node7" href="$unitTests_2main_8cc.html" title=" " alt="" coords="977,95,1127,136"/>
-<area shape="rect" id="node8" href="$MeasurementCreator_8cc.html" title=" " alt="" coords="1152,95,1333,136"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="564,5,784,45"/>
+<area shape="rect" id="Node000002" href="$GFGbl_8cc.html" title=" " alt="" coords="5,101,180,126"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="551,45,193,96,152,103,151,98,192,91,550,40"/>
+<area shape="rect" id="Node000003" href="$Track_8cc.html" title=" " alt="" coords="205,101,375,126"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="577,51,342,103,341,98,576,46"/>
+<area shape="rect" id="Node000004" href="$EventDisplay_8cc.html" title=" " alt="" coords="400,93,551,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="619,53,520,96,518,91,617,48"/>
+<area shape="rect" id="Node000005" href="$PlanarMeasurement_8cc.html" title=" " alt="" coords="575,93,773,133"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="677,59,677,93,671,93,671,59"/>
+<area shape="rect" id="Node000006" href="$fitterTests_2main_8cc.html" title=" " alt="" coords="797,93,953,133"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="732,48,832,91,830,96,730,53"/>
+<area shape="rect" id="Node000007" href="$unitTests_2main_8cc.html" title=" " alt="" coords="977,93,1128,133"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="771,46,977,92,976,98,770,51"/>
+<area shape="rect" id="Node000008" href="$MeasurementCreator_8cc.html" title=" " alt="" coords="1153,93,1334,133"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="798,40,1141,91,1153,93,1152,98,1140,96,797,46"/>
 </map>

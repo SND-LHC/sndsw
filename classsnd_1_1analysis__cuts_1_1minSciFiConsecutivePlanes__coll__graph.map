@@ -1,6 +1,9 @@
 <map id="snd::analysis_cuts::minSciFiConsecutivePlanes" name="snd::analysis_cuts::minSciFiConsecutivePlanes">
-<area shape="rect" id="node1" title=" " alt="" coords="5,291,213,332"/>
-<area shape="rect" id="node2" href="$classsnd_1_1analysis__cuts_1_1sciFiBaseCut.html" title=" " alt="" coords="39,200,180,241"/>
-<area shape="rect" id="node3" href="$classsnd_1_1analysis__cuts_1_1baseCut.html" title=" " alt="" coords="39,109,180,151"/>
-<area shape="rect" id="node4" title=" " alt="" coords="80,5,139,32"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,287,213,327"/>
+<area shape="rect" id="Node000002" href="$classsnd_1_1analysis__cuts_1_1sciFiBaseCut.html" title=" " alt="" coords="39,197,180,237"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="112,251,112,287,107,287,107,251"/>
+<area shape="rect" id="Node000003" href="$classsnd_1_1analysis__cuts_1_1baseCut.html" title=" " alt="" coords="39,108,180,148"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="112,162,112,197,107,197,107,162"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="80,5,139,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="112,45,112,108,107,108,107,45"/>
 </map>

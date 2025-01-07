@@ -2,7 +2,7 @@ var classgenfit_1_1MeasurementCreator =
 [
     [ "MeasurementCreator", "classgenfit_1_1MeasurementCreator.html#a89da2e5ff3d1398b6d143aae7e48ba09", null ],
     [ "~MeasurementCreator", "classgenfit_1_1MeasurementCreator.html#a7a318b9f650a284570fae22bfea74091", null ],
-    [ "create", "classgenfit_1_1MeasurementCreator.html#a1e46bc0f0b7ddb3aab37512e8c5ba2ef", null ],
+    [ "create", "classgenfit_1_1MeasurementCreator.html#a68ec985c3b5b745a76528bf97fcd22d9", null ],
     [ "create", "classgenfit_1_1MeasurementCreator.html#ab0eac8acd000d9095c7f09bafc45544c", null ],
     [ "reset", "classgenfit_1_1MeasurementCreator.html#a111ca02545b3b67ae57e606041ff94c8", null ],
     [ "setDebug", "classgenfit_1_1MeasurementCreator.html#a2ba4b5bed40d73dadbb1299927316d3d", null ],

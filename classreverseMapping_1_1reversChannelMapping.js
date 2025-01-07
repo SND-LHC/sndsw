@@ -1,8 +1,8 @@
 var classreverseMapping_1_1reversChannelMapping =
 [
-    [ "daqChannel", "classreverseMapping_1_1reversChannelMapping.html#ab5480e4218d19c0ec606d79ad69d769c", null ],
-    [ "Init", "classreverseMapping_1_1reversChannelMapping.html#a8d2ff8ca0211d73e6db0ded4ea65c14d", null ],
-    [ "test", "classreverseMapping_1_1reversChannelMapping.html#a026d6c0818f80054126212a5bb25695f", null ],
+    [ "daqChannel", "classreverseMapping_1_1reversChannelMapping.html#aa16a0d0bb6038507185796118c88f1cf", null ],
+    [ "Init", "classreverseMapping_1_1reversChannelMapping.html#ad84058e668c883efb1d5e6bdc29f705f", null ],
+    [ "test", "classreverseMapping_1_1reversChannelMapping.html#ad0f2e329763031469dd74fb3ae560639", null ],
     [ "boardMaps", "classreverseMapping_1_1reversChannelMapping.html#a0de907b2896168210ead40814492eab5", null ],
     [ "MufiSystem", "classreverseMapping_1_1reversChannelMapping.html#a033a782964da4f6f402cc9f671abe7c0", null ],
     [ "names", "classreverseMapping_1_1reversChannelMapping.html#a324a2f28c141e360af369593a8165095", null ],

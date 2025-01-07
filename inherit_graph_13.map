@@ -1,3 +1,7 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$structDriftTubes_1_1ChannelId.html" title=" " alt="" coords="5,5,165,32"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,45,164,70"/>
+<area shape="rect" id="Node000001" href="$classconditionsDatabase_1_1databases_1_1mongodb_1_1models_1_1condition_1_1Condition.html" title=" " alt="" coords="212,5,619,45"/>
+<area shape="poly" id="edge11_Node000000_Node000001" title=" " alt="" coords="177,46,211,42,212,48,178,51"/>
+<area shape="rect" id="Node000002" href="$classconditionsDatabase_1_1databases_1_1mongodb_1_1models_1_1detector_1_1Detector.html" title=" " alt="" coords="215,69,615,109"/>
+<area shape="poly" id="edge12_Node000000_Node000002" title=" " alt="" coords="178,64,215,67,215,73,177,69"/>
 </map>

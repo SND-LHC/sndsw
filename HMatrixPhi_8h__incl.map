@@ -1,7 +1,11 @@
 <map id="genfit/measurements/include/HMatrixPhi.h" name="genfit/measurements/include/HMatrixPhi.h">
-<area shape="rect" id="node1" title=" " alt="" coords="95,5,256,47"/>
-<area shape="rect" id="node2" href="$AbsHMatrix_8h.html" title=" " alt="" coords="120,95,231,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,169,89,196"/>
-<area shape="rect" id="node4" title=" " alt="" coords="114,169,237,196"/>
-<area shape="rect" id="node5" title=" " alt="" coords="261,169,354,196"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="95,5,256,45"/>
+<area shape="rect" id="Node000002" href="$AbsHMatrix_8h.html" title=" " alt="" coords="120,93,231,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="178,46,178,79,173,79,173,46"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,167,89,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="156,121,82,162,79,157,153,116"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="114,167,237,192"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="178,119,178,153,173,153,173,119"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="261,167,354,192"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="198,116,275,158,273,162,195,121"/>
 </map>

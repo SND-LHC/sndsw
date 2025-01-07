@@ -1,6 +1,6 @@
 var MeasurementCreator_8h =
 [
-    [ "MeasurementCreator", "classgenfit_1_1MeasurementCreator.html", "classgenfit_1_1MeasurementCreator" ],
+    [ "genfit::MeasurementCreator", "classgenfit_1_1MeasurementCreator.html", "classgenfit_1_1MeasurementCreator" ],
     [ "eMeasurementType", "MeasurementCreator_8h.html#a9844422aef1632f4978091129f418230", [
       [ "Pixel", "MeasurementCreator_8h.html#a9844422aef1632f4978091129f418230a33332f5be00a4c24bac77b652402131e", null ],
       [ "Spacepoint", "MeasurementCreator_8h.html#a9844422aef1632f4978091129f418230a91a54156d0088aea3a0dc060467d5f39", null ],

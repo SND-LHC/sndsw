@@ -1,5 +1,7 @@
 <map id="genfit::HelixTrackModel" name="genfit::HelixTrackModel">
-<area shape="rect" id="node1" title="Helix track model for testing purposes." alt="" coords="5,95,180,121"/>
-<area shape="rect" id="node2" title=" " alt="" coords="7,5,79,32"/>
-<area shape="rect" id="node3" title=" " alt="" coords="104,5,183,32"/>
+<area shape="rect" id="Node000001" title="Helix track model for testing purposes." alt="" coords="5,93,180,119"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="7,5,79,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="59,41,88,91,83,94,54,44"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="104,5,183,31"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="132,44,102,94,97,91,127,41"/>
 </map>

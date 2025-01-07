@@ -16,7 +16,7 @@ var classsndScifiHit =
     [ "isVertical", "classsndScifiHit.html#ac527f08d5770476f38f11f33efbf849e", null ],
     [ "ly_loss", "classsndScifiHit.html#a19b914648e75231ee67cc5b93b03759e", null ],
     [ "npix_to_qdc", "classsndScifiHit.html#abbc28fb6e27a69317f1597a71a3f9d6b", null ],
-    [ "operator=", "classsndScifiHit.html#a98d436d792b9cea504ed19decef2d44b", null ],
+    [ "operator=", "classsndScifiHit.html#a3d3248b2a164e86b823b1fa688eebf01", null ],
     [ "Print", "classsndScifiHit.html#aae08e98a916f8ef72d1bf519b6c3951f", null ],
     [ "setInvalid", "classsndScifiHit.html#a0f5e92239f66b7aba7a0268dd3ff9e00", null ],
     [ "sipm_saturation", "classsndScifiHit.html#acef714ad993ed52dd63dcd01d0c8cf57", null ],

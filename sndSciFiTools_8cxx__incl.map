@@ -1,23 +1,48 @@
 <map id="analysis/tools/sndSciFiTools.cxx" name="analysis/tools/sndSciFiTools.cxx">
-<area shape="rect" id="node1" title=" " alt="" coords="363,5,593,32"/>
-<area shape="rect" id="node2" href="$sndSciFiTools_8h.html" title=" " alt="" coords="90,80,210,107"/>
-<area shape="rect" id="node4" title=" " alt="" coords="195,155,313,181"/>
-<area shape="rect" id="node6" title=" " alt="" coords="287,80,362,107"/>
-<area shape="rect" id="node7" title=" " alt="" coords="386,80,471,107"/>
-<area shape="rect" id="node8" title=" " alt="" coords="495,80,562,107"/>
-<area shape="rect" id="node9" title=" " alt="" coords="587,80,687,107"/>
-<area shape="rect" id="node10" href="$sndScifiHit_8h.html" title=" " alt="" coords="711,80,813,107"/>
-<area shape="rect" id="node21" title=" " alt="" coords="838,80,961,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="119,155,170,181"/>
-<area shape="rect" id="node5" href="$ShipUnit_8h.html" title=" " alt="" coords="5,155,95,181"/>
-<area shape="rect" id="node11" href="$SndlhcHit_8h.html" title=" " alt="" coords="539,155,635,181"/>
-<area shape="rect" id="node12" title=" " alt="" coords="707,237,791,263"/>
-<area shape="rect" id="node14" title=" " alt="" coords="815,237,906,263"/>
-<area shape="rect" id="node19" href="$ScifiPoint_8h.html" title=" " alt="" coords="825,155,920,181"/>
-<area shape="rect" id="node13" title=" " alt="" coords="496,237,575,263"/>
-<area shape="rect" id="node15" title=" " alt="" coords="599,237,682,263"/>
-<area shape="rect" id="node16" title=" " alt="" coords="15,237,139,263"/>
-<area shape="rect" id="node17" title=" " alt="" coords="163,229,305,271"/>
-<area shape="rect" id="node18" title=" " alt="" coords="329,229,472,271"/>
-<area shape="rect" id="node20" title=" " alt="" coords="931,237,1041,263"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="363,5,593,31"/>
+<area shape="rect" id="Node000002" href="$sndSciFiTools_8h.html" title=" " alt="" coords="90,79,210,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="426,33,217,78,216,73,425,28"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="195,152,313,177"/>
+<area shape="poly" id="edge9_Node000001_Node000004" title=" " alt="" coords="367,33,318,51,296,64,277,80,268,93,262,108,257,139,251,138,257,107,263,91,273,77,293,60,316,46,365,28"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="287,79,362,104"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="454,33,363,75,361,70,452,28"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="386,79,471,104"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="472,33,447,69,442,66,468,29"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="495,79,562,104"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="489,29,515,66,510,69,484,33"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="587,79,687,104"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="505,28,599,71,597,75,502,33"/>
+<area shape="rect" id="Node000010" href="$sndScifiHit_8h.html" title=" " alt="" coords="711,79,813,104"/>
+<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="524,28,704,73,702,78,523,33"/>
+<area shape="rect" id="Node000021" title=" " alt="" coords="838,79,961,104"/>
+<area shape="poly" id="edge25_Node000001_Node000021" title=" " alt="" coords="546,28,825,75,824,80,545,33"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="119,152,170,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="152,105,149,139,144,138,146,104"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="168,102,227,142,224,146,165,106"/>
+<area shape="rect" id="Node000005" href="$ShipUnit_8h.html" title=" " alt="" coords="5,152,95,177"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="135,106,79,146,76,142,132,102"/>
+<area shape="rect" id="Node000011" href="$SndlhcHit_8h.html" title=" " alt="" coords="539,152,635,177"/>
+<area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="735,106,630,149,628,144,733,102"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="707,233,791,258"/>
+<area shape="poly" id="edge23_Node000010_Node000012" title=" " alt="" coords="764,104,754,219,748,219,758,104"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="815,233,906,258"/>
+<area shape="poly" id="edge24_Node000010_Node000014" title=" " alt="" coords="771,103,815,176,846,220,842,223,810,179,766,106"/>
+<area shape="rect" id="Node000019" href="$ScifiPoint_8h.html" title=" " alt="" coords="825,152,920,177"/>
+<area shape="poly" id="edge19_Node000010_Node000019" title=" " alt="" coords="781,102,844,142,841,147,778,106"/>
+<area shape="poly" id="edge12_Node000011_Node000012" title=" " alt="" coords="612,175,714,224,712,229,610,180"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="496,233,575,258"/>
+<area shape="poly" id="edge13_Node000011_Node000013" title=" " alt="" coords="582,179,553,222,548,220,577,176"/>
+<area shape="poly" id="edge14_Node000011_Node000014" title=" " alt="" coords="631,175,803,223,813,226,812,231,801,228,630,180"/>
+<area shape="rect" id="Node000015" title=" " alt="" coords="599,233,682,258"/>
+<area shape="poly" id="edge15_Node000011_Node000015" title=" " alt="" coords="597,176,627,220,623,223,593,179"/>
+<area shape="rect" id="Node000016" title=" " alt="" coords="15,233,139,258"/>
+<area shape="poly" id="edge16_Node000011_Node000016" title=" " alt="" coords="539,173,367,194,150,228,131,232,130,227,150,223,366,188,539,168"/>
+<area shape="rect" id="Node000017" title=" " alt="" coords="163,225,305,265"/>
+<area shape="poly" id="edge17_Node000011_Node000017" title=" " alt="" coords="539,179,320,227,319,222,538,174"/>
+<area shape="rect" id="Node000018" title=" " alt="" coords="329,225,472,265"/>
+<area shape="poly" id="edge18_Node000011_Node000018" title=" " alt="" coords="561,180,459,222,457,218,559,175"/>
+<area shape="poly" id="edge21_Node000019_Node000012" title=" " alt="" coords="856,180,780,227,777,223,853,175"/>
+<area shape="poly" id="edge22_Node000019_Node000014" title=" " alt="" coords="874,178,867,220,862,219,868,177"/>
+<area shape="rect" id="Node000020" title=" " alt="" coords="931,233,1041,258"/>
+<area shape="poly" id="edge20_Node000019_Node000020" title=" " alt="" coords="891,175,960,223,957,227,888,180"/>
 </map>

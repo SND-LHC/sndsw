@@ -1,3 +1,57 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classScifiCluster_1_1ScifiCluster.html" title="Class of SciFi Tracker ######################################################." alt="" coords="5,5,176,32"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,768,120,793"/>
+<area shape="rect" id="Node000001" href="$classConvRawData_1_1ConvRawDataPY.html" title=" " alt="" coords="175,5,401,31"/>
+<area shape="poly" id="edge224_Node000000_Node000001" title=" " alt="" coords="61,754,63,608,76,394,89,283,107,182,133,98,148,66,166,41,182,29,185,33,170,45,153,69,138,100,113,183,94,284,81,394,69,608,67,754"/>
+<area shape="rect" id="Node000002" href="$classDAQ__monitoring_1_1DAQ__boards.html" title=" " alt="" coords="207,55,369,95"/>
+<area shape="poly" id="edge225_Node000000_Node000002" title=" " alt="" coords="62,754,66,619,81,425,95,325,112,233,136,158,150,128,166,106,184,91,205,81,207,86,187,95,170,109,155,131,141,160,118,235,100,326,87,426,72,620,67,754"/>
+<area shape="rect" id="Node000003" href="$classDAQ__monitoring_1_1Time__evolution.html" title=" " alt="" coords="205,119,371,159"/>
+<area shape="poly" id="edge226_Node000000_Node000003" title=" " alt="" coords="62,754,69,630,85,456,99,366,116,284,138,216,151,190,166,170,183,155,203,146,206,151,186,160,170,173,156,193,143,218,121,285,104,367,91,456,74,631,68,754"/>
+<area shape="rect" id="Node000004" href="$classEventDisplay__Task_1_1twod.html" title=" " alt="" coords="198,184,378,209"/>
+<area shape="poly" id="edge227_Node000000_Node000004" title=" " alt="" coords="62,754,70,639,87,479,101,398,118,323,140,262,152,238,166,220,180,209,196,201,199,206,183,213,170,224,157,241,145,264,123,324,106,399,93,480,75,640,68,754"/>
+<area shape="rect" id="Node000005" href="$classMufi__monitoring_1_1Mufi__hitMaps.html" title=" " alt="" coords="208,234,368,274"/>
+<area shape="poly" id="edge228_Node000000_Node000005" title=" " alt="" coords="63,754,73,652,93,511,106,440,123,375,143,321,166,284,185,269,207,260,209,265,188,274,170,288,148,323,128,376,112,441,98,512,78,652,69,755"/>
+<area shape="rect" id="Node000006" href="$classMufi__monitoring_1_1Mufi__largeVSsmall.html" title=" " alt="" coords="208,298,368,338"/>
+<area shape="poly" id="edge229_Node000000_Node000006" title=" " alt="" coords="64,754,76,663,97,542,127,425,145,380,166,348,185,334,206,324,209,329,188,338,170,352,150,382,132,427,102,543,81,664,70,754"/>
+<area shape="rect" id="Node000007" href="$classMufi__monitoring_1_1Veto__Efficiency.html" title=" " alt="" coords="207,362,369,402"/>
+<area shape="poly" id="edge230_Node000000_Node000007" title=" " alt="" coords="61,754,63,686,77,594,90,545,108,497,134,452,166,412,185,398,206,389,208,394,188,403,170,416,138,455,113,499,95,547,82,595,69,686,66,754"/>
+<area shape="rect" id="Node000008" href="$classScifiCTR_1_1Scifi__CTR.html" title=" " alt="" coords="219,427,357,452"/>
+<area shape="poly" id="edge231_Node000000_Node000008" title=" " alt="" coords="62,754,66,694,82,615,95,573,113,532,136,494,166,461,190,446,218,438,219,443,193,451,170,465,141,497,118,534,100,575,87,616,72,695,67,755"/>
+<area shape="rect" id="Node000009" href="$classScifiCTR_1_1Scifi__TimeOfTracks.html" title=" " alt="" coords="187,476,389,501"/>
+<area shape="poly" id="edge232_Node000000_Node000009" title=" " alt="" coords="64,754,72,702,89,637,102,602,119,569,140,539,166,512,186,499,189,504,170,516,145,542,124,572,107,605,94,638,77,703,69,754"/>
+<area shape="rect" id="Node000010" href="$classScifi__monitoring_1_1Scifi__hitMaps.html" title=" " alt="" coords="209,526,367,566"/>
+<area shape="poly" id="edge233_Node000000_Node000010" title=" " alt="" coords="68,754,80,714,99,666,128,618,146,595,166,576,186,564,207,555,209,560,188,568,170,580,150,599,132,621,104,669,85,716,73,755"/>
+<area shape="rect" id="Node000011" href="$classScifi__monitoring_1_1Scifi__residuals.html" title=" " alt="" coords="209,590,367,630"/>
+<area shape="poly" id="edge234_Node000000_Node000011" title=" " alt="" coords="74,754,110,697,136,666,167,640,207,621,209,626,169,644,140,670,114,700,78,757"/>
+<area shape="rect" id="Node000012" href="$classScifi__monitoring_1_1Scifi__trackEfficiency.html" title=" " alt="" coords="209,654,367,694"/>
+<area shape="poly" id="edge235_Node000000_Node000012" title=" " alt="" coords="87,757,123,729,167,704,208,688,210,693,169,708,126,734,90,761"/>
+<area shape="rect" id="Node000013" href="$classSndlhcMuonReco_1_1MuonReco.html" title=" " alt="" coords="185,719,391,744"/>
+<area shape="poly" id="edge236_Node000000_Node000013" title=" " alt="" coords="127,762,167,753,221,741,222,747,169,758,128,767"/>
+<area shape="rect" id="Node000014" href="$classSndlhcTracking_1_1Tracking.html" title=" " alt="" coords="199,768,377,793"/>
+<area shape="poly" id="edge237_Node000000_Node000014" title=" " alt="" coords="134,778,199,778,199,783,134,783"/>
+<area shape="rect" id="Node000015" href="$classeventDisplay_1_1DrawDigi.html" title=" " alt="" coords="203,817,373,843"/>
+<area shape="poly" id="edge238_Node000000_Node000015" title=" " alt="" coords="132,794,169,802,227,815,226,820,167,807,131,799"/>
+<area shape="rect" id="Node000016" href="$classeventDisplay_1_1DrawEcalCluster.html" title=" " alt="" coords="179,867,397,892"/>
+<area shape="poly" id="edge239_Node000000_Node000016" title=" " alt="" coords="91,801,126,827,169,852,206,864,205,869,167,856,123,832,87,805"/>
+<area shape="rect" id="Node000017" href="$classeventDisplay_1_1DrawTracks.html" title=" " alt="" coords="195,916,381,941"/>
+<area shape="poly" id="edge240_Node000000_Node000017" title=" " alt="" coords="80,804,116,854,141,880,169,901,197,914,195,918,167,906,137,884,112,857,76,807"/>
+<area shape="rect" id="Node000018" href="$classeventDisplay_1_1DrawVetoDigi.html" title=" " alt="" coords="189,965,387,991"/>
+<area shape="poly" id="edge241_Node000000_Node000018" title=" " alt="" coords="75,805,88,839,108,879,135,918,170,951,193,963,190,968,166,955,131,921,103,881,83,841,70,807"/>
+<area shape="rect" id="Node000019" href="$classeventDisplay_1_1EventLoop.html" title=" " alt="" coords="199,1015,377,1040"/>
+<area shape="poly" id="edge242_Node000000_Node000019" title=" " alt="" coords="71,806,82,849,101,902,129,955,148,979,170,1000,200,1016,197,1020,166,1004,144,983,125,958,96,904,77,851,66,808"/>
+<area shape="rect" id="Node000020" href="$classeventDisplay_1_1Rulers.html" title=" " alt="" coords="213,1064,363,1089"/>
+<area shape="poly" id="edge243_Node000000_Node000020" title=" " alt="" coords="69,807,76,859,94,925,107,959,123,992,144,1023,170,1049,190,1062,213,1070,212,1075,188,1067,166,1053,140,1026,119,995,102,961,88,927,71,860,63,808"/>
+<area shape="rect" id="Node000021" href="$classeventDisplay__shipLHC_1_1DrawTracks.html" title=" " alt="" coords="185,1114,391,1154"/>
+<area shape="poly" id="edge244_Node000000_Node000021" title=" " alt="" coords="67,807,73,867,88,946,101,987,119,1028,142,1066,170,1099,188,1112,185,1116,166,1103,137,1069,114,1030,96,989,83,947,67,868,62,808"/>
+<area shape="rect" id="Node000022" href="$classeventDisplay__shipLHC_1_1EventLoop.html" title=" " alt="" coords="168,1179,408,1204"/>
+<area shape="poly" id="edge245_Node000000_Node000022" title=" " alt="" coords="70,807,83,889,105,996,134,1099,151,1138,170,1164,188,1176,184,1181,166,1168,147,1141,129,1101,99,998,78,890,65,807"/>
+<area shape="rect" id="Node000023" href="$classeventDisplay__shipLHC_1_1Rulers.html" title=" " alt="" coords="181,1228,395,1253"/>
+<area shape="poly" id="edge246_Node000000_Node000023" title=" " alt="" coords="69,807,81,898,101,1021,115,1082,131,1138,149,1183,170,1213,187,1226,184,1230,166,1217,145,1186,126,1140,110,1084,96,1022,75,899,64,807"/>
+<area shape="rect" id="Node000024" href="$classrun__simSND_1_1MyTask.html" title=" " alt="" coords="211,1277,365,1303"/>
+<area shape="poly" id="edge247_Node000000_Node000024" title=" " alt="" coords="69,807,78,907,98,1045,111,1114,128,1177,147,1229,170,1263,189,1276,211,1284,210,1289,186,1281,166,1267,143,1231,123,1179,106,1116,92,1046,73,908,63,807"/>
+<area shape="rect" id="Node000025" href="$classvetoTimeCalibration_1_1vetoTDCchannelCalibration.html" title=" " alt="" coords="194,1327,382,1367"/>
+<area shape="poly" id="edge248_Node000000_Node000025" title=" " alt="" coords="68,807,77,916,96,1068,109,1145,126,1216,146,1273,170,1312,195,1330,192,1335,166,1316,141,1276,121,1217,104,1146,90,1069,72,917,63,807"/>
+<area shape="rect" id="Node000026" href="$classvetoTimeCalibration_1_1vetoTDCplaneCalibration.html" title=" " alt="" coords="194,1391,382,1431"/>
+<area shape="poly" id="edge249_Node000000_Node000026" title=" " alt="" coords="68,807,74,929,91,1100,105,1188,122,1268,144,1333,156,1359,170,1377,195,1396,192,1400,166,1381,152,1361,139,1335,117,1269,99,1189,86,1101,69,929,62,808"/>
+<area shape="rect" id="Node000027" href="$classvetoTimeCalibration_1_1vetoTimeWalk.html" title=" " alt="" coords="194,1455,382,1495"/>
+<area shape="poly" id="edge250_Node000000_Node000027" title=" " alt="" coords="67,807,72,940,87,1131,101,1229,118,1318,141,1392,155,1420,170,1441,195,1460,192,1464,166,1445,150,1423,136,1394,113,1320,95,1230,82,1132,67,941,62,808"/>
 </map>

@@ -1,4 +1,5 @@
 <map id="genfit::GFRavePropagator" name="genfit::GFRavePropagator">
-<area shape="rect" id="node1" title="GFRavePropagator class." alt="" coords="5,80,195,107"/>
-<area shape="rect" id="node2" title=" " alt="" coords="35,5,165,32"/>
+<area shape="rect" id="Node000001" title="GFRavePropagator class." alt="" coords="5,79,195,104"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="35,5,165,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="103,44,103,79,97,79,97,44"/>
 </map>

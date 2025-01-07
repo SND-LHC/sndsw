@@ -1,13 +1,33 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" title=" " alt="" coords="5,233,99,260"/>
-<area shape="rect" id="node2" href="$classEmulsionMagnet.html" title=" " alt="" coords="193,5,324,32"/>
-<area shape="rect" id="node3" href="$classMufluxTargetStation.html" title=" " alt="" coords="183,56,335,83"/>
-<area shape="rect" id="node4" href="$classShipCave.html" title=" " alt="" coords="217,107,300,133"/>
-<area shape="rect" id="node5" href="$classShipChamber.html" title=" " alt="" coords="204,157,313,184"/>
-<area shape="rect" id="node6" href="$classShipGoliath.html" title=" " alt="" coords="210,208,307,235"/>
-<area shape="rect" id="node7" href="$classShipMagnet.html" title=" " alt="" coords="209,259,308,285"/>
-<area shape="rect" id="node8" href="$classShipMuonShield.html" title=" " alt="" coords="195,309,322,336"/>
-<area shape="rect" id="node9" href="$classShipTAUMagneticSpectrometer.html" title=" " alt="" coords="147,360,371,387"/>
-<area shape="rect" id="node10" href="$classShipTargetStation.html" title=" " alt="" coords="191,411,327,437"/>
-<area shape="rect" id="node11" href="$classpyFairModule.html" title=" " alt="" coords="204,461,313,488"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,351,116,376"/>
+<area shape="rect" id="Node000001" href="$classALPACAGenerator.html" title=" " alt="" coords="190,5,327,31"/>
+<area shape="poly" id="edge118_Node000000_Node000001" title=" " alt="" coords="60,337,64,276,79,197,92,154,110,113,133,74,162,40,188,24,191,29,166,44,137,77,115,115,97,156,84,198,70,277,65,337"/>
+<area shape="rect" id="Node000002" href="$classCosmicsGenerator.html" title=" " alt="" coords="187,55,330,80"/>
+<area shape="poly" id="edge119_Node000000_Node000002" title=" " alt="" coords="61,336,69,284,86,218,99,183,116,149,137,117,162,89,186,75,189,80,166,93,141,120,120,151,104,185,91,219,74,285,67,337"/>
+<area shape="rect" id="Node000003" href="$classDPPythia8Generator.html" title=" " alt="" coords="181,104,336,129"/>
+<area shape="poly" id="edge120_Node000000_Node000003" title=" " alt="" coords="64,337,74,293,93,240,122,185,140,160,162,139,181,127,183,132,166,143,144,164,126,188,98,242,79,295,69,338"/>
+<area shape="rect" id="Node000004" href="$classFixedTargetGenerator.html" title=" " alt="" coords="178,153,339,179"/>
+<area shape="poly" id="edge121_Node000000_Node000004" title=" " alt="" coords="67,337,81,303,101,263,128,222,162,188,183,176,185,181,166,192,132,226,105,265,86,305,72,339"/>
+<area shape="rect" id="Node000005" href="$classGenieGenerator.html" title=" " alt="" coords="196,203,321,228"/>
+<area shape="poly" id="edge122_Node000000_Node000005" title=" " alt="" coords="73,337,109,286,134,260,163,237,195,223,197,228,165,242,138,264,113,290,78,340"/>
+<area shape="rect" id="Node000006" href="$classHNLPythia8Generator.html" title=" " alt="" coords="177,252,340,277"/>
+<area shape="poly" id="edge123_Node000000_Node000006" title=" " alt="" coords="85,339,120,312,163,286,193,275,195,280,165,291,123,316,88,343"/>
+<area shape="rect" id="Node000007" href="$classMuDISGenerator.html" title=" " alt="" coords="194,301,323,327"/>
+<area shape="poly" id="edge124_Node000000_Node000007" title=" " alt="" coords="125,345,206,324,208,329,126,350"/>
+<area shape="rect" id="Node000008" href="$classMuonBackGenerator.html" title=" " alt="" coords="181,351,336,376"/>
+<area shape="poly" id="edge125_Node000000_Node000008" title=" " alt="" coords="130,361,181,361,181,366,130,366"/>
+<area shape="rect" id="Node000009" href="$classNeutronGenerator__FLUKA.html" title=" " alt="" coords="164,400,353,425"/>
+<area shape="poly" id="edge126_Node000000_Node000009" title=" " alt="" coords="126,377,208,397,206,403,125,382"/>
+<area shape="rect" id="Node000010" href="$classNtupleGenerator.html" title=" " alt="" coords="193,449,324,475"/>
+<area shape="poly" id="edge127_Node000000_Node000010" title=" " alt="" coords="88,383,123,410,165,434,199,447,197,452,163,439,120,414,85,387"/>
+<area shape="rect" id="Node000011" href="$classNtupleGenerator__FLUKA.html" title=" " alt="" coords="169,499,349,524"/>
+<area shape="poly" id="edge128_Node000000_Node000011" title=" " alt="" coords="78,386,114,436,138,462,165,484,192,496,189,501,163,488,134,466,110,440,74,389"/>
+<area shape="rect" id="Node000012" href="$classNuageGenerator.html" title=" " alt="" coords="194,548,323,573"/>
+<area shape="poly" id="edge129_Node000000_Node000012" title=" " alt="" coords="73,388,86,422,106,461,132,500,166,533,195,548,193,553,162,537,128,503,101,464,81,424,68,390"/>
+<area shape="rect" id="Node000013" href="$classPythia6Generator.html" title=" " alt="" coords="191,597,327,623"/>
+<area shape="poly" id="edge130_Node000000_Node000013" title=" " alt="" coords="69,389,80,431,98,484,126,537,145,561,166,583,192,597,189,602,162,587,141,565,122,540,93,486,75,433,64,390"/>
+<area shape="rect" id="Node000014" href="$classPythia8Generator.html" title=" " alt="" coords="191,647,327,672"/>
+<area shape="poly" id="edge131_Node000000_Node000014" title=" " alt="" coords="67,389,75,441,91,506,121,574,141,605,166,632,192,647,189,652,162,636,137,608,116,577,86,508,69,442,61,390"/>
+<area shape="rect" id="Node000015" href="$classtPythia6Generator.html" title=" " alt="" coords="188,696,329,721"/>
+<area shape="poly" id="edge132_Node000000_Node000015" title=" " alt="" coords="65,390,70,450,85,529,98,570,115,611,138,648,166,681,189,696,186,701,162,685,133,652,110,613,93,572,80,530,65,451,60,390"/>
 </map>

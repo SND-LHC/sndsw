@@ -1,7 +1,7 @@
 var evdsnd__commands_8py =
 [
-    [ "fittrack", "evdsnd__commands_8py.html#a06088a0ef7c2c5720ab98f6296c6283b", null ],
-    [ "light", "evdsnd__commands_8py.html#a051209baf8734a240de90b76c5481b03", null ],
-    [ "nextEvent", "evdsnd__commands_8py.html#ae2832217653369430625488d469dffa7", null ],
-    [ "transparentMode", "evdsnd__commands_8py.html#aba22e52f0f90c81d711a3c4ce8201de9", null ]
+    [ "fittrack", "evdsnd__commands_8py.html#a95be6953f1a02dbed5bf9f184df38b79", null ],
+    [ "light", "evdsnd__commands_8py.html#afebbdd42485288853414cf2a623f0b39", null ],
+    [ "nextEvent", "evdsnd__commands_8py.html#a6d931161e41a5b2a6e2aac01777fcaf4", null ],
+    [ "transparentMode", "evdsnd__commands_8py.html#abc55bb7ff7926265d8ff0cad9d2bd70e", null ]
 ];

@@ -1,10 +1,17 @@
 <map id="ShipUnpack" name="ShipUnpack">
-<area shape="rect" id="node1" title=" " alt="" coords="370,80,469,107"/>
-<area shape="rect" id="node3" href="$classDriftTubeUnpack.html" title=" " alt="" coords="5,155,135,181"/>
-<area shape="rect" id="node4" href="$classDummyUnpack.html" title=" " alt="" coords="159,155,282,181"/>
-<area shape="rect" id="node5" href="$classPixelUnpack.html" title=" " alt="" coords="307,155,409,181"/>
-<area shape="rect" id="node6" href="$classRPCUnpack.html" title=" " alt="" coords="433,155,531,181"/>
-<area shape="rect" id="node7" href="$classScalerUnpack.html" title=" " alt="" coords="555,155,665,181"/>
-<area shape="rect" id="node8" href="$classSciFiUnpack.html" title=" " alt="" coords="690,155,791,181"/>
-<area shape="rect" id="node2" title=" " alt="" coords="372,5,467,32"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="370,79,469,104"/>
+<area shape="rect" id="Node000003" href="$classDriftTubeUnpack.html" title=" " alt="" coords="5,152,135,177"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="357,108,127,155,126,149,356,103"/>
+<area shape="rect" id="Node000004" href="$classDummyUnpack.html" title=" " alt="" coords="159,152,282,177"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="375,111,254,154,252,149,374,106"/>
+<area shape="rect" id="Node000005" href="$classPixelUnpack.html" title=" " alt="" coords="307,152,409,177"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="402,116,370,154,366,150,398,113"/>
+<area shape="rect" id="Node000006" href="$classRPCUnpack.html" title=" " alt="" coords="433,152,531,177"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="441,113,474,150,470,154,437,116"/>
+<area shape="rect" id="Node000007" href="$classScalerUnpack.html" title=" " alt="" coords="555,152,665,177"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="464,106,580,149,578,154,462,111"/>
+<area shape="rect" id="Node000008" href="$classSciFiUnpack.html" title=" " alt="" coords="690,152,791,177"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="483,104,690,149,689,155,481,109"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="372,5,467,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="422,44,422,79,417,79,417,44"/>
 </map>

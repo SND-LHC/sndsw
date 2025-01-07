@@ -4,7 +4,7 @@ var classgenfit_1_1MeasurementOnPlane =
     [ "MeasurementOnPlane", "classgenfit_1_1MeasurementOnPlane.html#a387630672bc626df8c36c6411e4af03b", null ],
     [ "MeasurementOnPlane", "classgenfit_1_1MeasurementOnPlane.html#aeb051913995de728e9ded366571dcdbc", null ],
     [ "~MeasurementOnPlane", "classgenfit_1_1MeasurementOnPlane.html#a7f8662195126205107eeaa7171dcce82", null ],
-    [ "getHMatrix", "classgenfit_1_1MeasurementOnPlane.html#a8dbc350a1404649ea3a46da76ffab4dd", null ],
+    [ "getHMatrix", "classgenfit_1_1MeasurementOnPlane.html#ac5c0217938c7e0ba987839cb9681f816", null ],
     [ "getWeight", "classgenfit_1_1MeasurementOnPlane.html#a26c58762403ee114cae57e6960524b39", null ],
     [ "getWeightedCov", "classgenfit_1_1MeasurementOnPlane.html#a9708d45ae741cc303fdbfdcdf5adc1f5", null ],
     [ "operator=", "classgenfit_1_1MeasurementOnPlane.html#a8b25c018b4a1affc4944df2b2ab4b436", null ],

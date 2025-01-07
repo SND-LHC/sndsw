@@ -1,6 +1,33 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" title=" " alt="" coords="5,56,173,83"/>
-<area shape="rect" id="node2" href="$classg4Ex_1_1MySteppingAction.html" title=" " alt="" coords="239,5,415,32"/>
-<area shape="rect" id="node3" href="$classg4Ex__args_1_1MySteppingAction.html" title=" " alt="" coords="221,56,432,83"/>
-<area shape="rect" id="node4" href="$classg4Ex__gap_1_1MySteppingAction.html" title=" " alt="" coords="223,107,430,133"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,351,80,376"/>
+<area shape="rect" id="Node000001" href="$classConvRawData.html" title=" " alt="" coords="154,5,269,31"/>
+<area shape="poly" id="edge163_Node000000_Node000001" title=" " alt="" coords="45,337,56,267,73,179,97,96,111,63,126,40,152,24,155,28,130,44,115,65,102,97,78,180,61,268,50,337"/>
+<area shape="rect" id="Node000002" href="$classDigiTaskSND.html" title=" " alt="" coords="159,55,264,80"/>
+<area shape="poly" id="edge164_Node000000_Node000002" title=" " alt="" coords="42,337,46,285,58,219,69,184,84,150,102,118,126,89,141,79,158,72,160,77,144,83,130,93,107,121,88,152,74,186,64,220,51,286,47,337"/>
+<area shape="rect" id="Node000003" href="$classecalAnalysisMaterial.html" title=" " alt="" coords="132,104,291,129"/>
+<area shape="poly" id="edge165_Node000000_Node000003" title=" " alt="" coords="44,336,51,294,65,240,89,186,106,161,126,139,143,127,146,132,130,143,110,164,94,189,70,242,56,295,49,337"/>
+<area shape="rect" id="Node000004" href="$classecalAnalysisSimple.html" title=" " alt="" coords="137,153,286,179"/>
+<area shape="poly" id="edge166_Node000000_Node000004" title=" " alt="" coords="47,336,57,303,73,263,96,222,126,188,145,176,148,181,130,192,100,226,78,265,62,304,52,338"/>
+<area shape="rect" id="Node000005" href="$classecalClusterCalibration.html" title=" " alt="" coords="128,203,295,228"/>
+<area shape="poly" id="edge167_Node000000_Node000005" title=" " alt="" coords="52,337,81,286,102,260,126,237,147,226,150,230,130,242,105,263,85,289,57,340"/>
+<area shape="rect" id="Node000006" href="$classecalClusterFinder.html" title=" " alt="" coords="144,252,279,277"/>
+<area shape="poly" id="edge168_Node000000_Node000006" title=" " alt="" coords="63,338,91,311,127,286,153,275,155,280,129,291,95,315,66,342"/>
+<area shape="rect" id="Node000007" href="$classecalDigi.html" title=" " alt="" coords="174,301,249,327"/>
+<area shape="poly" id="edge169_Node000000_Node000007" title=" " alt="" coords="93,346,127,335,173,322,174,327,129,341,94,351"/>
+<area shape="rect" id="Node000008" href="$classecalDrawer.html" title=" " alt="" coords="163,351,259,376"/>
+<area shape="poly" id="edge170_Node000000_Node000008" title=" " alt="" coords="94,361,163,361,163,366,94,366"/>
+<area shape="rect" id="Node000009" href="$classecalMatch.html" title=" " alt="" coords="167,400,256,425"/>
+<area shape="poly" id="edge171_Node000000_Node000009" title=" " alt="" coords="94,375,168,397,166,402,92,381"/>
+<area shape="rect" id="Node000010" href="$classecalMaximumLocator.html" title=" " alt="" coords="130,449,293,475"/>
+<area shape="poly" id="edge172_Node000000_Node000010" title=" " alt="" coords="66,384,95,410,129,434,158,447,156,452,127,439,92,414,63,388"/>
+<area shape="rect" id="Node000011" href="$classecalPrepare.html" title=" " alt="" coords="162,499,261,524"/>
+<area shape="poly" id="edge173_Node000000_Node000011" title=" " alt="" coords="57,387,86,437,106,462,129,484,163,500,161,505,127,488,102,466,81,440,53,390"/>
+<area shape="rect" id="Node000012" href="$classecalReco.html" title=" " alt="" coords="171,548,252,573"/>
+<area shape="poly" id="edge174_Node000000_Node000012" title=" " alt="" coords="52,389,62,422,78,461,100,500,130,533,149,545,171,553,170,558,147,550,126,537,96,503,73,463,57,424,47,390"/>
+<area shape="rect" id="Node000013" href="$classecalStructureFiller.html" title=" " alt="" coords="141,597,281,623"/>
+<area shape="poly" id="edge175_Node000000_Node000013" title=" " alt="" coords="49,390,57,432,71,484,95,537,111,561,130,583,149,595,146,600,126,587,106,565,90,540,66,486,51,433,44,391"/>
+<area shape="rect" id="Node000014" href="$classhcalAnalysisSimple.html" title=" " alt="" coords="137,647,286,672"/>
+<area shape="poly" id="edge176_Node000000_Node000014" title=" " alt="" coords="47,389,52,440,64,506,89,573,107,605,130,632,148,644,144,649,126,636,103,608,84,576,59,507,46,441,42,390"/>
+<area shape="rect" id="Node000015" href="$classhcalStructureFiller.html" title=" " alt="" coords="141,696,281,721"/>
+<area shape="poly" id="edge177_Node000000_Node000015" title=" " alt="" coords="46,390,47,449,58,527,68,569,83,610,104,648,130,681,147,694,144,698,126,685,99,651,78,612,63,571,53,528,42,450,40,390"/>
 </map>

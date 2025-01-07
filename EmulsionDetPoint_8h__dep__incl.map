@@ -1,5 +1,7 @@
 <map id="shipLHC/EmulsionDetPoint.h" name="shipLHC/EmulsionDetPoint.h">
-<area shape="rect" id="node1" title=" " alt="" coords="111,5,318,32"/>
-<area shape="rect" id="node2" href="$EmulsionDet_8cxx.html" title=" " alt="" coords="5,80,195,107"/>
-<area shape="rect" id="node3" href="$EmulsionDetPoint_8cxx.html" title=" " alt="" coords="219,80,442,107"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="111,5,318,31"/>
+<area shape="rect" id="Node000002" href="$EmulsionDet_8cxx.html" title=" " alt="" coords="5,79,195,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="186,40,120,81,117,76,183,35"/>
+<area shape="rect" id="Node000003" href="$EmulsionDetPoint_8cxx.html" title=" " alt="" coords="219,79,442,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="246,35,313,76,310,81,243,40"/>
 </map>

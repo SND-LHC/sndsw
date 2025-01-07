@@ -7,7 +7,7 @@ var classShipUnpack =
     [ "GetNHitsTotal", "classShipUnpack.html#a50751abd39b9fa3201d2b9c934d43954", null ],
     [ "GetPartition", "classShipUnpack.html#add23ea974f604e259f031b4be06983f8", null ],
     [ "Init", "classShipUnpack.html#a7a07716941064191d84ccda23c588974", null ],
-    [ "operator=", "classShipUnpack.html#ab9ee80fdc873d1a264d4f4eb5adc29db", null ],
+    [ "operator=", "classShipUnpack.html#a39358f8eae0ab6760746cf437bf85cc0", null ],
     [ "Register", "classShipUnpack.html#a911926b6ab619932b70712293caa693e", null ],
     [ "Reset", "classShipUnpack.html#a891f90cbebebaa7c7f5f6b87048877fc", null ],
     [ "fNHits", "classShipUnpack.html#a676333592b2d1e1bcffedbfc6b02cdf5", null ],

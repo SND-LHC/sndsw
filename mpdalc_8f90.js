@@ -1,7 +1,7 @@
 var mpdalc_8f90 =
 [
-    [ "mpalloc", "interfacempdalc_1_1mpalloc.html", "interfacempdalc_1_1mpalloc" ],
-    [ "mpdealloc", "interfacempdalc_1_1mpdealloc.html", "interfacempdalc_1_1mpdealloc" ],
+    [ "mpdalc::mpalloc", "interfacempdalc_1_1mpalloc.html", "interfacempdalc_1_1mpalloc" ],
+    [ "mpdalc::mpdealloc", "interfacempdalc_1_1mpdealloc.html", "interfacempdalc_1_1mpdealloc" ],
     [ "mpalloccheck", "mpdalc_8f90.html#a9d7bc08a27338fcdaface2cbfa776ee7", null ],
     [ "mpalloccvec", "mpdalc_8f90.html#a51dfc8fc478f82ed304d71c75725efbd", null ],
     [ "mpallocdvec", "mpdalc_8f90.html#af70f3de8b7d473411eea418ffbc71c68", null ],

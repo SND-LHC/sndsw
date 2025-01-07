@@ -1,4 +1,13 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classgenfit_1_1FitStatus.html" title="Class where important numbers and properties of a fit can be stored." alt="" coords="5,5,129,32"/>
-<area shape="rect" id="node2" href="$classgenfit_1_1KalmanFitStatus.html" title="FitStatus for use with AbsKalmanFitter implementations." alt="" coords="177,5,352,32"/>
+<area shape="rect" id="Node000000" href="$classgenfit_1_1AbsFitter.html" title="Abstract base class for fitters." alt="" coords="5,80,131,105"/>
+<area shape="rect" id="Node000001" href="$classgenfit_1_1AbsKalmanFitter.html" title="Abstract base class for Kalman fitter and derived fitting algorithms." alt="" coords="179,55,353,80"/>
+<area shape="poly" id="edge209_Node000000_Node000001" title=" " alt="" coords="144,80,178,76,179,81,145,86"/>
+<area shape="rect" id="Node000005" href="$classgenfit_1_1GFGbl.html" title="Generic GBL implementation." alt="" coords="213,104,319,129"/>
+<area shape="poly" id="edge213_Node000000_Node000005" title=" " alt="" coords="145,99,213,108,212,113,145,105"/>
+<area shape="rect" id="Node000002" href="$classgenfit_1_1DAF.html" title="Determinstic Annealing Filter (DAF) implementation." alt="" coords="457,5,552,31"/>
+<area shape="poly" id="edge210_Node000001_Node000002" title=" " alt="" coords="341,49,457,25,458,30,342,54"/>
+<area shape="rect" id="Node000003" href="$classgenfit_1_1KalmanFitter.html" title="Simple Kalman filter implementation." alt="" coords="429,55,580,80"/>
+<area shape="poly" id="edge211_Node000001_Node000003" title=" " alt="" coords="367,65,429,65,429,70,367,70"/>
+<area shape="rect" id="Node000004" href="$classgenfit_1_1KalmanFitterRefTrack.html" title="Kalman filter implementation with linearization around a reference track." alt="" coords="401,104,608,129"/>
+<area shape="poly" id="edge212_Node000001_Node000004" title=" " alt="" coords="342,80,443,101,442,107,341,85"/>
 </map>

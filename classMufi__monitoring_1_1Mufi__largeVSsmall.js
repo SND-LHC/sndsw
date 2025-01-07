@@ -1,7 +1,7 @@
 var classMufi__monitoring_1_1Mufi__largeVSsmall =
 [
-    [ "ExecuteEvent", "classMufi__monitoring_1_1Mufi__largeVSsmall.html#aad79c78f6050fb581360fbdd68dc1484", null ],
-    [ "Init", "classMufi__monitoring_1_1Mufi__largeVSsmall.html#aa730fad294ae177b2e752e1d80ad0a60", null ],
-    [ "Plot", "classMufi__monitoring_1_1Mufi__largeVSsmall.html#a93dcc7f63f9011f3e1cb95ecb5f094a2", null ],
+    [ "ExecuteEvent", "classMufi__monitoring_1_1Mufi__largeVSsmall.html#a499c5b7ca596b1c98ef2c7b0118eabbe", null ],
+    [ "Init", "classMufi__monitoring_1_1Mufi__largeVSsmall.html#a5616eceee09902d36271b48b29e24fe2", null ],
+    [ "Plot", "classMufi__monitoring_1_1Mufi__largeVSsmall.html#a5306b80c8afc331bc009c514805add8f", null ],
     [ "M", "classMufi__monitoring_1_1Mufi__largeVSsmall.html#a7786dd4739098124669cc1aafd423536", null ]
 ];

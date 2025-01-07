@@ -1,12 +1,24 @@
 <map id="shipLHC/Scifi.h" name="shipLHC/Scifi.h">
-<area shape="rect" id="node1" title=" " alt="" coords="539,5,658,32"/>
-<area shape="rect" id="node2" href="$Scifi_8cxx.html" title=" " alt="" coords="5,80,139,107"/>
-<area shape="rect" id="node3" href="$sndCluster_8h.html" title=" " alt="" coords="163,80,322,107"/>
-<area shape="rect" id="node5" href="$DigiTaskSND_8cxx.html" title=" " alt="" coords="303,155,521,181"/>
-<area shape="rect" id="node6" href="$sndRecoTrack_8cxx.html" title=" " alt="" coords="397,80,592,107"/>
-<area shape="rect" id="node7" href="$sndScifiHit_8cxx.html" title=" " alt="" coords="617,80,791,107"/>
-<area shape="rect" id="node8" href="$ConvRawData_8cxx.html" title=" " alt="" coords="1013,155,1240,181"/>
-<area shape="rect" id="node9" href="$ConvRawData_8h.html" title=" " alt="" coords="1093,80,1305,107"/>
-<area shape="rect" id="node10" href="$DigiTaskSND_8h.html" title=" " alt="" coords="816,80,1019,107"/>
-<area shape="rect" id="node4" href="$sndCluster_8cxx.html" title=" " alt="" coords="103,155,278,181"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="539,5,658,31"/>
+<area shape="rect" id="Node000002" href="$Scifi_8cxx.html" title=" " alt="" coords="5,79,139,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="526,31,151,81,139,83,139,78,150,76,525,26"/>
+<area shape="rect" id="Node000003" href="$sndCluster_8h.html" title=" " alt="" coords="163,79,322,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="529,36,301,81,300,76,528,31"/>
+<area shape="rect" id="Node000005" href="$DigiTaskSND_8cxx.html" title=" " alt="" coords="303,152,521,177"/>
+<area shape="poly" id="edge10_Node000001_Node000005" title=" " alt="" coords="526,33,442,52,408,65,387,80,382,97,385,116,405,150,400,153,380,118,376,97,383,77,406,61,441,47,525,27"/>
+<area shape="rect" id="Node000006" href="$sndRecoTrack_8cxx.html" title=" " alt="" coords="397,79,592,104"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="572,41,513,81,510,76,569,36"/>
+<area shape="rect" id="Node000007" href="$sndScifiHit_8cxx.html" title=" " alt="" coords="617,79,791,104"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="629,36,688,76,685,81,626,41"/>
+<area shape="rect" id="Node000008" href="$ConvRawData_8cxx.html" title=" " alt="" coords="1013,152,1240,177"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="672,22,868,41,964,57,1032,76,1059,92,1084,113,1119,150,1116,153,1081,116,1056,97,1030,81,963,62,867,46,672,27"/>
+<area shape="rect" id="Node000009" href="$ConvRawData_8h.html" title=" " alt="" coords="1093,79,1305,104"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="672,25,1103,76,1102,81,671,31"/>
+<area shape="rect" id="Node000010" href="$DigiTaskSND_8h.html" title=" " alt="" coords="816,79,1019,104"/>
+<area shape="poly" id="edge11_Node000001_Node000010" title=" " alt="" coords="663,31,866,76,865,81,662,36"/>
+<area shape="rect" id="Node000004" href="$sndCluster_8cxx.html" title=" " alt="" coords="103,152,278,177"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="228,117,201,153,197,150,224,114"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="284,107,385,149,383,154,281,112"/>
+<area shape="poly" id="edge9_Node000009_Node000008" title=" " alt="" coords="1179,116,1140,154,1136,150,1175,112"/>
+<area shape="poly" id="edge12_Node000010_Node000005" title=" " alt="" coords="823,109,494,155,493,149,822,103"/>
 </map>

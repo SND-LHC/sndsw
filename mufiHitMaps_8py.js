@@ -1,13 +1,13 @@
 var mufiHitMaps_8py =
 [
-    [ "analyze_USefficiency", "mufiHitMaps_8py.html#ac1a4ccfd599266faa17ca79b21b25fc9", null ],
-    [ "beamSpot", "mufiHitMaps_8py.html#a2ae7e3ec8b69548cb60b825664520d34", null ],
-    [ "DS_track", "mufiHitMaps_8py.html#af00404f854eb4a56b8c0f3727fe5b60f", null ],
-    [ "eventTime", "mufiHitMaps_8py.html#aaf61f493002a3f19a5e9384eac1c257e", null ],
-    [ "hitMaps", "mufiHitMaps_8py.html#a80fbfb4d2b470e67697a0c0d3d52686a", null ],
-    [ "smallSiPMchannel", "mufiHitMaps_8py.html#aa4f418ba90b748ec8340602cae66318b", null ],
-    [ "timing", "mufiHitMaps_8py.html#a6aed72de0acfb847f61957c464055ed7", null ],
-    [ "USEfficiency", "mufiHitMaps_8py.html#a4614292972e6fc735a1401c7b5870bbf", null ],
+    [ "analyze_USefficiency", "mufiHitMaps_8py.html#a42848d36c221a6b9c3337d57eefb7908", null ],
+    [ "beamSpot", "mufiHitMaps_8py.html#a54c8948dbb9deb9280df23b3dc670f2a", null ],
+    [ "DS_track", "mufiHitMaps_8py.html#a015226becbaf17db3e1848bc41fe5e21", null ],
+    [ "eventTime", "mufiHitMaps_8py.html#af98475e4906871892b2846593be01c91", null ],
+    [ "hitMaps", "mufiHitMaps_8py.html#a04665c67ee46468bea40f37f99360954", null ],
+    [ "smallSiPMchannel", "mufiHitMaps_8py.html#a0320dfb9c7eb3b39913fe050910912e2", null ],
+    [ "timing", "mufiHitMaps_8py.html#a5d6ec2683bd86068f7df9a0155b4d009", null ],
+    [ "USEfficiency", "mufiHitMaps_8py.html#ae7e4b5df32b61f99d70a6587d7705766", null ],
     [ "A", "mufiHitMaps_8py.html#aaa1098ee760a234c72324a2788080789", null ],
     [ "B", "mufiHitMaps_8py.html#a5c1a1098e44577d5bc4a0e5fdf0ab918", null ],
     [ "bar", "mufiHitMaps_8py.html#a56349c5d1b8d8e7fdc8a09c83f33c968", null ],
@@ -19,7 +19,7 @@ var mufiHitMaps_8py =
     [ "False", "mufiHitMaps_8py.html#a6387c441dd76040aecbfdae90e4c5d06", null ],
     [ "freq", "mufiHitMaps_8py.html#a7bb98755ef8ef11dc9a34ab954826298", null ],
     [ "geo", "mufiHitMaps_8py.html#a8892d303064f50cc1b7476f873591bb1", null ],
-    [ "h", "mufiHitMaps_8py.html#a336f107e8f58e89ed2373078649b4793", null ],
+    [ "h", "mufiHitMaps_8py.html#a1c8d969077bb65d92a6179835905ac69", null ],
     [ "help", "mufiHitMaps_8py.html#ab06e76997ad0fcccd42bb9181f32f348", null ],
     [ "int", "mufiHitMaps_8py.html#a54539278cf45ea4636c84e928d8a3f47", null ],
     [ "latex", "mufiHitMaps_8py.html#a98354c7a8613d23f924339a200de92a4", null ],
@@ -31,9 +31,9 @@ var mufiHitMaps_8py =
     [ "path", "mufiHitMaps_8py.html#a654b14d10018d7ab7a6dea77a5f2fb54", null ],
     [ "required", "mufiHitMaps_8py.html#af798691f0b91e6fcddf06a1e5841a156", null ],
     [ "str", "mufiHitMaps_8py.html#a1513dcccb04c5adc06d44e0b1f52cded", null ],
-    [ "systemAndBars", "mufiHitMaps_8py.html#ae209848e5ba1e4bf1ba861fb04681f99", null ],
-    [ "systemAndPlanes", "mufiHitMaps_8py.html#aee2027e10aba413502cbbe61b2b23635", null ],
+    [ "systemAndBars", "mufiHitMaps_8py.html#acfb151a9776edae8fa65328ce34737bb", null ],
+    [ "systemAndPlanes", "mufiHitMaps_8py.html#adc333e88644583188371c639c65ce4eb", null ],
     [ "trackTask", "mufiHitMaps_8py.html#a93b502bd715cdc75b86ca39dd03e2489", null ],
     [ "type", "mufiHitMaps_8py.html#a0a920dc55b984ab75ed50810241da7ca", null ],
-    [ "zPos", "mufiHitMaps_8py.html#ab6a04cd6c4d9eb454e0b907dfeea9e3b", null ]
+    [ "zPos", "mufiHitMaps_8py.html#a57a39274ab8ee9b8407e23810ad8f4ab", null ]
 ];

@@ -1,6 +1,9 @@
 <map id="genfit/include/genfit/RKTrackRep.h" name="genfit/include/genfit/RKTrackRep.h">
-<area shape="rect" id="node1" title=" " alt="" coords="101,5,252,47"/>
-<area shape="rect" id="node2" href="$include_2genfit_2AbsMaterialInterface_8h.html" title=" " alt="" coords="89,95,264,136"/>
-<area shape="rect" id="node3" href="$include_2genfit_2MaterialEffects_8h.html" title=" " alt="" coords="5,184,156,225"/>
-<area shape="rect" id="node4" href="$include_2genfit_2TGeoMaterialInterface_8h.html" title=" " alt="" coords="181,184,365,225"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="101,5,252,45"/>
+<area shape="rect" id="Node000002" href="$include_2genfit_2AbsMaterialInterface_8h.html" title=" " alt="" coords="89,93,264,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="179,59,179,93,174,93,174,59"/>
+<area shape="rect" id="Node000003" href="$include_2genfit_2MaterialEffects_8h.html" title=" " alt="" coords="5,181,156,221"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="147,145,104,183,100,179,143,141"/>
+<area shape="rect" id="Node000004" href="$include_2genfit_2TGeoMaterialInterface_8h.html" title=" " alt="" coords="181,181,365,221"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="210,141,253,179,250,183,207,145"/>
 </map>

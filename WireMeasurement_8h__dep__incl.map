@@ -1,11 +1,23 @@
 <map id="genfit/measurements/include/WireMeasurement.h" name="genfit/measurements/include/WireMeasurement.h">
-<area shape="rect" id="node1" title=" " alt="" coords="524,5,733,47"/>
-<area shape="rect" id="node2" href="$EventDisplay_8cc.html" title=" " alt="" coords="5,184,156,225"/>
-<area shape="rect" id="node3" href="$AbsKalmanFitter_8cc.html" title=" " alt="" coords="717,95,868,136"/>
-<area shape="rect" id="node4" href="$WirePointMeasurement_8h.html" title=" " alt="" coords="349,95,591,136"/>
-<area shape="rect" id="node6" href="$fitterTests_2main_8cc.html" title=" " alt="" coords="180,184,336,225"/>
-<area shape="rect" id="node7" href="$unitTests_2main_8cc.html" title=" " alt="" coords="604,184,755,225"/>
-<area shape="rect" id="node8" href="$MeasurementCreator_8cc.html" title=" " alt="" coords="779,184,961,225"/>
-<area shape="rect" id="node9" href="$WireMeasurement_8cc.html" title=" " alt="" coords="893,95,1079,136"/>
-<area shape="rect" id="node5" href="$WirePointMeasurement_8cc.html" title=" " alt="" coords="360,184,580,225"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="524,5,733,45"/>
+<area shape="rect" id="Node000002" href="$EventDisplay_8cc.html" title=" " alt="" coords="5,181,156,221"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="511,45,404,65,294,96,243,116,193,139,113,183,110,179,191,135,240,111,292,91,403,60,510,39"/>
+<area shape="rect" id="Node000003" href="$AbsKalmanFitter_8cc.html" title=" " alt="" coords="717,93,868,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="678,49,758,91,756,96,676,54"/>
+<area shape="rect" id="Node000004" href="$WirePointMeasurement_8h.html" title=" " alt="" coords="349,93,591,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="583,54,506,96,503,91,581,50"/>
+<area shape="rect" id="Node000006" href="$fitterTests_2main_8cc.html" title=" " alt="" coords="180,181,336,221"/>
+<area shape="poly" id="edge10_Node000001_Node000006" title=" " alt="" coords="511,37,422,57,379,74,338,96,315,115,296,138,269,182,264,180,292,135,311,111,335,91,376,69,421,52,510,32"/>
+<area shape="rect" id="Node000007" href="$unitTests_2main_8cc.html" title=" " alt="" coords="604,181,755,221"/>
+<area shape="poly" id="edge11_Node000001_Node000007" title=" " alt="" coords="641,58,676,180,671,182,635,59"/>
+<area shape="rect" id="Node000008" href="$MeasurementCreator_8cc.html" title=" " alt="" coords="779,181,961,221"/>
+<area shape="poly" id="edge12_Node000001_Node000008" title=" " alt="" coords="647,56,673,95,708,131,753,159,801,179,799,184,751,164,704,135,669,98,642,59"/>
+<area shape="rect" id="Node000009" href="$WireMeasurement_8cc.html" title=" " alt="" coords="893,93,1079,133"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="721,46,908,91,907,96,720,51"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="372,139,157,186,155,181,371,134"/>
+<area shape="rect" id="Node000005" href="$WirePointMeasurement_8cc.html" title=" " alt="" coords="360,181,580,221"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="473,147,473,181,467,181,467,147"/>
+<area shape="poly" id="edge6_Node000004_Node000006" title=" " alt="" coords="412,141,305,184,303,179,410,136"/>
+<area shape="poly" id="edge7_Node000004_Node000007" title=" " alt="" coords="530,136,635,179,632,184,528,141"/>
+<area shape="poly" id="edge8_Node000004_Node000008" title=" " alt="" coords="572,134,783,179,782,184,570,139"/>
 </map>

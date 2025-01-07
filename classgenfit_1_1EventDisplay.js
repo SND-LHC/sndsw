@@ -5,7 +5,7 @@ var classgenfit_1_1EventDisplay =
     [ "addEvent", "classgenfit_1_1EventDisplay.html#ad186b2d9c7e83fe5a0255fca641d1afa", null ],
     [ "addEvent", "classgenfit_1_1EventDisplay.html#a1868a4fc0c76287f5c6b38402659eb82", null ],
     [ "addEvent", "classgenfit_1_1EventDisplay.html#a273f0f885e02d740befd1d3b18489a16", null ],
-    [ "boxCreator", "classgenfit_1_1EventDisplay.html#a43cf24d6e94b72d207e71c8de508e965", null ],
+    [ "boxCreator", "classgenfit_1_1EventDisplay.html#a118a25ac19b198e4d28a0799dc410c04", null ],
     [ "drawEvent", "classgenfit_1_1EventDisplay.html#a294470305559030667e010db718d3f3a", null ],
     [ "getErrScale", "classgenfit_1_1EventDisplay.html#af7783147726b84fbf7ef9102d4eff4ce", null ],
     [ "getNEvents", "classgenfit_1_1EventDisplay.html#a1b1544012896871ee09cdb954ce4dde4", null ],

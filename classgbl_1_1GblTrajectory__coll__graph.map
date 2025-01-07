@@ -1,7 +1,11 @@
 <map id="gbl::GblTrajectory" name="gbl::GblTrajectory">
-<area shape="rect" id="node1" title="GBL trajectory." alt="" coords="35,199,171,225"/>
-<area shape="rect" id="node2" href="$classgbl_1_1VVector.html" title="Simple Vector based on std::vector&lt;double&gt;" alt="" coords="5,109,105,136"/>
-<area shape="rect" id="node3" href="$classgbl_1_1BorderedBandMatrix.html" title="(Symmetric) Bordered Band Matrix." alt="" coords="130,109,314,136"/>
-<area shape="rect" id="node4" href="$classgbl_1_1VSymMatrix.html" title="Simple symmetric Matrix based on std::vector&lt;double&gt;" alt="" coords="87,5,218,32"/>
-<area shape="rect" id="node5" href="$classgbl_1_1VMatrix.html" title="Simple Matrix based on std::vector&lt;double&gt;" alt="" coords="242,5,343,32"/>
+<area shape="rect" id="Node000001" title="GBL trajectory." alt="" coords="35,196,171,221"/>
+<area shape="rect" id="Node000002" href="$classgbl_1_1VVector.html" title="Simple Vector based on std::vector&lt;double&gt;" alt="" coords="5,108,105,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="71,144,99,194,94,197,66,147"/>
+<area shape="rect" id="Node000003" href="$classgbl_1_1BorderedBandMatrix.html" title="(Symmetric) Bordered Band Matrix." alt="" coords="130,108,314,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="198,144,157,174,122,198,119,194,154,170,194,140"/>
+<area shape="rect" id="Node000004" href="$classgbl_1_1VSymMatrix.html" title="Simple symmetric Matrix based on std::vector&lt;double&gt;" alt="" coords="87,5,218,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="169,41,196,82,214,106,210,109,192,86,165,44"/>
+<area shape="rect" id="Node000005" href="$classgbl_1_1VMatrix.html" title="Simple Matrix based on std::vector&lt;double&gt;" alt="" coords="242,5,343,31"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="287,45,265,86,240,110,237,106,261,82,282,43"/>
 </map>

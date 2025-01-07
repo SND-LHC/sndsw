@@ -1,12 +1,21 @@
 <map id="shipgen/sndlhcGSimpleNtpConverter.cxx" name="shipgen/sndlhcGSimpleNtpConverter.cxx">
-<area shape="rect" id="node1" title=" " alt="" coords="301,5,499,47"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,95,85,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="110,95,183,121"/>
-<area shape="rect" id="node4" title=" " alt="" coords="208,95,251,121"/>
-<area shape="rect" id="node5" title=" " alt="" coords="275,95,341,121"/>
-<area shape="rect" id="node6" title=" " alt="" coords="365,95,435,121"/>
-<area shape="rect" id="node7" title=" " alt="" coords="459,95,533,121"/>
-<area shape="rect" id="node8" title=" " alt="" coords="557,95,661,121"/>
-<area shape="rect" id="node9" href="$ShipUnit_8h.html" title=" " alt="" coords="686,95,775,121"/>
-<area shape="rect" id="node10" title=" " alt="" coords="799,95,1009,121"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="301,5,499,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,85,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="316,48,99,96,98,90,314,43"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="110,93,183,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="340,48,197,92,196,87,339,43"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="208,93,251,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="360,48,264,92,262,87,358,43"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="275,93,341,119"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="379,48,334,86,330,82,376,44"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="365,93,435,119"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="403,46,403,79,397,79,397,46"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="459,93,533,119"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="425,43,473,82,470,87,422,48"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="557,93,661,119"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="451,43,567,86,565,91,449,48"/>
+<area shape="rect" id="Node000009" href="$ShipUnit_8h.html" title=" " alt="" coords="686,93,775,119"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="480,43,673,88,672,94,479,48"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="799,93,1009,119"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="499,39,818,89,817,94,499,45"/>
 </map>

@@ -15,7 +15,7 @@ var classpreshower =
     [ "GetCollection", "classpreshower.html#a6cc709a024fdf38816e6ad29e5abe340", null ],
     [ "Initialize", "classpreshower.html#a49415aff731a1dec3b19251d20e82de1", null ],
     [ "InitMedium", "classpreshower.html#af6031784d229d939535f2077bf03898d", null ],
-    [ "operator=", "classpreshower.html#a4d3ac2d59322f832f677d7582c0ba326", null ],
+    [ "operator=", "classpreshower.html#af6626a79c5be7d00a62263f4367278fa", null ],
     [ "PostTrack", "classpreshower.html#a6c59d53ede58e71beda3bce3a1052d45", null ],
     [ "PreTrack", "classpreshower.html#ae1c176a42f1179b9ebaa8617b87cd781", null ],
     [ "ProcessHits", "classpreshower.html#a73b3d5a64c9acb053281a965e797764e", null ],

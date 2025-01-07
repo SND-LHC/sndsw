@@ -1,10 +1,17 @@
 <map id="genfit/measurements/src/HMatrixUV.cc" name="genfit/measurements/src/HMatrixUV.cc">
-<area shape="rect" id="node1" title=" " alt="" coords="205,5,367,47"/>
-<area shape="rect" id="node2" href="$HMatrixUV_8h.html" title=" " alt="" coords="124,95,227,121"/>
-<area shape="rect" id="node7" title=" " alt="" coords="251,95,321,121"/>
-<area shape="rect" id="node8" title=" " alt="" coords="345,95,419,121"/>
-<area shape="rect" id="node3" href="$AbsHMatrix_8h.html" title=" " alt="" coords="120,169,231,196"/>
-<area shape="rect" id="node4" title=" " alt="" coords="5,244,89,271"/>
-<area shape="rect" id="node5" title=" " alt="" coords="114,244,237,271"/>
-<area shape="rect" id="node6" title=" " alt="" coords="261,244,354,271"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="205,5,367,45"/>
+<area shape="rect" id="Node000002" href="$HMatrixUV_8h.html" title=" " alt="" coords="124,93,227,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="261,48,204,87,201,83,258,43"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="251,93,321,119"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="289,46,289,79,283,79,283,46"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="345,93,419,119"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="311,43,359,82,356,87,308,48"/>
+<area shape="rect" id="Node000003" href="$AbsHMatrix_8h.html" title=" " alt="" coords="120,167,231,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="178,119,178,153,173,153,173,119"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,240,89,265"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="156,194,82,235,79,231,153,190"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="114,240,237,265"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="178,192,178,226,173,226,173,192"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="261,240,354,265"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="198,190,275,231,273,236,195,194"/>
 </map>

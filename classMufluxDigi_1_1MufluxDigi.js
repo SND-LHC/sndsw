@@ -1,10 +1,10 @@
 var classMufluxDigi_1_1MufluxDigi =
 [
-    [ "__init__", "classMufluxDigi_1_1MufluxDigi.html#a487cbd01f433d1854966c1afdb07f26d", null ],
-    [ "digitize", "classMufluxDigi_1_1MufluxDigi.html#a208f1925e012255e65c3b4cdf7d50b19", null ],
-    [ "digitizeMufluxSpectrometer", "classMufluxDigi_1_1MufluxDigi.html#a71d9d704d838f3bc60cf268704bc0c50", null ],
-    [ "digitizeMuonTagger", "classMufluxDigi_1_1MufluxDigi.html#a47a44da3145caf729f1efc97ec6bbcca", null ],
-    [ "finish", "classMufluxDigi_1_1MufluxDigi.html#aa7371ad91509d9c3be47dc85750aeb38", null ],
+    [ "__init__", "classMufluxDigi_1_1MufluxDigi.html#a232e69ac6bbb9e3e8af47f578d414cf2", null ],
+    [ "digitize", "classMufluxDigi_1_1MufluxDigi.html#a9cd2d745045a8dff878065394496d989", null ],
+    [ "digitizeMufluxSpectrometer", "classMufluxDigi_1_1MufluxDigi.html#a800cb157232cca59e40b3136b09b1255", null ],
+    [ "digitizeMuonTagger", "classMufluxDigi_1_1MufluxDigi.html#a6a5882c9480724877333852b5dd3a170", null ],
+    [ "finish", "classMufluxDigi_1_1MufluxDigi.html#a47a60958e17a14f97a79bade4d2f71cf", null ],
     [ "digiLateMufluxSpectrometer", "classMufluxDigi_1_1MufluxDigi.html#acfa7b1d239824e961bfa3431e3c3c3de", null ],
     [ "digiLateMufluxSpectrometerBranch", "classMufluxDigi_1_1MufluxDigi.html#ac7f97de1b8adb3063ed8a2ac764a76bf", null ],
     [ "digiMufluxSpectrometer", "classMufluxDigi_1_1MufluxDigi.html#aa53cf07777ffc24e57b75384ffc3b8f5", null ],

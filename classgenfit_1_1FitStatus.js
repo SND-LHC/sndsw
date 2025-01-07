@@ -3,7 +3,7 @@ var classgenfit_1_1FitStatus =
     [ "FitStatus", "classgenfit_1_1FitStatus.html#a44892e69ce2feaf2e9ecaf8de1456b8d", null ],
     [ "~FitStatus", "classgenfit_1_1FitStatus.html#a310cd2557786476aff637d147ba2be82", null ],
     [ "ClassDef", "classgenfit_1_1FitStatus.html#a672f08ae80a127a15b44e1644e101d04", null ],
-    [ "clone", "classgenfit_1_1FitStatus.html#a3a0938c649365ae88382a491c1bfc417", null ],
+    [ "clone", "classgenfit_1_1FitStatus.html#a57ad33b5fedaab698049d7955495d8aa", null ],
     [ "getCharge", "classgenfit_1_1FitStatus.html#a577876860cae63eb1642275545b83f51", null ],
     [ "getChi2", "classgenfit_1_1FitStatus.html#ae8ebf924f1e993731f27c44b87dd9ab1", null ],
     [ "getNdf", "classgenfit_1_1FitStatus.html#a5af64b4106ee194eb6ba3dfe0814f57a", null ],

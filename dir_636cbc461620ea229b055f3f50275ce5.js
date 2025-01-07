@@ -2,58 +2,30 @@ var dir_636cbc461620ea229b055f3f50275ce5 =
 [
     [ "AnalysisCutsLinkDef.h", "AnalysisCutsLinkDef_8h.html", null ],
     [ "sndAvgDSFiducialCut.cxx", "sndAvgDSFiducialCut_8cxx.html", null ],
-    [ "sndAvgDSFiducialCut.h", "sndAvgDSFiducialCut_8h.html", [
-      [ "avgDSFiducialCut", "classsnd_1_1analysis__cuts_1_1avgDSFiducialCut.html", "classsnd_1_1analysis__cuts_1_1avgDSFiducialCut" ]
-    ] ],
+    [ "sndAvgDSFiducialCut.h", "sndAvgDSFiducialCut_8h.html", "sndAvgDSFiducialCut_8h" ],
     [ "sndAvgSciFiFiducialCut.cxx", "sndAvgSciFiFiducialCut_8cxx.html", null ],
-    [ "sndAvgSciFiFiducialCut.h", "sndAvgSciFiFiducialCut_8h.html", [
-      [ "avgSciFiFiducialCut", "classsnd_1_1analysis__cuts_1_1avgSciFiFiducialCut.html", "classsnd_1_1analysis__cuts_1_1avgSciFiFiducialCut" ]
-    ] ],
-    [ "sndBaseCut.h", "sndBaseCut_8h.html", [
-      [ "baseCut", "classsnd_1_1analysis__cuts_1_1baseCut.html", "classsnd_1_1analysis__cuts_1_1baseCut" ]
-    ] ],
+    [ "sndAvgSciFiFiducialCut.h", "sndAvgSciFiFiducialCut_8h.html", "sndAvgSciFiFiducialCut_8h" ],
+    [ "sndBaseCut.h", "sndBaseCut_8h.html", "sndBaseCut_8h" ],
     [ "sndDSActivityCut.cxx", "sndDSActivityCut_8cxx.html", null ],
-    [ "sndDSActivityCut.h", "sndDSActivityCut_8h.html", [
-      [ "DSActivityCut", "classsnd_1_1analysis__cuts_1_1DSActivityCut.html", "classsnd_1_1analysis__cuts_1_1DSActivityCut" ]
-    ] ],
+    [ "sndDSActivityCut.h", "sndDSActivityCut_8h.html", "sndDSActivityCut_8h" ],
     [ "sndDSVetoCut.cxx", "sndDSVetoCut_8cxx.html", null ],
-    [ "sndDSVetoCut.h", "sndDSVetoCut_8h.html", [
-      [ "DSVetoCut", "classsnd_1_1analysis__cuts_1_1DSVetoCut.html", "classsnd_1_1analysis__cuts_1_1DSVetoCut" ]
-    ] ],
+    [ "sndDSVetoCut.h", "sndDSVetoCut_8h.html", "sndDSVetoCut_8h" ],
     [ "sndEventDeltat.cxx", "sndEventDeltat_8cxx.html", null ],
-    [ "sndEventDeltat.h", "sndEventDeltat_8h.html", [
-      [ "eventDeltatCut", "classsnd_1_1analysis__cuts_1_1eventDeltatCut.html", "classsnd_1_1analysis__cuts_1_1eventDeltatCut" ]
-    ] ],
+    [ "sndEventDeltat.h", "sndEventDeltat_8h.html", "sndEventDeltat_8h" ],
     [ "sndEventHeaderBaseCut.cxx", "sndEventHeaderBaseCut_8cxx.html", null ],
-    [ "sndEventHeaderBaseCut.h", "sndEventHeaderBaseCut_8h.html", [
-      [ "EventHeaderBaseCut", "classsnd_1_1analysis__cuts_1_1EventHeaderBaseCut.html", "classsnd_1_1analysis__cuts_1_1EventHeaderBaseCut" ]
-    ] ],
+    [ "sndEventHeaderBaseCut.h", "sndEventHeaderBaseCut_8h.html", "sndEventHeaderBaseCut_8h" ],
     [ "sndMinSciFiConsecutivePlanes.cxx", "sndMinSciFiConsecutivePlanes_8cxx.html", null ],
-    [ "sndMinSciFiConsecutivePlanes.h", "sndMinSciFiConsecutivePlanes_8h.html", [
-      [ "minSciFiConsecutivePlanes", "classsnd_1_1analysis__cuts_1_1minSciFiConsecutivePlanes.html", "classsnd_1_1analysis__cuts_1_1minSciFiConsecutivePlanes" ]
-    ] ],
+    [ "sndMinSciFiConsecutivePlanes.h", "sndMinSciFiConsecutivePlanes_8h.html", "sndMinSciFiConsecutivePlanes_8h" ],
     [ "sndMinSciFiHitsCut.cxx", "sndMinSciFiHitsCut_8cxx.html", null ],
-    [ "sndMinSciFiHitsCut.h", "sndMinSciFiHitsCut_8h.html", [
-      [ "minSciFiHits", "classsnd_1_1analysis__cuts_1_1minSciFiHits.html", "classsnd_1_1analysis__cuts_1_1minSciFiHits" ]
-    ] ],
+    [ "sndMinSciFiHitsCut.h", "sndMinSciFiHitsCut_8h.html", "sndMinSciFiHitsCut_8h" ],
     [ "sndMuFilterBaseCut.cxx", "sndMuFilterBaseCut_8cxx.html", null ],
-    [ "sndMuFilterBaseCut.h", "sndMuFilterBaseCut_8h.html", [
-      [ "MuFilterBaseCut", "classsnd_1_1analysis__cuts_1_1MuFilterBaseCut.html", "classsnd_1_1analysis__cuts_1_1MuFilterBaseCut" ]
-    ] ],
+    [ "sndMuFilterBaseCut.h", "sndMuFilterBaseCut_8h.html", "sndMuFilterBaseCut_8h" ],
     [ "sndSciFiBaseCut.cxx", "sndSciFiBaseCut_8cxx.html", null ],
-    [ "sndSciFiBaseCut.h", "sndSciFiBaseCut_8h.html", [
-      [ "sciFiBaseCut", "classsnd_1_1analysis__cuts_1_1sciFiBaseCut.html", "classsnd_1_1analysis__cuts_1_1sciFiBaseCut" ]
-    ] ],
+    [ "sndSciFiBaseCut.h", "sndSciFiBaseCut_8h.html", "sndSciFiBaseCut_8h" ],
     [ "sndSciFiStationCut.cxx", "sndSciFiStationCut_8cxx.html", null ],
-    [ "sndSciFiStationCut.h", "sndSciFiStationCut_8h.html", [
-      [ "sciFiStationCut", "classsnd_1_1analysis__cuts_1_1sciFiStationCut.html", "classsnd_1_1analysis__cuts_1_1sciFiStationCut" ]
-    ] ],
+    [ "sndSciFiStationCut.h", "sndSciFiStationCut_8h.html", "sndSciFiStationCut_8h" ],
     [ "sndUSQDCCut.cxx", "sndUSQDCCut_8cxx.html", null ],
-    [ "sndUSQDCCut.h", "sndUSQDCCut_8h.html", [
-      [ "USQDCCut", "classsnd_1_1analysis__cuts_1_1USQDCCut.html", "classsnd_1_1analysis__cuts_1_1USQDCCut" ]
-    ] ],
+    [ "sndUSQDCCut.h", "sndUSQDCCut_8h.html", "sndUSQDCCut_8h" ],
     [ "sndVetoCut.cxx", "sndVetoCut_8cxx.html", null ],
-    [ "sndVetoCut.h", "sndVetoCut_8h.html", [
-      [ "vetoCut", "classsnd_1_1analysis__cuts_1_1vetoCut.html", "classsnd_1_1analysis__cuts_1_1vetoCut" ]
-    ] ]
+    [ "sndVetoCut.h", "sndVetoCut_8h.html", "sndVetoCut_8h" ]
 ];

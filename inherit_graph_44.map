@@ -1,3 +1,11 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$structgenfit_1_1fieldCache.html" title="Cache B field at a position. Used by FieldManager." alt="" coords="5,5,140,32"/>
+<area shape="rect" id="Node000000" href="$classgenfit_1_1AbsBField.html" title="Abstract Interface to magnetic fields in GENFIT." alt="" coords="5,80,136,105"/>
+<area shape="rect" id="Node000001" href="$classgenfit_1_1BellField.html" title="Bell Field for SHiP." alt="" coords="201,5,323,31"/>
+<area shape="poly" id="edge204_Node000000_Node000001" title=" " alt="" coords="109,71,183,40,216,28,218,33,185,44,111,76"/>
+<area shape="rect" id="Node000002" href="$classgenfit_1_1ConstField.html" title="Constant Magnetic field." alt="" coords="195,55,329,80"/>
+<area shape="poly" id="edge205_Node000000_Node000002" title=" " alt="" coords="150,80,194,74,195,79,150,85"/>
+<area shape="rect" id="Node000003" href="$classgenfit_1_1FairShipFields.html" title="Field for SHiP." alt="" coords="184,104,340,129"/>
+<area shape="poly" id="edge206_Node000000_Node000003" title=" " alt="" coords="150,100,184,104,183,109,149,105"/>
+<area shape="rect" id="Node000004" href="$classgenfit_1_1GoliathField.html" title="Constant Magnetic field." alt="" coords="189,153,335,179"/>
+<area shape="poly" id="edge207_Node000000_Node000004" title=" " alt="" coords="113,108,185,138,221,151,219,156,183,143,111,113"/>
 </map>

@@ -1,6 +1,7 @@
 <map id="Mufi_monitoring.Mufi_hitMaps" name="Mufi_monitoring.Mufi_hitMaps">
-<area shape="rect" id="node1" title=" " alt="" coords="85,153,245,195"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,120,32"/>
-<area shape="rect" id="node3" title=" " alt="" coords="144,5,187,32"/>
-<area shape="rect" id="node4" title=" " alt="" coords="269,5,328,32"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="33,152,193,192"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,120,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="73,43,110,151,104,153,68,44"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="144,5,187,31"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="160,45,122,153,117,151,154,43"/>
 </map>

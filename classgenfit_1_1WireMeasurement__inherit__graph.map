@@ -1,6 +1,9 @@
 <map id="genfit::WireMeasurement" name="genfit::WireMeasurement">
-<area shape="rect" id="node1" title="Class for measurements in wire detectors (Straw tubes and drift chambers) which do not measure the co..." alt="" coords="22,155,209,181"/>
-<area shape="rect" id="node4" href="$classgenfit_1_1WirePointMeasurement.html" title="Class for measurements in wire detectors (Straw tubes and drift chambers) which can measure the coord..." alt="" coords="5,229,225,256"/>
-<area shape="rect" id="node2" href="$classgenfit_1_1AbsMeasurement.html" title="Contains the measurement and covariance in raw detector coordinates." alt="" coords="25,80,206,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="79,5,151,32"/>
+<area shape="rect" id="Node000001" title="Class for measurements in wire detectors (Straw tubes and drift chambers) which do not measure the co..." alt="" coords="22,152,209,177"/>
+<area shape="rect" id="Node000004" href="$classgenfit_1_1WirePointMeasurement.html" title="Class for measurements in wire detectors (Straw tubes and drift chambers) which can measure the coord..." alt="" coords="5,225,225,251"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="118,191,118,225,113,225,113,191"/>
+<area shape="rect" id="Node000002" href="$classgenfit_1_1AbsMeasurement.html" title="Contains the measurement and covariance in raw detector coordinates." alt="" coords="25,79,206,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="118,118,118,152,113,152,113,118"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="79,5,151,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="118,44,118,79,113,79,113,44"/>
 </map>

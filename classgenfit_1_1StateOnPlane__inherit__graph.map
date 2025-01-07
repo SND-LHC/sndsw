@@ -1,8 +1,13 @@
 <map id="genfit::StateOnPlane" name="genfit::StateOnPlane">
-<area shape="rect" id="node1" title="A state with arbitrary dimension defined in a DetPlane." alt="" coords="247,80,402,107"/>
-<area shape="rect" id="node3" href="$classgenfit_1_1MeasuredStateOnPlane.html" title="StateOnPlane with additional covariance matrix." alt="" coords="102,162,321,189"/>
-<area shape="rect" id="node6" href="$classgenfit_1_1ReferenceStateOnPlane.html" title="StateOnPlane with linearized transport to that ReferenceStateOnPlane from previous and next Reference..." alt="" coords="345,155,531,196"/>
-<area shape="rect" id="node2" title=" " alt="" coords="289,5,361,32"/>
-<area shape="rect" id="node4" href="$classgenfit_1_1KalmanFittedStateOnPlane.html" title="MeasuredStateOnPlane with additional info produced by a Kalman filter or DAF." alt="" coords="5,244,193,285"/>
-<area shape="rect" id="node5" href="$classgenfit_1_1MeasurementOnPlane.html" title="Measured coordinates on a plane." alt="" coords="218,251,429,278"/>
+<area shape="rect" id="Node000001" title="A state with arbitrary dimension defined in a DetPlane." alt="" coords="247,79,402,104"/>
+<area shape="rect" id="Node000003" href="$classgenfit_1_1MeasuredStateOnPlane.html" title="StateOnPlane with additional covariance matrix." alt="" coords="102,159,321,185"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="298,114,230,161,227,157,295,110"/>
+<area shape="rect" id="Node000006" href="$classgenfit_1_1ReferenceStateOnPlane.html" title="StateOnPlane with linearized transport to that ReferenceStateOnPlane from previous and next Reference..." alt="" coords="345,152,531,192"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="354,110,412,150,409,154,351,114"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="289,5,361,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="327,44,327,79,322,79,322,44"/>
+<area shape="rect" id="Node000004" href="$classgenfit_1_1KalmanFittedStateOnPlane.html" title="MeasuredStateOnPlane with additional info produced by a Kalman filter or DAF." alt="" coords="5,240,193,280"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="187,195,126,242,122,238,183,191"/>
+<area shape="rect" id="Node000005" href="$classgenfit_1_1MeasurementOnPlane.html" title="Measured coordinates on a plane." alt="" coords="218,247,429,273"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="239,191,310,245,306,249,236,195"/>
 </map>

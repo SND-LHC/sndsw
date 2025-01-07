@@ -2,7 +2,7 @@ var classgenfit_1_1KalmanFitStatus =
 [
     [ "KalmanFitStatus", "classgenfit_1_1KalmanFitStatus.html#a3a751416087483b2e625fd3177982ea9", null ],
     [ "~KalmanFitStatus", "classgenfit_1_1KalmanFitStatus.html#a58a622bdc0fa0f3321b6508bfea21dbb", null ],
-    [ "clone", "classgenfit_1_1KalmanFitStatus.html#af51ee3046c83970e88780581501ce6b0", null ],
+    [ "clone", "classgenfit_1_1KalmanFitStatus.html#a4c9a21b58e1b0771c340227fc6e99095", null ],
     [ "getBackwardChi2", "classgenfit_1_1KalmanFitStatus.html#a53076715779756a91db6750ed22fca21", null ],
     [ "getBackwardNdf", "classgenfit_1_1KalmanFitStatus.html#a6a9ca53a6e3d4b9fb167bab48030cc8d", null ],
     [ "getBackwardPVal", "classgenfit_1_1KalmanFitStatus.html#ac8cc1c4e7c68b539ab115629f8b20859", null ],

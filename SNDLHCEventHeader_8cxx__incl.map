@@ -1,13 +1,28 @@
 <map id="shipLHC/SNDLHCEventHeader.cxx" name="shipLHC/SNDLHCEventHeader.cxx">
-<area shape="rect" id="node1" title=" " alt="" coords="394,5,637,32"/>
-<area shape="rect" id="node2" href="$SNDLHCEventHeader_8h.html" title=" " alt="" coords="282,80,453,107"/>
-<area shape="rect" id="node4" href="$SNDLHCEventHeaderConst_8h.html" title=" " alt="" coords="5,155,215,181"/>
-<area shape="rect" id="node6" title=" " alt="" coords="239,155,298,181"/>
-<area shape="rect" id="node7" title=" " alt="" coords="437,155,487,181"/>
-<area shape="rect" id="node8" title=" " alt="" coords="511,155,570,181"/>
-<area shape="rect" id="node9" title=" " alt="" coords="595,155,657,181"/>
-<area shape="rect" id="node10" title=" " alt="" coords="629,80,772,107"/>
-<area shape="rect" id="node11" title=" " alt="" coords="797,80,877,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="323,155,412,181"/>
-<area shape="rect" id="node5" title=" " alt="" coords="77,229,143,256"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="394,5,637,31"/>
+<area shape="rect" id="Node000002" href="$SNDLHCEventHeader_8h.html" title=" " alt="" coords="282,79,453,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="493,33,405,75,403,70,490,28"/>
+<area shape="rect" id="Node000004" href="$SNDLHCEventHeaderConst_8h.html" title=" " alt="" coords="5,152,215,177"/>
+<area shape="poly" id="edge9_Node000001_Node000004" title=" " alt="" coords="438,33,350,52,256,81,192,113,138,146,136,142,189,108,254,76,348,47,437,28"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="239,152,298,177"/>
+<area shape="poly" id="edge11_Node000001_Node000006" title=" " alt="" coords="418,33,329,52,294,65,272,80,265,93,262,108,264,138,259,138,257,108,260,91,268,77,291,60,328,47,417,28"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="437,152,487,177"/>
+<area shape="poly" id="edge13_Node000001_Node000007" title=" " alt="" coords="513,32,473,140,468,138,508,30"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="511,152,570,177"/>
+<area shape="poly" id="edge14_Node000001_Node000008" title=" " alt="" coords="520,31,539,138,534,139,515,32"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="595,152,657,177"/>
+<area shape="poly" id="edge15_Node000001_Node000009" title=" " alt="" coords="527,29,611,139,607,142,522,33"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="629,79,772,104"/>
+<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="546,28,659,71,657,76,544,33"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="797,79,877,104"/>
+<area shape="poly" id="edge12_Node000001_Node000011" title=" " alt="" coords="568,28,784,76,782,81,566,33"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="323,152,412,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="370,104,370,138,365,138,365,104"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="327,107,165,151,164,146,325,101"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="353,106,297,146,294,142,350,102"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="384,102,437,141,434,146,381,106"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="396,102,501,144,499,149,394,106"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="410,101,582,149,581,154,408,107"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="77,225,143,251"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="113,178,113,212,107,212,107,178"/>
 </map>

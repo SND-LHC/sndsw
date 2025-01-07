@@ -1,9 +1,15 @@
 <map id="genfit/fitters/src/KalmanFitStatus.cc" name="genfit/fitters/src/KalmanFitStatus.cc">
-<area shape="rect" id="node1" title=" " alt="" coords="183,5,333,47"/>
-<area shape="rect" id="node2" href="$KalmanFitStatus_8h.html" title=" " alt="" coords="121,95,262,121"/>
-<area shape="rect" id="node7" title=" " alt="" coords="286,95,366,121"/>
-<area shape="rect" id="node3" href="$FitStatus_8h.html" title=" " alt="" coords="79,169,170,196"/>
-<area shape="rect" id="node6" title=" " alt="" coords="194,169,325,196"/>
-<area shape="rect" id="node4" title=" " alt="" coords="5,244,84,271"/>
-<area shape="rect" id="node5" title=" " alt="" coords="108,244,301,271"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="183,5,333,45"/>
+<area shape="rect" id="Node000002" href="$KalmanFitStatus_8h.html" title=" " alt="" coords="121,93,262,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="244,47,212,84,208,81,240,44"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="286,93,366,119"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="276,44,309,81,305,84,272,47"/>
+<area shape="rect" id="Node000003" href="$FitStatus_8h.html" title=" " alt="" coords="79,167,170,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="182,121,147,158,143,155,178,117"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="194,167,325,192"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="204,117,241,155,237,158,201,121"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,240,84,265"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="114,194,70,233,66,229,110,190"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="108,240,301,265"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="139,190,183,229,180,233,136,194"/>
 </map>

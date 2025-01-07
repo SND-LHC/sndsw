@@ -1,8 +1,8 @@
 var classSndlhcMuonReco_1_1hough =
 [
-    [ "__init__", "classSndlhcMuonReco_1_1hough.html#a5e2ba94afe43355e561da4063172fa2c", null ],
-    [ "fit", "classSndlhcMuonReco_1_1hough.html#ac94535cc15aa21f85f47c73c46bed297", null ],
-    [ "fit_randomize", "classSndlhcMuonReco_1_1hough.html#aac8b2da32013b16fd87ddca98a0a3914", null ],
+    [ "__init__", "classSndlhcMuonReco_1_1hough.html#ac13f640168527a2eb96bf3c33d99fbb3", null ],
+    [ "fit", "classSndlhcMuonReco_1_1hough.html#a370e72be71e6e0a309c3e9a027192b5e", null ],
+    [ "fit_randomize", "classSndlhcMuonReco_1_1hough.html#a2f14c1915253f2cfff6fd950d944573b", null ],
     [ "accumulator", "classSndlhcMuonReco_1_1hough.html#a6fb79ebe91c0787e5ec9ab785324248c", null ],
     [ "cos_thetas", "classSndlhcMuonReco_1_1hough.html#a838dc757c106c60f837d5e13bbfea61a", null ],
     [ "cos_thetas_scaled", "classSndlhcMuonReco_1_1hough.html#a493ed3cd86634d28113962e823251774", null ],

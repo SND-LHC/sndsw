@@ -1,4 +1,6 @@
 <map id="eventDisplay.DrawTracks" name="eventDisplay.DrawTracks">
-<area shape="rect" id="node1" title=" " alt="" coords="5,80,191,107"/>
-<area shape="rect" id="node2" title=" " alt="" coords="41,5,155,32"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,79,191,104"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="41,5,155,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="92,44,94,78,88,79,87,45"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="109,45,108,79,102,78,104,44"/>
 </map>

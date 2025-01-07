@@ -1,4 +1,5 @@
 <map id="genfit::EventDisplay" name="genfit::EventDisplay">
-<area shape="rect" id="node1" title="Event display designed to run with Genfit." alt="" coords="5,80,159,107"/>
-<area shape="rect" id="node2" title=" " alt="" coords="43,5,121,32"/>
+<area shape="rect" id="Node000001" title="Event display designed to run with Genfit." alt="" coords="5,79,159,104"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="43,5,121,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="85,44,85,79,79,79,79,44"/>
 </map>

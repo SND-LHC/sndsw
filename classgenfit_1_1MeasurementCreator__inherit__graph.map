@@ -1,4 +1,5 @@
 <map id="genfit::MeasurementCreator" name="genfit::MeasurementCreator">
-<area shape="rect" id="node1" title="Create different measurement types along a HelixTrackModel for testing purposes." alt="" coords="5,80,211,107"/>
-<area shape="rect" id="node2" title=" " alt="" coords="72,5,144,32"/>
+<area shape="rect" id="Node000001" title="Create different measurement types along a HelixTrackModel for testing purposes." alt="" coords="5,79,211,104"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="72,5,144,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,44,111,79,105,79,105,44"/>
 </map>

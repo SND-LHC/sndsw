@@ -7,7 +7,7 @@ var classPixelUnpack =
     [ "GetNHitsTotal", "classPixelUnpack.html#a2b60890bbe32c397e5f1d63fd3baa5a0", null ],
     [ "GetPartition", "classPixelUnpack.html#a07a71fa8149a68057d74ce7d9f94b1f4", null ],
     [ "Init", "classPixelUnpack.html#ac4756d87b3eea72b1e8c944dd266aa52", null ],
-    [ "operator=", "classPixelUnpack.html#acea5a4355a4c724181e930415db94358", null ],
+    [ "operator=", "classPixelUnpack.html#a0616add4c26d78e05923f0fd5c9ce429", null ],
     [ "Register", "classPixelUnpack.html#a324d1b02d97326a3cc19c559e87b89a5", null ],
     [ "Reset", "classPixelUnpack.html#aa99d07b79703dacb5585e8d6804ccb81", null ],
     [ "fNHits", "classPixelUnpack.html#a78c1d6c8651a8f1da60da755342e8dc4", null ],

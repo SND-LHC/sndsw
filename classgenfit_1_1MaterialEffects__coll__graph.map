@@ -1,5 +1,9 @@
 <map id="genfit::MaterialEffects" name="genfit::MaterialEffects">
-<area shape="rect" id="node1" title="Stepper and energy loss/noise matrix calculation." alt="" coords="24,171,189,197"/>
-<area shape="rect" id="node2" href="$classgenfit_1_1AbsMaterialInterface.html" title="Abstract base class for geometry interfacing." alt="" coords="5,81,208,108"/>
-<area shape="rect" id="node3" title=" " alt="" coords="71,5,143,32"/>
+<area shape="rect" id="Node000001" title="Stepper and energy loss/noise matrix calculation." alt="" coords="24,168,189,193"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="204,173,216,180,208,188,190,191,189,185,206,183,211,181,201,177"/>
+<area shape="rect" id="Node000002" href="$classgenfit_1_1AbsMaterialInterface.html" title="Abstract base class for geometry interfacing." alt="" coords="5,80,208,105"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="109,119,109,167,104,167,104,119"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="71,5,143,31"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="101,44,102,80,97,80,95,45"/>
+<area shape="poly" id="edge4_Node000002_Node000003" title=" " alt="" coords="118,45,116,80,111,80,113,44"/>
 </map>

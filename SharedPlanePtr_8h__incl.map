@@ -1,10 +1,17 @@
 <map id="genfit/core/include/SharedPlanePtr.h" name="genfit/core/include/SharedPlanePtr.h">
-<area shape="rect" id="node1" title=" " alt="" coords="262,5,405,47"/>
-<area shape="rect" id="node2" href="$DetPlane_8h.html" title=" " alt="" coords="212,95,305,121"/>
-<area shape="rect" id="node8" title=" " alt="" coords="330,95,489,121"/>
-<area shape="rect" id="node3" href="$AbsFinitePlane_8h.html" title=" " alt="" coords="5,169,136,196"/>
-<area shape="rect" id="node5" title=" " alt="" coords="161,169,245,196"/>
-<area shape="rect" id="node6" title=" " alt="" coords="269,169,360,196"/>
-<area shape="rect" id="node7" title=" " alt="" coords="384,169,544,196"/>
-<area shape="rect" id="node4" title=" " alt="" coords="31,244,110,271"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="262,5,405,45"/>
+<area shape="rect" id="Node000002" href="$DetPlane_8h.html" title=" " alt="" coords="212,93,305,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="317,47,281,85,277,81,313,44"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="330,93,489,119"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="354,44,390,81,386,85,350,47"/>
+<area shape="rect" id="Node000003" href="$AbsFinitePlane_8h.html" title=" " alt="" coords="5,167,136,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="229,121,115,164,113,159,228,116"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="161,167,245,192"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="252,121,222,157,218,154,247,117"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="269,167,360,192"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="270,117,299,154,295,157,266,121"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="384,167,544,192"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="293,116,419,160,417,165,291,121"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="31,240,110,265"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="73,192,73,226,68,226,68,192"/>
 </map>

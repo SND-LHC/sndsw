@@ -1,6 +1,9 @@
 <map id="genfit/fitters/include/DAF.h" name="genfit/fitters/include/DAF.h">
-<area shape="rect" id="node1" title=" " alt="" coords="166,5,318,47"/>
-<area shape="rect" id="node2" href="$EventDisplay_8cc.html" title=" " alt="" coords="5,95,156,136"/>
-<area shape="rect" id="node3" href="$DAF_8cc.html" title=" " alt="" coords="180,95,304,136"/>
-<area shape="rect" id="node4" href="$fitterTests_2main_8cc.html" title=" " alt="" coords="328,95,484,136"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="166,5,318,45"/>
+<area shape="rect" id="Node000002" href="$EventDisplay_8cc.html" title=" " alt="" coords="5,93,156,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="196,54,117,96,115,91,193,49"/>
+<area shape="rect" id="Node000003" href="$DAF_8cc.html" title=" " alt="" coords="180,93,304,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="245,59,245,93,239,93,239,59"/>
+<area shape="rect" id="Node000004" href="$fitterTests_2main_8cc.html" title=" " alt="" coords="328,93,484,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="291,49,371,91,369,96,289,54"/>
 </map>

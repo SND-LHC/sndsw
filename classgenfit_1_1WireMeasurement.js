@@ -3,7 +3,7 @@ var classgenfit_1_1WireMeasurement =
     [ "WireMeasurement", "classgenfit_1_1WireMeasurement.html#a9a10ac20b8f04f958b9680605ce3cc45", null ],
     [ "WireMeasurement", "classgenfit_1_1WireMeasurement.html#ae01e74e8be4f5bc489b47d4252771f50", null ],
     [ "~WireMeasurement", "classgenfit_1_1WireMeasurement.html#a138500e791ab8f6c96a48f3ee2976698", null ],
-    [ "clone", "classgenfit_1_1WireMeasurement.html#a1bf5f9d557c3722fefd14891c988dae6", null ],
+    [ "clone", "classgenfit_1_1WireMeasurement.html#a0bc2ab7351a527353860d4051e31e400", null ],
     [ "constructHMatrix", "classgenfit_1_1WireMeasurement.html#ac73fe256079c9a1dd68a6bb4e3de40d8", null ],
     [ "constructMeasurementsOnPlane", "classgenfit_1_1WireMeasurement.html#a4c60336851007da9e780b9c612be361f", null ],
     [ "constructPlane", "classgenfit_1_1WireMeasurement.html#ab2ceac44e9be882c9f5aee3544d6a9c0", null ],

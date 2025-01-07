@@ -1,8 +1,13 @@
 <map id="snd::analysis_cuts::sciFiBaseCut" name="snd::analysis_cuts::sciFiBaseCut">
-<area shape="rect" id="node1" title=" " alt="" coords="195,104,336,145"/>
-<area shape="rect" id="node3" href="$classsnd_1_1analysis__cuts_1_1avgSciFiFiducialCut.html" title=" " alt="" coords="410,5,566,47"/>
-<area shape="rect" id="node4" href="$classsnd_1_1analysis__cuts_1_1minSciFiConsecutivePlanes.html" title=" " alt="" coords="384,71,592,112"/>
-<area shape="rect" id="node5" href="$classsnd_1_1analysis__cuts_1_1minSciFiHits.html" title=" " alt="" coords="417,136,559,177"/>
-<area shape="rect" id="node6" href="$classsnd_1_1analysis__cuts_1_1sciFiStationCut.html" title=" " alt="" coords="417,201,559,243"/>
-<area shape="rect" id="node2" href="$classsnd_1_1analysis__cuts_1_1baseCut.html" title=" " alt="" coords="5,104,147,145"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="195,101,336,141"/>
+<area shape="rect" id="Node000003" href="$classsnd_1_1analysis__cuts_1_1avgSciFiFiducialCut.html" title=" " alt="" coords="410,5,566,45"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="310,92,383,55,415,43,417,48,385,60,312,97"/>
+<area shape="rect" id="Node000004" href="$classsnd_1_1analysis__cuts_1_1minSciFiConsecutivePlanes.html" title=" " alt="" coords="384,69,592,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="349,107,383,102,384,107,350,112"/>
+<area shape="rect" id="Node000005" href="$classsnd_1_1analysis__cuts_1_1minSciFiHits.html" title=" " alt="" coords="417,133,559,173"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="350,131,418,141,417,146,349,136"/>
+<area shape="rect" id="Node000006" href="$classsnd_1_1analysis__cuts_1_1sciFiStationCut.html" title=" " alt="" coords="417,197,559,237"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="312,146,385,183,418,195,416,200,383,188,310,151"/>
+<area shape="rect" id="Node000002" href="$classsnd_1_1analysis__cuts_1_1baseCut.html" title=" " alt="" coords="5,101,147,141"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="161,119,194,119,194,124,161,124"/>
 </map>

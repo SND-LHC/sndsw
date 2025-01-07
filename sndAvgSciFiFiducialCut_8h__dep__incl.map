@@ -1,5 +1,7 @@
 <map id="analysis/cuts/sndAvgSciFiFiducialCut.h" name="analysis/cuts/sndAvgSciFiFiducialCut.h">
-<area shape="rect" id="node1" title=" " alt="" coords="117,5,305,47"/>
-<area shape="rect" id="node2" href="$sndAvgSciFiFiducialCut_8cxx.html" title=" " alt="" coords="5,95,193,136"/>
-<area shape="rect" id="node3" href="$neutrinoFilterGoldenSample_8cxx.html" title=" " alt="" coords="218,95,431,136"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="117,5,305,45"/>
+<area shape="rect" id="Node000002" href="$sndAvgSciFiFiducialCut_8cxx.html" title=" " alt="" coords="5,93,193,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="177,56,126,95,123,91,174,52"/>
+<area shape="rect" id="Node000003" href="$neutrinoFilterGoldenSample_8cxx.html" title=" " alt="" coords="218,93,431,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="249,52,301,91,298,95,246,56"/>
 </map>

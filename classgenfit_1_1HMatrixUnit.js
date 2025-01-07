@@ -1,7 +1,7 @@
 var classgenfit_1_1HMatrixUnit =
 [
     [ "HMatrixUnit", "classgenfit_1_1HMatrixUnit.html#a0865cdf65dcd4080678d38be2bc9124f", null ],
-    [ "clone", "classgenfit_1_1HMatrixUnit.html#ae8e4f5732dd6e0da7051302cd6ce5ac0", null ],
+    [ "clone", "classgenfit_1_1HMatrixUnit.html#aad96d4c4ce99667656ef6bd986576877", null ],
     [ "getMatrix", "classgenfit_1_1HMatrixUnit.html#a0630f302b4e0f0de0d0a2b3aa6670d93", null ],
     [ "HMHt", "classgenfit_1_1HMatrixUnit.html#a87992740971622b25884a9265db2e362", null ],
     [ "Hv", "classgenfit_1_1HMatrixUnit.html#ac50187613b9124faff94b908671d0ace", null ],

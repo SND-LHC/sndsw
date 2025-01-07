@@ -1,9 +1,17 @@
 <map id="genfit::ProlateSpacepointMeasurement" name="genfit::ProlateSpacepointMeasurement">
-<area shape="rect" id="node1" title="Class for measurements implementing a space point hit geometry with a very prolate form of the covari..." alt="" coords="117,425,302,467"/>
-<area shape="rect" id="node2" href="$classgenfit_1_1SpacepointMeasurement.html" title="Class for measurements implementing a space point hit geometry." alt="" coords="5,336,235,363"/>
-<area shape="rect" id="node3" href="$classgenfit_1_1AbsMeasurement.html" title="Contains the measurement and covariance in raw detector coordinates." alt="" coords="29,260,211,287"/>
-<area shape="rect" id="node4" title=" " alt="" coords="113,5,185,32"/>
-<area shape="rect" id="node5" href="$classgenfit_1_1TrackPoint.html" title="Object containing AbsMeasurement and AbsFitterInfo objects." alt="" coords="137,171,271,197"/>
-<area shape="rect" id="node6" href="$classgenfit_1_1Track.html" title="Collection of TrackPoint objects, AbsTrackRep objects and FitStatus objects." alt="" coords="187,81,288,108"/>
-<area shape="rect" id="node7" title=" " alt="" coords="259,336,338,363"/>
+<area shape="rect" id="Node000001" title="Class for measurements implementing a space point hit geometry with a very prolate form of the covari..." alt="" coords="117,419,302,459"/>
+<area shape="rect" id="Node000002" href="$classgenfit_1_1SpacepointMeasurement.html" title="Class for measurements implementing a space point hit geometry." alt="" coords="5,331,235,356"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="142,364,193,417,189,420,139,368"/>
+<area shape="rect" id="Node000003" href="$classgenfit_1_1AbsMeasurement.html" title="Contains the measurement and covariance in raw detector coordinates." alt="" coords="29,256,211,281"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="123,296,123,330,117,330,117,296"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="113,5,185,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="147,45,127,168,123,256,117,256,121,168,141,44"/>
+<area shape="rect" id="Node000005" href="$classgenfit_1_1TrackPoint.html" title="Object containing AbsMeasurement and AbsFitterInfo objects." alt="" coords="137,168,271,193"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="159,44,177,104,202,167,197,169,172,106,154,45"/>
+<area shape="rect" id="Node000006" href="$classgenfit_1_1Track.html" title="Collection of TrackPoint objects, AbsTrackRep objects and FitStatus objects." alt="" coords="187,80,288,105"/>
+<area shape="poly" id="edge7_Node000006_Node000004" title=" " alt="" coords="176,38,225,77,221,82,172,42"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="185,205,134,257,130,254,181,201"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="230,119,211,168,206,166,225,117"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="259,331,338,356"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="280,368,229,420,226,417,276,364"/>
 </map>

@@ -1,6 +1,9 @@
 <map id="genfit/measurements/include/FullMeasurement.h" name="genfit/measurements/include/FullMeasurement.h">
-<area shape="rect" id="node1" title=" " alt="" coords="169,5,371,47"/>
-<area shape="rect" id="node2" href="$EventDisplay_8cc.html" title=" " alt="" coords="5,95,156,136"/>
-<area shape="rect" id="node3" href="$FullMeasurement_8cc.html" title=" " alt="" coords="180,95,360,136"/>
-<area shape="rect" id="node4" href="$fitterTests_2main_8cc.html" title=" " alt="" coords="384,95,540,136"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="169,5,371,45"/>
+<area shape="rect" id="Node000002" href="$EventDisplay_8cc.html" title=" " alt="" coords="5,93,156,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="217,53,123,96,121,91,215,49"/>
+<area shape="rect" id="Node000003" href="$FullMeasurement_8cc.html" title=" " alt="" coords="180,93,360,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="273,59,273,93,267,93,267,59"/>
+<area shape="rect" id="Node000004" href="$fitterTests_2main_8cc.html" title=" " alt="" coords="384,93,540,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="326,49,421,91,419,96,324,53"/>
 </map>

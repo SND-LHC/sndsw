@@ -1,9 +1,15 @@
 <map id="genfit/fields/include/FairShipFields.h" name="genfit/fields/include/FairShipFields.h">
-<area shape="rect" id="node1" title=" " alt="" coords="109,5,259,47"/>
-<area shape="rect" id="node2" href="$AbsBField_8h.html" title=" " alt="" coords="65,95,164,121"/>
-<area shape="rect" id="node4" href="$ShipCompField_8h.html" title=" " alt="" coords="189,95,320,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,169,96,196"/>
-<area shape="rect" id="node5" title=" " alt="" coords="120,169,264,196"/>
-<area shape="rect" id="node6" title=" " alt="" coords="288,169,347,196"/>
-<area shape="rect" id="node7" title=" " alt="" coords="371,169,434,196"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="109,5,259,45"/>
+<area shape="rect" id="Node000002" href="$AbsBField_8h.html" title=" " alt="" coords="65,93,164,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="169,47,136,84,132,81,165,44"/>
+<area shape="rect" id="Node000004" href="$ShipCompField_8h.html" title=" " alt="" coords="189,93,320,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="203,44,237,81,233,85,199,47"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,167,96,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="106,121,72,158,68,155,102,117"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="120,167,264,192"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="246,121,213,158,209,154,242,117"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="288,167,347,192"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="267,117,300,154,296,158,263,121"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="371,167,434,192"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="280,116,367,158,365,163,277,121"/>
 </map>

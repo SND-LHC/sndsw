@@ -1,8 +1,15 @@
 <map id="genfit::trackAndState" name="genfit::trackAndState">
-<area shape="rect" id="node1" title="Simple struct containing a Track pointer and a MeasuredStateOnPlane. Used in GFRave." alt="" coords="5,361,164,388"/>
-<area shape="rect" id="node2" href="$classgenfit_1_1Track.html" title="Collection of TrackPoint objects, AbsTrackRep objects and FitStatus objects." alt="" coords="13,132,114,159"/>
-<area shape="rect" id="node3" title=" " alt="" coords="98,5,170,32"/>
-<area shape="rect" id="node5" href="$classgenfit_1_1StateOnPlane.html" title="A state with arbitrary dimension defined in a DetPlane." alt="" coords="133,183,287,209"/>
-<area shape="rect" id="node6" href="$classgenfit_1_1AbsTrackRep.html" title="Abstract base class for a track representation." alt="" coords="172,81,323,108"/>
-<area shape="rect" id="node4" href="$classgenfit_1_1MeasuredStateOnPlane.html" title="StateOnPlane with additional covariance matrix." alt="" coords="101,272,319,299"/>
+<area shape="rect" id="Node000001" title="Simple struct containing a Track pointer and a MeasuredStateOnPlane. Used in GFRave." alt="" coords="5,355,164,380"/>
+<area shape="rect" id="Node000002" href="$classgenfit_1_1Track.html" title="Collection of TrackPoint objects, AbsTrackRep objects and FitStatus objects." alt="" coords="13,129,114,155"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="68,168,86,354,81,355,63,168"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="98,5,170,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="123,44,72,131,68,128,118,41"/>
+<area shape="rect" id="Node000005" href="$classgenfit_1_1StateOnPlane.html" title="A state with arbitrary dimension defined in a DetPlane." alt="" coords="133,179,287,204"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="142,43,162,104,183,145,204,177,200,180,179,148,157,106,137,45"/>
+<area shape="rect" id="Node000006" href="$classgenfit_1_1AbsTrackRep.html" title="Abstract base class for a track representation." alt="" coords="172,80,323,105"/>
+<area shape="poly" id="edge7_Node000006_Node000003" title=" " alt="" coords="165,36,231,78,228,82,162,40"/>
+<area shape="rect" id="Node000004" href="$classgenfit_1_1MeasuredStateOnPlane.html" title="StateOnPlane with additional covariance matrix." alt="" coords="101,267,319,292"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="183,302,103,357,100,352,180,298"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="213,218,213,266,207,266,207,218"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="240,119,217,180,212,178,236,117"/>
 </map>

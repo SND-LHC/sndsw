@@ -1,7 +1,7 @@
 var Monitor_8py =
 [
-    [ "Monitoring", "classMonitor_1_1Monitoring.html", "classMonitor_1_1Monitoring" ],
-    [ "TrackSelector", "classMonitor_1_1TrackSelector.html", "classMonitor_1_1TrackSelector" ],
+    [ "Monitor.Monitoring", "classMonitor_1_1Monitoring.html", "classMonitor_1_1Monitoring" ],
+    [ "Monitor.TrackSelector", "classMonitor_1_1TrackSelector.html", "classMonitor_1_1TrackSelector" ],
     [ "A", "Monitor_8py.html#a12f58a8a659434c3b3c3c5eff66c984a", null ],
     [ "B", "Monitor_8py.html#a23282e541b797a82cf94484a5b25fc65", null ],
     [ "Ikey", "Monitor_8py.html#a7d36ee6087b6a796c97a06a56eed770b", null ],

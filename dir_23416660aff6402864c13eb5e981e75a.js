@@ -6,9 +6,7 @@ var dir_23416660aff6402864c13eb5e981e75a =
     [ "linesrch.f90", "linesrch_8f90.html", "linesrch_8f90" ],
     [ "Mille.cc", "Mille_8cc.html", null ],
     [ "mille.f90", "mille_8f90.html", "mille_8f90" ],
-    [ "Mille.h", "Mille_8h.html", [
-      [ "Mille", "classMille.html", "classMille" ]
-    ] ],
+    [ "Mille.h", "Mille_8h.html", "Mille_8h" ],
     [ "minresDataModule.f90", "minresDataModule_8f90.html", "minresDataModule_8f90" ],
     [ "minresModule.f90", "minresModule_8f90.html", "minresModule_8f90" ],
     [ "minresqlpBlasModule.f90", "minresqlpBlasModule_8f90.html", "minresqlpBlasModule_8f90" ],

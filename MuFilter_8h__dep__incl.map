@@ -1,9 +1,15 @@
 <map id="shipLHC/MuFilter.h" name="shipLHC/MuFilter.h">
-<area shape="rect" id="node1" title=" " alt="" coords="303,5,445,32"/>
-<area shape="rect" id="node2" href="$MuFilter_8cxx.html" title=" " alt="" coords="5,80,164,107"/>
-<area shape="rect" id="node3" href="$MuFilterHit_8cxx.html" title=" " alt="" coords="189,80,367,107"/>
-<area shape="rect" id="node4" href="$sndCluster_8h.html" title=" " alt="" coords="392,80,551,107"/>
-<area shape="rect" id="node7" href="$sndRecoTrack_8cxx.html" title=" " alt="" coords="575,80,770,107"/>
-<area shape="rect" id="node5" href="$sndCluster_8cxx.html" title=" " alt="" coords="273,155,448,181"/>
-<area shape="rect" id="node6" href="$DigiTaskSND_8cxx.html" title=" " alt="" coords="473,155,691,181"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="303,5,445,31"/>
+<area shape="rect" id="Node000002" href="$MuFilter_8cxx.html" title=" " alt="" coords="5,79,164,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="315,37,132,81,131,76,314,31"/>
+<area shape="rect" id="Node000003" href="$MuFilterHit_8cxx.html" title=" " alt="" coords="189,79,367,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="349,41,295,81,292,76,346,37"/>
+<area shape="rect" id="Node000004" href="$sndCluster_8h.html" title=" " alt="" coords="392,79,551,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="402,37,457,76,454,81,399,41"/>
+<area shape="rect" id="Node000007" href="$sndRecoTrack_8cxx.html" title=" " alt="" coords="575,79,770,104"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="436,31,625,76,624,81,435,36"/>
+<area shape="rect" id="Node000005" href="$sndCluster_8cxx.html" title=" " alt="" coords="273,152,448,177"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="443,114,380,154,377,150,441,109"/>
+<area shape="rect" id="Node000006" href="$DigiTaskSND_8cxx.html" title=" " alt="" coords="473,152,691,177"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="502,109,565,150,562,154,499,114"/>
 </map>

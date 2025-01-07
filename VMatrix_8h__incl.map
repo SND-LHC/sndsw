@@ -1,8 +1,13 @@
 <map id="genfit/GBL/include/VMatrix.h" name="genfit/GBL/include/VMatrix.h">
-<area shape="rect" id="node1" title=" " alt="" coords="170,5,310,47"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,95,85,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="109,95,184,121"/>
-<area shape="rect" id="node4" title=" " alt="" coords="209,95,271,121"/>
-<area shape="rect" id="node5" title=" " alt="" coords="296,95,363,121"/>
-<area shape="rect" id="node6" title=" " alt="" coords="387,95,455,121"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="170,5,310,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,85,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="194,48,88,91,86,86,192,43"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="109,93,184,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="219,48,173,86,170,82,216,44"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="209,93,271,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="243,46,243,79,237,79,237,46"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="296,93,363,119"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="263,44,308,82,304,86,260,48"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="387,93,455,119"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="284,43,383,85,381,90,282,48"/>
 </map>

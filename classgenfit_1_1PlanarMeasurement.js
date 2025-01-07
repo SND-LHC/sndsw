@@ -3,7 +3,7 @@ var classgenfit_1_1PlanarMeasurement =
     [ "PlanarMeasurement", "classgenfit_1_1PlanarMeasurement.html#abdde1422ccee13e542021df54a5d1e53", null ],
     [ "PlanarMeasurement", "classgenfit_1_1PlanarMeasurement.html#ad6404743b41c25d513f20592acee7460", null ],
     [ "~PlanarMeasurement", "classgenfit_1_1PlanarMeasurement.html#ae755150ee5411b08ec572dee8db815f2", null ],
-    [ "clone", "classgenfit_1_1PlanarMeasurement.html#a3a5a5b8c20be388e520ec2b9a33e12db", null ],
+    [ "clone", "classgenfit_1_1PlanarMeasurement.html#ab8eb26edc5936693eb18d62d29b095c9", null ],
     [ "constructHMatrix", "classgenfit_1_1PlanarMeasurement.html#a7059f8c14af66f521aeab09ea0f999e7", null ],
     [ "constructMeasurementsOnPlane", "classgenfit_1_1PlanarMeasurement.html#ab73cbb8d52ed1c16f09f2a118f0f1407", null ],
     [ "constructPlane", "classgenfit_1_1PlanarMeasurement.html#a8c7b8a1fa2189b7facbb4317b33c980f", null ],

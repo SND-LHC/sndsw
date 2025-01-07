@@ -1,13 +1,26 @@
 <map id="genfit/GBL/include/BorderedBandMatrix.h" name="genfit/GBL/include/BorderedBandMatrix.h">
-<area shape="rect" id="node1" title=" " alt="" coords="326,5,498,47"/>
-<area shape="rect" id="node2" href="$VMatrix_8h.html" title=" " alt="" coords="197,95,283,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,169,85,196"/>
-<area shape="rect" id="node5" title=" " alt="" coords="299,169,362,196"/>
-<area shape="rect" id="node7" title=" " alt="" coords="386,169,454,196"/>
-<area shape="rect" id="node8" title=" " alt="" coords="415,95,481,121"/>
-<area shape="rect" id="node9" title=" " alt="" coords="505,95,599,121"/>
-<area shape="rect" id="node10" title=" " alt="" coords="623,95,718,121"/>
-<area shape="rect" id="node11" title=" " alt="" coords="743,95,865,121"/>
-<area shape="rect" id="node4" title=" " alt="" coords="200,169,275,196"/>
-<area shape="rect" id="node6" title=" " alt="" coords="109,169,176,196"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="326,5,498,45"/>
+<area shape="rect" id="Node000002" href="$VMatrix_8h.html" title=" " alt="" coords="197,93,283,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="372,48,279,90,277,85,370,43"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,167,85,192"/>
+<area shape="poly" id="edge7_Node000001_Node000003" title=" " alt="" coords="331,48,259,68,186,96,125,128,74,161,71,156,122,124,184,91,258,63,329,43"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="299,167,362,192"/>
+<area shape="poly" id="edge8_Node000001_Node000005" title=" " alt="" coords="404,47,346,155,341,153,399,45"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="386,167,454,192"/>
+<area shape="poly" id="edge9_Node000001_Node000007" title=" " alt="" coords="411,46,406,80,407,118,414,153,409,154,401,119,401,79,405,45"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="415,93,481,119"/>
+<area shape="poly" id="edge10_Node000001_Node000008" title=" " alt="" coords="423,44,439,79,434,82,418,47"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="505,93,599,119"/>
+<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="447,43,520,84,518,89,444,48"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="623,93,718,119"/>
+<area shape="poly" id="edge12_Node000001_Node000010" title=" " alt="" coords="475,43,621,87,619,92,473,48"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="743,93,865,119"/>
+<area shape="poly" id="edge13_Node000001_Node000011" title=" " alt="" coords="499,41,734,88,733,93,498,46"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="210,121,91,164,89,159,208,116"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="200,167,275,192"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="242,119,241,153,236,153,237,119"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="256,117,307,156,303,160,253,121"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="109,167,176,192"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="226,121,171,160,168,156,223,117"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="270,116,379,159,377,164,268,121"/>
 </map>
