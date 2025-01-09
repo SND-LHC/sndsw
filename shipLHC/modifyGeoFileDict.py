@@ -13,7 +13,7 @@ commonPath = "/eos/experiment/sndlhc/convertedData/physics/"
                      "geofile_sndlhc_TI18_V4_10August2022.root","geofile_sndlhc_TI18_V5_14August2022.root","geofile_sndlhc_TI18_V6_08October2022.root",
                      "geofile_sndlhc_TI18_V7_22November2022.root"]
 '''
-supportedGeoFiles = {"geofile_sndlhc_TI18_V7_22November2022.root":commonPath+"commissioning/TI18",
+supportedGeoFiles = {"geofile_sndlhc_TI18_V7_22November2022.root":commonPath+"2022/",
                      "geofile_sndlhc_TI18_V0_2024.root":commonPath+"2024/"}
 
 def modifyDicts(year=2024):
