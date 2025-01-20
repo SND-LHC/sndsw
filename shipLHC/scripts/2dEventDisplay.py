@@ -311,8 +311,8 @@ def loopEvents(
  if Setup == 'H6': zStart = 60.
  if Setup == 'TP': zStart = -50. # old coordinate system with origin in middle of target
  if Setup == 'H4': 
-   xStart = -130.
-   yStart = 0.
+   xStart = -110.
+   yStart = -10.
    zStart = 300.
    zEnd = 430.
  if 'xz' in h: 
