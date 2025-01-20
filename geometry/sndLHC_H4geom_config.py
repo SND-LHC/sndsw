@@ -383,7 +383,8 @@ with ConfigRegistry.register_config("basic") as c:
            c.Scifi.Xpos3,c.Scifi.Ypos3,c.Scifi.Zpos3 = 156.6*u.mm,3676.3*u.mm,228.5*u.mm # 16cm step
 
            # DS1 - since there are no US planes, we take the item labelled Muon1!
-           c.MuFilter.Muon1Dx,c.MuFilter.Muon1Dy,c.MuFilter.Muon1Dz = 318.6*u.mm, 4066.3*u.mm, 230.2*u.mm
+           # DS spatial alignment is included in the values
+           c.MuFilter.Muon1Dx,c.MuFilter.Muon1Dy,c.MuFilter.Muon1Dz = 118.1*u.mm, 4066.3*u.mm, 151.2*u.mm
 
 # from Scifi track alignment
            if tb_2024_mc :
