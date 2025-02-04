@@ -14,6 +14,7 @@ sndSciFiTools.cxx
 )
 
 set(LINK_DIRECTORIES
+${ROOT_LIBRARY_DIR}
 ${FAIRROOT_LIBRARY_DIR}
 )
 
