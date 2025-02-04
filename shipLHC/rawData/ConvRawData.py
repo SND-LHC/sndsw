@@ -118,7 +118,7 @@ class ConvRawDataPY(ROOT.FairTask):
       logger = ROOT.FairLogger.GetLogger()
       logger.SetColoredLog(True)
       logger.SetLogVerbosityLevel('low')
-      logger.SetLogScreenLevel('warn')
+      logger.SetLogScreenLevel('error')
       logger.SetLogToScreen(True)
       if options.debug:
          logger.SetLogToFile(True)

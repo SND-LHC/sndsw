@@ -277,7 +277,7 @@ void ConvRawData::Process0()
          
          // Print a warning if TDC or QDC is nan.        
          if ( TDC != TDC || QDC!=QDC) {
-         LOG (warning) << "NAN tdc/qdc detected! Check maps!"
+         LOG (error) << "NAN tdc/qdc detected! Check maps!"
                        << " " << board_id << " " << bt->GetLeaf("tofpetId")->GetValue(n)
                        << " " << bt->GetLeaf("tofpetChannel")->GetValue(n)
                        << " " << bt->GetLeaf("tac")->GetValue(n)
@@ -571,7 +571,7 @@ void ConvRawData::Process1()
   
        // Print a warning if TDC or QDC is nan.        
        if ( TDC != TDC || QDC!=QDC) {
-       LOG (warning) << "NAN tdc/qdc detected! Check maps!"
+       LOG (error) << "NAN tdc/qdc detected! Check maps!"
                       << " " << board_id << " " << fEventTree->GetLeaf("tofpetId")->GetValue(n)
                      << " " << fEventTree->GetLeaf("tofpetChannel")->GetValue(n)
                      << " " << fEventTree->GetLeaf("tac")->GetValue(n)
