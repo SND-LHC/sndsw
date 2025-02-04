@@ -4,6 +4,7 @@
 #include "TGeoManager.h"
 #include "FairRun.h"                    // for FairRun
 #include "FairRuntimeDb.h"              // for FairRuntimeDb
+#include "FairRootManager.h"            // for FairRun
 #include "TVirtualMC.h"          // for gMC
 #include "TList.h"                      // for TListIter, TList (ptr only)
 #include "TObjArray.h"                  // for TObjArray

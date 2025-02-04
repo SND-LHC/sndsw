@@ -4,6 +4,7 @@
 #include <TClonesArray.h>
 #include <TFile.h>
 #include <TMap.h>
+#include <TTree.h>
 #include "FairTask.h"           // for FairTask, InitStatus
 #include "FairEventHeader.h"    // for FairEventHeader
 #include "SNDLHCEventHeader.h"  // for EventHeader
