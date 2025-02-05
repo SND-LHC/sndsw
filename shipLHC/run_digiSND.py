@@ -1,6 +1,11 @@
 #!/usr/bin/env python
 firstEvent = 0
 
+def pyExit():
+       "unfortunately need as bypassing an issue related to use xrootd"
+       os.system('kill '+str(os.getpid()))
+atexit.register(pyExit)
+
 import resource
 def mem_monitor():
  # Getting virtual memory size 
