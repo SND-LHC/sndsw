@@ -516,10 +516,10 @@ class fillingScheme():
         else:
           # 2022-2023 FS storage in csv files
           # cases where only a binary csv file exists or the json file is wrong
-          if fillNr in ['']:
-            F=urlopen('https://lpc.web.cern.ch/fillingSchemes/2022/candidates/25ns_156b_144_90_96_48bpi_4inj_MD7003.csv')
-            X = F.read()
-            F.close()
+          if fillNr in ['9231', '9232']:
+            File = urlopen('https://lpc.web.cern.ch/fillingSchemes/2023/candidates/50ns_1123b_1010_1010_320_56bpi_23inj_3INDIV_PbPb.csv')
+            X = File.read()
+            File.close()
             csv = X.decode().split('\n')
           else:
             fs_url="https://lpc.web.cern.ch/cgi-bin/schemeInfo.py?fill="
@@ -539,7 +539,9 @@ class fillingScheme():
             if (self.content['fills'][fillNr]['name'] != fs_name_table ):
                print('FS data differs btw the LPC JSON and the all-year LPC table, check!', '\n', \
                      'JSON:',  fillNr, self.content['fills'][fillNr]['name'], '\n', \
-                     'all-year table:', fs_name_table)
+                     'all-year table:', fs_name_table, '\n', \
+                     'One can look for the candidates csv files here\n' \
+                     "https://lpc.web.cern.ch/fillingSchemes/202X/candidates")
                return -1
             csv = self.content['fills'][fillNr]['csv'].split('\n')
             
