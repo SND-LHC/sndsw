@@ -60,8 +60,10 @@ class ConvRawDataPY(ROOT.FairTask):
       self.FSmap = ROOT.TMap()
       if self.fsdict:   
          # For LHC ion runs the phase shift of beam 2 could not be
-         # determined and is assigned 0 in the FS dict
-         if self.fsdict['phaseShift2'] == 0: Nbunches = 1782
+         # determined and is assigned 0 or 1718(=1782-64) in the FS dict
+         # For pp runs phase2 is 3564-129.
+         if self.fsdict['phaseShift2'] == 0 or self.fsdict['phaseShift2'] == 1718:
+             Nbunches = 1782
          else: Nbunches = 3564 # proton runs
          for bunchNumber in range (0, Nbunches):
              nb1 = (Nbunches + bunchNumber - self.fsdict['phaseShift1'])%Nbunches
