@@ -13,7 +13,7 @@ var searchData=
   ['makemuonem_2epy_10',['makeMuonEM.py',['../makeMuonEM_8py.html',1,'']]],
   ['makesndgenieevents_2epy_11',['makeSNDGenieEvents.py',['../makeSNDGenieEvents_8py.html',1,'']]],
   ['materialeffects_2ecc_12',['MaterialEffects.cc',['../MaterialEffects_8cc.html',1,'']]],
-  ['materialeffects_2eh_13',['materialeffects.h',['../trackReps_2include_2MaterialEffects_8h.html',1,'(Global Namespace)'],['../include_2genfit_2MaterialEffects_8h.html',1,'(Global Namespace)']]],
+  ['materialeffects_2eh_13',['materialeffects.h',['../include_2genfit_2MaterialEffects_8h.html',1,'(Global Namespace)'],['../trackReps_2include_2MaterialEffects_8h.html',1,'(Global Namespace)']]],
   ['materialproperties_2ecc_14',['MaterialProperties.cc',['../MaterialProperties_8cc.html',1,'']]],
   ['materialproperties_2eh_15',['MaterialProperties.h',['../MaterialProperties_8h.html',1,'']]],
   ['mcstacklinkdef_2eh_16',['MCStackLinkDef.h',['../MCStackLinkDef_8h.html',1,'']]],

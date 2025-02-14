@@ -37,7 +37,7 @@ var searchData=
   ['beginrun_34',['beginRun',['../classgenfit_1_1GFGbl.html#a9fb9dafe2b24e3d00f5e24999e358774',1,'genfit::GFGbl']]],
   ['bellfield_35',['bellfield',['../classgenfit_1_1BellField.html',1,'genfit::BellField'],['../classgenfit_1_1BellField.html#a1cf5fa3115b0faba316662d37bd2d222',1,'genfit::BellField::BellField(double Peak, double Middle)'],['../classgenfit_1_1BellField.html#a7a01d727887468a819476df68f8b8b5b',1,'genfit::BellField::BellField()'],['../classgenfit_1_1BellField.html#a7a01d727887468a819476df68f8b8b5b',1,'genfit::BellField::BellField()'],['../classgenfit_1_1BellField.html#a5ee6cfec5aab7d83889db289baf9b2bc',1,'genfit::BellField::BellField(double Peak, double Middle, int orientation, double Btube)']]],
   ['bellfield_2ecc_36',['BellField.cc',['../BellField_8cc.html',1,'']]],
-  ['bellfield_2eh_37',['bellfield.h',['../fields_2include_2BellField_8h.html',1,'(Global Namespace)'],['../include_2genfit_2BellField_8h.html',1,'(Global Namespace)']]],
+  ['bellfield_2eh_37',['bellfield.h',['../include_2genfit_2BellField_8h.html',1,'(Global Namespace)'],['../fields_2include_2BellField_8h.html',1,'(Global Namespace)']]],
   ['bench_38',['bench',['../classrpvsusy_1_1RPVSUSYbranchings.html#a991cb187c997bb3d49cd1c048959024b',1,'rpvsusy::RPVSUSYbranchings']]],
   ['benchmark_5fapi_2epy_39',['benchmark_api.py',['../benchmark__api_8py.html',1,'']]],
   ['besttracks_40',['bestTracks',['../namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a0eb960fd681272f206948489d9f5054b',1,'conditionsDatabase::demo::drifttubeMonitoring']]],
