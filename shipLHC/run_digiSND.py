@@ -2,7 +2,9 @@
 firstEvent = 0
 
 def pyExit():
-       "unfortunately need as bypassing an issue related to use xrootd"
+       "nasty hack"
+       # This is needed to bypass seg violation with exiting cpp digitization
+       # Most likely related to file ownership.
        os.system('kill '+str(os.getpid()))
 atexit.register(pyExit)
 
