@@ -98,6 +98,8 @@ $(document).ready(function(){initNavTree('namespacerun__digiSND.html',''); initR
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:ae602ec3cb4dbd8402561d9387b18090f" id="r_ae602ec3cb4dbd8402561d9387b18090f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerun__digiSND.html#ae602ec3cb4dbd8402561d9387b18090f">pyExit</a> ()</td></tr>
+<tr class="separator:ae602ec3cb4dbd8402561d9387b18090f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae34605fb6726080dc9f65abe58bba9c2" id="r_ae34605fb6726080dc9f65abe58bba9c2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerun__digiSND.html#ae34605fb6726080dc9f65abe58bba9c2">mem_monitor</a> ()</td></tr>
 <tr class="separator:ae34605fb6726080dc9f65abe58bba9c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -192,18 +194,42 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00013">13</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   13</span><span class="keyword">def </span>mem_monitor():</div>
+<div class="line"><span class="lineno">   14</span> <span class="comment"># Getting virtual memory size </span></div>
+<div class="line"><span class="lineno">   15</span>    pid = os.getpid()</div>
+<div class="line"><span class="lineno">   16</span>    <span class="keyword">with</span> open(os.path.join(<span class="stringliteral">&quot;/proc&quot;</span>, str(pid), <span class="stringliteral">&quot;status&quot;</span>)) <span class="keyword">as</span> f:</div>
+<div class="line"><span class="lineno">   17</span>        lines = f.readlines()</div>
+<div class="line"><span class="lineno">   18</span>    _vmsize = [l <span class="keywordflow">for</span> l <span class="keywordflow">in</span> lines <span class="keywordflow">if</span> l.startswith(<span class="stringliteral">&quot;VmSize&quot;</span>)][0]</div>
+<div class="line"><span class="lineno">   19</span>    vmsize = int(_vmsize.split()[1])</div>
+<div class="line"><span class="lineno">   20</span>    <span class="comment">#Getting physical memory size  </span></div>
+<div class="line"><span class="lineno">   21</span>    pmsize = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss</div>
+<div class="line"><span class="lineno">   22</span>    print(<span class="stringliteral">&quot;memory: virtuell = %5.2F MB  physical = %5.2F MB&quot;</span>%(vmsize/1.0E3,pmsize/1.0E3))</div>
+<div class="line"><span class="lineno">   23</span> </div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ae602ec3cb4dbd8402561d9387b18090f" name="ae602ec3cb4dbd8402561d9387b18090f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae602ec3cb4dbd8402561d9387b18090f">&#9670;&#160;</a></span>pyExit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">run_digiSND.pyExit </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
 <p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00005">5</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">    5</span><span class="keyword">def </span>mem_monitor():</div>
-<div class="line"><span class="lineno">    6</span> <span class="comment"># Getting virtual memory size </span></div>
-<div class="line"><span class="lineno">    7</span>    pid = os.getpid()</div>
-<div class="line"><span class="lineno">    8</span>    <span class="keyword">with</span> open(os.path.join(<span class="stringliteral">&quot;/proc&quot;</span>, str(pid), <span class="stringliteral">&quot;status&quot;</span>)) <span class="keyword">as</span> f:</div>
-<div class="line"><span class="lineno">    9</span>        lines = f.readlines()</div>
-<div class="line"><span class="lineno">   10</span>    _vmsize = [l <span class="keywordflow">for</span> l <span class="keywordflow">in</span> lines <span class="keywordflow">if</span> l.startswith(<span class="stringliteral">&quot;VmSize&quot;</span>)][0]</div>
-<div class="line"><span class="lineno">   11</span>    vmsize = int(_vmsize.split()[1])</div>
-<div class="line"><span class="lineno">   12</span>    <span class="comment">#Getting physical memory size  </span></div>
-<div class="line"><span class="lineno">   13</span>    pmsize = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss</div>
-<div class="line"><span class="lineno">   14</span>    print(<span class="stringliteral">&quot;memory: virtuell = %5.2F MB  physical = %5.2F MB&quot;</span>%(vmsize/1.0E3,pmsize/1.0E3))</div>
-<div class="line"><span class="lineno">   15</span> </div>
+<div class="fragment"><div class="line"><span class="lineno">    5</span><span class="keyword">def </span>pyExit():</div>
+<div class="line"><span class="lineno">    6</span>       <span class="stringliteral">&quot;nasty hack&quot;</span></div>
+<div class="line"><span class="lineno">    7</span>       <span class="comment"># This is needed to bypass seg violation with exiting cpp digitization</span></div>
+<div class="line"><span class="lineno">    8</span>       <span class="comment"># Most likely related to file ownership.</span></div>
+<div class="line"><span class="lineno">    9</span>       os.system(<span class="stringliteral">&#39;kill &#39;</span>+str(os.getpid()))</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -220,7 +246,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00031">31</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00039">39</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
 
 </div>
 </div>
@@ -236,7 +262,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00133">133</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00141">141</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
 
 </div>
 </div>
@@ -252,7 +278,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00026">26</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00034">34</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
 
 </div>
 </div>
@@ -268,7 +294,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00024">24</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00032">32</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
 
 </div>
 </div>
@@ -284,7 +310,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00103">103</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00111">111</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
 
 </div>
 </div>
@@ -300,7 +326,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00090">90</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00098">98</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
 
 </div>
 </div>
@@ -316,7 +342,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00002">2</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00003">3</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
 
 </div>
 </div>
@@ -332,7 +358,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00027">27</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00035">35</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
 
 </div>
 </div>
@@ -348,7 +374,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00058">58</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00066">66</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
 
 </div>
 </div>
@@ -364,7 +390,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00024">24</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00032">32</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
 
 </div>
 </div>
@@ -380,7 +406,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00120">120</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00128">128</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
 
 </div>
 </div>
@@ -396,7 +422,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00047">47</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00055">55</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
 
 </div>
 </div>
@@ -412,7 +438,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00097">97</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00105">105</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
 
 </div>
 </div>
@@ -428,7 +454,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00026">26</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00034">34</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
 
 </div>
 </div>
@@ -444,7 +470,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00098">98</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00106">106</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
 
 </div>
 </div>
@@ -460,7 +486,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00083">83</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00091">91</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
 
 </div>
 </div>
@@ -476,7 +502,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00063">63</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00071">71</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
 
 </div>
 </div>
@@ -492,7 +518,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00037">37</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00045">45</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
 
 </div>
 </div>
@@ -508,7 +534,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00065">65</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00073">73</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
 
 </div>
 </div>
@@ -524,7 +550,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00100">100</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00108">108</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
 
 </div>
 </div>
@@ -540,7 +566,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00099">99</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00107">107</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
 
 </div>
 </div>
@@ -556,7 +582,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00035">35</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00043">43</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
 
 </div>
 </div>
@@ -572,7 +598,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00044">44</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00052">52</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
 
 </div>
 </div>
@@ -588,7 +614,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00093">93</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00101">101</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
 
 </div>
 </div>
@@ -604,7 +630,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00023">23</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00031">31</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
 
 </div>
 </div>
@@ -620,7 +646,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00121">121</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00129">129</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
 
 </div>
 </div>
@@ -636,7 +662,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00024">24</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00032">32</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
 
 </div>
 </div>
@@ -652,7 +678,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00102">102</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00110">110</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
 
 </div>
 </div>
@@ -668,7 +694,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00132">132</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00140">140</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
 
 </div>
 </div>
@@ -684,7 +710,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00082">82</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00090">90</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
 
 </div>
 </div>
@@ -700,7 +726,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00064">64</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00072">72</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
 
 </div>
 </div>
@@ -716,7 +742,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00060">60</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00068">68</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
 
 </div>
 </div>
@@ -732,7 +758,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00113">113</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00121">121</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
 
 </div>
 </div>
@@ -748,7 +774,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00039">39</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00047">47</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
 
 </div>
 </div>
@@ -764,7 +790,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00043">43</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00051">51</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
 
 </div>
 </div>
@@ -780,7 +806,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00026">26</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__digiSND_8py_source.html#l00034">34</a> of file <a class="el" href="run__digiSND_8py_source.html">run_digiSND.py</a>.</p>
 
 </div>
 </div>

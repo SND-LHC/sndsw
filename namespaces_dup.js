@@ -2697,6 +2697,7 @@ var namespaces_dup =
     ] ],
     [ "run_digiSND", "namespacerun__digiSND.html", [
       [ "mem_monitor", "namespacerun__digiSND.html#ae34605fb6726080dc9f65abe58bba9c2", null ],
+      [ "pyExit", "namespacerun__digiSND.html#ae602ec3cb4dbd8402561d9387b18090f", null ],
       [ "action", "namespacerun__digiSND.html#aa62fdc224ae15c8eae440522929a7951", null ],
       [ "ctime", "namespacerun__digiSND.html#aeec7c35dc7b68d4eae80546432e05585", null ],
       [ "default", "namespacerun__digiSND.html#afd902e05aaff52727afa34a94a386431", null ],
