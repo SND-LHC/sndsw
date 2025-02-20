@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import atexit
 firstEvent = 0
 
 def pyExit():
