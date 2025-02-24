@@ -152,11 +152,12 @@ Introduction to &lt;tt&gt;aliBuild&lt;/tt&gt;</h2>
 <p>For more information on using <code>aliBuild</code>, see its <a href="https://alisw.github.io/alibuild/">documentation</a> (note: some things are ALICE specific and will not apply to SND@LHC software).</p>
 <h2><a class="anchor" id="autotoc_md26"></a>
 On lxplus or systems with CVMFS</h2>
-<p>On <code>lxplus</code> or any CC7/CC8 machine with access to CVMFS, you can do the following:</p>
+<p>On <code>lxplus</code> or supported platforms with access to CVMFS, you can do the following:</p>
 <ol type="1">
 <li>Make sure you can access the SNDLHC CVMFS Repository <div class="fragment"><div class="line">ls /cvmfs/sndlhc.cern.ch</div>
+</div><!-- fragment --> Check if your platform is supported for the given release in production. The latest release is the recommended one. <div class="fragment"><div class="line">cat /cvmfs/sndlhc.cern.ch/README</div>
 </div><!-- fragment --></li>
-<li>Source the <code>setUp.sh</code> script <div class="fragment"><div class="line">source /cvmfs/sndlhc.cern.ch/SNDLHC-2024/June25/setUp.sh  # recommended latest version</div>
+<li>Source the <code>setUp.sh</code> script <div class="fragment"><div class="line">source /cvmfs/sndlhc.cern.ch/SNDLHC-2025/Jan30/setUp.sh  # recommended latest version</div>
 </div><!-- fragment --></li>
 <li>If you don't want to modify the sndsw package, skip step 3: <div class="fragment"><div class="line">git clone https://github.com/SND-LHC/sndsw</div>
 </div><!-- fragment --> This gives you by default the master branch of the software. In case, you want to use a specific branch: <div class="fragment"><div class="line">cd sndsw</div>
