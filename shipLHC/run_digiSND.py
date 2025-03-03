@@ -39,6 +39,7 @@ parser.add_argument("-tMS", "--thresholdMufiS", dest="tms", type=float, help="th
 parser.add_argument("-no-cls", "--noClusterScifi", action='store_true', help="do not make Scifi clusters")
 parser.add_argument("-cpp", "--digiCPP", action='store_true', dest="FairTask_digi", help="perform digitization using DigiTaskSND")
 parser.add_argument("-d", "--Debug", dest="debug", help="debug", default=False)
+parser.add_argument("--copy-emulsion-points", action='store_true', help="Copy emulsion points from input file (potentially large file size!).")
 
 options = parser.parse_args()
 # rephrase the no-cluster flag
@@ -110,16 +111,19 @@ if options.FairTask_digi:
   rtdb = run.GetRuntimeDb()
   DigiTask = ROOT.DigiTaskSND()
   DigiTask.withScifiClusters(makeClusterScifi)
+  DigiTask.set_copy_emulsion_points(options.copy_emulsion_points)
   run.AddTask(DigiTask)
   run.Init()
   run.Run(firstEvent, nEvents)
 
 # Digitization using python code SndlhcDigi
 else:
+  if options.copy_emulsion_points:
+      print("ERROR: copying of emulsion points only configurable when using DigiTask")
+
  # import digi task
   import SndlhcDigi
   Sndlhc = SndlhcDigi.SndlhcDigi(outFile,makeClusterScifi)
-
   nEvents   = min(Sndlhc.sTree.GetEntries(),options.nEvents)
 # main loop
   for iEvent in range(firstEvent, nEvents):
