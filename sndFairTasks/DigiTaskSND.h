@@ -32,7 +32,7 @@ class DigiTaskSND : public FairTask
     void withScifiClusters(bool flag){ fMakeClusterScifi = flag; }
 
     /** Set flag to copy emulsion points to output file **/
-    void set_copy_emulsion_points(bool flag){ fCopyEmulsionPoints = flag; }
+    void set_copy_emulsion_points(bool flag) { fCopyEmulsionPoints = flag; }
 
   private:
     void digitizeMuFilter();
