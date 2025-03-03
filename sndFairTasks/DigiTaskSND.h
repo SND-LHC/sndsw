@@ -31,8 +31,6 @@ class DigiTaskSND : public FairTask
     /** Set flag for Scifi cluster making  **/
     void withScifiClusters(bool flag){ fMakeClusterScifi = flag; }
 
-    /** Flags **/
-    bool fMakeClusterScifi;
 
   private:
     void digitizeMuFilter();
@@ -56,6 +54,9 @@ class DigiTaskSND : public FairTask
     TClonesArray* fScifiHit2MCPointsArray;
     TClonesArray* fEmulsionPointArray;
     TClonesArray* fMCTrackArray;
+
+    /** Flags **/
+    bool fMakeClusterScifi;
 
     DigiTaskSND(const DigiTaskSND&);
     DigiTaskSND& operator=(const DigiTaskSND&);
