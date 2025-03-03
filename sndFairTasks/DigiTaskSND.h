@@ -31,6 +31,8 @@ class DigiTaskSND : public FairTask
     /** Set flag for Scifi cluster making  **/
     void withScifiClusters(bool flag){ fMakeClusterScifi = flag; }
 
+    /** Set flag to copy emulsion points to output file **/
+    void set_copy_emulsion_points(bool flag){ fCopyEmulsionPoints = flag; }
 
   private:
     void digitizeMuFilter();
@@ -57,11 +59,12 @@ class DigiTaskSND : public FairTask
 
     /** Flags **/
     bool fMakeClusterScifi;
+    bool fCopyEmulsionPoints;
 
     DigiTaskSND(const DigiTaskSND&);
     DigiTaskSND& operator=(const DigiTaskSND&);
 
-    ClassDef(DigiTaskSND, 4);
+    ClassDef(DigiTaskSND, 5);
 };
 
 #endif /* DIGITASKSND_H_ */

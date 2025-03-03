@@ -37,6 +37,7 @@ DigiTaskSND::DigiTaskSND()
     , fScifiHit2MCPointsArray(nullptr)
     , fMuFilterHit2MCPointsArray(nullptr)
     , fMakeClusterScifi(true)
+    , fCopyEmulsionPoints(false)
 {}
 
 DigiTaskSND::~DigiTaskSND() {}
@@ -72,7 +73,7 @@ InitStatus DigiTaskSND::Init()
     // copy branches from input file:
     fMCTrackArray = static_cast<TClonesArray*>(ioman->GetObject("MCTrack"));
     ioman->Register("MCTrack", "ShipMCTrack", fMCTrackArray, kTRUE);
-    ioman->Register("EmulsionDetPoint", "EmulsionDetPoints", fEmulsionPointArray, kTRUE);
+    ioman->Register("EmulsionDetPoint", "EmulsionDetPoints", fEmulsionPointArray, fCopyEmulsionPoints);
     ioman->Register("ScifiPoint", "ScifiPoints", fScifiPointArray, kTRUE);
     ioman->Register("MuFilterPoint", "MuFilterPoints", fMuFilterPointArray, kTRUE);
  
