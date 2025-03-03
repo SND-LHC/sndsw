@@ -54,7 +54,6 @@ class DigiTaskSND : public FairTask
     TClonesArray* fScifiDigiHitArray;
     TClonesArray* fMuFilterHit2MCPointsArray; // link to MC truth
     TClonesArray* fScifiHit2MCPointsArray;
-    TClonesArray* fvetoPointArray;
     TClonesArray* fEmulsionPointArray;
     TClonesArray* fMCTrackArray;
 

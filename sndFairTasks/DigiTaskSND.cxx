@@ -63,7 +63,6 @@ InitStatus DigiTaskSND::Init()
     }
     // Get input MC points
     fScifiPointArray = static_cast<TClonesArray*>(ioman->GetObject("ScifiPoint"));
-    fvetoPointArray = static_cast<TClonesArray*>(ioman->GetObject("vetoPoint"));
     fEmulsionPointArray = static_cast<TClonesArray*>(ioman->GetObject("EmulsionDetPoint"));
     fMuFilterPointArray = static_cast<TClonesArray*>(ioman->GetObject("MuFilterPoint"));
     if (!fScifiPointArray and !fMuFilterPointArray) {
@@ -73,7 +72,6 @@ InitStatus DigiTaskSND::Init()
     // copy branches from input file:
     fMCTrackArray = static_cast<TClonesArray*>(ioman->GetObject("MCTrack"));
     ioman->Register("MCTrack", "ShipMCTrack", fMCTrackArray, kTRUE);
-    ioman->Register("vetoPoint", "vetoPoints", fvetoPointArray, kTRUE);
     ioman->Register("EmulsionDetPoint", "EmulsionDetPoints", fEmulsionPointArray, kTRUE);
     ioman->Register("ScifiPoint", "ScifiPoints", fScifiPointArray, kTRUE);
     ioman->Register("MuFilterPoint", "MuFilterPoints", fMuFilterPointArray, kTRUE);
