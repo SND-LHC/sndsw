@@ -96,7 +96,7 @@ var searchData=
   ['displaynudetector_93',['displaynudetector',['../namespaceeventDisplay__shipLHC.html#a1b1f4fdd0f838b286bddac4ae36e9a02',1,'eventDisplay_shipLHC.DisplayNuDetector()'],['../namespaceeventDisplay.html#ad8991db43838177f75f91157d15b2f04',1,'eventDisplay.DisplayNuDetector()']]],
   ['displaytrack_94',['displayTrack',['../namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a58ed934843d893606ce1873ca59e317c',1,'conditionsDatabase::demo::drifttubeMonitoring']]],
   ['disptrack3d_95',['dispTrack3D',['../namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#af486a59ce80789034292cccafffdc176',1,'conditionsDatabase::demo::drifttubeMonitoring']]],
-  ['dist_96',['dist',['../classUpstreamTaggerHit.html#afe2baef7e2c753979e9e3fde67db65a2',1,'UpstreamTaggerHit::Dist()'],['../classgenfit_1_1DetPlane.html#af241ee3b10cdda6b1e24ccfac0dabc1b',1,'genfit::DetPlane::dist()'],['../classTimeDetHit.html#ae785ed8b12c7ad11fcf935c372dc9df1',1,'TimeDetHit::Dist()']]],
+  ['dist_96',['dist',['../classTimeDetHit.html#ae785ed8b12c7ad11fcf935c372dc9df1',1,'TimeDetHit::Dist()'],['../classUpstreamTaggerHit.html#afe2baef7e2c753979e9e3fde67db65a2',1,'UpstreamTaggerHit::Dist()'],['../classgenfit_1_1DetPlane.html#af241ee3b10cdda6b1e24ccfac0dabc1b',1,'genfit::DetPlane::dist()']]],
   ['dist2innerwall_97',['dist2InnerWall',['../namespaceShipAna.html#a62bc883cf46f34acd4ef73d4954837e8',1,'ShipAna']]],
   ['dist2line_98',['dist2line',['../namespaceshipPatRec__prev.html#aca416eae062827a4d33e7036618a81aa',1,'shipPatRec_prev']]],
   ['dist2wire_99',['dist2Wire',['../classstrawtubesPoint.html#a2285cb3dcf9c0ce876a5ceb1f0142d04',1,'strawtubesPoint']]],

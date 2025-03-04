@@ -1,6 +1,5 @@
 var NAVTREEINDEX4 =
 {
-"ScifiCluster_8py.html#ae437c77d5f2d38fecf5c2c02fb72d3cd":[13,0,17,36,52],
 "ScifiCluster_8py.html#ae7c042a8910266970310bce9ba868061":[13,0,17,36,48],
 "ScifiCluster_8py.html#ae834974429529d68c2bbcde161991179":[13,0,17,36,38],
 "ScifiCluster_8py.html#aeb07240e2792c38725cfb8ff3e2540df":[13,0,17,36,37],
@@ -249,5 +248,6 @@ var NAVTREEINDEX4 =
 "ShipMuonShield_8cxx.html#a6727a350e81241552a40fd6f33515106":[13,0,14,13,1],
 "ShipMuonShield_8cxx.html#ab05e85c22fe0c2c6ed701c357bbf1512":[13,0,14,13,3],
 "ShipMuonShield_8cxx_source.html":[13,0,14,13],
-"ShipMuonShield_8h.html":[13,0,14,14]
+"ShipMuonShield_8h.html":[13,0,14,14],
+"ShipMuonShield_8h.html#a7a162bd4e07daf5d23ff100f08d1cb43":[13,0,14,14,1]
 };
