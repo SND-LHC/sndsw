@@ -44,6 +44,7 @@ class SNDLHCEventHeader : public TNamed
     uint16_t GetFillNumber() const { return fFillNumber; }
     int GetAccMode() const { return fAccMode; }
     int GetBeamMode() const { return fBeamMode; }
+    uint64_t GetFlags() { return fFlags; }
     std::map<std::string, bool> GetFastNoiseFilters();
     std::map<std::string, bool> GetAdvNoiseFilters();
     std::vector<std::string> GetPassedFastNFCriteria();
