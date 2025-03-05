@@ -248,6 +248,6 @@ var NAVTREEINDEX20 =
 "classRPCUnpack.html#abb3f184e679876c87f510df10f74a3c1":[12,0,142,3],
 "classRPCUnpack.html#ae04b51ec4285574c945af134bf75db8e":[12,0,142,5],
 "classSNDLHCEventHeader.html":[12,0,175],
-"classSNDLHCEventHeader.html#a044727b68e6b03b3c269911af12dc8ca":[12,0,175,40],
-"classSNDLHCEventHeader.html#a0d92982305491d7692e482b2d3414cee":[12,0,175,44]
+"classSNDLHCEventHeader.html#a044727b68e6b03b3c269911af12dc8ca":[12,0,175,41],
+"classSNDLHCEventHeader.html#a0d92982305491d7692e482b2d3414cee":[12,0,175,45]
 };

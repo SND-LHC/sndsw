@@ -12,6 +12,7 @@ var classSNDLHCEventHeader =
     [ "GetEventTime", "classSNDLHCEventHeader.html#a30124b0200ae710dc86f35264532a660", null ],
     [ "GetFastNoiseFilters", "classSNDLHCEventHeader.html#a4a75752e64578982c2a334070986a41b", null ],
     [ "GetFillNumber", "classSNDLHCEventHeader.html#a15fbfb6ad2128ea3c94c43e4e4c887f7", null ],
+    [ "GetFlags", "classSNDLHCEventHeader.html#affb6012bb8b97736c01a1d110cd6131b", null ],
     [ "GetInputFileId", "classSNDLHCEventHeader.html#ac412e53958d763f9452f4476787e2cf1", null ],
     [ "GetPassedAdvNFCriteria", "classSNDLHCEventHeader.html#accf8c74f97a0e443e9aa3d46023f0cfa", null ],
     [ "GetPassedFastNFCriteria", "classSNDLHCEventHeader.html#aa1a99c9f55d9fe2c536c784a8e83fa6c", null ],
