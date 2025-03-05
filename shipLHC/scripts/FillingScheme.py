@@ -433,6 +433,10 @@ class fillingScheme():
         alternative = self.alternativeFill(str(fillNr))
         # Get the FS name from the all-year LPC table
         fs_name_table = self.getNameOfFillingscheme(int(fillNr))
+        # this 2024 ion run FS has its attributes swapped btw LPC table and json
+        # this is the most elegant fix since many fills are affected
+        if fs_name_table=="50ns_119b_58_51_58_56bpi_9inj_3INDIV_4NC_PbPb":
+           fs_name_table="50ns_119b_58_51_58_56bpi_9inj_4NC_3INDIV_PbPb"
         print('Name of filling scheme: ',fs_name_table)
         if fs_name_table==0: 
           return -1
@@ -453,6 +457,16 @@ class fillingScheme():
             response = requests.get(fs_url)
           response.raise_for_status()
           fs_data_json = response.json()
+          # check if collision data exists - for 2024 ion runs it doesn't
+          # and SND files from eos are to be used.
+          # These files were generated using the LPC Filling Scheme Editor.
+          if 'collsPatternB1' not in fs_data_json:
+             with open('/eos/experiment/sndlhc/filling_schemes/2024/ion_run/'+
+                         fs_name_table+'_snd_generated.json', 'r') as custom_json:
+                fs_data_json = json.load(custom_json)
+             print('Using FS generated using LPC Filling Scheme Editor!\nJSON:'\
+                    '/eos/experiment/sndlhc/filling_schemes/2024/ion_run/'+
+                     fs_name_table+'_snd_generated.json')
           # check name of file and fs_name in file are the same
           if 'schemeName' in fs_data_json:
            fs_name_json = fs_data_json['schemeName']
