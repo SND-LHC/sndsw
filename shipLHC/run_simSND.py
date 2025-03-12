@@ -122,7 +122,7 @@ elif options.testbeam2023:
   snd_geo = ConfigRegistry.loadpy("$SNDSW_ROOT/geometry/sndLHC_HXgeom_config.py",
                                    tb_2023_mc = options.testbeam2023)
 elif options.testbeam2024:
-  snd_geo = ConfigRegistry.loadpy("sndsw/geometry/sndLHC_H4geom_config.py",
+  snd_geo = ConfigRegistry.loadpy("$SNDSW_ROOT/geometry/sndLHC_H4geom_config.py",
                                    tb_2024_mc = options.testbeam2024,
                                    target_material = options.target)
 else:
