@@ -35,12 +35,24 @@ parser.add_argument("-f", "--inputFile", dest="inputFile", help="input file data
 parser.add_argument("-g", "--geoFile", dest="geoFile", help="geofile", default=os.environ["EOSSHIP"]+"/eos/experiment/sndlhc/convertedData/physics/2022/geofile_sndlhc_TI18_V0_2022.root")
 parser.add_argument("-P", "--partition", dest="partition", help="partition of data", type=int,required=False,default=-1)
 parser.add_argument("--server", dest="server", help="xrootd server",default=os.environ["EOSSHIP"])
-parser.add_argument("-X", dest="extraInfo", help="print extra event info",default=True)
+parser.add_argument("--no-extraInfo", dest="extraInfo", action="store_false", help="Do not print extra information on the event.")
+
+parser.add_argument("--extension", dest="extension", help="Extension of file to save. E.g. png, pdf, root, etc.", default="png")
+parser.add_argument("--rootbatch", dest="rootbatch", help="Run ROOT in batch mode.", action="store_true")
+
+parser.add_argument("--collision_axis", dest="drawCollAxis", help="Draw collision axis", action="store_true")
 
 parser.add_argument("-par", "--parFile", dest="parFile", help="parameter file", default=os.environ['SNDSW_ROOT']+"/python/TrackingParams.xml")
 parser.add_argument("-hf", "--HoughSpaceFormat", dest="HspaceFormat", help="Hough space representation. Should match the 'Hough_space_format' name in parFile, use quotes", default='linearSlopeIntercept')
 
 options = parser.parse_args()
+
+resolution_factor = 1
+if options.rootbatch:
+   ROOT.gROOT.SetBatch()
+   # Produce figures larger than the screen resolution. E.g., for printing.
+   resolution_factor = 2
+
 options.storePic = ''
 trans2local = False
 runInfo = False
@@ -300,7 +312,7 @@ def loopEvents(
               auto=False,
               hitColour=None
               ):
- if 'simpleDisplay' not in h: ut.bookCanvas(h,key='simpleDisplay',title='simple event display',nx=1200,ny=1600,cx=1,cy=2)
+ if 'simpleDisplay' not in h: ut.bookCanvas(h,key='simpleDisplay',title='simple event display',nx=1200*resolution_factor,ny=900*resolution_factor,cx=1,cy=2)
  h['simpleDisplay'].cd(1)
  zStart = 250. # TI18 coordinate system
  if Setup == 'H6': zStart = 60.
@@ -430,6 +442,10 @@ def loopEvents(
        rc = h[ 'simpleDisplay'].cd(p)
        h[proj[p]].Draw('b')
 
+    if options.drawCollAxis:
+       for k in proj:
+          drawCollisionAxis(h['simpleDisplay'], k)
+       
     if withDetector:
       drawDetectors()
     for D in digis:
@@ -566,18 +582,18 @@ def loopEvents(
     if verbose>0: dumpChannels()
     userProcessing(event)
 
-    if save: h['simpleDisplay'].Print('{:0>2d}-event_{:04d}'.format(runId,N)+'.png')
+    if save: h['simpleDisplay'].Print('{:0>2d}-event_{:04d}'.format(runId,N)+'.'+options.extension)
     if auto:
-        h['simpleDisplay'].Print(options.storePic+str(runId)+'-event_'+str(event.EventHeader.GetEventNumber())+'.png')
+        h['simpleDisplay'].Print(options.storePic+str(runId)+'-event_'+str(event.EventHeader.GetEventNumber())+'.'+options.extension)
     if not auto:
        rc = input("hit return for next event or p for print or q for quit: ")
        if rc=='p': 
-             h['simpleDisplay'].Print(options.storePic+str(runId)+'-event_'+str(event.EventHeader.GetEventNumber())+'.png')
+             h['simpleDisplay'].Print(options.storePic+str(runId)+'-event_'+str(event.EventHeader.GetEventNumber())+'.'+options.extension)
        elif rc == 'q':
           break
        else:
           eventComment[f"{runId}-event_{event.EventHeader.GetEventNumber()}"] = rc
- if save: os.system("convert -delay 60 -loop 0 event*.png animated.gif")
+ if save: os.system("convert -delay 60 -loop 0 event*."+options.extension+" animated.gif")
 
 def addTrack(OT,scifi=False):
    xax = h['xz'].GetXaxis()
@@ -1082,7 +1098,6 @@ def drawInfo(pad, k, run, event, timestamp,moreEventInfo=[]):
       padLogo.Draw()
       logo = ROOT.TImage.Open('$SNDSW_ROOT/shipLHC/Large__SND_Logo_black_cut.png')
       logo.SetConstRatio(True)
-      logo.DrawText(0, 0, 'SND', 98)
       padLogo.cd()
       logo.Draw()
       pad.cd(k)
@@ -1125,3 +1140,20 @@ def drawInfo(pad, k, run, event, timestamp,moreEventInfo=[]):
         textInfo.DrawLatex(0.4, 0.9-dely*i, moreEventInfo[i])
       pad.cd(k)
 
+def drawCollisionAxis(pad, k):
+   h["collision_axis_line_"+str(k)] = ROOT.TLine(h["zmin"], 0, h["zmax"], 0)
+   h["collision_axis_line_"+str(k)].SetLineColor(ROOT.kRed)
+   h["collision_axis_line_"+str(k)].SetLineStyle(2)
+   
+   h["collision_axis_text_"+str(k)] = ROOT.TText(h["zmin"]+8, 0+2, "Collision axis")
+   h["collision_axis_text_"+str(k)].SetTextAlign(12)
+   h["collision_axis_text_"+str(k)].SetTextFont(43)
+   h["collision_axis_text_"+str(k)].SetTextSize(13*resolution_factor)
+   h["collision_axis_text_"+str(k)].SetTextColor(ROOT.kRed)   
+   
+   pad.cd(k)
+   h["collision_axis_line_"+str(k)].Draw()
+   h["collision_axis_text_"+str(k)].Draw()
+
+   
+       
