@@ -542,11 +542,11 @@ int snd::analysis_tools::showerInteractionWall(const TClonesArray &digiHits, int
    return showerInteractionWall(digiHits, selection_parameters, method, setup);
 }
 
-std::pair<double, double> getSciFiHitsMeanPerStation(const TClonesArray* digiHits, int station)
+std::pair<double, double> find_centre_of_gravity_per_station(const TClonesArray* digiHits, int station)
 {
     if (!digiHits) 
     {
-        LOG(ERROR) << "Error: digiHits is null in getSciFiHitsMeanPerStation";
+        LOG(ERROR) << "Error: digiHits is null in find_centre_of_gravity_per_station";
         return {0.0, 0.0};
     }
 
