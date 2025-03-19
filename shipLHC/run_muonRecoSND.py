@@ -93,6 +93,7 @@ run.SetSource(source)
 
 sink = ROOT.FairRootFileSink(outFile)
 run.SetSink(sink)
+fairRootManager.InitSink()
 # Don't use FairRoot's default event header settings
 run.SetEventHeaderPersistence(False)
 
