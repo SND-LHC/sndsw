@@ -542,7 +542,8 @@ int snd::analysis_tools::showerInteractionWall(const TClonesArray &digiHits, int
    return showerInteractionWall(digiHits, selection_parameters, method, setup);
 }
 
-std::pair<double, double> find_centre_of_gravity_per_station(const TClonesArray* digiHits, int station)
+std::pair<double, double>
+snd::analysis_tools::find_centre_of_gravity_per_station(const TClonesArray* digiHits, int station)
 {
     if (!digiHits) 
     {
