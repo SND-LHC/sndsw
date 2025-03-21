@@ -64,7 +64,7 @@ lsOfGlobals.Add(geo.modules['Scifi'])
 lsOfGlobals.Add(geo.modules['MuFilter'])
 
 fullPath = options.inputFile
-if options.inputFile.find('/eos')==0:
+if options.inputFile.find('/eos/experiment')==0:
      fullPath = os.environ['EOSSHIP']+options.inputFile
 F = ROOT.TFile.Open(fullPath)
 
@@ -93,6 +93,7 @@ run.SetSource(source)
 
 sink = ROOT.FairRootFileSink(outFile)
 run.SetSink(sink)
+fairRootManager.InitSink()
 # Don't use FairRoot's default event header settings
 run.SetEventHeaderPersistence(False)
 
