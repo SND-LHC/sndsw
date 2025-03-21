@@ -584,7 +584,7 @@ snd::analysis_tools::find_centre_of_gravity_per_station(const TClonesArray* digi
       
     }
 
-    auto computeMode = [bin_width](const std::vector<double>& values) -> double 
+    auto computeMean = [bin_width](const std::vector<double>& values) -> double 
     {
          if (values.empty()) 
          {
