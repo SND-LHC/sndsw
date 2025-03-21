@@ -541,3 +541,89 @@ int snd::analysis_tools::showerInteractionWall(const TClonesArray &digiHits, int
 
    return showerInteractionWall(digiHits, selection_parameters, method, setup);
 }
+
+std::pair<double, double>
+snd::analysis_tools::find_centre_of_gravity_per_station(const TClonesArray* digiHits, int station)
+{
+    if (!digiHits) 
+    {
+        LOG(ERROR) << "Error: digiHits is null in find_centre_of_gravity_per_station";
+        return {0.0, 0.0};
+    }
+
+    std::vector<double> x_positions;
+    std::vector<double> y_positions;
+    double bin_width = 0.025;
+
+    for (auto* obj : *digiHits) 
+    {
+        auto* hit = dynamic_cast<sndScifiHit*>(obj);
+
+        if (!hit || !hit->isValid()) 
+        {
+            continue;
+        }
+
+        if (hit->GetStation() != station) 
+        {
+            continue;
+        }
+
+        TVector3 A, B;
+        hit->GetSiPMPosition(hit->GetDetectorID(), A, B);
+
+        if (hit->isVertical())
+        {
+            x_positions.push_back((A.X() + B.X()) * 0.5);
+        }
+
+        else
+        {
+            y_positions.push_back((A.Y() + B.Y()) * 0.5);
+        }
+      
+    }
+
+    auto computeMode = [bin_width](const std::vector<double>& values) -> double 
+    {
+         if (values.empty()) 
+         {
+            return 0.0;
+         }
+
+         double min_val = *std::min_element(values.begin(), values.end());
+         double max_val = *std::max_element(values.begin(), values.end());
+
+         double start = static_cast<double>(static_cast<int>(min_val - 1));
+         double end   = static_cast<double>(static_cast<int>(max_val + 1));
+
+         int nbins = static_cast<int>(std::ceil((end - start) / bin_width));
+         if(nbins <= 0)
+         {
+            return 0.0;
+         }
+
+         std::vector<int> counts(nbins, 0);
+
+         for (double value : values) 
+         {
+            int bin_index = static_cast<int>((value - start) / bin_width);
+            if (bin_index >= 0 && bin_index < nbins)
+            {
+               counts[bin_index]++;
+            }
+         }
+         
+         auto max_it = std::max_element(counts.begin(), counts.end());
+         int max_index = std::distance(counts.begin(), max_it);
+
+         double bin_center = start + (max_index + 0.5) * bin_width;
+         return bin_center;
+    
+    };
+    
+    double meanX = computeMean(x_positions);
+    double meanY = computeMean(y_positions);
+
+    return {meanX, meanY};
+}
