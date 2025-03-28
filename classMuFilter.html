@@ -462,13 +462,13 @@ Protected Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>How to add your own point of type <a class="el" href="classEmulsionDetPoint.html">EmulsionDetPoint</a> to the clones array </p>
 
-<p class="definition">Definition at line <a class="el" href="MuFilter_8cxx_source.html#l00551">551</a> of file <a class="el" href="MuFilter_8cxx_source.html">MuFilter.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  555</span>{</div>
-<div class="line"><span class="lineno">  556</span>    TClonesArray&amp; clref = *<a class="code hl_variable" href="classMuFilter.html#ae4f7ea4c7b3f5bd4c44e321277cbb691">fMuFilterPointCollection</a>;</div>
-<div class="line"><span class="lineno">  557</span>    Int_t size = clref.GetEntriesFast();</div>
-<div class="line"><span class="lineno">  558</span>    <span class="keywordflow">return</span> <span class="keyword">new</span>(clref[size]) <a class="code hl_class" href="classMuFilterPoint.html">MuFilterPoint</a>(trackID,detID, pos, mom,</div>
-<div class="line"><span class="lineno">  559</span>                                        time, length, eLoss, pdgCode);</div>
-<div class="line"><span class="lineno">  560</span>}</div>
+<p class="definition">Definition at line <a class="el" href="MuFilter_8cxx_source.html#l00552">552</a> of file <a class="el" href="MuFilter_8cxx_source.html">MuFilter.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  556</span>{</div>
+<div class="line"><span class="lineno">  557</span>    TClonesArray&amp; clref = *<a class="code hl_variable" href="classMuFilter.html#ae4f7ea4c7b3f5bd4c44e321277cbb691">fMuFilterPointCollection</a>;</div>
+<div class="line"><span class="lineno">  558</span>    Int_t size = clref.GetEntriesFast();</div>
+<div class="line"><span class="lineno">  559</span>    <span class="keywordflow">return</span> <span class="keyword">new</span>(clref[size]) <a class="code hl_class" href="classMuFilterPoint.html">MuFilterPoint</a>(trackID,detID, pos, mom,</div>
+<div class="line"><span class="lineno">  560</span>                                        time, length, eLoss, pdgCode);</div>
+<div class="line"><span class="lineno">  561</span>}</div>
 <div class="ttc" id="aclassMuFilterPoint_html"><div class="ttname"><a href="classMuFilterPoint.html">MuFilterPoint</a></div><div class="ttdef"><b>Definition</b> <a href="MuFilterPoint_8h_source.html#l00010">MuFilterPoint.h:11</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -958,10 +958,10 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="MuFilter_8cxx_source.html#l00520">520</a> of file <a class="el" href="MuFilter_8cxx_source.html">MuFilter.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  521</span>{</div>
-<div class="line"><span class="lineno">  522</span>    <a class="code hl_variable" href="classMuFilter.html#ae4f7ea4c7b3f5bd4c44e321277cbb691">fMuFilterPointCollection</a>-&gt;Clear();</div>
-<div class="line"><span class="lineno">  523</span>}</div>
+<p class="definition">Definition at line <a class="el" href="MuFilter_8cxx_source.html#l00521">521</a> of file <a class="el" href="MuFilter_8cxx_source.html">MuFilter.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  522</span>{</div>
+<div class="line"><span class="lineno">  523</span>    <a class="code hl_variable" href="classMuFilter.html#ae4f7ea4c7b3f5bd4c44e321277cbb691">fMuFilterPointCollection</a>-&gt;Clear();</div>
+<div class="line"><span class="lineno">  524</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1046,11 +1046,11 @@ Protected Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Gets the produced collections </p>
 
-<p class="definition">Definition at line <a class="el" href="MuFilter_8cxx_source.html#l00539">539</a> of file <a class="el" href="MuFilter_8cxx_source.html">MuFilter.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  540</span>{</div>
-<div class="line"><span class="lineno">  541</span>    <span class="keywordflow">if</span> (iColl == 0) { <span class="keywordflow">return</span> <a class="code hl_variable" href="classMuFilter.html#ae4f7ea4c7b3f5bd4c44e321277cbb691">fMuFilterPointCollection</a>; }</div>
-<div class="line"><span class="lineno">  542</span>    <span class="keywordflow">else</span> { <span class="keywordflow">return</span> NULL; }</div>
-<div class="line"><span class="lineno">  543</span>}</div>
+<p class="definition">Definition at line <a class="el" href="MuFilter_8cxx_source.html#l00540">540</a> of file <a class="el" href="MuFilter_8cxx_source.html">MuFilter.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  541</span>{</div>
+<div class="line"><span class="lineno">  542</span>    <span class="keywordflow">if</span> (iColl == 0) { <span class="keywordflow">return</span> <a class="code hl_variable" href="classMuFilter.html#ae4f7ea4c7b3f5bd4c44e321277cbb691">fMuFilterPointCollection</a>; }</div>
+<div class="line"><span class="lineno">  543</span>    <span class="keywordflow">else</span> { <span class="keywordflow">return</span> NULL; }</div>
+<div class="line"><span class="lineno">  544</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1180,66 +1180,66 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="MuFilter_8cxx_source.html#l00578">578</a> of file <a class="el" href="MuFilter_8cxx_source.html">MuFilter.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  578</span>                                                                                                {</div>
-<div class="line"><span class="lineno">  579</span><span class="comment">/* expect time in u.ns  and  path length to sipm u.cm */</span></div>
-<div class="line"><span class="lineno">  580</span><span class="comment">/* calibration implemented only for DS! */</span></div>
-<div class="line"><span class="lineno">  581</span><span class="comment">/* channel 0 left or top, channel 1 right */</span></div>
-<div class="line"><span class="lineno">  582</span>    <span class="keywordflow">if</span> (fDetectorID&lt;30000){</div>
-<div class="line"><span class="lineno">  583</span>        LOG(ERROR) &lt;&lt; <span class="stringliteral">&quot;MuFilter::GetCorrectedTime: not yet implemented for Veto and DS, no correction applied&quot;</span> ;</div>
-<div class="line"><span class="lineno">  584</span>        <span class="keywordflow">return</span> rawTime;</div>
-<div class="line"><span class="lineno">  585</span>    }</div>
-<div class="line"><span class="lineno">  586</span>    TString <a class="code hl_variable" href="namespacerun__simPgun.html#a617c10df079bf792faba30c09f81bf14">tag</a> = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><span class="lineno">  587</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="classMuFilter.html#a95cbd0451a0afea25fc8cb819b7b9fc7">eventHeader</a>){</div>
-<div class="line"><span class="lineno">  588</span>        Int_t fRunNumber = <a class="code hl_variable" href="classMuFilter.html#a95cbd0451a0afea25fc8cb819b7b9fc7">eventHeader</a>-&gt;<a class="code hl_function" href="classSNDLHCEventHeader.html#a4df7fb0557aa0c33d65257fcb6e21ab0">GetRunId</a>();</div>
-<div class="line"><span class="lineno">  589</span>        <span class="keywordflow">if</span> (fRunNumber != <a class="code hl_variable" href="classMuFilter.html#aea21db3ee0881acbde2bf0b0153c66d8">last_run_time</a>){</div>
-<div class="line"><span class="lineno">  590</span>          <a class="code hl_variable" href="classMuFilter.html#aea21db3ee0881acbde2bf0b0153c66d8">last_run_time</a> = fRunNumber;</div>
-<div class="line"><span class="lineno">  591</span> </div>
-<div class="line"><span class="lineno">  592</span>          <span class="keywordflow">if</span> (fRunNumber&lt;1){</div>
-<div class="line"><span class="lineno">  593</span>            LOG(ERROR) &lt;&lt; <span class="stringliteral">&quot;MuFilter::GetCorrectedTime: non valid run number &quot;</span>&lt;&lt;fRunNumber;</div>
-<div class="line"><span class="lineno">  594</span>            <span class="keywordflow">return</span> rawTime;</div>
-<div class="line"><span class="lineno">  595</span>          }</div>
-<div class="line"><span class="lineno">  596</span> </div>
-<div class="line"><span class="lineno">  597</span>          <span class="keywordflow">if</span> (<a class="code hl_variable" href="classMuFilter.html#a6ad87519f5e02ca1fc2abfb4c9351591">covered_runs_time_alignment</a>.size()!=0){</div>
-<div class="line"><span class="lineno">  598</span>              <a class="code hl_variable" href="namespacerun__simPgun.html#a617c10df079bf792faba30c09f81bf14">tag</a> = <span class="stringliteral">&quot;t_&quot;</span>+to_string(<a class="code hl_variable" href="classMuFilter.html#a6ad87519f5e02ca1fc2abfb4c9351591">covered_runs_time_alignment</a>[<a class="code hl_variable" href="classMuFilter.html#a6ad87519f5e02ca1fc2abfb4c9351591">covered_runs_time_alignment</a>.size()-1]);</div>
-<div class="line"><span class="lineno">  599</span>              <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=1; <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>&lt;<a class="code hl_variable" href="classMuFilter.html#a6ad87519f5e02ca1fc2abfb4c9351591">covered_runs_time_alignment</a>.size(); <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>++){</div>
-<div class="line"><span class="lineno">  600</span>                    <span class="keywordflow">if</span> (fRunNumber&gt;=<a class="code hl_variable" href="classMuFilter.html#a6ad87519f5e02ca1fc2abfb4c9351591">covered_runs_time_alignment</a>[i-1] &amp;&amp; fRunNumber&lt;<a class="code hl_variable" href="classMuFilter.html#a6ad87519f5e02ca1fc2abfb4c9351591">covered_runs_time_alignment</a>[i]){</div>
-<div class="line"><span class="lineno">  601</span>                        <a class="code hl_variable" href="namespacerun__simPgun.html#a617c10df079bf792faba30c09f81bf14">tag</a> = <span class="stringliteral">&quot;t_&quot;</span>+to_string(<a class="code hl_variable" href="classMuFilter.html#a6ad87519f5e02ca1fc2abfb4c9351591">covered_runs_time_alignment</a>[i-1]);</div>
-<div class="line"><span class="lineno">  602</span>                    }</div>
-<div class="line"><span class="lineno">  603</span>              }</div>
-<div class="line"><span class="lineno">  604</span>              <span class="comment">//special case</span></div>
-<div class="line"><span class="lineno">  605</span>              <span class="keywordflow">if</span> (fRunNumber&lt;5193 &amp;&amp; fRunNumber&gt;5174) <a class="code hl_variable" href="namespacerun__simPgun.html#a617c10df079bf792faba30c09f81bf14">tag</a> = <span class="stringliteral">&quot;t_&quot;</span>+to_string(<a class="code hl_variable" href="classMuFilter.html#a6ad87519f5e02ca1fc2abfb4c9351591">covered_runs_time_alignment</a>[0]);</div>
-<div class="line"><span class="lineno">  606</span>          }</div>
-<div class="line"><span class="lineno">  607</span>          <span class="keywordflow">else</span>{</div>
-<div class="line"><span class="lineno">  608</span>               <span class="comment">// allow reading older geo files with letter tags i.e. A, B, C</span></div>
-<div class="line"><span class="lineno">  609</span>               <a class="code hl_variable" href="namespacerun__simPgun.html#a617c10df079bf792faba30c09f81bf14">tag</a> = <span class="stringliteral">&quot;A&quot;</span>;</div>
-<div class="line"><span class="lineno">  610</span>               <span class="keywordflow">if</span> (fRunNumber&gt;5116 &amp;&amp; !(fRunNumber&lt;5193 &amp;&amp; fRunNumber&gt;5174) ) {<a class="code hl_variable" href="namespacerun__simPgun.html#a617c10df079bf792faba30c09f81bf14">tag</a> = <span class="stringliteral">&quot;B&quot;</span>;}       </div>
-<div class="line"><span class="lineno">  611</span>          }</div>
-<div class="line"><span class="lineno">  612</span>          <span class="comment">// 2023 testbeam data doesn&#39;t have a custom tag</span></div>
-<div class="line"><span class="lineno">  613</span>          <span class="keywordflow">if</span> (fRunNumber&gt;=1e5) {<a class="code hl_variable" href="namespacerun__simPgun.html#a617c10df079bf792faba30c09f81bf14">tag</a> = <span class="stringliteral">&quot;&quot;</span>;}</div>
-<div class="line"><span class="lineno">  614</span>          <a class="code hl_variable" href="classMuFilter.html#a2cb4e2cba3e4ad3e09fdae1496e19f41">last_time_alignment_tag</a> = <a class="code hl_variable" href="namespacerun__simPgun.html#a617c10df079bf792faba30c09f81bf14">tag</a>;</div>
-<div class="line"><span class="lineno">  615</span>        }</div>
-<div class="line"><span class="lineno">  616</span>    }</div>
-<div class="line"><span class="lineno">  617</span>    Float_t cor = rawTime;</div>
-<div class="line"><span class="lineno">  618</span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="namespaceana__ShipMuon.html#a368dc3d523e04b368da1981e73859f4c">l</a> = (fDetectorID-30000)/1000;</div>
-<div class="line"><span class="lineno">  619</span>    <span class="keywordtype">int</span> ichannel60 = fDetectorID%1000;</div>
-<div class="line"><span class="lineno">  620</span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a>;</div>
-<div class="line"><span class="lineno">  621</span>    <span class="keywordflow">if</span> (channel==0 &amp;&amp; ichannel60&lt;30 ){<a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a>=0+<a class="code hl_variable" href="namespaceana__ShipMuon.html#a368dc3d523e04b368da1981e73859f4c">l</a>*6;}</div>
-<div class="line"><span class="lineno">  622</span>    <span class="keywordflow">if</span> (channel==0 &amp;&amp; ichannel60&gt;29 &amp;&amp; ichannel60&lt;60 ){<a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a>=1+<a class="code hl_variable" href="namespaceana__ShipMuon.html#a368dc3d523e04b368da1981e73859f4c">l</a>*6;}</div>
-<div class="line"><span class="lineno">  623</span>    <span class="keywordflow">if</span> (channel==1 &amp;&amp; ichannel60&lt;30 ){<a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a>=2+<a class="code hl_variable" href="namespaceana__ShipMuon.html#a368dc3d523e04b368da1981e73859f4c">l</a>*6;}</div>
-<div class="line"><span class="lineno">  624</span>    <span class="keywordflow">if</span> (channel==1 &amp;&amp; ichannel60&gt;29 &amp;&amp; ichannel60&lt;60 ){<a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a>=3+<a class="code hl_variable" href="namespaceana__ShipMuon.html#a368dc3d523e04b368da1981e73859f4c">l</a>*6;}</div>
-<div class="line"><span class="lineno">  625</span>    <span class="keywordflow">if</span> (channel==0 &amp;&amp; ichannel60&gt;59 &amp;&amp; ichannel60&lt;90 ){<a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a>=4+<a class="code hl_variable" href="namespaceana__ShipMuon.html#a368dc3d523e04b368da1981e73859f4c">l</a>*6;}</div>
-<div class="line"><span class="lineno">  626</span>    <span class="keywordflow">if</span> (channel==0 &amp;&amp; ichannel60&gt;89 &amp;&amp; ichannel60&lt;120 ){<a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a>=5+<a class="code hl_variable" href="namespaceana__ShipMuon.html#a368dc3d523e04b368da1981e73859f4c">l</a>*6;}</div>
-<div class="line"><span class="lineno">  627</span>    <span class="keywordflow">if</span> (l==3){<a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a>-=4;}</div>
-<div class="line"><span class="lineno">  628</span>    <span class="keywordflow">if</span> (ichannel60&gt;59) {ichannel60-=60;}</div>
-<div class="line"><span class="lineno">  629</span>    <span class="comment">// DS time alignment first order</span></div>
-<div class="line"><span class="lineno">  630</span>    <span class="keywordflow">if</span> (ichannel60&lt;30){cor += <a class="code hl_variable" href="classMuFilter.html#a2f9a12c0cd5d1a5f6e1956b9cf10597c">conf_floats</a>[<span class="stringliteral">&quot;MuFilter/DSTcorslope&quot;</span>+<a class="code hl_variable" href="classMuFilter.html#a2cb4e2cba3e4ad3e09fdae1496e19f41">last_time_alignment_tag</a>]*(ichannel60-15);}</div>
-<div class="line"><span class="lineno">  631</span>    <span class="keywordflow">else</span>{              cor -= <a class="code hl_variable" href="classMuFilter.html#a2f9a12c0cd5d1a5f6e1956b9cf10597c">conf_floats</a>[<span class="stringliteral">&quot;MuFilter/DSTcorslope&quot;</span>+<a class="code hl_variable" href="classMuFilter.html#a2cb4e2cba3e4ad3e09fdae1496e19f41">last_time_alignment_tag</a>]*(ichannel60-45);}</div>
-<div class="line"><span class="lineno">  632</span>    <span class="keywordtype">string</span> <a class="code hl_variable" href="namespace2dEventDisplay.html#ab5167fbedae94835f32f5feacfbc1be6">si</a> = to_string(p);</div>
-<div class="line"><span class="lineno">  633</span>    cor -= <a class="code hl_variable" href="classMuFilter.html#a2f9a12c0cd5d1a5f6e1956b9cf10597c">conf_floats</a>[<span class="stringliteral">&quot;MuFilter/DSTcorC&quot;</span>+<a class="code hl_variable" href="namespace2dEventDisplay.html#ab5167fbedae94835f32f5feacfbc1be6">si</a>+<a class="code hl_variable" href="classMuFilter.html#a2cb4e2cba3e4ad3e09fdae1496e19f41">last_time_alignment_tag</a>];</div>
-<div class="line"><span class="lineno">  634</span>    cor -= <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#aa745e9ba3ed7794bba358bebbc24cd43">L</a>/<a class="code hl_variable" href="classMuFilter.html#a2f9a12c0cd5d1a5f6e1956b9cf10597c">conf_floats</a>[<span class="stringliteral">&quot;MuFilter/DsPropSpeed&quot;</span>];</div>
-<div class="line"><span class="lineno">  635</span>    <span class="keywordflow">return</span> cor;</div>
-<div class="line"><span class="lineno">  636</span>}</div>
+<p class="definition">Definition at line <a class="el" href="MuFilter_8cxx_source.html#l00579">579</a> of file <a class="el" href="MuFilter_8cxx_source.html">MuFilter.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  579</span>                                                                                                {</div>
+<div class="line"><span class="lineno">  580</span><span class="comment">/* expect time in u.ns  and  path length to sipm u.cm */</span></div>
+<div class="line"><span class="lineno">  581</span><span class="comment">/* calibration implemented only for DS! */</span></div>
+<div class="line"><span class="lineno">  582</span><span class="comment">/* channel 0 left or top, channel 1 right */</span></div>
+<div class="line"><span class="lineno">  583</span>    <span class="keywordflow">if</span> (fDetectorID&lt;30000){</div>
+<div class="line"><span class="lineno">  584</span>        LOG(ERROR) &lt;&lt; <span class="stringliteral">&quot;MuFilter::GetCorrectedTime: not yet implemented for Veto and DS, no correction applied&quot;</span> ;</div>
+<div class="line"><span class="lineno">  585</span>        <span class="keywordflow">return</span> rawTime;</div>
+<div class="line"><span class="lineno">  586</span>    }</div>
+<div class="line"><span class="lineno">  587</span>    TString <a class="code hl_variable" href="namespacerun__simPgun.html#a617c10df079bf792faba30c09f81bf14">tag</a> = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><span class="lineno">  588</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="classMuFilter.html#a95cbd0451a0afea25fc8cb819b7b9fc7">eventHeader</a>){</div>
+<div class="line"><span class="lineno">  589</span>        Int_t fRunNumber = <a class="code hl_variable" href="classMuFilter.html#a95cbd0451a0afea25fc8cb819b7b9fc7">eventHeader</a>-&gt;<a class="code hl_function" href="classSNDLHCEventHeader.html#a4df7fb0557aa0c33d65257fcb6e21ab0">GetRunId</a>();</div>
+<div class="line"><span class="lineno">  590</span>        <span class="keywordflow">if</span> (fRunNumber != <a class="code hl_variable" href="classMuFilter.html#aea21db3ee0881acbde2bf0b0153c66d8">last_run_time</a>){</div>
+<div class="line"><span class="lineno">  591</span>          <a class="code hl_variable" href="classMuFilter.html#aea21db3ee0881acbde2bf0b0153c66d8">last_run_time</a> = fRunNumber;</div>
+<div class="line"><span class="lineno">  592</span> </div>
+<div class="line"><span class="lineno">  593</span>          <span class="keywordflow">if</span> (fRunNumber&lt;1){</div>
+<div class="line"><span class="lineno">  594</span>            LOG(ERROR) &lt;&lt; <span class="stringliteral">&quot;MuFilter::GetCorrectedTime: non valid run number &quot;</span>&lt;&lt;fRunNumber;</div>
+<div class="line"><span class="lineno">  595</span>            <span class="keywordflow">return</span> rawTime;</div>
+<div class="line"><span class="lineno">  596</span>          }</div>
+<div class="line"><span class="lineno">  597</span> </div>
+<div class="line"><span class="lineno">  598</span>          <span class="keywordflow">if</span> (<a class="code hl_variable" href="classMuFilter.html#a6ad87519f5e02ca1fc2abfb4c9351591">covered_runs_time_alignment</a>.size()!=0){</div>
+<div class="line"><span class="lineno">  599</span>              <a class="code hl_variable" href="namespacerun__simPgun.html#a617c10df079bf792faba30c09f81bf14">tag</a> = <span class="stringliteral">&quot;t_&quot;</span>+to_string(<a class="code hl_variable" href="classMuFilter.html#a6ad87519f5e02ca1fc2abfb4c9351591">covered_runs_time_alignment</a>[<a class="code hl_variable" href="classMuFilter.html#a6ad87519f5e02ca1fc2abfb4c9351591">covered_runs_time_alignment</a>.size()-1]);</div>
+<div class="line"><span class="lineno">  600</span>              <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=1; <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>&lt;<a class="code hl_variable" href="classMuFilter.html#a6ad87519f5e02ca1fc2abfb4c9351591">covered_runs_time_alignment</a>.size(); <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>++){</div>
+<div class="line"><span class="lineno">  601</span>                    <span class="keywordflow">if</span> (fRunNumber&gt;=<a class="code hl_variable" href="classMuFilter.html#a6ad87519f5e02ca1fc2abfb4c9351591">covered_runs_time_alignment</a>[i-1] &amp;&amp; fRunNumber&lt;<a class="code hl_variable" href="classMuFilter.html#a6ad87519f5e02ca1fc2abfb4c9351591">covered_runs_time_alignment</a>[i]){</div>
+<div class="line"><span class="lineno">  602</span>                        <a class="code hl_variable" href="namespacerun__simPgun.html#a617c10df079bf792faba30c09f81bf14">tag</a> = <span class="stringliteral">&quot;t_&quot;</span>+to_string(<a class="code hl_variable" href="classMuFilter.html#a6ad87519f5e02ca1fc2abfb4c9351591">covered_runs_time_alignment</a>[i-1]);</div>
+<div class="line"><span class="lineno">  603</span>                    }</div>
+<div class="line"><span class="lineno">  604</span>              }</div>
+<div class="line"><span class="lineno">  605</span>              <span class="comment">//special case</span></div>
+<div class="line"><span class="lineno">  606</span>              <span class="keywordflow">if</span> (fRunNumber&lt;5193 &amp;&amp; fRunNumber&gt;5174) <a class="code hl_variable" href="namespacerun__simPgun.html#a617c10df079bf792faba30c09f81bf14">tag</a> = <span class="stringliteral">&quot;t_&quot;</span>+to_string(<a class="code hl_variable" href="classMuFilter.html#a6ad87519f5e02ca1fc2abfb4c9351591">covered_runs_time_alignment</a>[0]);</div>
+<div class="line"><span class="lineno">  607</span>          }</div>
+<div class="line"><span class="lineno">  608</span>          <span class="keywordflow">else</span>{</div>
+<div class="line"><span class="lineno">  609</span>               <span class="comment">// allow reading older geo files with letter tags i.e. A, B, C</span></div>
+<div class="line"><span class="lineno">  610</span>               <a class="code hl_variable" href="namespacerun__simPgun.html#a617c10df079bf792faba30c09f81bf14">tag</a> = <span class="stringliteral">&quot;A&quot;</span>;</div>
+<div class="line"><span class="lineno">  611</span>               <span class="keywordflow">if</span> (fRunNumber&gt;5116 &amp;&amp; !(fRunNumber&lt;5193 &amp;&amp; fRunNumber&gt;5174) ) {<a class="code hl_variable" href="namespacerun__simPgun.html#a617c10df079bf792faba30c09f81bf14">tag</a> = <span class="stringliteral">&quot;B&quot;</span>;}       </div>
+<div class="line"><span class="lineno">  612</span>          }</div>
+<div class="line"><span class="lineno">  613</span>          <span class="comment">// 2023 testbeam data doesn&#39;t have a custom tag</span></div>
+<div class="line"><span class="lineno">  614</span>          <span class="keywordflow">if</span> (fRunNumber&gt;=1e5) {<a class="code hl_variable" href="namespacerun__simPgun.html#a617c10df079bf792faba30c09f81bf14">tag</a> = <span class="stringliteral">&quot;&quot;</span>;}</div>
+<div class="line"><span class="lineno">  615</span>          <a class="code hl_variable" href="classMuFilter.html#a2cb4e2cba3e4ad3e09fdae1496e19f41">last_time_alignment_tag</a> = <a class="code hl_variable" href="namespacerun__simPgun.html#a617c10df079bf792faba30c09f81bf14">tag</a>;</div>
+<div class="line"><span class="lineno">  616</span>        }</div>
+<div class="line"><span class="lineno">  617</span>    }</div>
+<div class="line"><span class="lineno">  618</span>    Float_t cor = rawTime;</div>
+<div class="line"><span class="lineno">  619</span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="namespaceana__ShipMuon.html#a368dc3d523e04b368da1981e73859f4c">l</a> = (fDetectorID-30000)/1000;</div>
+<div class="line"><span class="lineno">  620</span>    <span class="keywordtype">int</span> ichannel60 = fDetectorID%1000;</div>
+<div class="line"><span class="lineno">  621</span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a>;</div>
+<div class="line"><span class="lineno">  622</span>    <span class="keywordflow">if</span> (channel==0 &amp;&amp; ichannel60&lt;30 ){<a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a>=0+<a class="code hl_variable" href="namespaceana__ShipMuon.html#a368dc3d523e04b368da1981e73859f4c">l</a>*6;}</div>
+<div class="line"><span class="lineno">  623</span>    <span class="keywordflow">if</span> (channel==0 &amp;&amp; ichannel60&gt;29 &amp;&amp; ichannel60&lt;60 ){<a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a>=1+<a class="code hl_variable" href="namespaceana__ShipMuon.html#a368dc3d523e04b368da1981e73859f4c">l</a>*6;}</div>
+<div class="line"><span class="lineno">  624</span>    <span class="keywordflow">if</span> (channel==1 &amp;&amp; ichannel60&lt;30 ){<a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a>=2+<a class="code hl_variable" href="namespaceana__ShipMuon.html#a368dc3d523e04b368da1981e73859f4c">l</a>*6;}</div>
+<div class="line"><span class="lineno">  625</span>    <span class="keywordflow">if</span> (channel==1 &amp;&amp; ichannel60&gt;29 &amp;&amp; ichannel60&lt;60 ){<a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a>=3+<a class="code hl_variable" href="namespaceana__ShipMuon.html#a368dc3d523e04b368da1981e73859f4c">l</a>*6;}</div>
+<div class="line"><span class="lineno">  626</span>    <span class="keywordflow">if</span> (channel==0 &amp;&amp; ichannel60&gt;59 &amp;&amp; ichannel60&lt;90 ){<a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a>=4+<a class="code hl_variable" href="namespaceana__ShipMuon.html#a368dc3d523e04b368da1981e73859f4c">l</a>*6;}</div>
+<div class="line"><span class="lineno">  627</span>    <span class="keywordflow">if</span> (channel==0 &amp;&amp; ichannel60&gt;89 &amp;&amp; ichannel60&lt;120 ){<a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a>=5+<a class="code hl_variable" href="namespaceana__ShipMuon.html#a368dc3d523e04b368da1981e73859f4c">l</a>*6;}</div>
+<div class="line"><span class="lineno">  628</span>    <span class="keywordflow">if</span> (l==3){<a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a>-=4;}</div>
+<div class="line"><span class="lineno">  629</span>    <span class="keywordflow">if</span> (ichannel60&gt;59) {ichannel60-=60;}</div>
+<div class="line"><span class="lineno">  630</span>    <span class="comment">// DS time alignment first order</span></div>
+<div class="line"><span class="lineno">  631</span>    <span class="keywordflow">if</span> (ichannel60&lt;30){cor += <a class="code hl_variable" href="classMuFilter.html#a2f9a12c0cd5d1a5f6e1956b9cf10597c">conf_floats</a>[<span class="stringliteral">&quot;MuFilter/DSTcorslope&quot;</span>+<a class="code hl_variable" href="classMuFilter.html#a2cb4e2cba3e4ad3e09fdae1496e19f41">last_time_alignment_tag</a>]*(ichannel60-15);}</div>
+<div class="line"><span class="lineno">  632</span>    <span class="keywordflow">else</span>{              cor -= <a class="code hl_variable" href="classMuFilter.html#a2f9a12c0cd5d1a5f6e1956b9cf10597c">conf_floats</a>[<span class="stringliteral">&quot;MuFilter/DSTcorslope&quot;</span>+<a class="code hl_variable" href="classMuFilter.html#a2cb4e2cba3e4ad3e09fdae1496e19f41">last_time_alignment_tag</a>]*(ichannel60-45);}</div>
+<div class="line"><span class="lineno">  633</span>    <span class="keywordtype">string</span> <a class="code hl_variable" href="namespace2dEventDisplay.html#ab5167fbedae94835f32f5feacfbc1be6">si</a> = to_string(p);</div>
+<div class="line"><span class="lineno">  634</span>    cor -= <a class="code hl_variable" href="classMuFilter.html#a2f9a12c0cd5d1a5f6e1956b9cf10597c">conf_floats</a>[<span class="stringliteral">&quot;MuFilter/DSTcorC&quot;</span>+<a class="code hl_variable" href="namespace2dEventDisplay.html#ab5167fbedae94835f32f5feacfbc1be6">si</a>+<a class="code hl_variable" href="classMuFilter.html#a2cb4e2cba3e4ad3e09fdae1496e19f41">last_time_alignment_tag</a>];</div>
+<div class="line"><span class="lineno">  635</span>    cor -= <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#aa745e9ba3ed7794bba358bebbc24cd43">L</a>/<a class="code hl_variable" href="classMuFilter.html#a2f9a12c0cd5d1a5f6e1956b9cf10597c">conf_floats</a>[<span class="stringliteral">&quot;MuFilter/DsPropSpeed&quot;</span>];</div>
+<div class="line"><span class="lineno">  636</span>    <span class="keywordflow">return</span> cor;</div>
+<div class="line"><span class="lineno">  637</span>}</div>
 <div class="ttc" id="aclassMuFilter_html_a6ad87519f5e02ca1fc2abfb4c9351591"><div class="ttname"><a href="classMuFilter.html#a6ad87519f5e02ca1fc2abfb4c9351591">MuFilter::covered_runs_time_alignment</a></div><div class="ttdeci">std::vector&lt; int &gt; covered_runs_time_alignment</div><div class="ttdef"><b>Definition</b> <a href="MuFilter_8h_source.html#l00107">MuFilter.h:107</a></div></div>
 <div class="ttc" id="aclassSNDLHCEventHeader_html_a4df7fb0557aa0c33d65257fcb6e21ab0"><div class="ttname"><a href="classSNDLHCEventHeader.html#a4df7fb0557aa0c33d65257fcb6e21ab0">SNDLHCEventHeader::GetRunId</a></div><div class="ttdeci">uint64_t GetRunId()</div><div class="ttdef"><b>Definition</b> <a href="SNDLHCEventHeader_8h_source.html#l00038">SNDLHCEventHeader.h:38</a></div></div>
 <div class="ttc" id="anamespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring_html_a1c800df226d66062268fa28c3e0c7f7a"><div class="ttname"><a href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">conditionsDatabase.demo.drifttubeMonitoring.p</a></div><div class="ttdeci">str p</div><div class="ttdef"><b>Definition</b> <a href="drifttubeMonitoring_8py_source.html#l00289">drifttubeMonitoring.py:289</a></div></div>
@@ -1280,22 +1280,22 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="MuFilter_8cxx_source.html#l00562">562</a> of file <a class="el" href="MuFilter_8cxx_source.html">MuFilter.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  563</span>{</div>
-<div class="line"><span class="lineno">  564</span>  <a class="code hl_function" href="classMuFilter.html#a2525ccc41592f3cc117c18424e8dc7ac">GetPosition</a>(fDetectorID, vLeft, vRight);</div>
-<div class="line"><span class="lineno">  565</span>  TGeoNavigator* <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a58f4b6e15d66500c584136de0c3fc2fd">nav</a> = gGeoManager-&gt;GetCurrentNavigator();</div>
-<div class="line"><span class="lineno">  566</span>  TString <a class="code hl_variable" href="namespaceana__ShipMuon.html#a916dd5983d4b6d3945f22cce86c4dc35">path</a> = <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a58f4b6e15d66500c584136de0c3fc2fd">nav</a>-&gt;GetPath();</div>
-<div class="line"><span class="lineno">  567</span>  TString <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a2fdfb80588ce7a3a05e81e7a7f393f91">loc</a>( <a class="code hl_variable" href="namespaceana__ShipMuon.html#a916dd5983d4b6d3945f22cce86c4dc35">path</a>(0, <a class="code hl_variable" href="namespaceana__ShipMuon.html#a916dd5983d4b6d3945f22cce86c4dc35">path</a>.Last(<span class="charliteral">&#39;/&#39;</span>) ) );</div>
-<div class="line"><span class="lineno">  568</span>  <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a58f4b6e15d66500c584136de0c3fc2fd">nav</a>-&gt;cd(loc);</div>
-<div class="line"><span class="lineno">  569</span>  Double_t <a class="code hl_variable" href="namespacerunPythia8.html#a527266378c7f0299bad9b3c32d02d15b">A</a>[3] = {vLeft.X(),vLeft.Y(),vLeft.Z()};</div>
-<div class="line"><span class="lineno">  570</span>  Double_t <a class="code hl_variable" href="namespacegeometry__config.html#aa52009c79b19f5c569b183e74aa588c7">B</a>[3] = {vRight.X(),vRight.Y(),vRight.Z()};</div>
-<div class="line"><span class="lineno">  571</span>  Double_t <a class="code hl_variable" href="namespaceSurvey-MufiScifi.html#a0c14bde65a0ad618c7a51378154d0684">locA</a>[3] = {0,0,0};</div>
-<div class="line"><span class="lineno">  572</span>  Double_t <a class="code hl_variable" href="namespaceSurvey-MufiScifi.html#a1f273ea6988211c50afd86d486216623">locB</a>[3] = {0,0,0};</div>
-<div class="line"><span class="lineno">  573</span>  <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a58f4b6e15d66500c584136de0c3fc2fd">nav</a>-&gt;MasterToLocal(A, locA);   <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a58f4b6e15d66500c584136de0c3fc2fd">nav</a>-&gt;MasterToLocal(B, locB);</div>
-<div class="line"><span class="lineno">  574</span>  vLeft.SetXYZ(locA[0],locA[1],locA[2]);</div>
-<div class="line"><span class="lineno">  575</span>  vRight.SetXYZ(locB[0],locB[1],locB[2]);</div>
-<div class="line"><span class="lineno">  576</span>}</div>
-<div class="ttc" id="aclassMuFilter_html_a2525ccc41592f3cc117c18424e8dc7ac"><div class="ttname"><a href="classMuFilter.html#a2525ccc41592f3cc117c18424e8dc7ac">MuFilter::GetPosition</a></div><div class="ttdeci">void GetPosition(Int_t id, TVector3 &amp;vLeft, TVector3 &amp;vRight)</div><div class="ttdef"><b>Definition</b> <a href="MuFilter_8cxx_source.html#l00638">MuFilter.cxx:638</a></div></div>
+<p class="definition">Definition at line <a class="el" href="MuFilter_8cxx_source.html#l00563">563</a> of file <a class="el" href="MuFilter_8cxx_source.html">MuFilter.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  564</span>{</div>
+<div class="line"><span class="lineno">  565</span>  <a class="code hl_function" href="classMuFilter.html#a2525ccc41592f3cc117c18424e8dc7ac">GetPosition</a>(fDetectorID, vLeft, vRight);</div>
+<div class="line"><span class="lineno">  566</span>  TGeoNavigator* <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a58f4b6e15d66500c584136de0c3fc2fd">nav</a> = gGeoManager-&gt;GetCurrentNavigator();</div>
+<div class="line"><span class="lineno">  567</span>  TString <a class="code hl_variable" href="namespaceana__ShipMuon.html#a916dd5983d4b6d3945f22cce86c4dc35">path</a> = <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a58f4b6e15d66500c584136de0c3fc2fd">nav</a>-&gt;GetPath();</div>
+<div class="line"><span class="lineno">  568</span>  TString <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a2fdfb80588ce7a3a05e81e7a7f393f91">loc</a>( <a class="code hl_variable" href="namespaceana__ShipMuon.html#a916dd5983d4b6d3945f22cce86c4dc35">path</a>(0, <a class="code hl_variable" href="namespaceana__ShipMuon.html#a916dd5983d4b6d3945f22cce86c4dc35">path</a>.Last(<span class="charliteral">&#39;/&#39;</span>) ) );</div>
+<div class="line"><span class="lineno">  569</span>  <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a58f4b6e15d66500c584136de0c3fc2fd">nav</a>-&gt;cd(loc);</div>
+<div class="line"><span class="lineno">  570</span>  Double_t <a class="code hl_variable" href="namespacerunPythia8.html#a527266378c7f0299bad9b3c32d02d15b">A</a>[3] = {vLeft.X(),vLeft.Y(),vLeft.Z()};</div>
+<div class="line"><span class="lineno">  571</span>  Double_t <a class="code hl_variable" href="namespacegeometry__config.html#aa52009c79b19f5c569b183e74aa588c7">B</a>[3] = {vRight.X(),vRight.Y(),vRight.Z()};</div>
+<div class="line"><span class="lineno">  572</span>  Double_t <a class="code hl_variable" href="namespaceSurvey-MufiScifi.html#a0c14bde65a0ad618c7a51378154d0684">locA</a>[3] = {0,0,0};</div>
+<div class="line"><span class="lineno">  573</span>  Double_t <a class="code hl_variable" href="namespaceSurvey-MufiScifi.html#a1f273ea6988211c50afd86d486216623">locB</a>[3] = {0,0,0};</div>
+<div class="line"><span class="lineno">  574</span>  <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a58f4b6e15d66500c584136de0c3fc2fd">nav</a>-&gt;MasterToLocal(A, locA);   <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a58f4b6e15d66500c584136de0c3fc2fd">nav</a>-&gt;MasterToLocal(B, locB);</div>
+<div class="line"><span class="lineno">  575</span>  vLeft.SetXYZ(locA[0],locA[1],locA[2]);</div>
+<div class="line"><span class="lineno">  576</span>  vRight.SetXYZ(locB[0],locB[1],locB[2]);</div>
+<div class="line"><span class="lineno">  577</span>}</div>
+<div class="ttc" id="aclassMuFilter_html_a2525ccc41592f3cc117c18424e8dc7ac"><div class="ttname"><a href="classMuFilter.html#a2525ccc41592f3cc117c18424e8dc7ac">MuFilter::GetPosition</a></div><div class="ttdeci">void GetPosition(Int_t id, TVector3 &amp;vLeft, TVector3 &amp;vRight)</div><div class="ttdef"><b>Definition</b> <a href="MuFilter_8cxx_source.html#l00639">MuFilter.cxx:639</a></div></div>
 <div class="ttc" id="anamespaceSurvey-MufiScifi_html_a0c14bde65a0ad618c7a51378154d0684"><div class="ttname"><a href="namespaceSurvey-MufiScifi.html#a0c14bde65a0ad618c7a51378154d0684">Survey-MufiScifi.locA</a></div><div class="ttdeci">locA</div><div class="ttdef"><b>Definition</b> <a href="Survey-MufiScifi_8py_source.html#l00141">Survey-MufiScifi.py:141</a></div></div>
 <div class="ttc" id="anamespaceSurvey-MufiScifi_html_a1f273ea6988211c50afd86d486216623"><div class="ttname"><a href="namespaceSurvey-MufiScifi.html#a1f273ea6988211c50afd86d486216623">Survey-MufiScifi.locB</a></div><div class="ttdeci">locB</div><div class="ttdef"><b>Definition</b> <a href="Survey-MufiScifi_8py_source.html#l00141">Survey-MufiScifi.py:141</a></div></div>
 <div class="ttc" id="anamespaceana__ShipMuon_html_a916dd5983d4b6d3945f22cce86c4dc35"><div class="ttname"><a href="namespaceana__ShipMuon.html#a916dd5983d4b6d3945f22cce86c4dc35">ana_ShipMuon.path</a></div><div class="ttdeci">str path</div><div class="ttdef"><b>Definition</b> <a href="ana__ShipMuon_8py_source.html#l00327">ana_ShipMuon.py:327</a></div></div>
@@ -1322,20 +1322,20 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="MuFilter_8cxx_source.html#l00714">714</a> of file <a class="el" href="MuFilter_8cxx_source.html">MuFilter.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  714</span>                                       {</div>
-<div class="line"><span class="lineno">  715</span>       <span class="keywordtype">int</span> subsystem     = floor(detID/10000)-1;</div>
-<div class="line"><span class="lineno">  716</span>       <span class="keywordflow">if</span> (subsystem==0){</div>
-<div class="line"><span class="lineno">  717</span>         <span class="comment">// vertical Veto 3 has the readout on the top only</span></div>
-<div class="line"><span class="lineno">  718</span>         <span class="keywordflow">if</span> (detID&gt;=12000) <span class="keywordflow">return</span> <a class="code hl_variable" href="classMuFilter.html#ab7a4485f3839f3e67f681e25802d89a7">conf_ints</a>[<span class="stringliteral">&quot;MuFilter/VetonSides&quot;</span>]-1;</div>
-<div class="line"><span class="lineno">  719</span>         <span class="keywordflow">else</span> {<span class="keywordflow">return</span> <a class="code hl_variable" href="classMuFilter.html#ab7a4485f3839f3e67f681e25802d89a7">conf_ints</a>[<span class="stringliteral">&quot;MuFilter/VetonSides&quot;</span>];}</div>
-<div class="line"><span class="lineno">  720</span>       }</div>
-<div class="line"><span class="lineno">  721</span>       <span class="keywordflow">if</span> (subsystem==1){<span class="keywordflow">return</span> <a class="code hl_variable" href="classMuFilter.html#ab7a4485f3839f3e67f681e25802d89a7">conf_ints</a>[<span class="stringliteral">&quot;MuFilter/UpstreamnSides&quot;</span>];}</div>
-<div class="line"><span class="lineno">  722</span>       <span class="keywordflow">if</span> (subsystem==2){</div>
-<div class="line"><span class="lineno">  723</span>          <span class="keywordflow">if</span> (detID%1000&gt;59) <span class="keywordflow">return</span> <a class="code hl_variable" href="classMuFilter.html#ab7a4485f3839f3e67f681e25802d89a7">conf_ints</a>[<span class="stringliteral">&quot;MuFilter/DownstreamnSides&quot;</span>]-1;</div>
-<div class="line"><span class="lineno">  724</span>          <span class="keywordflow">else</span> {<span class="keywordflow">return</span> <a class="code hl_variable" href="classMuFilter.html#ab7a4485f3839f3e67f681e25802d89a7">conf_ints</a>[<span class="stringliteral">&quot;MuFilter/DownstreamnSides&quot;</span>];}</div>
-<div class="line"><span class="lineno">  725</span>       }</div>
-<div class="line"><span class="lineno">  726</span>  }</div>
+<p class="definition">Definition at line <a class="el" href="MuFilter_8cxx_source.html#l00715">715</a> of file <a class="el" href="MuFilter_8cxx_source.html">MuFilter.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  715</span>                                       {</div>
+<div class="line"><span class="lineno">  716</span>       <span class="keywordtype">int</span> subsystem     = floor(detID/10000)-1;</div>
+<div class="line"><span class="lineno">  717</span>       <span class="keywordflow">if</span> (subsystem==0){</div>
+<div class="line"><span class="lineno">  718</span>         <span class="comment">// vertical Veto 3 has the readout on the top only</span></div>
+<div class="line"><span class="lineno">  719</span>         <span class="keywordflow">if</span> (detID&gt;=12000) <span class="keywordflow">return</span> <a class="code hl_variable" href="classMuFilter.html#ab7a4485f3839f3e67f681e25802d89a7">conf_ints</a>[<span class="stringliteral">&quot;MuFilter/VetonSides&quot;</span>]-1;</div>
+<div class="line"><span class="lineno">  720</span>         <span class="keywordflow">else</span> {<span class="keywordflow">return</span> <a class="code hl_variable" href="classMuFilter.html#ab7a4485f3839f3e67f681e25802d89a7">conf_ints</a>[<span class="stringliteral">&quot;MuFilter/VetonSides&quot;</span>];}</div>
+<div class="line"><span class="lineno">  721</span>       }</div>
+<div class="line"><span class="lineno">  722</span>       <span class="keywordflow">if</span> (subsystem==1){<span class="keywordflow">return</span> <a class="code hl_variable" href="classMuFilter.html#ab7a4485f3839f3e67f681e25802d89a7">conf_ints</a>[<span class="stringliteral">&quot;MuFilter/UpstreamnSides&quot;</span>];}</div>
+<div class="line"><span class="lineno">  723</span>       <span class="keywordflow">if</span> (subsystem==2){</div>
+<div class="line"><span class="lineno">  724</span>          <span class="keywordflow">if</span> (detID%1000&gt;59) <span class="keywordflow">return</span> <a class="code hl_variable" href="classMuFilter.html#ab7a4485f3839f3e67f681e25802d89a7">conf_ints</a>[<span class="stringliteral">&quot;MuFilter/DownstreamnSides&quot;</span>]-1;</div>
+<div class="line"><span class="lineno">  725</span>          <span class="keywordflow">else</span> {<span class="keywordflow">return</span> <a class="code hl_variable" href="classMuFilter.html#ab7a4485f3839f3e67f681e25802d89a7">conf_ints</a>[<span class="stringliteral">&quot;MuFilter/DownstreamnSides&quot;</span>];}</div>
+<div class="line"><span class="lineno">  726</span>       }</div>
+<div class="line"><span class="lineno">  727</span>  }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1355,14 +1355,14 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="MuFilter_8cxx_source.html#l00707">707</a> of file <a class="el" href="MuFilter_8cxx_source.html">MuFilter.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  707</span>                                       {</div>
-<div class="line"><span class="lineno">  708</span>       <span class="keywordtype">int</span> subsystem     = floor(detID/10000)-1;</div>
-<div class="line"><span class="lineno">  709</span>       <span class="keywordflow">if</span> (subsystem==0){<span class="keywordflow">return</span> <a class="code hl_variable" href="classMuFilter.html#ab7a4485f3839f3e67f681e25802d89a7">conf_ints</a>[<span class="stringliteral">&quot;MuFilter/VetonSiPMs&quot;</span>];}</div>
-<div class="line"><span class="lineno">  710</span>       <span class="keywordflow">if</span> (subsystem==1){<span class="keywordflow">return</span> <a class="code hl_variable" href="classMuFilter.html#ab7a4485f3839f3e67f681e25802d89a7">conf_ints</a>[<span class="stringliteral">&quot;MuFilter/UpstreamnSiPMs&quot;</span>];}</div>
-<div class="line"><span class="lineno">  711</span>       <span class="keywordflow">return</span> <a class="code hl_variable" href="classMuFilter.html#ab7a4485f3839f3e67f681e25802d89a7">conf_ints</a>[<span class="stringliteral">&quot;MuFilter/DownstreamnSiPMs&quot;</span>];</div>
-<div class="line"><span class="lineno">  712</span> </div>
-<div class="line"><span class="lineno">  713</span>   }</div>
+<p class="definition">Definition at line <a class="el" href="MuFilter_8cxx_source.html#l00708">708</a> of file <a class="el" href="MuFilter_8cxx_source.html">MuFilter.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  708</span>                                       {</div>
+<div class="line"><span class="lineno">  709</span>       <span class="keywordtype">int</span> subsystem     = floor(detID/10000)-1;</div>
+<div class="line"><span class="lineno">  710</span>       <span class="keywordflow">if</span> (subsystem==0){<span class="keywordflow">return</span> <a class="code hl_variable" href="classMuFilter.html#ab7a4485f3839f3e67f681e25802d89a7">conf_ints</a>[<span class="stringliteral">&quot;MuFilter/VetonSiPMs&quot;</span>];}</div>
+<div class="line"><span class="lineno">  711</span>       <span class="keywordflow">if</span> (subsystem==1){<span class="keywordflow">return</span> <a class="code hl_variable" href="classMuFilter.html#ab7a4485f3839f3e67f681e25802d89a7">conf_ints</a>[<span class="stringliteral">&quot;MuFilter/UpstreamnSiPMs&quot;</span>];}</div>
+<div class="line"><span class="lineno">  712</span>       <span class="keywordflow">return</span> <a class="code hl_variable" href="classMuFilter.html#ab7a4485f3839f3e67f681e25802d89a7">conf_ints</a>[<span class="stringliteral">&quot;MuFilter/DownstreamnSiPMs&quot;</span>];</div>
+<div class="line"><span class="lineno">  713</span> </div>
+<div class="line"><span class="lineno">  714</span>   }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1399,74 +1399,74 @@ Protected Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Getposition </p>
 
-<p class="definition">Definition at line <a class="el" href="MuFilter_8cxx_source.html#l00638">638</a> of file <a class="el" href="MuFilter_8cxx_source.html">MuFilter.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  639</span>{</div>
-<div class="line"><span class="lineno">  640</span> </div>
-<div class="line"><span class="lineno">  641</span>  <span class="keywordtype">int</span> subsystem     = floor(fDetectorID/10000);</div>
-<div class="line"><span class="lineno">  642</span>  <span class="keywordtype">int</span> plane             = floor(fDetectorID/1000) - 10*subsystem;</div>
-<div class="line"><span class="lineno">  643</span>  <span class="keywordtype">int</span> bar_number   = fDetectorID%1000;</div>
-<div class="line"><span class="lineno">  644</span> </div>
-<div class="line"><span class="lineno">  645</span>  TString <a class="code hl_variable" href="namespaceana__ShipMuon.html#a916dd5983d4b6d3945f22cce86c4dc35">path</a> = <span class="stringliteral">&quot;/cave_1/Detector_0/&quot;</span>;</div>
-<div class="line"><span class="lineno">  646</span>  TString barName;</div>
-<div class="line"><span class="lineno">  647</span>  Float_t shift;</div>
-<div class="line"><span class="lineno">  648</span>  <span class="keywordflow">switch</span>(subsystem) {</div>
-<div class="line"><span class="lineno">  649</span>  <span class="comment">// VETO/US/DS alignment relativ to Scifi only done once. </span></div>
-<div class="line"><span class="lineno">  650</span>  <span class="comment">// should be done after each emulsion exchange.</span></div>
-<div class="line"><span class="lineno">  651</span>  <span class="keywordflow">case</span> 1: </div>
-<div class="line"><span class="lineno">  652</span>      <a class="code hl_variable" href="namespaceana__ShipMuon.html#a916dd5983d4b6d3945f22cce86c4dc35">path</a>+=<span class="stringliteral">&quot;volVeto_1/volVetoPlane_&quot;</span>+std::to_string(plane)+<span class="stringliteral">&quot;_&quot;</span>+std::to_string(plane);</div>
-<div class="line"><span class="lineno">  653</span>      <span class="comment">// keeping the name of horizontal Veto planes for backward compatibility</span></div>
-<div class="line"><span class="lineno">  654</span>      barName = <span class="stringliteral">&quot;/volVetoBar_&quot;</span>;</div>
-<div class="line"><span class="lineno">  655</span>      <span class="comment">// the third Veto plane is vertical</span></div>
-<div class="line"><span class="lineno">  656</span>      <span class="keywordflow">if</span> (plane&gt;=2) barName+=<span class="stringliteral">&quot;ver_&quot;</span>;</div>
-<div class="line"><span class="lineno">  657</span>      shift = <a class="code hl_variable" href="classMuFilter.html#a2f9a12c0cd5d1a5f6e1956b9cf10597c">conf_floats</a>[<span class="stringliteral">&quot;MuFilter/Veto&quot;</span>+std::to_string(plane+1)+<span class="stringliteral">&quot;ShiftX&quot;</span>];</div>
-<div class="line"><span class="lineno">  658</span>      <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  659</span>  <span class="keywordflow">case</span> 2: </div>
-<div class="line"><span class="lineno">  660</span>      <a class="code hl_variable" href="namespaceana__ShipMuon.html#a916dd5983d4b6d3945f22cce86c4dc35">path</a>+=<span class="stringliteral">&quot;volMuFilter_1/volMuUpstreamDet_&quot;</span>+std::to_string(plane)+<span class="stringliteral">&quot;_&quot;</span></div>
-<div class="line"><span class="lineno">  661</span>                +std::to_string(plane+<a class="code hl_variable" href="classMuFilter.html#ab7a4485f3839f3e67f681e25802d89a7">conf_ints</a>[<span class="stringliteral">&quot;MuFilter/NVetoPlanes&quot;</span>]);</div>
-<div class="line"><span class="lineno">  662</span>      barName = <span class="stringliteral">&quot;/volMuUpstreamBar_&quot;</span>;</div>
-<div class="line"><span class="lineno">  663</span>      shift = <a class="code hl_variable" href="classMuFilter.html#a2f9a12c0cd5d1a5f6e1956b9cf10597c">conf_floats</a>[<span class="stringliteral">&quot;MuFilter/US&quot;</span>+std::to_string(plane+1)+<span class="stringliteral">&quot;ShiftY&quot;</span>];</div>
-<div class="line"><span class="lineno">  664</span>      <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  665</span>  <span class="keywordflow">case</span> 3: </div>
-<div class="line"><span class="lineno">  666</span>      <a class="code hl_variable" href="namespaceana__ShipMuon.html#a916dd5983d4b6d3945f22cce86c4dc35">path</a>+=<span class="stringliteral">&quot;volMuFilter_1/volMuDownstreamDet_&quot;</span>+std::to_string(plane)+<span class="stringliteral">&quot;_&quot;</span></div>
-<div class="line"><span class="lineno">  667</span>                +std::to_string(plane+<a class="code hl_variable" href="classMuFilter.html#ab7a4485f3839f3e67f681e25802d89a7">conf_ints</a>[<span class="stringliteral">&quot;MuFilter/NVetoPlanes&quot;</span>]</div>
-<div class="line"><span class="lineno">  668</span>                                     +<a class="code hl_variable" href="classMuFilter.html#ab7a4485f3839f3e67f681e25802d89a7">conf_ints</a>[<span class="stringliteral">&quot;MuFilter/NUpstreamPlanes&quot;</span>]);</div>
-<div class="line"><span class="lineno">  669</span>      barName = <span class="stringliteral">&quot;/volMuDownstreamBar_&quot;</span>;</div>
-<div class="line"><span class="lineno">  670</span>      <span class="keywordflow">if</span> (bar_number&lt;60){</div>
-<div class="line"><span class="lineno">  671</span>           barName+=<span class="stringliteral">&quot;hor_&quot;</span>;</div>
-<div class="line"><span class="lineno">  672</span>           shift = <a class="code hl_variable" href="classMuFilter.html#a2f9a12c0cd5d1a5f6e1956b9cf10597c">conf_floats</a>[<span class="stringliteral">&quot;MuFilter/DS&quot;</span>+std::to_string(plane+1)+<span class="stringliteral">&quot;ShiftY&quot;</span>];</div>
-<div class="line"><span class="lineno">  673</span>      }</div>
-<div class="line"><span class="lineno">  674</span>      <span class="keywordflow">else</span>{</div>
-<div class="line"><span class="lineno">  675</span>           barName+=<span class="stringliteral">&quot;ver_&quot;</span>;</div>
-<div class="line"><span class="lineno">  676</span>           shift = <a class="code hl_variable" href="classMuFilter.html#a2f9a12c0cd5d1a5f6e1956b9cf10597c">conf_floats</a>[<span class="stringliteral">&quot;MuFilter/DS&quot;</span>+std::to_string(plane+1)+<span class="stringliteral">&quot;ShiftX&quot;</span>];</div>
-<div class="line"><span class="lineno">  677</span>      }</div>
-<div class="line"><span class="lineno">  678</span>      <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  679</span>  }</div>
-<div class="line"><span class="lineno">  680</span>  <a class="code hl_variable" href="namespaceana__ShipMuon.html#a916dd5983d4b6d3945f22cce86c4dc35">path</a> += barName+std::to_string(fDetectorID);</div>
-<div class="line"><span class="lineno">  681</span> </div>
-<div class="line"><span class="lineno">  682</span>  TGeoNavigator* <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a58f4b6e15d66500c584136de0c3fc2fd">nav</a> = gGeoManager-&gt;GetCurrentNavigator();</div>
-<div class="line"><span class="lineno">  683</span>  <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a58f4b6e15d66500c584136de0c3fc2fd">nav</a>-&gt;cd(path);</div>
-<div class="line"><span class="lineno">  684</span>  LOG(DEBUG) &lt;&lt;<a class="code hl_variable" href="namespaceana__ShipMuon.html#a916dd5983d4b6d3945f22cce86c4dc35">path</a>&lt;&lt;<span class="stringliteral">&quot; &quot;</span>&lt;&lt;fDetectorID&lt;&lt;<span class="stringliteral">&quot; &quot;</span>&lt;&lt;subsystem&lt;&lt;<span class="stringliteral">&quot; &quot;</span>&lt;&lt;bar_number;</div>
-<div class="line"><span class="lineno">  685</span>  TGeoNode* W = <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a58f4b6e15d66500c584136de0c3fc2fd">nav</a>-&gt;GetCurrentNode();</div>
-<div class="line"><span class="lineno">  686</span>  TGeoBBox* <a class="code hl_variable" href="namespaceMufiCTR.html#a3a5551009cb9036a68f35664d162fc4c">S</a> = <span class="keyword">dynamic_cast&lt;</span>TGeoBBox*<span class="keyword">&gt;</span>(W-&gt;GetVolume()-&gt;GetShape());</div>
-<div class="line"><span class="lineno">  687</span> </div>
-<div class="line"><span class="lineno">  688</span>  <span class="keywordflow">if</span> ( (subsystem == 3 and bar_number &gt;59) or</div>
-<div class="line"><span class="lineno">  689</span>       (subsystem == 1 and plane ==2) ){  <span class="comment">// vertical bars</span></div>
-<div class="line"><span class="lineno">  690</span>      Double_t <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#ad2f75d8ae8cd0e24f5478929b5ebf22d">top</a>[3] = {shift,<a class="code hl_variable" href="namespaceMufiCTR.html#a3a5551009cb9036a68f35664d162fc4c">S</a>-&gt;GetDY(), 0};</div>
-<div class="line"><span class="lineno">  691</span>      Double_t bot[3] = {shift,-<a class="code hl_variable" href="namespaceMufiCTR.html#a3a5551009cb9036a68f35664d162fc4c">S</a>-&gt;GetDY(),0};</div>
-<div class="line"><span class="lineno">  692</span>      Double_t Gtop[3],Gbot[3];</div>
-<div class="line"><span class="lineno">  693</span>      <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a58f4b6e15d66500c584136de0c3fc2fd">nav</a>-&gt;LocalToMaster(top, Gtop);   <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a58f4b6e15d66500c584136de0c3fc2fd">nav</a>-&gt;LocalToMaster(bot, Gbot);</div>
-<div class="line"><span class="lineno">  694</span>      vLeft.SetXYZ(Gtop[0],Gtop[1],Gtop[2]);</div>
-<div class="line"><span class="lineno">  695</span>      vRight.SetXYZ(Gbot[0],Gbot[1],Gbot[2]);</div>
-<div class="line"><span class="lineno">  696</span>    }</div>
-<div class="line"><span class="lineno">  697</span>    <span class="keywordflow">else</span> {     <span class="comment">// horizontal bars</span></div>
-<div class="line"><span class="lineno">  698</span>      Double_t posXend[3] = {<a class="code hl_variable" href="namespaceMufiCTR.html#a3a5551009cb9036a68f35664d162fc4c">S</a>-&gt;GetDX(),shift,0};</div>
-<div class="line"><span class="lineno">  699</span>      Double_t negXend[3] = {-<a class="code hl_variable" href="namespaceMufiCTR.html#a3a5551009cb9036a68f35664d162fc4c">S</a>-&gt;GetDX(),shift,0};</div>
-<div class="line"><span class="lineno">  700</span>      Double_t GposXend[3],GnegXend[3];</div>
-<div class="line"><span class="lineno">  701</span>      <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a58f4b6e15d66500c584136de0c3fc2fd">nav</a>-&gt;LocalToMaster(posXend, GposXend);   <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a58f4b6e15d66500c584136de0c3fc2fd">nav</a>-&gt;LocalToMaster(negXend, GnegXend);</div>
-<div class="line"><span class="lineno">  702</span>      vLeft.SetXYZ(GposXend[0],GposXend[1],GposXend[2]);</div>
-<div class="line"><span class="lineno">  703</span>      vRight.SetXYZ(GnegXend[0],GnegXend[1],GnegXend[2]);</div>
-<div class="line"><span class="lineno">  704</span>    }</div>
-<div class="line"><span class="lineno">  705</span>}</div>
+<p class="definition">Definition at line <a class="el" href="MuFilter_8cxx_source.html#l00639">639</a> of file <a class="el" href="MuFilter_8cxx_source.html">MuFilter.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  640</span>{</div>
+<div class="line"><span class="lineno">  641</span> </div>
+<div class="line"><span class="lineno">  642</span>  <span class="keywordtype">int</span> subsystem     = floor(fDetectorID/10000);</div>
+<div class="line"><span class="lineno">  643</span>  <span class="keywordtype">int</span> plane             = floor(fDetectorID/1000) - 10*subsystem;</div>
+<div class="line"><span class="lineno">  644</span>  <span class="keywordtype">int</span> bar_number   = fDetectorID%1000;</div>
+<div class="line"><span class="lineno">  645</span> </div>
+<div class="line"><span class="lineno">  646</span>  TString <a class="code hl_variable" href="namespaceana__ShipMuon.html#a916dd5983d4b6d3945f22cce86c4dc35">path</a> = <span class="stringliteral">&quot;/cave_1/Detector_0/&quot;</span>;</div>
+<div class="line"><span class="lineno">  647</span>  TString barName;</div>
+<div class="line"><span class="lineno">  648</span>  Float_t shift;</div>
+<div class="line"><span class="lineno">  649</span>  <span class="keywordflow">switch</span>(subsystem) {</div>
+<div class="line"><span class="lineno">  650</span>  <span class="comment">// VETO/US/DS alignment relativ to Scifi only done once. </span></div>
+<div class="line"><span class="lineno">  651</span>  <span class="comment">// should be done after each emulsion exchange.</span></div>
+<div class="line"><span class="lineno">  652</span>  <span class="keywordflow">case</span> 1: </div>
+<div class="line"><span class="lineno">  653</span>      <a class="code hl_variable" href="namespaceana__ShipMuon.html#a916dd5983d4b6d3945f22cce86c4dc35">path</a>+=<span class="stringliteral">&quot;volVeto_1/volVetoPlane_&quot;</span>+std::to_string(plane)+<span class="stringliteral">&quot;_&quot;</span>+std::to_string(plane);</div>
+<div class="line"><span class="lineno">  654</span>      <span class="comment">// keeping the name of horizontal Veto planes for backward compatibility</span></div>
+<div class="line"><span class="lineno">  655</span>      barName = <span class="stringliteral">&quot;/volVetoBar_&quot;</span>;</div>
+<div class="line"><span class="lineno">  656</span>      <span class="comment">// the third Veto plane is vertical</span></div>
+<div class="line"><span class="lineno">  657</span>      <span class="keywordflow">if</span> (plane&gt;=2) barName+=<span class="stringliteral">&quot;ver_&quot;</span>;</div>
+<div class="line"><span class="lineno">  658</span>      shift = <a class="code hl_variable" href="classMuFilter.html#a2f9a12c0cd5d1a5f6e1956b9cf10597c">conf_floats</a>[<span class="stringliteral">&quot;MuFilter/Veto&quot;</span>+std::to_string(plane+1)+<span class="stringliteral">&quot;ShiftX&quot;</span>];</div>
+<div class="line"><span class="lineno">  659</span>      <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  660</span>  <span class="keywordflow">case</span> 2: </div>
+<div class="line"><span class="lineno">  661</span>      <a class="code hl_variable" href="namespaceana__ShipMuon.html#a916dd5983d4b6d3945f22cce86c4dc35">path</a>+=<span class="stringliteral">&quot;volMuFilter_1/volMuUpstreamDet_&quot;</span>+std::to_string(plane)+<span class="stringliteral">&quot;_&quot;</span></div>
+<div class="line"><span class="lineno">  662</span>                +std::to_string(plane+<a class="code hl_variable" href="classMuFilter.html#ab7a4485f3839f3e67f681e25802d89a7">conf_ints</a>[<span class="stringliteral">&quot;MuFilter/NVetoPlanes&quot;</span>]);</div>
+<div class="line"><span class="lineno">  663</span>      barName = <span class="stringliteral">&quot;/volMuUpstreamBar_&quot;</span>;</div>
+<div class="line"><span class="lineno">  664</span>      shift = <a class="code hl_variable" href="classMuFilter.html#a2f9a12c0cd5d1a5f6e1956b9cf10597c">conf_floats</a>[<span class="stringliteral">&quot;MuFilter/US&quot;</span>+std::to_string(plane+1)+<span class="stringliteral">&quot;ShiftY&quot;</span>];</div>
+<div class="line"><span class="lineno">  665</span>      <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  666</span>  <span class="keywordflow">case</span> 3: </div>
+<div class="line"><span class="lineno">  667</span>      <a class="code hl_variable" href="namespaceana__ShipMuon.html#a916dd5983d4b6d3945f22cce86c4dc35">path</a>+=<span class="stringliteral">&quot;volMuFilter_1/volMuDownstreamDet_&quot;</span>+std::to_string(plane)+<span class="stringliteral">&quot;_&quot;</span></div>
+<div class="line"><span class="lineno">  668</span>                +std::to_string(plane+<a class="code hl_variable" href="classMuFilter.html#ab7a4485f3839f3e67f681e25802d89a7">conf_ints</a>[<span class="stringliteral">&quot;MuFilter/NVetoPlanes&quot;</span>]</div>
+<div class="line"><span class="lineno">  669</span>                                     +<a class="code hl_variable" href="classMuFilter.html#ab7a4485f3839f3e67f681e25802d89a7">conf_ints</a>[<span class="stringliteral">&quot;MuFilter/NUpstreamPlanes&quot;</span>]);</div>
+<div class="line"><span class="lineno">  670</span>      barName = <span class="stringliteral">&quot;/volMuDownstreamBar_&quot;</span>;</div>
+<div class="line"><span class="lineno">  671</span>      <span class="keywordflow">if</span> (bar_number&lt;60){</div>
+<div class="line"><span class="lineno">  672</span>           barName+=<span class="stringliteral">&quot;hor_&quot;</span>;</div>
+<div class="line"><span class="lineno">  673</span>           shift = <a class="code hl_variable" href="classMuFilter.html#a2f9a12c0cd5d1a5f6e1956b9cf10597c">conf_floats</a>[<span class="stringliteral">&quot;MuFilter/DS&quot;</span>+std::to_string(plane+1)+<span class="stringliteral">&quot;ShiftY&quot;</span>];</div>
+<div class="line"><span class="lineno">  674</span>      }</div>
+<div class="line"><span class="lineno">  675</span>      <span class="keywordflow">else</span>{</div>
+<div class="line"><span class="lineno">  676</span>           barName+=<span class="stringliteral">&quot;ver_&quot;</span>;</div>
+<div class="line"><span class="lineno">  677</span>           shift = <a class="code hl_variable" href="classMuFilter.html#a2f9a12c0cd5d1a5f6e1956b9cf10597c">conf_floats</a>[<span class="stringliteral">&quot;MuFilter/DS&quot;</span>+std::to_string(plane+1)+<span class="stringliteral">&quot;ShiftX&quot;</span>];</div>
+<div class="line"><span class="lineno">  678</span>      }</div>
+<div class="line"><span class="lineno">  679</span>      <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  680</span>  }</div>
+<div class="line"><span class="lineno">  681</span>  <a class="code hl_variable" href="namespaceana__ShipMuon.html#a916dd5983d4b6d3945f22cce86c4dc35">path</a> += barName+std::to_string(fDetectorID);</div>
+<div class="line"><span class="lineno">  682</span> </div>
+<div class="line"><span class="lineno">  683</span>  TGeoNavigator* <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a58f4b6e15d66500c584136de0c3fc2fd">nav</a> = gGeoManager-&gt;GetCurrentNavigator();</div>
+<div class="line"><span class="lineno">  684</span>  <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a58f4b6e15d66500c584136de0c3fc2fd">nav</a>-&gt;cd(path);</div>
+<div class="line"><span class="lineno">  685</span>  LOG(DEBUG) &lt;&lt;<a class="code hl_variable" href="namespaceana__ShipMuon.html#a916dd5983d4b6d3945f22cce86c4dc35">path</a>&lt;&lt;<span class="stringliteral">&quot; &quot;</span>&lt;&lt;fDetectorID&lt;&lt;<span class="stringliteral">&quot; &quot;</span>&lt;&lt;subsystem&lt;&lt;<span class="stringliteral">&quot; &quot;</span>&lt;&lt;bar_number;</div>
+<div class="line"><span class="lineno">  686</span>  TGeoNode* W = <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a58f4b6e15d66500c584136de0c3fc2fd">nav</a>-&gt;GetCurrentNode();</div>
+<div class="line"><span class="lineno">  687</span>  TGeoBBox* <a class="code hl_variable" href="namespaceMufiCTR.html#a3a5551009cb9036a68f35664d162fc4c">S</a> = <span class="keyword">dynamic_cast&lt;</span>TGeoBBox*<span class="keyword">&gt;</span>(W-&gt;GetVolume()-&gt;GetShape());</div>
+<div class="line"><span class="lineno">  688</span> </div>
+<div class="line"><span class="lineno">  689</span>  <span class="keywordflow">if</span> ( (subsystem == 3 and bar_number &gt;59) or</div>
+<div class="line"><span class="lineno">  690</span>       (subsystem == 1 and plane ==2) ){  <span class="comment">// vertical bars</span></div>
+<div class="line"><span class="lineno">  691</span>      Double_t <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#ad2f75d8ae8cd0e24f5478929b5ebf22d">top</a>[3] = {shift,<a class="code hl_variable" href="namespaceMufiCTR.html#a3a5551009cb9036a68f35664d162fc4c">S</a>-&gt;GetDY(), 0};</div>
+<div class="line"><span class="lineno">  692</span>      Double_t bot[3] = {shift,-<a class="code hl_variable" href="namespaceMufiCTR.html#a3a5551009cb9036a68f35664d162fc4c">S</a>-&gt;GetDY(),0};</div>
+<div class="line"><span class="lineno">  693</span>      Double_t Gtop[3],Gbot[3];</div>
+<div class="line"><span class="lineno">  694</span>      <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a58f4b6e15d66500c584136de0c3fc2fd">nav</a>-&gt;LocalToMaster(top, Gtop);   <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a58f4b6e15d66500c584136de0c3fc2fd">nav</a>-&gt;LocalToMaster(bot, Gbot);</div>
+<div class="line"><span class="lineno">  695</span>      vLeft.SetXYZ(Gtop[0],Gtop[1],Gtop[2]);</div>
+<div class="line"><span class="lineno">  696</span>      vRight.SetXYZ(Gbot[0],Gbot[1],Gbot[2]);</div>
+<div class="line"><span class="lineno">  697</span>    }</div>
+<div class="line"><span class="lineno">  698</span>    <span class="keywordflow">else</span> {     <span class="comment">// horizontal bars</span></div>
+<div class="line"><span class="lineno">  699</span>      Double_t posXend[3] = {<a class="code hl_variable" href="namespaceMufiCTR.html#a3a5551009cb9036a68f35664d162fc4c">S</a>-&gt;GetDX(),shift,0};</div>
+<div class="line"><span class="lineno">  700</span>      Double_t negXend[3] = {-<a class="code hl_variable" href="namespaceMufiCTR.html#a3a5551009cb9036a68f35664d162fc4c">S</a>-&gt;GetDX(),shift,0};</div>
+<div class="line"><span class="lineno">  701</span>      Double_t GposXend[3],GnegXend[3];</div>
+<div class="line"><span class="lineno">  702</span>      <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a58f4b6e15d66500c584136de0c3fc2fd">nav</a>-&gt;LocalToMaster(posXend, GposXend);   <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a58f4b6e15d66500c584136de0c3fc2fd">nav</a>-&gt;LocalToMaster(negXend, GnegXend);</div>
+<div class="line"><span class="lineno">  703</span>      vLeft.SetXYZ(GposXend[0],GposXend[1],GposXend[2]);</div>
+<div class="line"><span class="lineno">  704</span>      vRight.SetXYZ(GnegXend[0],GnegXend[1],GnegXend[2]);</div>
+<div class="line"><span class="lineno">  705</span>    }</div>
+<div class="line"><span class="lineno">  706</span>}</div>
 <div class="ttc" id="anamespaceMufiCTR_html_a3a5551009cb9036a68f35664d162fc4c"><div class="ttname"><a href="namespaceMufiCTR.html#a3a5551009cb9036a68f35664d162fc4c">MufiCTR.S</a></div><div class="ttdeci">dict S</div><div class="ttdef"><b>Definition</b> <a href="MufiCTR_8py_source.html#l00012">MufiCTR.py:12</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -1503,8 +1503,9 @@ Protected Member Functions</h2></td></tr>
 <div class="line"><span class="lineno">  468</span>    <a class="code hl_variable" href="classMuFilter.html#a6ad87519f5e02ca1fc2abfb4c9351591">covered_runs_time_alignment</a>.push_back(stoi(tag_string.substr(tag_string.find(<span class="stringliteral">&quot;t_&quot;</span>)+2)));</div>
 <div class="line"><span class="lineno">  469</span>      }</div>
 <div class="line"><span class="lineno">  470</span>    }</div>
-<div class="line"><span class="lineno">  471</span>  }</div>
-<div class="line"><span class="lineno">  472</span>};</div>
+<div class="line"><span class="lineno">  471</span>    std::sort(<a class="code hl_variable" href="classMuFilter.html#a6ad87519f5e02ca1fc2abfb4c9351591">covered_runs_time_alignment</a>.begin(),<a class="code hl_variable" href="classMuFilter.html#a6ad87519f5e02ca1fc2abfb4c9351591">covered_runs_time_alignment</a>.end());</div>
+<div class="line"><span class="lineno">  472</span>  }</div>
+<div class="line"><span class="lineno">  473</span>};</div>
 <div class="ttc" id="anamespaceextractNeutrinosAndUpdateWeight_html_a47804d77c17d9de386802c99c350d7a8"><div class="ttname"><a href="namespaceextractNeutrinosAndUpdateWeight.html#a47804d77c17d9de386802c99c350d7a8">extractNeutrinosAndUpdateWeight.key</a></div><div class="ttdeci">int key</div><div class="ttdef"><b>Definition</b> <a href="extractNeutrinosAndUpdateWeight_8py_source.html#l00039">extractNeutrinosAndUpdateWeight.py:39</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -1687,50 +1688,50 @@ Protected Member Functions</h2></td></tr>
 <p>Method called for each step during simulation (see FairMCApplication::Stepping()) </p>
 <p>This method is called from the MC stepping</p>
 
-<p class="definition">Definition at line <a class="el" href="MuFilter_8cxx_source.html#l00475">475</a> of file <a class="el" href="MuFilter_8cxx_source.html">MuFilter.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  476</span>{</div>
-<div class="line"><span class="lineno">  478</span>    <span class="comment">//Set parameters at entrance of volume. Reset ELoss.</span></div>
-<div class="line"><span class="lineno">  479</span>    <span class="keywordflow">if</span> ( <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;IsTrackEntering() ) </div>
-<div class="line"><span class="lineno">  480</span>    {</div>
-<div class="line"><span class="lineno">  481</span>        <a class="code hl_variable" href="classMuFilter.html#a9a04bd06aaa02d99269942302d0477f1">fELoss</a>  = 0.;</div>
-<div class="line"><span class="lineno">  482</span>        <a class="code hl_variable" href="classMuFilter.html#a9cc41304924c11985d72025b1575f3f5">fTime</a>   = <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;TrackTime() * 1.0e09;</div>
-<div class="line"><span class="lineno">  483</span>        <a class="code hl_variable" href="classMuFilter.html#a2af0b15f8b476ddd8d49a9fa0cfe856d">fLength</a> = <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;TrackLength();</div>
-<div class="line"><span class="lineno">  484</span>        <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;TrackPosition(<a class="code hl_variable" href="classMuFilter.html#a859f4a282b024a9b4d4111c92b1709eb">fPos</a>);</div>
-<div class="line"><span class="lineno">  485</span>        <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;TrackMomentum(<a class="code hl_variable" href="classMuFilter.html#a544e5dcababebeec4af5df79da5a5564">fMom</a>);</div>
-<div class="line"><span class="lineno">  486</span>    }</div>
-<div class="line"><span class="lineno">  487</span>    <span class="comment">// Sum energy loss for all steps in the active volume</span></div>
-<div class="line"><span class="lineno">  488</span>    <a class="code hl_variable" href="classMuFilter.html#a9a04bd06aaa02d99269942302d0477f1">fELoss</a> += <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;Edep();</div>
-<div class="line"><span class="lineno">  489</span> </div>
-<div class="line"><span class="lineno">  490</span>    <span class="comment">// Create MuFilterPoint at exit of active volume</span></div>
-<div class="line"><span class="lineno">  491</span>    <span class="keywordflow">if</span> ( <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;IsTrackExiting()    ||</div>
-<div class="line"><span class="lineno">  492</span>            <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;IsTrackStop()       || </div>
-<div class="line"><span class="lineno">  493</span>            <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;IsTrackDisappeared()   ) {</div>
-<div class="line"><span class="lineno">  494</span>        fTrackID  = <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;GetStack()-&gt;GetCurrentTrackNumber();</div>
-<div class="line"><span class="lineno">  495</span>        <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;CurrentVolID(<a class="code hl_variable" href="classMuFilter.html#a12f0931ad5cb0e388f3f362e0a5f36ac">fVolumeID</a>);</div>
-<div class="line"><span class="lineno">  496</span> </div>
-<div class="line"><span class="lineno">  497</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="classMuFilter.html#a9a04bd06aaa02d99269942302d0477f1">fELoss</a> == 0. ) { <span class="keywordflow">return</span> kFALSE; }</div>
-<div class="line"><span class="lineno">  498</span>        TParticle* <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a>=<a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;GetStack()-&gt;GetCurrentTrack();</div>
-<div class="line"><span class="lineno">  499</span>        Int_t pdgCode = <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a>-&gt;GetPdgCode();</div>
-<div class="line"><span class="lineno">  500</span> </div>
-<div class="line"><span class="lineno">  501</span>        TLorentzVector Pos; </div>
-<div class="line"><span class="lineno">  502</span>        <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;TrackPosition(Pos); </div>
-<div class="line"><span class="lineno">  503</span>        Double_t xmean = (<a class="code hl_variable" href="classMuFilter.html#a859f4a282b024a9b4d4111c92b1709eb">fPos</a>.X()+Pos.X())/2. ;</div>
-<div class="line"><span class="lineno">  504</span>        Double_t ymean = (<a class="code hl_variable" href="classMuFilter.html#a859f4a282b024a9b4d4111c92b1709eb">fPos</a>.Y()+Pos.Y())/2. ;</div>
-<div class="line"><span class="lineno">  505</span>        Double_t zmean = (<a class="code hl_variable" href="classMuFilter.html#a859f4a282b024a9b4d4111c92b1709eb">fPos</a>.Z()+Pos.Z())/2. ;</div>
-<div class="line"><span class="lineno">  506</span> </div>
+<p class="definition">Definition at line <a class="el" href="MuFilter_8cxx_source.html#l00476">476</a> of file <a class="el" href="MuFilter_8cxx_source.html">MuFilter.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  477</span>{</div>
+<div class="line"><span class="lineno">  479</span>    <span class="comment">//Set parameters at entrance of volume. Reset ELoss.</span></div>
+<div class="line"><span class="lineno">  480</span>    <span class="keywordflow">if</span> ( <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;IsTrackEntering() ) </div>
+<div class="line"><span class="lineno">  481</span>    {</div>
+<div class="line"><span class="lineno">  482</span>        <a class="code hl_variable" href="classMuFilter.html#a9a04bd06aaa02d99269942302d0477f1">fELoss</a>  = 0.;</div>
+<div class="line"><span class="lineno">  483</span>        <a class="code hl_variable" href="classMuFilter.html#a9cc41304924c11985d72025b1575f3f5">fTime</a>   = <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;TrackTime() * 1.0e09;</div>
+<div class="line"><span class="lineno">  484</span>        <a class="code hl_variable" href="classMuFilter.html#a2af0b15f8b476ddd8d49a9fa0cfe856d">fLength</a> = <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;TrackLength();</div>
+<div class="line"><span class="lineno">  485</span>        <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;TrackPosition(<a class="code hl_variable" href="classMuFilter.html#a859f4a282b024a9b4d4111c92b1709eb">fPos</a>);</div>
+<div class="line"><span class="lineno">  486</span>        <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;TrackMomentum(<a class="code hl_variable" href="classMuFilter.html#a544e5dcababebeec4af5df79da5a5564">fMom</a>);</div>
+<div class="line"><span class="lineno">  487</span>    }</div>
+<div class="line"><span class="lineno">  488</span>    <span class="comment">// Sum energy loss for all steps in the active volume</span></div>
+<div class="line"><span class="lineno">  489</span>    <a class="code hl_variable" href="classMuFilter.html#a9a04bd06aaa02d99269942302d0477f1">fELoss</a> += <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;Edep();</div>
+<div class="line"><span class="lineno">  490</span> </div>
+<div class="line"><span class="lineno">  491</span>    <span class="comment">// Create MuFilterPoint at exit of active volume</span></div>
+<div class="line"><span class="lineno">  492</span>    <span class="keywordflow">if</span> ( <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;IsTrackExiting()    ||</div>
+<div class="line"><span class="lineno">  493</span>            <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;IsTrackStop()       || </div>
+<div class="line"><span class="lineno">  494</span>            <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;IsTrackDisappeared()   ) {</div>
+<div class="line"><span class="lineno">  495</span>        fTrackID  = <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;GetStack()-&gt;GetCurrentTrackNumber();</div>
+<div class="line"><span class="lineno">  496</span>        <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;CurrentVolID(<a class="code hl_variable" href="classMuFilter.html#a12f0931ad5cb0e388f3f362e0a5f36ac">fVolumeID</a>);</div>
+<div class="line"><span class="lineno">  497</span> </div>
+<div class="line"><span class="lineno">  498</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="classMuFilter.html#a9a04bd06aaa02d99269942302d0477f1">fELoss</a> == 0. ) { <span class="keywordflow">return</span> kFALSE; }</div>
+<div class="line"><span class="lineno">  499</span>        TParticle* <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a>=<a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;GetStack()-&gt;GetCurrentTrack();</div>
+<div class="line"><span class="lineno">  500</span>        Int_t pdgCode = <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a>-&gt;GetPdgCode();</div>
+<div class="line"><span class="lineno">  501</span> </div>
+<div class="line"><span class="lineno">  502</span>        TLorentzVector Pos; </div>
+<div class="line"><span class="lineno">  503</span>        <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;TrackPosition(Pos); </div>
+<div class="line"><span class="lineno">  504</span>        Double_t xmean = (<a class="code hl_variable" href="classMuFilter.html#a859f4a282b024a9b4d4111c92b1709eb">fPos</a>.X()+Pos.X())/2. ;</div>
+<div class="line"><span class="lineno">  505</span>        Double_t ymean = (<a class="code hl_variable" href="classMuFilter.html#a859f4a282b024a9b4d4111c92b1709eb">fPos</a>.Y()+Pos.Y())/2. ;</div>
+<div class="line"><span class="lineno">  506</span>        Double_t zmean = (<a class="code hl_variable" href="classMuFilter.html#a859f4a282b024a9b4d4111c92b1709eb">fPos</a>.Z()+Pos.Z())/2. ;</div>
 <div class="line"><span class="lineno">  507</span> </div>
-<div class="line"><span class="lineno">  508</span>        <a class="code hl_function" href="classMuFilter.html#aa1349d65923118045eca307143ab24ae">AddHit</a>(fTrackID,<a class="code hl_variable" href="classMuFilter.html#a12f0931ad5cb0e388f3f362e0a5f36ac">fVolumeID</a>, TVector3(xmean, ymean,  zmean),</div>
-<div class="line"><span class="lineno">  509</span>                TVector3(<a class="code hl_variable" href="classMuFilter.html#a544e5dcababebeec4af5df79da5a5564">fMom</a>.Px(), <a class="code hl_variable" href="classMuFilter.html#a544e5dcababebeec4af5df79da5a5564">fMom</a>.Py(), <a class="code hl_variable" href="classMuFilter.html#a544e5dcababebeec4af5df79da5a5564">fMom</a>.Pz()), <a class="code hl_variable" href="classMuFilter.html#a9cc41304924c11985d72025b1575f3f5">fTime</a>, <a class="code hl_variable" href="classMuFilter.html#a2af0b15f8b476ddd8d49a9fa0cfe856d">fLength</a>,</div>
-<div class="line"><span class="lineno">  510</span>                <a class="code hl_variable" href="classMuFilter.html#a9a04bd06aaa02d99269942302d0477f1">fELoss</a>, pdgCode);</div>
-<div class="line"><span class="lineno">  511</span> </div>
-<div class="line"><span class="lineno">  512</span>        <span class="comment">// Increment number of muon det points in TParticle</span></div>
-<div class="line"><span class="lineno">  513</span>        <a class="code hl_class" href="classShipStack.html">ShipStack</a>* <a class="code hl_variable" href="namespacemakeCascade.html#a15662d966fe998f4f8b9b6547975083e">stack</a> = (<a class="code hl_class" href="classShipStack.html">ShipStack</a>*) <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;GetStack();</div>
-<div class="line"><span class="lineno">  514</span>        <a class="code hl_variable" href="namespacemakeCascade.html#a15662d966fe998f4f8b9b6547975083e">stack</a>-&gt;AddPoint(<a class="code hl_enumvalue" href="ShipDetectorList_8h.html#a1806da1a0fbae8ab81f7330906f65680a8d02005c803b49ea66bd20c7b64ee114">kMuFilter</a>);</div>
-<div class="line"><span class="lineno">  515</span>    }   </div>
-<div class="line"><span class="lineno">  516</span> </div>
-<div class="line"><span class="lineno">  517</span>    <span class="keywordflow">return</span> kTRUE;</div>
-<div class="line"><span class="lineno">  518</span>}</div>
-<div class="ttc" id="aclassMuFilter_html_aa1349d65923118045eca307143ab24ae"><div class="ttname"><a href="classMuFilter.html#aa1349d65923118045eca307143ab24ae">MuFilter::AddHit</a></div><div class="ttdeci">MuFilterPoint * AddHit(Int_t trackID, Int_t detID, TVector3 pos, TVector3 mom, Double_t time, Double_t length, Double_t eLoss, Int_t pdgCode)</div><div class="ttdef"><b>Definition</b> <a href="MuFilter_8cxx_source.html#l00551">MuFilter.cxx:551</a></div></div>
+<div class="line"><span class="lineno">  508</span> </div>
+<div class="line"><span class="lineno">  509</span>        <a class="code hl_function" href="classMuFilter.html#aa1349d65923118045eca307143ab24ae">AddHit</a>(fTrackID,<a class="code hl_variable" href="classMuFilter.html#a12f0931ad5cb0e388f3f362e0a5f36ac">fVolumeID</a>, TVector3(xmean, ymean,  zmean),</div>
+<div class="line"><span class="lineno">  510</span>                TVector3(<a class="code hl_variable" href="classMuFilter.html#a544e5dcababebeec4af5df79da5a5564">fMom</a>.Px(), <a class="code hl_variable" href="classMuFilter.html#a544e5dcababebeec4af5df79da5a5564">fMom</a>.Py(), <a class="code hl_variable" href="classMuFilter.html#a544e5dcababebeec4af5df79da5a5564">fMom</a>.Pz()), <a class="code hl_variable" href="classMuFilter.html#a9cc41304924c11985d72025b1575f3f5">fTime</a>, <a class="code hl_variable" href="classMuFilter.html#a2af0b15f8b476ddd8d49a9fa0cfe856d">fLength</a>,</div>
+<div class="line"><span class="lineno">  511</span>                <a class="code hl_variable" href="classMuFilter.html#a9a04bd06aaa02d99269942302d0477f1">fELoss</a>, pdgCode);</div>
+<div class="line"><span class="lineno">  512</span> </div>
+<div class="line"><span class="lineno">  513</span>        <span class="comment">// Increment number of muon det points in TParticle</span></div>
+<div class="line"><span class="lineno">  514</span>        <a class="code hl_class" href="classShipStack.html">ShipStack</a>* <a class="code hl_variable" href="namespacemakeCascade.html#a15662d966fe998f4f8b9b6547975083e">stack</a> = (<a class="code hl_class" href="classShipStack.html">ShipStack</a>*) <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;GetStack();</div>
+<div class="line"><span class="lineno">  515</span>        <a class="code hl_variable" href="namespacemakeCascade.html#a15662d966fe998f4f8b9b6547975083e">stack</a>-&gt;AddPoint(<a class="code hl_enumvalue" href="ShipDetectorList_8h.html#a1806da1a0fbae8ab81f7330906f65680a8d02005c803b49ea66bd20c7b64ee114">kMuFilter</a>);</div>
+<div class="line"><span class="lineno">  516</span>    }   </div>
+<div class="line"><span class="lineno">  517</span> </div>
+<div class="line"><span class="lineno">  518</span>    <span class="keywordflow">return</span> kTRUE;</div>
+<div class="line"><span class="lineno">  519</span>}</div>
+<div class="ttc" id="aclassMuFilter_html_aa1349d65923118045eca307143ab24ae"><div class="ttname"><a href="classMuFilter.html#aa1349d65923118045eca307143ab24ae">MuFilter::AddHit</a></div><div class="ttdeci">MuFilterPoint * AddHit(Int_t trackID, Int_t detID, TVector3 pos, TVector3 mom, Double_t time, Double_t length, Double_t eLoss, Int_t pdgCode)</div><div class="ttdef"><b>Definition</b> <a href="MuFilter_8cxx_source.html#l00552">MuFilter.cxx:552</a></div></div>
 <div class="ttc" id="aclassShipStack_html"><div class="ttname"><a href="classShipStack.html">ShipStack</a></div><div class="ttdef"><b>Definition</b> <a href="ShipStack_8h_source.html#l00046">ShipStack.h:47</a></div></div>
 <div class="ttc" id="anamespacemakeCascade_html_a15662d966fe998f4f8b9b6547975083e"><div class="ttname"><a href="namespacemakeCascade.html#a15662d966fe998f4f8b9b6547975083e">makeCascade.stack</a></div><div class="ttdeci">int stack</div><div class="ttdef"><b>Definition</b> <a href="makeCascade_8py_source.html#l00275">makeCascade.py:275</a></div></div>
 <div class="ttc" id="anamespacerun__simScript_html_a671e51e119017a06d69c162c6e24b051"><div class="ttname"><a href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">run_simScript.gMC</a></div><div class="ttdeci">gMC</div><div class="ttdef"><b>Definition</b> <a href="run__simScript_8py_source.html#l00590">run_simScript.py:590</a></div></div>
@@ -1763,12 +1764,12 @@ Protected Member Functions</h2></td></tr>
  </p>
 <p>This will create a branch in the output tree called <a class="el" href="classMuFilterPoint.html">MuFilterPoint</a>, setting the last parameter to kFALSE means: this collection will not be written to the file, it will exist only during the simulation.</p>
 
-<p class="definition">Definition at line <a class="el" href="MuFilter_8cxx_source.html#l00526">526</a> of file <a class="el" href="MuFilter_8cxx_source.html">MuFilter.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  527</span>{</div>
-<div class="line"><span class="lineno">  528</span> </div>
-<div class="line"><span class="lineno">  535</span>    FairRootManager::Instance()-&gt;Register(<span class="stringliteral">&quot;MuFilterPoint&quot;</span>, <span class="stringliteral">&quot;MuFilter&quot;</span>,</div>
-<div class="line"><span class="lineno">  536</span>                                          <a class="code hl_variable" href="classMuFilter.html#ae4f7ea4c7b3f5bd4c44e321277cbb691">fMuFilterPointCollection</a>, kTRUE);</div>
-<div class="line"><span class="lineno">  537</span>}</div>
+<p class="definition">Definition at line <a class="el" href="MuFilter_8cxx_source.html#l00527">527</a> of file <a class="el" href="MuFilter_8cxx_source.html">MuFilter.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  528</span>{</div>
+<div class="line"><span class="lineno">  529</span> </div>
+<div class="line"><span class="lineno">  536</span>    FairRootManager::Instance()-&gt;Register(<span class="stringliteral">&quot;MuFilterPoint&quot;</span>, <span class="stringliteral">&quot;MuFilter&quot;</span>,</div>
+<div class="line"><span class="lineno">  537</span>                                          <a class="code hl_variable" href="classMuFilter.html#ae4f7ea4c7b3f5bd4c44e321277cbb691">fMuFilterPointCollection</a>, kTRUE);</div>
+<div class="line"><span class="lineno">  538</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1797,10 +1798,10 @@ Protected Member Functions</h2></td></tr>
 <p>has to be called after each event to reset the containers <br  />
  </p>
 
-<p class="definition">Definition at line <a class="el" href="MuFilter_8cxx_source.html#l00545">545</a> of file <a class="el" href="MuFilter_8cxx_source.html">MuFilter.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  546</span>{</div>
-<div class="line"><span class="lineno">  547</span>    <a class="code hl_variable" href="classMuFilter.html#ae4f7ea4c7b3f5bd4c44e321277cbb691">fMuFilterPointCollection</a>-&gt;Clear();</div>
-<div class="line"><span class="lineno">  548</span>}</div>
+<p class="definition">Definition at line <a class="el" href="MuFilter_8cxx_source.html#l00546">546</a> of file <a class="el" href="MuFilter_8cxx_source.html">MuFilter.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  547</span>{</div>
+<div class="line"><span class="lineno">  548</span>    <a class="code hl_variable" href="classMuFilter.html#ae4f7ea4c7b3f5bd4c44e321277cbb691">fMuFilterPointCollection</a>-&gt;Clear();</div>
+<div class="line"><span class="lineno">  549</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
