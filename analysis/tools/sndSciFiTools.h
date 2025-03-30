@@ -73,8 +73,10 @@ namespace snd {
     // selection to be made relying on a single orientation, then "orientation" can be provided
     // in the for of 0 or 1, for the horizontal and vertical orientations, respectively
     int showerInteractionWall(const TClonesArray &digiHits, const std::map<std::string, float> &selection_parameters, int method=0, std::string setup="TI18");
-    //Foregoing the selection_parameters option runs with the default values
+    // Foregoing the selection_parameters option runs with the default values
     int showerInteractionWall(const TClonesArray &digiHits, int method=0, std::string setup="TI18");
 
+    // Find the Center of Particle Showering on the SciFi plane
+    std::pair<double, double> find_centre_of_gravity_per_station(const TClonesArray* digiHits, int station);
   }
 }
