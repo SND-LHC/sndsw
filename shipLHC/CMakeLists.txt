@@ -11,7 +11,6 @@ ${CMAKE_SOURCE_DIR}/genfit/core/include
 ${CMAKE_SOURCE_DIR}/genfit/trackReps/include
 ${CMAKE_SOURCE_DIR}/genfit/include/genfit
 ${CMAKE_SOURCE_DIR}/genfit/fields/include
-${ROOT_INCLUDE_DIR}
 )
 
 include_directories( ${INCLUDE_DIRECTORIES} ${VMC_INCLUDE_DIRS} ${FAIRROOT_INCLUDE_DIR} ${FairLogger_INCDIR} ${FMT_INCLUDE_DIR}
