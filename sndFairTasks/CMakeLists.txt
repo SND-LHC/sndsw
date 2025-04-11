@@ -29,6 +29,7 @@ set(SRCS
 DigiTaskSND.cxx
 ConvRawData.cxx
 boardMappingParser.cxx
+ConvDriftTubeRawData.cxx
 )
 
 Set(HEADERS)
