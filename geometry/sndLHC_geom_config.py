@@ -199,12 +199,13 @@ with ConfigRegistry.register_config("basic") as c:
         # DS2
         c.MuFilter.Muon7Dx,c.MuFilter.Muon7Dy,c.MuFilter.Muon7Dz = -45.2*u.mm, 5125.9*u.mm, 132.8 *u.mm 
         c.MuFilter.Iron8Dx,   c.MuFilter.Iron8Dy,  c.MuFilter.Iron8Dz    = -22.1*u.mm, 5183.6*u.mm, 127.7*u.mm   
-        # DS3
-        c.MuFilter.Muon8Dx,c.MuFilter.Muon8Dy,c.MuFilter.Muon8Dz = -7.9*u.mm, 5396.7*u.mm,  132.5 *u.mm
+        # DS3 - this will change? - needs to to fit the detector
+        c.MuFilter.Muon8Dx,c.MuFilter.Muon8Dy,c.MuFilter.Muon8Dz = -7.9*u.mm, 5368.7*u.mm,  132.5 *u.mm
 
         c.MuFilter.DS4ZGap = 8.82*u.cm
-        # DS4V
-        c.MuFilter.Muon9Dx,c.MuFilter.Muon9Dy,c.MuFilter.Muon9Dz =  c.MuFilter.Muon8Dx,     c.MuFilter.Muon8Dy + c.MuFilter.DS4ZGap, c.MuFilter.Muon8Dz
+        
+        # DS4V - this will change
+        c.MuFilter.Muon9Dx,c.MuFilter.Muon9Dy,c.MuFilter.Muon9Dz =  c.MuFilter.Muon8Dx+30.*u.mm, c.MuFilter.Muon8Dy + c.MuFilter.DS4ZGap +26*u.cm, c.MuFilter.Muon8Dz# moved 23cm downstream in z
         c.MuFilter.Iron9Dx,  c.MuFilter.Iron9Dy,   c.MuFilter.Iron9Dz    = 177.9*u.mm, 5529.7*u.mm + 1*u.cm,  127.7*u.mm    # move downstream by 1cm to avoid overlap
 
         # relation between edge and bottom bar for VETO
@@ -349,3 +350,27 @@ with ConfigRegistry.register_config("basic") as c:
         c.Floor.MFeBlockX = c.MuFilter.FeX
         c.Floor.MFeBlockY = c.MuFilter.FeY
         c.Floor.MFeBlockZ = c.MuFilter.FeZ
+
+        # Drift Tubes
+        if year == 2025:
+          c.DriftTube = AttrDict(z=c.MuFilter.Muon8Dy) # 
+          c.DriftTube.cellWidth = 42*u.mm
+          c.DriftTube.cellHeight = 11.5*u.mm
+          c.DriftTube.cellLength = 60*u.cm
+          c.DriftTube.IBeamThickness = 1.*u.mm
+          c.DriftTube.IBeamWingWidth = 7*u.mm
+          c.DriftTube.IBeamWingThickness = 1.0*u.mm + 0.5*u.mm # mylar + Al tape
+          c.DriftTube.plateThickness = 1.5*u.mm
+          c.DriftTube.plateWidth = 74*u.cm
+          c.DriftTube.plateLength = 73*u.cm
+          c.DriftTube.coverPlateThickness = 1.5*u.mm
+          c.DriftTube.coverPlateWidth = 74*u.cm
+          c.DriftTube.coverPlateLength = 73*u.cm
+          c.DriftTube.anodeRad = 0.05*u.mm
+          c.DriftTube.nPlanes = 2
+          c.DriftTube.nLayers = 4  # per plane
+          c.DriftTube.nCells = 16  # per layer
+          # survey position of the two drift tube chambers
+          c.DriftTube.DT1Dx,  c.DriftTube.DT1Dy,   c.DriftTube.DT1Dz    = 357.9*u.mm, 5425.7*u.mm ,  907.7*u.mm
+          c.DriftTube.DT2Dx,  c.DriftTube.DT2Dy,   c.DriftTube.DT2Dz    = 0*u.mm, 5482.7*u.mm,  500.7*u.mm
+          c.DriftTube.DTLocX,  c.DriftTube.DTLocY,   c.DriftTube.DTLocZ    = 0*u.mm, 0*u.mm,  0*u.mm

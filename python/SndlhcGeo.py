@@ -40,6 +40,8 @@ class GeoInterface():
             self.modules['MuFilter'].SetConfPar(key,temp[key])
        if not key.find('Scifi')<0:
             self.modules['Scifi'].SetConfPar(key,temp[key])
+       if not key.find('DriftTube')<0:
+            self.modules['DriftTube'].SetConfPar(key,temp[key])
 
  def FinishEvent(self):
   pass
