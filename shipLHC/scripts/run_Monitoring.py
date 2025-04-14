@@ -71,7 +71,7 @@ options = parser.parse_args()
 options.slowStream = True
 if options.cosmics: options.slowStream = False
 options.startTime = ""
-options.dashboard = "/mnt/raid5/data_online/run_status.json"
+options.dashboard = "/mnt/raid10/data_online/run_status.json"
 options.monitorTag = ''
 if (options.auto and not options.interactive) or options.batch: ROOT.gROOT.SetBatch(True)
 
@@ -144,6 +144,8 @@ else:
 # works only for runs on EOS
    if not options.server.find('eos')<0:
       if options.rawDataPath: rawDataPath = options.rawDataPath
+      elif options.path.find('2025')>0:
+          rawDataPath = "/eos/experiment/sndlhc/raw_data/physics/2025/run_251"
       elif options.path.find('2024')>0:
           rawDataPath = "/eos/experiment/sndlhc/raw_data/physics/2024/run_241"
       elif options.path.find('2023')>0:
