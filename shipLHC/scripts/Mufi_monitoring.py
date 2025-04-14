@@ -50,32 +50,31 @@ class Mufi_hitMaps(ROOT.FairTask):
                   ut.bookHist(h,detector+'hit_'+str(s*10+l)+xi,'channel map / plane '+sdict[s]+str(l)+'; #channel',160,-0.5,159.5)
                   ut.bookHist(h,detector+'Xhit_'+str(s*10+l)+xi,'Xchannel map / plane '+sdict[s]+str(l)+'; #channel',160,-0.5,159.5)
 
-                  # To help the shifter, only large SiPMs will be monitored
-                  # Expert plots will show small SiPMs
-                  # Anyways, most events are passing muons and the small SiPMs don't fire
+                  # Only large SiPMs will be monitored.
+                  # Small SiPMs suffer from large time offsets extending to other events!
                   note = ''
                   NSmallSiPMs = 0
                   if s==2: 
                     note = ', large only'
                     NSmallSiPMs = 2
                   ut.bookHist(h,detector+'chanActiveRight_'+str(s*10+l),
-                              sdict[s]+' '+str(l)+'R number of fired channels '+note+'; N fired channels; bar',
-+                             channelsPerSystem[s]+1-NSmallSiPMs,-0.5,channelsPerSystem[s]+0.5-NSmallSiPMs,
+                              sdict[s]+' '+str(l)+'R channel hit multiplicity; #channel; bar',
+                              channelsPerSystem[s],-0.5,channelsPerSystem[s]-0.5,
                               monitor.systemAndBars[s],-0.5,monitor.systemAndBars[s]-0.5)
                   ut.bookHist(h,detector+'chanNfiredRight_'+str(s*10+l),
-                              sdict[s]+' '+str(l)+'R number of fired channels ; N fired channels; bar',
-                              channelsPerSystem[s]+1,-0.5,channelsPerSystem[s]+0.5,
+                              sdict[s]+' '+str(l)+'R number of fired channels '+note+'; N fired channels; bar',
+                              channelsPerSystem[s]+1-NSmallSiPMs,-0.5,channelsPerSystem[s]+0.5-NSmallSiPMs,
                               monitor.systemAndBars[s],-0.5,monitor.systemAndBars[s]-0.5)
                   side = 'L'
                   if (s==1 and l==2) or (s==3 and (l%2==1 or l==6)):
                     side = 'T'
                   ut.bookHist(h,detector+'chanActiveLeft_'+str(s*10+l),
-                              sdict[s]+' '+str(l)+side+' number of fired channels '+note+'; N fired channels; bar',
-+                             channelsPerSystem[s]+1-NSmallSiPMs,-0.5,channelsPerSystem[s]+0.5-NSmallSiPMs,
+                              sdict[s]+' '+str(l)+side+' channel hit multiplicity; #channel; bar',
+                              channelsPerSystem[s],-0.5,channelsPerSystem[s]-0.5,
                               monitor.systemAndBars[s],-0.5,monitor.systemAndBars[s]-0.5)
                   ut.bookHist(h,detector+'chanNfiredLeft_'+str(s*10+l),
-                              sdict[s]+' '+str(l)+side+' number of fired channels; N fired channels; bar',
-                              channelsPerSystem[s]+1,-0.5,channelsPerSystem[s]+0.5,
+                              sdict[s]+' '+str(l)+side+' number of fired channels '+note+'; N fired channels; bar',
+                              channelsPerSystem[s]+1-NSmallSiPMs,-0.5,channelsPerSystem[s]+0.5-NSmallSiPMs,
                               monitor.systemAndBars[s],-0.5,monitor.systemAndBars[s]-0.5)
 
                   if s==3:  
@@ -84,7 +83,7 @@ class Mufi_hitMaps(ROOT.FairTask):
                         ut.bookHist(h,detector+'dTcor_'+str(s*10+l)+xi,'dTcor with respect to first scifi '+sdict[s]+str(l)+'; dt [ns] ;# bar + channel',100,-25.,5.,120,-0.5,2*60-0.5)
                         if l == 4:
                           for ss in range(1,6):
-                             ut.bookHist(h,'deltaTScifiMufiHit_'+str(ss)+xi,'deltaT SciFi earliest hit versus DS hit 2H; t_{earliest DS 2H hit} - t_{earliest SciFi hit} [ns]',200,-25.,25.)
+                             ut.bookHist(h,'deltaTScifiMufiHit_'+str(ss)+xi,'deltaT scifi earliest hit versus DS hit 2H',200,-25.,25.)
                   else:       
                         ut.bookHist(h,detector+'bar_'+str(s*10+l)+xi,'bar map / plane '+sdict[s]+str(l)+'; bar',10,-0.5,9.5)
                         if s==1:
@@ -189,7 +188,7 @@ class Mufi_hitMaps(ROOT.FairTask):
                     Nright+=1
                     if s==2 and (c==10 or c==13): NSmallRight+=1
                     Sright+=allChannels[c]
-                    h[detector+'chanActiveRight_'+str(s*10+l)].Fill(c-nSiPMs, bar)
+                    h[detector+'chanActiveRight_'+str(s*10+l)].Fill(c-nSiPMs, bar)                    
            self.M.fillHist1(detector+'chanmult_'+str(s*1000+100*l+bar),Nleft)
            self.M.fillHist1(detector+'chanmult_'+str(s*1000+100*l+bar),10+Nright)
            h[detector+'chanNfiredLeft_'+str(s*10+l)].Fill(Nleft-NSmallLeft, bar)
@@ -313,7 +312,7 @@ class Mufi_hitMaps(ROOT.FairTask):
             for s in scifiHitTimes:
                 if len(scifiHitTimes[s])<1: continue
                 scifiHitTimes[s].sort()
-                deltaT = dsHitTimes[0] - scifiHitTimes[s][0] - (self.M.zPos['MuFilter'][33]-self.M.zPos['Scifi'][s*10])/u.speedOfLight
+                deltaT = dsHitTimes[0] - scifiHitTimes[s][0] - (self.M.zPos['MuFilter'][34]-self.M.zPos['Scifi'][s*10])/u.speedOfLight
                 self.M.fillHist1('deltaTScifiMufiHit_'+str(s),deltaT)
    def beamSpot(self,event):
       if not self.trackTask: return
@@ -688,10 +687,8 @@ class Mufi_hitMaps(ROOT.FairTask):
            h[detector+'chanActiveDSSummaryHisto'].SetMinimum(0)
            h[detector+'chanActiveDSSummaryHisto'].Draw('colz')
            h[detector+'chanActiveDSSummaryHisto'].SetStats(0)
-           self.M.myPrint(h[detector+'chanActiveDSSummary'],
-                          detector+'chanActiveDSSummary',
-                          subdir='mufilter/shifter')
-         # the *Nfired* channels plot has the same style for all MuFi systems
+           self.M.myPrint(h[detector+'chanActiveDSSummary'],detector+'chanActiveDSSummary',subdir='mufilter/shifter')
+         # the 'Nfired' channels plot has the same style for all MuFi systems
          else:
            ut.bookCanvas(h,detector+item+'ChannelsPerBarDS',' ',1024,768,3,4)
            counter = 1
@@ -707,9 +704,7 @@ class Mufi_hitMaps(ROOT.FairTask):
                  h[detector+'chan'+item+'Right_'+str(s*10+l)].SetMinimum(0)
                counter += 1
                if l==5 and i==0: counter += 2
-           self.M.myPrint(h[detector+item+'ChannelsPerBarDS'],
-                          detector+item+'ChannelsPerBarDS',
-                          subdir='mufilter/shifter')
+           self.M.myPrint(h[detector+item+'ChannelsPerBarDS'],detector+item+'ChannelsPerBarDS',subdir='mufilter/shifter')
 #expert plots
        canvas = detector+'signalsSummary'+xi
        self.M.h[canvas].Update()
@@ -970,7 +965,7 @@ class Veto_Efficiency(ROOT.FairTask):
        ut.bookHist(h,'hitVeto_02','nr hits 0 vs 2;n sipm; n sipm',25,-0.5,24.5,25,-0.5,24.5)
        ut.bookHist(h,'hitVeto_12','nr hits 1 vs 2;n sipm; n sipm',25,-0.5,24.5,25,-0.5,24.5)
        ut.bookHist(h,'scaler','all no prevEvent',25,-0.5,24.5)
-       ut.bookHist(h,'deltaT','delta T DS 2H and SciFi 1; t_{earliest DS 2H hit} - t_{earliest SciFi hit} [ns]',100,-20.0,20.)
+       ut.bookHist(h,'deltaT','delta T DS 2 and Scifi 1',100,-20.0,20.)
        ut.bookHist(h,'X/Y','xy matching of scifi DS',100,-20.0,20.,100,-20.0,20.)
 
    def ExecuteEvent(self,event):
@@ -1111,7 +1106,7 @@ class Veto_Efficiency(ROOT.FairTask):
             for s in scifiHitTimes:
                 if len(scifiHitTimes[s])<1: continue
                 scifiHitTimes[s].sort()
-                deltaT = dsHitTimes[0] - scifiHitTimes[s][0] - (self.M.zPos['MuFilter'][33]-self.M.zPos['Scifi'][s*10])/u.speedOfLight
+                deltaT = dsHitTimes[0] - scifiHitTimes[s][0] - (self.M.zPos['MuFilter'][34]-self.M.zPos['Scifi'][s*10])/u.speedOfLight
            rc = h['deltaT'].Fill(deltaT)
            if deltaT < -10: continue
            #look for previous event time
