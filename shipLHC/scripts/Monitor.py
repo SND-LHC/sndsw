@@ -148,6 +148,12 @@ class Monitoring():
                    self.clusScifi       = T.clusScifi
                else: T.Init()
             self.run = self.converter.run
+            if self.eventTree.EventHeader.GetAccMode()==12: # ion runs
+               self.Nbunches = 1782
+               self.div = 8
+            else: # proton runs
+               self.Nbunches = 3564
+               self.div = 4
             return
         else:
             if options.fname:
