@@ -79,12 +79,12 @@ with ConfigRegistry.register_config("basic") as c:
 
         c.Scifi.nfibers_shortrow = 471
         c.Scifi.nfibers_longrow  = 472
-        c.Scifi.nfibers_z = 7
+        c.Scifi.nfibers_z = 6
         
 # Guido: Fibre mat total width 500um less wide than 4 SiPM arrays mounted on a single bar, therefore 32.6mm x 4 -0.5=129.9mm 
         c.Scifi.scifimat_width = (c.Scifi.SiPMarray_width+c.Scifi.sipm_diegap)*c.Scifi.nsipm_mat -0.5*u.mm
         c.Scifi.scifimat_length = c.Scifi.ydim
-        c.Scifi.scifimat_z = 0.1575 *u.cm
+        c.Scifi.scifimat_z = 0.135 *u.cm
         c.Scifi.epoxymat_z = 0.17 *u.cm
         c.Scifi.scifimat_gap = 0.05 *u.cm
         
