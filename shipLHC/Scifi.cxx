@@ -280,7 +280,7 @@ void Scifi::ConstructGeometry()
   
   //Adding horizontal fibers
   for (int irow = 0; irow < fNFibers_z; irow++){
-    zPosM =  -fZScifiMat/2 + fClad2_rmax/2 + irow*fVertPitch;
+    zPosM =  -fZScifiMat/2 + fClad2_rmax + irow*fVertPitch;
     if (irow%2 == 0){
       for (int ifiber = 0; ifiber < fNFibers_Srow; ifiber++){
 	HorMatVolume->AddNode(FiberVolume, 1e6*dummy_station + 1e5*0 + 1e4*dummy_mat + 1e3*(irow + 1) + ifiber + 1, new TGeoCombiTrans("rottranshor0", 0, offsetS + ifiber*fHorPitch, zPosM, rothorfiber));
@@ -295,7 +295,7 @@ void Scifi::ConstructGeometry()
   
   //Adding vertical fibers
   for (int irow = 0; irow < fNFibers_z; irow++){
-    zPosM =  -fZScifiMat/2 + fClad2_rmax/2 + irow*fVertPitch;
+    zPosM =  -fZScifiMat/2 + fClad2_rmax + irow*fVertPitch;
     if (irow%2 == 0){
       for (int ifiber = 0; ifiber < fNFibers_Srow; ifiber++){
 	VertMatVolume->AddNode(FiberVolume, 1e6*dummy_station + 1e5*1 + 1e4*dummy_mat +  1e3*(irow + 1) + ifiber + 1, new TGeoCombiTrans("rottransvert0", offsetS + ifiber*fHorPitch, 0, zPosM, rotvertfiber));
