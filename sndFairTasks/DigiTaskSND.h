@@ -54,6 +54,7 @@ class DigiTaskSND : public FairTask
     TClonesArray* fScifiDigiHitArray;
     TClonesArray* fMuFilterHit2MCPointsArray; // link to MC truth
     TClonesArray* fScifiHit2MCPointsArray;
+    TClonesArray* fvetoPointArray;
     TClonesArray* fEmulsionPointArray;
     TClonesArray* fMCTrackArray;
 
@@ -64,7 +65,7 @@ class DigiTaskSND : public FairTask
     DigiTaskSND(const DigiTaskSND&);
     DigiTaskSND& operator=(const DigiTaskSND&);
 
-    ClassDef(DigiTaskSND, 5);
+    ClassDef(DigiTaskSND, 6);
 };
 
 #endif /* DIGITASKSND_H_ */
