@@ -105,7 +105,7 @@ with ConfigRegistry.register_config("basic") as c:
         c.Scifi.clad2_rmax = 0.0125 *u.cm
 
         c.Scifi.horizontal_pitch = 0.0275 *u.cm
-        c.Scifi.vertical_pitch = 0.021 *u.cm
+        c.Scifi.vertical_pitch = 0.022 *u.cm
         c.Scifi.rowlong_offset = 0.035 *u.cm 
         c.Scifi.rowshort_offset = 0.0215 *u.cm 
 
