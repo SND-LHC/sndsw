@@ -3,7 +3,7 @@ var classDigiTaskSND =
     [ "DigiTaskSND", "classDigiTaskSND.html#a00c81740068b4b51b876e63f9a7f7f1a", null ],
     [ "~DigiTaskSND", "classDigiTaskSND.html#a5febc7fe6db11fb90ba4a7ac38a1c567", null ],
     [ "DigiTaskSND", "classDigiTaskSND.html#a813390b4f930b3ff9120de73e9523147", null ],
-    [ "ClassDef", "classDigiTaskSND.html#ad976e32417025e6e344fce5380542d63", null ],
+    [ "ClassDef", "classDigiTaskSND.html#a92ccac620ab1b5c758d6a12a24640dde", null ],
     [ "clusterScifi", "classDigiTaskSND.html#a8e828c6197529218319009e0fa0d0c90", null ],
     [ "digitizeMuFilter", "classDigiTaskSND.html#a64a60b43b7604de3cdf2913e6b75d9c8", null ],
     [ "digitizeScifi", "classDigiTaskSND.html#ae687980a79ea94dd63266a12b63eceef", null ],
@@ -26,6 +26,7 @@ var classDigiTaskSND =
     [ "fScifiDigiHitArray", "classDigiTaskSND.html#a17879eefe7067bab29011010ed569874", null ],
     [ "fScifiHit2MCPointsArray", "classDigiTaskSND.html#ab4bcddef327a10fa4ffa7c8e40b81718", null ],
     [ "fScifiPointArray", "classDigiTaskSND.html#a5a8cd84ff3aa0b158308d8c5442cfdf8", null ],
+    [ "fvetoPointArray", "classDigiTaskSND.html#ab8e6822da1ffceb1d94b5bbac14db53c", null ],
     [ "scifi", "classDigiTaskSND.html#aaf2e028943b58a5775098654530c5449", null ],
     [ "siPMFibres", "classDigiTaskSND.html#a092aff4355b66a18b3856ec676138926", null ]
 ];

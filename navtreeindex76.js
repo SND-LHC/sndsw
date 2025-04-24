@@ -1,5 +1,6 @@
 var NAVTREEINDEX76 =
 {
+"namespacedecorators.html#a9aa498add33b8b9799504fffee2a48c6":[11,0,29,0],
 "namespacedecorators.html#aa3f84a39dd53816eddb7e035be380d26":[11,0,29,8],
 "namespacedecorators.html#ab1d023ac32c0a742814957a7e4c21a42":[11,0,29,17],
 "namespacedecorators.html#ac67f665b749ba7095f3c3acfff538a30":[11,0,29,11],
@@ -248,6 +249,5 @@ var NAVTREEINDEX76 =
 "namespaceextractNeutrinosAndUpdateWeight.html#ae01b4a5fe37389f539471726e4c843a5":[11,0,44,21],
 "namespaceextractNeutrinosAndUpdateWeight.html#ae15dab9f41491fe6870152c83af6e443":[11,0,44,14],
 "namespaceextractNeutrinosAndUpdateWeight.html#aeee9358256fe96e5c6483243deb0d884":[11,0,44,7],
-"namespaceextractNeutrinosAndUpdateWeight.html#af222257d1b005bac6b2f0d87975bbb27":[11,0,44,4],
-"namespaceextractNeutrinosAndUpdateWeight.html#afaadb0da679d44ab95b23eb8e91734fa":[11,0,44,3]
+"namespaceextractNeutrinosAndUpdateWeight.html#af222257d1b005bac6b2f0d87975bbb27":[11,0,44,4]
 };

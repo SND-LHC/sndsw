@@ -1,5 +1,6 @@
 var NAVTREEINDEX20 =
 {
+"classNuTauMudet.html#aaff4d55d2556ba22e041a3334c12eac3":[12,0,127,36],
 "classNuTauMudet.html#ab00c3ee40c1a229f268e1f81fa6d11f5":[12,0,127,20],
 "classNuTauMudet.html#ab1418569c9e6caca4f6d6ef99a7106a2":[12,0,127,23],
 "classNuTauMudet.html#ab20c5511137011b9c1a9d4b41eefe1cf":[12,0,127,109],
@@ -248,6 +249,5 @@ var NAVTREEINDEX20 =
 "classRPCUnpack.html#abb3f184e679876c87f510df10f74a3c1":[12,0,142,3],
 "classRPCUnpack.html#ae04b51ec4285574c945af134bf75db8e":[12,0,142,5],
 "classSNDLHCEventHeader.html":[12,0,175],
-"classSNDLHCEventHeader.html#a044727b68e6b03b3c269911af12dc8ca":[12,0,175,41],
-"classSNDLHCEventHeader.html#a0d92982305491d7692e482b2d3414cee":[12,0,175,45]
+"classSNDLHCEventHeader.html#a044727b68e6b03b3c269911af12dc8ca":[12,0,175,41]
 };

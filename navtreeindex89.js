@@ -1,5 +1,6 @@
 var NAVTREEINDEX89 =
 {
+"namespaceshipRoot__conf.html#a4c1ff8996fc0955c3bd4c4832c644793":[11,0,157,1],
 "namespaceshipStrawTracking.html":[11,0,158],
 "namespaceshipStrawTracking.html#a005e72c92291692e5a0b39ae98d0ab13":[11,0,158,2],
 "namespaceshipStrawTracking.html#a03e3f8cffae772aca9d1eb4b5bc0c43e":[11,0,158,16],
@@ -248,6 +249,5 @@ var NAVTREEINDEX89 =
 "namespacesndLHC__H6geom__config.html#a1585b1c3dc7e6b22a5e940e8d97c0127":[11,0,168,132],
 "namespacesndLHC__H6geom__config.html#a15ad388f3edf14e960841b3bd2b06519":[11,0,168,12],
 "namespacesndLHC__H6geom__config.html#a1710c8d13d311557b1f73e7bf07efc8d":[11,0,168,131],
-"namespacesndLHC__H6geom__config.html#a173273a0a94aef74074f6c8522de2733":[11,0,168,63],
-"namespacesndLHC__H6geom__config.html#a1cd48da52e8ebe45ad17ab23196815e4":[11,0,168,4]
+"namespacesndLHC__H6geom__config.html#a173273a0a94aef74074f6c8522de2733":[11,0,168,63]
 };

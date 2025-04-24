@@ -1,5 +1,6 @@
 var NAVTREEINDEX80 =
 {
+"namespacegetInteractionAndRadiationLength.html#acb156e7c2455b7437dfa7ceb797dc4b8":[11,0,57,12],
 "namespacegetInteractionAndRadiationLength.html#ae567246a7af72ed7ab41a8c06442ef15":[11,0,57,5],
 "namespacegetInteractionAndRadiationLength.html#afbf17ecbf8cd06af277e986ad28bbb15":[11,0,57,2],
 "namespacegoliath2root.html":[11,0,58],
@@ -248,6 +249,5 @@ var NAVTREEINDEX80 =
 "namespacemakeCascade.html#ab856c202f2c9627c35c58fd90634855d":[11,0,65,34],
 "namespacemakeCascade.html#abe2ac1ea6f108cc248cb30301ed79642":[11,0,65,47],
 "namespacemakeCascade.html#ac348ab0e5d95802be181708385eb5153":[11,0,65,22],
-"namespacemakeCascade.html#ac9326d7820f8728327838bf30bf1b32c":[11,0,65,16],
-"namespacemakeCascade.html#acccdb74717d1b2690aaf26de395228c8":[11,0,65,38]
+"namespacemakeCascade.html#ac9326d7820f8728327838bf30bf1b32c":[11,0,65,16]
 };

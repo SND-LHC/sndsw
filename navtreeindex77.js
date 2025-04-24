@@ -1,5 +1,6 @@
 var NAVTREEINDEX77 =
 {
+"namespaceextractNeutrinosAndUpdateWeight.html#afaadb0da679d44ab95b23eb8e91734fa":[11,0,44,3],
 "namespaceextract__interacting__neutrinos.html":[11,0,42],
 "namespaceextract__interacting__neutrinos.html#a230e2615e6f42aa661a66bd265142992":[11,0,42,22],
 "namespaceextract__interacting__neutrinos.html#a25b556ff44e4795c765e5da341bbf2d6":[11,0,42,20],
@@ -248,6 +249,5 @@ var NAVTREEINDEX77 =
 "namespacegenfit.html#aabb0e8a6dc45b018b0f1b0d914b5bd66":[11,0,52,109],
 "namespacegenfit.html#ab103e7c960746c0d93354f966212713b":[11,0,52,83],
 "namespacegenfit.html#ab2497ca6500ce787e456b16c7668590e":[11,0,52,114],
-"namespacegenfit.html#ab9be5ccf8961ab01c0401d938a1f628f":[11,0,52,90],
-"namespacegenfit.html#ac3030446efb56b3ea060ba26f28b6fd6":[11,0,52,107]
+"namespacegenfit.html#ab9be5ccf8961ab01c0401d938a1f628f":[11,0,52,90]
 };
