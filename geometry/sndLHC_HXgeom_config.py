@@ -317,8 +317,12 @@ with ConfigRegistry.register_config("basic") as c:
            c.Scifi.plane_gap = 6*u.mm # an air gap btw X an Y planes, in TI18 case this is controlled via c.Scifi.plastbar_z
            c.Scifi.tedlar_to_plane = 5.42*u.mm # an air gap btw protective tedlar sheet and a sensitive plane
            #c.Scifi.tedlar_z = 50*u.um # not included in the sw detector model
-           # offsets between the edge of a baby module frame and the upstream tedlar inside it
-           c.Scifi.frame_offset1, c.Scifi.frame_offset2, c.Scifi.frame_offset3 = 0.8*u.cm, 2.0*u.cm, 1.4*u.cm
+           # offset between the edge of a baby module frame and the upstream tedlar inside it
+           c.Scifi.frame_offset = 0.8*u.cm
+           # offsets between a baby module and the upstream passive block
+           c.Scifi.station_offset1 = c.Scifi.frame_offset
+           c.Scifi.station_offset2 = c.Scifi.frame_offset+1.2*u.cm
+           c.Scifi.station_offset3 = c.Scifi.frame_offset+1.4*u.cm
 
            # add 3 variable size iron blocks upstream of SciFi stations
            # complete removal of a wall goes with commenting the respective line below
