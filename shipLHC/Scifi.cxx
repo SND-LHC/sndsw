@@ -180,9 +180,9 @@ void Scifi::ConstructGeometry()
 	Double_t fZBabyPlaneGap = conf_floats["Scifi/plane_gap"];
 	Double_t fZBabyTedlarToPlaneGap = conf_floats["Scifi/tedlar_to_plane"];
 	//Offsets between the edge of a baby module frame and the upstream tedlar inside it
-	Double_t fFrameOffset[4] = {0, conf_floats["Scifi/frame_offset1"],
-	 	 	 	       conf_floats["Scifi/frame_offset2"],
-	 	 	 	       conf_floats["Scifi/frame_offset3"]};
+	Double_t fStationOffset[4] = {0, conf_floats["Scifi/station_offset1"],
+	 	 	 	         conf_floats["Scifi/station_offset2"],
+	 	 	 	         conf_floats["Scifi/station_offset3"]};
 
 	Int_t fNFibers_Srow = conf_ints["Scifi/nfibers_shortrow"]; 
 	Int_t fNFibers_Lrow = conf_ints["Scifi/nfibers_longrow"]; 
@@ -413,11 +413,11 @@ void Scifi::ConstructGeometry()
        volFeTarget[istation] = gGeoManager->MakeBox(TString("volFeTarget"+station),Fe,fFeTargetX[istation]/2., fFeTargetY[istation]/2., fFeTargetZ[istation]/2.);
        volFeTarget[istation]->SetLineColor(kGreen-4);
 
-       volTarget->AddNode(volFeTarget[istation],1,//fZDimension
+       volTarget->AddNode(volFeTarget[istation],1,
                                          new TGeoTranslation(DeltasV[istation][0] - PassiveBlockNotCenterred*fabs(fXDimension-fFeTargetX[istation])/2.,
                                                              DeltasH[istation][1]+ PassiveBlockNotCenterred*(DeltasH[0][1]-DeltasH[istation][1]
                                                                                                              +fabs(fYDimension-fFeTargetY[istation])/2.),
-                                                             DeltasH[istation][2] - fFrameOffset[istation] - fFeTargetZ[istation]/2.));
+                                                             DeltasH[istation][2] - fStationOffset[istation] - fFeTargetZ[istation]/2.));
     }
 
     //Creating Scifi planes by appending fiber mats
