@@ -322,7 +322,7 @@ with ConfigRegistry.register_config("basic") as c:
            # offsets between a baby module and the upstream passive block
            c.Scifi.station_offset1 = c.Scifi.frame_offset
            c.Scifi.station_offset2 = c.Scifi.frame_offset+1.2*u.cm
-           c.Scifi.station_offset3 = c.Scifi.frame_offset+1.4*u.cm
+           c.Scifi.station_offset3 = c.Scifi.frame_offset+0.6*u.cm
 
            # add 3 variable size iron blocks upstream of SciFi stations
            # complete removal of a wall goes with commenting the respective line below
