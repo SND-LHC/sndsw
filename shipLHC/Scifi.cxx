@@ -175,6 +175,14 @@ void Scifi::ConstructGeometry()
 	Double_t fXPlastBar = conf_floats["Scifi/plastbar_x"]; //Dimension of plastic bar
 	Double_t fYPlastBar = conf_floats["Scifi/plastbar_y"]; 
 	Double_t fZPlastBar = conf_floats["Scifi/plastbar_z"];
+	
+	// Air gaps in baby SciFi modules
+	Double_t fZBabyPlaneGap = conf_floats["Scifi/plane_gap"];
+	Double_t fZBabyTedlarToPlaneGap = conf_floats["Scifi/tedlar_to_plane"];
+	//Offsets between the edge of a baby module frame and the upstream tedlar inside it
+	Double_t fFrameOffset[4] = {0, conf_floats["Scifi/frame_offset1"],
+	 	 	 	       conf_floats["Scifi/frame_offset2"],
+	 	 	 	       conf_floats["Scifi/frame_offset3"]};
 
 	Int_t fNFibers_Srow = conf_ints["Scifi/nfibers_shortrow"]; 
 	Int_t fNFibers_Lrow = conf_ints["Scifi/nfibers_longrow"]; 
@@ -222,6 +230,7 @@ void Scifi::ConstructGeometry()
             DeltasH[i]  = Vedges[i] - LHfirst + SHfirst - Sedge;
             DeltasV[i]  = Vedges[i] - LVfirst + SVfirst - Sedge;
         }
+   Double_t totalThickness{};
 
   //Carbon Fiber Film
   TGeoVolume *CarbonFiberVolume = gGeoManager->MakeBox("CarbonFiber", CarbonComposite, fXDimension/2, fYDimension/2, fZCarbonFiber/2);
@@ -248,6 +257,16 @@ void Scifi::ConstructGeometry()
   PlasticAirVolume->AddNode(PlasticBarVolume, 0, new TGeoTranslation(- fXDimension/2 + fXPlastBar/2, 0, 0));  //bars are placed || to y
   PlasticAirVolume->AddNode(PlasticBarVolume, 1, new TGeoTranslation(+ fXDimension/2 - fXPlastBar/2, 0, 0));
 
+  //Definition of the two air gaps for baby SciFi
+  TGeoVolume *PlaneGapVolume = gGeoManager->MakeBox("PlaneGap", air, fXDimension/2, fYDimension/2, fZBabyPlaneGap/2);
+  PlaneGapVolume->SetLineColor(kOrange-4);
+  PlaneGapVolume->SetTransparency(50);
+  PlaneGapVolume->SetVisibility(1);
+  TGeoVolume *TedlarToPlaneGapVolume = gGeoManager->MakeBox("TedlarToPlaneGap", air, fXDimension/2, fYDimension/2, fZBabyTedlarToPlaneGap/2);
+  TedlarToPlaneGapVolume->SetLineColor(kOrange-4);
+  TedlarToPlaneGapVolume->SetTransparency(50);
+  TedlarToPlaneGapVolume->SetVisibility(1);
+
   //Fiber volume that contains the scintillating core and double cladding
   TGeoVolumeAssembly *FiberVolume = new TGeoVolumeAssembly("FiberVolume");
 
@@ -269,8 +288,18 @@ void Scifi::ConstructGeometry()
   TGeoRotation *rot = new TGeoRotation("rot", 90, 180, 0);
 
   //SciFi mats for X and Y fiber planes
-  TGeoVolume *HorMatVolume  = gGeoManager->MakeBox("HorMatVolume", Epoxy, fLengthScifiMat/2, fWidthScifiMat/2, fZEpoxyMat/2); 
-  TGeoVolume *VertMatVolume = gGeoManager->MakeBox("VertMatVolume", Epoxy, fWidthScifiMat/2, fLengthScifiMat/2, fZEpoxyMat/2); 
+  Double_t MatThickness{};
+  TGeoMedium *MatMaterial;
+  if (fNScifi==5){ //TI18 SciFi
+     MatMaterial = Epoxy;  
+     MatThickness = fZEpoxyMat;
+  }
+  if (fNScifi==4){ // no glue in baby SciFi planes
+     MatMaterial = air;  
+     MatThickness = fZScifiMat;
+  }
+  TGeoVolume *HorMatVolume  = gGeoManager->MakeBox("HorMatVolume", MatMaterial, fLengthScifiMat/2, fWidthScifiMat/2, MatThickness/2); 
+  TGeoVolume *VertMatVolume = gGeoManager->MakeBox("VertMatVolume", MatMaterial, fWidthScifiMat/2, fLengthScifiMat/2, MatThickness/2); 
  
   Double_t zPosM;
   Double_t offsetS =  -fWidthScifiMat/2 + fOffsetRowS;
@@ -337,21 +366,41 @@ void Scifi::ConstructGeometry()
     TGeoVolumeAssembly *ScifiHorPlaneVol = new TGeoVolumeAssembly( TString("ScifiHorPlaneVol"+station) );
     TGeoVolumeAssembly *ScifiVertPlaneVol = new TGeoVolumeAssembly( TString("ScifiVertPlaneVol"+station) );
 
-    //Adding the first half of the SciFi module that contains horizontal fibres
-    ScifiVolume->AddNode(CarbonFiberVolume, 0, new TGeoTranslation(0, 0, fZCarbonFiber/2));
-    ScifiVolume->AddNode(HoneycombVolume, 0, new TGeoTranslation(0, 0, fZCarbonFiber + fZHoneycomb/2));
-    ScifiVolume->AddNode(CarbonFiberVolume, 1, new TGeoTranslation(0, 0, fZCarbonFiber + fZHoneycomb + fZCarbonFiber/2));
-    ScifiVolume->AddNode(ScifiHorPlaneVol, node, new TGeoTranslation(0, 0, 2*fZCarbonFiber + fZHoneycomb + fZEpoxyMat/2));
-    ScifiVolume->AddNode(PlasticAirVolume, 0, new TGeoTranslation(0, 0, 2*fZCarbonFiber + fZHoneycomb + fZEpoxyMat+ fZPlastBar/2));
-  
-    //Adding the second half of the SciFi module that contains vertical fibres
-    ScifiVolume->AddNode(PlasticAirVolume, 1, new TGeoCombiTrans("rottrans0", 0, 0, 2*fZCarbonFiber + fZHoneycomb + fZEpoxyMat + 3*fZPlastBar/2, rot));
-    ScifiVolume->AddNode(ScifiVertPlaneVol, node, new TGeoTranslation(0, 0, 2*fZCarbonFiber + fZHoneycomb + fZEpoxyMat + 2*fZPlastBar + fZEpoxyMat/2));
-    ScifiVolume->AddNode(CarbonFiberVolume, 2, new TGeoTranslation(0, 0, 2*fZCarbonFiber + fZHoneycomb + fZEpoxyMat + 2*fZPlastBar + fZEpoxyMat +fZCarbonFiber/2));
-    ScifiVolume->AddNode(HoneycombVolume, 1, new TGeoTranslation(0, 0, 3*fZCarbonFiber + fZHoneycomb + fZEpoxyMat + 2*fZPlastBar + fZEpoxyMat + fZHoneycomb/2));
-    ScifiVolume->AddNode(CarbonFiberVolume, 3, new TGeoTranslation(0, 0, 3*fZCarbonFiber + 2*fZHoneycomb + fZEpoxyMat + 2*fZPlastBar + fZEpoxyMat + fZCarbonFiber/2));
+    //TI18 SciFi
+    if (fNScifi==5){
+       //Adding the first half of the SciFi module that contains horizontal fibres
+       ScifiVolume->AddNode(CarbonFiberVolume, 0, new TGeoTranslation(0, 0, fZCarbonFiber/2));
+       ScifiVolume->AddNode(HoneycombVolume, 0, new TGeoTranslation(0, 0, fZCarbonFiber + fZHoneycomb/2));
+       ScifiVolume->AddNode(CarbonFiberVolume, 1, new TGeoTranslation(0, 0, fZCarbonFiber + fZHoneycomb + fZCarbonFiber/2));
+       ScifiVolume->AddNode(ScifiHorPlaneVol, node, new TGeoTranslation(0, 0, 2*fZCarbonFiber + fZHoneycomb + fZEpoxyMat/2));
+       ScifiVolume->AddNode(PlasticAirVolume, 0, new TGeoTranslation(0, 0, 2*fZCarbonFiber + fZHoneycomb + fZEpoxyMat+ fZPlastBar/2));
 
-    Double_t totalThickness = 4*fZCarbonFiber + 2*fZHoneycomb + 2*fZEpoxyMat + 2*fZPlastBar; // adds up to 1.19cm
+       //Adding the second half of the SciFi module that contains vertical fibres
+       ScifiVolume->AddNode(PlasticAirVolume, 1, new TGeoCombiTrans("rottrans0", 0, 0, 2*fZCarbonFiber + fZHoneycomb + fZEpoxyMat + 3*fZPlastBar/2, rot));
+       ScifiVolume->AddNode(ScifiVertPlaneVol, node, new TGeoTranslation(0, 0, 2*fZCarbonFiber + fZHoneycomb + fZEpoxyMat + 2*fZPlastBar + fZEpoxyMat/2));
+       ScifiVolume->AddNode(CarbonFiberVolume, 2, new TGeoTranslation(0, 0, 2*fZCarbonFiber + fZHoneycomb + fZEpoxyMat + 2*fZPlastBar + fZEpoxyMat +fZCarbonFiber/2));
+       ScifiVolume->AddNode(HoneycombVolume, 1, new TGeoTranslation(0, 0, 3*fZCarbonFiber + fZHoneycomb + fZEpoxyMat + 2*fZPlastBar + fZEpoxyMat + fZHoneycomb/2));
+       ScifiVolume->AddNode(CarbonFiberVolume, 3, new TGeoTranslation(0, 0, 3*fZCarbonFiber + 2*fZHoneycomb + fZEpoxyMat + 2*fZPlastBar + fZEpoxyMat + fZCarbonFiber/2));
+
+       totalThickness = 4*fZCarbonFiber + 2*fZHoneycomb + 2*fZEpoxyMat + 2*fZPlastBar;
+    }
+
+    //Baby SciFi
+    // No glue in this case and one uses fZScifiMat and not the fZEpoxyMat for the mat thickness
+    if (fNScifi==4){
+       //Adding the first half of the SciFi module that contains horizontal fibres
+       ScifiVolume->AddNode(TedlarToPlaneGapVolume, 1, new TGeoTranslation(0, 0, fZBabyTedlarToPlaneGap/2));
+       ScifiVolume->AddNode(ScifiHorPlaneVol, node, new TGeoTranslation(0, 0, fZBabyTedlarToPlaneGap + fZScifiMat/2));
+
+       // Add the air gap between the X and Y plane
+       ScifiVolume->AddNode(PlaneGapVolume, 0, new TGeoTranslation(0, 0, fZBabyTedlarToPlaneGap + fZScifiMat + fZBabyPlaneGap/2));
+
+       //Adding the second half of the SciFi module that contains vertical fibres
+       ScifiVolume->AddNode(ScifiVertPlaneVol, node, new TGeoTranslation(0, 0, fZBabyTedlarToPlaneGap + 3*fZScifiMat/2 + fZBabyPlaneGap));
+       ScifiVolume->AddNode(TedlarToPlaneGapVolume, 2, new TGeoTranslation(0, 0, 3*fZBabyTedlarToPlaneGap/2 + 2*fZScifiMat + fZBabyPlaneGap));
+       
+       totalThickness = 2*fZBabyTedlarToPlaneGap + 2*fZScifiMat + fZBabyPlaneGap;
+    }
 
     volTarget->AddNode(ScifiVolume, node, 
                new TGeoTranslation(DeltasV[istation][0], DeltasH[istation][1], DeltasH[istation][2]));
@@ -363,11 +412,12 @@ void Scifi::ConstructGeometry()
     if (fNScifi==4 && istation != 0) {
        volFeTarget[istation] = gGeoManager->MakeBox(TString("volFeTarget"+station),Fe,fFeTargetX[istation]/2., fFeTargetY[istation]/2., fFeTargetZ[istation]/2.);
        volFeTarget[istation]->SetLineColor(kGreen-4);
+
        volTarget->AddNode(volFeTarget[istation],1,//fZDimension
                                          new TGeoTranslation(DeltasV[istation][0] - PassiveBlockNotCenterred*fabs(fXDimension-fFeTargetX[istation])/2.,
                                                              DeltasH[istation][1]+ PassiveBlockNotCenterred*(DeltasH[0][1]-DeltasH[istation][1]
                                                                                                              +fabs(fYDimension-fFeTargetY[istation])/2.),
-                                                             DeltasH[istation][2] - 0.5*(fZDimension-totalThickness) - fFeTargetZ[istation]/2.));
+                                                             DeltasH[istation][2] - fFrameOffset[istation] - fFeTargetZ[istation]/2.));
     }
 
     //Creating Scifi planes by appending fiber mats
