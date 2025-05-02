@@ -90,7 +90,7 @@ with ConfigRegistry.register_config("basic") as c:
         c.Scifi.scifimat_width = (c.Scifi.SiPMarray_width+c.Scifi.sipm_diegap)*c.Scifi.nsipm_mat -0.5*u.mm
         c.Scifi.scifimat_length = c.Scifi.ydim
         c.Scifi.scifimat_z = 0.135 *u.cm
-        c.Scifi.epoxymat_z = 0.17 *u.cm
+        c.Scifi.epoxymat_z = 0.162 *u.cm
         c.Scifi.scifimat_gap = 0.05 *u.cm
         
         c.Scifi.fiber_length = c.Scifi.scifimat_length
@@ -101,7 +101,7 @@ with ConfigRegistry.register_config("basic") as c:
         c.Scifi.clad2_rmax = 0.0125 *u.cm
 
         c.Scifi.horizontal_pitch = 0.0275 *u.cm
-        c.Scifi.vertical_pitch = 0.021 *u.cm
+        c.Scifi.vertical_pitch = 0.022 *u.cm
         c.Scifi.rowlong_offset = 0.035 *u.cm 
         c.Scifi.rowshort_offset = 0.0215 *u.cm 
 
@@ -363,9 +363,19 @@ with ConfigRegistry.register_config("basic") as c:
            c.Scifi.zdim = 4.0*u.cm # z thickness of Scifi station, must match c.EmulsionDet.TTz
            c.Scifi.nmats = 1
            c.Scifi.nscifi = 4
+           c.Scifi.nfibers_z = 7
+           c.Scifi.scifimat_z = 0.16*u.cm # thickness of a mat of 7 fiber layers
            c.Scifi.scifimat_length  = c.Scifi.ydim
            c.Scifi.fiber_length = c.Scifi.scifimat_length
-           c.Scifi.plastbar_y = c.Scifi.ydim
+           c.Scifi.plane_gap = 6*u.mm # an air gap btw X an Y planes, in TI18 case this is controlled via c.Scifi.plastbar_z
+           c.Scifi.tedlar_to_plane = 5.42*u.mm # an air gap btw protective tedlar sheet and a sensitive plane
+           #c.Scifi.tedlar_z = 50*u.um # not included in the sw detector model
+           # offset between the edge of a baby module frame and the upstream tedlar inside it
+           c.Scifi.frame_offset = 0.8*u.cm
+           # offsets between a baby module and the upstream passive block
+           c.Scifi.station_offset1 = c.Scifi.frame_offset+1.4*u.cm
+           c.Scifi.station_offset2 = c.Scifi.frame_offset+1.4*u.cm
+           c.Scifi.station_offset3 = c.Scifi.frame_offset+1.4*u.cm
            c.Scifi.channelTimeAlignment = 1
 
            if not with_tungsten:
