@@ -159,7 +159,7 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00683">683</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00689">689</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a7e3b03d4b8f5da1b53d48419365c5a81" name="a7e3b03d4b8f5da1b53d48419365c5a81"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7e3b03d4b8f5da1b53d48419365c5a81">&#9670;&#160;</a></span>__init__()</h2>
@@ -187,128 +187,128 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00685">685</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  685</span>   <span class="keyword">def </span>__init__(self,options):</div>
-<div class="line"><span class="lineno">  686</span>        self.options = options</div>
-<div class="line"><span class="lineno">  687</span>        self.EventNumber = -1</div>
-<div class="line"><span class="lineno">  688</span>        self.MonteCarlo = <span class="keyword">False</span></div>
-<div class="line"><span class="lineno">  689</span> </div>
-<div class="line"><span class="lineno">  690</span>        path     = options.path</div>
-<div class="line"><span class="lineno">  691</span>        <span class="keywordflow">if</span> path.find(<span class="stringliteral">&#39;eos&#39;</span>)&gt;0:</div>
-<div class="line"><span class="lineno">  692</span>             path  = options.server+options.path</div>
-<div class="line"><span class="lineno">  693</span><span class="comment"># setup geometry</span></div>
-<div class="line"><span class="lineno">  694</span>        <span class="keywordflow">if</span> (options.geoFile).find(<span class="stringliteral">&#39;../&#39;</span>)&lt;0: self.snd_geo = <a class="code hl_class" href="classSndlhcGeo_1_1GeoInterface.html">SndlhcGeo.GeoInterface</a>(path+options.geoFile)</div>
-<div class="line"><span class="lineno">  695</span>        <span class="keywordflow">else</span>:                                         self.snd_geo = <a class="code hl_class" href="classSndlhcGeo_1_1GeoInterface.html">SndlhcGeo.GeoInterface</a>(options.geoFile[3:])</div>
-<div class="line"><span class="lineno">  696</span>        self.MuFilter = self.snd_geo.modules[<span class="stringliteral">&#39;MuFilter&#39;</span>]</div>
-<div class="line"><span class="lineno">  697</span>        self.Scifi       = self.snd_geo.modules[<span class="stringliteral">&#39;Scifi&#39;</span>]</div>
-<div class="line"><span class="lineno">  698</span> </div>
-<div class="line"><span class="lineno">  699</span>        self.runNr   = str(options.runNumber).zfill(6)</div>
-<div class="line"><span class="lineno">  700</span>        <span class="keywordflow">if</span> options.runNumber &gt; 0:</div>
-<div class="line"><span class="lineno">  701</span>           <span class="keywordflow">if</span> options.partition &lt; 0:</div>
-<div class="line"><span class="lineno">  702</span>              partitions = []</div>
-<div class="line"><span class="lineno">  703</span>              <span class="keywordflow">if</span> path.find(<span class="stringliteral">&#39;eos&#39;</span>)&gt;0:</div>
-<div class="line"><span class="lineno">  704</span><span class="comment"># check for partitions</span></div>
-<div class="line"><span class="lineno">  705</span>                 print(<span class="stringliteral">&quot;xrdfs &quot;</span>+options.server+<span class="stringliteral">&quot; ls &quot;</span>+options.path+<span class="stringliteral">&quot;run_&quot;</span>+self.runNr)</div>
-<div class="line"><span class="lineno">  706</span>                 dirlist  = str( subprocess.check_output(<span class="stringliteral">&quot;xrdfs &quot;</span>+options.server+<span class="stringliteral">&quot; ls &quot;</span>+options.path+<span class="stringliteral">&quot;run_&quot;</span>+self.runNr,shell=<span class="keyword">True</span>) )</div>
-<div class="line"><span class="lineno">  707</span>                 <span class="keywordflow">for</span> x <span class="keywordflow">in</span> dirlist.split(<span class="stringliteral">&#39;\\n&#39;</span>):</div>
-<div class="line"><span class="lineno">  708</span>                     ix = x.find(<span class="stringliteral">&#39;sndsw_raw-&#39;</span>)</div>
-<div class="line"><span class="lineno">  709</span>                     <span class="keywordflow">if</span> ix&lt;0: <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  710</span>                     partitions.append(x[ix:])</div>
-<div class="line"><span class="lineno">  711</span>              <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  712</span><span class="comment"># check for partitions</span></div>
-<div class="line"><span class="lineno">  713</span>                 dirlist  = os.listdir(options.path+<span class="stringliteral">&quot;run_&quot;</span>+self.runNr)</div>
-<div class="line"><span class="lineno">  714</span>                 <span class="keywordflow">for</span> x <span class="keywordflow">in</span> dirlist:</div>
-<div class="line"><span class="lineno">  715</span>                     <span class="keywordflow">if</span> <span class="keywordflow">not</span> x.find(<span class="stringliteral">&quot;sndsw_raw-&quot;</span>)&lt;0:</div>
-<div class="line"><span class="lineno">  716</span>                          partitions.append(x)</div>
-<div class="line"><span class="lineno">  717</span>           <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  718</span>                 partitions = [<span class="stringliteral">&quot;sndsw_raw-&quot;</span>+ str(options.partition).zfill(4)+<span class="stringliteral">&quot;.root&quot;</span>]</div>
-<div class="line"><span class="lineno">  719</span>           eventChain = ROOT.TChain(<span class="stringliteral">&#39;rawConv&#39;</span>)</div>
-<div class="line"><span class="lineno">  720</span>           <span class="keywordflow">for</span> p <span class="keywordflow">in</span> partitions:</div>
-<div class="line"><span class="lineno">  721</span>               eventChain.Add(path+<span class="stringliteral">&#39;run_&#39;</span>+self.runNr+<span class="stringliteral">&#39;/&#39;</span>+p)</div>
-<div class="line"><span class="lineno">  722</span>        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  723</span><span class="comment"># for MC data</span></div>
-<div class="line"><span class="lineno">  724</span>                eventChain = ROOT.TChain(<span class="stringliteral">&quot;cbmsim&quot;</span>)</div>
-<div class="line"><span class="lineno">  725</span>                eventChain.Add(options.fname)</div>
-<div class="line"><span class="lineno">  726</span>                self.MonteCarlo = <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">  727</span>                partitions = []</div>
-<div class="line"><span class="lineno">  728</span>        rc = eventChain.GetEvent(0)</div>
-<div class="line"><span class="lineno">  729</span>        self.snd_geo.modules[<span class="stringliteral">&#39;Scifi&#39;</span>].InitEvent(eventChain.EventHeader)</div>
-<div class="line"><span class="lineno">  730</span>        self.snd_geo.modules[<span class="stringliteral">&#39;MuFilter&#39;</span>].InitEvent(eventChain.EventHeader)</div>
-<div class="line"><span class="lineno">  731</span><span class="comment"># start FairRunAna</span></div>
-<div class="line"><span class="lineno">  732</span>        self.run  = ROOT.FairRunAna()</div>
-<div class="line"><span class="lineno">  733</span>        ioman = ROOT.FairRootManager.Instance()</div>
-<div class="line"><span class="lineno">  734</span>        ioman.SetTreeName(eventChain.GetName())</div>
-<div class="line"><span class="lineno">  735</span>        source = ROOT.FairFileSource(eventChain.GetCurrentFile())</div>
-<div class="line"><span class="lineno">  736</span>        ioman.SetInChain(eventChain)</div>
-<div class="line"><span class="lineno">  737</span>        first = <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">  738</span>        <span class="keywordflow">for</span> p <span class="keywordflow">in</span> partitions:</div>
-<div class="line"><span class="lineno">  739</span>           <span class="keywordflow">if</span> first:</div>
-<div class="line"><span class="lineno">  740</span>                first = <span class="keyword">False</span></div>
-<div class="line"><span class="lineno">  741</span>                <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  742</span>           source.AddFile(path+<span class="stringliteral">&#39;run_&#39;</span>+self.runNr+<span class="stringliteral">&#39;/&#39;</span>+p+<span class="stringliteral">&#39;.root&#39;</span>)</div>
-<div class="line"><span class="lineno">  743</span>           self.run.SetSource(source)</div>
-<div class="line"><span class="lineno">  744</span> </div>
-<div class="line"><span class="lineno">  745</span><span class="comment">#avoiding some error messages</span></div>
-<div class="line"><span class="lineno">  746</span>        xrdb = ROOT.FairRuntimeDb.instance()</div>
-<div class="line"><span class="lineno">  747</span>        xrdb.getContainer(<span class="stringliteral">&quot;FairBaseParSet&quot;</span>).setStatic()</div>
-<div class="line"><span class="lineno">  748</span>        xrdb.getContainer(<span class="stringliteral">&quot;FairGeoParSet&quot;</span>).setStatic()</div>
-<div class="line"><span class="lineno">  749</span> </div>
-<div class="line"><span class="lineno">  750</span><span class="comment"># init() tracking tasks</span></div>
-<div class="line"><span class="lineno">  751</span>        <span class="keywordflow">if</span> self.options.HoughTracking:</div>
-<div class="line"><span class="lineno">  752</span>           <span class="keywordflow">if</span> self.options.trackType == <span class="stringliteral">&#39;Scifi&#39;</span> <span class="keywordflow">or</span> self.options.trackType == <span class="stringliteral">&#39;ScifiDS&#39;</span>:</div>
-<div class="line"><span class="lineno">  753</span>              self.muon_reco_task_Sf = options.FairTasks[<span class="stringliteral">&quot;houghTransform_Sf&quot;</span>]</div>
-<div class="line"><span class="lineno">  754</span>              self.muon_reco_task_Sf.Init()</div>
-<div class="line"><span class="lineno">  755</span>              self.genfitTrack = self.muon_reco_task_Sf.genfitTrack</div>
-<div class="line"><span class="lineno">  756</span>           <span class="keywordflow">if</span> self.options.trackType == <span class="stringliteral">&#39;DS&#39;</span> <span class="keywordflow">or</span> self.options.trackType == <span class="stringliteral">&#39;ScifiDS&#39;</span>:</div>
-<div class="line"><span class="lineno">  757</span>              self.muon_reco_task_DS = options.FairTasks[<span class="stringliteral">&quot;houghTransform_DS&quot;</span>]</div>
-<div class="line"><span class="lineno">  758</span>              self.muon_reco_task_DS.Init()</div>
-<div class="line"><span class="lineno">  759</span>              self.genfitTrack = self.muon_reco_task_DS.genfitTrack</div>
-<div class="line"><span class="lineno">  760</span>        <span class="keywordflow">if</span> self.options.simpleTracking:</div>
-<div class="line"><span class="lineno">  761</span>           self.trackTask = options.FairTasks[<span class="stringliteral">&quot;simpleTracking&quot;</span>]</div>
-<div class="line"><span class="lineno">  762</span>           <span class="keywordflow">if</span> <span class="keywordflow">not</span> self.options.HoughTracking:</div>
-<div class="line"><span class="lineno">  763</span>              self.genfitTrack = self.options.genfitTrack</div>
-<div class="line"><span class="lineno">  764</span>           </div>
-<div class="line"><span class="lineno">  765</span>           self.trackTask.SetTrackClassType(self.genfitTrack)</div>
-<div class="line"><span class="lineno">  766</span>           self.trackTask.Init()</div>
-<div class="line"><span class="lineno">  767</span> </div>
-<div class="line"><span class="lineno">  768</span><span class="comment"># prepare output tree, same branches as input plus track(s)</span></div>
-<div class="line"><span class="lineno">  769</span>        self.outFile = ROOT.TFile(options.oname,<span class="stringliteral">&#39;RECREATE&#39;</span>)</div>
-<div class="line"><span class="lineno">  770</span>        self.fSink    = ROOT.FairRootFileSink(self.outFile)</div>
-<div class="line"><span class="lineno">  771</span> </div>
-<div class="line"><span class="lineno">  772</span>        self.outTree = eventChain.CloneTree(0)</div>
-<div class="line"><span class="lineno">  773</span>        ROOT.gDirectory.pwd()</div>
-<div class="line"><span class="lineno">  774</span>        </div>
-<div class="line"><span class="lineno">  775</span>        <span class="comment"># after track tasks init(), output track format is known</span></div>
-<div class="line"><span class="lineno">  776</span>        <span class="keywordflow">if</span> self.genfitTrack:</div>
-<div class="line"><span class="lineno">  777</span>                self.fittedTracks = ROOT.TClonesArray(<span class="stringliteral">&quot;genfit::Track&quot;</span>)</div>
-<div class="line"><span class="lineno">  778</span>                self.fittedTracks.BypassStreamer(ROOT.kFALSE)</div>
-<div class="line"><span class="lineno">  779</span>        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  780</span>                self.fittedTracks = ROOT.TClonesArray(<span class="stringliteral">&quot;sndRecoTrack&quot;</span>)</div>
-<div class="line"><span class="lineno">  781</span>        self.MuonTracksBranch    = self.outTree.Branch(<span class="stringliteral">&quot;Reco_MuonTracks&quot;</span>,self.fittedTracks,32000,0)</div>
-<div class="line"><span class="lineno">  782</span> </div>
-<div class="line"><span class="lineno">  783</span>        <span class="keywordflow">if</span> self.options.simpleTracking <span class="keywordflow">and</span> <span class="keywordflow">not</span> self.options.trackType.find(<span class="stringliteral">&#39;Scifi&#39;</span>)&lt;0 <span class="keywordflow">and</span> <span class="keywordflow">not</span> eventChain.GetBranch(<span class="stringliteral">&quot;Cluster_Scifi&quot;</span>):</div>
-<div class="line"><span class="lineno">  784</span>           self.clusScifi   = ROOT.TClonesArray(<span class="stringliteral">&quot;sndCluster&quot;</span>)</div>
-<div class="line"><span class="lineno">  785</span>           self.clusScifiBranch    = self.outTree.Branch(<span class="stringliteral">&quot;Cluster_Scifi&quot;</span>,self.clusScifi,32000,1)</div>
-<div class="line"><span class="lineno">  786</span>        <span class="keywordflow">if</span> self.options.simpleTracking <span class="keywordflow">and</span> <span class="keywordflow">not</span> self.options.trackType.find(<span class="stringliteral">&#39;DS&#39;</span>)&lt;0 <span class="keywordflow">and</span> <span class="keywordflow">not</span> eventChain.GetBranch(<span class="stringliteral">&quot;Cluster_Mufi&quot;</span>):</div>
-<div class="line"><span class="lineno">  787</span>           self.clusMufi   = ROOT.TClonesArray(<span class="stringliteral">&quot;sndCluster&quot;</span>)</div>
-<div class="line"><span class="lineno">  788</span>           self.clusMufiBranch    = self.outTree.Branch(<span class="stringliteral">&quot;Cluster_Mufi&quot;</span>,self.clusMufi,32000,1)</div>
-<div class="line"><span class="lineno">  789</span> </div>
-<div class="line"><span class="lineno">  790</span>        B = ROOT.TList()</div>
-<div class="line"><span class="lineno">  791</span>        B.SetName(<span class="stringliteral">&#39;BranchList&#39;</span>)</div>
-<div class="line"><span class="lineno">  792</span>        B.Add(ROOT.TObjString(<span class="stringliteral">&#39;Reco_MuonTracks&#39;</span>))</div>
-<div class="line"><span class="lineno">  793</span>        B.Add(ROOT.TObjString(<span class="stringliteral">&#39;Scifi_sndCluster&#39;</span>))</div>
-<div class="line"><span class="lineno">  794</span>        B.Add(ROOT.TObjString(<span class="stringliteral">&#39;Mufi_sndCluster&#39;</span>))</div>
-<div class="line"><span class="lineno">  795</span>        B.Add(ROOT.TObjString(<span class="stringliteral">&#39;sndScifiHit&#39;</span>))</div>
-<div class="line"><span class="lineno">  796</span>        B.Add(ROOT.TObjString(<span class="stringliteral">&#39;MuFilterHit&#39;</span>))</div>
-<div class="line"><span class="lineno">  797</span>        B.Add(ROOT.TObjString(<span class="stringliteral">&#39;FairEventHeader&#39;</span>))</div>
-<div class="line"><span class="lineno">  798</span>        self.fSink.WriteObject(B,<span class="stringliteral">&quot;BranchList&quot;</span>, ROOT.TObject.kSingleKey)</div>
-<div class="line"><span class="lineno">  799</span>        self.fSink.SetRunId(options.runNumber)</div>
-<div class="line"><span class="lineno">  800</span>        self.fSink.SetOutTree(self.outTree)</div>
-<div class="line"><span class="lineno">  801</span> </div>
-<div class="line"><span class="lineno">  802</span>        self.eventTree = eventChain</div>
-<div class="line"><span class="lineno">  803</span>        self.run.SetSink(self.fSink)</div>
-<div class="line"><span class="lineno">  804</span>        self.OT = ioman.GetSink().GetOutTree()</div>
-<div class="line"><span class="lineno">  805</span> </div>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00691">691</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  691</span>   <span class="keyword">def </span>__init__(self,options):</div>
+<div class="line"><span class="lineno">  692</span>        self.options = options</div>
+<div class="line"><span class="lineno">  693</span>        self.EventNumber = -1</div>
+<div class="line"><span class="lineno">  694</span>        self.MonteCarlo = <span class="keyword">False</span></div>
+<div class="line"><span class="lineno">  695</span> </div>
+<div class="line"><span class="lineno">  696</span>        path     = options.path</div>
+<div class="line"><span class="lineno">  697</span>        <span class="keywordflow">if</span> path.find(<span class="stringliteral">&#39;eos&#39;</span>)&gt;0:</div>
+<div class="line"><span class="lineno">  698</span>             path  = options.server+options.path</div>
+<div class="line"><span class="lineno">  699</span><span class="comment"># setup geometry</span></div>
+<div class="line"><span class="lineno">  700</span>        <span class="keywordflow">if</span> (options.geoFile).find(<span class="stringliteral">&#39;../&#39;</span>)&lt;0: self.snd_geo = <a class="code hl_class" href="classSndlhcGeo_1_1GeoInterface.html">SndlhcGeo.GeoInterface</a>(path+options.geoFile)</div>
+<div class="line"><span class="lineno">  701</span>        <span class="keywordflow">else</span>:                                         self.snd_geo = <a class="code hl_class" href="classSndlhcGeo_1_1GeoInterface.html">SndlhcGeo.GeoInterface</a>(options.geoFile[3:])</div>
+<div class="line"><span class="lineno">  702</span>        self.MuFilter = self.snd_geo.modules[<span class="stringliteral">&#39;MuFilter&#39;</span>]</div>
+<div class="line"><span class="lineno">  703</span>        self.Scifi       = self.snd_geo.modules[<span class="stringliteral">&#39;Scifi&#39;</span>]</div>
+<div class="line"><span class="lineno">  704</span> </div>
+<div class="line"><span class="lineno">  705</span>        self.runNr   = str(options.runNumber).zfill(6)</div>
+<div class="line"><span class="lineno">  706</span>        <span class="keywordflow">if</span> options.runNumber &gt; 0:</div>
+<div class="line"><span class="lineno">  707</span>           <span class="keywordflow">if</span> options.partition &lt; 0:</div>
+<div class="line"><span class="lineno">  708</span>              partitions = []</div>
+<div class="line"><span class="lineno">  709</span>              <span class="keywordflow">if</span> path.find(<span class="stringliteral">&#39;eos&#39;</span>)&gt;0:</div>
+<div class="line"><span class="lineno">  710</span><span class="comment"># check for partitions</span></div>
+<div class="line"><span class="lineno">  711</span>                 print(<span class="stringliteral">&quot;xrdfs &quot;</span>+options.server+<span class="stringliteral">&quot; ls &quot;</span>+options.path+<span class="stringliteral">&quot;run_&quot;</span>+self.runNr)</div>
+<div class="line"><span class="lineno">  712</span>                 dirlist  = str( subprocess.check_output(<span class="stringliteral">&quot;xrdfs &quot;</span>+options.server+<span class="stringliteral">&quot; ls &quot;</span>+options.path+<span class="stringliteral">&quot;run_&quot;</span>+self.runNr,shell=<span class="keyword">True</span>) )</div>
+<div class="line"><span class="lineno">  713</span>                 <span class="keywordflow">for</span> x <span class="keywordflow">in</span> dirlist.split(<span class="stringliteral">&#39;\\n&#39;</span>):</div>
+<div class="line"><span class="lineno">  714</span>                     ix = x.find(<span class="stringliteral">&#39;sndsw_raw-&#39;</span>)</div>
+<div class="line"><span class="lineno">  715</span>                     <span class="keywordflow">if</span> ix&lt;0: <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  716</span>                     partitions.append(x[ix:])</div>
+<div class="line"><span class="lineno">  717</span>              <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  718</span><span class="comment"># check for partitions</span></div>
+<div class="line"><span class="lineno">  719</span>                 dirlist  = os.listdir(options.path+<span class="stringliteral">&quot;run_&quot;</span>+self.runNr)</div>
+<div class="line"><span class="lineno">  720</span>                 <span class="keywordflow">for</span> x <span class="keywordflow">in</span> dirlist:</div>
+<div class="line"><span class="lineno">  721</span>                     <span class="keywordflow">if</span> <span class="keywordflow">not</span> x.find(<span class="stringliteral">&quot;sndsw_raw-&quot;</span>)&lt;0:</div>
+<div class="line"><span class="lineno">  722</span>                          partitions.append(x)</div>
+<div class="line"><span class="lineno">  723</span>           <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  724</span>                 partitions = [<span class="stringliteral">&quot;sndsw_raw-&quot;</span>+ str(options.partition).zfill(4)+<span class="stringliteral">&quot;.root&quot;</span>]</div>
+<div class="line"><span class="lineno">  725</span>           eventChain = ROOT.TChain(<span class="stringliteral">&#39;rawConv&#39;</span>)</div>
+<div class="line"><span class="lineno">  726</span>           <span class="keywordflow">for</span> p <span class="keywordflow">in</span> partitions:</div>
+<div class="line"><span class="lineno">  727</span>               eventChain.Add(path+<span class="stringliteral">&#39;run_&#39;</span>+self.runNr+<span class="stringliteral">&#39;/&#39;</span>+p)</div>
+<div class="line"><span class="lineno">  728</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  729</span><span class="comment"># for MC data</span></div>
+<div class="line"><span class="lineno">  730</span>                eventChain = ROOT.TChain(<span class="stringliteral">&quot;cbmsim&quot;</span>)</div>
+<div class="line"><span class="lineno">  731</span>                eventChain.Add(options.fname)</div>
+<div class="line"><span class="lineno">  732</span>                self.MonteCarlo = <span class="keyword">True</span></div>
+<div class="line"><span class="lineno">  733</span>                partitions = []</div>
+<div class="line"><span class="lineno">  734</span>        rc = eventChain.GetEvent(0)</div>
+<div class="line"><span class="lineno">  735</span>        self.snd_geo.modules[<span class="stringliteral">&#39;Scifi&#39;</span>].InitEvent(eventChain.EventHeader)</div>
+<div class="line"><span class="lineno">  736</span>        self.snd_geo.modules[<span class="stringliteral">&#39;MuFilter&#39;</span>].InitEvent(eventChain.EventHeader)</div>
+<div class="line"><span class="lineno">  737</span><span class="comment"># start FairRunAna</span></div>
+<div class="line"><span class="lineno">  738</span>        self.run  = ROOT.FairRunAna()</div>
+<div class="line"><span class="lineno">  739</span>        ioman = ROOT.FairRootManager.Instance()</div>
+<div class="line"><span class="lineno">  740</span>        ioman.SetTreeName(eventChain.GetName())</div>
+<div class="line"><span class="lineno">  741</span>        source = ROOT.FairFileSource(eventChain.GetCurrentFile())</div>
+<div class="line"><span class="lineno">  742</span>        ioman.SetInChain(eventChain)</div>
+<div class="line"><span class="lineno">  743</span>        first = <span class="keyword">True</span></div>
+<div class="line"><span class="lineno">  744</span>        <span class="keywordflow">for</span> p <span class="keywordflow">in</span> partitions:</div>
+<div class="line"><span class="lineno">  745</span>           <span class="keywordflow">if</span> first:</div>
+<div class="line"><span class="lineno">  746</span>                first = <span class="keyword">False</span></div>
+<div class="line"><span class="lineno">  747</span>                <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  748</span>           source.AddFile(path+<span class="stringliteral">&#39;run_&#39;</span>+self.runNr+<span class="stringliteral">&#39;/&#39;</span>+p+<span class="stringliteral">&#39;.root&#39;</span>)</div>
+<div class="line"><span class="lineno">  749</span>           self.run.SetSource(source)</div>
+<div class="line"><span class="lineno">  750</span> </div>
+<div class="line"><span class="lineno">  751</span><span class="comment">#avoiding some error messages</span></div>
+<div class="line"><span class="lineno">  752</span>        xrdb = ROOT.FairRuntimeDb.instance()</div>
+<div class="line"><span class="lineno">  753</span>        xrdb.getContainer(<span class="stringliteral">&quot;FairBaseParSet&quot;</span>).setStatic()</div>
+<div class="line"><span class="lineno">  754</span>        xrdb.getContainer(<span class="stringliteral">&quot;FairGeoParSet&quot;</span>).setStatic()</div>
+<div class="line"><span class="lineno">  755</span> </div>
+<div class="line"><span class="lineno">  756</span><span class="comment"># init() tracking tasks</span></div>
+<div class="line"><span class="lineno">  757</span>        <span class="keywordflow">if</span> self.options.HoughTracking:</div>
+<div class="line"><span class="lineno">  758</span>           <span class="keywordflow">if</span> self.options.trackType == <span class="stringliteral">&#39;Scifi&#39;</span> <span class="keywordflow">or</span> self.options.trackType == <span class="stringliteral">&#39;ScifiDS&#39;</span>:</div>
+<div class="line"><span class="lineno">  759</span>              self.muon_reco_task_Sf = options.FairTasks[<span class="stringliteral">&quot;houghTransform_Sf&quot;</span>]</div>
+<div class="line"><span class="lineno">  760</span>              self.muon_reco_task_Sf.Init()</div>
+<div class="line"><span class="lineno">  761</span>              self.genfitTrack = self.muon_reco_task_Sf.genfitTrack</div>
+<div class="line"><span class="lineno">  762</span>           <span class="keywordflow">if</span> self.options.trackType == <span class="stringliteral">&#39;DS&#39;</span> <span class="keywordflow">or</span> self.options.trackType == <span class="stringliteral">&#39;ScifiDS&#39;</span>:</div>
+<div class="line"><span class="lineno">  763</span>              self.muon_reco_task_DS = options.FairTasks[<span class="stringliteral">&quot;houghTransform_DS&quot;</span>]</div>
+<div class="line"><span class="lineno">  764</span>              self.muon_reco_task_DS.Init()</div>
+<div class="line"><span class="lineno">  765</span>              self.genfitTrack = self.muon_reco_task_DS.genfitTrack</div>
+<div class="line"><span class="lineno">  766</span>        <span class="keywordflow">if</span> self.options.simpleTracking:</div>
+<div class="line"><span class="lineno">  767</span>           self.trackTask = options.FairTasks[<span class="stringliteral">&quot;simpleTracking&quot;</span>]</div>
+<div class="line"><span class="lineno">  768</span>           <span class="keywordflow">if</span> <span class="keywordflow">not</span> self.options.HoughTracking:</div>
+<div class="line"><span class="lineno">  769</span>              self.genfitTrack = self.options.genfitTrack</div>
+<div class="line"><span class="lineno">  770</span>           </div>
+<div class="line"><span class="lineno">  771</span>           self.trackTask.SetTrackClassType(self.genfitTrack)</div>
+<div class="line"><span class="lineno">  772</span>           self.trackTask.Init()</div>
+<div class="line"><span class="lineno">  773</span> </div>
+<div class="line"><span class="lineno">  774</span><span class="comment"># prepare output tree, same branches as input plus track(s)</span></div>
+<div class="line"><span class="lineno">  775</span>        self.outFile = ROOT.TFile(options.oname,<span class="stringliteral">&#39;RECREATE&#39;</span>)</div>
+<div class="line"><span class="lineno">  776</span>        self.fSink    = ROOT.FairRootFileSink(self.outFile)</div>
+<div class="line"><span class="lineno">  777</span> </div>
+<div class="line"><span class="lineno">  778</span>        self.outTree = eventChain.CloneTree(0)</div>
+<div class="line"><span class="lineno">  779</span>        ROOT.gDirectory.pwd()</div>
+<div class="line"><span class="lineno">  780</span>        </div>
+<div class="line"><span class="lineno">  781</span>        <span class="comment"># after track tasks init(), output track format is known</span></div>
+<div class="line"><span class="lineno">  782</span>        <span class="keywordflow">if</span> self.genfitTrack:</div>
+<div class="line"><span class="lineno">  783</span>                self.fittedTracks = ROOT.TClonesArray(<span class="stringliteral">&quot;genfit::Track&quot;</span>)</div>
+<div class="line"><span class="lineno">  784</span>                self.fittedTracks.BypassStreamer(ROOT.kFALSE)</div>
+<div class="line"><span class="lineno">  785</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  786</span>                self.fittedTracks = ROOT.TClonesArray(<span class="stringliteral">&quot;sndRecoTrack&quot;</span>)</div>
+<div class="line"><span class="lineno">  787</span>        self.MuonTracksBranch    = self.outTree.Branch(<span class="stringliteral">&quot;Reco_MuonTracks&quot;</span>,self.fittedTracks,32000,0)</div>
+<div class="line"><span class="lineno">  788</span> </div>
+<div class="line"><span class="lineno">  789</span>        <span class="keywordflow">if</span> self.options.simpleTracking <span class="keywordflow">and</span> <span class="keywordflow">not</span> self.options.trackType.find(<span class="stringliteral">&#39;Scifi&#39;</span>)&lt;0 <span class="keywordflow">and</span> <span class="keywordflow">not</span> eventChain.GetBranch(<span class="stringliteral">&quot;Cluster_Scifi&quot;</span>):</div>
+<div class="line"><span class="lineno">  790</span>           self.clusScifi   = ROOT.TClonesArray(<span class="stringliteral">&quot;sndCluster&quot;</span>)</div>
+<div class="line"><span class="lineno">  791</span>           self.clusScifiBranch    = self.outTree.Branch(<span class="stringliteral">&quot;Cluster_Scifi&quot;</span>,self.clusScifi,32000,1)</div>
+<div class="line"><span class="lineno">  792</span>        <span class="keywordflow">if</span> self.options.simpleTracking <span class="keywordflow">and</span> <span class="keywordflow">not</span> self.options.trackType.find(<span class="stringliteral">&#39;DS&#39;</span>)&lt;0 <span class="keywordflow">and</span> <span class="keywordflow">not</span> eventChain.GetBranch(<span class="stringliteral">&quot;Cluster_Mufi&quot;</span>):</div>
+<div class="line"><span class="lineno">  793</span>           self.clusMufi   = ROOT.TClonesArray(<span class="stringliteral">&quot;sndCluster&quot;</span>)</div>
+<div class="line"><span class="lineno">  794</span>           self.clusMufiBranch    = self.outTree.Branch(<span class="stringliteral">&quot;Cluster_Mufi&quot;</span>,self.clusMufi,32000,1)</div>
+<div class="line"><span class="lineno">  795</span> </div>
+<div class="line"><span class="lineno">  796</span>        B = ROOT.TList()</div>
+<div class="line"><span class="lineno">  797</span>        B.SetName(<span class="stringliteral">&#39;BranchList&#39;</span>)</div>
+<div class="line"><span class="lineno">  798</span>        B.Add(ROOT.TObjString(<span class="stringliteral">&#39;Reco_MuonTracks&#39;</span>))</div>
+<div class="line"><span class="lineno">  799</span>        B.Add(ROOT.TObjString(<span class="stringliteral">&#39;Scifi_sndCluster&#39;</span>))</div>
+<div class="line"><span class="lineno">  800</span>        B.Add(ROOT.TObjString(<span class="stringliteral">&#39;Mufi_sndCluster&#39;</span>))</div>
+<div class="line"><span class="lineno">  801</span>        B.Add(ROOT.TObjString(<span class="stringliteral">&#39;sndScifiHit&#39;</span>))</div>
+<div class="line"><span class="lineno">  802</span>        B.Add(ROOT.TObjString(<span class="stringliteral">&#39;MuFilterHit&#39;</span>))</div>
+<div class="line"><span class="lineno">  803</span>        B.Add(ROOT.TObjString(<span class="stringliteral">&#39;FairEventHeader&#39;</span>))</div>
+<div class="line"><span class="lineno">  804</span>        self.fSink.WriteObject(B,<span class="stringliteral">&quot;BranchList&quot;</span>, ROOT.TObject.kSingleKey)</div>
+<div class="line"><span class="lineno">  805</span>        self.fSink.SetRunId(options.runNumber)</div>
+<div class="line"><span class="lineno">  806</span>        self.fSink.SetOutTree(self.outTree)</div>
+<div class="line"><span class="lineno">  807</span> </div>
+<div class="line"><span class="lineno">  808</span>        self.eventTree = eventChain</div>
+<div class="line"><span class="lineno">  809</span>        self.run.SetSink(self.fSink)</div>
+<div class="line"><span class="lineno">  810</span>        self.OT = ioman.GetSink().GetOutTree()</div>
+<div class="line"><span class="lineno">  811</span> </div>
 <div class="ttc" id="aclassSndlhcGeo_1_1GeoInterface_html"><div class="ttname"><a href="classSndlhcGeo_1_1GeoInterface.html">SndlhcGeo.GeoInterface</a></div><div class="ttdef"><b>Definition</b> <a href="SndlhcGeo_8py_source.html#l00007">SndlhcGeo.py:7</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -330,37 +330,37 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00843">843</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  843</span>   <span class="keyword">def </span>Execute(self):</div>
-<div class="line"><span class="lineno">  844</span>      <span class="keywordflow">for</span> n <span class="keywordflow">in</span> range(self.options.nStart,self.options.nStart+self.options.nEvents):</div>
-<div class="line"><span class="lineno">  845</span> </div>
-<div class="line"><span class="lineno">  846</span>          <span class="keywordflow">if</span> self.options.scaleFactor &gt; 1:</div>
-<div class="line"><span class="lineno">  847</span>             <span class="keywordflow">if</span> ROOT.gRandom.Rndm() &gt; 1.0/self.options.scaleFactor: <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  848</span> </div>
-<div class="line"><span class="lineno">  849</span>          self.eventTree.GetEvent(n)</div>
-<div class="line"><span class="lineno">  850</span>          <span class="comment"># delete track containers</span></div>
-<div class="line"><span class="lineno">  851</span>          self.fittedTracks.Delete()</div>
-<div class="line"><span class="lineno">  852</span>          </div>
-<div class="line"><span class="lineno">  853</span>          self.ExecuteEvent(self.eventTree)</div>
-<div class="line"><span class="lineno">  854</span>          <span class="keywordflow">if</span> <span class="keywordflow">not</span> self.MonteCarlo <span class="keywordflow">and</span> self.fittedTracks.GetEntries() == 0: <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  855</span>          <span class="keywordflow">if</span> self.options.simpleTracking <span class="keywordflow">and</span> <span class="keywordflow">not</span> self.options.trackType.find(<span class="stringliteral">&#39;Scifi&#39;</span>)&lt;0:</div>
-<div class="line"><span class="lineno">  856</span>             <span class="keywordflow">if</span> <span class="keywordflow">not</span> self.eventTree.GetBranch(<span class="stringliteral">&quot;Cluster_Scifi&quot;</span>):</div>
-<div class="line"><span class="lineno">  857</span>                self.clusScifi.Delete()</div>
-<div class="line"><span class="lineno">  858</span>                self.clusScifi.Expand(len(self.trackTask.clusScifi))</div>
-<div class="line"><span class="lineno">  859</span>                <span class="keywordflow">for</span> index, aCl <span class="keywordflow">in</span> enumerate(self.trackTask.clusScifi):</div>
-<div class="line"><span class="lineno">  860</span>                     self.clusScifi[index] = aCl</div>
-<div class="line"><span class="lineno">  861</span>          <span class="keywordflow">if</span> self.options.simpleTracking <span class="keywordflow">and</span> <span class="keywordflow">not</span> self.options.trackType.find(<span class="stringliteral">&#39;DS&#39;</span>)&lt;0:</div>
-<div class="line"><span class="lineno">  862</span>             <span class="keywordflow">if</span> <span class="keywordflow">not</span> self.eventTree.GetBranch(<span class="stringliteral">&quot;Cluster_Mufi&quot;</span>):</div>
-<div class="line"><span class="lineno">  863</span>                self.clusMufi.Delete()</div>
-<div class="line"><span class="lineno">  864</span>                self.clusMufi.Expand(len(self.trackTask.clusMufi))</div>
-<div class="line"><span class="lineno">  865</span>                <span class="keywordflow">for</span> index, aCl <span class="keywordflow">in</span> enumerate(self.trackTask.clusMufi):</div>
-<div class="line"><span class="lineno">  866</span>                     self.clusMufi[index] = aCl</div>
-<div class="line"><span class="lineno">  867</span> </div>
-<div class="line"><span class="lineno">  868</span>          <span class="comment"># if using FairEventHeader, i.e. before sndlhc header was introduced</span></div>
-<div class="line"><span class="lineno">  869</span>          <span class="keywordflow">if</span> hasattr(self.OT.EventHeader, <span class="stringliteral">&quot;SetMCEntryNumber&quot;</span>):</div>
-<div class="line"><span class="lineno">  870</span>              self.OT.EventHeader.SetMCEntryNumber(n)</div>
-<div class="line"><span class="lineno">  871</span>          self.fSink.Fill()</div>
-<div class="line"><span class="lineno">  872</span> </div>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00849">849</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  849</span>   <span class="keyword">def </span>Execute(self):</div>
+<div class="line"><span class="lineno">  850</span>      <span class="keywordflow">for</span> n <span class="keywordflow">in</span> range(self.options.nStart,self.options.nStart+self.options.nEvents):</div>
+<div class="line"><span class="lineno">  851</span> </div>
+<div class="line"><span class="lineno">  852</span>          <span class="keywordflow">if</span> self.options.scaleFactor &gt; 1:</div>
+<div class="line"><span class="lineno">  853</span>             <span class="keywordflow">if</span> ROOT.gRandom.Rndm() &gt; 1.0/self.options.scaleFactor: <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  854</span> </div>
+<div class="line"><span class="lineno">  855</span>          self.eventTree.GetEvent(n)</div>
+<div class="line"><span class="lineno">  856</span>          <span class="comment"># delete track containers</span></div>
+<div class="line"><span class="lineno">  857</span>          self.fittedTracks.Delete()</div>
+<div class="line"><span class="lineno">  858</span>          </div>
+<div class="line"><span class="lineno">  859</span>          self.ExecuteEvent(self.eventTree)</div>
+<div class="line"><span class="lineno">  860</span>          <span class="keywordflow">if</span> <span class="keywordflow">not</span> self.MonteCarlo <span class="keywordflow">and</span> self.fittedTracks.GetEntries() == 0: <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  861</span>          <span class="keywordflow">if</span> self.options.simpleTracking <span class="keywordflow">and</span> <span class="keywordflow">not</span> self.options.trackType.find(<span class="stringliteral">&#39;Scifi&#39;</span>)&lt;0:</div>
+<div class="line"><span class="lineno">  862</span>             <span class="keywordflow">if</span> <span class="keywordflow">not</span> self.eventTree.GetBranch(<span class="stringliteral">&quot;Cluster_Scifi&quot;</span>):</div>
+<div class="line"><span class="lineno">  863</span>                self.clusScifi.Delete()</div>
+<div class="line"><span class="lineno">  864</span>                self.clusScifi.Expand(len(self.trackTask.clusScifi))</div>
+<div class="line"><span class="lineno">  865</span>                <span class="keywordflow">for</span> index, aCl <span class="keywordflow">in</span> enumerate(self.trackTask.clusScifi):</div>
+<div class="line"><span class="lineno">  866</span>                     self.clusScifi[index] = aCl</div>
+<div class="line"><span class="lineno">  867</span>          <span class="keywordflow">if</span> self.options.simpleTracking <span class="keywordflow">and</span> <span class="keywordflow">not</span> self.options.trackType.find(<span class="stringliteral">&#39;DS&#39;</span>)&lt;0:</div>
+<div class="line"><span class="lineno">  868</span>             <span class="keywordflow">if</span> <span class="keywordflow">not</span> self.eventTree.GetBranch(<span class="stringliteral">&quot;Cluster_Mufi&quot;</span>):</div>
+<div class="line"><span class="lineno">  869</span>                self.clusMufi.Delete()</div>
+<div class="line"><span class="lineno">  870</span>                self.clusMufi.Expand(len(self.trackTask.clusMufi))</div>
+<div class="line"><span class="lineno">  871</span>                <span class="keywordflow">for</span> index, aCl <span class="keywordflow">in</span> enumerate(self.trackTask.clusMufi):</div>
+<div class="line"><span class="lineno">  872</span>                     self.clusMufi[index] = aCl</div>
+<div class="line"><span class="lineno">  873</span> </div>
+<div class="line"><span class="lineno">  874</span>          <span class="comment"># if using FairEventHeader, i.e. before sndlhc header was introduced</span></div>
+<div class="line"><span class="lineno">  875</span>          <span class="keywordflow">if</span> hasattr(self.OT.EventHeader, <span class="stringliteral">&quot;SetMCEntryNumber&quot;</span>):</div>
+<div class="line"><span class="lineno">  876</span>              self.OT.EventHeader.SetMCEntryNumber(n)</div>
+<div class="line"><span class="lineno">  877</span>          self.fSink.Fill()</div>
+<div class="line"><span class="lineno">  878</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -390,44 +390,44 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00806">806</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  806</span>   <span class="keyword">def </span>ExecuteEvent(self,event):</div>
-<div class="line"><span class="lineno">  807</span>           track_container_list = []</div>
-<div class="line"><span class="lineno">  808</span>           <span class="comment"># Delete SndlhcTracking fitted tracks container</span></div>
-<div class="line"><span class="lineno">  809</span>           <span class="keywordflow">if</span> self.options.simpleTracking:</div>
-<div class="line"><span class="lineno">  810</span>              self.trackTask.fittedTracks.Delete()</div>
-<div class="line"><span class="lineno">  811</span> </div>
-<div class="line"><span class="lineno">  812</span>           <span class="keywordflow">if</span> self.options.trackType == <span class="stringliteral">&#39;ScifiDS&#39;</span>:</div>
-<div class="line"><span class="lineno">  813</span>              <span class="keywordflow">if</span> self.options.HoughTracking:</div>
-<div class="line"><span class="lineno">  814</span>                 self.muon_reco_task_Sf.Exec(0)</div>
-<div class="line"><span class="lineno">  815</span>                 self.muon_reco_task_DS.Exec(0)</div>
-<div class="line"><span class="lineno">  816</span>                 track_container_list = [self.muon_reco_task_Sf.kalman_tracks,self.muon_reco_task_DS.kalman_tracks]</div>
-<div class="line"><span class="lineno">  817</span>              <span class="keywordflow">if</span> self.options.simpleTracking:</div>
-<div class="line"><span class="lineno">  818</span>                 self.trackTask.ExecuteTask(option=<span class="stringliteral">&#39;ScifiDS&#39;</span>)</div>
-<div class="line"><span class="lineno">  819</span>                 track_container_list.append(self.trackTask.fittedTracks)</div>
-<div class="line"><span class="lineno">  820</span> </div>
-<div class="line"><span class="lineno">  821</span>           <span class="keywordflow">elif</span> self.options.trackType == <span class="stringliteral">&#39;Scifi&#39;</span>:</div>
-<div class="line"><span class="lineno">  822</span>              <span class="keywordflow">if</span> self.options.HoughTracking:</div>
-<div class="line"><span class="lineno">  823</span>                 self.muon_reco_task_Sf.Exec(0)</div>
-<div class="line"><span class="lineno">  824</span>                 track_container_list.append(self.muon_reco_task_Sf.kalman_tracks)</div>
-<div class="line"><span class="lineno">  825</span>              <span class="keywordflow">if</span> self.options.simpleTracking:</div>
-<div class="line"><span class="lineno">  826</span>                 self.trackTask.ExecuteTask(option=<span class="stringliteral">&#39;Scifi&#39;</span>)</div>
-<div class="line"><span class="lineno">  827</span>                 track_container_list.append(self.trackTask.fittedTracks)</div>
-<div class="line"><span class="lineno">  828</span>                 </div>
-<div class="line"><span class="lineno">  829</span>           <span class="keywordflow">elif</span> self.options.trackType == <span class="stringliteral">&#39;DS&#39;</span>:</div>
-<div class="line"><span class="lineno">  830</span>              <span class="keywordflow">if</span> self.options.HoughTracking:</div>
-<div class="line"><span class="lineno">  831</span>                 self.muon_reco_task_DS.Exec(0)</div>
-<div class="line"><span class="lineno">  832</span>                 track_container_list.append(self.muon_reco_task_DS.kalman_tracks)</div>
-<div class="line"><span class="lineno">  833</span>              <span class="keywordflow">if</span> self.options.simpleTracking:</div>
-<div class="line"><span class="lineno">  834</span>                 self.trackTask.ExecuteTask(option=<span class="stringliteral">&#39;DS&#39;</span>)</div>
-<div class="line"><span class="lineno">  835</span>                 track_container_list.append(self.trackTask.fittedTracks)</div>
-<div class="line"><span class="lineno">  836</span> </div>
-<div class="line"><span class="lineno">  837</span>           i_muon = -1</div>
-<div class="line"><span class="lineno">  838</span>           <span class="keywordflow">for</span> item <span class="keywordflow">in</span> track_container_list:</div>
-<div class="line"><span class="lineno">  839</span>               <span class="keywordflow">for</span> aTrack <span class="keywordflow">in</span> item:</div>
-<div class="line"><span class="lineno">  840</span>                   i_muon += 1</div>
-<div class="line"><span class="lineno">  841</span>                   self.fittedTracks[i_muon] = aTrack</div>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00812">812</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  812</span>   <span class="keyword">def </span>ExecuteEvent(self,event):</div>
+<div class="line"><span class="lineno">  813</span>           track_container_list = []</div>
+<div class="line"><span class="lineno">  814</span>           <span class="comment"># Delete SndlhcTracking fitted tracks container</span></div>
+<div class="line"><span class="lineno">  815</span>           <span class="keywordflow">if</span> self.options.simpleTracking:</div>
+<div class="line"><span class="lineno">  816</span>              self.trackTask.fittedTracks.Delete()</div>
+<div class="line"><span class="lineno">  817</span> </div>
+<div class="line"><span class="lineno">  818</span>           <span class="keywordflow">if</span> self.options.trackType == <span class="stringliteral">&#39;ScifiDS&#39;</span>:</div>
+<div class="line"><span class="lineno">  819</span>              <span class="keywordflow">if</span> self.options.HoughTracking:</div>
+<div class="line"><span class="lineno">  820</span>                 self.muon_reco_task_Sf.Exec(0)</div>
+<div class="line"><span class="lineno">  821</span>                 self.muon_reco_task_DS.Exec(0)</div>
+<div class="line"><span class="lineno">  822</span>                 track_container_list = [self.muon_reco_task_Sf.kalman_tracks,self.muon_reco_task_DS.kalman_tracks]</div>
+<div class="line"><span class="lineno">  823</span>              <span class="keywordflow">if</span> self.options.simpleTracking:</div>
+<div class="line"><span class="lineno">  824</span>                 self.trackTask.ExecuteTask(option=<span class="stringliteral">&#39;ScifiDS&#39;</span>)</div>
+<div class="line"><span class="lineno">  825</span>                 track_container_list.append(self.trackTask.fittedTracks)</div>
+<div class="line"><span class="lineno">  826</span> </div>
+<div class="line"><span class="lineno">  827</span>           <span class="keywordflow">elif</span> self.options.trackType == <span class="stringliteral">&#39;Scifi&#39;</span>:</div>
+<div class="line"><span class="lineno">  828</span>              <span class="keywordflow">if</span> self.options.HoughTracking:</div>
+<div class="line"><span class="lineno">  829</span>                 self.muon_reco_task_Sf.Exec(0)</div>
+<div class="line"><span class="lineno">  830</span>                 track_container_list.append(self.muon_reco_task_Sf.kalman_tracks)</div>
+<div class="line"><span class="lineno">  831</span>              <span class="keywordflow">if</span> self.options.simpleTracking:</div>
+<div class="line"><span class="lineno">  832</span>                 self.trackTask.ExecuteTask(option=<span class="stringliteral">&#39;Scifi&#39;</span>)</div>
+<div class="line"><span class="lineno">  833</span>                 track_container_list.append(self.trackTask.fittedTracks)</div>
+<div class="line"><span class="lineno">  834</span>                 </div>
+<div class="line"><span class="lineno">  835</span>           <span class="keywordflow">elif</span> self.options.trackType == <span class="stringliteral">&#39;DS&#39;</span>:</div>
+<div class="line"><span class="lineno">  836</span>              <span class="keywordflow">if</span> self.options.HoughTracking:</div>
+<div class="line"><span class="lineno">  837</span>                 self.muon_reco_task_DS.Exec(0)</div>
+<div class="line"><span class="lineno">  838</span>                 track_container_list.append(self.muon_reco_task_DS.kalman_tracks)</div>
+<div class="line"><span class="lineno">  839</span>              <span class="keywordflow">if</span> self.options.simpleTracking:</div>
+<div class="line"><span class="lineno">  840</span>                 self.trackTask.ExecuteTask(option=<span class="stringliteral">&#39;DS&#39;</span>)</div>
+<div class="line"><span class="lineno">  841</span>                 track_container_list.append(self.trackTask.fittedTracks)</div>
 <div class="line"><span class="lineno">  842</span> </div>
+<div class="line"><span class="lineno">  843</span>           i_muon = -1</div>
+<div class="line"><span class="lineno">  844</span>           <span class="keywordflow">for</span> item <span class="keywordflow">in</span> track_container_list:</div>
+<div class="line"><span class="lineno">  845</span>               <span class="keywordflow">for</span> aTrack <span class="keywordflow">in</span> item:</div>
+<div class="line"><span class="lineno">  846</span>                   i_muon += 1</div>
+<div class="line"><span class="lineno">  847</span>                   self.fittedTracks[i_muon] = aTrack</div>
+<div class="line"><span class="lineno">  848</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -447,10 +447,10 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00873">873</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  873</span>   <span class="keyword">def </span>Finalize(self):</div>
-<div class="line"><span class="lineno">  874</span>         self.fSink.Write()</div>
-<div class="line"><span class="lineno">  875</span>         self.outFile.Close()</div>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00879">879</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  879</span>   <span class="keyword">def </span>Finalize(self):</div>
+<div class="line"><span class="lineno">  880</span>         self.fSink.Write()</div>
+<div class="line"><span class="lineno">  881</span>         self.outFile.Close()</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -467,7 +467,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00787">787</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00793">793</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
 
 </div>
 </div>
@@ -483,7 +483,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00788">788</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00794">794</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
 
 </div>
 </div>
@@ -499,7 +499,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00784">784</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00790">790</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
 
 </div>
 </div>
@@ -515,7 +515,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00785">785</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00791">791</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
 
 </div>
 </div>
@@ -531,7 +531,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00687">687</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00693">693</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
 
 </div>
 </div>
@@ -547,7 +547,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00802">802</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00808">808</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
 
 </div>
 </div>
@@ -563,7 +563,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00777">777</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00783">783</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
 
 </div>
 </div>
@@ -579,7 +579,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00770">770</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00776">776</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
 
 </div>
 </div>
@@ -595,7 +595,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00755">755</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00761">761</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
 
 </div>
 </div>
@@ -611,7 +611,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00688">688</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00694">694</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
 
 </div>
 </div>
@@ -627,7 +627,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00696">696</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00702">702</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
 
 </div>
 </div>
@@ -643,7 +643,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00757">757</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00763">763</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
 
 </div>
 </div>
@@ -659,7 +659,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00753">753</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00759">759</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
 
 </div>
 </div>
@@ -675,7 +675,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00781">781</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00787">787</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
 
 </div>
 </div>
@@ -691,7 +691,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00686">686</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00692">692</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
 
 </div>
 </div>
@@ -707,7 +707,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00804">804</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00810">810</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
 
 </div>
 </div>
@@ -723,7 +723,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00769">769</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00775">775</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
 
 </div>
 </div>
@@ -739,7 +739,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00772">772</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00778">778</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
 
 </div>
 </div>
@@ -755,7 +755,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00732">732</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00738">738</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
 
 </div>
 </div>
@@ -771,7 +771,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00699">699</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00705">705</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
 
 </div>
 </div>
@@ -787,7 +787,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00697">697</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00703">703</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
 
 </div>
 </div>
@@ -803,7 +803,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00694">694</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00700">700</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
 
 </div>
 </div>
@@ -819,7 +819,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00761">761</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00767">767</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
 
 </div>
 </div>

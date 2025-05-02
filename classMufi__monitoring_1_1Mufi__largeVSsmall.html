@@ -134,7 +134,7 @@ Public Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><pre class="fragment"> make correlation plots of small and large sipms for US and Veto"
 </pre> 
-<p class="definition">Definition at line <a class="el" href="Mufi__monitoring_8py_source.html#l00812">812</a> of file <a class="el" href="Mufi__monitoring_8py_source.html">Mufi_monitoring.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Mufi__monitoring_8py_source.html#l00807">807</a> of file <a class="el" href="Mufi__monitoring_8py_source.html">Mufi_monitoring.py</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a499c5b7ca596b1c98ef2c7b0118eabbe" name="a499c5b7ca596b1c98ef2c7b0118eabbe"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a499c5b7ca596b1c98ef2c7b0118eabbe">&#9670;&#160;</a></span>ExecuteEvent()</h2>
@@ -162,52 +162,52 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Mufi__monitoring_8py_source.html#l00837">837</a> of file <a class="el" href="Mufi__monitoring_8py_source.html">Mufi_monitoring.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  837</span>   <span class="keyword">def </span>ExecuteEvent(self,event):</div>
-<div class="line"><span class="lineno">  838</span>      W = self.M.Weight</div>
-<div class="line"><span class="lineno">  839</span>      M = self.M</div>
-<div class="line"><span class="lineno">  840</span>      h = self.M.h</div>
-<div class="line"><span class="lineno">  841</span>      sdict = self.M.sdict</div>
-<div class="line"><span class="lineno">  842</span>      <span class="keywordflow">for</span> aHit <span class="keywordflow">in</span> event.Digi_MuFilterHits:</div>
-<div class="line"><span class="lineno">  843</span>          <span class="keywordflow">if</span> <span class="keywordflow">not</span> aHit.isValid(): <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  844</span>          detID = aHit.GetDetectorID()</div>
-<div class="line"><span class="lineno">  845</span>          s = detID//10000</div>
-<div class="line"><span class="lineno">  846</span>          bar = (detID%1000)</div>
-<div class="line"><span class="lineno">  847</span>          <span class="keywordflow">if</span> s&gt;2: <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  848</span>          l  = (detID%10000)//1000  <span class="comment"># plane number</span></div>
-<div class="line"><span class="lineno">  849</span>          sumL,sumS,SumL,SumS = 0,0,0,0</div>
-<div class="line"><span class="lineno">  850</span>          allChannels = M.map2Dict(aHit,<span class="stringliteral">&#39;GetAllSignals&#39;</span>,mask=<span class="keyword">False</span>)</div>
-<div class="line"><span class="lineno">  851</span>          nS = 0</div>
-<div class="line"><span class="lineno">  852</span>          nL = 0</div>
-<div class="line"><span class="lineno">  853</span>          <span class="keywordflow">for</span> c <span class="keywordflow">in</span> allChannels:</div>
-<div class="line"><span class="lineno">  854</span>              <span class="keywordflow">if</span> s==2 <span class="keywordflow">and</span> self.M.smallSiPMchannel(c) : </div>
-<div class="line"><span class="lineno">  855</span>                  sumS+= allChannels[c]</div>
-<div class="line"><span class="lineno">  856</span>                  nS += 1</div>
-<div class="line"><span class="lineno">  857</span>              <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  858</span>                  sumL+= allChannels[c]</div>
-<div class="line"><span class="lineno">  859</span>                  nL+=1</div>
-<div class="line"><span class="lineno">  860</span>          <span class="keywordflow">if</span> nL&gt;0: SumL=sumL/nL</div>
-<div class="line"><span class="lineno">  861</span>          <span class="keywordflow">if</span> nS&gt;0: SumS=sumS/nS</div>
-<div class="line"><span class="lineno">  862</span>          rc = h[<span class="stringliteral">&#39;sVSl_&#39;</span>+str(l)].Fill(SumS,SumL,W)</div>
-<div class="line"><span class="lineno">  863</span>          rc = h[<span class="stringliteral">&#39;SVSl_&#39;</span>+str(l)].Fill(sumS/4.,sumL/12.,W)</div>
-<div class="line"><span class="lineno">  864</span><span class="comment">#</span></div>
-<div class="line"><span class="lineno">  865</span>          <span class="keywordflow">for</span> side <span class="keywordflow">in</span> [<span class="stringliteral">&#39;L&#39;</span>,<span class="stringliteral">&#39;R&#39;</span>]:</div>
-<div class="line"><span class="lineno">  866</span>            offset = 0</div>
-<div class="line"><span class="lineno">  867</span>            <span class="keywordflow">if</span> side==<span class="stringliteral">&#39;R&#39;</span>: offset = 8</div>
-<div class="line"><span class="lineno">  868</span>            <span class="keywordflow">for</span> i1 <span class="keywordflow">in</span> range(offset,offset+7):</div>
-<div class="line"><span class="lineno">  869</span>               <span class="keywordflow">if</span> <span class="keywordflow">not</span> i1 <span class="keywordflow">in</span> allChannels: <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  870</span>               qdc1 = allChannels[i1]</div>
-<div class="line"><span class="lineno">  871</span>               <span class="keywordflow">for</span> i2 <span class="keywordflow">in</span> range(i1+1,offset+8):</div>
-<div class="line"><span class="lineno">  872</span>                 <span class="keywordflow">if</span> <span class="keywordflow">not</span> (i2) <span class="keywordflow">in</span> allChannels: <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  873</span>                 <span class="keywordflow">if</span> s==2 <span class="keywordflow">and</span> self.M.smallSiPMchannel(i1): tag = <span class="stringliteral">&#39;s&#39;</span>+str(i1-offset)</div>
-<div class="line"><span class="lineno">  874</span>                 <span class="keywordflow">else</span>: tag = <span class="stringliteral">&#39;l&#39;</span>+str(i1-offset)</div>
-<div class="line"><span class="lineno">  875</span>                 <span class="keywordflow">if</span> s==2 <span class="keywordflow">and</span> self.M.smallSiPMchannel(i2): tag += <span class="stringliteral">&#39;s&#39;</span>+str(i2-offset)</div>
-<div class="line"><span class="lineno">  876</span>                 <span class="keywordflow">else</span>: tag += <span class="stringliteral">&#39;l&#39;</span>+str(i2-offset)</div>
-<div class="line"><span class="lineno">  877</span>                 qdc2 = allChannels[i2]</div>
-<div class="line"><span class="lineno">  878</span>                 rc = h[sdict[s]+<span class="stringliteral">&#39;cor&#39;</span>+tag+<span class="stringliteral">&#39;_&#39;</span>+side+str(l)].Fill(qdc1,qdc2,W)</div>
-<div class="line"><span class="lineno">  879</span>                 rc = h[sdict[s]+<span class="stringliteral">&#39;cor&#39;</span>+tag+<span class="stringliteral">&#39;_&#39;</span>+side+str(l)+str(bar)].Fill(qdc1,qdc2,W)</div>
-<div class="line"><span class="lineno">  880</span>          allChannels.clear()</div>
-<div class="line"><span class="lineno">  881</span> </div>
+<p class="definition">Definition at line <a class="el" href="Mufi__monitoring_8py_source.html#l00832">832</a> of file <a class="el" href="Mufi__monitoring_8py_source.html">Mufi_monitoring.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  832</span>   <span class="keyword">def </span>ExecuteEvent(self,event):</div>
+<div class="line"><span class="lineno">  833</span>      W = self.M.Weight</div>
+<div class="line"><span class="lineno">  834</span>      M = self.M</div>
+<div class="line"><span class="lineno">  835</span>      h = self.M.h</div>
+<div class="line"><span class="lineno">  836</span>      sdict = self.M.sdict</div>
+<div class="line"><span class="lineno">  837</span>      <span class="keywordflow">for</span> aHit <span class="keywordflow">in</span> event.Digi_MuFilterHits:</div>
+<div class="line"><span class="lineno">  838</span>          <span class="keywordflow">if</span> <span class="keywordflow">not</span> aHit.isValid(): <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  839</span>          detID = aHit.GetDetectorID()</div>
+<div class="line"><span class="lineno">  840</span>          s = detID//10000</div>
+<div class="line"><span class="lineno">  841</span>          bar = (detID%1000)</div>
+<div class="line"><span class="lineno">  842</span>          <span class="keywordflow">if</span> s&gt;2: <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  843</span>          l  = (detID%10000)//1000  <span class="comment"># plane number</span></div>
+<div class="line"><span class="lineno">  844</span>          sumL,sumS,SumL,SumS = 0,0,0,0</div>
+<div class="line"><span class="lineno">  845</span>          allChannels = M.map2Dict(aHit,<span class="stringliteral">&#39;GetAllSignals&#39;</span>,mask=<span class="keyword">False</span>)</div>
+<div class="line"><span class="lineno">  846</span>          nS = 0</div>
+<div class="line"><span class="lineno">  847</span>          nL = 0</div>
+<div class="line"><span class="lineno">  848</span>          <span class="keywordflow">for</span> c <span class="keywordflow">in</span> allChannels:</div>
+<div class="line"><span class="lineno">  849</span>              <span class="keywordflow">if</span> s==2 <span class="keywordflow">and</span> self.M.smallSiPMchannel(c) : </div>
+<div class="line"><span class="lineno">  850</span>                  sumS+= allChannels[c]</div>
+<div class="line"><span class="lineno">  851</span>                  nS += 1</div>
+<div class="line"><span class="lineno">  852</span>              <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  853</span>                  sumL+= allChannels[c]</div>
+<div class="line"><span class="lineno">  854</span>                  nL+=1</div>
+<div class="line"><span class="lineno">  855</span>          <span class="keywordflow">if</span> nL&gt;0: SumL=sumL/nL</div>
+<div class="line"><span class="lineno">  856</span>          <span class="keywordflow">if</span> nS&gt;0: SumS=sumS/nS</div>
+<div class="line"><span class="lineno">  857</span>          rc = h[<span class="stringliteral">&#39;sVSl_&#39;</span>+str(l)].Fill(SumS,SumL,W)</div>
+<div class="line"><span class="lineno">  858</span>          rc = h[<span class="stringliteral">&#39;SVSl_&#39;</span>+str(l)].Fill(sumS/4.,sumL/12.,W)</div>
+<div class="line"><span class="lineno">  859</span><span class="comment">#</span></div>
+<div class="line"><span class="lineno">  860</span>          <span class="keywordflow">for</span> side <span class="keywordflow">in</span> [<span class="stringliteral">&#39;L&#39;</span>,<span class="stringliteral">&#39;R&#39;</span>]:</div>
+<div class="line"><span class="lineno">  861</span>            offset = 0</div>
+<div class="line"><span class="lineno">  862</span>            <span class="keywordflow">if</span> side==<span class="stringliteral">&#39;R&#39;</span>: offset = 8</div>
+<div class="line"><span class="lineno">  863</span>            <span class="keywordflow">for</span> i1 <span class="keywordflow">in</span> range(offset,offset+7):</div>
+<div class="line"><span class="lineno">  864</span>               <span class="keywordflow">if</span> <span class="keywordflow">not</span> i1 <span class="keywordflow">in</span> allChannels: <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  865</span>               qdc1 = allChannels[i1]</div>
+<div class="line"><span class="lineno">  866</span>               <span class="keywordflow">for</span> i2 <span class="keywordflow">in</span> range(i1+1,offset+8):</div>
+<div class="line"><span class="lineno">  867</span>                 <span class="keywordflow">if</span> <span class="keywordflow">not</span> (i2) <span class="keywordflow">in</span> allChannels: <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  868</span>                 <span class="keywordflow">if</span> s==2 <span class="keywordflow">and</span> self.M.smallSiPMchannel(i1): tag = <span class="stringliteral">&#39;s&#39;</span>+str(i1-offset)</div>
+<div class="line"><span class="lineno">  869</span>                 <span class="keywordflow">else</span>: tag = <span class="stringliteral">&#39;l&#39;</span>+str(i1-offset)</div>
+<div class="line"><span class="lineno">  870</span>                 <span class="keywordflow">if</span> s==2 <span class="keywordflow">and</span> self.M.smallSiPMchannel(i2): tag += <span class="stringliteral">&#39;s&#39;</span>+str(i2-offset)</div>
+<div class="line"><span class="lineno">  871</span>                 <span class="keywordflow">else</span>: tag += <span class="stringliteral">&#39;l&#39;</span>+str(i2-offset)</div>
+<div class="line"><span class="lineno">  872</span>                 qdc2 = allChannels[i2]</div>
+<div class="line"><span class="lineno">  873</span>                 rc = h[sdict[s]+<span class="stringliteral">&#39;cor&#39;</span>+tag+<span class="stringliteral">&#39;_&#39;</span>+side+str(l)].Fill(qdc1,qdc2,W)</div>
+<div class="line"><span class="lineno">  874</span>                 rc = h[sdict[s]+<span class="stringliteral">&#39;cor&#39;</span>+tag+<span class="stringliteral">&#39;_&#39;</span>+side+str(l)+str(bar)].Fill(qdc1,qdc2,W)</div>
+<div class="line"><span class="lineno">  875</span>          allChannels.clear()</div>
+<div class="line"><span class="lineno">  876</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -243,28 +243,28 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Mufi__monitoring_8py_source.html#l00816">816</a> of file <a class="el" href="Mufi__monitoring_8py_source.html">Mufi_monitoring.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  816</span>   <span class="keyword">def </span>Init(self,options,monitor):</div>
-<div class="line"><span class="lineno">  817</span>       self.M = monitor</div>
-<div class="line"><span class="lineno">  818</span>       sdict = self.M.sdict</div>
-<div class="line"><span class="lineno">  819</span>       h = self.M.h</div>
-<div class="line"><span class="lineno">  820</span>       run = ROOT.FairRunAna.Instance()</div>
-<div class="line"><span class="lineno">  821</span>       <span class="keywordflow">for</span> S <span class="keywordflow">in</span> [1,2]:</div>
-<div class="line"><span class="lineno">  822</span>           <span class="keywordflow">for</span> l <span class="keywordflow">in</span> range(monitor.systemAndPlanes[S]):</div>
-<div class="line"><span class="lineno">  823</span>              ut.bookHist(h,<span class="stringliteral">&#39;SVSl_&#39;</span>+str(l),<span class="stringliteral">&#39;QDC large vs small sum&#39;</span>,200,0.,200.,200,0.,200.)</div>
-<div class="line"><span class="lineno">  824</span>              ut.bookHist(h,<span class="stringliteral">&#39;sVSl_&#39;</span>+str(l),<span class="stringliteral">&#39;QDC large vs small average&#39;</span>,200,0.,200.,200,0.,200.)</div>
-<div class="line"><span class="lineno">  825</span>              <span class="keywordflow">for</span> side <span class="keywordflow">in</span> [<span class="stringliteral">&#39;L&#39;</span>,<span class="stringliteral">&#39;R&#39;</span>]:</div>
-<div class="line"><span class="lineno">  826</span>                   <span class="keywordflow">for</span> i1 <span class="keywordflow">in</span> range(monitor.systemAndPlanes[1]+monitor.systemAndPlanes[2]):</div>
-<div class="line"><span class="lineno">  827</span>                      <span class="keywordflow">for</span> i2 <span class="keywordflow">in</span> range(i1+1,8):</div>
-<div class="line"><span class="lineno">  828</span>                         tag=<span class="stringliteral">&#39;&#39;</span></div>
-<div class="line"><span class="lineno">  829</span>                         <span class="keywordflow">if</span> S==2 <span class="keywordflow">and</span> monitor.smallSiPMchannel(i1): tag = <span class="stringliteral">&#39;s&#39;</span>+str(i1)</div>
-<div class="line"><span class="lineno">  830</span>                         <span class="keywordflow">else</span>:                              tag = <span class="stringliteral">&#39;l&#39;</span>+str(i1)</div>
-<div class="line"><span class="lineno">  831</span>                         <span class="keywordflow">if</span> S==2 <span class="keywordflow">and</span> monitor.smallSiPMchannel(i2): tag += <span class="stringliteral">&#39;s&#39;</span>+str(i2)</div>
-<div class="line"><span class="lineno">  832</span>                         <span class="keywordflow">else</span>:                              tag += <span class="stringliteral">&#39;l&#39;</span>+str(i2)</div>
-<div class="line"><span class="lineno">  833</span>                         ut.bookHist(h,sdict[S]+<span class="stringliteral">&#39;cor&#39;</span>+tag+<span class="stringliteral">&#39;_&#39;</span>+side+str(l),<span class="stringliteral">&#39;QDC channel i vs channel j&#39;</span>,200,0.,200.,200,0.,200.)</div>
-<div class="line"><span class="lineno">  834</span>                         <span class="keywordflow">for</span> bar <span class="keywordflow">in</span> range(monitor.systemAndBars[S]):</div>
-<div class="line"><span class="lineno">  835</span>                              ut.bookHist(h,sdict[S]+<span class="stringliteral">&#39;cor&#39;</span>+tag+<span class="stringliteral">&#39;_&#39;</span>+side+str(l)+str(bar),<span class="stringliteral">&#39;QDC channel i vs channel j&#39;</span>,200,0.,200.,200,0.,200.)</div>
-<div class="line"><span class="lineno">  836</span> </div>
+<p class="definition">Definition at line <a class="el" href="Mufi__monitoring_8py_source.html#l00811">811</a> of file <a class="el" href="Mufi__monitoring_8py_source.html">Mufi_monitoring.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  811</span>   <span class="keyword">def </span>Init(self,options,monitor):</div>
+<div class="line"><span class="lineno">  812</span>       self.M = monitor</div>
+<div class="line"><span class="lineno">  813</span>       sdict = self.M.sdict</div>
+<div class="line"><span class="lineno">  814</span>       h = self.M.h</div>
+<div class="line"><span class="lineno">  815</span>       run = ROOT.FairRunAna.Instance()</div>
+<div class="line"><span class="lineno">  816</span>       <span class="keywordflow">for</span> S <span class="keywordflow">in</span> [1,2]:</div>
+<div class="line"><span class="lineno">  817</span>           <span class="keywordflow">for</span> l <span class="keywordflow">in</span> range(monitor.systemAndPlanes[S]):</div>
+<div class="line"><span class="lineno">  818</span>              ut.bookHist(h,<span class="stringliteral">&#39;SVSl_&#39;</span>+str(l),<span class="stringliteral">&#39;QDC large vs small sum&#39;</span>,200,0.,200.,200,0.,200.)</div>
+<div class="line"><span class="lineno">  819</span>              ut.bookHist(h,<span class="stringliteral">&#39;sVSl_&#39;</span>+str(l),<span class="stringliteral">&#39;QDC large vs small average&#39;</span>,200,0.,200.,200,0.,200.)</div>
+<div class="line"><span class="lineno">  820</span>              <span class="keywordflow">for</span> side <span class="keywordflow">in</span> [<span class="stringliteral">&#39;L&#39;</span>,<span class="stringliteral">&#39;R&#39;</span>]:</div>
+<div class="line"><span class="lineno">  821</span>                   <span class="keywordflow">for</span> i1 <span class="keywordflow">in</span> range(monitor.systemAndPlanes[1]+monitor.systemAndPlanes[2]):</div>
+<div class="line"><span class="lineno">  822</span>                      <span class="keywordflow">for</span> i2 <span class="keywordflow">in</span> range(i1+1,8):</div>
+<div class="line"><span class="lineno">  823</span>                         tag=<span class="stringliteral">&#39;&#39;</span></div>
+<div class="line"><span class="lineno">  824</span>                         <span class="keywordflow">if</span> S==2 <span class="keywordflow">and</span> monitor.smallSiPMchannel(i1): tag = <span class="stringliteral">&#39;s&#39;</span>+str(i1)</div>
+<div class="line"><span class="lineno">  825</span>                         <span class="keywordflow">else</span>:                              tag = <span class="stringliteral">&#39;l&#39;</span>+str(i1)</div>
+<div class="line"><span class="lineno">  826</span>                         <span class="keywordflow">if</span> S==2 <span class="keywordflow">and</span> monitor.smallSiPMchannel(i2): tag += <span class="stringliteral">&#39;s&#39;</span>+str(i2)</div>
+<div class="line"><span class="lineno">  827</span>                         <span class="keywordflow">else</span>:                              tag += <span class="stringliteral">&#39;l&#39;</span>+str(i2)</div>
+<div class="line"><span class="lineno">  828</span>                         ut.bookHist(h,sdict[S]+<span class="stringliteral">&#39;cor&#39;</span>+tag+<span class="stringliteral">&#39;_&#39;</span>+side+str(l),<span class="stringliteral">&#39;QDC channel i vs channel j&#39;</span>,200,0.,200.,200,0.,200.)</div>
+<div class="line"><span class="lineno">  829</span>                         <span class="keywordflow">for</span> bar <span class="keywordflow">in</span> range(monitor.systemAndBars[S]):</div>
+<div class="line"><span class="lineno">  830</span>                              ut.bookHist(h,sdict[S]+<span class="stringliteral">&#39;cor&#39;</span>+tag+<span class="stringliteral">&#39;_&#39;</span>+side+str(l)+str(bar),<span class="stringliteral">&#39;QDC channel i vs channel j&#39;</span>,200,0.,200.,200,0.,200.)</div>
+<div class="line"><span class="lineno">  831</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -284,52 +284,52 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Mufi__monitoring_8py_source.html#l00882">882</a> of file <a class="el" href="Mufi__monitoring_8py_source.html">Mufi_monitoring.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  882</span>   <span class="keyword">def </span>Plot(self):</div>
-<div class="line"><span class="lineno">  883</span>       h = self.M.h</div>
-<div class="line"><span class="lineno">  884</span>       sdict = self.M.sdict</div>
-<div class="line"><span class="lineno">  885</span>       systemAndPlanes = self.M.systemAndPlanes</div>
-<div class="line"><span class="lineno">  886</span>       ut.bookCanvas(h,<span class="stringliteral">&#39;TSL&#39;</span>,<span class="stringliteral">&#39;&#39;</span>,1800,1400,3,2)</div>
-<div class="line"><span class="lineno">  887</span>       ut.bookCanvas(h,<span class="stringliteral">&#39;STSL&#39;</span>,<span class="stringliteral">&#39;&#39;</span>,1800,1400,3,2)</div>
-<div class="line"><span class="lineno">  888</span>       S=2</div>
-<div class="line"><span class="lineno">  889</span>       <span class="keywordflow">for</span> l <span class="keywordflow">in</span> range(systemAndPlanes[S]):</div>
-<div class="line"><span class="lineno">  890</span>          tc = h[<span class="stringliteral">&#39;TSL&#39;</span>].cd(l+1)</div>
-<div class="line"><span class="lineno">  891</span>          tc.SetLogz(1)</div>
-<div class="line"><span class="lineno">  892</span>          aHist = h[<span class="stringliteral">&#39;sVSl_&#39;</span>+str(l)]</div>
-<div class="line"><span class="lineno">  893</span>          aHist.SetTitle(<span class="stringliteral">&#39;;small SiPM QCD av:large SiPM QCD av&#39;</span>)</div>
-<div class="line"><span class="lineno">  894</span>          nmax = aHist.GetBinContent(aHist.GetMaximumBin())</div>
-<div class="line"><span class="lineno">  895</span>          aHist.SetMaximum( 0.1*nmax )</div>
-<div class="line"><span class="lineno">  896</span>          tc = h[<span class="stringliteral">&#39;sVSl_&#39;</span>+str(l)].Draw(<span class="stringliteral">&#39;colz&#39;</span>)</div>
-<div class="line"><span class="lineno">  897</span>       self.M.myPrint(h[<span class="stringliteral">&#39;TSL&#39;</span>],<span class="stringliteral">&quot;largeSiPMvsSmallSiPM&quot;</span>,subdir=<span class="stringliteral">&#39;mufilter/expert&#39;</span>)</div>
-<div class="line"><span class="lineno">  898</span>       <span class="keywordflow">for</span> l <span class="keywordflow">in</span> range(systemAndPlanes[S]):</div>
-<div class="line"><span class="lineno">  899</span>          tc = h[<span class="stringliteral">&#39;STSL&#39;</span>].cd(l+1)</div>
-<div class="line"><span class="lineno">  900</span>          tc.SetLogz(1)</div>
-<div class="line"><span class="lineno">  901</span>          aHist = h[<span class="stringliteral">&#39;SVSl_&#39;</span>+str(l)]</div>
-<div class="line"><span class="lineno">  902</span>          aHist.SetTitle(<span class="stringliteral">&#39;;small SiPM QCD sum/2:large SiPM QCD sum/6&#39;</span>)</div>
-<div class="line"><span class="lineno">  903</span>          nmax = aHist.GetBinContent(aHist.GetMaximumBin())</div>
-<div class="line"><span class="lineno">  904</span>          aHist.SetMaximum( 0.1*nmax )</div>
-<div class="line"><span class="lineno">  905</span>          tc = h[<span class="stringliteral">&#39;SVSl_&#39;</span>+str(l)].Draw(<span class="stringliteral">&#39;colz&#39;</span>)</div>
-<div class="line"><span class="lineno">  906</span>       self.M.myPrint(h[<span class="stringliteral">&#39;STSL&#39;</span>],<span class="stringliteral">&quot;SumlargeSiPMvsSmallSiPM&quot;</span>,subdir=<span class="stringliteral">&#39;mufilter/expert&#39;</span>)</div>
-<div class="line"><span class="lineno">  907</span>       <span class="keywordflow">for</span> S <span class="keywordflow">in</span> [1,2]:</div>
-<div class="line"><span class="lineno">  908</span>         <span class="keywordflow">for</span> l <span class="keywordflow">in</span> range(systemAndPlanes[S]):</div>
-<div class="line"><span class="lineno">  909</span>          <span class="keywordflow">for</span> side <span class="keywordflow">in</span> [<span class="stringliteral">&#39;L&#39;</span>,<span class="stringliteral">&#39;R&#39;</span>]:</div>
-<div class="line"><span class="lineno">  910</span>             <span class="keywordflow">if</span> S == 1 <span class="keywordflow">and</span> l == 2 <span class="keywordflow">and</span> side == <span class="stringliteral">&#39;R&#39;</span>: <span class="keywordflow">continue</span> </div>
-<div class="line"><span class="lineno">  911</span>             ut.bookCanvas(h,sdict[S]+<span class="stringliteral">&#39;cor&#39;</span>+side+str(l),<span class="stringliteral">&#39;&#39;</span>,1800,1400,7,4)</div>
-<div class="line"><span class="lineno">  912</span>             k=1</div>
-<div class="line"><span class="lineno">  913</span>             <span class="keywordflow">for</span> i1 <span class="keywordflow">in</span> range(7):</div>
-<div class="line"><span class="lineno">  914</span>                <span class="keywordflow">for</span> i2 <span class="keywordflow">in</span> range(i1+1,8):</div>
-<div class="line"><span class="lineno">  915</span>                  tag=<span class="stringliteral">&#39;&#39;</span></div>
-<div class="line"><span class="lineno">  916</span>                  <span class="keywordflow">if</span> S==2 <span class="keywordflow">and</span> self.M.smallSiPMchannel(i1): tag = <span class="stringliteral">&#39;s&#39;</span>+str(i1)</div>
-<div class="line"><span class="lineno">  917</span>                  <span class="keywordflow">else</span>:                              tag = <span class="stringliteral">&#39;l&#39;</span>+str(i1)</div>
-<div class="line"><span class="lineno">  918</span>                  <span class="keywordflow">if</span> S==2 <span class="keywordflow">and</span> self.M.smallSiPMchannel(i2): tag += <span class="stringliteral">&#39;s&#39;</span>+str(i2)</div>
-<div class="line"><span class="lineno">  919</span>                  <span class="keywordflow">else</span>:                              tag += <span class="stringliteral">&#39;l&#39;</span>+str(i2)</div>
-<div class="line"><span class="lineno">  920</span>                  tc = h[sdict[S]+<span class="stringliteral">&#39;cor&#39;</span>+side+str(l)].cd(k)</div>
-<div class="line"><span class="lineno">  921</span>                  <span class="keywordflow">for</span> bar <span class="keywordflow">in</span> range(self.M.systemAndBars[S]):</div>
-<div class="line"><span class="lineno">  922</span>                      <span class="keywordflow">if</span> bar == 0: h[sdict[S]+<span class="stringliteral">&#39;cor&#39;</span>+tag+<span class="stringliteral">&#39;_&#39;</span>+side+str(l)+str(bar)].Draw(<span class="stringliteral">&#39;colz&#39;</span>)</div>
-<div class="line"><span class="lineno">  923</span>                      <span class="keywordflow">else</span>: h[sdict[S]+<span class="stringliteral">&#39;cor&#39;</span>+tag+<span class="stringliteral">&#39;_&#39;</span>+side+str(l)+str(bar)].Draw(<span class="stringliteral">&#39;colzsame&#39;</span>)</div>
-<div class="line"><span class="lineno">  924</span>                  k+=1</div>
-<div class="line"><span class="lineno">  925</span>             self.M.myPrint(h[sdict[S]+<span class="stringliteral">&#39;cor&#39;</span>+side+str(l)],<span class="stringliteral">&#39;QDCcor&#39;</span>+side+str(l),subdir=<span class="stringliteral">&#39;mufilter/expert&#39;</span>)</div>
-<div class="line"><span class="lineno">  926</span> </div>
+<p class="definition">Definition at line <a class="el" href="Mufi__monitoring_8py_source.html#l00877">877</a> of file <a class="el" href="Mufi__monitoring_8py_source.html">Mufi_monitoring.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  877</span>   <span class="keyword">def </span>Plot(self):</div>
+<div class="line"><span class="lineno">  878</span>       h = self.M.h</div>
+<div class="line"><span class="lineno">  879</span>       sdict = self.M.sdict</div>
+<div class="line"><span class="lineno">  880</span>       systemAndPlanes = self.M.systemAndPlanes</div>
+<div class="line"><span class="lineno">  881</span>       ut.bookCanvas(h,<span class="stringliteral">&#39;TSL&#39;</span>,<span class="stringliteral">&#39;&#39;</span>,1800,1400,3,2)</div>
+<div class="line"><span class="lineno">  882</span>       ut.bookCanvas(h,<span class="stringliteral">&#39;STSL&#39;</span>,<span class="stringliteral">&#39;&#39;</span>,1800,1400,3,2)</div>
+<div class="line"><span class="lineno">  883</span>       S=2</div>
+<div class="line"><span class="lineno">  884</span>       <span class="keywordflow">for</span> l <span class="keywordflow">in</span> range(systemAndPlanes[S]):</div>
+<div class="line"><span class="lineno">  885</span>          tc = h[<span class="stringliteral">&#39;TSL&#39;</span>].cd(l+1)</div>
+<div class="line"><span class="lineno">  886</span>          tc.SetLogz(1)</div>
+<div class="line"><span class="lineno">  887</span>          aHist = h[<span class="stringliteral">&#39;sVSl_&#39;</span>+str(l)]</div>
+<div class="line"><span class="lineno">  888</span>          aHist.SetTitle(<span class="stringliteral">&#39;;small SiPM QCD av:large SiPM QCD av&#39;</span>)</div>
+<div class="line"><span class="lineno">  889</span>          nmax = aHist.GetBinContent(aHist.GetMaximumBin())</div>
+<div class="line"><span class="lineno">  890</span>          aHist.SetMaximum( 0.1*nmax )</div>
+<div class="line"><span class="lineno">  891</span>          tc = h[<span class="stringliteral">&#39;sVSl_&#39;</span>+str(l)].Draw(<span class="stringliteral">&#39;colz&#39;</span>)</div>
+<div class="line"><span class="lineno">  892</span>       self.M.myPrint(h[<span class="stringliteral">&#39;TSL&#39;</span>],<span class="stringliteral">&quot;largeSiPMvsSmallSiPM&quot;</span>,subdir=<span class="stringliteral">&#39;mufilter/expert&#39;</span>)</div>
+<div class="line"><span class="lineno">  893</span>       <span class="keywordflow">for</span> l <span class="keywordflow">in</span> range(systemAndPlanes[S]):</div>
+<div class="line"><span class="lineno">  894</span>          tc = h[<span class="stringliteral">&#39;STSL&#39;</span>].cd(l+1)</div>
+<div class="line"><span class="lineno">  895</span>          tc.SetLogz(1)</div>
+<div class="line"><span class="lineno">  896</span>          aHist = h[<span class="stringliteral">&#39;SVSl_&#39;</span>+str(l)]</div>
+<div class="line"><span class="lineno">  897</span>          aHist.SetTitle(<span class="stringliteral">&#39;;small SiPM QCD sum/2:large SiPM QCD sum/6&#39;</span>)</div>
+<div class="line"><span class="lineno">  898</span>          nmax = aHist.GetBinContent(aHist.GetMaximumBin())</div>
+<div class="line"><span class="lineno">  899</span>          aHist.SetMaximum( 0.1*nmax )</div>
+<div class="line"><span class="lineno">  900</span>          tc = h[<span class="stringliteral">&#39;SVSl_&#39;</span>+str(l)].Draw(<span class="stringliteral">&#39;colz&#39;</span>)</div>
+<div class="line"><span class="lineno">  901</span>       self.M.myPrint(h[<span class="stringliteral">&#39;STSL&#39;</span>],<span class="stringliteral">&quot;SumlargeSiPMvsSmallSiPM&quot;</span>,subdir=<span class="stringliteral">&#39;mufilter/expert&#39;</span>)</div>
+<div class="line"><span class="lineno">  902</span>       <span class="keywordflow">for</span> S <span class="keywordflow">in</span> [1,2]:</div>
+<div class="line"><span class="lineno">  903</span>         <span class="keywordflow">for</span> l <span class="keywordflow">in</span> range(systemAndPlanes[S]):</div>
+<div class="line"><span class="lineno">  904</span>          <span class="keywordflow">for</span> side <span class="keywordflow">in</span> [<span class="stringliteral">&#39;L&#39;</span>,<span class="stringliteral">&#39;R&#39;</span>]:</div>
+<div class="line"><span class="lineno">  905</span>             <span class="keywordflow">if</span> S == 1 <span class="keywordflow">and</span> l == 2 <span class="keywordflow">and</span> side == <span class="stringliteral">&#39;R&#39;</span>: <span class="keywordflow">continue</span> </div>
+<div class="line"><span class="lineno">  906</span>             ut.bookCanvas(h,sdict[S]+<span class="stringliteral">&#39;cor&#39;</span>+side+str(l),<span class="stringliteral">&#39;&#39;</span>,1800,1400,7,4)</div>
+<div class="line"><span class="lineno">  907</span>             k=1</div>
+<div class="line"><span class="lineno">  908</span>             <span class="keywordflow">for</span> i1 <span class="keywordflow">in</span> range(7):</div>
+<div class="line"><span class="lineno">  909</span>                <span class="keywordflow">for</span> i2 <span class="keywordflow">in</span> range(i1+1,8):</div>
+<div class="line"><span class="lineno">  910</span>                  tag=<span class="stringliteral">&#39;&#39;</span></div>
+<div class="line"><span class="lineno">  911</span>                  <span class="keywordflow">if</span> S==2 <span class="keywordflow">and</span> self.M.smallSiPMchannel(i1): tag = <span class="stringliteral">&#39;s&#39;</span>+str(i1)</div>
+<div class="line"><span class="lineno">  912</span>                  <span class="keywordflow">else</span>:                              tag = <span class="stringliteral">&#39;l&#39;</span>+str(i1)</div>
+<div class="line"><span class="lineno">  913</span>                  <span class="keywordflow">if</span> S==2 <span class="keywordflow">and</span> self.M.smallSiPMchannel(i2): tag += <span class="stringliteral">&#39;s&#39;</span>+str(i2)</div>
+<div class="line"><span class="lineno">  914</span>                  <span class="keywordflow">else</span>:                              tag += <span class="stringliteral">&#39;l&#39;</span>+str(i2)</div>
+<div class="line"><span class="lineno">  915</span>                  tc = h[sdict[S]+<span class="stringliteral">&#39;cor&#39;</span>+side+str(l)].cd(k)</div>
+<div class="line"><span class="lineno">  916</span>                  <span class="keywordflow">for</span> bar <span class="keywordflow">in</span> range(self.M.systemAndBars[S]):</div>
+<div class="line"><span class="lineno">  917</span>                      <span class="keywordflow">if</span> bar == 0: h[sdict[S]+<span class="stringliteral">&#39;cor&#39;</span>+tag+<span class="stringliteral">&#39;_&#39;</span>+side+str(l)+str(bar)].Draw(<span class="stringliteral">&#39;colz&#39;</span>)</div>
+<div class="line"><span class="lineno">  918</span>                      <span class="keywordflow">else</span>: h[sdict[S]+<span class="stringliteral">&#39;cor&#39;</span>+tag+<span class="stringliteral">&#39;_&#39;</span>+side+str(l)+str(bar)].Draw(<span class="stringliteral">&#39;colzsame&#39;</span>)</div>
+<div class="line"><span class="lineno">  919</span>                  k+=1</div>
+<div class="line"><span class="lineno">  920</span>             self.M.myPrint(h[sdict[S]+<span class="stringliteral">&#39;cor&#39;</span>+side+str(l)],<span class="stringliteral">&#39;QDCcor&#39;</span>+side+str(l),subdir=<span class="stringliteral">&#39;mufilter/expert&#39;</span>)</div>
+<div class="line"><span class="lineno">  921</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -346,7 +346,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Mufi__monitoring_8py_source.html#l00817">817</a> of file <a class="el" href="Mufi__monitoring_8py_source.html">Mufi_monitoring.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Mufi__monitoring_8py_source.html#l00812">812</a> of file <a class="el" href="Mufi__monitoring_8py_source.html">Mufi_monitoring.py</a>.</p>
 
 </div>
 </div>
