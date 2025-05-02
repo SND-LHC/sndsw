@@ -8,6 +8,7 @@ if "tb_2024_mc" in globals():
     if  globals()["target_material"]=="W":
       with_tungsten = True
 else: tb_2024_mc = False
+
 with ConfigRegistry.register_config("basic") as c:
 # cave parameters
         c.cave = AttrDict(z=0*u.cm)
@@ -89,7 +90,7 @@ with ConfigRegistry.register_config("basic") as c:
         c.Scifi.scifimat_width = (c.Scifi.SiPMarray_width+c.Scifi.sipm_diegap)*c.Scifi.nsipm_mat -0.5*u.mm
         c.Scifi.scifimat_length = c.Scifi.ydim
         c.Scifi.scifimat_z = 0.135 *u.cm
-        c.Scifi.epoxymat_z = 0.17 *u.cm
+        c.Scifi.epoxymat_z = 0.162 *u.cm
         c.Scifi.scifimat_gap = 0.05 *u.cm
         
         c.Scifi.fiber_length = c.Scifi.scifimat_length
@@ -100,7 +101,7 @@ with ConfigRegistry.register_config("basic") as c:
         c.Scifi.clad2_rmax = 0.0125 *u.cm
 
         c.Scifi.horizontal_pitch = 0.0275 *u.cm
-        c.Scifi.vertical_pitch = 0.021 *u.cm
+        c.Scifi.vertical_pitch = 0.022 *u.cm
         c.Scifi.rowlong_offset = 0.035 *u.cm 
         c.Scifi.rowshort_offset = 0.0215 *u.cm 
 
@@ -323,7 +324,7 @@ with ConfigRegistry.register_config("basic") as c:
              c.EmulsionDet.WallYDim = 38.6 *u.cm
              c.EmulsionDet.WallZDim = 8.15 *u.cm
              c.EmulsionDet.WallZBorder_offset = 4.75 * u.mm
-             c.EmulsionDet.TTz = 3.0*u.cm
+             c.EmulsionDet.TTz = 4.0*u.cm # thickness of target station!
              c.EmulsionDet.zdim = c.EmulsionDet.wall* c.EmulsionDet.TotalWallZDim + c.EmulsionDet.wall*c.EmulsionDet.TTz
 
              c.EmulsionDet.n_plates = 59 # the most downstream 28 layers are W+plastic
@@ -352,19 +353,29 @@ with ConfigRegistry.register_config("basic") as c:
              c.EmulsionDet.zC = 0.# c.EmulsionDet.startpos + c.EmulsionDet.zdim/2.
 
              # survey points in survey coordinate system!
-             c.EmulsionDet.Xpos0,c.EmulsionDet.Ypos0,c.EmulsionDet.Zpos0 = 318.6*u.mm,3236.3*u.mm,380.2*u.mm
-             c.EmulsionDet.Xpos1,c.EmulsionDet.Ypos1,c.EmulsionDet.Zpos1 = 318.6*u.mm,3426.3*u.mm,380.2*u.mm
+             c.EmulsionDet.Xpos0,c.EmulsionDet.Ypos0,c.EmulsionDet.Zpos0 = 318.6*u.mm,3218.8*u.mm,380.2*u.mm
+             c.EmulsionDet.Xpos1,c.EmulsionDet.Ypos1,c.EmulsionDet.Zpos1 = 318.6*u.mm,3383.8*u.mm,380.2*u.mm
 
 
            # set SciFi modules
            c.Scifi.xdim = 13.0*u.cm #sensitive only
            c.Scifi.ydim = 13.0*u.cm
-           c.Scifi.zdim = 3*u.cm # maybe not needed
+           c.Scifi.zdim = 4.0*u.cm # z thickness of Scifi station, must match c.EmulsionDet.TTz
            c.Scifi.nmats = 1
            c.Scifi.nscifi = 4
+           c.Scifi.nfibers_z = 7
+           c.Scifi.scifimat_z = 0.16*u.cm # thickness of a mat of 7 fiber layers
            c.Scifi.scifimat_length  = c.Scifi.ydim
            c.Scifi.fiber_length = c.Scifi.scifimat_length
-           c.Scifi.plastbar_y = c.Scifi.ydim
+           c.Scifi.plane_gap = 6*u.mm # an air gap btw X an Y planes, in TI18 case this is controlled via c.Scifi.plastbar_z
+           c.Scifi.tedlar_to_plane = 5.42*u.mm # an air gap btw protective tedlar sheet and a sensitive plane
+           #c.Scifi.tedlar_z = 50*u.um # not included in the sw detector model
+           # offset between the edge of a baby module frame and the upstream tedlar inside it
+           c.Scifi.frame_offset = 0.8*u.cm
+           # offsets between the upstream tedlar sheet and the upstream passive block
+           c.Scifi.station_offset1 = c.Scifi.frame_offset+1.4*u.cm
+           c.Scifi.station_offset2 = c.Scifi.frame_offset+1.4*u.cm
+           c.Scifi.station_offset3 = c.Scifi.frame_offset+1.4*u.cm
            c.Scifi.channelTimeAlignment = 1
 
            if not with_tungsten:
@@ -377,15 +388,13 @@ with ConfigRegistry.register_config("basic") as c:
 
 # absolute edge point positions in survey coordinate system (survey is 'by eye' for now)
            c.Scifi.Xpos0,c.Scifi.Ypos0,c.Scifi.Zpos0 = 156.6*u.mm,3186.3*u.mm,218.2*u.mm
-           c.Scifi.Xpos1,c.Scifi.Ypos1,c.Scifi.Zpos1 = 156.6*u.mm,3381.3*u.mm,221.7*u.mm
-           c.Scifi.Xpos2,c.Scifi.Ypos2,c.Scifi.Zpos2 = 156.6*u.mm,3576.3*u.mm,225.1*u.mm
-           c.Scifi.Xpos3,c.Scifi.Ypos3,c.Scifi.Zpos3 = 156.6*u.mm,3694.3*u.mm,228.5*u.mm # 10cm step
-           if with_tungsten:
-             c.Scifi.Xpos3,c.Scifi.Ypos3,c.Scifi.Zpos3 = 156.6*u.mm,3766.3*u.mm,228.5*u.mm # 16 cm step
+           c.Scifi.Xpos1,c.Scifi.Ypos1,c.Scifi.Zpos1 = 156.6*u.mm,3351.3*u.mm,221.7*u.mm # 16.5cm step
+           c.Scifi.Xpos2,c.Scifi.Ypos2,c.Scifi.Zpos2 = 156.6*u.mm,3516.3*u.mm,225.1*u.mm # 16.5cm step
+           c.Scifi.Xpos3,c.Scifi.Ypos3,c.Scifi.Zpos3 = 156.6*u.mm,3676.3*u.mm,228.5*u.mm # 16cm step
 
            # DS1 - since there are no US planes, we take the item labelled Muon1!
            # DS spatial alignment is included in the values
-           c.MuFilter.Muon1Dx,c.MuFilter.Muon1Dy,c.MuFilter.Muon1Dz = 118.1*u.mm, 4066.3*u.mm, 151.2*u.mm
+           c.MuFilter.Muon1Dx,c.MuFilter.Muon1Dy,c.MuFilter.Muon1Dz = 318.6*u.mm, 4066.3*u.mm, 230.2*u.mm
 
 # from Scifi track alignment
            if tb_2024_mc :
