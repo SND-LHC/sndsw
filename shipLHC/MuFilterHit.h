@@ -32,6 +32,7 @@ class MuFilterHit : public SndlhcHit
     std::map<TString,Float_t> SumOfSignals(Bool_t mask=kTRUE);
     std::map<Int_t,Float_t> GetAllSignals(Bool_t mask=kTRUE,Bool_t positive=kTRUE);
     std::map<Int_t,Float_t> GetAllTimes(Bool_t mask=kTRUE);
+    Float_t  SaturationMC(Float_t qdc, Float_t qdcmax, Float_t alpha);
     Float_t  GetDeltaT(Bool_t mask=kTRUE);
     Float_t  GetFastDeltaT(Bool_t mask=kTRUE);
     Float_t  GetImpactT(Bool_t mask=kTRUE);
