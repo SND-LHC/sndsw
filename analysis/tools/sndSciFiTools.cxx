@@ -8,7 +8,6 @@
 #include "TClonesArray.h"
 #include "sndScifiHit.h"
 #include "ROOT/TSeq.hxx"
-#include <numeric> // for std::accumulate
 
 void snd::analysis_tools::getSciFiHitsPerStation(const TClonesArray *digiHits, std::vector<int> &horizontal_hits,
                                                  std::vector<int> &vertical_hits)
@@ -547,16 +546,13 @@ double computeMean(const std::vector<double>& values)
 {
     if ( values.empty() ) 
     {
+      LOG(ERROR) << "Error: No hits enter.";
       return 0.0;
     }
+    double sum = std::accumulate(values.begin(), values.end(), 0.0);
+    double mean = sum / values.size();
 
-    double sum = 0.0;
-    for ( double value : values ) 
-    {
-      sum += value;
-    }
-
-    return sum / values.size();
+    return mean;
 }
 
 std::pair<double, double>
@@ -570,8 +566,9 @@ snd::analysis_tools::find_centre_of_gravity_per_station(const TClonesArray* digi
 
     std::vector<double> x_positions;
     std::vector<double> y_positions;
-
-    for ( auto* obj : *digiHits )
+    TVector3 A, B;
+    
+    for (auto* obj : *digiHits)
     {
         auto* hit = dynamic_cast<sndScifiHit*>(obj);
 
@@ -585,7 +582,6 @@ snd::analysis_tools::find_centre_of_gravity_per_station(const TClonesArray* digi
             continue;
         }
 
-        TVector3 A, B;
         hit->GetSiPMPosition(hit->GetDetectorID(), A, B);
 
         if (hit->isVertical())
@@ -596,8 +592,7 @@ snd::analysis_tools::find_centre_of_gravity_per_station(const TClonesArray* digi
         else
         {
             y_positions.push_back((A.Y() + B.Y()) * 0.5);
-        }
-      
+        }     
     }
 
     double meanX = computeMean(x_positions);
