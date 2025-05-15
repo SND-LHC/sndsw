@@ -547,8 +547,8 @@ double computeMean(const std::vector<double>& values)
     if ( values.empty() ) 
     {
       LOG(ERROR) << "Error: No hits enter.";
-      return 0.0;
     }
+
     double sum = std::accumulate(values.begin(), values.end(), 0.0);
     double mean = sum / values.size();
 
@@ -561,7 +561,6 @@ snd::analysis_tools::find_centre_of_gravity_per_station(const TClonesArray* digi
     if (!digiHits) 
     {
          LOG(ERROR) << "Error: digiHits is null in find_centre_of_gravity_per_station";
-         return {0.0, 0.0};
     }
 
     std::vector<double> x_positions;
@@ -594,7 +593,7 @@ snd::analysis_tools::find_centre_of_gravity_per_station(const TClonesArray* digi
             y_positions.push_back((A.Y() + B.Y()) * 0.5);
         }     
     }
-
+    
     double meanX = computeMean(x_positions);
     double meanY = computeMean(y_positions);
 
