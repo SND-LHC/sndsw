@@ -28,5 +28,10 @@
 #pragma link C++ function snd::analysis_tools::densityCheck(const TClonesArray &, int, int, int, bool);
 #pragma link C++ function snd::analysis_tools::showerInteractionWall(const TClonesArray &,const std::map<std::string, float> &, int, std::string);
 #pragma link C++ function snd::analysis_tools::showerInteractionWall(const TClonesArray &, int, std::string);
+#pragma link C++ function snd::analysis_tools::GetTChain(int, int);
+#pragma link C++ function snd::analysis_tools::GetTChain(std::string):
+#pragma link C++ function snd::analysis_tools::GetGeoPath(int);
+#pragma link C++ function snd::analysis_tools::GetGeometry(std::string);
+#pragma link C++ function snd::analysis_tools::GetGeometry(int);
 
 #endif
