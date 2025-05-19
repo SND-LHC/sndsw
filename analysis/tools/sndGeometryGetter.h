@@ -1,4 +1,5 @@
-#pragma once
+#ifndef SND_GEOMETRY_GETTER
+#define SND_GEOMETRY_GETTER
 
 #include <string>
 #include <utility>
@@ -14,4 +15,4 @@ namespace snd {
     }
 }
 
-
+#endif

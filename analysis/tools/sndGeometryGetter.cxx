@@ -52,8 +52,8 @@ std::pair<Scifi *, MuFilter *> snd::analysis_tools::GetGeometry(std::string geom
     MuFilter *mufilter = new MuFilter("MuFilter", kTRUE);
 
     // Retrieve the detectors from ROOT's global list
-    scifi = (Scifi *)gROOT->GetListOfGlobals()->FindObject("Scifi");
-    mufilter = (MuFilter *)gROOT->GetListOfGlobals()->FindObject("MuFilter");
+    scifi = dynamic_cast<Scifi *>(gROOT->GetListOfGlobals()->FindObject("Scifi"));
+    mufilter = dynamic_cast<MuFilter *>(gROOT->GetListOfGlobals()->FindObject("MuFilter"));
 
     return std::make_pair(scifi, mufilter);
 }
@@ -63,16 +63,5 @@ std::pair<Scifi *, MuFilter *> snd::analysis_tools::GetGeometry(int run_number)
 {
     std::string geometry_path = GetGeoPath(run_number);
 
-    TPython::Exec("import SndlhcGeo");
-    TPython::Exec(("SndlhcGeo.GeoInterface('" + geometry_path + "')").c_str());
-
-    // Init detectors
-    Scifi *scifi = new Scifi("Scifi", kTRUE);
-    MuFilter *mufilter = new MuFilter("MuFilter", kTRUE);
-
-    // Retrieve the detectors from ROOT's global list
-    scifi = (Scifi *)gROOT->GetListOfGlobals()->FindObject("Scifi");
-    mufilter = (MuFilter *)gROOT->GetListOfGlobals()->FindObject("MuFilter");
-
-    return std::make_pair(scifi, mufilter);
+    return GetGeometry(geometry_path);
 }

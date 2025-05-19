@@ -1,4 +1,5 @@
-#pragma once
+#ifndef SND_TCHAIN_GETTER
+#define SND_TCHAIN_GETTER
 
 #include <string>
 
@@ -10,3 +11,5 @@ namespace snd {
         TChain* GetTChain(std::string file_name); 
     }
 }
+
+#endif
