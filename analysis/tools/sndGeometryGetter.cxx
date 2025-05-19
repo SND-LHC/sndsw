@@ -13,8 +13,8 @@
 std::string snd::analysis_tools::GetGeoPath(int run_number)
 {
     std::string geo_path = "";
-
-     if (run_number < 7357)
+    // 2022 constants are included in the 2023 geofile given below
+    if (run_number < 7357)
     {
         geo_path = "root://eospublic.cern.ch//eos/experiment/sndlhc/convertedData/physics/2023/geofile_sndlhc_TI18_V4_2023.root";
     }
