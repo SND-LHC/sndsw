@@ -10,35 +10,35 @@
 #include "TROOT.h"
 
 // Get geometry full path, works with test beam too
-std::string snd::analysis_tools::GetGeoPath(int run_number)
+// 2022 constants are included in the 2023 geofile
+std::string snd::analysis_tools::GetGeoPath(const std::string& csv_file_path, int run_number)
 {
-    std::string geo_path = "";
-    // 2022 constants are included in the 2023 geofile given below
-    if (run_number < 7357)
-    {
-        geo_path = "root://eospublic.cern.ch//eos/experiment/sndlhc/convertedData/physics/2023/geofile_sndlhc_TI18_V4_2023.root";
+    std::ifstream file(csv_file_path);
+    if (!file.is_open()) {
+        throw std::runtime_error("Could not open CSV file: " + csv_file_path);
     }
-    else if (run_number < 10423)
-    {
-        geo_path = "root://eospublic.cern.ch//eos/experiment/sndlhc/convertedData/physics/2024/geofile_sndlhc_TI18_V12_2024.root";
+
+    std::string line;
+    std::getline(file, line); // skip header
+
+    while (std::getline(file, line)) {
+        std::istringstream ss(line);
+        std::string token;
+
+        std::getline(ss, token, ',');
+        int min_run = std::stoi(token);
+
+        std::getline(ss, token, ',');
+        int max_run = std::stoi(token);
+
+        std::getline(ss, token);
+        std::string path = token;
+
+        if (run_number >= min_run && run_number <= max_run) {
+            return path;
+        }
     }
-    else if (run_number > 100237 && run_number < 100680)
-    {
-        geo_path = "root://eospublic.cern.ch//eos/experiment/sndlhc/convertedData/commissioning/testbeam_June2023_H8/geofile_sndlhc_H8_2023_3walls.root";
-    }
-    else if (run_number > 100840 && run_number < 100954)
-    {
-        geo_path = "root://eospublic.cern.ch//eos/experiment/sndlhc/convertedData/commissioning/testbeam_24/geofile_sndlhc_H4_2024_W_2walls_v2.root";
-    }
-    else if (run_number > 100953 && run_number < 100986)
-    {
-        geo_path = "root://eospublic.cern.ch//eos/experiment/sndlhc/convertedData/commissioning/testbeam_24/geofile_sndlhc_H4_2024_Fe_1wall.root";
-    }
-    else
-    {
-        throw std::runtime_error{"Run not found."};
-    }
-    return geo_path;
+    throw std::runtime_error("Run number not found in CSV mapping.");
 }
 
 // Get SciFi and MuFilter geometries
@@ -59,9 +59,9 @@ std::pair<Scifi *, MuFilter *> snd::analysis_tools::GetGeometry(std::string geom
 }
 
 // Get SciFi and MuFilter geometries directly from run number
-std::pair<Scifi *, MuFilter *> snd::analysis_tools::GetGeometry(int run_number)
+std::pair<Scifi *, MuFilter *> snd::analysis_tools::GetGeometry(const std::string& csv_file_path, int run_number)
 {
-    std::string geometry_path = GetGeoPath(run_number);
+    std::string geometry_path = GetGeoPath(csv_file_path, run_number);
 
     return GetGeometry(geometry_path);
 }

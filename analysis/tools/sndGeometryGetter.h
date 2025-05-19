@@ -9,9 +9,9 @@
 
 namespace snd {
     namespace analysis_tools {
-        std::string GetGeoPath(int run_number);
+        std::string GetGeoPath(const std::string& csv_file_path, int run_number);
         std::pair<Scifi *, MuFilter *> GetGeometry(std::string geometry_path);
-        std::pair<Scifi *, MuFilter *> GetGeometry(int run_number);
+        std::pair<Scifi *, MuFilter *> GetGeometry(const std::string& csv_file_path, int run_number);
     }
 }
 
