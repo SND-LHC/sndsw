@@ -187,6 +187,7 @@ void Scifi::ConstructGeometry()
 	Int_t fNSiPMs  = conf_ints["Scifi/nsipm_mat"]; //Number of SiPMs per SciFi mat
 
 	Double_t fWidthChannel = conf_floats["Scifi/channel_width"]; //One channel width 
+	Double_t fHeightChannel = conf_floats["Scifi/channel_height"]; //One channel height
 	Double_t fCharr = conf_floats["Scifi/charr_width"]; //Width of an array of 64 channels without gaps
 	Double_t fEdge = conf_floats["Scifi/sipm_edge"]; //Edge at the left and right sides of the SiPM
 	Double_t fCharrGap = conf_floats["Scifi/charr_gap"]; //Gap between two charr
@@ -354,7 +355,7 @@ void Scifi::ConstructGeometry()
     volTarget->AddNode(ScifiVolume, node, 
                new TGeoTranslation(DeltasV[istation][0], DeltasH[istation][1], DeltasH[istation][2]));
 
-    //std::cout<<"deltas "<<DeltasV[istation][0]<<" "<< DeltasH[istation][1]<<" "<< DeltasH[istation][2]<<" "<<totalThickness<<std::endl;
+    std::cout<<"deltas "<<DeltasV[istation][0]<<" "<< DeltasH[istation][1]<<" "<< DeltasH[istation][2]<<" "<<totalThickness<<std::endl;
     // for 2023 testbeam put iron blocks of variable length in between SciFi planes - the planes are dowstream of the blocks!
     if (fNScifi==4 && istation != 0) {
        volFeTarget[istation] = gGeoManager->MakeBox(TString("volFeTarget"+station),Fe,fFeTargetX[istation]/2., fFeTargetY[istation]/2., fFeTargetZ[istation]/2.);
