@@ -4,8 +4,10 @@
 #include <stdexcept>
 #include <fstream>
 #include <sstream>
+#include <memory>
 
 #include "TChain.h"
+#include <TString.h>
 
 std::string snd::analysis_tools::GetDataBasePath(const std::string& csv_file_path, int run_number) {
     std::ifstream file(csv_file_path);
@@ -36,9 +38,9 @@ std::string snd::analysis_tools::GetDataBasePath(const std::string& csv_file_pat
     throw std::runtime_error("Run number not found in CSV mapping.");
 }
 
-TChain* snd::analysis_tools::GetTChain(const std::string& csv_file_path, int run_number, int n_files){
+std::unique_ptr<TChain> snd::analysis_tools::GetTChain(const std::string& csv_file_path, int run_number, int n_files){
     std::string base_folder = GetDataBasePath(csv_file_path, run_number);
-    TChain* tchain = new TChain("rawConv");
+    auto tchain = std::make_unique<TChain>("rawConv");
     if (n_files == -1) {
         tchain->Add(Form("%srun_%06d/sndsw_raw-*", base_folder.c_str(), run_number));
     }
@@ -50,8 +52,8 @@ TChain* snd::analysis_tools::GetTChain(const std::string& csv_file_path, int run
     return tchain;
 };
 
-TChain* snd::analysis_tools::GetTChain(std::string file_name){
-    TChain* tchain = new TChain("rawConv");
+std::unique_ptr<TChain> snd::analysis_tools::GetTChain(std::string file_name){
+    auto tchain = std::make_unique<TChain>("rawConv");
     tchain->Add(file_name.c_str());
     return tchain;
 };
