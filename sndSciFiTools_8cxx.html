@@ -162,37 +162,8 @@ Include dependency graph for sndSciFiTools.cxx:</div>
 Functions</h2></td></tr>
 <tr class="memitem:a1fd0777019d2b6e914490ff374f2f922" id="r_a1fd0777019d2b6e914490ff374f2f922"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sndSciFiTools_8cxx.html#a1fd0777019d2b6e914490ff374f2f922">validateHit</a> (<a class="el" href="classsndScifiHit.html">sndScifiHit</a> *aHit, int ref_station, bool ref_orientation)</td></tr>
 <tr class="separator:a1fd0777019d2b6e914490ff374f2f922"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68a41647c6ca463cb0f0bd4decd79daa" id="r_a68a41647c6ca463cb0f0bd4decd79daa"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sndSciFiTools_8cxx.html#a68a41647c6ca463cb0f0bd4decd79daa">computeMean</a> (const std::vector&lt; double &gt; &amp;values)</td></tr>
-<tr class="separator:a68a41647c6ca463cb0f0bd4decd79daa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a68a41647c6ca463cb0f0bd4decd79daa" name="a68a41647c6ca463cb0f0bd4decd79daa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a68a41647c6ca463cb0f0bd4decd79daa">&#9670;&#160;</a></span>computeMean()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double computeMean </td>
-          <td>(</td>
-          <td class="paramtype">const std::vector&lt; double &gt; &amp;&#160;</td>
-          <td class="paramname"><em>values</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="sndSciFiTools_8cxx_source.html#l00545">545</a> of file <a class="el" href="sndSciFiTools_8cxx_source.html">sndSciFiTools.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  546</span>{</div>
-<div class="line"><span class="lineno">  547</span>    <span class="keywordtype">double</span> sum = std::accumulate(<a class="code hl_variable" href="namespaceconditionsDatabase_1_1tests_1_1benchmark__api.html#ac1ed97d908ba6b9513ec2af00658e9f4">values</a>.begin(), <a class="code hl_variable" href="namespaceconditionsDatabase_1_1tests_1_1benchmark__api.html#ac1ed97d908ba6b9513ec2af00658e9f4">values</a>.end(), 0.0);</div>
-<div class="line"><span class="lineno">  548</span>    <span class="keywordtype">double</span> mean = sum / <a class="code hl_variable" href="namespaceconditionsDatabase_1_1tests_1_1benchmark__api.html#ac1ed97d908ba6b9513ec2af00658e9f4">values</a>.size();</div>
-<div class="line"><span class="lineno">  549</span> </div>
-<div class="line"><span class="lineno">  550</span>    <span class="keywordflow">return</span> mean;</div>
-<div class="line"><span class="lineno">  551</span>}</div>
-<div class="ttc" id="anamespaceconditionsDatabase_1_1tests_1_1benchmark__api_html_ac1ed97d908ba6b9513ec2af00658e9f4"><div class="ttname"><a href="namespaceconditionsDatabase_1_1tests_1_1benchmark__api.html#ac1ed97d908ba6b9513ec2af00658e9f4">conditionsDatabase.tests.benchmark_api.values</a></div><div class="ttdeci">dict values</div><div class="ttdef"><b>Definition</b> <a href="benchmark__api_8py_source.html#l00072">benchmark_api.py:72</a></div></div>
-</div><!-- fragment -->
-</div>
-</div>
 <a id="a1fd0777019d2b6e914490ff374f2f922" name="a1fd0777019d2b6e914490ff374f2f922"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1fd0777019d2b6e914490ff374f2f922">&#9670;&#160;</a></span>validateHit()</h2>
 
