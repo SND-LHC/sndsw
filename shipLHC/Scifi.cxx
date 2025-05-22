@@ -376,7 +376,7 @@ void Scifi::ConstructGeometry()
 	ScifiVolume->AddNode(PlasticAirVolume, 0, new TGeoTranslation(0, 0, fZCarbonFiber + fZGlue + fZHoneycomb + fZGlue + fZCarbonFiber + fZGlue + fZEpoxyMat + fZGlue + fZPlastBar/2));
 
 
-	Double_t first_half_z = fZCarbonFiber + fZGlue + fZHoneycomb + fZGlue + fZCarbonFiber + fZGlue + fZEpoxyMat + fZGlue + fZPlastBar/2;
+	Double_t first_half_z = fZCarbonFiber + fZGlue + fZHoneycomb + fZGlue + fZCarbonFiber + fZGlue + fZEpoxyMat + fZGlue + fZPlastBar;
 	ScifiVolume->AddNode(AirgapVolume, 0, new TGeoTranslation(0, 0, first_half_z + fZAirgap/2));
 
 	//Adding the second half of the SciFi module that contains vertical fibres
