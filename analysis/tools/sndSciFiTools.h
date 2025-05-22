@@ -23,7 +23,7 @@ namespace snd {
     int findScifiStation(const TClonesArray * digiHits, float threshold);
 
     // Function to get the peak of the Scifi hit timing distribution for any given plane
-    float peakScifiTiming(const TClonesArray &digiHits, int bins, float min_x, float max_x); 
+    float peakScifiTiming(const TClonesArray &digiHits, int bins, float min_x, float max_x, bool isMC=false); 
 
     // Function to get the hits in station n and plane X or Y
     // Station and orientation are defined with the same convention as the outputs of
@@ -38,8 +38,8 @@ namespace snd {
     // selection_parameters[3]
     // make_selection determines whether you want to select the hits for the respective plane
     // or not and skip that step (in case the hits are already curated)
-    std::unique_ptr<TClonesArray> selectScifiHits(const TClonesArray &digiHits, int station, bool orientation, int bins_x=52, float min_x=0.0, float max_x=26.0, float time_lower_range=1E9/(2*ShipUnit::snd_freq), float time_upper_range=2E9/(ShipUnit::snd_freq/ShipUnit::hertz), bool make_selection=true);
-    std::unique_ptr<TClonesArray> selectScifiHits(const TClonesArray &digiHits, int station, bool orientation, const std::map<std::string, float> &selection_parameters, bool make_selection=true);
+    std::unique_ptr<TClonesArray> selectScifiHits(const TClonesArray &digiHits, int station, bool orientation, int bins_x=52, float min_x=0.0, float max_x=26.0, float time_lower_range=1E9/(2*ShipUnit::snd_freq), float time_upper_range=1.2E9/(ShipUnit::snd_freq/ShipUnit::hertz), bool make_selection=true, bool isMC=false);
+    std::unique_ptr<TClonesArray> selectScifiHits(const TClonesArray &digiHits, int station, bool orientation, const std::map<std::string, float> &selection_parameters, bool make_selection=true, bool isMC=false);
 
     // Function to obtain the ScifiHits that are considered to be useful from an event
     // selection_parameters is the number of bins for the histogram, min_x, max_x and
@@ -47,9 +47,9 @@ namespace snd {
     // Methods available are as follows:
     // (0) Events within \pm range of the peak of the time distribution for Scifi Hits within
     // each station and orientation
-    std::unique_ptr<TClonesArray> filterScifiHits(const TClonesArray &digiHits, const std::map<std::string, float> &selection_parameters, int method=0, std::string setup="TI18");
+    std::unique_ptr<TClonesArray> filterScifiHits(const TClonesArray &digiHits, const std::map<std::string, float> &selection_parameters, int method=0, std::string setup="TI18", bool isMC=false);
     //Foregoing the selection_parameters option runs with the default values
-    std::unique_ptr<TClonesArray> filterScifiHits(const TClonesArray &digiHits, int method=0, std::string setup="TI18");
+    std::unique_ptr<TClonesArray> filterScifiHits(const TClonesArray &digiHits, int method=0, std::string setup="TI18", bool isMC=false);
 
     // Function to calculate the number of the SiPM channel with respect to the whole station
     // referene_SiPM given in the format of sndScifiHit->GetChannelID()
@@ -73,8 +73,7 @@ namespace snd {
     // selection to be made relying on a single orientation, then "orientation" can be provided
     // in the for of 0 or 1, for the horizontal and vertical orientations, respectively
     int showerInteractionWall(const TClonesArray &digiHits, const std::map<std::string, float> &selection_parameters, int method=0, std::string setup="TI18");
-    //Foregoing the selection_parameters option runs with the default values
+    // Foregoing the selection_parameters option runs with the default values
     int showerInteractionWall(const TClonesArray &digiHits, int method=0, std::string setup="TI18");
-
   }
 }
