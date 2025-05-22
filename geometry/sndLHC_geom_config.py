@@ -111,7 +111,9 @@ with ConfigRegistry.register_config("basic") as c:
         c.Scifi.rowshort_offset = 0.0215 *u.cm 
 
         c.Scifi.carbonfiber_z = 0.02 *u.cm
-        c.Scifi.honeycomb_z = 0.5 *u.cm
+        c.Scifi.honeycomb_z = 0.51 *u.cm
+        c.Scifi.glue_z = 0.005 *u.cm
+        c.Scifi.airgap_z = 0.04 *u.cm
        
         c.Scifi.plastbar_x = 1.5 *u.cm
         c.Scifi.plastbar_y = c.Scifi.ydim
