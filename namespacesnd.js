@@ -5,8 +5,8 @@ var namespacesnd =
       [ "calculateSiPMNumber", "namespacesnd_1_1analysis__tools.html#a072fe05f5196e2d1f0baf54ac8c62793", null ],
       [ "densityCheck", "namespacesnd_1_1analysis__tools.html#aa6dd4352f5c110708f8070ad1c88a907", null ],
       [ "densityScifi", "namespacesnd_1_1analysis__tools.html#a898d2da7d9071ef733eb86625ed1cc7d", null ],
-      [ "filterScifiHits", "namespacesnd_1_1analysis__tools.html#a78c74efd98070d9f53be87caa79640bb", null ],
-      [ "filterScifiHits", "namespacesnd_1_1analysis__tools.html#a2a0743bec57ce3c0441563fab456f415", null ],
+      [ "filterScifiHits", "namespacesnd_1_1analysis__tools.html#a4a13c3ae2f5d528737de97d8837f2df9", null ],
+      [ "filterScifiHits", "namespacesnd_1_1analysis__tools.html#aabaf2879845b2998aeab516ce908994d", null ],
       [ "findScifiStation", "namespacesnd_1_1analysis__tools.html#aaf671a252762c6da49f48a7e6cc31431", null ],
       [ "findScifiStation", "namespacesnd_1_1analysis__tools.html#a1cfa1e0acecf53005048a0b11c125b57", null ],
       [ "GetDataBasePath", "namespacesnd_1_1analysis__tools.html#a140fdd9c79e8c41365ece33a0416482a", null ],
@@ -21,9 +21,9 @@ var namespacesnd =
       [ "GetTChain", "namespacesnd_1_1analysis__tools.html#a7b1e884a03c24b887a7fca201a0a4b69", null ],
       [ "getTotalSciFiHits", "namespacesnd_1_1analysis__tools.html#ab2e65a7ac6bc899bf97748cab9c03da6", null ],
       [ "getTotalSciFiHits", "namespacesnd_1_1analysis__tools.html#add38a36ae42dce4c3e48621c2c4d0b23", null ],
-      [ "peakScifiTiming", "namespacesnd_1_1analysis__tools.html#a5159d7eeb2993eba4f46fcd69f625612", null ],
-      [ "selectScifiHits", "namespacesnd_1_1analysis__tools.html#aeca7f1eae2a9e2ff5c2aabf1319c954a", null ],
-      [ "selectScifiHits", "namespacesnd_1_1analysis__tools.html#aeb14e67896089cd76dae5e5131de402e", null ],
+      [ "peakScifiTiming", "namespacesnd_1_1analysis__tools.html#a22e18e1d83715d3cecf04d03eb350cac", null ],
+      [ "selectScifiHits", "namespacesnd_1_1analysis__tools.html#a06cbff42f3e162d8c91b1d3388771179", null ],
+      [ "selectScifiHits", "namespacesnd_1_1analysis__tools.html#a18acfed54a271308bcd04deea70d239b", null ],
       [ "showerInteractionWall", "namespacesnd_1_1analysis__tools.html#a3efcc7ce16eb9a30afcdcedd2c4f4ac2", null ],
       [ "showerInteractionWall", "namespacesnd_1_1analysis__tools.html#a78b08ea6c3c2d141709d92390c1f87b8", null ]
     ] ]
