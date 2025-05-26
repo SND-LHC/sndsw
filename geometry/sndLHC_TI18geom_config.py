@@ -66,6 +66,7 @@ with ConfigRegistry.register_config("basic") as c:
 
         #SiPM parameters
         c.Scifi.channel_width     = 0.25 *u.mm
+        c.Scifi.channel_height     = 1.62 *u.mm
         c.Scifi.sipm_edge = 0.17*u.mm    # on both ends
         c.Scifi.charr_gap = 0.2 *u.mm
         c.Scifi.charr_width = 64 * c.Scifi.channel_width
@@ -85,7 +86,7 @@ with ConfigRegistry.register_config("basic") as c:
         c.Scifi.scifimat_width = (c.Scifi.SiPMarray_width+c.Scifi.sipm_diegap)*c.Scifi.nsipm_mat -0.5*u.mm
         c.Scifi.scifimat_length = c.Scifi.ydim
         c.Scifi.scifimat_z = 0.135 *u.cm
-        c.Scifi.epoxymat_z = 0.162 *u.cm
+        c.Scifi.epoxymat_z = 0.145 *u.cm
         c.Scifi.scifimat_gap = 0.05 *u.cm
         
         c.Scifi.fiber_length = c.Scifi.scifimat_length
@@ -101,7 +102,9 @@ with ConfigRegistry.register_config("basic") as c:
         c.Scifi.rowshort_offset = 0.0215 *u.cm 
 
         c.Scifi.carbonfiber_z = 0.02 *u.cm
-        c.Scifi.honeycomb_z = 0.5 *u.cm
+        c.Scifi.honeycomb_z = 0.51 *u.cm
+        c.Scifi.glue_z = 0.005 *u.cm
+        c.Scifi.airgap_z = 0.04 *u.cm
        
         c.Scifi.plastbar_x = 1.5 *u.cm
         c.Scifi.plastbar_y = c.Scifi.ydim
