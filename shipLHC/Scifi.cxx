@@ -171,6 +171,8 @@ void Scifi::ConstructGeometry()
 
 	Double_t fZCarbonFiber = conf_floats["Scifi/carbonfiber_z"];
 	Double_t fZHoneycomb = conf_floats["Scifi/honeycomb_z"];
+	Double_t fZGlue = conf_floats["Scifi/glue_z"];
+	Double_t fZAirgap = conf_floats["Scifi/airgap_z"];
 
 	Double_t fXPlastBar = conf_floats["Scifi/plastbar_x"]; //Dimension of plastic bar
 	Double_t fYPlastBar = conf_floats["Scifi/plastbar_y"]; 
@@ -187,6 +189,7 @@ void Scifi::ConstructGeometry()
 	Int_t fNSiPMs  = conf_ints["Scifi/nsipm_mat"]; //Number of SiPMs per SciFi mat
 
 	Double_t fWidthChannel = conf_floats["Scifi/channel_width"]; //One channel width 
+	Double_t fHeightChannel = conf_floats["Scifi/channel_height"]; //One channel height
 	Double_t fCharr = conf_floats["Scifi/charr_width"]; //Width of an array of 64 channels without gaps
 	Double_t fEdge = conf_floats["Scifi/sipm_edge"]; //Edge at the left and right sides of the SiPM
 	Double_t fCharrGap = conf_floats["Scifi/charr_gap"]; //Gap between two charr
@@ -231,6 +234,16 @@ void Scifi::ConstructGeometry()
   HoneycombVolume->SetLineColor(kYellow);
   HoneycombVolume->SetVisibility(1);
 
+  // Glue between Carbon Fiber and Honeycomb or Glue between Carbon Fiber and Scifi mat
+  TGeoVolume *GlueVolume = gGeoManager->MakeBox("Glue", Epoxy, fXDimension/2, fYDimension/2, fZGlue/2);
+  GlueVolume->SetLineColor(kYellow-1);
+  GlueVolume->SetVisibility(1);
+
+  // Air gap in the middle
+  TGeoVolume *AirgapVolume = gGeoManager->MakeBox("Airgap", air, fXDimension/2, fYDimension/2, fZAirgap/2);
+  AirgapVolume->SetLineColor(kGray-1);
+  AirgapVolume->SetVisibility(1);
+
   //Plastic/Air
   //Definition of the box containing polycarbonate pieces and an air gap
   TGeoVolume *PlasticAirVolume = gGeoManager->MakeBox("PlasticAir", air, fXDimension/2, fYDimension/2, fZPlastBar/2); 
@@ -245,6 +258,22 @@ void Scifi::ConstructGeometry()
 
   PlasticAirVolume->AddNode(PlasticBarVolume, 0, new TGeoTranslation(- fXDimension/2 + fXPlastBar/2, 0, 0));  //bars are placed || to y
   PlasticAirVolume->AddNode(PlasticBarVolume, 1, new TGeoTranslation(+ fXDimension/2 - fXPlastBar/2, 0, 0));
+
+  //Plastic Glue  Air
+  //Definition of the box containing glue between plastic bar and scifi mat, and an air in the middel
+  TGeoVolume *PlasticGlueAirVolume = gGeoManager->MakeBox("PlasticGlueAir", air, fXDimension/2, fYDimension/2, fZGlue/2); 
+  PlasticGlueAirVolume->SetLineColor(kGray-1);
+  PlasticGlueAirVolume->SetVisibility(1);
+  PlasticGlueAirVolume->SetVisDaughters(1);
+  
+  //Plastic glue bars
+  TGeoVolume *PlasticGlueBarVolume = gGeoManager->MakeBox("PlasticGlueBar", Epoxy, fXPlastBar/2, fYPlastBar/2, fZGlue/2); 
+  PlasticGlueBarVolume->SetLineColor(kYellow-1);
+  PlasticGlueBarVolume->SetVisibility(1);
+
+  PlasticGlueAirVolume->AddNode(PlasticGlueBarVolume, 0, new TGeoTranslation(- fXDimension/2 + fXPlastBar/2, 0, 0));  //bars are placed || to y
+  PlasticGlueAirVolume->AddNode(PlasticGlueBarVolume, 1, new TGeoTranslation(+ fXDimension/2 - fXPlastBar/2, 0, 0));
+
 
   //Fiber volume that contains the scintillating core and double cladding
   TGeoVolumeAssembly *FiberVolume = new TGeoVolumeAssembly("FiberVolume");
@@ -335,26 +364,42 @@ void Scifi::ConstructGeometry()
     TGeoVolumeAssembly *ScifiHorPlaneVol = new TGeoVolumeAssembly( TString("ScifiHorPlaneVol"+station) );
     TGeoVolumeAssembly *ScifiVertPlaneVol = new TGeoVolumeAssembly( TString("ScifiVertPlaneVol"+station) );
 
-    //Adding the first half of the SciFi module that contains horizontal fibres
-    ScifiVolume->AddNode(CarbonFiberVolume, 0, new TGeoTranslation(0, 0, fZCarbonFiber/2));
-    ScifiVolume->AddNode(HoneycombVolume, 0, new TGeoTranslation(0, 0, fZCarbonFiber + fZHoneycomb/2));
-    ScifiVolume->AddNode(CarbonFiberVolume, 1, new TGeoTranslation(0, 0, fZCarbonFiber + fZHoneycomb + fZCarbonFiber/2));
-    ScifiVolume->AddNode(ScifiHorPlaneVol, node, new TGeoTranslation(0, 0, 2*fZCarbonFiber + fZHoneycomb + fZEpoxyMat/2));
-    ScifiVolume->AddNode(PlasticAirVolume, 0, new TGeoTranslation(0, 0, 2*fZCarbonFiber + fZHoneycomb + fZEpoxyMat+ fZPlastBar/2));
-  
-    //Adding the second half of the SciFi module that contains vertical fibres
-    ScifiVolume->AddNode(PlasticAirVolume, 1, new TGeoCombiTrans("rottrans0", 0, 0, 2*fZCarbonFiber + fZHoneycomb + fZEpoxyMat + 3*fZPlastBar/2, rot));
-    ScifiVolume->AddNode(ScifiVertPlaneVol, node, new TGeoTranslation(0, 0, 2*fZCarbonFiber + fZHoneycomb + fZEpoxyMat + 2*fZPlastBar + fZEpoxyMat/2));
-    ScifiVolume->AddNode(CarbonFiberVolume, 2, new TGeoTranslation(0, 0, 2*fZCarbonFiber + fZHoneycomb + fZEpoxyMat + 2*fZPlastBar + fZEpoxyMat +fZCarbonFiber/2));
-    ScifiVolume->AddNode(HoneycombVolume, 1, new TGeoTranslation(0, 0, 3*fZCarbonFiber + fZHoneycomb + fZEpoxyMat + 2*fZPlastBar + fZEpoxyMat + fZHoneycomb/2));
-    ScifiVolume->AddNode(CarbonFiberVolume, 3, new TGeoTranslation(0, 0, 3*fZCarbonFiber + 2*fZHoneycomb + fZEpoxyMat + 2*fZPlastBar + fZEpoxyMat + fZCarbonFiber/2));
+	//Adding the first half of the SciFi module that contains horizontal fibres
+	ScifiVolume->AddNode(CarbonFiberVolume, 0, new TGeoTranslation(0, 0, fZCarbonFiber/2));
+	ScifiVolume->AddNode(GlueVolume, 0, new TGeoTranslation(0, 0, fZCarbonFiber + fZGlue/2));
+	ScifiVolume->AddNode(HoneycombVolume, 0, new TGeoTranslation(0, 0, fZCarbonFiber + fZGlue + fZHoneycomb/2));
+	ScifiVolume->AddNode(GlueVolume, 1, new TGeoTranslation(0, 0, fZCarbonFiber + fZGlue + fZHoneycomb + fZGlue/2));
+	ScifiVolume->AddNode(CarbonFiberVolume, 1, new TGeoTranslation(0, 0, fZCarbonFiber + fZGlue + fZHoneycomb + fZGlue + fZCarbonFiber/2));
+	ScifiVolume->AddNode(GlueVolume, 2, new TGeoTranslation(0, 0, fZCarbonFiber + fZGlue + fZHoneycomb + fZGlue + fZCarbonFiber + fZGlue/2));
+	ScifiVolume->AddNode(ScifiHorPlaneVol, node, new TGeoTranslation(0, 0, fZCarbonFiber + fZGlue + fZHoneycomb + fZGlue + fZCarbonFiber + fZGlue + fZEpoxyMat/2));
+	ScifiVolume->AddNode(PlasticGlueAirVolume, 0, new TGeoTranslation(0, 0, fZCarbonFiber + fZGlue + fZHoneycomb + fZGlue + fZCarbonFiber + fZGlue + fZEpoxyMat + fZGlue/2));
+	ScifiVolume->AddNode(PlasticAirVolume, 0, new TGeoTranslation(0, 0, fZCarbonFiber + fZGlue + fZHoneycomb + fZGlue + fZCarbonFiber + fZGlue + fZEpoxyMat + fZGlue + fZPlastBar/2));
 
-    Double_t totalThickness = 4*fZCarbonFiber + 2*fZHoneycomb + 2*fZEpoxyMat + 2*fZPlastBar;
+
+	Double_t first_half_z = fZCarbonFiber + fZGlue + fZHoneycomb + fZGlue + fZCarbonFiber + fZGlue + fZEpoxyMat + fZGlue + fZPlastBar;
+	ScifiVolume->AddNode(AirgapVolume, 0, new TGeoTranslation(0, 0, first_half_z + fZAirgap/2));
+
+	//Adding the second half of the SciFi module that contains vertical fibres
+	ScifiVolume->AddNode(PlasticAirVolume, 1, new TGeoCombiTrans("rottrans0", 0, 0, first_half_z + fZAirgap + fZPlastBar/2, rot));
+	ScifiVolume->AddNode(PlasticGlueAirVolume, 1, new TGeoCombiTrans("rottrans0",0, 0, first_half_z + fZAirgap + fZPlastBar + fZGlue/2, rot));
+	ScifiVolume->AddNode(ScifiVertPlaneVol, node, new TGeoTranslation(0, 0, first_half_z + fZAirgap + fZPlastBar + fZGlue + fZEpoxyMat/2));
+	ScifiVolume->AddNode(GlueVolume, 3, new TGeoTranslation(0, 0, first_half_z + fZAirgap + fZPlastBar + fZGlue + fZEpoxyMat + fZGlue/2));
+	ScifiVolume->AddNode(CarbonFiberVolume, 2, new TGeoTranslation(0, 0, first_half_z + fZAirgap + fZPlastBar + fZGlue + fZEpoxyMat + fZGlue + fZCarbonFiber/2));
+	ScifiVolume->AddNode(GlueVolume, 4, new TGeoTranslation(0, 0, first_half_z + fZAirgap + fZPlastBar + fZGlue + fZEpoxyMat + fZGlue + fZCarbonFiber + fZGlue/2));
+	ScifiVolume->AddNode(HoneycombVolume, 0, new TGeoTranslation(0, 0, first_half_z + fZAirgap + fZPlastBar + fZGlue + fZEpoxyMat + fZGlue + fZCarbonFiber + fZGlue + fZHoneycomb/2));
+	ScifiVolume->AddNode(GlueVolume, 5, new TGeoTranslation(0, 0, first_half_z + fZAirgap + fZPlastBar + fZGlue + fZEpoxyMat + fZGlue + fZCarbonFiber + fZGlue + fZHoneycomb + fZGlue/2));
+	ScifiVolume->AddNode(CarbonFiberVolume, 3, new TGeoTranslation(0, 0, first_half_z + fZAirgap + fZPlastBar + fZGlue + fZEpoxyMat + fZGlue + fZCarbonFiber + fZGlue + fZHoneycomb + fZGlue + fZCarbonFiber/2));
+
+	// Double_t totalThickness = fZCarbonFiber + fZGlue + fZHoneycomb + fZGlue + fZCarbonFiber + fZGlue + fZEpoxyMat + fZGlue + fZPlastBar + fZAirgap + fZPlastBar + fZGlue + fZEpoxyMat + fZGlue + fZCarbonFiber + fZGlue + fZHoneycomb + fZGlue + fZCarbonFiber;
+	Double_t totalThickness = fZCarbonFiber + fZGlue + fZHoneycomb + fZGlue + fZCarbonFiber +
+                          fZGlue + fZEpoxyMat + fZGlue + fZPlastBar + fZAirgap + fZPlastBar +
+                          fZGlue + fZEpoxyMat + fZGlue + fZCarbonFiber + fZGlue + fZHoneycomb +
+                          fZGlue + fZCarbonFiber;
 
     volTarget->AddNode(ScifiVolume, node, 
                new TGeoTranslation(DeltasV[istation][0], DeltasH[istation][1], DeltasH[istation][2]));
 
-    //std::cout<<"deltas "<<DeltasV[istation][0]<<" "<< DeltasH[istation][1]<<" "<< DeltasH[istation][2]<<" "<<totalThickness<<std::endl;
+    // std::cout<<"deltas "<<DeltasV[istation][0]<<" "<< DeltasH[istation][1]<<" "<< DeltasH[istation][2]<<" "<<totalThickness<<std::endl;
     // for 2023 testbeam put iron blocks of variable length in between SciFi planes - the planes are dowstream of the blocks!
     if (fNScifi==4 && istation != 0) {
        volFeTarget[istation] = gGeoManager->MakeBox(TString("volFeTarget"+station),Fe,fFeTargetX[istation]/2., fFeTargetY[istation]/2., fFeTargetZ[istation]/2.);
@@ -384,7 +429,7 @@ void Scifi::SiPMOverlap()
     if (gGeoManager->FindVolumeFast("SiPMmapVol")){return;}
 	Double_t fLengthScifiMat = conf_floats["Scifi/scifimat_length"];
 	Double_t fWidthChannel = conf_floats["Scifi/channel_width"];
-	Double_t fZEpoxyMat          = conf_floats["Scifi/epoxymat_z"];
+	Double_t fHeightChannel = conf_floats["Scifi/channel_height"]; 
 	Int_t fNSiPMChan = conf_ints["Scifi/nsipm_channels"];
 	Int_t fNSiPMs  = conf_ints["Scifi/nsipm_mat"];
 	Int_t fNMats   = conf_ints["Scifi/nmats"]; 
@@ -398,7 +443,7 @@ void Scifi::SiPMOverlap()
     //To obtain SiPM map for vertical fiber plane rotate by 90 degrees around Z
     TGeoVolumeAssembly *SiPMmapVol = new TGeoVolumeAssembly("SiPMmapVol");
 
-    TGeoVolume*ChannelVol = gGeoManager->MakeBox("ChannelVol", 0, fLengthScifiMat/2, fWidthChannel/2, fZEpoxyMat/2);
+    TGeoVolume*ChannelVol = gGeoManager->MakeBox("ChannelVol", 0, fLengthScifiMat/2, fWidthChannel/2, fHeightChannel/2);
 
     //DetID for each channel:
     //first digit: mat number (0-2)
