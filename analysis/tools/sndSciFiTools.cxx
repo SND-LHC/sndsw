@@ -8,7 +8,6 @@
 #include "TClonesArray.h"
 #include "sndScifiHit.h"
 #include "ROOT/TSeq.hxx"
-#include "Scifi.h"
 
 void snd::analysis_tools::getSciFiHitsPerStation(const TClonesArray *digiHits, std::vector<int> &horizontal_hits,
                                                  std::vector<int> &vertical_hits)
