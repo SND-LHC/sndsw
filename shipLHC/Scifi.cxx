@@ -240,9 +240,9 @@ void Scifi::ConstructGeometry()
   GlueVolume->SetVisibility(1);
 
   // Air gap in the middle
-  TGeoVolume *AirgapVolume = gGeoManager->MakeBox("Airgap", air, fXDimension/2, fYDimension/2, fZAirgap/2);
-  AirgapVolume->SetLineColor(kGray-1);
-  AirgapVolume->SetVisibility(1);
+  TGeoVolume *AirGapVolume = gGeoManager->MakeBox("Airgap", air, fXDimension/2, fYDimension/2, fZAirgap/2);
+  AirGapVolume->SetLineColor(kGray-1);
+  AirGapVolume->SetVisibility(1);
 
   //Plastic/Air
   //Definition of the box containing polycarbonate pieces and an air gap
@@ -377,7 +377,7 @@ void Scifi::ConstructGeometry()
 
 
 	Double_t first_half_z = fZCarbonFiber + fZGlue + fZHoneycomb + fZGlue + fZCarbonFiber + fZGlue + fZEpoxyMat + fZGlue + fZPlastBar;
-	ScifiVolume->AddNode(AirgapVolume, 0, new TGeoTranslation(0, 0, first_half_z + fZAirgap/2));
+	ScifiVolume->AddNode(AirGapVolume, 0, new TGeoTranslation(0, 0, first_half_z + fZAirgap/2));
 
 	//Adding the second half of the SciFi module that contains vertical fibres
 	ScifiVolume->AddNode(PlasticAirVolume, 1, new TGeoCombiTrans("rottrans0", 0, 0, first_half_z + fZAirgap + fZPlastBar/2, rot));
