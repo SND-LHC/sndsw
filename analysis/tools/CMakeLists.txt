@@ -13,6 +13,10 @@ set(SRCS
 sndSciFiTools.cxx
 sndTchainGetter.cxx
 sndGeometryGetter.cxx
+sndConfiguration.cxx
+sndScifiPlane.cxx
+sndUsPlane.cxx
+sndPlaneTools.cxx
 )
 
 set(LINK_DIRECTORIES
