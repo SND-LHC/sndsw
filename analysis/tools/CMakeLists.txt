@@ -13,6 +13,7 @@ set(SRCS
 sndSciFiTools.cxx
 sndTchainGetter.cxx
 sndGeometryGetter.cxx
+sndConfiguration.cxx
 )
 
 set(LINK_DIRECTORIES
