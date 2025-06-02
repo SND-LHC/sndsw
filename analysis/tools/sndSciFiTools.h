@@ -78,6 +78,6 @@ namespace snd {
     int showerInteractionWall(const TClonesArray &digiHits, int method=0, std::string setup="TI18");
 
     // Find the Center of Particle Showering on the SciFi plane
-    std::pair<double, double> findCentreOfGravityPerStation(const TClonesArray* digiHits, int station, const Scifi* ScifiDet);
+    std::pair<double, double> findCentreOfGravityPerStation(const TClonesArray* digiHits, int station, Scifi* ScifiDet);
   }
 }

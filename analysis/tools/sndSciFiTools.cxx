@@ -562,7 +562,7 @@ double computeMean(const std::vector<double>& values)
 }
 
 std::pair<double, double>
-snd::analysis_tools::findCentreOfGravityPerStation(const TClonesArray* digiHits, int station, const Scifi* ScifiDet)
+snd::analysis_tools::findCentreOfGravityPerStation(const TClonesArray* digiHits, int station, Scifi* ScifiDet)
 {
    if (!digiHits) {
       LOG(ERROR) << "Error: digiHits is null in findCentreOfGravityPerStation";
