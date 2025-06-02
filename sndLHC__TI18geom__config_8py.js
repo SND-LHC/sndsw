@@ -1,6 +1,7 @@
 var sndLHC__TI18geom__config_8py =
 [
     [ "Acrylic_width", "sndLHC__TI18geom__config_8py.html#a99928819d9ccdac0bda107858feec574", null ],
+    [ "airgap_z", "sndLHC__TI18geom__config_8py.html#a3176abe907d57132f7c045178870bbad", null ],
     [ "AllPW", "sndLHC__TI18geom__config_8py.html#a590206d70c18ff5caf2ba62db2b671d2", null ],
     [ "BPoly_width", "sndLHC__TI18geom__config_8py.html#ad9a6dd14598f13896285cbdc876a08ab", null ],
     [ "BrPackX", "sndLHC__TI18geom__config_8py.html#a16359112427e47fd0fa80b728c55aa4d", null ],
@@ -17,6 +18,7 @@ var sndLHC__TI18geom__config_8py =
     [ "CBFrontWall_ydim", "sndLHC__TI18geom__config_8py.html#a783ac7353f90128990857f2e3acc6701", null ],
     [ "CBLatWall_zdim", "sndLHC__TI18geom__config_8py.html#a7adb55c47f2e6e8d32914545abbe2a25", null ],
     [ "CBTiny_zdim", "sndLHC__TI18geom__config_8py.html#a01f6d5b75fc1c48dc6ec3e4bf2c29d03", null ],
+    [ "channel_height", "sndLHC__TI18geom__config_8py.html#a8a8a3729d52d2701a4a3b1cd28251635", null ],
     [ "channel_width", "sndLHC__TI18geom__config_8py.html#a1e7e5e32108dfd32e64672598de7225b", null ],
     [ "charr_gap", "sndLHC__TI18geom__config_8py.html#a0e84d066fd8a5c653d310d58944894ea", null ],
     [ "charr_width", "sndLHC__TI18geom__config_8py.html#a8ae217f0c57c103e284af64bd22aefa7", null ],
@@ -69,6 +71,7 @@ var sndLHC__TI18geom__config_8py =
     [ "FirstChannelVZ", "sndLHC__TI18geom__config_8py.html#a7eeec3d7a9fcd013308fb84d47c5b516", null ],
     [ "firstChannelX", "sndLHC__TI18geom__config_8py.html#ac0a1639eb8918882a167a427e8bf93e2", null ],
     [ "Floor", "sndLHC__TI18geom__config_8py.html#a2de3b420b89e7202173188160b380e2c", null ],
+    [ "glue_z", "sndLHC__TI18geom__config_8py.html#a01ef005c9a56a923651fc225a8311450", null ],
     [ "honeycomb_z", "sndLHC__TI18geom__config_8py.html#a203d11663ee3ab11f1f2208bcf8ef958", null ],
     [ "horizontal_pitch", "sndLHC__TI18geom__config_8py.html#abc0b9e1922a74501ad793d527d30d5ac", null ],
     [ "Iron1Dz", "sndLHC__TI18geom__config_8py.html#ac09e99eb24cd391a97b9b98ccf2e4bb7", null ],

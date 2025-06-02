@@ -773,6 +773,12 @@ var namespaces_dup =
       [ "__repr__", "namespacedecorators.html#a6ee47065a81ed3bd12cd798284605f36", null ],
       [ "Dump", "namespacedecorators.html#ab1d023ac32c0a742814957a7e4c21a42", null ]
     ] ],
+    [ "display_overlap", "namespacedisplay__overlap.html", [
+      [ "getFiberWeight", "namespacedisplay__overlap.html#aeec655079d6c407a7f9850e11a97a7ee", null ],
+      [ "load_scifi", "namespacedisplay__overlap.html#ada02c74d600dedf5660d28e2503777fc", null ],
+      [ "main", "namespacedisplay__overlap.html#a0e40e44fe739e719460768bce168787a", null ],
+      [ "plot_overlap", "namespacedisplay__overlap.html#a9ea180fa232e2d15cee76e0c84d4fcca", null ]
+    ] ],
     [ "dpProductionRates", "namespacedpProductionRates.html", [
       [ "brMesonToDP", "namespacedpProductionRates.html#a4af6a641de251cc7f5e016751954a39d", null ],
       [ "brMesonToGammaDP", "namespacedpProductionRates.html#adec3f55d66baf8956b5bd0e43b950888", null ],
@@ -3967,6 +3973,7 @@ var namespaces_dup =
     [ "snd", "namespacesnd.html", "namespacesnd" ],
     [ "sndLHC_geom_config", "namespacesndLHC__geom__config.html", [
       [ "Acrylic_width", "namespacesndLHC__geom__config.html#abea228ae1b50053d5163976ed4b4b133", null ],
+      [ "airgap_z", "namespacesndLHC__geom__config.html#ab824c5ca354c0034cf95098e475f26f1", null ],
       [ "AllPW", "namespacesndLHC__geom__config.html#a3ef6cc1369b93b648cf740558857b3fc", null ],
       [ "BPoly_width", "namespacesndLHC__geom__config.html#aac5e358c4a15186fae566e89b896eee2", null ],
       [ "BrPackX", "namespacesndLHC__geom__config.html#ace8ca52e7f7872e7341d8f3bee02b4b5", null ],
@@ -3983,6 +3990,7 @@ var namespaces_dup =
       [ "CBFrontWall_ydim", "namespacesndLHC__geom__config.html#a771c0f953048e9e9579a6a5cef906412", null ],
       [ "CBLatWall_zdim", "namespacesndLHC__geom__config.html#ad0e0807abddbbca830f3a7458dabeace", null ],
       [ "CBTiny_zdim", "namespacesndLHC__geom__config.html#a738b5c43570dd731f731717d526f0122", null ],
+      [ "channel_height", "namespacesndLHC__geom__config.html#a839b3ce39ad4e2aa0b7f69e8c6b92848", null ],
       [ "channel_width", "namespacesndLHC__geom__config.html#a15cf7ae4f3545c830dfbbb288925f856", null ],
       [ "charr_gap", "namespacesndLHC__geom__config.html#a3241dba5d383a78cbeb4a3d1e47ab529", null ],
       [ "charr_width", "namespacesndLHC__geom__config.html#aecd980952ab182508d3c60935dd666ee", null ],
@@ -4035,6 +4043,7 @@ var namespaces_dup =
       [ "FirstChannelVZ", "namespacesndLHC__geom__config.html#acbe53e3d72e38026677a5d47c2e2463d", null ],
       [ "firstChannelX", "namespacesndLHC__geom__config.html#a8a0b3aa0f58a05f5b98bae116008e609", null ],
       [ "Floor", "namespacesndLHC__geom__config.html#acd95785b50e25a9877b3073f05940293", null ],
+      [ "glue_z", "namespacesndLHC__geom__config.html#aa78c093ade6720e8ea853b0de6e8fa50", null ],
       [ "honeycomb_z", "namespacesndLHC__geom__config.html#a22a8b93f10a439002cf3b009771d5c16", null ],
       [ "horizontal_pitch", "namespacesndLHC__geom__config.html#a9262551ef45e3d7f472fc98aaafbd3f8", null ],
       [ "Iron1Dz", "namespacesndLHC__geom__config.html#a9a5ddaa6065fa73ebb35ad3c8dde2304", null ],
@@ -4606,6 +4615,7 @@ var namespaces_dup =
     ] ],
     [ "sndLHC_TI18geom_config", "namespacesndLHC__TI18geom__config.html", [
       [ "Acrylic_width", "namespacesndLHC__TI18geom__config.html#a99928819d9ccdac0bda107858feec574", null ],
+      [ "airgap_z", "namespacesndLHC__TI18geom__config.html#a3176abe907d57132f7c045178870bbad", null ],
       [ "AllPW", "namespacesndLHC__TI18geom__config.html#a590206d70c18ff5caf2ba62db2b671d2", null ],
       [ "BPoly_width", "namespacesndLHC__TI18geom__config.html#ad9a6dd14598f13896285cbdc876a08ab", null ],
       [ "BrPackX", "namespacesndLHC__TI18geom__config.html#a16359112427e47fd0fa80b728c55aa4d", null ],
@@ -4622,6 +4632,7 @@ var namespaces_dup =
       [ "CBFrontWall_ydim", "namespacesndLHC__TI18geom__config.html#a783ac7353f90128990857f2e3acc6701", null ],
       [ "CBLatWall_zdim", "namespacesndLHC__TI18geom__config.html#a7adb55c47f2e6e8d32914545abbe2a25", null ],
       [ "CBTiny_zdim", "namespacesndLHC__TI18geom__config.html#a01f6d5b75fc1c48dc6ec3e4bf2c29d03", null ],
+      [ "channel_height", "namespacesndLHC__TI18geom__config.html#a8a8a3729d52d2701a4a3b1cd28251635", null ],
       [ "channel_width", "namespacesndLHC__TI18geom__config.html#a1e7e5e32108dfd32e64672598de7225b", null ],
       [ "charr_gap", "namespacesndLHC__TI18geom__config.html#a0e84d066fd8a5c653d310d58944894ea", null ],
       [ "charr_width", "namespacesndLHC__TI18geom__config.html#a8ae217f0c57c103e284af64bd22aefa7", null ],
@@ -4674,6 +4685,7 @@ var namespaces_dup =
       [ "FirstChannelVZ", "namespacesndLHC__TI18geom__config.html#a7eeec3d7a9fcd013308fb84d47c5b516", null ],
       [ "firstChannelX", "namespacesndLHC__TI18geom__config.html#ac0a1639eb8918882a167a427e8bf93e2", null ],
       [ "Floor", "namespacesndLHC__TI18geom__config.html#a2de3b420b89e7202173188160b380e2c", null ],
+      [ "glue_z", "namespacesndLHC__TI18geom__config.html#a01ef005c9a56a923651fc225a8311450", null ],
       [ "honeycomb_z", "namespacesndLHC__TI18geom__config.html#a203d11663ee3ab11f1f2208bcf8ef958", null ],
       [ "horizontal_pitch", "namespacesndLHC__TI18geom__config.html#abc0b9e1922a74501ad793d527d30d5ac", null ],
       [ "Iron1Dz", "namespacesndLHC__TI18geom__config.html#ac09e99eb24cd391a97b9b98ccf2e4bb7", null ],

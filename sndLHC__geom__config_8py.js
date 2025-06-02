@@ -1,6 +1,7 @@
 var sndLHC__geom__config_8py =
 [
     [ "Acrylic_width", "sndLHC__geom__config_8py.html#abea228ae1b50053d5163976ed4b4b133", null ],
+    [ "airgap_z", "sndLHC__geom__config_8py.html#ab824c5ca354c0034cf95098e475f26f1", null ],
     [ "AllPW", "sndLHC__geom__config_8py.html#a3ef6cc1369b93b648cf740558857b3fc", null ],
     [ "BPoly_width", "sndLHC__geom__config_8py.html#aac5e358c4a15186fae566e89b896eee2", null ],
     [ "BrPackX", "sndLHC__geom__config_8py.html#ace8ca52e7f7872e7341d8f3bee02b4b5", null ],
@@ -17,6 +18,7 @@ var sndLHC__geom__config_8py =
     [ "CBFrontWall_ydim", "sndLHC__geom__config_8py.html#a771c0f953048e9e9579a6a5cef906412", null ],
     [ "CBLatWall_zdim", "sndLHC__geom__config_8py.html#ad0e0807abddbbca830f3a7458dabeace", null ],
     [ "CBTiny_zdim", "sndLHC__geom__config_8py.html#a738b5c43570dd731f731717d526f0122", null ],
+    [ "channel_height", "sndLHC__geom__config_8py.html#a839b3ce39ad4e2aa0b7f69e8c6b92848", null ],
     [ "channel_width", "sndLHC__geom__config_8py.html#a15cf7ae4f3545c830dfbbb288925f856", null ],
     [ "charr_gap", "sndLHC__geom__config_8py.html#a3241dba5d383a78cbeb4a3d1e47ab529", null ],
     [ "charr_width", "sndLHC__geom__config_8py.html#aecd980952ab182508d3c60935dd666ee", null ],
@@ -69,6 +71,7 @@ var sndLHC__geom__config_8py =
     [ "FirstChannelVZ", "sndLHC__geom__config_8py.html#acbe53e3d72e38026677a5d47c2e2463d", null ],
     [ "firstChannelX", "sndLHC__geom__config_8py.html#a8a0b3aa0f58a05f5b98bae116008e609", null ],
     [ "Floor", "sndLHC__geom__config_8py.html#acd95785b50e25a9877b3073f05940293", null ],
+    [ "glue_z", "sndLHC__geom__config_8py.html#aa78c093ade6720e8ea853b0de6e8fa50", null ],
     [ "honeycomb_z", "sndLHC__geom__config_8py.html#a22a8b93f10a439002cf3b009771d5c16", null ],
     [ "horizontal_pitch", "sndLHC__geom__config_8py.html#a9262551ef45e3d7f472fc98aaafbd3f8", null ],
     [ "Iron1Dz", "sndLHC__geom__config_8py.html#a9a5ddaa6065fa73ebb35ad3c8dde2304", null ],
