@@ -7,6 +7,7 @@ var namespacesnd =
       [ "densityScifi", "namespacesnd_1_1analysis__tools.html#a898d2da7d9071ef733eb86625ed1cc7d", null ],
       [ "filterScifiHits", "namespacesnd_1_1analysis__tools.html#a4a13c3ae2f5d528737de97d8837f2df9", null ],
       [ "filterScifiHits", "namespacesnd_1_1analysis__tools.html#aabaf2879845b2998aeab516ce908994d", null ],
+      [ "findCentreOfGravityPerStation", "namespacesnd_1_1analysis__tools.html#aa0b845dbe4852f824b3188318b7e766e", null ],
       [ "findScifiStation", "namespacesnd_1_1analysis__tools.html#aaf671a252762c6da49f48a7e6cc31431", null ],
       [ "findScifiStation", "namespacesnd_1_1analysis__tools.html#a1cfa1e0acecf53005048a0b11c125b57", null ],
       [ "GetDataBasePath", "namespacesnd_1_1analysis__tools.html#a140fdd9c79e8c41365ece33a0416482a", null ],

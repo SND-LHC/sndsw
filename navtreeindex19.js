@@ -1,8 +1,8 @@
 var NAVTREEINDEX19 =
 {
 "classMufluxDigi_1_1MufluxDigi.html#ae7aa0b9e8dcdafa68cbf5cdf92afb130":[12,0,20,0,19],
-"classMufluxDigi_1_1MufluxDigi.html#ae9a1bcae43ca7162d9662826016354e3":[12,0,20,0,18],
 "classMufluxDigi_1_1MufluxDigi.html#ae9a1bcae43ca7162d9662826016354e3":[11,0,94,0,18],
+"classMufluxDigi_1_1MufluxDigi.html#ae9a1bcae43ca7162d9662826016354e3":[12,0,20,0,18],
 "classMufluxDigi_1_1MufluxDigi.html#af8d68f0c10993030f6c5b89425962025":[12,0,20,0,13],
 "classMufluxDigi_1_1MufluxDigi.html#af8d68f0c10993030f6c5b89425962025":[11,0,94,0,13],
 "classMufluxTargetStation.html":[12,0,116],

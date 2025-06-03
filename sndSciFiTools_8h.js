@@ -5,6 +5,7 @@ var sndSciFiTools_8h =
     [ "densityScifi", "sndSciFiTools_8h.html#a898d2da7d9071ef733eb86625ed1cc7d", null ],
     [ "filterScifiHits", "sndSciFiTools_8h.html#a4a13c3ae2f5d528737de97d8837f2df9", null ],
     [ "filterScifiHits", "sndSciFiTools_8h.html#aabaf2879845b2998aeab516ce908994d", null ],
+    [ "findCentreOfGravityPerStation", "sndSciFiTools_8h.html#aa0b845dbe4852f824b3188318b7e766e", null ],
     [ "findScifiStation", "sndSciFiTools_8h.html#aaf671a252762c6da49f48a7e6cc31431", null ],
     [ "findScifiStation", "sndSciFiTools_8h.html#a1cfa1e0acecf53005048a0b11c125b57", null ],
     [ "getFractionalHitsPerScifiPlane", "sndSciFiTools_8h.html#adb1bd3e6aa09e4d65a9c92a5133a8ac9", null ],

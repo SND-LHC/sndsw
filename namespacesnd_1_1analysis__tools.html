@@ -139,6 +139,8 @@ Functions</h2></td></tr>
 <tr class="separator:a3efcc7ce16eb9a30afcdcedd2c4f4ac2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78b08ea6c3c2d141709d92390c1f87b8" id="r_a78b08ea6c3c2d141709d92390c1f87b8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesnd_1_1analysis__tools.html#a78b08ea6c3c2d141709d92390c1f87b8">showerInteractionWall</a> (const TClonesArray &amp;digiHits, int method=0, std::string setup=&quot;TI18&quot;)</td></tr>
 <tr class="separator:a78b08ea6c3c2d141709d92390c1f87b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0b845dbe4852f824b3188318b7e766e" id="r_aa0b845dbe4852f824b3188318b7e766e"><td class="memItemLeft" align="right" valign="top">std::pair&lt; double, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesnd_1_1analysis__tools.html#aa0b845dbe4852f824b3188318b7e766e">findCentreOfGravityPerStation</a> (const TClonesArray *digiHits, int station, <a class="el" href="classScifi.html">Scifi</a> *ScifiDet)</td></tr>
+<tr class="separator:aa0b845dbe4852f824b3188318b7e766e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ae73cc256518214ae9cf74a03107bb9" id="r_a8ae73cc256518214ae9cf74a03107bb9"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; TChain &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesnd_1_1analysis__tools.html#a8ae73cc256518214ae9cf74a03107bb9">GetTChain</a> (const std::string &amp;csv_file_path, int run_number, int n_files=-1)</td></tr>
 <tr class="separator:a8ae73cc256518214ae9cf74a03107bb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b1e884a03c24b887a7fca201a0a4b69" id="r_a7b1e884a03c24b887a7fca201a0a4b69"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; TChain &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesnd_1_1analysis__tools.html#a7b1e884a03c24b887a7fca201a0a4b69">GetTChain</a> (std::string file_name)</td></tr>
@@ -163,18 +165,18 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sndSciFiTools_8cxx_source.html#l00373">373</a> of file <a class="el" href="sndSciFiTools_8cxx_source.html">sndSciFiTools.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  374</span>{</div>
-<div class="line"><span class="lineno">  375</span> </div>
-<div class="line"><span class="lineno">  376</span>   <span class="keywordtype">int</span> ref_matAux = reference_SiPM % 100000;</div>
-<div class="line"><span class="lineno">  377</span>   <span class="keywordtype">int</span> ref_mat = ref_matAux / 10000;</div>
-<div class="line"><span class="lineno">  378</span>   <span class="keywordtype">int</span> ref_arrayAux = reference_SiPM % 10000;</div>
-<div class="line"><span class="lineno">  379</span>   <span class="keywordtype">int</span> ref_array = ref_arrayAux / 1000;</div>
-<div class="line"><span class="lineno">  380</span>   <span class="keywordtype">int</span> ref_channel = reference_SiPM % 1000;</div>
-<div class="line"><span class="lineno">  381</span>   <span class="keywordtype">int</span> referenceChannel = ref_mat * 4 * 128 + ref_array * 128 + ref_channel;</div>
-<div class="line"><span class="lineno">  382</span> </div>
-<div class="line"><span class="lineno">  383</span>   <span class="keywordflow">return</span> referenceChannel;</div>
-<div class="line"><span class="lineno">  384</span>}</div>
+<p class="definition">Definition at line <a class="el" href="sndSciFiTools_8cxx_source.html#l00374">374</a> of file <a class="el" href="sndSciFiTools_8cxx_source.html">sndSciFiTools.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  375</span>{</div>
+<div class="line"><span class="lineno">  376</span> </div>
+<div class="line"><span class="lineno">  377</span>   <span class="keywordtype">int</span> ref_matAux = reference_SiPM % 100000;</div>
+<div class="line"><span class="lineno">  378</span>   <span class="keywordtype">int</span> ref_mat = ref_matAux / 10000;</div>
+<div class="line"><span class="lineno">  379</span>   <span class="keywordtype">int</span> ref_arrayAux = reference_SiPM % 10000;</div>
+<div class="line"><span class="lineno">  380</span>   <span class="keywordtype">int</span> ref_array = ref_arrayAux / 1000;</div>
+<div class="line"><span class="lineno">  381</span>   <span class="keywordtype">int</span> ref_channel = reference_SiPM % 1000;</div>
+<div class="line"><span class="lineno">  382</span>   <span class="keywordtype">int</span> referenceChannel = ref_mat * 4 * 128 + ref_array * 128 + ref_channel;</div>
+<div class="line"><span class="lineno">  383</span> </div>
+<div class="line"><span class="lineno">  384</span>   <span class="keywordflow">return</span> referenceChannel;</div>
+<div class="line"><span class="lineno">  385</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -222,66 +224,66 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sndSciFiTools_8cxx_source.html#l00425">425</a> of file <a class="el" href="sndSciFiTools_8cxx_source.html">sndSciFiTools.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  427</span>{</div>
-<div class="line"><span class="lineno">  428</span> </div>
-<div class="line"><span class="lineno">  429</span>   <span class="keywordflow">if</span> (digiHits.GetEntries() &lt;= 0) {</div>
-<div class="line"><span class="lineno">  430</span>      <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  431</span>   }</div>
-<div class="line"><span class="lineno">  432</span> </div>
-<div class="line"><span class="lineno">  433</span>   <span class="keywordflow">if</span> (radius &lt;= 0) {</div>
-<div class="line"><span class="lineno">  434</span>      LOG(FATAL) &lt;&lt; <span class="stringliteral">&quot;Radius&lt;=0. Please provide a radius bigger than 0.&quot;</span>;</div>
-<div class="line"><span class="lineno">  435</span>      <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  436</span>   }</div>
-<div class="line"><span class="lineno">  437</span> </div>
-<div class="line"><span class="lineno">  438</span>   <span class="keywordflow">if</span> (min_hit_density &lt; 0) {</div>
-<div class="line"><span class="lineno">  439</span>      LOG(FATAL) &lt;&lt; <span class="stringliteral">&quot;Min_hit_density &lt; 0. Please provide a min_hit_density &gt;= 0.&quot;</span>;</div>
-<div class="line"><span class="lineno">  440</span>      <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  441</span>   }</div>
-<div class="line"><span class="lineno">  442</span> </div>
-<div class="line"><span class="lineno">  443</span>   <span class="keywordflow">if</span> (min_hit_density &gt; 2 * radius) {</div>
-<div class="line"><span class="lineno">  444</span>      LOG(warning) &lt;&lt; <span class="stringliteral">&quot;Warning! Radius of density check does not allow for the required minimum density!&quot;</span>;</div>
-<div class="line"><span class="lineno">  445</span>      <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  446</span>   }</div>
-<div class="line"><span class="lineno">  447</span> </div>
-<div class="line"><span class="lineno">  448</span>   <span class="comment">// Creating a vector that stores the fired SiPM channels (should already be ordered but we sort</span></div>
-<div class="line"><span class="lineno">  449</span>   <span class="comment">// afterwards to make sure)</span></div>
-<div class="line"><span class="lineno">  450</span>   std::vector&lt;int&gt; fired_channels{};</div>
-<div class="line"><span class="lineno">  451</span> </div>
-<div class="line"><span class="lineno">  452</span>   <span class="comment">// Only fill the set with hits from the same station and with the same orientation as given in</span></div>
-<div class="line"><span class="lineno">  453</span>   <span class="comment">// argument (false==horizontal and true==vertical)</span></div>
-<div class="line"><span class="lineno">  454</span>   <span class="keywordflow">for</span> (<span class="keyword">auto</span> *p : digiHits) {</div>
-<div class="line"><span class="lineno">  455</span>      <span class="keyword">auto</span> *hit = <span class="keyword">dynamic_cast&lt;</span><a class="code hl_class" href="classsndScifiHit.html">sndScifiHit</a> *<span class="keyword">&gt;</span>(<a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a>);</div>
-<div class="line"><span class="lineno">  456</span>      <span class="keywordflow">if</span> (!<a class="code hl_function" href="sndSciFiTools_8cxx.html#a1fd0777019d2b6e914490ff374f2f922">validateHit</a>(hit, station, orientation)) {</div>
-<div class="line"><span class="lineno">  457</span>         <span class="keywordflow">continue</span>;</div>
-<div class="line"><span class="lineno">  458</span>      }</div>
-<div class="line"><span class="lineno">  459</span>      fired_channels.push_back(<a class="code hl_function" href="namespacesnd_1_1analysis__tools.html#a072fe05f5196e2d1f0baf54ac8c62793">calculateSiPMNumber</a>(hit-&gt;GetChannelID()));</div>
-<div class="line"><span class="lineno">  460</span>   }</div>
-<div class="line"><span class="lineno">  461</span> </div>
-<div class="line"><span class="lineno">  462</span>   <span class="keywordtype">int</span> n_fired_channels = fired_channels.size();</div>
-<div class="line"><span class="lineno">  463</span> </div>
-<div class="line"><span class="lineno">  464</span>   <span class="keywordflow">if</span> (n_fired_channels &lt; min_hit_density) {</div>
-<div class="line"><span class="lineno">  465</span>      <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  466</span>   }</div>
-<div class="line"><span class="lineno">  467</span> </div>
-<div class="line"><span class="lineno">  468</span>   <span class="comment">// Looping over the ordered hits, checking whether within an interval of &quot;min_hit_density&quot; the</span></div>
-<div class="line"><span class="lineno">  469</span>   <span class="comment">// difference between the channel IDs is smaller than &quot;radius&quot;. If so, then we have the required</span></div>
-<div class="line"><span class="lineno">  470</span>   <span class="comment">// density. Else, we check the next combination until we meet the criterion, or end the loop,</span></div>
-<div class="line"><span class="lineno">  471</span>   <span class="comment">// returning false</span></div>
-<div class="line"><span class="lineno">  472</span>   std::sort(fired_channels.begin(), fired_channels.end());</div>
-<div class="line"><span class="lineno">  473</span>   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a> &lt; n_fired_channels - min_hit_density; <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>++) {</div>
-<div class="line"><span class="lineno">  474</span> </div>
-<div class="line"><span class="lineno">  475</span>      <span class="keywordflow">if</span> (fired_channels[i + min_hit_density - 1] - fired_channels[i] &lt;= radius * 2) {</div>
-<div class="line"><span class="lineno">  476</span>         <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  477</span>      }</div>
-<div class="line"><span class="lineno">  478</span>   }</div>
-<div class="line"><span class="lineno">  479</span>   <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  480</span>}</div>
+<p class="definition">Definition at line <a class="el" href="sndSciFiTools_8cxx_source.html#l00426">426</a> of file <a class="el" href="sndSciFiTools_8cxx_source.html">sndSciFiTools.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  428</span>{</div>
+<div class="line"><span class="lineno">  429</span> </div>
+<div class="line"><span class="lineno">  430</span>   <span class="keywordflow">if</span> (digiHits.GetEntries() &lt;= 0) {</div>
+<div class="line"><span class="lineno">  431</span>      <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  432</span>   }</div>
+<div class="line"><span class="lineno">  433</span> </div>
+<div class="line"><span class="lineno">  434</span>   <span class="keywordflow">if</span> (radius &lt;= 0) {</div>
+<div class="line"><span class="lineno">  435</span>      LOG(FATAL) &lt;&lt; <span class="stringliteral">&quot;Radius&lt;=0. Please provide a radius bigger than 0.&quot;</span>;</div>
+<div class="line"><span class="lineno">  436</span>      <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  437</span>   }</div>
+<div class="line"><span class="lineno">  438</span> </div>
+<div class="line"><span class="lineno">  439</span>   <span class="keywordflow">if</span> (min_hit_density &lt; 0) {</div>
+<div class="line"><span class="lineno">  440</span>      LOG(FATAL) &lt;&lt; <span class="stringliteral">&quot;Min_hit_density &lt; 0. Please provide a min_hit_density &gt;= 0.&quot;</span>;</div>
+<div class="line"><span class="lineno">  441</span>      <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  442</span>   }</div>
+<div class="line"><span class="lineno">  443</span> </div>
+<div class="line"><span class="lineno">  444</span>   <span class="keywordflow">if</span> (min_hit_density &gt; 2 * radius) {</div>
+<div class="line"><span class="lineno">  445</span>      LOG(warning) &lt;&lt; <span class="stringliteral">&quot;Warning! Radius of density check does not allow for the required minimum density!&quot;</span>;</div>
+<div class="line"><span class="lineno">  446</span>      <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  447</span>   }</div>
+<div class="line"><span class="lineno">  448</span> </div>
+<div class="line"><span class="lineno">  449</span>   <span class="comment">// Creating a vector that stores the fired SiPM channels (should already be ordered but we sort</span></div>
+<div class="line"><span class="lineno">  450</span>   <span class="comment">// afterwards to make sure)</span></div>
+<div class="line"><span class="lineno">  451</span>   std::vector&lt;int&gt; fired_channels{};</div>
+<div class="line"><span class="lineno">  452</span> </div>
+<div class="line"><span class="lineno">  453</span>   <span class="comment">// Only fill the set with hits from the same station and with the same orientation as given in</span></div>
+<div class="line"><span class="lineno">  454</span>   <span class="comment">// argument (false==horizontal and true==vertical)</span></div>
+<div class="line"><span class="lineno">  455</span>   <span class="keywordflow">for</span> (<span class="keyword">auto</span> *p : digiHits) {</div>
+<div class="line"><span class="lineno">  456</span>      <span class="keyword">auto</span> *hit = <span class="keyword">dynamic_cast&lt;</span><a class="code hl_class" href="classsndScifiHit.html">sndScifiHit</a> *<span class="keyword">&gt;</span>(<a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a>);</div>
+<div class="line"><span class="lineno">  457</span>      <span class="keywordflow">if</span> (!<a class="code hl_function" href="sndSciFiTools_8cxx.html#a1fd0777019d2b6e914490ff374f2f922">validateHit</a>(hit, station, orientation)) {</div>
+<div class="line"><span class="lineno">  458</span>         <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno">  459</span>      }</div>
+<div class="line"><span class="lineno">  460</span>      fired_channels.push_back(<a class="code hl_function" href="namespacesnd_1_1analysis__tools.html#a072fe05f5196e2d1f0baf54ac8c62793">calculateSiPMNumber</a>(hit-&gt;GetChannelID()));</div>
+<div class="line"><span class="lineno">  461</span>   }</div>
+<div class="line"><span class="lineno">  462</span> </div>
+<div class="line"><span class="lineno">  463</span>   <span class="keywordtype">int</span> n_fired_channels = fired_channels.size();</div>
+<div class="line"><span class="lineno">  464</span> </div>
+<div class="line"><span class="lineno">  465</span>   <span class="keywordflow">if</span> (n_fired_channels &lt; min_hit_density) {</div>
+<div class="line"><span class="lineno">  466</span>      <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  467</span>   }</div>
+<div class="line"><span class="lineno">  468</span> </div>
+<div class="line"><span class="lineno">  469</span>   <span class="comment">// Looping over the ordered hits, checking whether within an interval of &quot;min_hit_density&quot; the</span></div>
+<div class="line"><span class="lineno">  470</span>   <span class="comment">// difference between the channel IDs is smaller than &quot;radius&quot;. If so, then we have the required</span></div>
+<div class="line"><span class="lineno">  471</span>   <span class="comment">// density. Else, we check the next combination until we meet the criterion, or end the loop,</span></div>
+<div class="line"><span class="lineno">  472</span>   <span class="comment">// returning false</span></div>
+<div class="line"><span class="lineno">  473</span>   std::sort(fired_channels.begin(), fired_channels.end());</div>
+<div class="line"><span class="lineno">  474</span>   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a> &lt; n_fired_channels - min_hit_density; <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>++) {</div>
+<div class="line"><span class="lineno">  475</span> </div>
+<div class="line"><span class="lineno">  476</span>      <span class="keywordflow">if</span> (fired_channels[i + min_hit_density - 1] - fired_channels[i] &lt;= radius * 2) {</div>
+<div class="line"><span class="lineno">  477</span>         <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  478</span>      }</div>
+<div class="line"><span class="lineno">  479</span>   }</div>
+<div class="line"><span class="lineno">  480</span>   <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  481</span>}</div>
 <div class="ttc" id="aclasssndScifiHit_html"><div class="ttname"><a href="classsndScifiHit.html">sndScifiHit</a></div><div class="ttdef"><b>Definition</b> <a href="sndScifiHit_8h_source.html#l00009">sndScifiHit.h:10</a></div></div>
 <div class="ttc" id="anamespaceShipAna_html_aa4bf87f4d17f9d38b1d8f4d009bb54b3"><div class="ttname"><a href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">ShipAna.i</a></div><div class="ttdeci">int i</div><div class="ttdef"><b>Definition</b> <a href="ShipAna_8py_source.html#l00086">ShipAna.py:86</a></div></div>
 <div class="ttc" id="anamespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring_html_a1c800df226d66062268fa28c3e0c7f7a"><div class="ttname"><a href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">conditionsDatabase.demo.drifttubeMonitoring.p</a></div><div class="ttdeci">str p</div><div class="ttdef"><b>Definition</b> <a href="drifttubeMonitoring_8py_source.html#l00289">drifttubeMonitoring.py:289</a></div></div>
-<div class="ttc" id="anamespacesnd_1_1analysis__tools_html_a072fe05f5196e2d1f0baf54ac8c62793"><div class="ttname"><a href="namespacesnd_1_1analysis__tools.html#a072fe05f5196e2d1f0baf54ac8c62793">snd::analysis_tools::calculateSiPMNumber</a></div><div class="ttdeci">int calculateSiPMNumber(int reference_SiPM)</div><div class="ttdef"><b>Definition</b> <a href="sndSciFiTools_8cxx_source.html#l00373">sndSciFiTools.cxx:373</a></div></div>
-<div class="ttc" id="asndSciFiTools_8cxx_html_a1fd0777019d2b6e914490ff374f2f922"><div class="ttname"><a href="sndSciFiTools_8cxx.html#a1fd0777019d2b6e914490ff374f2f922">validateHit</a></div><div class="ttdeci">bool validateHit(sndScifiHit *aHit, int ref_station, bool ref_orientation)</div><div class="ttdef"><b>Definition</b> <a href="sndSciFiTools_8cxx_source.html#l00105">sndSciFiTools.cxx:105</a></div></div>
+<div class="ttc" id="anamespacesnd_1_1analysis__tools_html_a072fe05f5196e2d1f0baf54ac8c62793"><div class="ttname"><a href="namespacesnd_1_1analysis__tools.html#a072fe05f5196e2d1f0baf54ac8c62793">snd::analysis_tools::calculateSiPMNumber</a></div><div class="ttdeci">int calculateSiPMNumber(int reference_SiPM)</div><div class="ttdef"><b>Definition</b> <a href="sndSciFiTools_8cxx_source.html#l00374">sndSciFiTools.cxx:374</a></div></div>
+<div class="ttc" id="asndSciFiTools_8cxx_html_a1fd0777019d2b6e914490ff374f2f922"><div class="ttname"><a href="sndSciFiTools_8cxx.html#a1fd0777019d2b6e914490ff374f2f922">validateHit</a></div><div class="ttdeci">bool validateHit(sndScifiHit *aHit, int ref_station, bool ref_orientation)</div><div class="ttdef"><b>Definition</b> <a href="sndSciFiTools_8cxx_source.html#l00106">sndSciFiTools.cxx:106</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -329,42 +331,42 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sndSciFiTools_8cxx_source.html#l00386">386</a> of file <a class="el" href="sndSciFiTools_8cxx_source.html">sndSciFiTools.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  388</span>{</div>
-<div class="line"><span class="lineno">  389</span> </div>
-<div class="line"><span class="lineno">  390</span>   <span class="keywordtype">int</span> hit_density = 0;</div>
-<div class="line"><span class="lineno">  391</span> </div>
-<div class="line"><span class="lineno">  392</span>   <span class="keywordtype">bool</span> orientation = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  393</span>   <span class="keywordflow">if</span> (<span class="keywordtype">int</span>(reference_SiPM / 100000) % 10 == 1) {</div>
-<div class="line"><span class="lineno">  394</span>      orientation = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  395</span>   }</div>
-<div class="line"><span class="lineno">  396</span>   <span class="keywordtype">int</span> ref_station = reference_SiPM / 1000000;</div>
-<div class="line"><span class="lineno">  397</span>   <span class="keywordtype">int</span> referenceChannel = calculateSiPMNumber(reference_SiPM);</div>
-<div class="line"><span class="lineno">  398</span> </div>
-<div class="line"><span class="lineno">  399</span>   <span class="keywordflow">for</span> (<span class="keyword">auto</span> *p : digiHits) {</div>
-<div class="line"><span class="lineno">  400</span>      <span class="keyword">auto</span> *hit = <span class="keyword">dynamic_cast&lt;</span><a class="code hl_class" href="classsndScifiHit.html">sndScifiHit</a> *<span class="keyword">&gt;</span>(p);</div>
-<div class="line"><span class="lineno">  401</span>      <span class="keywordflow">if</span> (!<a class="code hl_function" href="sndSciFiTools_8cxx.html#a1fd0777019d2b6e914490ff374f2f922">validateHit</a>(hit, ref_station, orientation)) {</div>
-<div class="line"><span class="lineno">  402</span>         <span class="keywordflow">continue</span>;</div>
-<div class="line"><span class="lineno">  403</span>      }</div>
-<div class="line"><span class="lineno">  404</span>      <span class="keywordtype">int</span> hitChannel = calculateSiPMNumber(hit-&gt;GetChannelID());</div>
-<div class="line"><span class="lineno">  405</span>      <span class="keywordflow">if</span> (radius == -1) {</div>
-<div class="line"><span class="lineno">  406</span>         hit_density++;</div>
-<div class="line"><span class="lineno">  407</span>      } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  408</span>         <span class="keywordflow">if</span> (hitChannel &gt; referenceChannel + radius) {</div>
-<div class="line"><span class="lineno">  409</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  410</span>         }</div>
-<div class="line"><span class="lineno">  411</span>         <span class="keywordflow">if</span> (abs(referenceChannel - hitChannel) &lt;= radius) {</div>
-<div class="line"><span class="lineno">  412</span>            hit_density++;</div>
-<div class="line"><span class="lineno">  413</span>         }</div>
-<div class="line"><span class="lineno">  414</span>      }</div>
-<div class="line"><span class="lineno">  415</span> </div>
-<div class="line"><span class="lineno">  416</span>      <span class="keywordflow">if</span> (min_check &amp;&amp; (hit_density &gt;= min_hit_density)) {</div>
-<div class="line"><span class="lineno">  417</span>         <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  418</span>      }</div>
-<div class="line"><span class="lineno">  419</span>   }</div>
-<div class="line"><span class="lineno">  420</span> </div>
-<div class="line"><span class="lineno">  421</span>   <span class="keywordflow">return</span> hit_density;</div>
-<div class="line"><span class="lineno">  422</span>}</div>
+<p class="definition">Definition at line <a class="el" href="sndSciFiTools_8cxx_source.html#l00387">387</a> of file <a class="el" href="sndSciFiTools_8cxx_source.html">sndSciFiTools.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  389</span>{</div>
+<div class="line"><span class="lineno">  390</span> </div>
+<div class="line"><span class="lineno">  391</span>   <span class="keywordtype">int</span> hit_density = 0;</div>
+<div class="line"><span class="lineno">  392</span> </div>
+<div class="line"><span class="lineno">  393</span>   <span class="keywordtype">bool</span> orientation = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  394</span>   <span class="keywordflow">if</span> (<span class="keywordtype">int</span>(reference_SiPM / 100000) % 10 == 1) {</div>
+<div class="line"><span class="lineno">  395</span>      orientation = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  396</span>   }</div>
+<div class="line"><span class="lineno">  397</span>   <span class="keywordtype">int</span> ref_station = reference_SiPM / 1000000;</div>
+<div class="line"><span class="lineno">  398</span>   <span class="keywordtype">int</span> referenceChannel = calculateSiPMNumber(reference_SiPM);</div>
+<div class="line"><span class="lineno">  399</span> </div>
+<div class="line"><span class="lineno">  400</span>   <span class="keywordflow">for</span> (<span class="keyword">auto</span> *p : digiHits) {</div>
+<div class="line"><span class="lineno">  401</span>      <span class="keyword">auto</span> *hit = <span class="keyword">dynamic_cast&lt;</span><a class="code hl_class" href="classsndScifiHit.html">sndScifiHit</a> *<span class="keyword">&gt;</span>(p);</div>
+<div class="line"><span class="lineno">  402</span>      <span class="keywordflow">if</span> (!<a class="code hl_function" href="sndSciFiTools_8cxx.html#a1fd0777019d2b6e914490ff374f2f922">validateHit</a>(hit, ref_station, orientation)) {</div>
+<div class="line"><span class="lineno">  403</span>         <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno">  404</span>      }</div>
+<div class="line"><span class="lineno">  405</span>      <span class="keywordtype">int</span> hitChannel = calculateSiPMNumber(hit-&gt;GetChannelID());</div>
+<div class="line"><span class="lineno">  406</span>      <span class="keywordflow">if</span> (radius == -1) {</div>
+<div class="line"><span class="lineno">  407</span>         hit_density++;</div>
+<div class="line"><span class="lineno">  408</span>      } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  409</span>         <span class="keywordflow">if</span> (hitChannel &gt; referenceChannel + radius) {</div>
+<div class="line"><span class="lineno">  410</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  411</span>         }</div>
+<div class="line"><span class="lineno">  412</span>         <span class="keywordflow">if</span> (abs(referenceChannel - hitChannel) &lt;= radius) {</div>
+<div class="line"><span class="lineno">  413</span>            hit_density++;</div>
+<div class="line"><span class="lineno">  414</span>         }</div>
+<div class="line"><span class="lineno">  415</span>      }</div>
+<div class="line"><span class="lineno">  416</span> </div>
+<div class="line"><span class="lineno">  417</span>      <span class="keywordflow">if</span> (min_check &amp;&amp; (hit_density &gt;= min_hit_density)) {</div>
+<div class="line"><span class="lineno">  418</span>         <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  419</span>      }</div>
+<div class="line"><span class="lineno">  420</span>   }</div>
+<div class="line"><span class="lineno">  421</span> </div>
+<div class="line"><span class="lineno">  422</span>   <span class="keywordflow">return</span> hit_density;</div>
+<div class="line"><span class="lineno">  423</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -412,56 +414,56 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sndSciFiTools_8cxx_source.html#l00299">299</a> of file <a class="el" href="sndSciFiTools_8cxx_source.html">sndSciFiTools.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  302</span>{</div>
-<div class="line"><span class="lineno">  303</span>   TClonesArray supportArray(<span class="stringliteral">&quot;sndScifiHit&quot;</span>, 0);</div>
-<div class="line"><span class="lineno">  304</span>   <span class="keyword">auto</span> filteredHits = std::make_unique&lt;TClonesArray&gt;(<span class="stringliteral">&quot;sndScifiHit&quot;</span>, digiHits.GetEntries());</div>
-<div class="line"><span class="lineno">  305</span>   <span class="keywordtype">int</span> filteredHitsIndex = 0;</div>
-<div class="line"><span class="lineno">  306</span>   <span class="keywordtype">int</span> ScifiStations = 5;</div>
-<div class="line"><span class="lineno">  307</span>   <span class="keywordflow">if</span> (setup == <span class="stringliteral">&quot;H8&quot;</span>) {</div>
-<div class="line"><span class="lineno">  308</span>      ScifiStations = 4;</div>
-<div class="line"><span class="lineno">  309</span>   } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  310</span>      LOG(info) &lt;&lt; <span class="stringliteral">&quot;\&quot;TI18\&quot; setup will be used by default, please provide \&quot;H8\&quot; for the Testbeam setup.&quot;</span>;</div>
-<div class="line"><span class="lineno">  311</span>   }</div>
-<div class="line"><span class="lineno">  312</span> </div>
-<div class="line"><span class="lineno">  313</span>   <a class="code hl_class" href="classsndScifiHit.html">sndScifiHit</a> *hit;</div>
-<div class="line"><span class="lineno">  314</span>   TIter hitIterator(&amp;supportArray);</div>
-<div class="line"><span class="lineno">  315</span> </div>
-<div class="line"><span class="lineno">  316</span>   <span class="keywordflow">if</span> (method == 0) {</div>
-<div class="line"><span class="lineno">  317</span> </div>
-<div class="line"><span class="lineno">  318</span>      <span class="keywordflow">if</span> ((selection_parameters.find(<span class="stringliteral">&quot;bins_x&quot;</span>) == selection_parameters.end()) ||</div>
-<div class="line"><span class="lineno">  319</span>          (selection_parameters.find(<span class="stringliteral">&quot;min_x&quot;</span>) == selection_parameters.end()) ||</div>
-<div class="line"><span class="lineno">  320</span>          (selection_parameters.find(<span class="stringliteral">&quot;max_x&quot;</span>) == selection_parameters.end()) ||</div>
-<div class="line"><span class="lineno">  321</span>          (selection_parameters.find(<span class="stringliteral">&quot;time_lower_range&quot;</span>) == selection_parameters.end())) {</div>
-<div class="line"><span class="lineno">  322</span>         LOG(FATAL) &lt;&lt; <span class="stringliteral">&quot;In order to use method 0 please provide the correct selection_parameters. Consider the default &quot;</span></div>
-<div class="line"><span class="lineno">  323</span>                       <span class="stringliteral">&quot;= {{\&quot;bins_x\&quot;, 52.}, {\&quot;min_x\&quot;, 0.}, {\&quot;max_x\&quot;, 26.}, {\&quot;time_lower_range\&quot;, &quot;</span></div>
-<div class="line"><span class="lineno">  324</span>                       <span class="stringliteral">&quot;1E9/(2*ShipUnit::snd_freq/ShipUnit::hertz)}, {\&quot;time_upper_range\&quot;, &quot;</span></div>
-<div class="line"><span class="lineno">  325</span>                       <span class="stringliteral">&quot;1.2E9/(ShipUnit::snd_freq/ShipUnit::hertz)}}&quot;</span>;</div>
-<div class="line"><span class="lineno">  326</span>      }</div>
-<div class="line"><span class="lineno">  327</span> </div>
-<div class="line"><span class="lineno">  328</span>      <span class="comment">// This is overwriting the previous arrays with the newest one</span></div>
-<div class="line"><span class="lineno">  329</span>      <span class="keywordflow">for</span> (<span class="keyword">auto</span> station : ROOT::MakeSeq(1, ScifiStations + 1)) {</div>
-<div class="line"><span class="lineno">  330</span>         <span class="keywordflow">for</span> (<span class="keyword">auto</span> orientation : {<span class="keyword">false</span>, <span class="keyword">true</span>}) {</div>
-<div class="line"><span class="lineno">  331</span> </div>
-<div class="line"><span class="lineno">  332</span>            <span class="keyword">auto</span> supportArray = <a class="code hl_function" href="namespacesnd_1_1analysis__tools.html#a18acfed54a271308bcd04deea70d239b">selectScifiHits</a>(digiHits, station, orientation, selection_parameters, <span class="keyword">true</span>, isMC);</div>
-<div class="line"><span class="lineno">  333</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> *p : *supportArray) {</div>
-<div class="line"><span class="lineno">  334</span>               <span class="keyword">auto</span> *hit = <span class="keyword">dynamic_cast&lt;</span><a class="code hl_class" href="classsndScifiHit.html">sndScifiHit</a> *<span class="keyword">&gt;</span>(<a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a>);</div>
-<div class="line"><span class="lineno">  335</span>               <span class="keywordflow">if</span> (hit-&gt;<a class="code hl_function" href="classsndScifiHit.html#a99afbc5a294dfd9f9ddcf9bada3d90ba">isValid</a>()) {</div>
-<div class="line"><span class="lineno">  336</span>                  <span class="keyword">new</span> ((*filteredHits)[filteredHitsIndex++]) <a class="code hl_class" href="classsndScifiHit.html">sndScifiHit</a>(*hit);</div>
-<div class="line"><span class="lineno">  337</span>               }</div>
-<div class="line"><span class="lineno">  338</span>            }</div>
-<div class="line"><span class="lineno">  339</span>         }</div>
-<div class="line"><span class="lineno">  340</span>      }</div>
-<div class="line"><span class="lineno">  341</span>   } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  342</span>      LOG(error) &lt;&lt; <span class="stringliteral">&quot;Please provide a valid time filter method from:&quot;</span>;</div>
-<div class="line"><span class="lineno">  343</span>      LOG(error) &lt;&lt; <span class="stringliteral">&quot;(0): Events within \\mp time_lower_range time_upper_range of the peak of the time distribution &quot;</span></div>
-<div class="line"><span class="lineno">  344</span>                    <span class="stringliteral">&quot;for Scifi Hits within each station and orientation&quot;</span>;</div>
-<div class="line"><span class="lineno">  345</span>      LOG(FATAL) &lt;&lt; <span class="stringliteral">&quot;selection_parameters = {bins_x, min_x, max_x, time_lower_range, time_upper_range}.&quot;</span>;</div>
-<div class="line"><span class="lineno">  346</span>   }</div>
-<div class="line"><span class="lineno">  347</span>   <span class="keywordflow">return</span> filteredHits;</div>
-<div class="line"><span class="lineno">  348</span>}</div>
+<p class="definition">Definition at line <a class="el" href="sndSciFiTools_8cxx_source.html#l00300">300</a> of file <a class="el" href="sndSciFiTools_8cxx_source.html">sndSciFiTools.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  303</span>{</div>
+<div class="line"><span class="lineno">  304</span>   TClonesArray supportArray(<span class="stringliteral">&quot;sndScifiHit&quot;</span>, 0);</div>
+<div class="line"><span class="lineno">  305</span>   <span class="keyword">auto</span> filteredHits = std::make_unique&lt;TClonesArray&gt;(<span class="stringliteral">&quot;sndScifiHit&quot;</span>, digiHits.GetEntries());</div>
+<div class="line"><span class="lineno">  306</span>   <span class="keywordtype">int</span> filteredHitsIndex = 0;</div>
+<div class="line"><span class="lineno">  307</span>   <span class="keywordtype">int</span> ScifiStations = 5;</div>
+<div class="line"><span class="lineno">  308</span>   <span class="keywordflow">if</span> (setup == <span class="stringliteral">&quot;H8&quot;</span>) {</div>
+<div class="line"><span class="lineno">  309</span>      ScifiStations = 4;</div>
+<div class="line"><span class="lineno">  310</span>   } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  311</span>      LOG(info) &lt;&lt; <span class="stringliteral">&quot;\&quot;TI18\&quot; setup will be used by default, please provide \&quot;H8\&quot; for the Testbeam setup.&quot;</span>;</div>
+<div class="line"><span class="lineno">  312</span>   }</div>
+<div class="line"><span class="lineno">  313</span> </div>
+<div class="line"><span class="lineno">  314</span>   <a class="code hl_class" href="classsndScifiHit.html">sndScifiHit</a> *hit;</div>
+<div class="line"><span class="lineno">  315</span>   TIter hitIterator(&amp;supportArray);</div>
+<div class="line"><span class="lineno">  316</span> </div>
+<div class="line"><span class="lineno">  317</span>   <span class="keywordflow">if</span> (method == 0) {</div>
+<div class="line"><span class="lineno">  318</span> </div>
+<div class="line"><span class="lineno">  319</span>      <span class="keywordflow">if</span> ((selection_parameters.find(<span class="stringliteral">&quot;bins_x&quot;</span>) == selection_parameters.end()) ||</div>
+<div class="line"><span class="lineno">  320</span>          (selection_parameters.find(<span class="stringliteral">&quot;min_x&quot;</span>) == selection_parameters.end()) ||</div>
+<div class="line"><span class="lineno">  321</span>          (selection_parameters.find(<span class="stringliteral">&quot;max_x&quot;</span>) == selection_parameters.end()) ||</div>
+<div class="line"><span class="lineno">  322</span>          (selection_parameters.find(<span class="stringliteral">&quot;time_lower_range&quot;</span>) == selection_parameters.end())) {</div>
+<div class="line"><span class="lineno">  323</span>         LOG(FATAL) &lt;&lt; <span class="stringliteral">&quot;In order to use method 0 please provide the correct selection_parameters. Consider the default &quot;</span></div>
+<div class="line"><span class="lineno">  324</span>                       <span class="stringliteral">&quot;= {{\&quot;bins_x\&quot;, 52.}, {\&quot;min_x\&quot;, 0.}, {\&quot;max_x\&quot;, 26.}, {\&quot;time_lower_range\&quot;, &quot;</span></div>
+<div class="line"><span class="lineno">  325</span>                       <span class="stringliteral">&quot;1E9/(2*ShipUnit::snd_freq/ShipUnit::hertz)}, {\&quot;time_upper_range\&quot;, &quot;</span></div>
+<div class="line"><span class="lineno">  326</span>                       <span class="stringliteral">&quot;1.2E9/(ShipUnit::snd_freq/ShipUnit::hertz)}}&quot;</span>;</div>
+<div class="line"><span class="lineno">  327</span>      }</div>
+<div class="line"><span class="lineno">  328</span> </div>
+<div class="line"><span class="lineno">  329</span>      <span class="comment">// This is overwriting the previous arrays with the newest one</span></div>
+<div class="line"><span class="lineno">  330</span>      <span class="keywordflow">for</span> (<span class="keyword">auto</span> station : ROOT::MakeSeq(1, ScifiStations + 1)) {</div>
+<div class="line"><span class="lineno">  331</span>         <span class="keywordflow">for</span> (<span class="keyword">auto</span> orientation : {<span class="keyword">false</span>, <span class="keyword">true</span>}) {</div>
+<div class="line"><span class="lineno">  332</span> </div>
+<div class="line"><span class="lineno">  333</span>            <span class="keyword">auto</span> supportArray = <a class="code hl_function" href="namespacesnd_1_1analysis__tools.html#a18acfed54a271308bcd04deea70d239b">selectScifiHits</a>(digiHits, station, orientation, selection_parameters, <span class="keyword">true</span>, isMC);</div>
+<div class="line"><span class="lineno">  334</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> *p : *supportArray) {</div>
+<div class="line"><span class="lineno">  335</span>               <span class="keyword">auto</span> *hit = <span class="keyword">dynamic_cast&lt;</span><a class="code hl_class" href="classsndScifiHit.html">sndScifiHit</a> *<span class="keyword">&gt;</span>(<a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a>);</div>
+<div class="line"><span class="lineno">  336</span>               <span class="keywordflow">if</span> (hit-&gt;<a class="code hl_function" href="classsndScifiHit.html#a99afbc5a294dfd9f9ddcf9bada3d90ba">isValid</a>()) {</div>
+<div class="line"><span class="lineno">  337</span>                  <span class="keyword">new</span> ((*filteredHits)[filteredHitsIndex++]) <a class="code hl_class" href="classsndScifiHit.html">sndScifiHit</a>(*hit);</div>
+<div class="line"><span class="lineno">  338</span>               }</div>
+<div class="line"><span class="lineno">  339</span>            }</div>
+<div class="line"><span class="lineno">  340</span>         }</div>
+<div class="line"><span class="lineno">  341</span>      }</div>
+<div class="line"><span class="lineno">  342</span>   } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  343</span>      LOG(error) &lt;&lt; <span class="stringliteral">&quot;Please provide a valid time filter method from:&quot;</span>;</div>
+<div class="line"><span class="lineno">  344</span>      LOG(error) &lt;&lt; <span class="stringliteral">&quot;(0): Events within \\mp time_lower_range time_upper_range of the peak of the time distribution &quot;</span></div>
+<div class="line"><span class="lineno">  345</span>                    <span class="stringliteral">&quot;for Scifi Hits within each station and orientation&quot;</span>;</div>
+<div class="line"><span class="lineno">  346</span>      LOG(FATAL) &lt;&lt; <span class="stringliteral">&quot;selection_parameters = {bins_x, min_x, max_x, time_lower_range, time_upper_range}.&quot;</span>;</div>
+<div class="line"><span class="lineno">  347</span>   }</div>
+<div class="line"><span class="lineno">  348</span>   <span class="keywordflow">return</span> filteredHits;</div>
+<div class="line"><span class="lineno">  349</span>}</div>
 <div class="ttc" id="aclasssndScifiHit_html_a99afbc5a294dfd9f9ddcf9bada3d90ba"><div class="ttname"><a href="classsndScifiHit.html#a99afbc5a294dfd9f9ddcf9bada3d90ba">sndScifiHit::isValid</a></div><div class="ttdeci">bool isValid() const</div><div class="ttdef"><b>Definition</b> <a href="sndScifiHit_8h_source.html#l00030">sndScifiHit.h:30</a></div></div>
-<div class="ttc" id="anamespacesnd_1_1analysis__tools_html_a18acfed54a271308bcd04deea70d239b"><div class="ttname"><a href="namespacesnd_1_1analysis__tools.html#a18acfed54a271308bcd04deea70d239b">snd::analysis_tools::selectScifiHits</a></div><div class="ttdeci">std::unique_ptr&lt; TClonesArray &gt; selectScifiHits(const TClonesArray &amp;digiHits, int station, bool orientation, int bins_x=52, float min_x=0.0, float max_x=26.0, float time_lower_range=1E9/(2 *ShipUnit::snd_freq), float time_upper_range=1.2E9/(ShipUnit::snd_freq/ShipUnit::hertz), bool make_selection=true, bool isMC=false)</div><div class="ttdef"><b>Definition</b> <a href="sndSciFiTools_8cxx_source.html#l00186">sndSciFiTools.cxx:186</a></div></div>
+<div class="ttc" id="anamespacesnd_1_1analysis__tools_html_a18acfed54a271308bcd04deea70d239b"><div class="ttname"><a href="namespacesnd_1_1analysis__tools.html#a18acfed54a271308bcd04deea70d239b">snd::analysis_tools::selectScifiHits</a></div><div class="ttdeci">std::unique_ptr&lt; TClonesArray &gt; selectScifiHits(const TClonesArray &amp;digiHits, int station, bool orientation, int bins_x=52, float min_x=0.0, float max_x=26.0, float time_lower_range=1E9/(2 *ShipUnit::snd_freq), float time_upper_range=1.2E9/(ShipUnit::snd_freq/ShipUnit::hertz), bool make_selection=true, bool isMC=false)</div><div class="ttdef"><b>Definition</b> <a href="sndSciFiTools_8cxx_source.html#l00187">sndSciFiTools.cxx:187</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -503,25 +505,98 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sndSciFiTools_8cxx_source.html#l00351">351</a> of file <a class="el" href="sndSciFiTools_8cxx_source.html">sndSciFiTools.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  352</span>{</div>
-<div class="line"><span class="lineno">  353</span> </div>
-<div class="line"><span class="lineno">  354</span>   std::map&lt;std::string, float&gt; selection_parameters;</div>
-<div class="line"><span class="lineno">  355</span> </div>
-<div class="line"><span class="lineno">  356</span>   <span class="keywordflow">if</span> (method == 0) {</div>
-<div class="line"><span class="lineno">  357</span> </div>
-<div class="line"><span class="lineno">  358</span>      selection_parameters[<span class="stringliteral">&quot;bins_x&quot;</span>] = 52.0;</div>
-<div class="line"><span class="lineno">  359</span>      selection_parameters[<span class="stringliteral">&quot;min_x&quot;</span>] = 0.0;</div>
-<div class="line"><span class="lineno">  360</span>      selection_parameters[<span class="stringliteral">&quot;max_x&quot;</span>] = 26.0;</div>
-<div class="line"><span class="lineno">  361</span>      selection_parameters[<span class="stringliteral">&quot;time_lower_range&quot;</span>] = 1E9 / (2 * ShipUnit::snd_freq / ShipUnit::hertz);</div>
-<div class="line"><span class="lineno">  362</span>      selection_parameters[<span class="stringliteral">&quot;time_upper_range&quot;</span>] = 1.2E9 / (ShipUnit::snd_freq / ShipUnit::hertz);</div>
-<div class="line"><span class="lineno">  363</span> </div>
-<div class="line"><span class="lineno">  364</span>   } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  365</span>      LOG(FATAL) &lt;&lt; <span class="stringliteral">&quot;Please use method=0. No other methods implemented so far.&quot;</span>;</div>
-<div class="line"><span class="lineno">  366</span>   }</div>
-<div class="line"><span class="lineno">  367</span> </div>
-<div class="line"><span class="lineno">  368</span>   <span class="keywordflow">return</span> filterScifiHits(digiHits, selection_parameters, method, setup, isMC);</div>
-<div class="line"><span class="lineno">  369</span>}</div>
+<p class="definition">Definition at line <a class="el" href="sndSciFiTools_8cxx_source.html#l00352">352</a> of file <a class="el" href="sndSciFiTools_8cxx_source.html">sndSciFiTools.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  353</span>{</div>
+<div class="line"><span class="lineno">  354</span> </div>
+<div class="line"><span class="lineno">  355</span>   std::map&lt;std::string, float&gt; selection_parameters;</div>
+<div class="line"><span class="lineno">  356</span> </div>
+<div class="line"><span class="lineno">  357</span>   <span class="keywordflow">if</span> (method == 0) {</div>
+<div class="line"><span class="lineno">  358</span> </div>
+<div class="line"><span class="lineno">  359</span>      selection_parameters[<span class="stringliteral">&quot;bins_x&quot;</span>] = 52.0;</div>
+<div class="line"><span class="lineno">  360</span>      selection_parameters[<span class="stringliteral">&quot;min_x&quot;</span>] = 0.0;</div>
+<div class="line"><span class="lineno">  361</span>      selection_parameters[<span class="stringliteral">&quot;max_x&quot;</span>] = 26.0;</div>
+<div class="line"><span class="lineno">  362</span>      selection_parameters[<span class="stringliteral">&quot;time_lower_range&quot;</span>] = 1E9 / (2 * ShipUnit::snd_freq / ShipUnit::hertz);</div>
+<div class="line"><span class="lineno">  363</span>      selection_parameters[<span class="stringliteral">&quot;time_upper_range&quot;</span>] = 1.2E9 / (ShipUnit::snd_freq / ShipUnit::hertz);</div>
+<div class="line"><span class="lineno">  364</span> </div>
+<div class="line"><span class="lineno">  365</span>   } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  366</span>      LOG(FATAL) &lt;&lt; <span class="stringliteral">&quot;Please use method=0. No other methods implemented so far.&quot;</span>;</div>
+<div class="line"><span class="lineno">  367</span>   }</div>
+<div class="line"><span class="lineno">  368</span> </div>
+<div class="line"><span class="lineno">  369</span>   <span class="keywordflow">return</span> filterScifiHits(digiHits, selection_parameters, method, setup, isMC);</div>
+<div class="line"><span class="lineno">  370</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="aa0b845dbe4852f824b3188318b7e766e" name="aa0b845dbe4852f824b3188318b7e766e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0b845dbe4852f824b3188318b7e766e">&#9670;&#160;</a></span>findCentreOfGravityPerStation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::pair&lt; double, double &gt; snd::analysis_tools::findCentreOfGravityPerStation </td>
+          <td>(</td>
+          <td class="paramtype">const TClonesArray *&#160;</td>
+          <td class="paramname"><em>digiHits</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>station</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classScifi.html">Scifi</a> *&#160;</td>
+          <td class="paramname"><em>ScifiDet</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="sndSciFiTools_8cxx_source.html#l00566">566</a> of file <a class="el" href="sndSciFiTools_8cxx_source.html">sndSciFiTools.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  567</span>{</div>
+<div class="line"><span class="lineno">  568</span>   <span class="keywordflow">if</span> (!digiHits) {</div>
+<div class="line"><span class="lineno">  569</span>      LOG(ERROR) &lt;&lt; <span class="stringliteral">&quot;Error: digiHits is null in findCentreOfGravityPerStation&quot;</span>;</div>
+<div class="line"><span class="lineno">  570</span>   }</div>
+<div class="line"><span class="lineno">  571</span>   std::vector&lt;double&gt; x_positions;</div>
+<div class="line"><span class="lineno">  572</span>   std::vector&lt;double&gt; y_positions;</div>
+<div class="line"><span class="lineno">  573</span>   TVector3 A, B;</div>
+<div class="line"><span class="lineno">  574</span>   <span class="keywordflow">for</span> (<span class="keyword">auto</span>* obj : *digiHits) {</div>
+<div class="line"><span class="lineno">  575</span>      <span class="keyword">auto</span>* hit = <span class="keyword">dynamic_cast&lt;</span><a class="code hl_class" href="classsndScifiHit.html">sndScifiHit</a>*<span class="keyword">&gt;</span>(obj);</div>
+<div class="line"><span class="lineno">  576</span>      <span class="keywordflow">if</span> (!hit || !hit-&gt;isValid()) {</div>
+<div class="line"><span class="lineno">  577</span>         <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno">  578</span>      }</div>
+<div class="line"><span class="lineno">  579</span>      <span class="keywordflow">if</span> (hit-&gt;GetStation() != station) {</div>
+<div class="line"><span class="lineno">  580</span>         <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno">  581</span>      }</div>
+<div class="line"><span class="lineno">  582</span>      ScifiDet-&gt;<a class="code hl_function" href="classScifi.html#a1b931ff9f46817177b0595f65c1e8f8f">GetSiPMPosition</a>(hit-&gt;GetDetectorID(), <a class="code hl_variable" href="namespacerunPythia8.html#a527266378c7f0299bad9b3c32d02d15b">A</a>, <a class="code hl_variable" href="namespacegeometry__config.html#aa52009c79b19f5c569b183e74aa588c7">B</a>);</div>
+<div class="line"><span class="lineno">  583</span>      <span class="keywordflow">if</span> (hit-&gt;isVertical()) {</div>
+<div class="line"><span class="lineno">  584</span>         x_positions.push_back((<a class="code hl_variable" href="namespacerunPythia8.html#a527266378c7f0299bad9b3c32d02d15b">A</a>.X() + <a class="code hl_variable" href="namespacegeometry__config.html#aa52009c79b19f5c569b183e74aa588c7">B</a>.X()) * 0.5);</div>
+<div class="line"><span class="lineno">  585</span>      }</div>
+<div class="line"><span class="lineno">  586</span>      <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  587</span>         y_positions.push_back((<a class="code hl_variable" href="namespacerunPythia8.html#a527266378c7f0299bad9b3c32d02d15b">A</a>.Y() + <a class="code hl_variable" href="namespacegeometry__config.html#aa52009c79b19f5c569b183e74aa588c7">B</a>.Y()) * 0.5);</div>
+<div class="line"><span class="lineno">  588</span>      }</div>
+<div class="line"><span class="lineno">  589</span>   }</div>
+<div class="line"><span class="lineno">  590</span>   <span class="keywordflow">if</span> (x_positions.empty()) {</div>
+<div class="line"><span class="lineno">  591</span>      LOG(ERROR) &lt;&lt; <span class="stringliteral">&quot;Error: No hits enter.&quot;</span>;</div>
+<div class="line"><span class="lineno">  592</span>   }</div>
+<div class="line"><span class="lineno">  593</span>   <span class="keywordtype">double</span> meanX = <a class="code hl_function" href="sndSciFiTools_8cxx.html#a68a41647c6ca463cb0f0bd4decd79daa">computeMean</a>(x_positions);</div>
+<div class="line"><span class="lineno">  594</span>   <span class="keywordflow">if</span> (y_positions.empty()) {</div>
+<div class="line"><span class="lineno">  595</span>      LOG(ERROR) &lt;&lt; <span class="stringliteral">&quot;Error: No hits enter.&quot;</span>;</div>
+<div class="line"><span class="lineno">  596</span>   }</div>
+<div class="line"><span class="lineno">  597</span>   <span class="keywordtype">double</span> meanY = <a class="code hl_function" href="sndSciFiTools_8cxx.html#a68a41647c6ca463cb0f0bd4decd79daa">computeMean</a>(y_positions);</div>
+<div class="line"><span class="lineno">  598</span>   <span class="keywordflow">return</span> {meanX, meanY};</div>
+<div class="line"><span class="lineno">  599</span>}</div>
+<div class="ttc" id="aclassScifi_html_a1b931ff9f46817177b0595f65c1e8f8f"><div class="ttname"><a href="classScifi.html#a1b931ff9f46817177b0595f65c1e8f8f">Scifi::GetSiPMPosition</a></div><div class="ttdeci">void GetSiPMPosition(Int_t SiPMChan, TVector3 &amp;A, TVector3 &amp;B)</div><div class="ttdef"><b>Definition</b> <a href="Scifi_8cxx_source.html#l00670">Scifi.cxx:670</a></div></div>
+<div class="ttc" id="anamespacegeometry__config_html_aa52009c79b19f5c569b183e74aa588c7"><div class="ttname"><a href="namespacegeometry__config.html#aa52009c79b19f5c569b183e74aa588c7">geometry_config.B</a></div><div class="ttdeci">B</div><div class="ttdef"><b>Definition</b> <a href="geometry__config_8py_source.html#l00512">geometry_config.py:512</a></div></div>
+<div class="ttc" id="anamespacerunPythia8_html_a527266378c7f0299bad9b3c32d02d15b"><div class="ttname"><a href="namespacerunPythia8.html#a527266378c7f0299bad9b3c32d02d15b">runPythia8.A</a></div><div class="ttdeci">dict A</div><div class="ttdef"><b>Definition</b> <a href="runPythia8_8py_source.html#l00122">runPythia8.py:122</a></div></div>
+<div class="ttc" id="asndSciFiTools_8cxx_html_a68a41647c6ca463cb0f0bd4decd79daa"><div class="ttname"><a href="sndSciFiTools_8cxx.html#a68a41647c6ca463cb0f0bd4decd79daa">computeMean</a></div><div class="ttdeci">double computeMean(const std::vector&lt; double &gt; &amp;values)</div><div class="ttdef"><b>Definition</b> <a href="sndSciFiTools_8cxx_source.html#l00558">sndSciFiTools.cxx:558</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -551,17 +626,17 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sndSciFiTools_8cxx_source.html#l00093">93</a> of file <a class="el" href="sndSciFiTools_8cxx_source.html">sndSciFiTools.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   94</span>{</div>
-<div class="line"><span class="lineno">   95</span>   std::vector&lt;int&gt; horizontal_hits = std::vector&lt;int&gt;(5);</div>
-<div class="line"><span class="lineno">   96</span>   std::vector&lt;int&gt; vertical_hits = std::vector&lt;int&gt;(5);</div>
-<div class="line"><span class="lineno">   97</span> </div>
-<div class="line"><span class="lineno">   98</span>   <a class="code hl_function" href="namespacesnd_1_1analysis__tools.html#a4366cddb81edce8fb50a4dedd3875e84">getSciFiHitsPerStation</a>(digiHits, horizontal_hits, vertical_hits);</div>
-<div class="line"><span class="lineno">   99</span> </div>
-<div class="line"><span class="lineno">  100</span>   <span class="keywordflow">return</span> <a class="code hl_function" href="namespacesnd_1_1analysis__tools.html#a1cfa1e0acecf53005048a0b11c125b57">findScifiStation</a>(horizontal_hits, vertical_hits, threshold);</div>
-<div class="line"><span class="lineno">  101</span>}</div>
-<div class="ttc" id="anamespacesnd_1_1analysis__tools_html_a1cfa1e0acecf53005048a0b11c125b57"><div class="ttname"><a href="namespacesnd_1_1analysis__tools.html#a1cfa1e0acecf53005048a0b11c125b57">snd::analysis_tools::findScifiStation</a></div><div class="ttdeci">int findScifiStation(std::vector&lt; int &gt; &amp;horizontal_hits, std::vector&lt; int &gt; &amp;vertical_hits, float threshold)</div><div class="ttdef"><b>Definition</b> <a href="sndSciFiTools_8cxx_source.html#l00077">sndSciFiTools.cxx:77</a></div></div>
-<div class="ttc" id="anamespacesnd_1_1analysis__tools_html_a4366cddb81edce8fb50a4dedd3875e84"><div class="ttname"><a href="namespacesnd_1_1analysis__tools.html#a4366cddb81edce8fb50a4dedd3875e84">snd::analysis_tools::getSciFiHitsPerStation</a></div><div class="ttdeci">void getSciFiHitsPerStation(const TClonesArray *digiHits, std::vector&lt; int &gt; &amp;horizontal_hits, std::vector&lt; int &gt; &amp;vertical_hits)</div><div class="ttdef"><b>Definition</b> <a href="sndSciFiTools_8cxx_source.html#l00012">sndSciFiTools.cxx:12</a></div></div>
+<p class="definition">Definition at line <a class="el" href="sndSciFiTools_8cxx_source.html#l00094">94</a> of file <a class="el" href="sndSciFiTools_8cxx_source.html">sndSciFiTools.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   95</span>{</div>
+<div class="line"><span class="lineno">   96</span>   std::vector&lt;int&gt; horizontal_hits = std::vector&lt;int&gt;(5);</div>
+<div class="line"><span class="lineno">   97</span>   std::vector&lt;int&gt; vertical_hits = std::vector&lt;int&gt;(5);</div>
+<div class="line"><span class="lineno">   98</span> </div>
+<div class="line"><span class="lineno">   99</span>   <a class="code hl_function" href="namespacesnd_1_1analysis__tools.html#a4366cddb81edce8fb50a4dedd3875e84">getSciFiHitsPerStation</a>(digiHits, horizontal_hits, vertical_hits);</div>
+<div class="line"><span class="lineno">  100</span> </div>
+<div class="line"><span class="lineno">  101</span>   <span class="keywordflow">return</span> <a class="code hl_function" href="namespacesnd_1_1analysis__tools.html#a1cfa1e0acecf53005048a0b11c125b57">findScifiStation</a>(horizontal_hits, vertical_hits, threshold);</div>
+<div class="line"><span class="lineno">  102</span>}</div>
+<div class="ttc" id="anamespacesnd_1_1analysis__tools_html_a1cfa1e0acecf53005048a0b11c125b57"><div class="ttname"><a href="namespacesnd_1_1analysis__tools.html#a1cfa1e0acecf53005048a0b11c125b57">snd::analysis_tools::findScifiStation</a></div><div class="ttdeci">int findScifiStation(std::vector&lt; int &gt; &amp;horizontal_hits, std::vector&lt; int &gt; &amp;vertical_hits, float threshold)</div><div class="ttdef"><b>Definition</b> <a href="sndSciFiTools_8cxx_source.html#l00078">sndSciFiTools.cxx:78</a></div></div>
+<div class="ttc" id="anamespacesnd_1_1analysis__tools_html_a4366cddb81edce8fb50a4dedd3875e84"><div class="ttname"><a href="namespacesnd_1_1analysis__tools.html#a4366cddb81edce8fb50a4dedd3875e84">snd::analysis_tools::getSciFiHitsPerStation</a></div><div class="ttdeci">void getSciFiHitsPerStation(const TClonesArray *digiHits, std::vector&lt; int &gt; &amp;horizontal_hits, std::vector&lt; int &gt; &amp;vertical_hits)</div><div class="ttdef"><b>Definition</b> <a href="sndSciFiTools_8cxx_source.html#l00013">sndSciFiTools.cxx:13</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -597,21 +672,21 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sndSciFiTools_8cxx_source.html#l00077">77</a> of file <a class="el" href="sndSciFiTools_8cxx_source.html">sndSciFiTools.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   79</span>{</div>
-<div class="line"><span class="lineno">   80</span> </div>
-<div class="line"><span class="lineno">   81</span>   std::vector&lt;float&gt; frac = <a class="code hl_function" href="namespacesnd_1_1analysis__tools.html#ab110e213c86b26c581a9c7456a140ebc">getFractionalHitsPerScifiPlane</a>(horizontal_hits, vertical_hits);</div>
-<div class="line"><span class="lineno">   82</span> </div>
-<div class="line"><span class="lineno">   83</span>   std::vector&lt;float&gt; frac_sum = std::vector&lt;float&gt;(frac.size());</div>
-<div class="line"><span class="lineno">   84</span> </div>
-<div class="line"><span class="lineno">   85</span>   std::partial_sum(frac.begin(), frac.end(), frac_sum.begin());</div>
-<div class="line"><span class="lineno">   86</span> </div>
-<div class="line"><span class="lineno">   87</span>   std::vector&lt;float&gt;::iterator station =</div>
-<div class="line"><span class="lineno">   88</span>      std::find_if(frac_sum.begin(), frac_sum.end(), [&amp;threshold](<span class="keyword">const</span> <span class="keyword">auto</span> &amp;f) { return f &gt; threshold; });</div>
-<div class="line"><span class="lineno">   89</span> </div>
-<div class="line"><span class="lineno">   90</span>   <span class="keywordflow">return</span> station - frac_sum.begin() + 1;</div>
-<div class="line"><span class="lineno">   91</span>}</div>
-<div class="ttc" id="anamespacesnd_1_1analysis__tools_html_ab110e213c86b26c581a9c7456a140ebc"><div class="ttname"><a href="namespacesnd_1_1analysis__tools.html#ab110e213c86b26c581a9c7456a140ebc">snd::analysis_tools::getFractionalHitsPerScifiPlane</a></div><div class="ttdeci">std::vector&lt; float &gt; getFractionalHitsPerScifiPlane(std::vector&lt; int &gt; &amp;horizontal_hits, std::vector&lt; int &gt; &amp;vertical_hits)</div><div class="ttdef"><b>Definition</b> <a href="sndSciFiTools_8cxx_source.html#l00053">sndSciFiTools.cxx:53</a></div></div>
+<p class="definition">Definition at line <a class="el" href="sndSciFiTools_8cxx_source.html#l00078">78</a> of file <a class="el" href="sndSciFiTools_8cxx_source.html">sndSciFiTools.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   80</span>{</div>
+<div class="line"><span class="lineno">   81</span> </div>
+<div class="line"><span class="lineno">   82</span>   std::vector&lt;float&gt; frac = <a class="code hl_function" href="namespacesnd_1_1analysis__tools.html#ab110e213c86b26c581a9c7456a140ebc">getFractionalHitsPerScifiPlane</a>(horizontal_hits, vertical_hits);</div>
+<div class="line"><span class="lineno">   83</span> </div>
+<div class="line"><span class="lineno">   84</span>   std::vector&lt;float&gt; frac_sum = std::vector&lt;float&gt;(frac.size());</div>
+<div class="line"><span class="lineno">   85</span> </div>
+<div class="line"><span class="lineno">   86</span>   std::partial_sum(frac.begin(), frac.end(), frac_sum.begin());</div>
+<div class="line"><span class="lineno">   87</span> </div>
+<div class="line"><span class="lineno">   88</span>   std::vector&lt;float&gt;::iterator station =</div>
+<div class="line"><span class="lineno">   89</span>      std::find_if(frac_sum.begin(), frac_sum.end(), [&amp;threshold](<span class="keyword">const</span> <span class="keyword">auto</span> &amp;f) { return f &gt; threshold; });</div>
+<div class="line"><span class="lineno">   90</span> </div>
+<div class="line"><span class="lineno">   91</span>   <span class="keywordflow">return</span> station - frac_sum.begin() + 1;</div>
+<div class="line"><span class="lineno">   92</span>}</div>
+<div class="ttc" id="anamespacesnd_1_1analysis__tools_html_ab110e213c86b26c581a9c7456a140ebc"><div class="ttname"><a href="namespacesnd_1_1analysis__tools.html#ab110e213c86b26c581a9c7456a140ebc">snd::analysis_tools::getFractionalHitsPerScifiPlane</a></div><div class="ttdeci">std::vector&lt; float &gt; getFractionalHitsPerScifiPlane(std::vector&lt; int &gt; &amp;horizontal_hits, std::vector&lt; int &gt; &amp;vertical_hits)</div><div class="ttdef"><b>Definition</b> <a href="sndSciFiTools_8cxx_source.html#l00054">sndSciFiTools.cxx:54</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -689,15 +764,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sndSciFiTools_8cxx_source.html#l00067">67</a> of file <a class="el" href="sndSciFiTools_8cxx_source.html">sndSciFiTools.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   68</span>{</div>
-<div class="line"><span class="lineno">   69</span>   std::vector&lt;int&gt; horizontal_hits = std::vector&lt;int&gt;(5);</div>
-<div class="line"><span class="lineno">   70</span>   std::vector&lt;int&gt; vertical_hits = std::vector&lt;int&gt;(5);</div>
-<div class="line"><span class="lineno">   71</span> </div>
-<div class="line"><span class="lineno">   72</span>   <a class="code hl_function" href="namespacesnd_1_1analysis__tools.html#a4366cddb81edce8fb50a4dedd3875e84">getSciFiHitsPerStation</a>(digiHits, horizontal_hits, vertical_hits);</div>
-<div class="line"><span class="lineno">   73</span> </div>
-<div class="line"><span class="lineno">   74</span>   <span class="keywordflow">return</span> <a class="code hl_function" href="namespacesnd_1_1analysis__tools.html#ab110e213c86b26c581a9c7456a140ebc">getFractionalHitsPerScifiPlane</a>(horizontal_hits, vertical_hits);</div>
-<div class="line"><span class="lineno">   75</span>}</div>
+<p class="definition">Definition at line <a class="el" href="sndSciFiTools_8cxx_source.html#l00068">68</a> of file <a class="el" href="sndSciFiTools_8cxx_source.html">sndSciFiTools.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   69</span>{</div>
+<div class="line"><span class="lineno">   70</span>   std::vector&lt;int&gt; horizontal_hits = std::vector&lt;int&gt;(5);</div>
+<div class="line"><span class="lineno">   71</span>   std::vector&lt;int&gt; vertical_hits = std::vector&lt;int&gt;(5);</div>
+<div class="line"><span class="lineno">   72</span> </div>
+<div class="line"><span class="lineno">   73</span>   <a class="code hl_function" href="namespacesnd_1_1analysis__tools.html#a4366cddb81edce8fb50a4dedd3875e84">getSciFiHitsPerStation</a>(digiHits, horizontal_hits, vertical_hits);</div>
+<div class="line"><span class="lineno">   74</span> </div>
+<div class="line"><span class="lineno">   75</span>   <span class="keywordflow">return</span> <a class="code hl_function" href="namespacesnd_1_1analysis__tools.html#ab110e213c86b26c581a9c7456a140ebc">getFractionalHitsPerScifiPlane</a>(horizontal_hits, vertical_hits);</div>
+<div class="line"><span class="lineno">   76</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -727,20 +802,20 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sndSciFiTools_8cxx_source.html#l00053">53</a> of file <a class="el" href="sndSciFiTools_8cxx_source.html">sndSciFiTools.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   54</span>{</div>
-<div class="line"><span class="lineno">   55</span> </div>
-<div class="line"><span class="lineno">   56</span>   <span class="keywordtype">int</span> total_hits = <a class="code hl_function" href="namespacesnd_1_1analysis__tools.html#add38a36ae42dce4c3e48621c2c4d0b23">getTotalSciFiHits</a>(horizontal_hits, vertical_hits);</div>
-<div class="line"><span class="lineno">   57</span> </div>
-<div class="line"><span class="lineno">   58</span>   std::vector&lt;float&gt; fractional_hits_per_station = std::vector&lt;float&gt;(horizontal_hits.size());</div>
-<div class="line"><span class="lineno">   59</span> </div>
-<div class="line"><span class="lineno">   60</span>   std::transform(horizontal_hits.begin(), horizontal_hits.end(), vertical_hits.begin(),</div>
-<div class="line"><span class="lineno">   61</span>                  fractional_hits_per_station.begin(),</div>
-<div class="line"><span class="lineno">   62</span>                  [&amp;total_hits](<span class="keyword">const</span> <span class="keyword">auto</span> &amp;hor, <span class="keyword">const</span> <span class="keyword">auto</span> &amp;ver) { return ((float)hor + ver) / total_hits; });</div>
-<div class="line"><span class="lineno">   63</span> </div>
-<div class="line"><span class="lineno">   64</span>   <span class="keywordflow">return</span> fractional_hits_per_station;</div>
-<div class="line"><span class="lineno">   65</span>}</div>
-<div class="ttc" id="anamespacesnd_1_1analysis__tools_html_add38a36ae42dce4c3e48621c2c4d0b23"><div class="ttname"><a href="namespacesnd_1_1analysis__tools.html#add38a36ae42dce4c3e48621c2c4d0b23">snd::analysis_tools::getTotalSciFiHits</a></div><div class="ttdeci">int getTotalSciFiHits(std::vector&lt; int &gt; &amp;horizontal_hits, std::vector&lt; int &gt; &amp;vertical_hits)</div><div class="ttdef"><b>Definition</b> <a href="sndSciFiTools_8cxx_source.html#l00036">sndSciFiTools.cxx:36</a></div></div>
+<p class="definition">Definition at line <a class="el" href="sndSciFiTools_8cxx_source.html#l00054">54</a> of file <a class="el" href="sndSciFiTools_8cxx_source.html">sndSciFiTools.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   55</span>{</div>
+<div class="line"><span class="lineno">   56</span> </div>
+<div class="line"><span class="lineno">   57</span>   <span class="keywordtype">int</span> total_hits = <a class="code hl_function" href="namespacesnd_1_1analysis__tools.html#add38a36ae42dce4c3e48621c2c4d0b23">getTotalSciFiHits</a>(horizontal_hits, vertical_hits);</div>
+<div class="line"><span class="lineno">   58</span> </div>
+<div class="line"><span class="lineno">   59</span>   std::vector&lt;float&gt; fractional_hits_per_station = std::vector&lt;float&gt;(horizontal_hits.size());</div>
+<div class="line"><span class="lineno">   60</span> </div>
+<div class="line"><span class="lineno">   61</span>   std::transform(horizontal_hits.begin(), horizontal_hits.end(), vertical_hits.begin(),</div>
+<div class="line"><span class="lineno">   62</span>                  fractional_hits_per_station.begin(),</div>
+<div class="line"><span class="lineno">   63</span>                  [&amp;total_hits](<span class="keyword">const</span> <span class="keyword">auto</span> &amp;hor, <span class="keyword">const</span> <span class="keyword">auto</span> &amp;ver) { return ((float)hor + ver) / total_hits; });</div>
+<div class="line"><span class="lineno">   64</span> </div>
+<div class="line"><span class="lineno">   65</span>   <span class="keywordflow">return</span> fractional_hits_per_station;</div>
+<div class="line"><span class="lineno">   66</span>}</div>
+<div class="ttc" id="anamespacesnd_1_1analysis__tools_html_add38a36ae42dce4c3e48621c2c4d0b23"><div class="ttname"><a href="namespacesnd_1_1analysis__tools.html#add38a36ae42dce4c3e48621c2c4d0b23">snd::analysis_tools::getTotalSciFiHits</a></div><div class="ttdeci">int getTotalSciFiHits(std::vector&lt; int &gt; &amp;horizontal_hits, std::vector&lt; int &gt; &amp;vertical_hits)</div><div class="ttdef"><b>Definition</b> <a href="sndSciFiTools_8cxx_source.html#l00037">sndSciFiTools.cxx:37</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -907,22 +982,22 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sndSciFiTools_8cxx_source.html#l00162">162</a> of file <a class="el" href="sndSciFiTools_8cxx_source.html">sndSciFiTools.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  163</span>{</div>
-<div class="line"><span class="lineno">  164</span> </div>
-<div class="line"><span class="lineno">  165</span>   <span class="keyword">auto</span> selectedHits = std::make_unique&lt;TClonesArray&gt;(<span class="stringliteral">&quot;sndScifiHit&quot;</span>);</div>
-<div class="line"><span class="lineno">  166</span> </div>
-<div class="line"><span class="lineno">  167</span>   <span class="keywordtype">int</span> i = 0;</div>
-<div class="line"><span class="lineno">  168</span>   <span class="keywordflow">for</span> (<span class="keyword">auto</span> *p : digiHits) {</div>
-<div class="line"><span class="lineno">  169</span>      <span class="keyword">auto</span> *hit = <span class="keyword">dynamic_cast&lt;</span><a class="code hl_class" href="classsndScifiHit.html">sndScifiHit</a> *<span class="keyword">&gt;</span>(p);</div>
-<div class="line"><span class="lineno">  170</span>      <span class="keywordflow">if</span> (!<a class="code hl_function" href="sndSciFiTools_8cxx.html#a1fd0777019d2b6e914490ff374f2f922">validateHit</a>(hit, station, orientation)) {</div>
-<div class="line"><span class="lineno">  171</span>         <span class="keywordflow">continue</span>;</div>
-<div class="line"><span class="lineno">  172</span>      }</div>
-<div class="line"><span class="lineno">  173</span>      <span class="keyword">new</span> ((*selectedHits)[i++]) <a class="code hl_class" href="classsndScifiHit.html">sndScifiHit</a>(*hit);</div>
-<div class="line"><span class="lineno">  174</span>   }</div>
-<div class="line"><span class="lineno">  175</span> </div>
-<div class="line"><span class="lineno">  176</span>   <span class="keywordflow">return</span> selectedHits;</div>
-<div class="line"><span class="lineno">  177</span>}</div>
+<p class="definition">Definition at line <a class="el" href="sndSciFiTools_8cxx_source.html#l00163">163</a> of file <a class="el" href="sndSciFiTools_8cxx_source.html">sndSciFiTools.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  164</span>{</div>
+<div class="line"><span class="lineno">  165</span> </div>
+<div class="line"><span class="lineno">  166</span>   <span class="keyword">auto</span> selectedHits = std::make_unique&lt;TClonesArray&gt;(<span class="stringliteral">&quot;sndScifiHit&quot;</span>);</div>
+<div class="line"><span class="lineno">  167</span> </div>
+<div class="line"><span class="lineno">  168</span>   <span class="keywordtype">int</span> i = 0;</div>
+<div class="line"><span class="lineno">  169</span>   <span class="keywordflow">for</span> (<span class="keyword">auto</span> *p : digiHits) {</div>
+<div class="line"><span class="lineno">  170</span>      <span class="keyword">auto</span> *hit = <span class="keyword">dynamic_cast&lt;</span><a class="code hl_class" href="classsndScifiHit.html">sndScifiHit</a> *<span class="keyword">&gt;</span>(p);</div>
+<div class="line"><span class="lineno">  171</span>      <span class="keywordflow">if</span> (!<a class="code hl_function" href="sndSciFiTools_8cxx.html#a1fd0777019d2b6e914490ff374f2f922">validateHit</a>(hit, station, orientation)) {</div>
+<div class="line"><span class="lineno">  172</span>         <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno">  173</span>      }</div>
+<div class="line"><span class="lineno">  174</span>      <span class="keyword">new</span> ((*selectedHits)[i++]) <a class="code hl_class" href="classsndScifiHit.html">sndScifiHit</a>(*hit);</div>
+<div class="line"><span class="lineno">  175</span>   }</div>
+<div class="line"><span class="lineno">  176</span> </div>
+<div class="line"><span class="lineno">  177</span>   <span class="keywordflow">return</span> selectedHits;</div>
+<div class="line"><span class="lineno">  178</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -958,28 +1033,28 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sndSciFiTools_8cxx_source.html#l00012">12</a> of file <a class="el" href="sndSciFiTools_8cxx_source.html">sndSciFiTools.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   14</span>{</div>
-<div class="line"><span class="lineno">   15</span> </div>
-<div class="line"><span class="lineno">   16</span>   <span class="comment">// Clear hits per plane vectors</span></div>
-<div class="line"><span class="lineno">   17</span>   std::fill(horizontal_hits.begin(), horizontal_hits.end(), 0);</div>
-<div class="line"><span class="lineno">   18</span>   std::fill(vertical_hits.begin(), vertical_hits.end(), 0);</div>
-<div class="line"><span class="lineno">   19</span> </div>
-<div class="line"><span class="lineno">   20</span>   <span class="comment">// Add valid hits to hits per plane vectors</span></div>
-<div class="line"><span class="lineno">   21</span>   <a class="code hl_class" href="classsndScifiHit.html">sndScifiHit</a> *hit;</div>
-<div class="line"><span class="lineno">   22</span>   TIter hitIterator(digiHits);</div>
-<div class="line"><span class="lineno">   23</span> </div>
-<div class="line"><span class="lineno">   24</span>   <span class="keywordflow">while</span> (hit = <span class="keyword">dynamic_cast&lt;</span><a class="code hl_class" href="classsndScifiHit.html">sndScifiHit</a> *<span class="keyword">&gt;</span>(hitIterator.Next())) {</div>
-<div class="line"><span class="lineno">   25</span>      <span class="keywordflow">if</span> (hit-&gt;<a class="code hl_function" href="classsndScifiHit.html#a99afbc5a294dfd9f9ddcf9bada3d90ba">isValid</a>()) {</div>
-<div class="line"><span class="lineno">   26</span>         <span class="keywordtype">int</span> station = hit-&gt;<a class="code hl_function" href="classsndScifiHit.html#a18eb9526024996df83366096a1e41b0b">GetStation</a>();</div>
-<div class="line"><span class="lineno">   27</span>         <span class="keywordflow">if</span> (hit-&gt;<a class="code hl_function" href="classsndScifiHit.html#ac527f08d5770476f38f11f33efbf849e">isVertical</a>()) {</div>
-<div class="line"><span class="lineno">   28</span>            vertical_hits[station - 1]++;</div>
-<div class="line"><span class="lineno">   29</span>         } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">   30</span>            horizontal_hits[station - 1]++;</div>
-<div class="line"><span class="lineno">   31</span>         }</div>
-<div class="line"><span class="lineno">   32</span>      }</div>
-<div class="line"><span class="lineno">   33</span>   }</div>
-<div class="line"><span class="lineno">   34</span>}</div>
+<p class="definition">Definition at line <a class="el" href="sndSciFiTools_8cxx_source.html#l00013">13</a> of file <a class="el" href="sndSciFiTools_8cxx_source.html">sndSciFiTools.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   15</span>{</div>
+<div class="line"><span class="lineno">   16</span> </div>
+<div class="line"><span class="lineno">   17</span>   <span class="comment">// Clear hits per plane vectors</span></div>
+<div class="line"><span class="lineno">   18</span>   std::fill(horizontal_hits.begin(), horizontal_hits.end(), 0);</div>
+<div class="line"><span class="lineno">   19</span>   std::fill(vertical_hits.begin(), vertical_hits.end(), 0);</div>
+<div class="line"><span class="lineno">   20</span> </div>
+<div class="line"><span class="lineno">   21</span>   <span class="comment">// Add valid hits to hits per plane vectors</span></div>
+<div class="line"><span class="lineno">   22</span>   <a class="code hl_class" href="classsndScifiHit.html">sndScifiHit</a> *hit;</div>
+<div class="line"><span class="lineno">   23</span>   TIter hitIterator(digiHits);</div>
+<div class="line"><span class="lineno">   24</span> </div>
+<div class="line"><span class="lineno">   25</span>   <span class="keywordflow">while</span> (hit = <span class="keyword">dynamic_cast&lt;</span><a class="code hl_class" href="classsndScifiHit.html">sndScifiHit</a> *<span class="keyword">&gt;</span>(hitIterator.Next())) {</div>
+<div class="line"><span class="lineno">   26</span>      <span class="keywordflow">if</span> (hit-&gt;<a class="code hl_function" href="classsndScifiHit.html#a99afbc5a294dfd9f9ddcf9bada3d90ba">isValid</a>()) {</div>
+<div class="line"><span class="lineno">   27</span>         <span class="keywordtype">int</span> station = hit-&gt;<a class="code hl_function" href="classsndScifiHit.html#a18eb9526024996df83366096a1e41b0b">GetStation</a>();</div>
+<div class="line"><span class="lineno">   28</span>         <span class="keywordflow">if</span> (hit-&gt;<a class="code hl_function" href="classsndScifiHit.html#ac527f08d5770476f38f11f33efbf849e">isVertical</a>()) {</div>
+<div class="line"><span class="lineno">   29</span>            vertical_hits[station - 1]++;</div>
+<div class="line"><span class="lineno">   30</span>         } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">   31</span>            horizontal_hits[station - 1]++;</div>
+<div class="line"><span class="lineno">   32</span>         }</div>
+<div class="line"><span class="lineno">   33</span>      }</div>
+<div class="line"><span class="lineno">   34</span>   }</div>
+<div class="line"><span class="lineno">   35</span>}</div>
 <div class="ttc" id="aclasssndScifiHit_html_a18eb9526024996df83366096a1e41b0b"><div class="ttname"><a href="classsndScifiHit.html#a18eb9526024996df83366096a1e41b0b">sndScifiHit::GetStation</a></div><div class="ttdeci">Int_t GetStation()</div><div class="ttdef"><b>Definition</b> <a href="sndScifiHit_8h_source.html#l00031">sndScifiHit.h:31</a></div></div>
 <div class="ttc" id="aclasssndScifiHit_html_ac527f08d5770476f38f11f33efbf849e"><div class="ttname"><a href="classsndScifiHit.html#ac527f08d5770476f38f11f33efbf849e">sndScifiHit::isVertical</a></div><div class="ttdeci">bool isVertical()</div><div class="ttdef"><b>Definition</b> <a href="sndScifiHit_8h_source.html#l00032">sndScifiHit.h:32</a></div></div>
 </div><!-- fragment -->
@@ -1077,15 +1152,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sndSciFiTools_8cxx_source.html#l00042">42</a> of file <a class="el" href="sndSciFiTools_8cxx_source.html">sndSciFiTools.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   43</span>{</div>
-<div class="line"><span class="lineno">   44</span>   std::vector&lt;int&gt; horizontal_hits = std::vector&lt;int&gt;(5);</div>
-<div class="line"><span class="lineno">   45</span>   std::vector&lt;int&gt; vertical_hits = std::vector&lt;int&gt;(5);</div>
-<div class="line"><span class="lineno">   46</span> </div>
-<div class="line"><span class="lineno">   47</span>   <a class="code hl_function" href="namespacesnd_1_1analysis__tools.html#a4366cddb81edce8fb50a4dedd3875e84">getSciFiHitsPerStation</a>(digiHits, horizontal_hits, vertical_hits);</div>
-<div class="line"><span class="lineno">   48</span> </div>
-<div class="line"><span class="lineno">   49</span>   <span class="keywordflow">return</span> <a class="code hl_function" href="namespacesnd_1_1analysis__tools.html#add38a36ae42dce4c3e48621c2c4d0b23">getTotalSciFiHits</a>(horizontal_hits, vertical_hits);</div>
-<div class="line"><span class="lineno">   50</span>}</div>
+<p class="definition">Definition at line <a class="el" href="sndSciFiTools_8cxx_source.html#l00043">43</a> of file <a class="el" href="sndSciFiTools_8cxx_source.html">sndSciFiTools.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   44</span>{</div>
+<div class="line"><span class="lineno">   45</span>   std::vector&lt;int&gt; horizontal_hits = std::vector&lt;int&gt;(5);</div>
+<div class="line"><span class="lineno">   46</span>   std::vector&lt;int&gt; vertical_hits = std::vector&lt;int&gt;(5);</div>
+<div class="line"><span class="lineno">   47</span> </div>
+<div class="line"><span class="lineno">   48</span>   <a class="code hl_function" href="namespacesnd_1_1analysis__tools.html#a4366cddb81edce8fb50a4dedd3875e84">getSciFiHitsPerStation</a>(digiHits, horizontal_hits, vertical_hits);</div>
+<div class="line"><span class="lineno">   49</span> </div>
+<div class="line"><span class="lineno">   50</span>   <span class="keywordflow">return</span> <a class="code hl_function" href="namespacesnd_1_1analysis__tools.html#add38a36ae42dce4c3e48621c2c4d0b23">getTotalSciFiHits</a>(horizontal_hits, vertical_hits);</div>
+<div class="line"><span class="lineno">   51</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1115,11 +1190,11 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sndSciFiTools_8cxx_source.html#l00036">36</a> of file <a class="el" href="sndSciFiTools_8cxx_source.html">sndSciFiTools.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   37</span>{</div>
-<div class="line"><span class="lineno">   38</span>   <span class="keywordflow">return</span> std::accumulate(horizontal_hits.begin(), horizontal_hits.end(),</div>
-<div class="line"><span class="lineno">   39</span>                          std::accumulate(vertical_hits.begin(), vertical_hits.end(), 0));</div>
-<div class="line"><span class="lineno">   40</span>}</div>
+<p class="definition">Definition at line <a class="el" href="sndSciFiTools_8cxx_source.html#l00037">37</a> of file <a class="el" href="sndSciFiTools_8cxx_source.html">sndSciFiTools.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   38</span>{</div>
+<div class="line"><span class="lineno">   39</span>   <span class="keywordflow">return</span> std::accumulate(horizontal_hits.begin(), horizontal_hits.end(),</div>
+<div class="line"><span class="lineno">   40</span>                          std::accumulate(vertical_hits.begin(), vertical_hits.end(), 0));</div>
+<div class="line"><span class="lineno">   41</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1167,41 +1242,41 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sndSciFiTools_8cxx_source.html#l00124">124</a> of file <a class="el" href="sndSciFiTools_8cxx_source.html">sndSciFiTools.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  125</span>{</div>
-<div class="line"><span class="lineno">  126</span> </div>
-<div class="line"><span class="lineno">  127</span>   <span class="keywordflow">if</span> (digiHits.GetEntries() &lt;= 0) {</div>
-<div class="line"><span class="lineno">  128</span>      LOG(warning) &lt;&lt; <span class="stringliteral">&quot;digiHits has no valid SciFi Hits and as such no maximum for the timing distribution.&quot;</span>;</div>
-<div class="line"><span class="lineno">  129</span>      <span class="keywordflow">return</span> -1.;</div>
-<div class="line"><span class="lineno">  130</span>   }</div>
-<div class="line"><span class="lineno">  131</span> </div>
-<div class="line"><span class="lineno">  132</span>   TH1F ScifiTiming(<span class="stringliteral">&quot;Timing&quot;</span>, <span class="stringliteral">&quot;Scifi Timing&quot;</span>, bins, min_x, max_x);</div>
-<div class="line"><span class="lineno">  133</span> </div>
-<div class="line"><span class="lineno">  134</span>   <span class="keywordtype">int</span> refStation = ((<a class="code hl_class" href="classsndScifiHit.html">sndScifiHit</a> *)digiHits.At(0))-&gt;GetStation();</div>
-<div class="line"><span class="lineno">  135</span>   <span class="keywordtype">bool</span> refOrientation = ((<a class="code hl_class" href="classsndScifiHit.html">sndScifiHit</a> *)digiHits.At(0))-&gt;isVertical();</div>
-<div class="line"><span class="lineno">  136</span>   <span class="keywordtype">float</span> hitTime = -1.0;</div>
-<div class="line"><span class="lineno">  137</span>   <span class="keywordtype">float</span> timeConversion = 1.;</div>
-<div class="line"><span class="lineno">  138</span>   <span class="keywordflow">if</span> (!isMC) {</div>
-<div class="line"><span class="lineno">  139</span>      timeConversion = 1E9 / (ShipUnit::snd_freq / ShipUnit::hertz);</div>
-<div class="line"><span class="lineno">  140</span>   }</div>
-<div class="line"><span class="lineno">  141</span> </div>
-<div class="line"><span class="lineno">  142</span>   <span class="keywordflow">for</span> (<span class="keyword">auto</span> *p : digiHits) {</div>
-<div class="line"><span class="lineno">  143</span>      <span class="keyword">auto</span> *hit = <span class="keyword">dynamic_cast&lt;</span><a class="code hl_class" href="classsndScifiHit.html">sndScifiHit</a> *<span class="keyword">&gt;</span>(p);</div>
-<div class="line"><span class="lineno">  144</span>      <span class="keywordflow">if</span> (!<a class="code hl_function" href="sndSciFiTools_8cxx.html#a1fd0777019d2b6e914490ff374f2f922">validateHit</a>(hit, refStation, refOrientation)) {</div>
-<div class="line"><span class="lineno">  145</span>         <span class="keywordflow">continue</span>;</div>
-<div class="line"><span class="lineno">  146</span>      }</div>
-<div class="line"><span class="lineno">  147</span>      hitTime = hit-&gt;<a class="code hl_function" href="classSndlhcHit.html#a866527b9119beb9fa2900cca74418ba1">GetTime</a>() * timeConversion;</div>
-<div class="line"><span class="lineno">  148</span>      <span class="keywordflow">if</span> (hitTime &lt; min_x || hitTime &gt; max_x) {</div>
-<div class="line"><span class="lineno">  149</span>         <span class="keywordflow">continue</span>;</div>
-<div class="line"><span class="lineno">  150</span>      }</div>
-<div class="line"><span class="lineno">  151</span>      ScifiTiming.Fill(hitTime);</div>
-<div class="line"><span class="lineno">  152</span>      hitTime = -1.0;</div>
-<div class="line"><span class="lineno">  153</span>   }</div>
-<div class="line"><span class="lineno">  154</span> </div>
-<div class="line"><span class="lineno">  155</span>   <span class="keywordtype">float</span> peakTiming = (ScifiTiming.GetMaximumBin() - 0.5) * (max_x - min_x) / <a class="code hl_variable" href="namespaceTTCluster.html#a65472a05de0b21cb4f6d667745454235">bins</a> + min_x;</div>
-<div class="line"><span class="lineno">  156</span> </div>
-<div class="line"><span class="lineno">  157</span>   <span class="keywordflow">return</span> peakTiming;</div>
-<div class="line"><span class="lineno">  158</span>}</div>
+<p class="definition">Definition at line <a class="el" href="sndSciFiTools_8cxx_source.html#l00125">125</a> of file <a class="el" href="sndSciFiTools_8cxx_source.html">sndSciFiTools.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  126</span>{</div>
+<div class="line"><span class="lineno">  127</span> </div>
+<div class="line"><span class="lineno">  128</span>   <span class="keywordflow">if</span> (digiHits.GetEntries() &lt;= 0) {</div>
+<div class="line"><span class="lineno">  129</span>      LOG(warning) &lt;&lt; <span class="stringliteral">&quot;digiHits has no valid SciFi Hits and as such no maximum for the timing distribution.&quot;</span>;</div>
+<div class="line"><span class="lineno">  130</span>      <span class="keywordflow">return</span> -1.;</div>
+<div class="line"><span class="lineno">  131</span>   }</div>
+<div class="line"><span class="lineno">  132</span> </div>
+<div class="line"><span class="lineno">  133</span>   TH1F ScifiTiming(<span class="stringliteral">&quot;Timing&quot;</span>, <span class="stringliteral">&quot;Scifi Timing&quot;</span>, bins, min_x, max_x);</div>
+<div class="line"><span class="lineno">  134</span> </div>
+<div class="line"><span class="lineno">  135</span>   <span class="keywordtype">int</span> refStation = ((<a class="code hl_class" href="classsndScifiHit.html">sndScifiHit</a> *)digiHits.At(0))-&gt;GetStation();</div>
+<div class="line"><span class="lineno">  136</span>   <span class="keywordtype">bool</span> refOrientation = ((<a class="code hl_class" href="classsndScifiHit.html">sndScifiHit</a> *)digiHits.At(0))-&gt;isVertical();</div>
+<div class="line"><span class="lineno">  137</span>   <span class="keywordtype">float</span> hitTime = -1.0;</div>
+<div class="line"><span class="lineno">  138</span>   <span class="keywordtype">float</span> timeConversion = 1.;</div>
+<div class="line"><span class="lineno">  139</span>   <span class="keywordflow">if</span> (!isMC) {</div>
+<div class="line"><span class="lineno">  140</span>      timeConversion = 1E9 / (ShipUnit::snd_freq / ShipUnit::hertz);</div>
+<div class="line"><span class="lineno">  141</span>   }</div>
+<div class="line"><span class="lineno">  142</span> </div>
+<div class="line"><span class="lineno">  143</span>   <span class="keywordflow">for</span> (<span class="keyword">auto</span> *p : digiHits) {</div>
+<div class="line"><span class="lineno">  144</span>      <span class="keyword">auto</span> *hit = <span class="keyword">dynamic_cast&lt;</span><a class="code hl_class" href="classsndScifiHit.html">sndScifiHit</a> *<span class="keyword">&gt;</span>(p);</div>
+<div class="line"><span class="lineno">  145</span>      <span class="keywordflow">if</span> (!<a class="code hl_function" href="sndSciFiTools_8cxx.html#a1fd0777019d2b6e914490ff374f2f922">validateHit</a>(hit, refStation, refOrientation)) {</div>
+<div class="line"><span class="lineno">  146</span>         <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno">  147</span>      }</div>
+<div class="line"><span class="lineno">  148</span>      hitTime = hit-&gt;<a class="code hl_function" href="classSndlhcHit.html#a866527b9119beb9fa2900cca74418ba1">GetTime</a>() * timeConversion;</div>
+<div class="line"><span class="lineno">  149</span>      <span class="keywordflow">if</span> (hitTime &lt; min_x || hitTime &gt; max_x) {</div>
+<div class="line"><span class="lineno">  150</span>         <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno">  151</span>      }</div>
+<div class="line"><span class="lineno">  152</span>      ScifiTiming.Fill(hitTime);</div>
+<div class="line"><span class="lineno">  153</span>      hitTime = -1.0;</div>
+<div class="line"><span class="lineno">  154</span>   }</div>
+<div class="line"><span class="lineno">  155</span> </div>
+<div class="line"><span class="lineno">  156</span>   <span class="keywordtype">float</span> peakTiming = (ScifiTiming.GetMaximumBin() - 0.5) * (max_x - min_x) / <a class="code hl_variable" href="namespaceTTCluster.html#a65472a05de0b21cb4f6d667745454235">bins</a> + min_x;</div>
+<div class="line"><span class="lineno">  157</span> </div>
+<div class="line"><span class="lineno">  158</span>   <span class="keywordflow">return</span> peakTiming;</div>
+<div class="line"><span class="lineno">  159</span>}</div>
 <div class="ttc" id="aclassSndlhcHit_html_a866527b9119beb9fa2900cca74418ba1"><div class="ttname"><a href="classSndlhcHit.html#a866527b9119beb9fa2900cca74418ba1">SndlhcHit::GetTime</a></div><div class="ttdeci">Float_t GetTime(Int_t nChannel=0)</div><div class="ttdef"><b>Definition</b> <a href="SndlhcHit_8cxx_source.html#l00032">SndlhcHit.cxx:32</a></div></div>
 <div class="ttc" id="anamespaceTTCluster_html_a65472a05de0b21cb4f6d667745454235"><div class="ttname"><a href="namespaceTTCluster.html#a65472a05de0b21cb4f6d667745454235">TTCluster.bins</a></div><div class="ttdeci">bins</div><div class="ttdef"><b>Definition</b> <a href="TTCluster_8py_source.html#l00731">TTCluster.py:731</a></div></div>
 </div><!-- fragment -->
@@ -1257,32 +1332,32 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sndSciFiTools_8cxx_source.html#l00269">269</a> of file <a class="el" href="sndSciFiTools_8cxx_source.html">sndSciFiTools.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  272</span>{</div>
-<div class="line"><span class="lineno">  273</span> </div>
-<div class="line"><span class="lineno">  274</span>   <span class="keywordflow">if</span> ((selection_parameters.find(<span class="stringliteral">&quot;bins_x&quot;</span>) == selection_parameters.end()) ||</div>
-<div class="line"><span class="lineno">  275</span>       (selection_parameters.find(<span class="stringliteral">&quot;min_x&quot;</span>) == selection_parameters.end()) ||</div>
-<div class="line"><span class="lineno">  276</span>       (selection_parameters.find(<span class="stringliteral">&quot;max_x&quot;</span>) == selection_parameters.end()) ||</div>
-<div class="line"><span class="lineno">  277</span>       (selection_parameters.find(<span class="stringliteral">&quot;time_lower_range&quot;</span>) == selection_parameters.end())) {</div>
-<div class="line"><span class="lineno">  278</span>      LOG(FATAL) &lt;&lt; <span class="stringliteral">&quot;In order to use method 0 please provide the correct selection_parameters. Consider the default = &quot;</span></div>
-<div class="line"><span class="lineno">  279</span>                    <span class="stringliteral">&quot;{{\&quot;bins_x\&quot;, 52.}, {\&quot;min_x\&quot;, 0.}, {\&quot;max_x\&quot;, 26.}, {\&quot;time_lower_range\&quot;, &quot;</span></div>
-<div class="line"><span class="lineno">  280</span>                    <span class="stringliteral">&quot;1E9/(2*ShipUnit::snd_freq/ShipUnit::hertz))}, {\&quot;time_upper_range\&quot;, &quot;</span></div>
-<div class="line"><span class="lineno">  281</span>                    <span class="stringliteral">&quot;2E9/(ShipUnit::snd_freq/ShipUnit::hertz)}}&quot;</span>;</div>
-<div class="line"><span class="lineno">  282</span>   }</div>
-<div class="line"><span class="lineno">  283</span> </div>
-<div class="line"><span class="lineno">  284</span>   <span class="keywordtype">float</span> time_upper_range = -1.;</div>
-<div class="line"><span class="lineno">  285</span> </div>
-<div class="line"><span class="lineno">  286</span>   <span class="keywordflow">if</span> (selection_parameters.find(<span class="stringliteral">&quot;time_upper_range&quot;</span>) == selection_parameters.end()) {</div>
-<div class="line"><span class="lineno">  287</span>      time_upper_range = selection_parameters.at(<span class="stringliteral">&quot;time_lower_range&quot;</span>);</div>
-<div class="line"><span class="lineno">  288</span>   } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  289</span>      time_upper_range = selection_parameters.at(<span class="stringliteral">&quot;time_upper_range&quot;</span>);</div>
-<div class="line"><span class="lineno">  290</span>   }</div>
-<div class="line"><span class="lineno">  291</span> </div>
-<div class="line"><span class="lineno">  292</span>   <span class="keywordflow">return</span> <a class="code hl_function" href="namespacesnd_1_1analysis__tools.html#a18acfed54a271308bcd04deea70d239b">selectScifiHits</a>(digiHits, station, orientation, <span class="keywordtype">int</span>(selection_parameters.at(<span class="stringliteral">&quot;bins_x&quot;</span>)),</div>
-<div class="line"><span class="lineno">  293</span>                          selection_parameters.at(<span class="stringliteral">&quot;min_x&quot;</span>), selection_parameters.at(<span class="stringliteral">&quot;max_x&quot;</span>),</div>
-<div class="line"><span class="lineno">  294</span>                          selection_parameters.at(<span class="stringliteral">&quot;time_lower_range&quot;</span>), time_upper_range, make_selection,</div>
-<div class="line"><span class="lineno">  295</span>              isMC);</div>
-<div class="line"><span class="lineno">  296</span>}</div>
+<p class="definition">Definition at line <a class="el" href="sndSciFiTools_8cxx_source.html#l00270">270</a> of file <a class="el" href="sndSciFiTools_8cxx_source.html">sndSciFiTools.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  273</span>{</div>
+<div class="line"><span class="lineno">  274</span> </div>
+<div class="line"><span class="lineno">  275</span>   <span class="keywordflow">if</span> ((selection_parameters.find(<span class="stringliteral">&quot;bins_x&quot;</span>) == selection_parameters.end()) ||</div>
+<div class="line"><span class="lineno">  276</span>       (selection_parameters.find(<span class="stringliteral">&quot;min_x&quot;</span>) == selection_parameters.end()) ||</div>
+<div class="line"><span class="lineno">  277</span>       (selection_parameters.find(<span class="stringliteral">&quot;max_x&quot;</span>) == selection_parameters.end()) ||</div>
+<div class="line"><span class="lineno">  278</span>       (selection_parameters.find(<span class="stringliteral">&quot;time_lower_range&quot;</span>) == selection_parameters.end())) {</div>
+<div class="line"><span class="lineno">  279</span>      LOG(FATAL) &lt;&lt; <span class="stringliteral">&quot;In order to use method 0 please provide the correct selection_parameters. Consider the default = &quot;</span></div>
+<div class="line"><span class="lineno">  280</span>                    <span class="stringliteral">&quot;{{\&quot;bins_x\&quot;, 52.}, {\&quot;min_x\&quot;, 0.}, {\&quot;max_x\&quot;, 26.}, {\&quot;time_lower_range\&quot;, &quot;</span></div>
+<div class="line"><span class="lineno">  281</span>                    <span class="stringliteral">&quot;1E9/(2*ShipUnit::snd_freq/ShipUnit::hertz))}, {\&quot;time_upper_range\&quot;, &quot;</span></div>
+<div class="line"><span class="lineno">  282</span>                    <span class="stringliteral">&quot;2E9/(ShipUnit::snd_freq/ShipUnit::hertz)}}&quot;</span>;</div>
+<div class="line"><span class="lineno">  283</span>   }</div>
+<div class="line"><span class="lineno">  284</span> </div>
+<div class="line"><span class="lineno">  285</span>   <span class="keywordtype">float</span> time_upper_range = -1.;</div>
+<div class="line"><span class="lineno">  286</span> </div>
+<div class="line"><span class="lineno">  287</span>   <span class="keywordflow">if</span> (selection_parameters.find(<span class="stringliteral">&quot;time_upper_range&quot;</span>) == selection_parameters.end()) {</div>
+<div class="line"><span class="lineno">  288</span>      time_upper_range = selection_parameters.at(<span class="stringliteral">&quot;time_lower_range&quot;</span>);</div>
+<div class="line"><span class="lineno">  289</span>   } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  290</span>      time_upper_range = selection_parameters.at(<span class="stringliteral">&quot;time_upper_range&quot;</span>);</div>
+<div class="line"><span class="lineno">  291</span>   }</div>
+<div class="line"><span class="lineno">  292</span> </div>
+<div class="line"><span class="lineno">  293</span>   <span class="keywordflow">return</span> <a class="code hl_function" href="namespacesnd_1_1analysis__tools.html#a18acfed54a271308bcd04deea70d239b">selectScifiHits</a>(digiHits, station, orientation, <span class="keywordtype">int</span>(selection_parameters.at(<span class="stringliteral">&quot;bins_x&quot;</span>)),</div>
+<div class="line"><span class="lineno">  294</span>                          selection_parameters.at(<span class="stringliteral">&quot;min_x&quot;</span>), selection_parameters.at(<span class="stringliteral">&quot;max_x&quot;</span>),</div>
+<div class="line"><span class="lineno">  295</span>                          selection_parameters.at(<span class="stringliteral">&quot;time_lower_range&quot;</span>), time_upper_range, make_selection,</div>
+<div class="line"><span class="lineno">  296</span>              isMC);</div>
+<div class="line"><span class="lineno">  297</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1360,82 +1435,82 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sndSciFiTools_8cxx_source.html#l00186">186</a> of file <a class="el" href="sndSciFiTools_8cxx_source.html">sndSciFiTools.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  191</span>{</div>
-<div class="line"><span class="lineno">  192</span> </div>
-<div class="line"><span class="lineno">  193</span>   <span class="keywordflow">if</span> (bins_x &lt; 1) {</div>
-<div class="line"><span class="lineno">  194</span>      LOG(FATAL) &lt;&lt; <span class="stringliteral">&quot;bins_x in selection_parameters cannot be &lt;1. Consider using the default value of 52 instead.&quot;</span>;</div>
-<div class="line"><span class="lineno">  195</span>   }</div>
-<div class="line"><span class="lineno">  196</span>   <span class="keywordflow">if</span> (min_x &gt; max_x) {</div>
-<div class="line"><span class="lineno">  197</span>      LOG(warning) &lt;&lt; <span class="stringliteral">&quot;In selection_parameters min_x &gt; max_x. Values will be swapped.&quot;</span>;</div>
-<div class="line"><span class="lineno">  198</span>      <span class="keywordtype">float</span> aux_float = min_x;</div>
-<div class="line"><span class="lineno">  199</span>      min_x = max_x;</div>
-<div class="line"><span class="lineno">  200</span>      max_x = aux_float;</div>
-<div class="line"><span class="lineno">  201</span>   }</div>
-<div class="line"><span class="lineno">  202</span>   <span class="keywordflow">if</span> (min_x &lt; 0.0) {</div>
-<div class="line"><span class="lineno">  203</span>      LOG(warning) &lt;&lt; <span class="stringliteral">&quot;In selection_parameters min_x &lt; 0.0. Consider using the default value of 0.0.&quot;</span>;</div>
-<div class="line"><span class="lineno">  204</span>   }</div>
-<div class="line"><span class="lineno">  205</span>   <span class="keywordflow">if</span> (max_x &lt; 0.0) {</div>
-<div class="line"><span class="lineno">  206</span>      LOG(FATAL) &lt;&lt; <span class="stringliteral">&quot;In selection_parameters max_x &lt; 0.0. Consider using the default value of 26.0.&quot;</span>;</div>
-<div class="line"><span class="lineno">  207</span>   }</div>
-<div class="line"><span class="lineno">  208</span>   <span class="keywordflow">if</span> (time_lower_range &lt;= 0.0) {</div>
-<div class="line"><span class="lineno">  209</span>      LOG(FATAL) &lt;&lt; <span class="stringliteral">&quot;In selection_parameters time_lower_range &lt;= 0.0. Value should always be positive, in ns.&quot;</span>;</div>
-<div class="line"><span class="lineno">  210</span>   }</div>
-<div class="line"><span class="lineno">  211</span>   <span class="keywordflow">if</span> (time_upper_range &lt;= 0.0) {</div>
-<div class="line"><span class="lineno">  212</span>      LOG(FATAL) &lt;&lt; <span class="stringliteral">&quot;In selection_parameters time_upper_range &lt;= 0.0. Value should always be positive, in ns.&quot;</span>;</div>
-<div class="line"><span class="lineno">  213</span>   }</div>
-<div class="line"><span class="lineno">  214</span> </div>
-<div class="line"><span class="lineno">  215</span>   <span class="keyword">auto</span> filteredHits = std::make_unique&lt;TClonesArray&gt;(<span class="stringliteral">&quot;sndScifiHit&quot;</span>, digiHits.GetEntries());</div>
-<div class="line"><span class="lineno">  216</span> </div>
-<div class="line"><span class="lineno">  217</span>   <span class="keywordtype">float</span> peakTiming = -1.0;</div>
-<div class="line"><span class="lineno">  218</span> </div>
-<div class="line"><span class="lineno">  219</span>   <span class="keywordtype">float</span> timeConversion = 1.;</div>
-<div class="line"><span class="lineno">  220</span>   <span class="keywordflow">if</span> (!isMC) {</div>
-<div class="line"><span class="lineno">  221</span>      timeConversion = 1E9 / (ShipUnit::snd_freq / ShipUnit::hertz);</div>
-<div class="line"><span class="lineno">  222</span>   }</div>
-<div class="line"><span class="lineno">  223</span> </div>
-<div class="line"><span class="lineno">  224</span>   <span class="keywordflow">if</span> (make_selection) {</div>
-<div class="line"><span class="lineno">  225</span> </div>
-<div class="line"><span class="lineno">  226</span>      <span class="keyword">auto</span> selectedHits = <a class="code hl_function" href="namespacesnd_1_1analysis__tools.html#a898b9cbb7bac8c95c59069b6aecbe9b3">getScifiHits</a>(digiHits, station, orientation);</div>
-<div class="line"><span class="lineno">  227</span> </div>
-<div class="line"><span class="lineno">  228</span>      peakTiming = <a class="code hl_function" href="namespacesnd_1_1analysis__tools.html#a22e18e1d83715d3cecf04d03eb350cac">peakScifiTiming</a>(*selectedHits, bins_x, min_x, max_x, isMC);</div>
-<div class="line"><span class="lineno">  229</span> </div>
-<div class="line"><span class="lineno">  230</span>      <span class="keywordtype">int</span> <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a> = 0;</div>
-<div class="line"><span class="lineno">  231</span>      <span class="keywordflow">for</span> (<span class="keyword">auto</span> *p : *selectedHits) {</div>
-<div class="line"><span class="lineno">  232</span>         <span class="keyword">auto</span> *hit = <span class="keyword">dynamic_cast&lt;</span><a class="code hl_class" href="classsndScifiHit.html">sndScifiHit</a> *<span class="keyword">&gt;</span>(<a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a>);</div>
-<div class="line"><span class="lineno">  233</span>         <span class="keywordflow">if</span> (!<a class="code hl_function" href="sndSciFiTools_8cxx.html#a1fd0777019d2b6e914490ff374f2f922">validateHit</a>(hit, station, orientation)) {</div>
-<div class="line"><span class="lineno">  234</span>            <span class="keywordflow">continue</span>;</div>
-<div class="line"><span class="lineno">  235</span>         }</div>
-<div class="line"><span class="lineno">  236</span>         <span class="keywordflow">if</span> ((peakTiming - time_lower_range &gt; hit-&gt;GetTime() * timeConversion) ||</div>
-<div class="line"><span class="lineno">  237</span>             (hit-&gt;GetTime() * timeConversion &gt; peakTiming + time_upper_range)) {</div>
-<div class="line"><span class="lineno">  238</span>            <span class="keywordflow">continue</span>;</div>
-<div class="line"><span class="lineno">  239</span>         }</div>
-<div class="line"><span class="lineno">  240</span>         <span class="keyword">new</span> ((*filteredHits)[<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>++]) <a class="code hl_class" href="classsndScifiHit.html">sndScifiHit</a>(*hit);</div>
-<div class="line"><span class="lineno">  241</span>      }</div>
-<div class="line"><span class="lineno">  242</span> </div>
-<div class="line"><span class="lineno">  243</span>   } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  244</span>      <span class="comment">// Does not create selectedHits and just uses digiHits (not unique_ptr)</span></div>
-<div class="line"><span class="lineno">  245</span> </div>
-<div class="line"><span class="lineno">  246</span>      peakTiming = <a class="code hl_function" href="namespacesnd_1_1analysis__tools.html#a22e18e1d83715d3cecf04d03eb350cac">peakScifiTiming</a>(digiHits, bins_x, min_x, max_x, isMC);</div>
-<div class="line"><span class="lineno">  247</span> </div>
-<div class="line"><span class="lineno">  248</span>      <span class="keywordtype">int</span> <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a> = 0;</div>
-<div class="line"><span class="lineno">  249</span>      <span class="keywordflow">for</span> (<span class="keyword">auto</span> *p : digiHits) {</div>
-<div class="line"><span class="lineno">  250</span>         <span class="keyword">auto</span> *hit = <span class="keyword">dynamic_cast&lt;</span><a class="code hl_class" href="classsndScifiHit.html">sndScifiHit</a> *<span class="keyword">&gt;</span>(<a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a>);</div>
-<div class="line"><span class="lineno">  251</span>         <span class="keywordflow">if</span> (!<a class="code hl_function" href="sndSciFiTools_8cxx.html#a1fd0777019d2b6e914490ff374f2f922">validateHit</a>(hit, station, orientation)) {</div>
-<div class="line"><span class="lineno">  252</span>            <span class="keywordflow">continue</span>;</div>
-<div class="line"><span class="lineno">  253</span>         }</div>
-<div class="line"><span class="lineno">  254</span>         <span class="keywordflow">if</span> ((peakTiming - time_lower_range &gt; hit-&gt;GetTime() * timeConversion) ||</div>
-<div class="line"><span class="lineno">  255</span>             (hit-&gt;GetTime() * timeConversion &gt; peakTiming + time_upper_range)) {</div>
-<div class="line"><span class="lineno">  256</span>            <span class="keywordflow">continue</span>;</div>
-<div class="line"><span class="lineno">  257</span>         }</div>
-<div class="line"><span class="lineno">  258</span>         <span class="keyword">new</span> ((*filteredHits)[<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>++]) <a class="code hl_class" href="classsndScifiHit.html">sndScifiHit</a>(*hit);</div>
-<div class="line"><span class="lineno">  259</span>      }</div>
-<div class="line"><span class="lineno">  260</span>   }</div>
-<div class="line"><span class="lineno">  261</span> </div>
-<div class="line"><span class="lineno">  262</span>   <span class="keywordflow">return</span> filteredHits;</div>
-<div class="line"><span class="lineno">  263</span>}</div>
-<div class="ttc" id="anamespacesnd_1_1analysis__tools_html_a22e18e1d83715d3cecf04d03eb350cac"><div class="ttname"><a href="namespacesnd_1_1analysis__tools.html#a22e18e1d83715d3cecf04d03eb350cac">snd::analysis_tools::peakScifiTiming</a></div><div class="ttdeci">float peakScifiTiming(const TClonesArray &amp;digiHits, int bins, float min_x, float max_x, bool isMC=false)</div><div class="ttdef"><b>Definition</b> <a href="sndSciFiTools_8cxx_source.html#l00124">sndSciFiTools.cxx:124</a></div></div>
-<div class="ttc" id="anamespacesnd_1_1analysis__tools_html_a898b9cbb7bac8c95c59069b6aecbe9b3"><div class="ttname"><a href="namespacesnd_1_1analysis__tools.html#a898b9cbb7bac8c95c59069b6aecbe9b3">snd::analysis_tools::getScifiHits</a></div><div class="ttdeci">std::unique_ptr&lt; TClonesArray &gt; getScifiHits(const TClonesArray &amp;digiHits, int station, bool orientation)</div><div class="ttdef"><b>Definition</b> <a href="sndSciFiTools_8cxx_source.html#l00162">sndSciFiTools.cxx:162</a></div></div>
+<p class="definition">Definition at line <a class="el" href="sndSciFiTools_8cxx_source.html#l00187">187</a> of file <a class="el" href="sndSciFiTools_8cxx_source.html">sndSciFiTools.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  192</span>{</div>
+<div class="line"><span class="lineno">  193</span> </div>
+<div class="line"><span class="lineno">  194</span>   <span class="keywordflow">if</span> (bins_x &lt; 1) {</div>
+<div class="line"><span class="lineno">  195</span>      LOG(FATAL) &lt;&lt; <span class="stringliteral">&quot;bins_x in selection_parameters cannot be &lt;1. Consider using the default value of 52 instead.&quot;</span>;</div>
+<div class="line"><span class="lineno">  196</span>   }</div>
+<div class="line"><span class="lineno">  197</span>   <span class="keywordflow">if</span> (min_x &gt; max_x) {</div>
+<div class="line"><span class="lineno">  198</span>      LOG(warning) &lt;&lt; <span class="stringliteral">&quot;In selection_parameters min_x &gt; max_x. Values will be swapped.&quot;</span>;</div>
+<div class="line"><span class="lineno">  199</span>      <span class="keywordtype">float</span> aux_float = min_x;</div>
+<div class="line"><span class="lineno">  200</span>      min_x = max_x;</div>
+<div class="line"><span class="lineno">  201</span>      max_x = aux_float;</div>
+<div class="line"><span class="lineno">  202</span>   }</div>
+<div class="line"><span class="lineno">  203</span>   <span class="keywordflow">if</span> (min_x &lt; 0.0) {</div>
+<div class="line"><span class="lineno">  204</span>      LOG(warning) &lt;&lt; <span class="stringliteral">&quot;In selection_parameters min_x &lt; 0.0. Consider using the default value of 0.0.&quot;</span>;</div>
+<div class="line"><span class="lineno">  205</span>   }</div>
+<div class="line"><span class="lineno">  206</span>   <span class="keywordflow">if</span> (max_x &lt; 0.0) {</div>
+<div class="line"><span class="lineno">  207</span>      LOG(FATAL) &lt;&lt; <span class="stringliteral">&quot;In selection_parameters max_x &lt; 0.0. Consider using the default value of 26.0.&quot;</span>;</div>
+<div class="line"><span class="lineno">  208</span>   }</div>
+<div class="line"><span class="lineno">  209</span>   <span class="keywordflow">if</span> (time_lower_range &lt;= 0.0) {</div>
+<div class="line"><span class="lineno">  210</span>      LOG(FATAL) &lt;&lt; <span class="stringliteral">&quot;In selection_parameters time_lower_range &lt;= 0.0. Value should always be positive, in ns.&quot;</span>;</div>
+<div class="line"><span class="lineno">  211</span>   }</div>
+<div class="line"><span class="lineno">  212</span>   <span class="keywordflow">if</span> (time_upper_range &lt;= 0.0) {</div>
+<div class="line"><span class="lineno">  213</span>      LOG(FATAL) &lt;&lt; <span class="stringliteral">&quot;In selection_parameters time_upper_range &lt;= 0.0. Value should always be positive, in ns.&quot;</span>;</div>
+<div class="line"><span class="lineno">  214</span>   }</div>
+<div class="line"><span class="lineno">  215</span> </div>
+<div class="line"><span class="lineno">  216</span>   <span class="keyword">auto</span> filteredHits = std::make_unique&lt;TClonesArray&gt;(<span class="stringliteral">&quot;sndScifiHit&quot;</span>, digiHits.GetEntries());</div>
+<div class="line"><span class="lineno">  217</span> </div>
+<div class="line"><span class="lineno">  218</span>   <span class="keywordtype">float</span> peakTiming = -1.0;</div>
+<div class="line"><span class="lineno">  219</span> </div>
+<div class="line"><span class="lineno">  220</span>   <span class="keywordtype">float</span> timeConversion = 1.;</div>
+<div class="line"><span class="lineno">  221</span>   <span class="keywordflow">if</span> (!isMC) {</div>
+<div class="line"><span class="lineno">  222</span>      timeConversion = 1E9 / (ShipUnit::snd_freq / ShipUnit::hertz);</div>
+<div class="line"><span class="lineno">  223</span>   }</div>
+<div class="line"><span class="lineno">  224</span> </div>
+<div class="line"><span class="lineno">  225</span>   <span class="keywordflow">if</span> (make_selection) {</div>
+<div class="line"><span class="lineno">  226</span> </div>
+<div class="line"><span class="lineno">  227</span>      <span class="keyword">auto</span> selectedHits = <a class="code hl_function" href="namespacesnd_1_1analysis__tools.html#a898b9cbb7bac8c95c59069b6aecbe9b3">getScifiHits</a>(digiHits, station, orientation);</div>
+<div class="line"><span class="lineno">  228</span> </div>
+<div class="line"><span class="lineno">  229</span>      peakTiming = <a class="code hl_function" href="namespacesnd_1_1analysis__tools.html#a22e18e1d83715d3cecf04d03eb350cac">peakScifiTiming</a>(*selectedHits, bins_x, min_x, max_x, isMC);</div>
+<div class="line"><span class="lineno">  230</span> </div>
+<div class="line"><span class="lineno">  231</span>      <span class="keywordtype">int</span> <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a> = 0;</div>
+<div class="line"><span class="lineno">  232</span>      <span class="keywordflow">for</span> (<span class="keyword">auto</span> *p : *selectedHits) {</div>
+<div class="line"><span class="lineno">  233</span>         <span class="keyword">auto</span> *hit = <span class="keyword">dynamic_cast&lt;</span><a class="code hl_class" href="classsndScifiHit.html">sndScifiHit</a> *<span class="keyword">&gt;</span>(<a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a>);</div>
+<div class="line"><span class="lineno">  234</span>         <span class="keywordflow">if</span> (!<a class="code hl_function" href="sndSciFiTools_8cxx.html#a1fd0777019d2b6e914490ff374f2f922">validateHit</a>(hit, station, orientation)) {</div>
+<div class="line"><span class="lineno">  235</span>            <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno">  236</span>         }</div>
+<div class="line"><span class="lineno">  237</span>         <span class="keywordflow">if</span> ((peakTiming - time_lower_range &gt; hit-&gt;GetTime() * timeConversion) ||</div>
+<div class="line"><span class="lineno">  238</span>             (hit-&gt;GetTime() * timeConversion &gt; peakTiming + time_upper_range)) {</div>
+<div class="line"><span class="lineno">  239</span>            <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno">  240</span>         }</div>
+<div class="line"><span class="lineno">  241</span>         <span class="keyword">new</span> ((*filteredHits)[<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>++]) <a class="code hl_class" href="classsndScifiHit.html">sndScifiHit</a>(*hit);</div>
+<div class="line"><span class="lineno">  242</span>      }</div>
+<div class="line"><span class="lineno">  243</span> </div>
+<div class="line"><span class="lineno">  244</span>   } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  245</span>      <span class="comment">// Does not create selectedHits and just uses digiHits (not unique_ptr)</span></div>
+<div class="line"><span class="lineno">  246</span> </div>
+<div class="line"><span class="lineno">  247</span>      peakTiming = <a class="code hl_function" href="namespacesnd_1_1analysis__tools.html#a22e18e1d83715d3cecf04d03eb350cac">peakScifiTiming</a>(digiHits, bins_x, min_x, max_x, isMC);</div>
+<div class="line"><span class="lineno">  248</span> </div>
+<div class="line"><span class="lineno">  249</span>      <span class="keywordtype">int</span> <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a> = 0;</div>
+<div class="line"><span class="lineno">  250</span>      <span class="keywordflow">for</span> (<span class="keyword">auto</span> *p : digiHits) {</div>
+<div class="line"><span class="lineno">  251</span>         <span class="keyword">auto</span> *hit = <span class="keyword">dynamic_cast&lt;</span><a class="code hl_class" href="classsndScifiHit.html">sndScifiHit</a> *<span class="keyword">&gt;</span>(<a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a>);</div>
+<div class="line"><span class="lineno">  252</span>         <span class="keywordflow">if</span> (!<a class="code hl_function" href="sndSciFiTools_8cxx.html#a1fd0777019d2b6e914490ff374f2f922">validateHit</a>(hit, station, orientation)) {</div>
+<div class="line"><span class="lineno">  253</span>            <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno">  254</span>         }</div>
+<div class="line"><span class="lineno">  255</span>         <span class="keywordflow">if</span> ((peakTiming - time_lower_range &gt; hit-&gt;GetTime() * timeConversion) ||</div>
+<div class="line"><span class="lineno">  256</span>             (hit-&gt;GetTime() * timeConversion &gt; peakTiming + time_upper_range)) {</div>
+<div class="line"><span class="lineno">  257</span>            <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno">  258</span>         }</div>
+<div class="line"><span class="lineno">  259</span>         <span class="keyword">new</span> ((*filteredHits)[<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>++]) <a class="code hl_class" href="classsndScifiHit.html">sndScifiHit</a>(*hit);</div>
+<div class="line"><span class="lineno">  260</span>      }</div>
+<div class="line"><span class="lineno">  261</span>   }</div>
+<div class="line"><span class="lineno">  262</span> </div>
+<div class="line"><span class="lineno">  263</span>   <span class="keywordflow">return</span> filteredHits;</div>
+<div class="line"><span class="lineno">  264</span>}</div>
+<div class="ttc" id="anamespacesnd_1_1analysis__tools_html_a22e18e1d83715d3cecf04d03eb350cac"><div class="ttname"><a href="namespacesnd_1_1analysis__tools.html#a22e18e1d83715d3cecf04d03eb350cac">snd::analysis_tools::peakScifiTiming</a></div><div class="ttdeci">float peakScifiTiming(const TClonesArray &amp;digiHits, int bins, float min_x, float max_x, bool isMC=false)</div><div class="ttdef"><b>Definition</b> <a href="sndSciFiTools_8cxx_source.html#l00125">sndSciFiTools.cxx:125</a></div></div>
+<div class="ttc" id="anamespacesnd_1_1analysis__tools_html_a898b9cbb7bac8c95c59069b6aecbe9b3"><div class="ttname"><a href="namespacesnd_1_1analysis__tools.html#a898b9cbb7bac8c95c59069b6aecbe9b3">snd::analysis_tools::getScifiHits</a></div><div class="ttdeci">std::unique_ptr&lt; TClonesArray &gt; getScifiHits(const TClonesArray &amp;digiHits, int station, bool orientation)</div><div class="ttdef"><b>Definition</b> <a href="sndSciFiTools_8cxx_source.html#l00163">sndSciFiTools.cxx:163</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1477,61 +1552,61 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sndSciFiTools_8cxx_source.html#l00488">488</a> of file <a class="el" href="sndSciFiTools_8cxx_source.html">sndSciFiTools.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  491</span>{</div>
-<div class="line"><span class="lineno">  492</span> </div>
-<div class="line"><span class="lineno">  493</span>   <span class="keywordtype">int</span> totalScifiStations = 5;</div>
-<div class="line"><span class="lineno">  494</span>   <span class="keywordflow">if</span> (setup == <span class="stringliteral">&quot;H8&quot;</span>) {</div>
-<div class="line"><span class="lineno">  495</span>      totalScifiStations = 4;</div>
-<div class="line"><span class="lineno">  496</span>   } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  497</span>      LOG(info) &lt;&lt; <span class="stringliteral">&quot;\&quot;TI18\&quot; setup will be used by default, please provide \&quot;H8\&quot; for the Testbeam setup.&quot;</span>;</div>
-<div class="line"><span class="lineno">  498</span>   }</div>
-<div class="line"><span class="lineno">  499</span> </div>
-<div class="line"><span class="lineno">  500</span>   <span class="comment">// There is always 1 more Scifi Station than a target block. As such, showerStart == totalScifiStations</span></div>
-<div class="line"><span class="lineno">  501</span>   <span class="comment">// means that the shower did not start developing in the target, before the last Scifi Station</span></div>
-<div class="line"><span class="lineno">  502</span>   <span class="keywordtype">int</span> showerStart = totalScifiStations;</div>
-<div class="line"><span class="lineno">  503</span> </div>
-<div class="line"><span class="lineno">  504</span>   <span class="keywordflow">if</span> (method == 0) {</div>
-<div class="line"><span class="lineno">  505</span> </div>
-<div class="line"><span class="lineno">  506</span>      <span class="keywordflow">if</span> ((selection_parameters.find(<span class="stringliteral">&quot;radius&quot;</span>) == selection_parameters.end()) ||</div>
-<div class="line"><span class="lineno">  507</span>          (selection_parameters.find(<span class="stringliteral">&quot;min_hit_density&quot;</span>) == selection_parameters.end())) {</div>
-<div class="line"><span class="lineno">  508</span>         LOG(FATAL)</div>
-<div class="line"><span class="lineno">  509</span>            &lt;&lt; <span class="stringliteral">&quot;Argument of select_parameters is incorrect. Please provide a map with the arguments \&quot;radius\&quot; and &quot;</span></div>
-<div class="line"><span class="lineno">  510</span>               <span class="stringliteral">&quot;\&quot;min_hit_density\&quot;. Consider using the default values of {{\&quot;radius\&quot;,64}, {\&quot;min_hit_density\&quot;,36}}.&quot;</span>;</div>
-<div class="line"><span class="lineno">  511</span>      }</div>
-<div class="line"><span class="lineno">  512</span> </div>
-<div class="line"><span class="lineno">  513</span>      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> scifiStation = 1; scifiStation &lt;= totalScifiStations; scifiStation++) {</div>
-<div class="line"><span class="lineno">  514</span> </div>
-<div class="line"><span class="lineno">  515</span>         <span class="comment">// For each ScifiStation we check whether we see clusters with the desired parameters</span></div>
-<div class="line"><span class="lineno">  516</span>         <span class="comment">// By default, we require passing the check on both the horizontal and vertical mats</span></div>
-<div class="line"><span class="lineno">  517</span>         <span class="comment">// In case selection_parameters[&quot;orientation&quot;] was provided, we set the NOT CHOSEN orientation</span></div>
-<div class="line"><span class="lineno">  518</span>         <span class="comment">// as true by default, so as to only need to pass the chosen orientation check</span></div>
-<div class="line"><span class="lineno">  519</span>         <span class="keywordtype">bool</span> horizontalCheck = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  520</span>         <span class="keywordtype">bool</span> verticalCheck = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  521</span>         <span class="keywordflow">if</span> (selection_parameters.find(<span class="stringliteral">&quot;orientation&quot;</span>) != selection_parameters.end()) {</div>
-<div class="line"><span class="lineno">  522</span>            <span class="keywordflow">if</span> (<span class="keywordtype">int</span>(selection_parameters.at(<span class="stringliteral">&quot;orientation&quot;</span>)) == 0) {</div>
-<div class="line"><span class="lineno">  523</span>               verticalCheck = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  524</span>            }</div>
-<div class="line"><span class="lineno">  525</span>            <span class="keywordflow">if</span> (<span class="keywordtype">int</span>(selection_parameters.at(<span class="stringliteral">&quot;orientation&quot;</span>)) == 1) {</div>
-<div class="line"><span class="lineno">  526</span>               horizontalCheck = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  527</span>            }</div>
-<div class="line"><span class="lineno">  528</span>         }</div>
-<div class="line"><span class="lineno">  529</span>         horizontalCheck = (<a class="code hl_function" href="namespacesnd_1_1analysis__tools.html#aa6dd4352f5c110708f8070ad1c88a907">densityCheck</a>(digiHits, <span class="keywordtype">int</span>(selection_parameters.at(<span class="stringliteral">&quot;radius&quot;</span>)),</div>
-<div class="line"><span class="lineno">  530</span>                                         <span class="keywordtype">int</span>(selection_parameters.at(<span class="stringliteral">&quot;min_hit_density&quot;</span>)), scifiStation, <span class="keyword">false</span>) ||</div>
-<div class="line"><span class="lineno">  531</span>                            horizontalCheck);</div>
-<div class="line"><span class="lineno">  532</span>         verticalCheck = (<a class="code hl_function" href="namespacesnd_1_1analysis__tools.html#aa6dd4352f5c110708f8070ad1c88a907">densityCheck</a>(digiHits, <span class="keywordtype">int</span>(selection_parameters.at(<span class="stringliteral">&quot;radius&quot;</span>)),</div>
-<div class="line"><span class="lineno">  533</span>                                       <span class="keywordtype">int</span>(selection_parameters.at(<span class="stringliteral">&quot;min_hit_density&quot;</span>)), scifiStation, <span class="keyword">true</span>) ||</div>
-<div class="line"><span class="lineno">  534</span>                          verticalCheck);</div>
-<div class="line"><span class="lineno">  535</span>         <span class="keywordflow">if</span> ((horizontalCheck) &amp;&amp; (verticalCheck)) {</div>
-<div class="line"><span class="lineno">  536</span>            showerStart = scifiStation - 1;</div>
-<div class="line"><span class="lineno">  537</span>            <span class="keywordflow">return</span> showerStart;</div>
-<div class="line"><span class="lineno">  538</span>         }</div>
-<div class="line"><span class="lineno">  539</span>      }</div>
-<div class="line"><span class="lineno">  540</span>   }</div>
-<div class="line"><span class="lineno">  541</span> </div>
-<div class="line"><span class="lineno">  542</span>   <span class="keywordflow">return</span> showerStart;</div>
-<div class="line"><span class="lineno">  543</span>}</div>
-<div class="ttc" id="anamespacesnd_1_1analysis__tools_html_aa6dd4352f5c110708f8070ad1c88a907"><div class="ttname"><a href="namespacesnd_1_1analysis__tools.html#aa6dd4352f5c110708f8070ad1c88a907">snd::analysis_tools::densityCheck</a></div><div class="ttdeci">bool densityCheck(const TClonesArray &amp;digiHits, int radius=64, int min_hit_density=36, int station=1, bool orientation=false)</div><div class="ttdef"><b>Definition</b> <a href="sndSciFiTools_8cxx_source.html#l00425">sndSciFiTools.cxx:425</a></div></div>
+<p class="definition">Definition at line <a class="el" href="sndSciFiTools_8cxx_source.html#l00489">489</a> of file <a class="el" href="sndSciFiTools_8cxx_source.html">sndSciFiTools.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  492</span>{</div>
+<div class="line"><span class="lineno">  493</span> </div>
+<div class="line"><span class="lineno">  494</span>   <span class="keywordtype">int</span> totalScifiStations = 5;</div>
+<div class="line"><span class="lineno">  495</span>   <span class="keywordflow">if</span> (setup == <span class="stringliteral">&quot;H8&quot;</span>) {</div>
+<div class="line"><span class="lineno">  496</span>      totalScifiStations = 4;</div>
+<div class="line"><span class="lineno">  497</span>   } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  498</span>      LOG(info) &lt;&lt; <span class="stringliteral">&quot;\&quot;TI18\&quot; setup will be used by default, please provide \&quot;H8\&quot; for the Testbeam setup.&quot;</span>;</div>
+<div class="line"><span class="lineno">  499</span>   }</div>
+<div class="line"><span class="lineno">  500</span> </div>
+<div class="line"><span class="lineno">  501</span>   <span class="comment">// There is always 1 more Scifi Station than a target block. As such, showerStart == totalScifiStations</span></div>
+<div class="line"><span class="lineno">  502</span>   <span class="comment">// means that the shower did not start developing in the target, before the last Scifi Station</span></div>
+<div class="line"><span class="lineno">  503</span>   <span class="keywordtype">int</span> showerStart = totalScifiStations;</div>
+<div class="line"><span class="lineno">  504</span> </div>
+<div class="line"><span class="lineno">  505</span>   <span class="keywordflow">if</span> (method == 0) {</div>
+<div class="line"><span class="lineno">  506</span> </div>
+<div class="line"><span class="lineno">  507</span>      <span class="keywordflow">if</span> ((selection_parameters.find(<span class="stringliteral">&quot;radius&quot;</span>) == selection_parameters.end()) ||</div>
+<div class="line"><span class="lineno">  508</span>          (selection_parameters.find(<span class="stringliteral">&quot;min_hit_density&quot;</span>) == selection_parameters.end())) {</div>
+<div class="line"><span class="lineno">  509</span>         LOG(FATAL)</div>
+<div class="line"><span class="lineno">  510</span>            &lt;&lt; <span class="stringliteral">&quot;Argument of select_parameters is incorrect. Please provide a map with the arguments \&quot;radius\&quot; and &quot;</span></div>
+<div class="line"><span class="lineno">  511</span>               <span class="stringliteral">&quot;\&quot;min_hit_density\&quot;. Consider using the default values of {{\&quot;radius\&quot;,64}, {\&quot;min_hit_density\&quot;,36}}.&quot;</span>;</div>
+<div class="line"><span class="lineno">  512</span>      }</div>
+<div class="line"><span class="lineno">  513</span> </div>
+<div class="line"><span class="lineno">  514</span>      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> scifiStation = 1; scifiStation &lt;= totalScifiStations; scifiStation++) {</div>
+<div class="line"><span class="lineno">  515</span> </div>
+<div class="line"><span class="lineno">  516</span>         <span class="comment">// For each ScifiStation we check whether we see clusters with the desired parameters</span></div>
+<div class="line"><span class="lineno">  517</span>         <span class="comment">// By default, we require passing the check on both the horizontal and vertical mats</span></div>
+<div class="line"><span class="lineno">  518</span>         <span class="comment">// In case selection_parameters[&quot;orientation&quot;] was provided, we set the NOT CHOSEN orientation</span></div>
+<div class="line"><span class="lineno">  519</span>         <span class="comment">// as true by default, so as to only need to pass the chosen orientation check</span></div>
+<div class="line"><span class="lineno">  520</span>         <span class="keywordtype">bool</span> horizontalCheck = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  521</span>         <span class="keywordtype">bool</span> verticalCheck = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  522</span>         <span class="keywordflow">if</span> (selection_parameters.find(<span class="stringliteral">&quot;orientation&quot;</span>) != selection_parameters.end()) {</div>
+<div class="line"><span class="lineno">  523</span>            <span class="keywordflow">if</span> (<span class="keywordtype">int</span>(selection_parameters.at(<span class="stringliteral">&quot;orientation&quot;</span>)) == 0) {</div>
+<div class="line"><span class="lineno">  524</span>               verticalCheck = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  525</span>            }</div>
+<div class="line"><span class="lineno">  526</span>            <span class="keywordflow">if</span> (<span class="keywordtype">int</span>(selection_parameters.at(<span class="stringliteral">&quot;orientation&quot;</span>)) == 1) {</div>
+<div class="line"><span class="lineno">  527</span>               horizontalCheck = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  528</span>            }</div>
+<div class="line"><span class="lineno">  529</span>         }</div>
+<div class="line"><span class="lineno">  530</span>         horizontalCheck = (<a class="code hl_function" href="namespacesnd_1_1analysis__tools.html#aa6dd4352f5c110708f8070ad1c88a907">densityCheck</a>(digiHits, <span class="keywordtype">int</span>(selection_parameters.at(<span class="stringliteral">&quot;radius&quot;</span>)),</div>
+<div class="line"><span class="lineno">  531</span>                                         <span class="keywordtype">int</span>(selection_parameters.at(<span class="stringliteral">&quot;min_hit_density&quot;</span>)), scifiStation, <span class="keyword">false</span>) ||</div>
+<div class="line"><span class="lineno">  532</span>                            horizontalCheck);</div>
+<div class="line"><span class="lineno">  533</span>         verticalCheck = (<a class="code hl_function" href="namespacesnd_1_1analysis__tools.html#aa6dd4352f5c110708f8070ad1c88a907">densityCheck</a>(digiHits, <span class="keywordtype">int</span>(selection_parameters.at(<span class="stringliteral">&quot;radius&quot;</span>)),</div>
+<div class="line"><span class="lineno">  534</span>                                       <span class="keywordtype">int</span>(selection_parameters.at(<span class="stringliteral">&quot;min_hit_density&quot;</span>)), scifiStation, <span class="keyword">true</span>) ||</div>
+<div class="line"><span class="lineno">  535</span>                          verticalCheck);</div>
+<div class="line"><span class="lineno">  536</span>         <span class="keywordflow">if</span> ((horizontalCheck) &amp;&amp; (verticalCheck)) {</div>
+<div class="line"><span class="lineno">  537</span>            showerStart = scifiStation - 1;</div>
+<div class="line"><span class="lineno">  538</span>            <span class="keywordflow">return</span> showerStart;</div>
+<div class="line"><span class="lineno">  539</span>         }</div>
+<div class="line"><span class="lineno">  540</span>      }</div>
+<div class="line"><span class="lineno">  541</span>   }</div>
+<div class="line"><span class="lineno">  542</span> </div>
+<div class="line"><span class="lineno">  543</span>   <span class="keywordflow">return</span> showerStart;</div>
+<div class="line"><span class="lineno">  544</span>}</div>
+<div class="ttc" id="anamespacesnd_1_1analysis__tools_html_aa6dd4352f5c110708f8070ad1c88a907"><div class="ttname"><a href="namespacesnd_1_1analysis__tools.html#aa6dd4352f5c110708f8070ad1c88a907">snd::analysis_tools::densityCheck</a></div><div class="ttdeci">bool densityCheck(const TClonesArray &amp;digiHits, int radius=64, int min_hit_density=36, int station=1, bool orientation=false)</div><div class="ttdef"><b>Definition</b> <a href="sndSciFiTools_8cxx_source.html#l00426">sndSciFiTools.cxx:426</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1567,18 +1642,18 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sndSciFiTools_8cxx_source.html#l00545">545</a> of file <a class="el" href="sndSciFiTools_8cxx_source.html">sndSciFiTools.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  546</span>{</div>
-<div class="line"><span class="lineno">  547</span> </div>
-<div class="line"><span class="lineno">  548</span>   <span class="keywordflow">if</span> (method != 0) {</div>
-<div class="line"><span class="lineno">  549</span>      LOG(FATAL) &lt;&lt; <span class="stringliteral">&quot;Please use method=0. No other methods implemented so far.&quot;</span>;</div>
-<div class="line"><span class="lineno">  550</span>   }</div>
-<div class="line"><span class="lineno">  551</span> </div>
-<div class="line"><span class="lineno">  552</span>   std::map&lt;std::string, float&gt; selection_parameters = {{<span class="stringliteral">&quot;radius&quot;</span>, 64.}, {<span class="stringliteral">&quot;min_hit_density&quot;</span>, 36.}};</div>
-<div class="line"><span class="lineno">  553</span> </div>
-<div class="line"><span class="lineno">  554</span>   <span class="keywordflow">return</span> <a class="code hl_function" href="namespacesnd_1_1analysis__tools.html#a3efcc7ce16eb9a30afcdcedd2c4f4ac2">showerInteractionWall</a>(digiHits, selection_parameters, method, setup);</div>
-<div class="line"><span class="lineno">  555</span>}</div>
-<div class="ttc" id="anamespacesnd_1_1analysis__tools_html_a3efcc7ce16eb9a30afcdcedd2c4f4ac2"><div class="ttname"><a href="namespacesnd_1_1analysis__tools.html#a3efcc7ce16eb9a30afcdcedd2c4f4ac2">snd::analysis_tools::showerInteractionWall</a></div><div class="ttdeci">int showerInteractionWall(const TClonesArray &amp;digiHits, const std::map&lt; std::string, float &gt; &amp;selection_parameters, int method=0, std::string setup=&quot;TI18&quot;)</div><div class="ttdef"><b>Definition</b> <a href="sndSciFiTools_8cxx_source.html#l00488">sndSciFiTools.cxx:488</a></div></div>
+<p class="definition">Definition at line <a class="el" href="sndSciFiTools_8cxx_source.html#l00546">546</a> of file <a class="el" href="sndSciFiTools_8cxx_source.html">sndSciFiTools.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  547</span>{</div>
+<div class="line"><span class="lineno">  548</span> </div>
+<div class="line"><span class="lineno">  549</span>   <span class="keywordflow">if</span> (method != 0) {</div>
+<div class="line"><span class="lineno">  550</span>      LOG(FATAL) &lt;&lt; <span class="stringliteral">&quot;Please use method=0. No other methods implemented so far.&quot;</span>;</div>
+<div class="line"><span class="lineno">  551</span>   }</div>
+<div class="line"><span class="lineno">  552</span> </div>
+<div class="line"><span class="lineno">  553</span>   std::map&lt;std::string, float&gt; selection_parameters = {{<span class="stringliteral">&quot;radius&quot;</span>, 64.}, {<span class="stringliteral">&quot;min_hit_density&quot;</span>, 36.}};</div>
+<div class="line"><span class="lineno">  554</span> </div>
+<div class="line"><span class="lineno">  555</span>   <span class="keywordflow">return</span> <a class="code hl_function" href="namespacesnd_1_1analysis__tools.html#a3efcc7ce16eb9a30afcdcedd2c4f4ac2">showerInteractionWall</a>(digiHits, selection_parameters, method, setup);</div>
+<div class="line"><span class="lineno">  556</span>}</div>
+<div class="ttc" id="anamespacesnd_1_1analysis__tools_html_a3efcc7ce16eb9a30afcdcedd2c4f4ac2"><div class="ttname"><a href="namespacesnd_1_1analysis__tools.html#a3efcc7ce16eb9a30afcdcedd2c4f4ac2">snd::analysis_tools::showerInteractionWall</a></div><div class="ttdeci">int showerInteractionWall(const TClonesArray &amp;digiHits, const std::map&lt; std::string, float &gt; &amp;selection_parameters, int method=0, std::string setup=&quot;TI18&quot;)</div><div class="ttdef"><b>Definition</b> <a href="sndSciFiTools_8cxx_source.html#l00489">sndSciFiTools.cxx:489</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>

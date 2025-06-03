@@ -102,57 +102,84 @@ $(document).ready(function(){initNavTree('sndSciFiTools_8cxx.html',''); initResi
 <code>#include &quot;TClonesArray.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="sndScifiHit_8h_source.html">sndScifiHit.h</a>&quot;</code><br />
 <code>#include &quot;ROOT/TSeq.hxx&quot;</code><br />
+<code>#include &quot;<a class="el" href="Scifi_8h_source.html">Scifi.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for sndSciFiTools.cxx:</div>
 <div class="dyncontent">
 <div class="center"><img src="sndSciFiTools_8cxx__incl.png" border="0" usemap="#aanalysis_2tools_2sndSciFiTools_8cxx" alt=""/></div>
 <map name="aanalysis_2tools_2sndSciFiTools_8cxx" id="aanalysis_2tools_2sndSciFiTools_8cxx">
-<area shape="rect" title=" " alt="" coords="363,5,593,31"/>
-<area shape="rect" href="sndSciFiTools_8h.html" title=" " alt="" coords="90,79,210,104"/>
-<area shape="poly" title=" " alt="" coords="426,33,217,78,216,73,425,28"/>
-<area shape="rect" title=" " alt="" coords="195,152,313,177"/>
-<area shape="poly" title=" " alt="" coords="367,33,318,51,296,64,277,80,268,93,262,108,257,139,251,138,257,107,263,91,273,77,293,60,316,46,365,28"/>
-<area shape="rect" title=" " alt="" coords="287,79,362,104"/>
-<area shape="poly" title=" " alt="" coords="454,33,363,75,361,70,452,28"/>
-<area shape="rect" title=" " alt="" coords="386,79,471,104"/>
-<area shape="poly" title=" " alt="" coords="472,33,447,69,442,66,468,29"/>
-<area shape="rect" title=" " alt="" coords="495,79,562,104"/>
-<area shape="poly" title=" " alt="" coords="489,29,515,66,510,69,484,33"/>
-<area shape="rect" title=" " alt="" coords="587,79,687,104"/>
-<area shape="poly" title=" " alt="" coords="505,28,599,71,597,75,502,33"/>
-<area shape="rect" href="sndScifiHit_8h.html" title=" " alt="" coords="711,79,813,104"/>
-<area shape="poly" title=" " alt="" coords="524,28,704,73,702,78,523,33"/>
-<area shape="rect" title=" " alt="" coords="838,79,961,104"/>
-<area shape="poly" title=" " alt="" coords="546,28,825,75,824,80,545,33"/>
-<area shape="rect" title=" " alt="" coords="119,152,170,177"/>
-<area shape="poly" title=" " alt="" coords="152,105,149,139,144,138,146,104"/>
-<area shape="poly" title=" " alt="" coords="168,102,227,142,224,146,165,106"/>
-<area shape="rect" href="ShipUnit_8h.html" title=" " alt="" coords="5,152,95,177"/>
-<area shape="poly" title=" " alt="" coords="135,106,79,146,76,142,132,102"/>
-<area shape="rect" href="SndlhcHit_8h.html" title=" " alt="" coords="539,152,635,177"/>
-<area shape="poly" title=" " alt="" coords="735,106,630,149,628,144,733,102"/>
-<area shape="rect" title=" " alt="" coords="707,233,791,258"/>
-<area shape="poly" title=" " alt="" coords="764,104,754,219,748,219,758,104"/>
-<area shape="rect" title=" " alt="" coords="815,233,906,258"/>
-<area shape="poly" title=" " alt="" coords="771,103,815,176,846,220,842,223,810,179,766,106"/>
-<area shape="rect" href="ScifiPoint_8h.html" title=" " alt="" coords="825,152,920,177"/>
-<area shape="poly" title=" " alt="" coords="781,102,844,142,841,147,778,106"/>
-<area shape="poly" title=" " alt="" coords="612,175,714,224,712,229,610,180"/>
-<area shape="rect" title=" " alt="" coords="496,233,575,258"/>
-<area shape="poly" title=" " alt="" coords="582,179,553,222,548,220,577,176"/>
-<area shape="poly" title=" " alt="" coords="631,175,803,223,813,226,812,231,801,228,630,180"/>
-<area shape="rect" title=" " alt="" coords="599,233,682,258"/>
-<area shape="poly" title=" " alt="" coords="597,176,627,220,623,223,593,179"/>
-<area shape="rect" title=" " alt="" coords="15,233,139,258"/>
-<area shape="poly" title=" " alt="" coords="539,173,367,194,150,228,131,232,130,227,150,223,366,188,539,168"/>
-<area shape="rect" title=" " alt="" coords="163,225,305,265"/>
-<area shape="poly" title=" " alt="" coords="539,179,320,227,319,222,538,174"/>
-<area shape="rect" title=" " alt="" coords="329,225,472,265"/>
-<area shape="poly" title=" " alt="" coords="561,180,459,222,457,218,559,175"/>
-<area shape="poly" title=" " alt="" coords="856,180,780,227,777,223,853,175"/>
-<area shape="poly" title=" " alt="" coords="874,178,867,220,862,219,868,177"/>
-<area shape="rect" title=" " alt="" coords="931,233,1041,258"/>
-<area shape="poly" title=" " alt="" coords="891,175,960,223,957,227,888,180"/>
+<area shape="rect" title=" " alt="" coords="373,5,602,31"/>
+<area shape="rect" href="sndSciFiTools_8h.html" title=" " alt="" coords="102,79,222,104"/>
+<area shape="poly" title=" " alt="" coords="436,33,229,78,227,73,434,28"/>
+<area shape="rect" title=" " alt="" coords="5,152,124,177"/>
+<area shape="poly" title=" " alt="" coords="373,26,291,32,209,42,138,58,111,69,92,81,81,93,74,108,68,139,63,138,69,106,77,90,88,77,109,64,136,53,208,37,291,26,372,20"/>
+<area shape="rect" title=" " alt="" coords="246,79,321,104"/>
+<area shape="poly" title=" " alt="" coords="455,33,330,77,328,72,454,28"/>
+<area shape="rect" title=" " alt="" coords="345,79,430,104"/>
+<area shape="poly" title=" " alt="" coords="473,33,416,73,413,68,470,29"/>
+<area shape="rect" title=" " alt="" coords="454,79,521,104"/>
+<area shape="poly" title=" " alt="" coords="490,31,490,65,485,65,485,31"/>
+<area shape="rect" title=" " alt="" coords="545,79,645,104"/>
+<area shape="poly" title=" " alt="" coords="506,28,568,69,565,73,503,33"/>
+<area shape="rect" href="sndScifiHit_8h.html" title=" " alt="" coords="669,79,772,104"/>
+<area shape="poly" title=" " alt="" coords="526,28,671,72,669,77,524,33"/>
+<area shape="rect" title=" " alt="" coords="797,79,919,104"/>
+<area shape="poly" title=" " alt="" coords="547,28,785,73,784,79,546,33"/>
+<area shape="rect" href="Scifi_8h.html" title=" " alt="" coords="1382,79,1443,104"/>
+<area shape="poly" title=" " alt="" coords="602,25,1368,84,1368,89,602,31"/>
+<area shape="rect" title=" " alt="" coords="1335,233,1386,258"/>
+<area shape="poly" title=" " alt="" coords="222,100,234,101,408,118,543,125,678,133,852,149,986,162,1091,171,1194,187,1324,223,1329,225,1327,230,1323,228,1193,193,1090,176,985,167,851,155,678,138,543,131,407,123,234,107,222,105"/>
+<area shape="poly" title=" " alt="" coords="148,106,93,146,90,141,145,102"/>
+<area shape="rect" href="ShipUnit_8h.html" title=" " alt="" coords="148,152,237,177"/>
+<area shape="poly" title=" " alt="" coords="170,103,185,139,180,141,165,105"/>
+<area shape="rect" href="SndlhcHit_8h.html" title=" " alt="" coords="743,152,839,177"/>
+<area shape="poly" title=" " alt="" coords="734,102,772,140,768,144,730,106"/>
+<area shape="rect" title=" " alt="" coords="420,233,504,258"/>
+<area shape="poly" title=" " alt="" coords="670,107,568,132,525,144,502,154,490,168,480,185,469,220,464,218,475,183,485,165,499,150,523,139,566,126,669,101"/>
+<area shape="rect" title=" " alt="" coords="529,233,619,258"/>
+<area shape="poly" title=" " alt="" coords="712,106,597,224,593,221,708,102"/>
+<area shape="rect" href="ScifiPoint_8h.html" title=" " alt="" coords="512,152,607,177"/>
+<area shape="poly" title=" " alt="" coords="696,106,599,149,597,144,694,102"/>
+<area shape="poly" title=" " alt="" coords="744,177,639,198,517,228,507,231,506,226,516,223,638,193,743,172"/>
+<area shape="rect" title=" " alt="" coords="1232,233,1311,258"/>
+<area shape="poly" title=" " alt="" coords="840,167,1010,184,1116,200,1221,223,1232,226,1230,231,1220,228,1115,206,1009,190,839,172"/>
+<area shape="poly" title=" " alt="" coords="761,180,619,231,618,226,759,175"/>
+<area shape="rect" title=" " alt="" coords="643,233,726,258"/>
+<area shape="poly" title=" " alt="" coords="777,180,713,227,710,222,774,175"/>
+<area shape="rect" title=" " alt="" coords="751,233,875,258"/>
+<area shape="poly" title=" " alt="" coords="797,177,808,219,803,220,792,178"/>
+<area shape="rect" title=" " alt="" coords="899,225,1041,265"/>
+<area shape="poly" title=" " alt="" coords="818,175,916,217,913,222,816,180"/>
+<area shape="rect" title=" " alt="" coords="1065,225,1208,265"/>
+<area shape="poly" title=" " alt="" coords="840,174,1053,222,1051,227,839,179"/>
+<area shape="poly" title=" " alt="" coords="547,180,489,226,485,222,543,175"/>
+<area shape="poly" title=" " alt="" coords="564,177,572,219,567,220,559,178"/>
+<area shape="rect" title=" " alt="" coords="285,233,396,258"/>
+<area shape="poly" title=" " alt="" coords="528,180,386,231,385,226,527,175"/>
+<area shape="poly" title=" " alt="" coords="1383,100,1330,118,1305,133,1284,154,1276,169,1272,186,1271,219,1265,219,1267,185,1271,167,1280,150,1302,129,1328,113,1381,95"/>
+<area shape="poly" title=" " alt="" coords="1382,96,1249,101,1060,112,869,129,791,141,732,155,695,169,659,188,601,226,598,222,656,184,693,165,731,149,790,136,869,124,1059,107,1249,96,1382,91"/>
+<area shape="rect" title=" " alt="" coords="1293,152,1399,177"/>
+<area shape="poly" title=" " alt="" coords="1404,106,1368,144,1364,140,1400,103"/>
+<area shape="rect" title=" " alt="" coords="1422,152,1534,177"/>
+<area shape="poly" title=" " alt="" coords="1425,103,1460,140,1456,144,1421,106"/>
+<area shape="rect" href="SNDLHCEventHeader_8h.html" title=" " alt="" coords="1558,152,1729,177"/>
+<area shape="poly" title=" " alt="" coords="1445,100,1594,145,1593,151,1443,105"/>
+<area shape="rect" title=" " alt="" coords="1929,233,1987,258"/>
+<area shape="poly" title=" " alt="" coords="1444,93,1575,110,1659,127,1742,149,1768,161,1792,175,1855,199,1918,223,1922,225,1920,230,1916,228,1853,204,1790,180,1765,166,1740,155,1657,132,1574,115,1443,98"/>
+<area shape="rect" title=" " alt="" coords="1803,152,1934,177"/>
+<area shape="poly" title=" " alt="" coords="1444,95,1790,148,1789,154,1443,100"/>
+<area shape="poly" title=" " alt="" coords="1582,180,1495,200,1400,228,1396,229,1394,224,1398,223,1493,194,1581,175"/>
+<area shape="rect" title=" " alt="" coords="1411,233,1500,258"/>
+<area shape="poly" title=" " alt="" coords="1617,180,1496,230,1494,225,1615,175"/>
+<area shape="rect" href="SNDLHCEventHeaderConst_8h.html" title=" " alt="" coords="1524,233,1733,258"/>
+<area shape="poly" title=" " alt="" coords="1644,178,1636,220,1631,219,1639,177"/>
+<area shape="rect" title=" " alt="" coords="1758,233,1817,258"/>
+<area shape="poly" title=" " alt="" coords="1666,175,1755,224,1753,228,1663,180"/>
+<area shape="poly" title=" " alt="" coords="1716,175,1812,194,1917,223,1923,225,1922,230,1916,228,1811,199,1715,180"/>
+<area shape="rect" title=" " alt="" coords="1841,233,1904,258"/>
+<area shape="poly" title=" " alt="" coords="1683,175,1830,223,1835,225,1833,230,1828,228,1682,180"/>
+<area shape="rect" title=" " alt="" coords="1595,313,1662,339"/>
+<area shape="poly" title=" " alt="" coords="1631,258,1631,299,1626,299,1626,258"/>
 </map>
 </div>
 </div>
@@ -162,8 +189,36 @@ Include dependency graph for sndSciFiTools.cxx:</div>
 Functions</h2></td></tr>
 <tr class="memitem:a1fd0777019d2b6e914490ff374f2f922" id="r_a1fd0777019d2b6e914490ff374f2f922"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sndSciFiTools_8cxx.html#a1fd0777019d2b6e914490ff374f2f922">validateHit</a> (<a class="el" href="classsndScifiHit.html">sndScifiHit</a> *aHit, int ref_station, bool ref_orientation)</td></tr>
 <tr class="separator:a1fd0777019d2b6e914490ff374f2f922"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68a41647c6ca463cb0f0bd4decd79daa" id="r_a68a41647c6ca463cb0f0bd4decd79daa"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sndSciFiTools_8cxx.html#a68a41647c6ca463cb0f0bd4decd79daa">computeMean</a> (const std::vector&lt; double &gt; &amp;values)</td></tr>
+<tr class="separator:a68a41647c6ca463cb0f0bd4decd79daa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a68a41647c6ca463cb0f0bd4decd79daa" name="a68a41647c6ca463cb0f0bd4decd79daa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68a41647c6ca463cb0f0bd4decd79daa">&#9670;&#160;</a></span>computeMean()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double computeMean </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>values</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="sndSciFiTools_8cxx_source.html#l00558">558</a> of file <a class="el" href="sndSciFiTools_8cxx_source.html">sndSciFiTools.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  559</span>{</div>
+<div class="line"><span class="lineno">  560</span>   <span class="keywordtype">double</span> sum = std::accumulate(<a class="code hl_variable" href="namespaceconditionsDatabase_1_1tests_1_1benchmark__api.html#ac1ed97d908ba6b9513ec2af00658e9f4">values</a>.begin(), <a class="code hl_variable" href="namespaceconditionsDatabase_1_1tests_1_1benchmark__api.html#ac1ed97d908ba6b9513ec2af00658e9f4">values</a>.end(), 0.0);</div>
+<div class="line"><span class="lineno">  561</span>   <span class="keywordtype">double</span> mean = sum / <a class="code hl_variable" href="namespaceconditionsDatabase_1_1tests_1_1benchmark__api.html#ac1ed97d908ba6b9513ec2af00658e9f4">values</a>.size();</div>
+<div class="line"><span class="lineno">  562</span>   <span class="keywordflow">return</span> mean;</div>
+<div class="line"><span class="lineno">  563</span>}</div>
+<div class="ttc" id="anamespaceconditionsDatabase_1_1tests_1_1benchmark__api_html_ac1ed97d908ba6b9513ec2af00658e9f4"><div class="ttname"><a href="namespaceconditionsDatabase_1_1tests_1_1benchmark__api.html#ac1ed97d908ba6b9513ec2af00658e9f4">conditionsDatabase.tests.benchmark_api.values</a></div><div class="ttdeci">dict values</div><div class="ttdef"><b>Definition</b> <a href="benchmark__api_8py_source.html#l00072">benchmark_api.py:72</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="a1fd0777019d2b6e914490ff374f2f922" name="a1fd0777019d2b6e914490ff374f2f922"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1fd0777019d2b6e914490ff374f2f922">&#9670;&#160;</a></span>validateHit()</h2>
 
@@ -196,21 +251,21 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sndSciFiTools_8cxx_source.html#l00105">105</a> of file <a class="el" href="sndSciFiTools_8cxx_source.html">sndSciFiTools.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  106</span>{</div>
-<div class="line"><span class="lineno">  107</span> </div>
-<div class="line"><span class="lineno">  108</span>   <span class="keywordflow">if</span> (!(aHit-&gt;<a class="code hl_function" href="classsndScifiHit.html#a99afbc5a294dfd9f9ddcf9bada3d90ba">isValid</a>())) {</div>
-<div class="line"><span class="lineno">  109</span>      <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  110</span>   }</div>
-<div class="line"><span class="lineno">  111</span>   <span class="keywordflow">if</span> (aHit-&gt;<a class="code hl_function" href="classsndScifiHit.html#a18eb9526024996df83366096a1e41b0b">GetStation</a>() != ref_station) {</div>
-<div class="line"><span class="lineno">  112</span>      <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  113</span>   }</div>
-<div class="line"><span class="lineno">  114</span>   <span class="keywordflow">if</span> (aHit-&gt;<a class="code hl_function" href="classsndScifiHit.html#ac527f08d5770476f38f11f33efbf849e">isVertical</a>() != ref_orientation) {</div>
-<div class="line"><span class="lineno">  115</span>      <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  116</span>   }</div>
-<div class="line"><span class="lineno">  117</span> </div>
-<div class="line"><span class="lineno">  118</span>   <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  119</span>}</div>
+<p class="definition">Definition at line <a class="el" href="sndSciFiTools_8cxx_source.html#l00106">106</a> of file <a class="el" href="sndSciFiTools_8cxx_source.html">sndSciFiTools.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  107</span>{</div>
+<div class="line"><span class="lineno">  108</span> </div>
+<div class="line"><span class="lineno">  109</span>   <span class="keywordflow">if</span> (!(aHit-&gt;<a class="code hl_function" href="classsndScifiHit.html#a99afbc5a294dfd9f9ddcf9bada3d90ba">isValid</a>())) {</div>
+<div class="line"><span class="lineno">  110</span>      <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  111</span>   }</div>
+<div class="line"><span class="lineno">  112</span>   <span class="keywordflow">if</span> (aHit-&gt;<a class="code hl_function" href="classsndScifiHit.html#a18eb9526024996df83366096a1e41b0b">GetStation</a>() != ref_station) {</div>
+<div class="line"><span class="lineno">  113</span>      <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  114</span>   }</div>
+<div class="line"><span class="lineno">  115</span>   <span class="keywordflow">if</span> (aHit-&gt;<a class="code hl_function" href="classsndScifiHit.html#ac527f08d5770476f38f11f33efbf849e">isVertical</a>() != ref_orientation) {</div>
+<div class="line"><span class="lineno">  116</span>      <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  117</span>   }</div>
+<div class="line"><span class="lineno">  118</span> </div>
+<div class="line"><span class="lineno">  119</span>   <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  120</span>}</div>
 <div class="ttc" id="aclasssndScifiHit_html_a18eb9526024996df83366096a1e41b0b"><div class="ttname"><a href="classsndScifiHit.html#a18eb9526024996df83366096a1e41b0b">sndScifiHit::GetStation</a></div><div class="ttdeci">Int_t GetStation()</div><div class="ttdef"><b>Definition</b> <a href="sndScifiHit_8h_source.html#l00031">sndScifiHit.h:31</a></div></div>
 <div class="ttc" id="aclasssndScifiHit_html_a99afbc5a294dfd9f9ddcf9bada3d90ba"><div class="ttname"><a href="classsndScifiHit.html#a99afbc5a294dfd9f9ddcf9bada3d90ba">sndScifiHit::isValid</a></div><div class="ttdeci">bool isValid() const</div><div class="ttdef"><b>Definition</b> <a href="sndScifiHit_8h_source.html#l00030">sndScifiHit.h:30</a></div></div>
 <div class="ttc" id="aclasssndScifiHit_html_ac527f08d5770476f38f11f33efbf849e"><div class="ttname"><a href="classsndScifiHit.html#ac527f08d5770476f38f11f33efbf849e">sndScifiHit::isVertical</a></div><div class="ttdeci">bool isVertical()</div><div class="ttdef"><b>Definition</b> <a href="sndScifiHit_8h_source.html#l00032">sndScifiHit.h:32</a></div></div>
