@@ -1,9 +1,9 @@
 #pragma once
+class Scifi;
 
 #include <map>
 #include "TClonesArray.h"
 #include "ShipUnit.h"
-#include "Scifi.h"
 
 namespace snd {
   namespace analysis_tools {
