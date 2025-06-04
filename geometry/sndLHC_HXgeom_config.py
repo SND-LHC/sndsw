@@ -87,7 +87,7 @@ with ConfigRegistry.register_config("basic") as c:
         c.Scifi.scifimat_width = (c.Scifi.SiPMarray_width+c.Scifi.sipm_diegap)*c.Scifi.nsipm_mat -0.5*u.mm
         c.Scifi.scifimat_length = c.Scifi.ydim
         c.Scifi.scifimat_z = 0.135 *u.cm
-        c.Scifi.epoxymat_z = 0.17 *u.cm
+        c.Scifi.epoxymat_z = 0.162 *u.cm
         c.Scifi.scifimat_gap = 0.05 *u.cm
         
         c.Scifi.fiber_length = c.Scifi.scifimat_length
@@ -98,7 +98,7 @@ with ConfigRegistry.register_config("basic") as c:
         c.Scifi.clad2_rmax = 0.0125 *u.cm
 
         c.Scifi.horizontal_pitch = 0.0275 *u.cm
-        c.Scifi.vertical_pitch = 0.021 *u.cm
+        c.Scifi.vertical_pitch = 0.022 *u.cm
         c.Scifi.rowlong_offset = 0.035 *u.cm 
         c.Scifi.rowshort_offset = 0.0215 *u.cm 
 
@@ -302,15 +302,23 @@ with ConfigRegistry.register_config("basic") as c:
            # removing the emulsion+W target
            c.EmulsionDet.wall = 0
 
-           # set SciFi modules
+           # set baby SciFi modules
+           # they have much simpler internal structure compared to the TI18 SciFi
+           # most notably they have 7 layer of fibers per mat
            c.Scifi.xdim = 13.0*u.cm #sensitive only
            c.Scifi.ydim = 13.0*u.cm
            c.Scifi.zdim = 3*u.cm # maybe not needed
            c.Scifi.nmats = 1
            c.Scifi.nscifi = 4
+           c.Scifi.nfibers_z = 7
+           c.Scifi.scifimat_z = 0.16*u.cm # thickness of a mat of 7 fiber layers
            c.Scifi.scifimat_length  = c.Scifi.ydim
            c.Scifi.fiber_length = c.Scifi.scifimat_length
-           c.Scifi.plastbar_y = c.Scifi.ydim
+           c.Scifi.plane_gap = 6*u.mm # an air gap btw X an Y planes, in TI18 case this is controlled via c.Scifi.plastbar_z
+           c.Scifi.tedlar_to_plane = 5.42*u.mm # an air gap btw protective tedlar sheet and a sensitive plane
+           #c.Scifi.tedlar_z = 50*u.um # not included in the sw detector model
+           # offset between the edge of a baby module frame and the upstream tedlar inside it
+           c.Scifi.frame_offset = 0.8*u.cm
 
            # add 3 variable size iron blocks upstream of SciFi stations
            # complete removal of a wall goes with commenting the respective line below
@@ -319,10 +327,10 @@ with ConfigRegistry.register_config("basic") as c:
            c.Scifi.FeTargetX4, c.Scifi.FeTargetY4, c.Scifi.FeTargetZ4  = 30.*u.cm, 10.*u.cm, 30.*u.cm
 
 # absolute edge point positions in survey coordinate system (survey is 'by eye' for now)
-           c.Scifi.Xpos0,c.Scifi.Ypos0,c.Scifi.Zpos0 = 156.6*u.mm,3186.3*u.mm,218.2*u.mm
-           c.Scifi.Xpos1,c.Scifi.Ypos1,c.Scifi.Zpos1 = 156.6*u.mm,3304.4*u.mm,218.4*u.mm
-           c.Scifi.Xpos2,c.Scifi.Ypos2,c.Scifi.Zpos2 = 156.6*u.mm,3422.5*u.mm,218.5*u.mm
-           c.Scifi.Xpos3,c.Scifi.Ypos3,c.Scifi.Zpos3 = 156.6*u.mm,3540.6*u.mm,218.6*u.mm
+           c.Scifi.Xpos0,c.Scifi.Ypos0,c.Scifi.Zpos0 = 156.6*u.mm,3136.48*u.mm,218.2*u.mm
+           c.Scifi.Xpos1,c.Scifi.Ypos1,c.Scifi.Zpos1 = 156.6*u.mm,3264.52*u.mm,218.4*u.mm
+           c.Scifi.Xpos2,c.Scifi.Ypos2,c.Scifi.Zpos2 = 156.6*u.mm,3404.56*u.mm,218.5*u.mm
+           c.Scifi.Xpos3,c.Scifi.Ypos3,c.Scifi.Zpos3 = 156.6*u.mm,3538.6*u.mm,218.6*u.mm
 # and MuFilter - survey measurements
            c.MuFilter.Iron1Dx, c.MuFilter.Iron1Dy, c.MuFilter.Iron1Dz = -22.1*u.mm, 3559.6*u.mm, 128.6*u.mm
            # US1
