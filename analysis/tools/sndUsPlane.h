@@ -12,18 +12,20 @@ namespace snd {
     class UsPlane
     {
     public:
+    // small and large SiPMs
     template <class T>
     struct sl_pair
     {
-        T s{};
-        T l{};
+        T small{};
+        T large{};
     };
 
+    // right and left side of US bars
     template <class T>
     struct rl_pair
     {
-        T r{};
-        T l{};
+        T right{};
+        T left{};
     };
 
     // hits vector, each hit has info about timestamp, qdc and position
@@ -53,6 +55,7 @@ namespace snd {
     const rl_pair<double> GetBarQdc(int bar_to_compute) const;
     const sl_pair<int> GetBarNHits(int bar_to_compute) const;
     const std::vector<UsHit> GetHits() const { return hits_; };
+    // The centroid is the qdc-weighted mean of hit positions, considering only hits with positive qdc
     void FindCentroid();
     const TVector3 GetCentroid() const { return centroid_; };
     const TVector3 GetCentroidError() const { return centroid_error_; };

@@ -125,7 +125,7 @@ const TVector3 snd::ScifiPlane::GetCluster(int max_gap) const
         int best_start = -1, best_end = -1, best_size = 0;
         int start = -1, gap_count = 0, size = 0;
 
-        // Step 1: Find the largest cluster
+        // Find the largest cluster
         for (int i = 0; i < n; ++i)
         {
             if (!std::isnan(positions[i]))
@@ -166,7 +166,7 @@ const TVector3 snd::ScifiPlane::GetCluster(int max_gap) const
             best_size = size;
         }
 
-        // Step 2: Compute the average of non-gap values in the best cluster
+        // Compute the average of non-gap values in the best cluster
         if (best_start == -1 || best_end == -1)
             return std::nan(""); // No valid cluster found
 

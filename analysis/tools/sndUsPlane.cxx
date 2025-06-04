@@ -51,8 +51,8 @@ void snd::UsPlane::FindCentroid()
         return;
     }
     
-    double total_qdc = GetTotQdc().l;
-    if (total_qdc > 0)
+    double total_qdc = GetTotQdc().large;
+    if (total_qdc > 0.0)
     {
         for (const auto &hit : hits_)
         {
@@ -61,7 +61,7 @@ void snd::UsPlane::FindCentroid()
             double total_qdc{0.0};
             for (const auto &hit : hits_)
             {
-                if (hit.qdc > 0)
+                if (hit.qdc > 0.0)
                 {
                     weighted_sum_x += hit.x * hit.qdc;
                     weighted_sum_y += hit.y * hit.qdc;
@@ -84,9 +84,9 @@ const snd::UsPlane::sl_pair<double> snd::UsPlane::GetTotQdc() const
     for (const auto &hit : hits_)
     {
         if (hit.is_large)
-            totQdc.l += hit.qdc;
+            totQdc.large += hit.qdc;
         else
-            totQdc.s += hit.qdc;
+            totQdc.small += hit.qdc;
     }
     return totQdc;
 }
@@ -96,8 +96,8 @@ const snd::UsPlane::sl_pair<double> snd::UsPlane::GetTotEnergy() const
     sl_pair<double> tot_energy{0.0, 0.0};
     sl_pair<double> tot_qdc = GetTotQdc();
 
-    tot_energy.l = tot_qdc.l *configuration_.us_qdc_to_gev; 
-    tot_energy.s = tot_qdc.s *configuration_.us_qdc_to_gev;   //ask Guido
+    tot_energy.large = tot_qdc.large *configuration_.us_qdc_to_gev; 
+    tot_energy.small = tot_qdc.small *configuration_.us_qdc_to_gev;
 
     return tot_energy;
 }
@@ -111,9 +111,9 @@ const snd::UsPlane::rl_pair<double> snd::UsPlane::GetSideQdc() const
         if (hit.is_large)
         {
             if (hit.is_right)
-                side_qdc.r += hit.qdc;
+                side_qdc.right += hit.qdc;
             else
-                side_qdc.l += hit.qdc;
+                side_qdc.left += hit.qdc;
         }
     }
     return side_qdc;
@@ -131,9 +131,9 @@ const snd::UsPlane::rl_pair<double> snd::UsPlane::GetBarQdc(int bar_to_compute) 
             if (hit.is_large)
             {
                 if (hit.is_right)
-                    bar_qdc.r += hit.qdc;
+                    bar_qdc.right += hit.qdc;
                 else
-                    bar_qdc.l += hit.qdc;
+                    bar_qdc.left += hit.qdc;
             }
         }
     }
@@ -151,9 +151,9 @@ const snd::UsPlane::sl_pair<int> snd::UsPlane::GetBarNHits(int bar_to_compute) c
         {
             if (hit.is_large)
             
-                    bar_hit.l++;
+                    bar_hit.large++;
             else
-                    bar_hit.s++;
+                    bar_hit.small++;
             
         }
     }
@@ -171,9 +171,9 @@ void snd::UsPlane::TimeFilter(double min_timestamp, double max_timestamp)
 const snd::UsPlane::sl_pair<int> snd::UsPlane::GetNHits() const
 {
     sl_pair<int> counts{0, 0};
-    counts.l = std::count_if(hits_.begin(), hits_.end(), [](auto &hit)
+    counts.large = std::count_if(hits_.begin(), hits_.end(), [](auto &hit)
                              { return hit.is_large; });
-    counts.s = hits_.size() - counts.l;
+    counts.small = hits_.size() - counts.large;
 
     return counts;
 }

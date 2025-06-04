@@ -12,6 +12,7 @@ namespace snd {
     class ScifiPlane
     {
     public:
+        // x and y planes
         template <class T>
         struct xy_pair
         {
@@ -39,10 +40,13 @@ namespace snd {
         const xy_pair<double> GetTotQdc(bool only_positive = false) const;
         const xy_pair<double> GetTotEnergy(bool only_positive = false) const;
         const xy_pair<int> GetNHits() const;
+        // Position of larger cluster of consecutive hits, allowing at most max_gap channels with no hit
         const TVector3 GetCluster(int max_gap) const;
+        // The centroid is the qdc-weighted mean of hit positions, considering only hits with positive qdc
         void FindCentroid();
         bool IsShower() const;
         void TimeFilter(double min_timestamp, double max_timestamp);
+        // qdc from hits within a given point and radius (square, not circle)
         xy_pair<double> GetPointQdc(const TVector3 &point, double radius) const;
 
     private:
