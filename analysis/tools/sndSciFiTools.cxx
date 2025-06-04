@@ -8,6 +8,7 @@
 #include "TClonesArray.h"
 #include "sndScifiHit.h"
 #include "ROOT/TSeq.hxx"
+#include "Scifi.h"
 
 void snd::analysis_tools::getSciFiHitsPerStation(const TClonesArray *digiHits, std::vector<int> &horizontal_hits,
                                                  std::vector<int> &vertical_hits)
@@ -552,4 +553,47 @@ int snd::analysis_tools::showerInteractionWall(const TClonesArray &digiHits, int
    std::map<std::string, float> selection_parameters = {{"radius", 64.}, {"min_hit_density", 36.}};
 
    return showerInteractionWall(digiHits, selection_parameters, method, setup);
+}
+
+double computeMean(const std::vector<double>& values)
+{
+   double sum = std::accumulate(values.begin(), values.end(), 0.0);
+   double mean = sum / values.size();
+   return mean;
+}
+
+std::pair<double, double>
+snd::analysis_tools::findCentreOfGravityPerStation(const TClonesArray* digiHits, int station, Scifi* ScifiDet)
+{
+   if (!digiHits) {
+      LOG(ERROR) << "Error: digiHits is null in findCentreOfGravityPerStation";
+   }
+   std::vector<double> x_positions;
+   std::vector<double> y_positions;
+   TVector3 A, B;
+   for (auto* obj : *digiHits) {
+      auto* hit = dynamic_cast<sndScifiHit*>(obj);
+      if (!hit || !hit->isValid()) {
+         continue;
+      }
+      if (hit->GetStation() != station) {
+         continue;
+      }
+      ScifiDet->GetSiPMPosition(hit->GetDetectorID(), A, B);
+      if (hit->isVertical()) {
+         x_positions.push_back((A.X() + B.X()) * 0.5);
+      }
+      else {
+         y_positions.push_back((A.Y() + B.Y()) * 0.5);
+      }
+   }
+   if (x_positions.empty()) {
+      LOG(ERROR) << "Error: No hits enter.";
+   }
+   double meanX = computeMean(x_positions);
+   if (y_positions.empty()) {
+      LOG(ERROR) << "Error: No hits enter.";
+   }
+   double meanY = computeMean(y_positions);
+   return {meanX, meanY};
 }

@@ -1,4 +1,5 @@
 #pragma once
+class Scifi;
 
 #include <map>
 #include "TClonesArray.h"
@@ -23,7 +24,7 @@ namespace snd {
     int findScifiStation(const TClonesArray * digiHits, float threshold);
 
     // Function to get the peak of the Scifi hit timing distribution for any given plane
-    float peakScifiTiming(const TClonesArray &digiHits, int bins, float min_x, float max_x, bool isMC=false); 
+    float peakScifiTiming(const TClonesArray &digiHits, int bins, float min_x, float max_x, bool isMC=false);
 
     // Function to get the hits in station n and plane X or Y
     // Station and orientation are defined with the same convention as the outputs of
@@ -55,7 +56,7 @@ namespace snd {
     // referene_SiPM given in the format of sndScifiHit->GetChannelID()
     int calculateSiPMNumber(int reference_SiPM);
 
-    // Function to determine SciFi hit density for channel reference_SiPM around a radius of r 
+    // Function to determine SciFi hit density for channel reference_SiPM around a radius of r
     // SiPM channels
     // If min_check == True the function stops checking the density once it reaches the minimum
     // requirement, and immediately returns -1 in case the minimum density cannot be achieved
@@ -75,5 +76,8 @@ namespace snd {
     int showerInteractionWall(const TClonesArray &digiHits, const std::map<std::string, float> &selection_parameters, int method=0, std::string setup="TI18");
     // Foregoing the selection_parameters option runs with the default values
     int showerInteractionWall(const TClonesArray &digiHits, int method=0, std::string setup="TI18");
+
+    // Find the Center of Particle Showering on the SciFi plane
+    std::pair<double, double> findCentreOfGravityPerStation(const TClonesArray* digiHits, int station, Scifi* ScifiDet);
   }
 }

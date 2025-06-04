@@ -1131,7 +1131,7 @@ tunnel->AddNode(exitPlane,1, new TGeoTranslation(0,0,1000.));
 
    displacement =
       TVector3(-37.79 - 1.40082, 44.66,
-               367.96); // taken from MuFilter.cxx "edge_Iron[1]-TVector3(FeX, FeY, FeZ)" EDIT: 1.40082 for overlap fix
+               368.11); // taken from MuFilter.cxx "edge_Iron[1]-TVector3(FeX, FeY, FeZ)" EDIT: 1.40082 for overlap fix
    tunnel->AddNode(volColdBox, 0,
                    new TGeoTranslation(displacement.X() - (fCBRearWallXDim - fFeBlockX) / 2. + 28.5,
                                        displacement.Y() - (fCBFrontWallYDim - fFeBlockY) / 2. + 121,
