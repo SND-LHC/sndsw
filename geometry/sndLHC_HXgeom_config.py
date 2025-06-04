@@ -319,6 +319,10 @@ with ConfigRegistry.register_config("basic") as c:
            #c.Scifi.tedlar_z = 50*u.um # not included in the sw detector model
            # offset between the edge of a baby module frame and the upstream tedlar inside it
            c.Scifi.frame_offset = 0.8*u.cm
+           # offsets between the upstream tedlar sheet and the upstream passive block
+           c.Scifi.station_offset1 = c.Scifi.frame_offset
+           c.Scifi.station_offset2 = c.Scifi.frame_offset+1.2*u.cm
+           c.Scifi.station_offset3 = c.Scifi.frame_offset+0.6*u.cm
 
            # add 3 variable size iron blocks upstream of SciFi stations
            # complete removal of a wall goes with commenting the respective line below

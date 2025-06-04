@@ -181,6 +181,11 @@ void Scifi::ConstructGeometry()
 	// Air gaps in baby SciFi modules
 	Double_t fZBabyPlaneGap = conf_floats["Scifi/plane_gap"];
 	Double_t fZBabyTedlarToPlaneGap = conf_floats["Scifi/tedlar_to_plane"];
+	// Offsets between the upstream tedlar sheet and the upstream passive block
+	// It includes the air gap formed btw the baby module frame and the upstream tedlar sheet. 
+	Double_t fStationOffset[4] = {0, conf_floats["Scifi/station_offset1"],
+	 	 	 	         conf_floats["Scifi/station_offset2"],
+	 	 	 	         conf_floats["Scifi/station_offset3"]};
 
 	Int_t fNFibers_Srow = conf_ints["Scifi/nfibers_shortrow"]; 
 	Int_t fNFibers_Lrow = conf_ints["Scifi/nfibers_longrow"]; 
@@ -451,7 +456,7 @@ void Scifi::ConstructGeometry()
        volTarget->AddNode(volFeTarget[istation],1,
                                          new TGeoTranslation(DeltasV[istation][0] ,
                                                              DeltasH[istation][1] ,
-                                                             DeltasH[istation][2] - fFeTargetZ[istation]/2.));
+                                                             DeltasH[istation][2] - fStationOffset[istation] - fFeTargetZ[istation]/2.));
     }
 
     //Creating Scifi planes by appending fiber mats
