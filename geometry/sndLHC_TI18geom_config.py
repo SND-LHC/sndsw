@@ -1,6 +1,11 @@
 import ROOT as r
 import shipunit as u
 from ShipGeoConfig import AttrDict, ConfigRegistry
+
+if "nuTargetPassive" not in globals():
+    nuTargetPassive = True
+if "useNagoyaEmulsions" not in globals():
+    useNagoyaEmulsions=False
 if "year" in globals():
     year = int(globals()["year"])
 
@@ -11,7 +16,7 @@ with ConfigRegistry.register_config("basic") as c:
         # Antonia, 482000mm (FASER+2, P3) + 1017mm (DZ) + 245mm (centre emulsion),z=483262./10.*u.cm
         # centre emulsion now 326.2cm downstream from origin.
         c.EmulsionDet = AttrDict(z=326.2*u.cm)
-        c.EmulsionDet.PassiveOption = 1 #0 makes emulsion volumes active, 1 makes all emulsion volumes passive
+        c.EmulsionDet.PassiveOption = nuTargetPassive #0 makes emulsion volumes active, 1 makes all emulsion volumes passive
         c.EmulsionDet.row = 2
         c.EmulsionDet.col = 2
         c.EmulsionDet.wall= 5
@@ -21,6 +26,10 @@ with ConfigRegistry.register_config("basic") as c:
         c.EmulsionDet.EmX = 19.2 * u.cm
         c.EmulsionDet.EmY = 19.2 * u.cm
         c.EmulsionDet.PBTh = 0.0175 * u.cm
+        if (useNagoyaEmulsions):
+                c.EmulsionDet.n_plates = 56
+                c.EmulsionDet.PBTh = 0.0195 * u.cm
+        
         c.EmulsionDet.PassiveTh = 0.1 * u.cm
         c.EmulsionDet.EPlW = 2* c.EmulsionDet.EmTh + c.EmulsionDet.PBTh
         c.EmulsionDet.AllPW = c.EmulsionDet.PassiveTh + c.EmulsionDet.EPlW
