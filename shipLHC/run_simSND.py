@@ -126,7 +126,7 @@ elif options.testbeam2024:
                                    tb_2024_mc = options.testbeam2024,
                                    target_material = options.target)
 else:
-  snd_geo = ConfigRegistry.loadpy("$SNDSW_ROOT/geometry/sndLHC_geom_config.py",
+  snd_geo = ConfigRegistry.loadpy("$SNDSW_ROOT/geometry/sndLHC_TI18geom_config.py",
                                    nuTargetPassive = options.nuTargetPassive,
                                    useNagoyaEmulsions = options.useNagoyaEmulsions,
                                    year=options.year)
