@@ -848,7 +848,11 @@ void ConvRawData::DetMapping(string Path)
          else s = 3;
          tmp = x.second.substr(0, x.second.find("_"));
          if ( tmp =="US" ) s = 1;
-         if ( tmp=="DS" ) s = 2;
+         if ( tmp=="DS" )
+         {
+           s = 2;
+           if ( Path.find("testbeam_24") != string::npos && x.second.substr(x.second.find("_")+1,1)==2) s = 3;
+         }
          if ( slots[slot.first] == x.first )
          {
             MufiSystem[board_id_mu][slot.first] = s;

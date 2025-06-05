@@ -205,6 +205,8 @@ void Scifi::ConstructGeometry()
 	Double_t fBigGap = conf_floats["Scifi/sipm_diegap"]; //Gap between two arrays
 	Int_t fNSiPMChan = conf_ints["Scifi/nsipm_channels"]; //Number of channels in each SiPM
 	Double_t firstChannelX = conf_floats["Scifi/firstChannelX"]; //local X Position of first channel in plane
+	
+	Int_t PassiveBlockNotCenterred = conf_ints["Scifi/PassiveBlocknotCenterred"]; // flag showing whether the passive material (FeBlocks) are to be centerred wrt the Scifi
 
 //edge positions in TI18 survey system:
         std::map<int,TVector3> Vedges;
@@ -406,7 +408,6 @@ void Scifi::ConstructGeometry()
 	ScifiVolume->AddNode(PlasticGlueAirVolume, 0, new TGeoTranslation(0, 0, fZCarbonFiber + fZGlue + fZHoneycomb + fZGlue + fZCarbonFiber + fZGlue + fZEpoxyMat + fZGlue/2));
 	ScifiVolume->AddNode(PlasticAirVolume, 0, new TGeoTranslation(0, 0, fZCarbonFiber + fZGlue + fZHoneycomb + fZGlue + fZCarbonFiber + fZGlue + fZEpoxyMat + fZGlue + fZPlastBar/2));
 
-
 	Double_t first_half_z = fZCarbonFiber + fZGlue + fZHoneycomb + fZGlue + fZCarbonFiber + fZGlue + fZEpoxyMat + fZGlue + fZPlastBar;
 	ScifiVolume->AddNode(AirGapVolume, 0, new TGeoTranslation(0, 0, first_half_z + fZAirgap/2));
 
@@ -450,12 +451,14 @@ void Scifi::ConstructGeometry()
 
     // std::cout<<"deltas "<<DeltasV[istation][0]<<" "<< DeltasH[istation][1]<<" "<< DeltasH[istation][2]<<" "<<totalThickness<<std::endl;
     // for 2023 testbeam put iron blocks of variable length in between SciFi planes - the planes are dowstream of the blocks!
+    // for the 2024 testbeam, the iron blocks are aligned to Brick 1 and laid on the concrete (same as SciFi 1)
     if (fNScifi==4 && istation != 0) {
        volFeTarget[istation] = gGeoManager->MakeBox(TString("volFeTarget"+station),Fe,fFeTargetX[istation]/2., fFeTargetY[istation]/2., fFeTargetZ[istation]/2.);
        volFeTarget[istation]->SetLineColor(kGreen-4);
        volTarget->AddNode(volFeTarget[istation],1,
-                                         new TGeoTranslation(DeltasV[istation][0] ,
-                                                             DeltasH[istation][1] ,
+                                         new TGeoTranslation(DeltasV[istation][0] - PassiveBlockNotCenterred*fabs(fXDimension-fFeTargetX[istation])/2.,
+                                                             DeltasH[istation][1] + PassiveBlockNotCenterred*(DeltasH[0][1]-DeltasH[istation][1]
+                                                                                                             +fabs(fYDimension-fFeTargetY[istation])/2.),
                                                              DeltasH[istation][2] - fStationOffset[istation] - fFeTargetZ[istation]/2.));
     }
 
@@ -637,7 +640,7 @@ Double_t Scifi::GetCorrectedTime(Int_t fDetectorID, Double_t rawTime, Double_t L
 		      tag = "tA";
 		      if (fRunNumber>5116 && !(fRunNumber<5193 && fRunNumber>5174) ) {tag = "tB";}
 		  }
-		  // 2023 testbeam data doesn't have a custom tag
+		  // 2023 and 2024 testbeam data don't have custom tags
 		  if (fRunNumber>=1e5) {tag = "t";}
 		  last_time_alignment_tag = tag;
 		}
@@ -645,8 +648,13 @@ Double_t Scifi::GetCorrectedTime(Int_t fDetectorID, Double_t rawTime, Double_t L
 	sID.Form("%i",fDetectorID);
 	Double_t cor = conf_floats["Scifi/station"+TString(sID(0,1))+last_time_alignment_tag];
 	if (sID(1,1)=="0"){
+	        // In the teatbeam 2024, SciFi 2H needs internal time corrections per channel
+		if (conf_ints["Scifi/channelTimeAlignment"]==1 &&  floor(fDetectorID/100000)==20) {
+		   cor+=conf_vectors["Scifi/station"+TString(sID(0,4))+"XXX"+last_time_alignment_tag][fDetectorID%1000];
+		}
 		cor+=conf_floats["Scifi/station"+TString(sID(0,1))+"H"+TString(sID(2,1))+last_time_alignment_tag];
-	}else{
+	}
+	else{
 		cor+=conf_floats["Scifi/station"+TString(sID(0,1))+"V"+TString(sID(2,1))+last_time_alignment_tag];
 	}
 	cor += L/conf_floats["Scifi/signalSpeed"];
