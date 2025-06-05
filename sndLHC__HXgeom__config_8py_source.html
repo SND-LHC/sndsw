@@ -186,7 +186,7 @@ $(document).ready(function(){initNavTree('sndLHC__HXgeom__config_8py_source.html
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#a3790857214e0ce7ed23970c49b444acd">   87</a></span>        c.Scifi.scifimat_width = (c.Scifi.SiPMarray_width+c.Scifi.sipm_diegap)*c.Scifi.nsipm_mat -0.5*u.mm</div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#a8e56b898d5f5a58ef864bf9dc074ced1">   88</a></span>        c.Scifi.scifimat_length = c.Scifi.ydim</div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#a420fd65ab6fd803db88b83050597d806">   89</a></span>        c.Scifi.scifimat_z = 0.135 *u.cm</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#abe0d2cb1ac4369359ad98942db39b84f">   90</a></span>        c.Scifi.epoxymat_z = 0.17 *u.cm</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#abe0d2cb1ac4369359ad98942db39b84f">   90</a></span>        c.Scifi.epoxymat_z = 0.162 *u.cm</div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#a1f46abf4653e088e9321a000a40c77c7">   91</a></span>        c.Scifi.scifimat_gap = 0.05 *u.cm</div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        </div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#a7daf8ddd3cd6d8c50e323a53632c37d6">   93</a></span>        c.Scifi.fiber_length = c.Scifi.scifimat_length</div>
@@ -197,7 +197,7 @@ $(document).ready(function(){initNavTree('sndLHC__HXgeom__config_8py_source.html
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#abe2a3ff7ca8930b6518dc51532137526">   98</a></span>        c.Scifi.clad2_rmax = 0.0125 *u.cm</div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#adb8fbd525c061e32ce4be87e13ab07f8">  100</a></span>        c.Scifi.horizontal_pitch = 0.0275 *u.cm</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#a7cad870239af7b67ed775641c99df19d">  101</a></span>        c.Scifi.vertical_pitch = 0.021 *u.cm</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#a7cad870239af7b67ed775641c99df19d">  101</a></span>        c.Scifi.vertical_pitch = 0.022 *u.cm</div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#ae9c65c83fc3c97c51f7b3e13553952ea">  102</a></span>        c.Scifi.rowlong_offset = 0.035 *u.cm </div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#a59735d49d2b3c7899b9a16283c9c17c9">  103</a></span>        c.Scifi.rowshort_offset = 0.0215 *u.cm </div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
@@ -401,96 +401,108 @@ $(document).ready(function(){initNavTree('sndLHC__HXgeom__config_8py_source.html
 <div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>           <span class="comment"># removing the emulsion+W target</span></div>
 <div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>           c.EmulsionDet.wall = 0</div>
 <div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span> </div>
-<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>           <span class="comment"># set SciFi modules</span></div>
-<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>           c.Scifi.xdim = 13.0*u.cm <span class="comment">#sensitive only</span></div>
-<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>           c.Scifi.ydim = 13.0*u.cm</div>
-<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>           c.Scifi.zdim = 3*u.cm <span class="comment"># maybe not needed</span></div>
-<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>           c.Scifi.nmats = 1</div>
-<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>           c.Scifi.nscifi = 4</div>
-<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>           c.Scifi.scifimat_length  = c.Scifi.ydim</div>
-<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>           c.Scifi.fiber_length = c.Scifi.scifimat_length</div>
-<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>           c.Scifi.plastbar_y = c.Scifi.ydim</div>
-<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span> </div>
-<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>           <span class="comment"># add 3 variable size iron blocks upstream of SciFi stations</span></div>
-<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>           <span class="comment"># complete removal of a wall goes with commenting the respective line below</span></div>
-<div class="line"><a id="l00317" name="l00317"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#a2d53941863c2e449afa9e071bd64399f">  317</a></span>           c.Scifi.FeTargetX2, c.Scifi.FeTargetY2, c.Scifi.FeTargetZ2  = 30.*u.cm, 10.*u.cm, 30.*u.cm</div>
-<div class="line"><a id="l00318" name="l00318"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#a55a5e0e2aec9de803eb9813729064984">  318</a></span>           c.Scifi.FeTargetX3, c.Scifi.FeTargetY3, c.Scifi.FeTargetZ3  = 30.*u.cm, 10.*u.cm, 30.*u.cm</div>
-<div class="line"><a id="l00319" name="l00319"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#a57efb6fce1d1a9a37e00e9e8c24094d1">  319</a></span>           c.Scifi.FeTargetX4, c.Scifi.FeTargetY4, c.Scifi.FeTargetZ4  = 30.*u.cm, 10.*u.cm, 30.*u.cm</div>
-<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span> </div>
-<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span><span class="comment"># absolute edge point positions in survey coordinate system (survey is &#39;by eye&#39; for now)</span></div>
-<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>           c.Scifi.Xpos0,c.Scifi.Ypos0,c.Scifi.Zpos0 = 156.6*u.mm,3186.3*u.mm,218.2*u.mm</div>
-<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>           c.Scifi.Xpos1,c.Scifi.Ypos1,c.Scifi.Zpos1 = 156.6*u.mm,3304.4*u.mm,218.4*u.mm</div>
-<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>           c.Scifi.Xpos2,c.Scifi.Ypos2,c.Scifi.Zpos2 = 156.6*u.mm,3422.5*u.mm,218.5*u.mm</div>
-<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>           c.Scifi.Xpos3,c.Scifi.Ypos3,c.Scifi.Zpos3 = 156.6*u.mm,3540.6*u.mm,218.6*u.mm</div>
-<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span><span class="comment"># and MuFilter - survey measurements</span></div>
-<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>           c.MuFilter.Iron1Dx, c.MuFilter.Iron1Dy, c.MuFilter.Iron1Dz = -22.1*u.mm, 3559.6*u.mm, 128.6*u.mm</div>
-<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>           <span class="comment"># US1</span></div>
-<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>           c.MuFilter.Muon1Dx,c.MuFilter.Muon1Dy,c.MuFilter.Muon1Dz = -46.6*u.mm, 3740.2*u.mm, 128.6 *u.mm</div>
-<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>           c.MuFilter.Iron2Dx,  c.MuFilter.Iron2Dy,   c.MuFilter.Iron2Dz   = -22.1*u.mm, 3784.6*u.mm, 128.6*u.mm</div>
-<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>           <span class="comment"># US2</span></div>
-<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>           c.MuFilter.Muon2Dx,c.MuFilter.Muon2Dy,c.MuFilter.Muon2Dz = -46.6*u.mm, 3964.1*u.mm, 128.6 *u.mm</div>
-<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>           c.MuFilter.Iron3Dx,  c.MuFilter.Iron3Dy,   c.MuFilter.Iron3Dz    = -22.1*u.mm, 4009.6*u.mm, 128.6*u.mm</div>
-<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>           <span class="comment"># US3</span></div>
-<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>           c.MuFilter.Muon3Dx,c.MuFilter.Muon3Dy,c.MuFilter.Muon3Dz = -46.6*u.mm, 4189.5*u.mm, 128.6 *u.mm</div>
-<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>           c.MuFilter.Iron4Dx,  c.MuFilter.Iron4Dy,   c.MuFilter.Iron4Dz    = -22.1*u.mm, 4234.6*u.mm, 128.6*u.mm</div>
-<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>           <span class="comment"># US4</span></div>
-<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>           c.MuFilter.Muon4Dx,c.MuFilter.Muon4Dy,c.MuFilter.Muon4Dz = -46.1*u.mm, 4415.6*u.mm, 128.6 *u.mm</div>
-<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>           c.MuFilter.Iron5Dx,   c.MuFilter.Iron5Dy,  c.MuFilter.Iron5Dz    = -22.1*u.mm, 4459.6*u.mm, 128.6*u.mm</div>
-<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>           <span class="comment"># US5</span></div>
-<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>           c.MuFilter.Muon5Dx,c.MuFilter.Muon5Dy,c.MuFilter.Muon5Dz = -46.6*u.mm, 4643.0*u.mm, 128.6*u.mm</div>
-<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>           c.MuFilter.Iron6Dx,   c.MuFilter.Iron6Dy,  c.MuFilter.Iron6Dz    = -22.1*u.mm, 4684.6*u.mm, 128.6*u.mm</div>
-<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>           <span class="comment"># DS1</span></div>
-<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>           c.MuFilter.Muon6Dx,c.MuFilter.Muon6Dy,c.MuFilter.Muon6Dz = -46.6*u.mm, 4869.6*u.mm - 1*u.mm, 128.6 *u.mm</div>
-<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>           c.MuFilter.Iron7Dx,   c.MuFilter.Iron7Dy,  c.MuFilter.Iron7Dz    = -22.1*u.mm, 4923.6*u.mm, 128.6*u.mm</div>
-<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span> </div>
-<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span><span class="comment"># fine adjustements</span></div>
-<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>           <span class="comment">#c.MuFilter.Muon8Dx = -4.7*u.mm - 4*u.cm</span></div>
-<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span>           <span class="comment">#c.MuFilter.Muon7Dx = -47.1*u.mm + 0.74*u.cm</span></div>
-<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>           <span class="comment">#c.MuFilter.Muon1Dz = 146.6*u.mm - 2.3*u.cm</span></div>
-<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>           <span class="comment">#c.MuFilter.Muon2Dz = 136.6*u.mm - 1.5*u.cm</span></div>
-<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>           <span class="comment">#c.MuFilter.Muon5Dz = 127.7*u.mm + 0.25*u.cm</span></div>
-<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>           <span class="comment">#c.MuFilter.Muon7Dz = 127.7*u.mm + 0.25*u.cm</span></div>
-<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>           <span class="comment">#c.MuFilter.Muon8Dz = 127.7*u.mm + 0.56*u.cm</span></div>
-<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span> </div>
-<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span><span class="comment"># from Scifi track alignment</span></div>
-<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>           <span class="keywordflow">if</span> tb_2023_mc :</div>
-<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span><span class="comment"># spatial</span></div>
-<div class="line"><a id="l00359" name="l00359"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#a57356ad26692d43fc4a43487d402549e">  359</a></span>             c.Scifi.LocM100, c.Scifi.LocM110 = 0.000*u.um, 0.000*u.um</div>
-<div class="line"><a id="l00360" name="l00360"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#a1a7716327bc92d6bd98d4066cfdd4285">  360</a></span>             c.Scifi.LocM200, c.Scifi.LocM210 = 0.000*u.um, 0.000*u.um</div>
-<div class="line"><a id="l00361" name="l00361"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#ab8d0e5eb7885ec6bac541e3b9da1106f">  361</a></span>             c.Scifi.LocM300, c.Scifi.LocM310 = 0.000*u.um, 0.000*u.um</div>
-<div class="line"><a id="l00362" name="l00362"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#a3995f01cccbe5f55187ccf1fd6b3072f">  362</a></span>             c.Scifi.LocM400, c.Scifi.LocM410 = 0.000*u.um, 0.000*u.um</div>
-<div class="line"><a id="l00363" name="l00363"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#af7c6c60d036e632ba5276669e87a6410">  363</a></span>             c.Scifi.RotPhiS10,c.Scifi.RotPsiS10,c.Scifi.RotThetaS10 =     0.00*u.mrad,    0.00*u.mrad,    0.00*u.mrad</div>
-<div class="line"><a id="l00364" name="l00364"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#a9101c21caa2d7fff153c9ad5e6eadc0d">  364</a></span>             c.Scifi.RotPhiS11,c.Scifi.RotPsiS11,c.Scifi.RotThetaS11 =     0.00*u.mrad,    0.00*u.mrad,    0.00*u.mrad</div>
-<div class="line"><a id="l00365" name="l00365"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#a34c3ee8801b2a78e7d2cca0503acd655">  365</a></span>             c.Scifi.RotPhiS20,c.Scifi.RotPsiS20,c.Scifi.RotThetaS20 =     0.00*u.mrad,    0.00*u.mrad,    0.00*u.mrad</div>
-<div class="line"><a id="l00366" name="l00366"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#adc12ad0f7c1f5a8ccc407634d294c705">  366</a></span>             c.Scifi.RotPhiS21,c.Scifi.RotPsiS21,c.Scifi.RotThetaS21 =     0.00*u.mrad,    0.00*u.mrad,    0.00*u.mrad</div>
-<div class="line"><a id="l00367" name="l00367"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#a47f5633d6c340dbee16c48a64671c7f6">  367</a></span>             c.Scifi.RotPhiS30,c.Scifi.RotPsiS30,c.Scifi.RotThetaS30 =     0.00*u.mrad,    0.00*u.mrad,    0.00*u.mrad</div>
-<div class="line"><a id="l00368" name="l00368"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#af8eafa191793cc13063feebdd7f48369">  368</a></span>             c.Scifi.RotPhiS31,c.Scifi.RotPsiS31,c.Scifi.RotThetaS31 =     0.00*u.mrad,    0.00*u.mrad,    0.00*u.mrad</div>
-<div class="line"><a id="l00369" name="l00369"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#ae0a19a32244feb864518ee3407b48f8f">  369</a></span>             c.Scifi.RotPhiS40,c.Scifi.RotPsiS40,c.Scifi.RotThetaS40 =     0.00*u.mrad,    0.00*u.mrad,    0.00*u.mrad</div>
-<div class="line"><a id="l00370" name="l00370"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#a2512186482b52a69e67c62d8f66f2200">  370</a></span>             c.Scifi.RotPhiS41,c.Scifi.RotPsiS41,c.Scifi.RotThetaS41 =     0.00*u.mrad,    0.00*u.mrad,    0.00*u.mrad</div>
-<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span><span class="comment"># Time alignment Scifi, T0 = station 0,  mat 0 </span></div>
-<div class="line"><a id="l00372" name="l00372"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#a4dd768bd9d411230ab64f305cb52e5a2">  372</a></span>             c.Scifi.station1t,c.Scifi.station1H0t,c.Scifi.station1V0t  =  0.000*u.ns,  0.000*u.ns,  0.000*u.ns</div>
-<div class="line"><a id="l00373" name="l00373"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#aebccd84b2486125809f01767fe0568dd">  373</a></span>             c.Scifi.station2t,c.Scifi.station2H0t,c.Scifi.station2V0t  =  0.000*u.ns,  0.000*u.ns,  0.000*u.ns</div>
-<div class="line"><a id="l00374" name="l00374"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#a8dc1735f3db08f6541100762f9c2ee6c">  374</a></span>             c.Scifi.station3t,c.Scifi.station3H0t,c.Scifi.station3V0t  =  0.000*u.ns,  0.000*u.ns,  0.000*u.ns</div>
-<div class="line"><a id="l00375" name="l00375"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#aedf178ad8274dab7cc43d1a65985330e">  375</a></span>             c.Scifi.station4t,c.Scifi.station4H0t,c.Scifi.station4V0t  =  0.000*u.ns,  0.000*u.ns,  0.000*u.ns</div>
-<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span>           <span class="keywordflow">else</span> :</div>
-<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span><span class="comment"># spatial</span></div>
-<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span>             c.Scifi.LocM100, c.Scifi.LocM110 = 667.33*u.um, 429.73*u.um</div>
-<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span>             c.Scifi.LocM200, c.Scifi.LocM210 = 0.000*u.um, 51.80*u.um</div>
-<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span>             c.Scifi.LocM300, c.Scifi.LocM310 = 32.36*u.um, 803.10*u.um</div>
-<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span>             c.Scifi.LocM400, c.Scifi.LocM410 = 105.10*u.um, 371.07*u.um</div>
-<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span>             c.Scifi.RotPhiS10,c.Scifi.RotPsiS10,c.Scifi.RotThetaS10 =     0.00*u.mrad,    3.29*u.mrad,    0.00*u.mrad</div>
-<div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span>             c.Scifi.RotPhiS11,c.Scifi.RotPsiS11,c.Scifi.RotThetaS11 =     0.00*u.mrad,   -0.89*u.mrad,    0.00*u.mrad</div>
-<div class="line"><a id="l00384" name="l00384"></a><span class="lineno">  384</span>             c.Scifi.RotPhiS20,c.Scifi.RotPsiS20,c.Scifi.RotThetaS20 =     0.00*u.mrad,    0.00*u.mrad,    0.00*u.mrad</div>
-<div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span>             c.Scifi.RotPhiS21,c.Scifi.RotPsiS21,c.Scifi.RotThetaS21 =     0.00*u.mrad,    0.25*u.mrad,    0.00*u.mrad</div>
-<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span>             c.Scifi.RotPhiS30,c.Scifi.RotPsiS30,c.Scifi.RotThetaS30 =     0.00*u.mrad,    0.93*u.mrad,    0.00*u.mrad</div>
-<div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span>             c.Scifi.RotPhiS31,c.Scifi.RotPsiS31,c.Scifi.RotThetaS31 =     0.00*u.mrad,    2.86*u.mrad,    0.00*u.mrad</div>
-<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span>             c.Scifi.RotPhiS40,c.Scifi.RotPsiS40,c.Scifi.RotThetaS40 =     0.00*u.mrad,    0.15*u.mrad,    0.00*u.mrad</div>
-<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span>             c.Scifi.RotPhiS41,c.Scifi.RotPsiS41,c.Scifi.RotThetaS41 =     0.00*u.mrad,    3.13*u.mrad,    0.00*u.mrad</div>
-<div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span><span class="comment"># Time alignment Scifi, T0 = station 0,  mat 0 </span></div>
-<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span>             c.Scifi.station1t,c.Scifi.station1H0t,c.Scifi.station1V0t =  0.000*u.ns,  0.000*u.ns,  1.535*u.ns</div>
-<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span>             c.Scifi.station2t,c.Scifi.station2H0t,c.Scifi.station2V0t =  1.246*u.ns,  0.000*u.ns,  -0.281*u.ns</div>
-<div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span>             c.Scifi.station3t,c.Scifi.station3H0t,c.Scifi.station3V0t =  3.240*u.ns,  0.000*u.ns,  -0.913*u.ns</div>
-<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span>             c.Scifi.station4t,c.Scifi.station4H0t,c.Scifi.station4V0t =  1.750*u.ns,  0.000*u.ns,  -0.145*u.ns</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>           <span class="comment"># set baby SciFi modules</span></div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>           <span class="comment"># they have much simpler internal structure compared to the TI18 SciFi</span></div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>           <span class="comment"># most notably they have 7 layer of fibers per mat</span></div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>           c.Scifi.xdim = 13.0*u.cm <span class="comment">#sensitive only</span></div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>           c.Scifi.ydim = 13.0*u.cm</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>           c.Scifi.zdim = 3*u.cm <span class="comment"># maybe not needed</span></div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>           c.Scifi.nmats = 1</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>           c.Scifi.nscifi = 4</div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>           c.Scifi.nfibers_z = 7</div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>           c.Scifi.scifimat_z = 0.16*u.cm <span class="comment"># thickness of a mat of 7 fiber layers</span></div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>           c.Scifi.scifimat_length  = c.Scifi.ydim</div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>           c.Scifi.fiber_length = c.Scifi.scifimat_length</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#a828d80fc6caf5ffc944fc3761ce05932">  317</a></span>           c.Scifi.plane_gap = 6*u.mm <span class="comment"># an air gap btw X an Y planes, in TI18 case this is controlled via c.Scifi.plastbar_z</span></div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#ab8c3950fbe4fd9797c6b5e5aaa215b5a">  318</a></span>           c.Scifi.tedlar_to_plane = 5.42*u.mm <span class="comment"># an air gap btw protective tedlar sheet and a sensitive plane</span></div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>           <span class="comment">#c.Scifi.tedlar_z = 50*u.um # not included in the sw detector model</span></div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>           <span class="comment"># offset between the edge of a baby module frame and the upstream tedlar inside it</span></div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#a558c5bc9ba0c0634123925806c5d4402">  321</a></span>           c.Scifi.frame_offset = 0.8*u.cm</div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>           <span class="comment"># offsets between the upstream tedlar sheet and the upstream passive block</span></div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#a1b00109055dc69c175bfc3f1efed6549">  323</a></span>           c.Scifi.station_offset1 = c.Scifi.frame_offset</div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#aaeb9e0c69da13a36eb78839244e97e10">  324</a></span>           c.Scifi.station_offset2 = c.Scifi.frame_offset+1.2*u.cm</div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#afb5be68fd9f93c33b9292c78ff5e1593">  325</a></span>           c.Scifi.station_offset3 = c.Scifi.frame_offset+0.6*u.cm</div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span> </div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>           <span class="comment"># add 3 variable size iron blocks upstream of SciFi stations</span></div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>           <span class="comment"># complete removal of a wall goes with commenting the respective line below</span></div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#a2d53941863c2e449afa9e071bd64399f">  329</a></span>           c.Scifi.FeTargetX2, c.Scifi.FeTargetY2, c.Scifi.FeTargetZ2  = 30.*u.cm, 10.*u.cm, 30.*u.cm</div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#a55a5e0e2aec9de803eb9813729064984">  330</a></span>           c.Scifi.FeTargetX3, c.Scifi.FeTargetY3, c.Scifi.FeTargetZ3  = 30.*u.cm, 10.*u.cm, 30.*u.cm</div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#a57efb6fce1d1a9a37e00e9e8c24094d1">  331</a></span>           c.Scifi.FeTargetX4, c.Scifi.FeTargetY4, c.Scifi.FeTargetZ4  = 30.*u.cm, 10.*u.cm, 30.*u.cm</div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span> </div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span><span class="comment"># absolute edge point positions in survey coordinate system (survey is &#39;by eye&#39; for now)</span></div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>           c.Scifi.Xpos0,c.Scifi.Ypos0,c.Scifi.Zpos0 = 156.6*u.mm,3136.48*u.mm,218.2*u.mm</div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>           c.Scifi.Xpos1,c.Scifi.Ypos1,c.Scifi.Zpos1 = 156.6*u.mm,3264.52*u.mm,218.4*u.mm</div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>           c.Scifi.Xpos2,c.Scifi.Ypos2,c.Scifi.Zpos2 = 156.6*u.mm,3404.56*u.mm,218.5*u.mm</div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>           c.Scifi.Xpos3,c.Scifi.Ypos3,c.Scifi.Zpos3 = 156.6*u.mm,3538.6*u.mm,218.6*u.mm</div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span><span class="comment"># and MuFilter - survey measurements</span></div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>           c.MuFilter.Iron1Dx, c.MuFilter.Iron1Dy, c.MuFilter.Iron1Dz = -22.1*u.mm, 3559.6*u.mm, 128.6*u.mm</div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>           <span class="comment"># US1</span></div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>           c.MuFilter.Muon1Dx,c.MuFilter.Muon1Dy,c.MuFilter.Muon1Dz = -46.6*u.mm, 3740.2*u.mm, 128.6 *u.mm</div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>           c.MuFilter.Iron2Dx,  c.MuFilter.Iron2Dy,   c.MuFilter.Iron2Dz   = -22.1*u.mm, 3784.6*u.mm, 128.6*u.mm</div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>           <span class="comment"># US2</span></div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>           c.MuFilter.Muon2Dx,c.MuFilter.Muon2Dy,c.MuFilter.Muon2Dz = -46.6*u.mm, 3964.1*u.mm, 128.6 *u.mm</div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>           c.MuFilter.Iron3Dx,  c.MuFilter.Iron3Dy,   c.MuFilter.Iron3Dz    = -22.1*u.mm, 4009.6*u.mm, 128.6*u.mm</div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>           <span class="comment"># US3</span></div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>           c.MuFilter.Muon3Dx,c.MuFilter.Muon3Dy,c.MuFilter.Muon3Dz = -46.6*u.mm, 4189.5*u.mm, 128.6 *u.mm</div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>           c.MuFilter.Iron4Dx,  c.MuFilter.Iron4Dy,   c.MuFilter.Iron4Dz    = -22.1*u.mm, 4234.6*u.mm, 128.6*u.mm</div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span>           <span class="comment"># US4</span></div>
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>           c.MuFilter.Muon4Dx,c.MuFilter.Muon4Dy,c.MuFilter.Muon4Dz = -46.1*u.mm, 4415.6*u.mm, 128.6 *u.mm</div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>           c.MuFilter.Iron5Dx,   c.MuFilter.Iron5Dy,  c.MuFilter.Iron5Dz    = -22.1*u.mm, 4459.6*u.mm, 128.6*u.mm</div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>           <span class="comment"># US5</span></div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>           c.MuFilter.Muon5Dx,c.MuFilter.Muon5Dy,c.MuFilter.Muon5Dz = -46.6*u.mm, 4643.0*u.mm, 128.6*u.mm</div>
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>           c.MuFilter.Iron6Dx,   c.MuFilter.Iron6Dy,  c.MuFilter.Iron6Dz    = -22.1*u.mm, 4684.6*u.mm, 128.6*u.mm</div>
+<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>           <span class="comment"># DS1</span></div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>           c.MuFilter.Muon6Dx,c.MuFilter.Muon6Dy,c.MuFilter.Muon6Dz = -46.6*u.mm, 4869.6*u.mm - 1*u.mm, 128.6 *u.mm</div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>           c.MuFilter.Iron7Dx,   c.MuFilter.Iron7Dy,  c.MuFilter.Iron7Dz    = -22.1*u.mm, 4923.6*u.mm, 128.6*u.mm</div>
+<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span> </div>
+<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span><span class="comment"># fine adjustements</span></div>
+<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span>           <span class="comment">#c.MuFilter.Muon8Dx = -4.7*u.mm - 4*u.cm</span></div>
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>           <span class="comment">#c.MuFilter.Muon7Dx = -47.1*u.mm + 0.74*u.cm</span></div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>           <span class="comment">#c.MuFilter.Muon1Dz = 146.6*u.mm - 2.3*u.cm</span></div>
+<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>           <span class="comment">#c.MuFilter.Muon2Dz = 136.6*u.mm - 1.5*u.cm</span></div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span>           <span class="comment">#c.MuFilter.Muon5Dz = 127.7*u.mm + 0.25*u.cm</span></div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>           <span class="comment">#c.MuFilter.Muon7Dz = 127.7*u.mm + 0.25*u.cm</span></div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span>           <span class="comment">#c.MuFilter.Muon8Dz = 127.7*u.mm + 0.56*u.cm</span></div>
+<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span> </div>
+<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span><span class="comment"># from Scifi track alignment</span></div>
+<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span>           <span class="keywordflow">if</span> tb_2023_mc :</div>
+<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span><span class="comment"># spatial</span></div>
+<div class="line"><a id="l00371" name="l00371"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#a57356ad26692d43fc4a43487d402549e">  371</a></span>             c.Scifi.LocM100, c.Scifi.LocM110 = 0.000*u.um, 0.000*u.um</div>
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#a1a7716327bc92d6bd98d4066cfdd4285">  372</a></span>             c.Scifi.LocM200, c.Scifi.LocM210 = 0.000*u.um, 0.000*u.um</div>
+<div class="line"><a id="l00373" name="l00373"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#ab8d0e5eb7885ec6bac541e3b9da1106f">  373</a></span>             c.Scifi.LocM300, c.Scifi.LocM310 = 0.000*u.um, 0.000*u.um</div>
+<div class="line"><a id="l00374" name="l00374"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#a3995f01cccbe5f55187ccf1fd6b3072f">  374</a></span>             c.Scifi.LocM400, c.Scifi.LocM410 = 0.000*u.um, 0.000*u.um</div>
+<div class="line"><a id="l00375" name="l00375"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#af7c6c60d036e632ba5276669e87a6410">  375</a></span>             c.Scifi.RotPhiS10,c.Scifi.RotPsiS10,c.Scifi.RotThetaS10 =     0.00*u.mrad,    0.00*u.mrad,    0.00*u.mrad</div>
+<div class="line"><a id="l00376" name="l00376"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#a9101c21caa2d7fff153c9ad5e6eadc0d">  376</a></span>             c.Scifi.RotPhiS11,c.Scifi.RotPsiS11,c.Scifi.RotThetaS11 =     0.00*u.mrad,    0.00*u.mrad,    0.00*u.mrad</div>
+<div class="line"><a id="l00377" name="l00377"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#a34c3ee8801b2a78e7d2cca0503acd655">  377</a></span>             c.Scifi.RotPhiS20,c.Scifi.RotPsiS20,c.Scifi.RotThetaS20 =     0.00*u.mrad,    0.00*u.mrad,    0.00*u.mrad</div>
+<div class="line"><a id="l00378" name="l00378"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#adc12ad0f7c1f5a8ccc407634d294c705">  378</a></span>             c.Scifi.RotPhiS21,c.Scifi.RotPsiS21,c.Scifi.RotThetaS21 =     0.00*u.mrad,    0.00*u.mrad,    0.00*u.mrad</div>
+<div class="line"><a id="l00379" name="l00379"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#a47f5633d6c340dbee16c48a64671c7f6">  379</a></span>             c.Scifi.RotPhiS30,c.Scifi.RotPsiS30,c.Scifi.RotThetaS30 =     0.00*u.mrad,    0.00*u.mrad,    0.00*u.mrad</div>
+<div class="line"><a id="l00380" name="l00380"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#af8eafa191793cc13063feebdd7f48369">  380</a></span>             c.Scifi.RotPhiS31,c.Scifi.RotPsiS31,c.Scifi.RotThetaS31 =     0.00*u.mrad,    0.00*u.mrad,    0.00*u.mrad</div>
+<div class="line"><a id="l00381" name="l00381"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#ae0a19a32244feb864518ee3407b48f8f">  381</a></span>             c.Scifi.RotPhiS40,c.Scifi.RotPsiS40,c.Scifi.RotThetaS40 =     0.00*u.mrad,    0.00*u.mrad,    0.00*u.mrad</div>
+<div class="line"><a id="l00382" name="l00382"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#a2512186482b52a69e67c62d8f66f2200">  382</a></span>             c.Scifi.RotPhiS41,c.Scifi.RotPsiS41,c.Scifi.RotThetaS41 =     0.00*u.mrad,    0.00*u.mrad,    0.00*u.mrad</div>
+<div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span><span class="comment"># Time alignment Scifi, T0 = station 0,  mat 0 </span></div>
+<div class="line"><a id="l00384" name="l00384"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#a4dd768bd9d411230ab64f305cb52e5a2">  384</a></span>             c.Scifi.station1t,c.Scifi.station1H0t,c.Scifi.station1V0t  =  0.000*u.ns,  0.000*u.ns,  0.000*u.ns</div>
+<div class="line"><a id="l00385" name="l00385"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#aebccd84b2486125809f01767fe0568dd">  385</a></span>             c.Scifi.station2t,c.Scifi.station2H0t,c.Scifi.station2V0t  =  0.000*u.ns,  0.000*u.ns,  0.000*u.ns</div>
+<div class="line"><a id="l00386" name="l00386"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#a8dc1735f3db08f6541100762f9c2ee6c">  386</a></span>             c.Scifi.station3t,c.Scifi.station3H0t,c.Scifi.station3V0t  =  0.000*u.ns,  0.000*u.ns,  0.000*u.ns</div>
+<div class="line"><a id="l00387" name="l00387"></a><span class="lineno"><a class="line" href="namespacesndLHC__HXgeom__config.html#aedf178ad8274dab7cc43d1a65985330e">  387</a></span>             c.Scifi.station4t,c.Scifi.station4H0t,c.Scifi.station4V0t  =  0.000*u.ns,  0.000*u.ns,  0.000*u.ns</div>
+<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span>           <span class="keywordflow">else</span> :</div>
+<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span><span class="comment"># spatial</span></div>
+<div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span>             c.Scifi.LocM100, c.Scifi.LocM110 = 667.33*u.um, 429.73*u.um</div>
+<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span>             c.Scifi.LocM200, c.Scifi.LocM210 = 0.000*u.um, 51.80*u.um</div>
+<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span>             c.Scifi.LocM300, c.Scifi.LocM310 = 32.36*u.um, 803.10*u.um</div>
+<div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span>             c.Scifi.LocM400, c.Scifi.LocM410 = 105.10*u.um, 371.07*u.um</div>
+<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span>             c.Scifi.RotPhiS10,c.Scifi.RotPsiS10,c.Scifi.RotThetaS10 =     0.00*u.mrad,    3.29*u.mrad,    0.00*u.mrad</div>
+<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span>             c.Scifi.RotPhiS11,c.Scifi.RotPsiS11,c.Scifi.RotThetaS11 =     0.00*u.mrad,   -0.89*u.mrad,    0.00*u.mrad</div>
+<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span>             c.Scifi.RotPhiS20,c.Scifi.RotPsiS20,c.Scifi.RotThetaS20 =     0.00*u.mrad,    0.00*u.mrad,    0.00*u.mrad</div>
+<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span>             c.Scifi.RotPhiS21,c.Scifi.RotPsiS21,c.Scifi.RotThetaS21 =     0.00*u.mrad,    0.25*u.mrad,    0.00*u.mrad</div>
+<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span>             c.Scifi.RotPhiS30,c.Scifi.RotPsiS30,c.Scifi.RotThetaS30 =     0.00*u.mrad,    0.93*u.mrad,    0.00*u.mrad</div>
+<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span>             c.Scifi.RotPhiS31,c.Scifi.RotPsiS31,c.Scifi.RotThetaS31 =     0.00*u.mrad,    2.86*u.mrad,    0.00*u.mrad</div>
+<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span>             c.Scifi.RotPhiS40,c.Scifi.RotPsiS40,c.Scifi.RotThetaS40 =     0.00*u.mrad,    0.15*u.mrad,    0.00*u.mrad</div>
+<div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span>             c.Scifi.RotPhiS41,c.Scifi.RotPsiS41,c.Scifi.RotThetaS41 =     0.00*u.mrad,    3.13*u.mrad,    0.00*u.mrad</div>
+<div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span><span class="comment"># Time alignment Scifi, T0 = station 0,  mat 0 </span></div>
+<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span>             c.Scifi.station1t,c.Scifi.station1H0t,c.Scifi.station1V0t =  0.000*u.ns,  0.000*u.ns,  1.535*u.ns</div>
+<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span>             c.Scifi.station2t,c.Scifi.station2H0t,c.Scifi.station2V0t =  1.246*u.ns,  0.000*u.ns,  -0.281*u.ns</div>
+<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span>             c.Scifi.station3t,c.Scifi.station3H0t,c.Scifi.station3V0t =  3.240*u.ns,  0.000*u.ns,  -0.913*u.ns</div>
+<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span>             c.Scifi.station4t,c.Scifi.station4H0t,c.Scifi.station4V0t =  1.750*u.ns,  0.000*u.ns,  -0.145*u.ns</div>
 <div class="ttc" id="aclassShipGeoConfig_1_1AttrDict_html"><div class="ttname"><a href="classShipGeoConfig_1_1AttrDict.html">ShipGeoConfig.AttrDict</a></div><div class="ttdef"><b>Definition</b> <a href="ShipGeoConfig_8py_source.html#l00094">ShipGeoConfig.py:94</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
