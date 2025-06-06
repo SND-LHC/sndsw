@@ -31,6 +31,22 @@ def modifyDicts(year=2024):
          sGeo = pkl.load('ShipGeo')
          fg.Close()
 
+         # MuFilter spatial alignment: re-done when new MuFilter detectors are added
+         # or detectors are moved.
+         mufi_spatial_aligment_consts = {
+           2022: [ 0.11,-0.04, 0.00, 0.10, 0.26, 0.24, 0.31, 0.34, 0.43, 1.13, 0.53, 1.31, 0.61, 1.35, 1.39],
+           2023: [ 0.15, 0.03, 0.00,-0.01, 0.09,-0.01, 0.06, 0.06, 0.49, 0.86, 0.20, 0.98, 0.24, 1.01, 1.11],
+           2024: [-0.06, 0.04, 0.65,-0.15,-0.12,-0.26,-0.29,-0.36, 0.00, 0.35,-0.37, 0.38,-0.41, 0.30, 0.35]
+         }
+         mufi_spatial_aligment_keys = ['Veto1ShiftY','Veto2ShiftY','Veto3ShiftX',
+                                       'US1ShiftY','US2ShiftY','US3ShiftY','US4ShiftY','US5ShiftY',
+                                       'DS1ShiftY','DS1ShiftX','DS2ShiftY','DS2ShiftX',
+                                       'DS3ShiftY','DS3ShiftX','DS4ShiftX']
+         for i, key in enumerate(mufi_spatial_aligment_keys):
+           if year < 2024 and key == 'Veto3ShiftX': continue
+           setattr(sGeo.MuFilter,key,mufi_spatial_aligment_consts[year][i]*u.cm)
+           sGeo.MuFilter[key] = mufi_spatial_aligment_consts[year][i]*u.cm
+
          # DS part
          setattr(sGeo.MuFilter,'DsPropSpeed',14.9*u.cm/u.nanosecond)
          sGeo.MuFilter['DsPropSpeed'] = 14.9*u.cm/u.nanosecond
