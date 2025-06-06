@@ -31,9 +31,42 @@ def modifyDicts(year=2024):
          sGeo = pkl.load('ShipGeo')
          fg.Close()
 
+         # MuFilter spatial alignment: re-done when new MuFilter detectors are added 
+         # or detectors are moved.
+         if year <= 2024:
+           sGeo.MuFilter['Veto1ShiftY'] = 0.11*u.cm
+           sGeo.MuFilter['Veto2ShiftY'] = -0.04*u.cm
+           sGeo.MuFilter['US1ShiftY'] =   0.10*u.cm
+           sGeo.MuFilter['US2ShiftY'] =   0.26*u.cm
+           sGeo.MuFilter['US3ShiftY'] =   0.24*u.cm
+           sGeo.MuFilter['US4ShiftY'] =   0.31*u.cm
+           sGeo.MuFilter['US5ShiftY'] =   0.34*u.cm
+           sGeo.MuFilter['DS1ShiftY'] =   0.43*u.cm
+           sGeo.MuFilter['DS1ShiftX'] =   1.13*u.cm
+           sGeo.MuFilter['DS2ShiftY'] =   0.53*u.cm
+           sGeo.MuFilter['DS2ShiftX'] =   1.31*u.cm
+           sGeo.MuFilter['DS3ShiftY'] =   0.61*u.cm
+           sGeo.MuFilter['DS3ShiftX'] =   1.35*u.cm
+           sGeo.MuFilter['DS4ShiftX'] =   1.39*u.cm
+
+         if year == 2024:
+           sGeo.MuFilter['Veto1ShiftY'] = -0.06*u.cm
+           sGeo.MuFilter['Veto2ShiftY'] = 0.04*u.cm
+           sGeo.MuFilter['Veto3ShiftX'] = 0.65*u.cm
+           sGeo.MuFilter['US1ShiftY'] =   -0.15*u.cm
+           sGeo.MuFilter['US2ShiftY'] =   -0.12*u.cm
+           sGeo.MuFilter['US3ShiftY'] =   -0.26*u.cm
+           sGeo.MuFilter['US4ShiftY'] =   -0.29*u.cm
+           sGeo.MuFilter['US5ShiftY'] =   -0.36*u.cm
+           sGeo.MuFilter['DS1ShiftY'] =   0.0*u.cm
+           sGeo.MuFilter['DS1ShiftX'] =   0.35*u.cm
+           sGeo.MuFilter['DS2ShiftY'] =   -0.37*u.cm
+           sGeo.MuFilter['DS2ShiftX'] =   0.38* u.cm
+           sGeo.MuFilter['DS3ShiftY'] =   -0.41*u.cm
+           sGeo.MuFilter['DS3ShiftX'] =   0.30*u.cm
+           sGeo.MuFilter['DS4ShiftX'] =   0.35*u.cm
+
          # DS part
-         setattr(sGeo.MuFilter,'DsPropSpeed',14.9*u.cm/u.nanosecond)
-         sGeo.MuFilter['DsPropSpeed'] = 14.9*u.cm/u.nanosecond
          constants = {}
          constants['t_0'] =  [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]
          constants['t_4361'] =  [-5.61,-5.63,-5.90,-5.39,-5.40,-5.58,-5.99,-6.08,-6.27,-6.43,-5.94,-6.20,-5.45,-5.52,-5.75,-5.93,-5.40,-5.56,-5.46,-5.74]
