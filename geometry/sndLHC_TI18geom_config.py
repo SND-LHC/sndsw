@@ -172,7 +172,7 @@ with ConfigRegistry.register_config("basic") as c:
         c.MuFilter = AttrDict(z=0*u.cm)
         
         #coordinates in local gravity based system
-        if year == 2024:
+        if year >= 2024:
           c.MuFilter.Veto1Dx,c.MuFilter.Veto1Dy,c.MuFilter.Veto1Dz = 49.3*u.mm, 2761.1*u.mm, 168.1*u.mm
           c.MuFilter.Veto2Dx,c.MuFilter.Veto2Dy,c.MuFilter.Veto2Dz = 49.3*u.mm, 2802.1*u.mm, 148.1*u.mm
           c.MuFilter.Veto3Dx,c.MuFilter.Veto3Dy,c.MuFilter.Veto3Dz = 61.8*u.mm, 2863.1*u.mm, 146.6*u.mm
@@ -228,7 +228,7 @@ with ConfigRegistry.register_config("basic") as c:
         #Veto station parameters
         c.MuFilter.VetonSiPMs = 8
         c.MuFilter.VetonSides  = 2
-        if year == 2024: c.MuFilter.NVetoPlanes = 3
+        if year >= 2024: c.MuFilter.NVetoPlanes = 3
         else: c.MuFilter.NVetoPlanes = 2
         c.MuFilter.NVetoBars    = 7
 
@@ -285,7 +285,7 @@ with ConfigRegistry.register_config("basic") as c:
         c.MuFilter.VETOBoxY1        = c.MuFilter.VETOLocY - c.MuFilter.VetoBarZ/2 - c.MuFilter.SupportBoxD
         c.MuFilter.VETOBoxY2        = c.MuFilter.VETOLocY + c.MuFilter.VetoBarZ/2 + c.MuFilter.SupportBoxD
 
-        if year == 2024:
+        if year >= 2024:
           c.MuFilter.SupportBoxVB3 = 6*u.mm
           c.MuFilter.SupportBoxVDH  = 2.0*u.mm  # empty space between 3rd veto plane and box (left-right sides in the hor. plane)
 
@@ -332,7 +332,7 @@ with ConfigRegistry.register_config("basic") as c:
         c.Floor.DZ = 0.
 
         
-        if year == 2024:
+        if year >= 2024:
           # Pit on the tunnel floor hosting Veto - using survey coord. system
           # Dimensions
           c.Floor.VetoPitXdim, c.Floor.VetoPitYdim, c.Floor.VetoPitZdim = 500*u.mm, 200*u.mm, 86*u.mm
