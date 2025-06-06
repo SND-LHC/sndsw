@@ -325,7 +325,7 @@ with ConfigRegistry.register_config("basic") as c:
         c.MuFilter.DsSiPMcalibration             = 25.*1000.
         c.MuFilter.timeResol = 150.*u.picosecond
         c.MuFilter.VandUpPropSpeed    = 12.5*u.cm/u.nanosecond
-        c.MuFilter.DsPropSpeed        = 14.3*u.cm/u.nanosecond
+        c.MuFilter.DsPropSpeed        = 14.9*u.cm/u.nanosecond
 
         c.Floor = AttrDict(z=48000.*u.cm) # to place tunnel in SND_@LHC coordinate system
         c.Floor.DX = 1.0*u.cm 
