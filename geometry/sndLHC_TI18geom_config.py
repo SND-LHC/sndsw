@@ -233,7 +233,7 @@ with ConfigRegistry.register_config("basic") as c:
         c.MuFilter.NVetoBars    = 7
 
         c.MuFilter.VetoBarX,c.MuFilter.VetoBarY,c.MuFilter.VetoBarZ = 42 *u.cm, 6 * u.cm, 1 * u.cm
-        c.MuFilter.Veto3BarX,c.MuFilter.Veto3BarY,c.MuFilter.Veto3BarZ = 5.94*u.cm, 46*u.cm, 1*u.cm
+        if year >= 2024: c.MuFilter.Veto3BarX,c.MuFilter.Veto3BarY,c.MuFilter.Veto3BarZ = 5.94*u.cm, 46*u.cm, 1*u.cm
         c.MuFilter.VetoBarGap = 2*30*u.um  # wrapping material
 
         c.MuFilter.FeX,c.MuFilter.FeY,c.MuFilter.FeZ                  = 80*u.cm, 60*u.cm, 20*u.cm
@@ -301,7 +301,8 @@ with ConfigRegistry.register_config("basic") as c:
        # VETO/US/DS plane alignment
         c.MuFilter.Veto1ShiftY = 0.0
         c.MuFilter.Veto2ShiftY = 0.0
-        c.MuFilter.Veto3ShiftX = 0.0
+        if year >= 2024:
+          c.MuFilter.Veto3ShiftX = 0.0
         c.MuFilter.US1ShiftY = 0.0
         c.MuFilter.US2ShiftY = 0.0
         c.MuFilter.US3ShiftY = 0.0
