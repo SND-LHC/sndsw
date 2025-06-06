@@ -48,8 +48,6 @@ def modifyDicts(year=2024):
            sGeo.MuFilter[key] = mufi_spatial_aligment_consts[year][i]*u.cm
 
          # DS part
-         setattr(sGeo.MuFilter,'DsPropSpeed',14.9*u.cm/u.nanosecond)
-         sGeo.MuFilter['DsPropSpeed'] = 14.9*u.cm/u.nanosecond
          constants = {}
          constants['t_0'] =  [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]
          constants['t_4361'] =  [-5.61,-5.63,-5.90,-5.39,-5.40,-5.58,-5.99,-6.08,-6.27,-6.43,-5.94,-6.20,-5.45,-5.52,-5.75,-5.93,-5.40,-5.56,-5.46,-5.74]
