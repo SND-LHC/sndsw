@@ -80,7 +80,7 @@ var searchData=
   ['clean_77',['clean',['../classShipGeoConfig_1_1ConfigRegistry.html#a638df5747f44b3aeaa3628ef79e75b23',1,'ShipGeoConfig::ConfigRegistry']]],
   ['cleantracks_78',['cleantracks',['../classEventDisplay__Task_1_1twod.html#a1885e4c872c54279b3dda453007358ab',1,'EventDisplay_Task.twod.cleanTracks()'],['../namespace2dEventDisplay.html#aab998468ae0aca37f0a16e96dca87857',1,'2dEventDisplay.cleanTracks()']]],
   ['cleanuphtml_79',['cleanUpHtml',['../classMonitor_1_1Monitoring.html#acb11a9ffcffb7fbdc73370a32e60847b',1,'Monitor::Monitoring']]],
-  ['clear_80',['clear',['../classgenfit_1_1Track.html#a724f97b70a2d3a2e2c3fb5f447d9b6ef',1,'genfit::Track::Clear()'],['../classgenfit_1_1MeasurementFactory.html#a951bd2b34ce82994ee6ea81a2af4e69a',1,'genfit::MeasurementFactory::clear()']]],
+  ['clear_80',['clear',['../classgenfit_1_1MeasurementFactory.html#a951bd2b34ce82994ee6ea81a2af4e69a',1,'genfit::MeasurementFactory::clear()'],['../classgenfit_1_1Track.html#a724f97b70a2d3a2e2c3fb5f447d9b6ef',1,'genfit::Track::Clear()']]],
   ['clear_5fmemo_81',['clear_memo',['../classrootpyPickler_1_1Pickler.html#a57e647a61f49b0e6c0012a0f440dd0f6',1,'rootpyPickler::Pickler']]],
   ['clearmap_82',['clearMap',['../classgenfit_1_1GFRaveVertexFactory.html#a8ead163cdca2540b605aed3419290e50',1,'genfit::GFRaveVertexFactory']]],
   ['clearpreclusters_83',['ClearPreClusters',['../classecalClusterFinder.html#a3bd77502e5362a649f745754e01a3603',1,'ecalClusterFinder']]],

@@ -28,6 +28,7 @@ var 2dEventDisplay_8py =
     [ "dest", "2dEventDisplay_8py.html#a49a1843b75af5e3fadb169cd01a7b30f", null ],
     [ "detSize", "2dEventDisplay_8py.html#ad5475b24c16338bae264983791ed89f1", null ],
     [ "Digi_MuFilterHits", "2dEventDisplay_8py.html#a1fc8e9b5b20862ed0f8b7b5baa94f037", null ],
+    [ "em", "2dEventDisplay_8py.html#ac86df68bbc5aab7987ac01c12fbe3f0e", null ],
     [ "eventComment", "2dEventDisplay_8py.html#ab6a65bf75836523f134e9bf2532f5180", null ],
     [ "eventTree", "2dEventDisplay_8py.html#a8a34577e634a3900172ecbb7ad92e5a1", null ],
     [ "f", "2dEventDisplay_8py.html#a32b4f47e025aac2d77e395e1dbce6d44", null ],

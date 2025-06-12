@@ -6,6 +6,7 @@ var namespacerun__simSND =
     [ "action", "namespacerun__simSND.html#acd7c4a5e35d6f47c7b72aebb8d485bd9", null ],
     [ "AnnihiToMuPair", "namespacerun__simSND.html#a49b333c78908fa3416280cd7be5dd5ba", null ],
     [ "checking4overlaps", "namespacerun__simSND.html#a9ce2471aaae3ade4c3254f9f991aec7c", null ],
+    [ "choices", "namespacerun__simSND.html#afc9a28b9ca7b0fb8efb16b83829dd887", null ],
     [ "ctime", "namespacerun__simSND.html#a931528fabb20564f1d607d535d2fdbbb", null ],
     [ "default", "namespacerun__simSND.html#a964fc09bf1618c38c296ef9063adb9fa", null ],
     [ "defaultInputFile", "namespacerun__simSND.html#a10e75561f0ada38eac3180dc03c3e2b6", null ],

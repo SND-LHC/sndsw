@@ -6,6 +6,7 @@ var run__simSND_8py =
     [ "action", "run__simSND_8py.html#acd7c4a5e35d6f47c7b72aebb8d485bd9", null ],
     [ "AnnihiToMuPair", "run__simSND_8py.html#a49b333c78908fa3416280cd7be5dd5ba", null ],
     [ "checking4overlaps", "run__simSND_8py.html#a9ce2471aaae3ade4c3254f9f991aec7c", null ],
+    [ "choices", "run__simSND_8py.html#afc9a28b9ca7b0fb8efb16b83829dd887", null ],
     [ "ctime", "run__simSND_8py.html#a931528fabb20564f1d607d535d2fdbbb", null ],
     [ "default", "run__simSND_8py.html#a964fc09bf1618c38c296ef9063adb9fa", null ],
     [ "defaultInputFile", "run__simSND_8py.html#a10e75561f0ada38eac3180dc03c3e2b6", null ],

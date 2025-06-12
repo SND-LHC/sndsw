@@ -127,6 +127,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a026028a249d5f6a21a18c55d79a3f094"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac5420d2037f43709db5771bb0cee03d7" id="r_ac5420d2037f43709db5771bb0cee03d7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScifiCTR_1_1Scifi__CTR.html#ac5420d2037f43709db5771bb0cee03d7">ExtractMeanAndSigma</a> (self)</td></tr>
 <tr class="separator:ac5420d2037f43709db5771bb0cee03d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ba13b937df2891f843f6d8008d5e4a4" id="r_a8ba13b937df2891f843f6d8008d5e4a4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScifiCTR_1_1Scifi__CTR.html#a8ba13b937df2891f843f6d8008d5e4a4">minimizeMat</a> (self, <a class="el" href="namespaceScifiCTR.html#a87a9336a17ef0557a1090c56e6990797">b</a>=&quot;&quot;)</td></tr>
+<tr class="separator:a8ba13b937df2891f843f6d8008d5e4a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac02c3ac40fc667456411144e5de80474" id="r_ac02c3ac40fc667456411144e5de80474"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScifiCTR_1_1Scifi__CTR.html#ac02c3ac40fc667456411144e5de80474">minimize</a> (self, <a class="el" href="namespaceScifiCTR.html#a87a9336a17ef0557a1090c56e6990797">b</a>=&quot;&quot;)</td></tr>
 <tr class="separator:ac02c3ac40fc667456411144e5de80474"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93bedf94324497a6b1662c7ff8c13766" id="r_a93bedf94324497a6b1662c7ff8c13766"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScifiCTR_1_1Scifi__CTR.html#a93bedf94324497a6b1662c7ff8c13766">minimizeStation</a> (self, <a class="el" href="namespaceScifiCTR.html#a87a9336a17ef0557a1090c56e6990797">b</a>=&quot;&quot;)</td></tr>
@@ -185,104 +187,121 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ScifiCTR_8py_source.html#l00090">90</a> of file <a class="el" href="ScifiCTR_8py_source.html">ScifiCTR.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   90</span>   <span class="keyword">def </span>ExecuteEvent(self,event):</div>
-<div class="line"><span class="lineno">   91</span>       h = self.M.h</div>
-<div class="line"><span class="lineno">   92</span>       tag =  self.tag</div>
-<div class="line"><span class="lineno">   93</span>       DetID2Key={}</div>
-<div class="line"><span class="lineno">   94</span>       <span class="keywordflow">for</span> nHit <span class="keywordflow">in</span> range(event.Digi_ScifiHits.GetEntries()):</div>
-<div class="line"><span class="lineno">   95</span>           DetID2Key[event.Digi_ScifiHits[nHit].GetDetectorID()] = nHit</div>
-<div class="line"><span class="lineno">   96</span> </div>
-<div class="line"><span class="lineno">   97</span>       <span class="keywordflow">for</span> aTrack <span class="keywordflow">in</span> self.M.Reco_MuonTracks:</div>
-<div class="line"><span class="lineno">   98</span>          <span class="keywordflow">if</span> <span class="keywordflow">not</span> aTrack.GetUniqueID()==1: <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">   99</span>          fitStatus = aTrack.getFitStatus()</div>
-<div class="line"><span class="lineno">  100</span>          <span class="keywordflow">if</span> <span class="keywordflow">not</span> fitStatus.isFitConverged(): <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  101</span>          state = aTrack.getFittedState()</div>
-<div class="line"><span class="lineno">  102</span>          mom = state.getMom()</div>
-<div class="line"><span class="lineno">  103</span>          slopeX = mom.X()/mom.Z()</div>
-<div class="line"><span class="lineno">  104</span>          slopeY = mom.Y()/mom.Z()</div>
-<div class="line"><span class="lineno">  105</span>          sortedClusters={}</div>
-<div class="line"><span class="lineno">  106</span><span class="comment">#</span></div>
-<div class="line"><span class="lineno">  107</span>          pos = {}</div>
-<div class="line"><span class="lineno">  108</span>          <span class="keywordflow">for</span> s <span class="keywordflow">in</span> range(1, nStations+1):  sortedClusters[s] = {<span class="stringliteral">&#39;H&#39;</span>:[],<span class="stringliteral">&#39;V&#39;</span>:[]}</div>
-<div class="line"><span class="lineno">  109</span>          <span class="keywordflow">for</span> nM <span class="keywordflow">in</span> range(aTrack.getNumPointsWithMeasurement()):</div>
-<div class="line"><span class="lineno">  110</span>              state = aTrack.getFittedState(nM)</div>
-<div class="line"><span class="lineno">  111</span>              Meas = aTrack.getPointWithMeasurement(nM)</div>
-<div class="line"><span class="lineno">  112</span>              W      = Meas.getRawMeasurement()</div>
-<div class="line"><span class="lineno">  113</span>              clkey = W.getHitId()</div>
-<div class="line"><span class="lineno">  114</span>              aCl    = self.M.trackTask.clusScifi[clkey]</div>
-<div class="line"><span class="lineno">  115</span>              aHit = event.Digi_ScifiHits[DetID2Key[aCl.GetFirst()]]</div>
-<div class="line"><span class="lineno">  116</span>              s = aCl.GetFirst()//1000000</div>
-<div class="line"><span class="lineno">  117</span>              aCl.GetPosition(A,B)</div>
-<div class="line"><span class="lineno">  118</span>              mat = (aCl.GetFirst()//10000)%10</div>
-<div class="line"><span class="lineno">  119</span>              <span class="keywordflow">if</span> aHit.isVertical(): </div>
-<div class="line"><span class="lineno">  120</span>                        L = B[1]-state.getPos()[1]</div>
-<div class="line"><span class="lineno">  121</span>                        sortedClusters[s][<span class="stringliteral">&#39;V&#39;</span>].append( [clkey,L,B[0],state.getPos()[1],mat,(A[2]+B[2])/2.] )</div>
-<div class="line"><span class="lineno">  122</span>                        rc = h[<span class="stringliteral">&#39;res&#39;</span>+str(s)+<span class="stringliteral">&#39;V&#39;</span>].Fill( (A[0]+B[0])/2.-state.getPos()[0])</div>
-<div class="line"><span class="lineno">  123</span>              <span class="keywordflow">else</span>:  </div>
-<div class="line"><span class="lineno">  124</span>                        L = A[0]-state.getPos()[0]</div>
-<div class="line"><span class="lineno">  125</span>                        sortedClusters[s][<span class="stringliteral">&#39;H&#39;</span>].append( [clkey,L,A[1],state.getPos()[0],mat,(A[2]+B[2])/2.] )</div>
-<div class="line"><span class="lineno">  126</span>                        rc = h[<span class="stringliteral">&#39;res&#39;</span>+str(s)+<span class="stringliteral">&#39;H&#39;</span>].Fill( (A[1]+B[1])/2.-state.getPos()[1])</div>
-<div class="line"><span class="lineno">  127</span>          <span class="comment"># find station with exactly 1 x and 1 y cluster:</span></div>
-<div class="line"><span class="lineno">  128</span>          <span class="keywordflow">for</span> s <span class="keywordflow">in</span> range(1, nStations+1):</div>
-<div class="line"><span class="lineno">  129</span>              <span class="keywordflow">if</span> <span class="keywordflow">not</span> (len(sortedClusters[s][<span class="stringliteral">&#39;V&#39;</span>]) * len(sortedClusters[s][<span class="stringliteral">&#39;H&#39;</span>]) ) ==1: <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  130</span>              timeCorr = {}</div>
-<div class="line"><span class="lineno">  131</span>              <span class="keywordflow">for</span> proj <span class="keywordflow">in</span> [<span class="stringliteral">&#39;V&#39;</span>,<span class="stringliteral">&#39;H&#39;</span>]:</div>
-<div class="line"><span class="lineno">  132</span>                  clkey = sortedClusters[s][proj][0][0]</div>
-<div class="line"><span class="lineno">  133</span>                  aCl    = self.M.trackTask.clusScifi[clkey]</div>
-<div class="line"><span class="lineno">  134</span>                  L = sortedClusters[s][proj][0][1]</div>
-<div class="line"><span class="lineno">  135</span>                  rc = h[<span class="stringliteral">&#39;extrap&#39;</span>+str(s)+proj].Fill(abs(L))</div>
-<div class="line"><span class="lineno">  136</span>                  time = aCl.GetTime()   <span class="comment"># Get time in ns, use fastest TDC of cluster</span></div>
-<div class="line"><span class="lineno">  137</span>                  <span class="keywordflow">if</span> M.options.check: time = self.M.<a class="code hl_function" href="classScifi.html#ad450e9024b424afc7cc0cdeafbe23552">Scifi.GetCorrectedTime</a>(aCl.GetFirst(),aCl.GetTime(),0)</div>
-<div class="line"><span class="lineno">  138</span>                  mat = sortedClusters[s][proj][0][4]</div>
-<div class="line"><span class="lineno">  139</span>                  time-=  self.tdcScifiStationCalib[s][1][proj][mat]</div>
-<div class="line"><span class="lineno">  140</span>                  time-=  self.tdcScifiStationCalib[s][0]</div>
-<div class="line"><span class="lineno">  141</span>                  timeCorr[proj] = time - abs(L)/self.V</div>
-<div class="line"><span class="lineno">  142</span>                  <span class="comment"># print(s,proj,time,L,L/self.V)</span></div>
-<div class="line"><span class="lineno">  143</span>              dt = timeCorr[<span class="stringliteral">&#39;H&#39;</span>]  - timeCorr[<span class="stringliteral">&#39;V&#39;</span>]</div>
-<div class="line"><span class="lineno">  144</span>              rc = h[<span class="stringliteral">&#39;CTR_Scifi&#39;</span>+str(s)+tag].Fill(dt)</div>
-<div class="line"><span class="lineno">  145</span>              matH,matV = sortedClusters[s][<span class="stringliteral">&#39;H&#39;</span>][0][4],sortedClusters[s][<span class="stringliteral">&#39;V&#39;</span>][0][4]</div>
-<div class="line"><span class="lineno">  146</span>              rc = h[<span class="stringliteral">&#39;CTR_Scifi&#39;</span>+str(100*s+10*matH+matV)+tag].Fill(dt)</div>
-<div class="line"><span class="lineno">  147</span>              <span class="keywordflow">if</span> abs(slopeX)&lt;0.1 <span class="keywordflow">and</span> abs(slopeY)&lt;0.1:  </div>
-<div class="line"><span class="lineno">  148</span>                    rc = h[<span class="stringliteral">&#39;CTR_Scifi_beam&#39;</span>+str(s)+tag].Fill(dt)</div>
-<div class="line"><span class="lineno">  149</span>                    rc = h[<span class="stringliteral">&#39;CTR_Scifi_beam&#39;</span>+str(100*s+10*matH+matV)+tag].Fill(dt)</div>
-<div class="line"><span class="lineno">  150</span>              dR = sortedClusters[s][<span class="stringliteral">&#39;V&#39;</span>][0][2] - sortedClusters[s][<span class="stringliteral">&#39;H&#39;</span>][0][3]</div>
-<div class="line"><span class="lineno">  151</span>              rc = h[<span class="stringliteral">&#39;resX&#39;</span>+str(s)+<span class="stringliteral">&#39;V&#39;</span>].Fill(dR)</div>
-<div class="line"><span class="lineno">  152</span>              dR = sortedClusters[s][<span class="stringliteral">&#39;H&#39;</span>][0][2]-sortedClusters[s][<span class="stringliteral">&#39;V&#39;</span>][0][3]</div>
-<div class="line"><span class="lineno">  153</span>              rc = h[<span class="stringliteral">&#39;resX&#39;</span>+str(s)+<span class="stringliteral">&#39;H&#39;</span>].Fill(dR)</div>
-<div class="line"><span class="lineno">  154</span><span class="comment">#</span></div>
-<div class="line"><span class="lineno">  155</span>              <span class="keywordflow">if</span> tag!=<span class="stringliteral">&#39;v0&#39;</span>:</div>
-<div class="line"><span class="lineno">  156</span>                 stationTimes = {}</div>
-<div class="line"><span class="lineno">  157</span>                 <span class="keywordflow">for</span> s <span class="keywordflow">in</span> range(1, nStations+1):</div>
-<div class="line"><span class="lineno">  158</span>                   <span class="keywordflow">if</span> <span class="keywordflow">not</span> (len(sortedClusters[s][<span class="stringliteral">&#39;V&#39;</span>]) * len(sortedClusters[s][<span class="stringliteral">&#39;H&#39;</span>]) ) ==1: <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  159</span>                   sTime = 0</div>
-<div class="line"><span class="lineno">  160</span>                   <span class="keywordflow">for</span> proj <span class="keywordflow">in</span> [<span class="stringliteral">&#39;V&#39;</span>,<span class="stringliteral">&#39;H&#39;</span>]:</div>
-<div class="line"><span class="lineno">  161</span>                      clkey = sortedClusters[s][proj][0][0]</div>
-<div class="line"><span class="lineno">  162</span>                      aCl    = self.M.trackTask.clusScifi[clkey]</div>
-<div class="line"><span class="lineno">  163</span>                      L = sortedClusters[s][proj][0][1]</div>
-<div class="line"><span class="lineno">  164</span>                      time =  aCl.GetTime()   <span class="comment"># Get time in ns, use fastest TDC of cluster</span></div>
-<div class="line"><span class="lineno">  165</span>                      <span class="keywordflow">if</span> M.options.check: time = self.M.<a class="code hl_function" href="classScifi.html#ad450e9024b424afc7cc0cdeafbe23552">Scifi.GetCorrectedTime</a>(aCl.GetFirst(),aCl.GetTime(),0)</div>
-<div class="line"><span class="lineno">  166</span>                      mat  =  sortedClusters[s][proj][0][4]</div>
-<div class="line"><span class="lineno">  167</span>                      time-=  self.tdcScifiStationCalib[s][1][proj][mat]</div>
-<div class="line"><span class="lineno">  168</span>                      time-=  self.tdcScifiStationCalib[s][0]</div>
-<div class="line"><span class="lineno">  169</span>                      time-=  abs(L)/self.V</div>
-<div class="line"><span class="lineno">  170</span>                      sTime += time</div>
-<div class="line"><span class="lineno">  171</span>                   stationTimes[s] = [sTime/2.,(sortedClusters[s][<span class="stringliteral">&#39;H&#39;</span>][0][5] + sortedClusters[s][<span class="stringliteral">&#39;V&#39;</span>][0][5])/2.]</div>
-<div class="line"><span class="lineno">  172</span>                 <span class="keywordflow">for</span> s1 <span class="keywordflow">in</span> range(1, nStations):</div>
-<div class="line"><span class="lineno">  173</span>                     <span class="keywordflow">if</span> <span class="keywordflow">not</span> s1 <span class="keywordflow">in</span> stationTimes: <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  174</span>                     <span class="keywordflow">for</span> s2 <span class="keywordflow">in</span> range(s1+1, nStations+1):</div>
-<div class="line"><span class="lineno">  175</span>                         <span class="keywordflow">if</span> <span class="keywordflow">not</span> s2 <span class="keywordflow">in</span> stationTimes: <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  176</span>                         dT = stationTimes[s2][0] - stationTimes[s1][0]</div>
-<div class="line"><span class="lineno">  177</span><span class="comment"># correct for slope</span></div>
-<div class="line"><span class="lineno">  178</span>                         dZ = stationTimes[s2][1] - stationTimes[s1][1]</div>
-<div class="line"><span class="lineno">  179</span>                         dL = dZ * ROOT.TMath.Sqrt( slopeX**2+slopeY**2+1 )</div>
-<div class="line"><span class="lineno">  180</span>                         <span class="keywordflow">if</span> slopeY&gt;0.1:  dL = -dL     <span class="comment"># cosmics from the back</span></div>
-<div class="line"><span class="lineno">  181</span>                         dT -= dL / u.speedOfLight</div>
-<div class="line"><span class="lineno">  182</span>                         rc = h[<span class="stringliteral">&#39;CTR_ScifiStation&#39;</span>+str(s1*10+s2)+tag].Fill(dT)</div>
-<div class="line"><span class="lineno">  183</span>                         <span class="keywordflow">if</span> abs(slopeX)&lt;0.1 <span class="keywordflow">and</span> abs(slopeY)&lt;0.1:</div>
-<div class="line"><span class="lineno">  184</span>                               rc = h[<span class="stringliteral">&#39;CTR_ScifiStation_beam&#39;</span>+str(s1*10+s2)+tag].Fill(dT)</div>
-<div class="line"><span class="lineno">  185</span> </div>
-<div class="ttc" id="aclassScifi_html_ad450e9024b424afc7cc0cdeafbe23552"><div class="ttname"><a href="classScifi.html#ad450e9024b424afc7cc0cdeafbe23552">Scifi::GetCorrectedTime</a></div><div class="ttdeci">Double_t GetCorrectedTime(Int_t fDetectorID, Double_t rawTime, Double_t L)</div><div class="ttdef"><b>Definition</b> <a href="Scifi_8cxx_source.html#l00611">Scifi.cxx:611</a></div></div>
+<p class="definition">Definition at line <a class="el" href="ScifiCTR_8py_source.html#l00111">111</a> of file <a class="el" href="ScifiCTR_8py_source.html">ScifiCTR.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  111</span>   <span class="keyword">def </span>ExecuteEvent(self,event):</div>
+<div class="line"><span class="lineno">  112</span>       h = self.M.h</div>
+<div class="line"><span class="lineno">  113</span>       tag =  self.tag</div>
+<div class="line"><span class="lineno">  114</span>       DetID2Key={}</div>
+<div class="line"><span class="lineno">  115</span>       <span class="keywordflow">for</span> nHit <span class="keywordflow">in</span> range(event.Digi_ScifiHits.GetEntries()):</div>
+<div class="line"><span class="lineno">  116</span>           DetID2Key[event.Digi_ScifiHits[nHit].GetDetectorID()] = nHit</div>
+<div class="line"><span class="lineno">  117</span> </div>
+<div class="line"><span class="lineno">  118</span>       <span class="keywordflow">for</span> aTrack <span class="keywordflow">in</span> self.M.Reco_MuonTracks:</div>
+<div class="line"><span class="lineno">  119</span>          <span class="keywordflow">if</span> <span class="keywordflow">not</span> aTrack.GetUniqueID()==1: <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  120</span>          fitStatus = aTrack.getFitStatus()</div>
+<div class="line"><span class="lineno">  121</span>          <span class="keywordflow">if</span> <span class="keywordflow">not</span> fitStatus.isFitConverged(): <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  122</span>          state = aTrack.getFittedState()</div>
+<div class="line"><span class="lineno">  123</span>          mom = state.getMom()</div>
+<div class="line"><span class="lineno">  124</span>          slopeX = mom.X()/mom.Z()</div>
+<div class="line"><span class="lineno">  125</span>          slopeY = mom.Y()/mom.Z()</div>
+<div class="line"><span class="lineno">  126</span>          sortedClusters={}</div>
+<div class="line"><span class="lineno">  127</span><span class="comment">#</span></div>
+<div class="line"><span class="lineno">  128</span>          pos = {}</div>
+<div class="line"><span class="lineno">  129</span>          <span class="keywordflow">for</span> s <span class="keywordflow">in</span> range(1, nStations+1):  sortedClusters[s] = {<span class="stringliteral">&#39;H&#39;</span>:[],<span class="stringliteral">&#39;V&#39;</span>:[]}</div>
+<div class="line"><span class="lineno">  130</span>          <span class="keywordflow">for</span> nM <span class="keywordflow">in</span> range(aTrack.getNumPointsWithMeasurement()):</div>
+<div class="line"><span class="lineno">  131</span>              state = aTrack.getFittedState(nM)</div>
+<div class="line"><span class="lineno">  132</span>              Meas = aTrack.getPointWithMeasurement(nM)</div>
+<div class="line"><span class="lineno">  133</span>              W      = Meas.getRawMeasurement()</div>
+<div class="line"><span class="lineno">  134</span>              clkey = W.getHitId()</div>
+<div class="line"><span class="lineno">  135</span>              aCl    = self.M.trackTask.clusScifi[clkey]</div>
+<div class="line"><span class="lineno">  136</span>              aHit = event.Digi_ScifiHits[DetID2Key[aCl.GetFirst()]]</div>
+<div class="line"><span class="lineno">  137</span>              detID = aCl.GetFirst()</div>
+<div class="line"><span class="lineno">  138</span>              s = detID//1000000</div>
+<div class="line"><span class="lineno">  139</span>              aCl.GetPosition(A,B)</div>
+<div class="line"><span class="lineno">  140</span>              mat = (detID//10000)%10</div>
+<div class="line"><span class="lineno">  141</span>              <span class="keywordflow">if</span> aHit.isVertical(): </div>
+<div class="line"><span class="lineno">  142</span>                        L = B[1]-state.getPos()[1]</div>
+<div class="line"><span class="lineno">  143</span>                        sortedClusters[s][<span class="stringliteral">&#39;V&#39;</span>].append( [clkey,L,B[0],state.getPos()[1],mat,(A[2]+B[2])/2.,state.getPos()[0],aCl.GetFirst(),aCl.GetTime()] )</div>
+<div class="line"><span class="lineno">  144</span>                        rc = h[<span class="stringliteral">&#39;res&#39;</span>+str(s)+<span class="stringliteral">&#39;V&#39;</span>].Fill( (A[0]+B[0])/2.-state.getPos()[0])</div>
+<div class="line"><span class="lineno">  145</span>              <span class="keywordflow">else</span>:  </div>
+<div class="line"><span class="lineno">  146</span>                        L = A[0]-state.getPos()[0]</div>
+<div class="line"><span class="lineno">  147</span>                        sortedClusters[s][<span class="stringliteral">&#39;H&#39;</span>].append( [clkey,L,A[1],state.getPos()[0],mat,(A[2]+B[2])/2.,state.getPos()[1],aCl.GetFirst(),aCl.GetTime()] )</div>
+<div class="line"><span class="lineno">  148</span>                        rc = h[<span class="stringliteral">&#39;res&#39;</span>+str(s)+<span class="stringliteral">&#39;H&#39;</span>].Fill( (A[1]+B[1])/2.-state.getPos()[1])</div>
+<div class="line"><span class="lineno">  149</span>          <span class="comment"># find station with exactly 1 x and 1 y cluster:</span></div>
+<div class="line"><span class="lineno">  150</span>          <span class="keywordflow">for</span> s <span class="keywordflow">in</span> range(1, nStations+1):</div>
+<div class="line"><span class="lineno">  151</span>              <span class="keywordflow">if</span> <span class="keywordflow">not</span> (len(sortedClusters[s][<span class="stringliteral">&#39;V&#39;</span>]) * len(sortedClusters[s][<span class="stringliteral">&#39;H&#39;</span>]) ) ==1: <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  152</span>              timeCorr = {}</div>
+<div class="line"><span class="lineno">  153</span>              <span class="keywordflow">for</span> proj <span class="keywordflow">in</span> [<span class="stringliteral">&#39;V&#39;</span>,<span class="stringliteral">&#39;H&#39;</span>]:</div>
+<div class="line"><span class="lineno">  154</span>                  clkey = sortedClusters[s][proj][0][0]</div>
+<div class="line"><span class="lineno">  155</span>                  aCl    = self.M.trackTask.clusScifi[clkey]</div>
+<div class="line"><span class="lineno">  156</span>                  L = sortedClusters[s][proj][0][1]</div>
+<div class="line"><span class="lineno">  157</span>                  rc = h[<span class="stringliteral">&#39;extrap&#39;</span>+str(s)+proj].Fill(abs(L))</div>
+<div class="line"><span class="lineno">  158</span>                  time = aCl.GetTime()   <span class="comment"># Get time in ns, use fastest TDC of cluster</span></div>
+<div class="line"><span class="lineno">  159</span>                  <span class="keywordflow">if</span> M.options.check: time = self.M.<a class="code hl_function" href="classScifi.html#ad450e9024b424afc7cc0cdeafbe23552">Scifi.GetCorrectedTime</a>(aCl.GetFirst(),aCl.GetTime(),0)</div>
+<div class="line"><span class="lineno">  160</span>                  mat = sortedClusters[s][proj][0][4]</div>
+<div class="line"><span class="lineno">  161</span>                  sipm_array = int(sortedClusters[s][proj][0][7]/1000)%10</div>
+<div class="line"><span class="lineno">  162</span>                  sipm_channel = sortedClusters[s][proj][0][7]%1000</div>
+<div class="line"><span class="lineno">  163</span>                  <span class="keywordflow">if</span> channelTimeAlignment==1 <span class="keywordflow">and</span> s==2 <span class="keywordflow">and</span> proj==<span class="stringliteral">&#39;H&#39;</span>:<span class="comment"># apply the corrections per channel</span></div>
+<div class="line"><span class="lineno">  164</span>                    time-=  self.tdcScifiStationCalib[s][1][proj][1][sipm_array][sipm_channel]</div>
+<div class="line"><span class="lineno">  165</span>                  time-=  self.tdcScifiStationCalib[s][1][proj][mat]</div>
+<div class="line"><span class="lineno">  166</span>                  time-=  self.tdcScifiStationCalib[s][0]</div>
+<div class="line"><span class="lineno">  167</span>                  timeCorr[proj] = time - abs(L)/self.V</div>
+<div class="line"><span class="lineno">  168</span>                  <span class="comment"># print(s,proj,time,L,L/self.V)</span></div>
+<div class="line"><span class="lineno">  169</span>              dt = timeCorr[<span class="stringliteral">&#39;H&#39;</span>]  - timeCorr[<span class="stringliteral">&#39;V&#39;</span>]</div>
+<div class="line"><span class="lineno">  170</span>              rc = h[<span class="stringliteral">&#39;CTR_Scifi&#39;</span>+str(s)+tag].Fill(dt)</div>
+<div class="line"><span class="lineno">  171</span>              <span class="keywordflow">for</span> proj <span class="keywordflow">in</span> [<span class="stringliteral">&#39;V&#39;</span>,<span class="stringliteral">&#39;H&#39;</span>]:</div>
+<div class="line"><span class="lineno">  172</span>                <span class="keywordflow">if</span> proj==<span class="stringliteral">&#39;V&#39;</span>: o=1</div>
+<div class="line"><span class="lineno">  173</span>                <span class="keywordflow">else</span>: o=0</div>
+<div class="line"><span class="lineno">  174</span>                <span class="keywordflow">if</span> channelTimeAlignment==1 <span class="keywordflow">and</span> s==2 <span class="keywordflow">and</span> proj==<span class="stringliteral">&#39;H&#39;</span>: <span class="comment"># plots for the corrections per channel</span></div>
+<div class="line"><span class="lineno">  175</span>                   rc = h[<span class="stringliteral">&#39;CTR_ScifiMat&#39;</span>+str(sortedClusters[s][proj][0][7])+tag].Fill(dt)</div>
+<div class="line"><span class="lineno">  176</span>                rc=h[<span class="stringliteral">&#39;dT_posxV&#39;</span>+str(s)+tag].Fill(sortedClusters[s][<span class="stringliteral">&#39;V&#39;</span>][0][6],dt)</div>
+<div class="line"><span class="lineno">  177</span>                rc=h[<span class="stringliteral">&#39;dT_posxH&#39;</span>+str(s)+tag].Fill(sortedClusters[s][<span class="stringliteral">&#39;H&#39;</span>][0][3],dt)</div>
+<div class="line"><span class="lineno">  178</span>                rc=h[<span class="stringliteral">&#39;dT_posyH&#39;</span>+str(s)+tag].Fill(sortedClusters[s][<span class="stringliteral">&#39;H&#39;</span>][0][6], dt)</div>
+<div class="line"><span class="lineno">  179</span>                rc=h[<span class="stringliteral">&#39;dT_posyV&#39;</span>+str(s)+tag].Fill(sortedClusters[s][<span class="stringliteral">&#39;V&#39;</span>][0][3], dt)</div>
+<div class="line"><span class="lineno">  180</span>                rc=h[<span class="stringliteral">&#39;CTR_timeH_posy_Scifi&#39;</span>+str(s)+tag].Fill(sortedClusters[s][<span class="stringliteral">&#39;H&#39;</span>][0][6], sortedClusters[s][proj][0][8])</div>
+<div class="line"><span class="lineno">  181</span>                rc=h[<span class="stringliteral">&#39;CTR_timeV_posy_Scifi&#39;</span>+str(s)+tag].Fill(sortedClusters[s][<span class="stringliteral">&#39;V&#39;</span>][0][3],sortedClusters[s][proj][0][8])</div>
+<div class="line"><span class="lineno">  182</span> </div>
+<div class="line"><span class="lineno">  183</span>              matH,matV = sortedClusters[s][<span class="stringliteral">&#39;H&#39;</span>][0][4],sortedClusters[s][<span class="stringliteral">&#39;V&#39;</span>][0][4]</div>
+<div class="line"><span class="lineno">  184</span>              rc = h[<span class="stringliteral">&#39;CTR_Scifi&#39;</span>+str(100*s+10*matH+matV)+tag].Fill(dt)</div>
+<div class="line"><span class="lineno">  185</span>              <span class="keywordflow">if</span> abs(slopeX)&lt;0.1 <span class="keywordflow">and</span> abs(slopeY)&lt;0.1:  </div>
+<div class="line"><span class="lineno">  186</span>                    rc = h[<span class="stringliteral">&#39;CTR_Scifi_beam&#39;</span>+str(s)+tag].Fill(dt)</div>
+<div class="line"><span class="lineno">  187</span>                    rc = h[<span class="stringliteral">&#39;CTR_Scifi_beam&#39;</span>+str(100*s+10*matH+matV)+tag].Fill(dt)</div>
+<div class="line"><span class="lineno">  188</span>              dR = sortedClusters[s][<span class="stringliteral">&#39;V&#39;</span>][0][2] - sortedClusters[s][<span class="stringliteral">&#39;H&#39;</span>][0][3]</div>
+<div class="line"><span class="lineno">  189</span>              rc = h[<span class="stringliteral">&#39;resX&#39;</span>+str(s)+<span class="stringliteral">&#39;V&#39;</span>].Fill(dR)</div>
+<div class="line"><span class="lineno">  190</span>              dR = sortedClusters[s][<span class="stringliteral">&#39;H&#39;</span>][0][2]-sortedClusters[s][<span class="stringliteral">&#39;V&#39;</span>][0][3]</div>
+<div class="line"><span class="lineno">  191</span>              rc = h[<span class="stringliteral">&#39;resX&#39;</span>+str(s)+<span class="stringliteral">&#39;H&#39;</span>].Fill(dR)</div>
+<div class="line"><span class="lineno">  192</span>              </div>
+<div class="line"><span class="lineno">  193</span>              <span class="keywordflow">if</span> tag!=<span class="stringliteral">&#39;v0&#39;</span> <span class="keywordflow">and</span> tag!=<span class="stringliteral">&#39;v0prime&#39;</span>:</div>
+<div class="line"><span class="lineno">  194</span>                 stationTimes = {}</div>
+<div class="line"><span class="lineno">  195</span>                 <span class="keywordflow">for</span> s <span class="keywordflow">in</span> range(1, nStations+1):</div>
+<div class="line"><span class="lineno">  196</span>                   <span class="keywordflow">if</span> <span class="keywordflow">not</span> (len(sortedClusters[s][<span class="stringliteral">&#39;V&#39;</span>]) * len(sortedClusters[s][<span class="stringliteral">&#39;H&#39;</span>]) ) ==1: <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  197</span>                   sTime = 0</div>
+<div class="line"><span class="lineno">  198</span>                   <span class="keywordflow">for</span> proj <span class="keywordflow">in</span> [<span class="stringliteral">&#39;V&#39;</span>,<span class="stringliteral">&#39;H&#39;</span>]:</div>
+<div class="line"><span class="lineno">  199</span>                      clkey = sortedClusters[s][proj][0][0]</div>
+<div class="line"><span class="lineno">  200</span>                      aCl    = self.M.trackTask.clusScifi[clkey]</div>
+<div class="line"><span class="lineno">  201</span>                      L = sortedClusters[s][proj][0][1]</div>
+<div class="line"><span class="lineno">  202</span>                      time =  aCl.GetTime()   <span class="comment"># Get time in ns, use fastest TDC of cluster</span></div>
+<div class="line"><span class="lineno">  203</span>                      <span class="keywordflow">if</span> M.options.check: time = self.M.<a class="code hl_function" href="classScifi.html#ad450e9024b424afc7cc0cdeafbe23552">Scifi.GetCorrectedTime</a>(aCl.GetFirst(),aCl.GetTime(),0)</div>
+<div class="line"><span class="lineno">  204</span>                      mat  =  sortedClusters[s][proj][0][4]</div>
+<div class="line"><span class="lineno">  205</span>                      time-=  self.tdcScifiStationCalib[s][1][proj][mat]</div>
+<div class="line"><span class="lineno">  206</span>                      time-=  self.tdcScifiStationCalib[s][0]</div>
+<div class="line"><span class="lineno">  207</span>                      time-=  abs(L)/self.V</div>
+<div class="line"><span class="lineno">  208</span>                      sTime += time</div>
+<div class="line"><span class="lineno">  209</span>                   stationTimes[s] = [sTime/2.,(sortedClusters[s][<span class="stringliteral">&#39;H&#39;</span>][0][5] + sortedClusters[s][<span class="stringliteral">&#39;V&#39;</span>][0][5])/2.]</div>
+<div class="line"><span class="lineno">  210</span>                 <span class="keywordflow">for</span> s1 <span class="keywordflow">in</span> range(1, nStations):</div>
+<div class="line"><span class="lineno">  211</span>                     <span class="keywordflow">if</span> <span class="keywordflow">not</span> s1 <span class="keywordflow">in</span> stationTimes: <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  212</span>                     <span class="keywordflow">for</span> s2 <span class="keywordflow">in</span> range(s1+1, nStations+1):</div>
+<div class="line"><span class="lineno">  213</span>                         <span class="keywordflow">if</span> <span class="keywordflow">not</span> s2 <span class="keywordflow">in</span> stationTimes: <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  214</span>                         dT = stationTimes[s2][0] - stationTimes[s1][0]</div>
+<div class="line"><span class="lineno">  215</span><span class="comment"># correct for slope</span></div>
+<div class="line"><span class="lineno">  216</span>                         dZ = stationTimes[s2][1] - stationTimes[s1][1]</div>
+<div class="line"><span class="lineno">  217</span>                         dL = dZ * ROOT.TMath.Sqrt( slopeX**2+slopeY**2+1 )</div>
+<div class="line"><span class="lineno">  218</span>                         <span class="keywordflow">if</span> slopeY&gt;0.1:  dL = -dL     <span class="comment"># cosmics from the back</span></div>
+<div class="line"><span class="lineno">  219</span>                         dT -= dL / u.speedOfLight</div>
+<div class="line"><span class="lineno">  220</span>                         rc = h[<span class="stringliteral">&#39;CTR_ScifiStation&#39;</span>+str(s1*10+s2)+tag].Fill(dT)</div>
+<div class="line"><span class="lineno">  221</span>                         <span class="keywordflow">if</span> abs(slopeX)&lt;0.1 <span class="keywordflow">and</span> abs(slopeY)&lt;0.1:</div>
+<div class="line"><span class="lineno">  222</span>                               rc = h[<span class="stringliteral">&#39;CTR_ScifiStation_beam&#39;</span>+str(s1*10+s2)+tag].Fill(dT)</div>
+<div class="line"><span class="lineno">  223</span> </div>
+<div class="ttc" id="aclassScifi_html_ad450e9024b424afc7cc0cdeafbe23552"><div class="ttname"><a href="classScifi.html#ad450e9024b424afc7cc0cdeafbe23552">Scifi::GetCorrectedTime</a></div><div class="ttdeci">Double_t GetCorrectedTime(Int_t fDetectorID, Double_t rawTime, Double_t L)</div><div class="ttdef"><b>Definition</b> <a href="Scifi_8cxx_source.html#l00614">Scifi.cxx:614</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -302,22 +321,22 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ScifiCTR_8py_source.html#l00242">242</a> of file <a class="el" href="ScifiCTR_8py_source.html">ScifiCTR.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  242</span>   <span class="keyword">def </span>ExtractMeanAndSigma(self):</div>
-<div class="line"><span class="lineno">  243</span>      self.meanAndSigma = {}</div>
-<div class="line"><span class="lineno">  244</span>      h = self.M.h</div>
-<div class="line"><span class="lineno">  245</span>      tag =  self.tag</div>
-<div class="line"><span class="lineno">  246</span>      ut.bookHist(h,<span class="stringliteral">&#39;cor&#39;</span>)</div>
-<div class="line"><span class="lineno">  247</span>      <span class="keywordflow">for</span> b <span class="keywordflow">in</span> [<span class="stringliteral">&#39;&#39;</span>,<span class="stringliteral">&#39;_beam&#39;</span>]:</div>
-<div class="line"><span class="lineno">  248</span>         self.meanAndSigma[b]={}</div>
-<div class="line"><span class="lineno">  249</span>         <span class="keywordflow">for</span> s <span class="keywordflow">in</span> range(1, nStations+1): </div>
-<div class="line"><span class="lineno">  250</span>             <span class="keywordflow">for</span> matH <span class="keywordflow">in</span> range(nMats):</div>
-<div class="line"><span class="lineno">  251</span>                <span class="keywordflow">for</span> matV <span class="keywordflow">in</span> range(nMats):</div>
-<div class="line"><span class="lineno">  252</span>                     key = 100*s+10*matH+matV</div>
-<div class="line"><span class="lineno">  253</span>                     histo = h[<span class="stringliteral">&#39;CTR_Scifi&#39;</span>+b+str(key)+tag]</div>
-<div class="line"><span class="lineno">  254</span>                     Fun = histo.GetFunction(<span class="stringliteral">&#39;gaus&#39;</span>)</div>
-<div class="line"><span class="lineno">  255</span>                     self.meanAndSigma[b][key] = [Fun.GetParameter(1),Fun.GetParameter(2)]</div>
-<div class="line"><span class="lineno">  256</span> </div>
+<p class="definition">Definition at line <a class="el" href="ScifiCTR_8py_source.html#l00299">299</a> of file <a class="el" href="ScifiCTR_8py_source.html">ScifiCTR.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  299</span>   <span class="keyword">def </span>ExtractMeanAndSigma(self):</div>
+<div class="line"><span class="lineno">  300</span>      self.meanAndSigma = {}</div>
+<div class="line"><span class="lineno">  301</span>      h = self.M.h</div>
+<div class="line"><span class="lineno">  302</span>      tag =  self.tag</div>
+<div class="line"><span class="lineno">  303</span>      ut.bookHist(h,<span class="stringliteral">&#39;cor&#39;</span>)</div>
+<div class="line"><span class="lineno">  304</span>      <span class="keywordflow">for</span> b <span class="keywordflow">in</span> [<span class="stringliteral">&#39;&#39;</span>,<span class="stringliteral">&#39;_beam&#39;</span>]:</div>
+<div class="line"><span class="lineno">  305</span>         self.meanAndSigma[b]={}</div>
+<div class="line"><span class="lineno">  306</span>         <span class="keywordflow">for</span> s <span class="keywordflow">in</span> range(1, nStations+1): </div>
+<div class="line"><span class="lineno">  307</span>             <span class="keywordflow">for</span> matH <span class="keywordflow">in</span> range(nMats):</div>
+<div class="line"><span class="lineno">  308</span>                <span class="keywordflow">for</span> matV <span class="keywordflow">in</span> range(nMats):</div>
+<div class="line"><span class="lineno">  309</span>                     key = 100*s+10*matH+matV</div>
+<div class="line"><span class="lineno">  310</span>                     histo = h[<span class="stringliteral">&#39;CTR_Scifi&#39;</span>+b+str(key)+tag]</div>
+<div class="line"><span class="lineno">  311</span>                     Fun = histo.GetFunction(<span class="stringliteral">&#39;gaus&#39;</span>)</div>
+<div class="line"><span class="lineno">  312</span>                     self.meanAndSigma[b][key] = [Fun.GetParameter(1),Fun.GetParameter(2)]</div>
+<div class="line"><span class="lineno">  313</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -364,35 +383,56 @@ Public Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   58</span>       <span class="keywordflow">for</span> s <span class="keywordflow">in</span> range(1, nStations+1):</div>
 <div class="line"><span class="lineno">   59</span>               ut.bookHist(h,<span class="stringliteral">&#39;CTR_Scifi&#39;</span>+str(s)+tag,<span class="stringliteral">&#39;CTR &#39;</span>+str(s)+tag+<span class="stringliteral">&#39;; dt [ns]; &#39;</span>,100,-5.,5.)</div>
 <div class="line"><span class="lineno">   60</span>               ut.bookHist(h,<span class="stringliteral">&#39;CTR_Scifi_beam&#39;</span>+str(s)+tag,<span class="stringliteral">&#39;CTR beam&#39;</span>+str(s)+tag+<span class="stringliteral">&#39;; dt [ns]; &#39;</span>,100,-5.,5.)</div>
-<div class="line"><span class="lineno">   61</span>               <span class="keywordflow">for</span> matH <span class="keywordflow">in</span> range(nMats):</div>
-<div class="line"><span class="lineno">   62</span>                   <span class="keywordflow">for</span> matV <span class="keywordflow">in</span> range(nMats):</div>
-<div class="line"><span class="lineno">   63</span>                    ut.bookHist(h,<span class="stringliteral">&#39;CTR_Scifi&#39;</span>+str(s*100+10*matH+matV)+tag,<span class="stringliteral">&#39;CTR &#39;</span>+str(s)+tag+<span class="stringliteral">&#39;; dt [ns]; &#39;</span>,100,-5.,5.)</div>
-<div class="line"><span class="lineno">   64</span>                    ut.bookHist(h,<span class="stringliteral">&#39;CTR_Scifi_beam&#39;</span>+str(s*100+10*matH+matV)+tag,<span class="stringliteral">&#39;CTR beam&#39;</span>+str(s)+tag+<span class="stringliteral">&#39;; dt [ns]; &#39;</span>,100,-5.,5.)</div>
-<div class="line"><span class="lineno">   65</span> </div>
-<div class="line"><span class="lineno">   66</span>               <span class="keywordflow">for</span> p <span class="keywordflow">in</span> self.projs:</div>
-<div class="line"><span class="lineno">   67</span>                    ut.bookHist(h,<span class="stringliteral">&#39;res&#39;</span>+str(s)+self.projs[p],<span class="stringliteral">&#39;d;  [cm]; &#39;</span>,100,-1.,1.)</div>
-<div class="line"><span class="lineno">   68</span>                    ut.bookHist(h,<span class="stringliteral">&#39;resX&#39;</span>+str(s)+self.projs[p],<span class="stringliteral">&#39;d;  [cm]; &#39;</span>,100,-1.,1.)</div>
-<div class="line"><span class="lineno">   69</span>                    ut.bookHist(h,<span class="stringliteral">&#39;extrap&#39;</span>+str(s)+self.projs[p],<span class="stringliteral">&#39;SiPM distance; L [cm]; &#39;</span>,100,0.,50.)</div>
-<div class="line"><span class="lineno">   70</span> </div>
-<div class="line"><span class="lineno">   71</span>       <span class="keywordflow">for</span> s1 <span class="keywordflow">in</span> range(1, nStations):</div>
-<div class="line"><span class="lineno">   72</span>           <span class="keywordflow">for</span> s2 <span class="keywordflow">in</span> range(s1+1, nStations+1):</div>
-<div class="line"><span class="lineno">   73</span>              ut.bookHist(h,<span class="stringliteral">&#39;CTR_ScifiStation&#39;</span>+str(s1*10+s2)+tag,<span class="stringliteral">&#39;CTR station&#39;</span>+str(s1*10+s2)+<span class="stringliteral">&#39;; dt [ns]; &#39;</span>,100,-5.,5.)</div>
-<div class="line"><span class="lineno">   74</span>              ut.bookHist(h,<span class="stringliteral">&#39;CTR_ScifiStation_beam&#39;</span>+str(s1*10+s2)+tag,<span class="stringliteral">&#39;CTR station beam&#39;</span>+str(s1*10+s2)+<span class="stringliteral">&#39;; dt [ns]; &#39;</span>,100,-5.,5.)</div>
-<div class="line"><span class="lineno">   75</span> </div>
-<div class="line"><span class="lineno">   76</span>       <span class="keywordflow">if</span> self.tag == <span class="stringliteral">&quot;v0&quot;</span>:</div>
-<div class="line"><span class="lineno">   77</span>           self.tdcScifiStationCalib = {}</div>
-<div class="line"><span class="lineno">   78</span>           <span class="keywordflow">for</span> s <span class="keywordflow">in</span> range(1, nStations+1):</div>
-<div class="line"><span class="lineno">   79</span>              <span class="keywordflow">if</span> nMats == 1 :</div>
-<div class="line"><span class="lineno">   80</span>                self.tdcScifiStationCalib[s] = [0,{<span class="stringliteral">&#39;H&#39;</span>:{0:0},<span class="stringliteral">&#39;V&#39;</span>:{0:0}}]</div>
-<div class="line"><span class="lineno">   81</span>              <span class="keywordflow">if</span> nMats == 3:</div>
-<div class="line"><span class="lineno">   82</span>                self.tdcScifiStationCalib[s] = [0,{<span class="stringliteral">&#39;H&#39;</span>:{0:0,1:0,2:0},<span class="stringliteral">&#39;V&#39;</span>:{0:0,1:0,2:0}}]</div>
-<div class="line"><span class="lineno">   83</span> </div>
-<div class="line"><span class="lineno">   84</span>       <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">   85</span>            <span class="keyword">with</span> open(<span class="stringliteral">&#39;ScifiTimeAlignment_&#39;</span>+self.tag, <span class="stringliteral">&#39;rb&#39;</span>) <span class="keyword">as</span> fh:</div>
-<div class="line"><span class="lineno">   86</span>               self.tdcScifiStationCalib = pickle.load(fh)</div>
-<div class="line"><span class="lineno">   87</span> </div>
-<div class="line"><span class="lineno">   88</span>       self.V =  M.Scifi.GetConfParF(<span class="stringliteral">&quot;Scifi/signalSpeed&quot;</span>)</div>
+<div class="line"><span class="lineno">   61</span>               ut.bookHist(h,<span class="stringliteral">&#39;dT_posxV&#39;</span>+str(s)+tag,<span class="stringliteral">&#39;; x [cm]; dt [ns]&#39;</span>,100,-50.,-30., 100,-5.,5.)</div>
+<div class="line"><span class="lineno">   62</span>               ut.bookHist(h,<span class="stringliteral">&#39;dT_posxH&#39;</span>+str(s)+tag,<span class="stringliteral">&#39;; x [cm]; dt [ns]&#39;</span>,100,-50.,-30., 100,-5.,5.)</div>
+<div class="line"><span class="lineno">   63</span>               ut.bookHist(h,<span class="stringliteral">&#39;dT_posyH&#39;</span>+str(s)+tag,<span class="stringliteral">&#39;; y [cm]; dt [ns]&#39;</span>,100,35,55., 100,-5.,5.)</div>
+<div class="line"><span class="lineno">   64</span>               ut.bookHist(h,<span class="stringliteral">&#39;dT_posyV&#39;</span>+str(s)+tag,<span class="stringliteral">&#39;; y [cm]; dt [ns]&#39;</span>,100,35,55., 100,-5.,5.)</div>
+<div class="line"><span class="lineno">   65</span>               ut.bookHist(h,<span class="stringliteral">&#39;CTR_timeH_posy_Scifi&#39;</span>+str(s)+tag,<span class="stringliteral">&#39;CTR &#39;</span>+str(s)+tag+<span class="stringliteral">&#39;; y [cm]; cluster time [ns]; &#39;</span>,100,35,55,100,-5.,15.)</div>
+<div class="line"><span class="lineno">   66</span>               ut.bookHist(h,<span class="stringliteral">&#39;CTR_timeV_posy_Scifi&#39;</span>+str(s)+tag,<span class="stringliteral">&#39;CTR &#39;</span>+str(s)+tag+<span class="stringliteral">&#39;; y [cm]; cluster time [ns]; &#39;</span>,100,35,55,100,-5.,15.)</div>
+<div class="line"><span class="lineno">   67</span> </div>
+<div class="line"><span class="lineno">   68</span>               <span class="keywordflow">for</span> matH <span class="keywordflow">in</span> range(nMats):</div>
+<div class="line"><span class="lineno">   69</span>                   <span class="keywordflow">for</span> matV <span class="keywordflow">in</span> range(nMats):</div>
+<div class="line"><span class="lineno">   70</span>                    ut.bookHist(h,<span class="stringliteral">&#39;CTR_Scifi&#39;</span>+str(s*100+10*matH+matV)+tag,<span class="stringliteral">&#39;CTR &#39;</span>+str(s)+tag+<span class="stringliteral">&#39;; dt [ns]; &#39;</span>,100,-5.,5.)</div>
+<div class="line"><span class="lineno">   71</span>                    ut.bookHist(h,<span class="stringliteral">&#39;CTR_Scifi_beam&#39;</span>+str(s*100+10*matH+matV)+tag,<span class="stringliteral">&#39;CTR beam&#39;</span>+str(s)+tag+<span class="stringliteral">&#39;; dt [ns]; &#39;</span>,100,-5.,5.)</div>
+<div class="line"><span class="lineno">   72</span> </div>
+<div class="line"><span class="lineno">   73</span>                   <span class="comment"># For the testbeam 2024, perform time alignment per channel in Scifi 2H</span></div>
+<div class="line"><span class="lineno">   74</span>                   <span class="keywordflow">if</span> s==2 <span class="keywordflow">and</span> channelTimeAlignment==1:</div>
+<div class="line"><span class="lineno">   75</span>                     <span class="keywordflow">for</span> arr <span class="keywordflow">in</span> range(nSiPMArrays):</div>
+<div class="line"><span class="lineno">   76</span>                       <span class="keywordflow">for</span> chan <span class="keywordflow">in</span> range(nChannelsPerSiPMArray):</div>
+<div class="line"><span class="lineno">   77</span>                         detid = int(s*1e6+0*1e5+matH*1e4+arr*1e3+chan)</div>
+<div class="line"><span class="lineno">   78</span>                         ut.bookHist(h,<span class="stringliteral">&#39;CTR_ScifiMat&#39;</span>+str(detid)+tag,<span class="stringliteral">&#39;CTR mat &#39;</span>+str(detid)+tag+<span class="stringliteral">&#39;; dt [ns]; &#39;</span>,100,-5.,5.)</div>
+<div class="line"><span class="lineno">   79</span> </div>
+<div class="line"><span class="lineno">   80</span>               <span class="keywordflow">for</span> p <span class="keywordflow">in</span> self.projs:</div>
+<div class="line"><span class="lineno">   81</span>                    ut.bookHist(h,<span class="stringliteral">&#39;res&#39;</span>+str(s)+self.projs[p],<span class="stringliteral">&#39;d;  [cm]; &#39;</span>,100,-1.,1.)</div>
+<div class="line"><span class="lineno">   82</span>                    ut.bookHist(h,<span class="stringliteral">&#39;resX&#39;</span>+str(s)+self.projs[p],<span class="stringliteral">&#39;d;  [cm]; &#39;</span>,100,-1.,1.)</div>
+<div class="line"><span class="lineno">   83</span>                    ut.bookHist(h,<span class="stringliteral">&#39;extrap&#39;</span>+str(s)+self.projs[p],<span class="stringliteral">&#39;SiPM distance; L [cm]; &#39;</span>,100,0.,50.)</div>
+<div class="line"><span class="lineno">   84</span> </div>
+<div class="line"><span class="lineno">   85</span>       <span class="keywordflow">for</span> s1 <span class="keywordflow">in</span> range(1, nStations):</div>
+<div class="line"><span class="lineno">   86</span>           <span class="keywordflow">for</span> s2 <span class="keywordflow">in</span> range(s1+1, nStations+1):</div>
+<div class="line"><span class="lineno">   87</span>              ut.bookHist(h,<span class="stringliteral">&#39;CTR_ScifiStation&#39;</span>+str(s1*10+s2)+tag,<span class="stringliteral">&#39;CTR station&#39;</span>+str(s1*10+s2)+<span class="stringliteral">&#39;; dt [ns]; &#39;</span>,100,-5.,5.)</div>
+<div class="line"><span class="lineno">   88</span>              ut.bookHist(h,<span class="stringliteral">&#39;CTR_ScifiStation_beam&#39;</span>+str(s1*10+s2)+tag,<span class="stringliteral">&#39;CTR station beam&#39;</span>+str(s1*10+s2)+<span class="stringliteral">&#39;; dt [ns]; &#39;</span>,100,-5.,5.)</div>
 <div class="line"><span class="lineno">   89</span> </div>
+<div class="line"><span class="lineno">   90</span>       <span class="keywordflow">if</span> channelTimeAlignment==1 <span class="keywordflow">and</span> tag == <span class="stringliteral">&quot;v0prime&quot;</span>:</div>
+<div class="line"><span class="lineno">   91</span>           self.tdcScifiStationCalib = {}</div>
+<div class="line"><span class="lineno">   92</span>           <span class="keywordflow">for</span> s <span class="keywordflow">in</span> range(1, nStations+1):</div>
+<div class="line"><span class="lineno">   93</span>              <span class="keywordflow">if</span> nMats == 1 :</div>
+<div class="line"><span class="lineno">   94</span>                self.tdcScifiStationCalib[s] = [0,{<span class="stringliteral">&#39;H&#39;</span>: [0, {arr: {ch: 0 <span class="keywordflow">for</span> ch <span class="keywordflow">in</span> range(nChannelsPerSiPMArray)} <span class="keywordflow">for</span> arr <span class="keywordflow">in</span> range(nSiPMArrays)},],\</div>
+<div class="line"><span class="lineno">   95</span>                                                   <span class="stringliteral">&#39;V&#39;</span>: [0, {arr: {ch: 0 <span class="keywordflow">for</span> ch <span class="keywordflow">in</span> range(nChannelsPerSiPMArray)} <span class="keywordflow">for</span> arr <span class="keywordflow">in</span> range(nSiPMArrays)},],},]</div>
+<div class="line"><span class="lineno">   96</span>              <span class="keywordflow">if</span> nMats == 3:</div>
+<div class="line"><span class="lineno">   97</span>                self.tdcScifiStationCalib[s] = [0,{<span class="stringliteral">&#39;H&#39;</span>:{0:0,1:0,2:0},<span class="stringliteral">&#39;V&#39;</span>:{0:0,1:0,2:0}}]</div>
+<div class="line"><span class="lineno">   98</span>       <span class="keywordflow">elif</span> channelTimeAlignment==0 <span class="keywordflow">and</span> tag == <span class="stringliteral">&quot;v0&quot;</span>:</div>
+<div class="line"><span class="lineno">   99</span>           self.tdcScifiStationCalib = {}</div>
+<div class="line"><span class="lineno">  100</span>           <span class="keywordflow">for</span> s <span class="keywordflow">in</span> range(1, nStations+1):</div>
+<div class="line"><span class="lineno">  101</span>              <span class="keywordflow">if</span> nMats == 1 :</div>
+<div class="line"><span class="lineno">  102</span>                self.tdcScifiStationCalib[s] = [0,{<span class="stringliteral">&#39;H&#39;</span>:{0:0},<span class="stringliteral">&#39;V&#39;</span>:{0:0}}]</div>
+<div class="line"><span class="lineno">  103</span>              <span class="keywordflow">if</span> nMats == 3:</div>
+<div class="line"><span class="lineno">  104</span>                self.tdcScifiStationCalib[s] = [0,{<span class="stringliteral">&#39;H&#39;</span>:{0:0,1:0,2:0},<span class="stringliteral">&#39;V&#39;</span>:{0:0,1:0,2:0}}]</div>
+<div class="line"><span class="lineno">  105</span>       <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  106</span>            <span class="keyword">with</span> open(<span class="stringliteral">&#39;ScifiTimeAlignment_&#39;</span>+self.tag, <span class="stringliteral">&#39;rb&#39;</span>) <span class="keyword">as</span> fh:</div>
+<div class="line"><span class="lineno">  107</span>               self.tdcScifiStationCalib = pickle.load(fh)</div>
+<div class="line"><span class="lineno">  108</span> </div>
+<div class="line"><span class="lineno">  109</span>       self.V =  M.Scifi.GetConfParF(<span class="stringliteral">&quot;Scifi/signalSpeed&quot;</span>)</div>
+<div class="line"><span class="lineno">  110</span> </div>
 <div class="ttc" id="aclassSndlhcGeo_1_1GeoInterface_html"><div class="ttname"><a href="classSndlhcGeo_1_1GeoInterface.html">SndlhcGeo.GeoInterface</a></div><div class="ttdef"><b>Definition</b> <a href="SndlhcGeo_8py_source.html#l00007">SndlhcGeo.py:7</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -423,50 +463,105 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ScifiCTR_8py_source.html#l00257">257</a> of file <a class="el" href="ScifiCTR_8py_source.html">ScifiCTR.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  257</span>   <span class="keyword">def </span>minimize(self,b=&quot;&quot;):</div>
-<div class="line"><span class="lineno">  258</span>      h = self.M.h</div>
-<div class="line"><span class="lineno">  259</span>      self.ExtractMeanAndSigma()</div>
-<div class="line"><span class="lineno">  260</span>      ut.bookHist(h,<span class="stringliteral">&#39;commonBlock&#39;</span>,<span class="stringliteral">&#39;&#39;</span>,100,0.,100.)</div>
-<div class="line"><span class="lineno">  261</span> </div>
-<div class="line"><span class="lineno">  262</span>      <span class="keywordflow">for</span> s <span class="keywordflow">in</span> range(1, nStations+1):</div>
-<div class="line"><span class="lineno">  263</span>         <span class="keywordflow">for</span> matH <span class="keywordflow">in</span> range(nMats):</div>
-<div class="line"><span class="lineno">  264</span>            <span class="keywordflow">for</span> matV <span class="keywordflow">in</span> range(nMats):</div>
-<div class="line"><span class="lineno">  265</span>               key = 100*s+10*matH+matV</div>
-<div class="line"><span class="lineno">  266</span>               dt = self.meanAndSigma[b][key][0]</div>
-<div class="line"><span class="lineno">  267</span>               h[<span class="stringliteral">&#39;commonBlock&#39;</span>].SetBinContent(matH*10+matV,dt)</div>
-<div class="line"><span class="lineno">  268</span>         npar = 2*nMats</div>
-<div class="line"><span class="lineno">  269</span>         ierflg    = ctypes.c_int(0)</div>
-<div class="line"><span class="lineno">  270</span>         vstart  = array(<span class="stringliteral">&#39;d&#39;</span>,[0]*npar)</div>
-<div class="line"><span class="lineno">  271</span>         gMinuit = ROOT.TMinuit(npar)</div>
-<div class="line"><span class="lineno">  272</span>         gMinuit.SetFCN(FCN)</div>
-<div class="line"><span class="lineno">  273</span>         gMinuit.SetErrorDef(1.0)</div>
-<div class="line"><span class="lineno">  274</span>         gMinuit.SetMaxIterations(10000)</div>
-<div class="line"><span class="lineno">  275</span>         err = 1E-3</div>
-<div class="line"><span class="lineno">  276</span>         p = 0</div>
-<div class="line"><span class="lineno">  277</span>         <span class="keywordflow">for</span> proj <span class="keywordflow">in</span> [<span class="stringliteral">&#39;H&#39;</span>,<span class="stringliteral">&#39;V&#39;</span>]:</div>
-<div class="line"><span class="lineno">  278</span>           <span class="keywordflow">for</span> m <span class="keywordflow">in</span> range(nMats):</div>
-<div class="line"><span class="lineno">  279</span>             name = <span class="stringliteral">&quot;s&quot;</span>+str(s)+proj+str(m)</div>
-<div class="line"><span class="lineno">  280</span>             gMinuit.mnparm(p, name, vstart[p], err, 0.,0.,ierflg)</div>
-<div class="line"><span class="lineno">  281</span>             p+=1</div>
-<div class="line"><span class="lineno">  282</span>         gMinuit.FixParameter(0)</div>
-<div class="line"><span class="lineno">  283</span>         strat = array(<span class="stringliteral">&#39;d&#39;</span>,[0])</div>
-<div class="line"><span class="lineno">  284</span>         gMinuit.mnexcm(<span class="stringliteral">&quot;SET STR&quot;</span>,strat,1,ierflg) <span class="comment"># 0 faster, 2 more reliable</span></div>
-<div class="line"><span class="lineno">  285</span>         gMinuit.mnexcm(<span class="stringliteral">&quot;SIMPLEX&quot;</span>,vstart,npar,ierflg)</div>
-<div class="line"><span class="lineno">  286</span>         gMinuit.mnexcm(<span class="stringliteral">&quot;MIGRAD&quot;</span>,vstart,npar,ierflg)</div>
-<div class="line"><span class="lineno">  287</span> </div>
-<div class="line"><span class="lineno">  288</span>         cor    = ctypes.c_double(0)</div>
-<div class="line"><span class="lineno">  289</span>         ecor  = ctypes.c_double(0)</div>
-<div class="line"><span class="lineno">  290</span>         p = 0</div>
-<div class="line"><span class="lineno">  291</span>         <span class="keywordflow">for</span> proj <span class="keywordflow">in</span> [<span class="stringliteral">&#39;H&#39;</span>,<span class="stringliteral">&#39;V&#39;</span>]:</div>
-<div class="line"><span class="lineno">  292</span>           <span class="keywordflow">for</span> m <span class="keywordflow">in</span> range(nMats):</div>
-<div class="line"><span class="lineno">  293</span>             rc = gMinuit.GetParameter(p,cor,ecor)</div>
-<div class="line"><span class="lineno">  294</span>             p+=1</div>
-<div class="line"><span class="lineno">  295</span>             self.tdcScifiStationCalib[s][1][proj][m] = cor.value</div>
-<div class="line"><span class="lineno">  296</span> </div>
-<div class="line"><span class="lineno">  297</span>      <span class="keyword">with</span> open(<span class="stringliteral">&#39;ScifiTimeAlignment_v1&#39;</span>, <span class="stringliteral">&#39;wb&#39;</span>) <span class="keyword">as</span> fh:</div>
-<div class="line"><span class="lineno">  298</span>           pickle.dump(self.tdcScifiStationCalib, fh)</div>
-<div class="line"><span class="lineno">  299</span> </div>
+<p class="definition">Definition at line <a class="el" href="ScifiCTR_8py_source.html#l00339">339</a> of file <a class="el" href="ScifiCTR_8py_source.html">ScifiCTR.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  339</span>   <span class="keyword">def </span>minimize(self,b=&quot;&quot;):</div>
+<div class="line"><span class="lineno">  340</span>      h = self.M.h</div>
+<div class="line"><span class="lineno">  341</span>      self.ExtractMeanAndSigma()</div>
+<div class="line"><span class="lineno">  342</span>      ut.bookHist(h,<span class="stringliteral">&#39;commonBlock&#39;</span>,<span class="stringliteral">&#39;&#39;</span>,100,0.,100.)</div>
+<div class="line"><span class="lineno">  343</span> </div>
+<div class="line"><span class="lineno">  344</span>      <span class="keywordflow">for</span> s <span class="keywordflow">in</span> range(1, nStations+1):</div>
+<div class="line"><span class="lineno">  345</span>         <span class="keywordflow">for</span> matH <span class="keywordflow">in</span> range(nMats):</div>
+<div class="line"><span class="lineno">  346</span>            <span class="keywordflow">for</span> matV <span class="keywordflow">in</span> range(nMats):</div>
+<div class="line"><span class="lineno">  347</span>               key = 100*s+10*matH+matV</div>
+<div class="line"><span class="lineno">  348</span>               dt = self.meanAndSigma[b][key][0]</div>
+<div class="line"><span class="lineno">  349</span>               h[<span class="stringliteral">&#39;commonBlock&#39;</span>].SetBinContent(matH*10+matV,dt)</div>
+<div class="line"><span class="lineno">  350</span>         npar = 2*nMats</div>
+<div class="line"><span class="lineno">  351</span>         ierflg    = ctypes.c_int(0)</div>
+<div class="line"><span class="lineno">  352</span>         vstart  = array(<span class="stringliteral">&#39;d&#39;</span>,[0]*npar)</div>
+<div class="line"><span class="lineno">  353</span>         gMinuit = ROOT.TMinuit(npar)</div>
+<div class="line"><span class="lineno">  354</span>         gMinuit.SetFCN(FCN)</div>
+<div class="line"><span class="lineno">  355</span>         gMinuit.SetErrorDef(1.0)</div>
+<div class="line"><span class="lineno">  356</span>         gMinuit.SetMaxIterations(10000)</div>
+<div class="line"><span class="lineno">  357</span>         err = 1E-3</div>
+<div class="line"><span class="lineno">  358</span>         p = 0</div>
+<div class="line"><span class="lineno">  359</span>         <span class="keywordflow">for</span> proj <span class="keywordflow">in</span> [<span class="stringliteral">&#39;H&#39;</span>,<span class="stringliteral">&#39;V&#39;</span>]:</div>
+<div class="line"><span class="lineno">  360</span>           <span class="keywordflow">for</span> m <span class="keywordflow">in</span> range(nMats):</div>
+<div class="line"><span class="lineno">  361</span>             name = <span class="stringliteral">&quot;s&quot;</span>+str(s)+proj+str(m)</div>
+<div class="line"><span class="lineno">  362</span>             gMinuit.mnparm(p, name, vstart[p], err, 0.,0.,ierflg)</div>
+<div class="line"><span class="lineno">  363</span>             p+=1</div>
+<div class="line"><span class="lineno">  364</span>         gMinuit.FixParameter(0)</div>
+<div class="line"><span class="lineno">  365</span>         strat = array(<span class="stringliteral">&#39;d&#39;</span>,[0])</div>
+<div class="line"><span class="lineno">  366</span>         gMinuit.mnexcm(<span class="stringliteral">&quot;SET STR&quot;</span>,strat,1,ierflg) <span class="comment"># 0 faster, 2 more reliable</span></div>
+<div class="line"><span class="lineno">  367</span>         gMinuit.mnexcm(<span class="stringliteral">&quot;SIMPLEX&quot;</span>,vstart,npar,ierflg)</div>
+<div class="line"><span class="lineno">  368</span>         gMinuit.mnexcm(<span class="stringliteral">&quot;MIGRAD&quot;</span>,vstart,npar,ierflg)</div>
+<div class="line"><span class="lineno">  369</span> </div>
+<div class="line"><span class="lineno">  370</span>         cor    = ctypes.c_double(0)</div>
+<div class="line"><span class="lineno">  371</span>         ecor  = ctypes.c_double(0)</div>
+<div class="line"><span class="lineno">  372</span>         p = 0</div>
+<div class="line"><span class="lineno">  373</span>         <span class="keywordflow">for</span> proj <span class="keywordflow">in</span> [<span class="stringliteral">&#39;H&#39;</span>,<span class="stringliteral">&#39;V&#39;</span>]:</div>
+<div class="line"><span class="lineno">  374</span>           <span class="keywordflow">for</span> m <span class="keywordflow">in</span> range(nMats):</div>
+<div class="line"><span class="lineno">  375</span>             rc = gMinuit.GetParameter(p,cor,ecor)</div>
+<div class="line"><span class="lineno">  376</span>             p+=1</div>
+<div class="line"><span class="lineno">  377</span>             self.tdcScifiStationCalib[s][1][proj][m] = cor.value</div>
+<div class="line"><span class="lineno">  378</span> </div>
+<div class="line"><span class="lineno">  379</span>      <span class="keyword">with</span> open(<span class="stringliteral">&#39;ScifiTimeAlignment_v1&#39;</span>, <span class="stringliteral">&#39;wb&#39;</span>) <span class="keyword">as</span> fh:</div>
+<div class="line"><span class="lineno">  380</span>           pickle.dump(self.tdcScifiStationCalib, fh)</div>
+<div class="line"><span class="lineno">  381</span> </div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a8ba13b937df2891f843f6d8008d5e4a4" name="a8ba13b937df2891f843f6d8008d5e4a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ba13b937df2891f843f6d8008d5e4a4">&#9670;&#160;</a></span>minimizeMat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ScifiCTR.Scifi_CTR.minimizeMat </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>b</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="ScifiCTR_8py_source.html#l00314">314</a> of file <a class="el" href="ScifiCTR_8py_source.html">ScifiCTR.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  314</span>   <span class="keyword">def </span>minimizeMat(self,b=&quot;&quot;):</div>
+<div class="line"><span class="lineno">  315</span>      h = self.M.h</div>
+<div class="line"><span class="lineno">  316</span>      tag =  self.tag</div>
+<div class="line"><span class="lineno">  317</span>      ut.bookHist(h,<span class="stringliteral">&#39;commonBlock_mat&#39;</span>,<span class="stringliteral">&#39;&#39;</span>,4000,0.,4000.)</div>
+<div class="line"><span class="lineno">  318</span> </div>
+<div class="line"><span class="lineno">  319</span>      <span class="keywordflow">for</span> s <span class="keywordflow">in</span> range(1, nStations+1):</div>
+<div class="line"><span class="lineno">  320</span>       <span class="keywordflow">for</span> proj <span class="keywordflow">in</span> [<span class="stringliteral">&#39;H&#39;</span>, <span class="stringliteral">&#39;V&#39;</span>]:</div>
+<div class="line"><span class="lineno">  321</span>        <span class="comment"># only done for SciFi 2H in the tb_24 setup</span></div>
+<div class="line"><span class="lineno">  322</span>        <span class="keywordflow">if</span> s!=2 <span class="keywordflow">or</span> proj!=<span class="stringliteral">&#39;H&#39;</span>: <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  323</span>        <span class="keywordflow">if</span> proj==<span class="stringliteral">&#39;H&#39;</span>: o=0</div>
+<div class="line"><span class="lineno">  324</span>        <span class="keywordflow">else</span>: o=1</div>
+<div class="line"><span class="lineno">  325</span>        <span class="keywordflow">for</span> mat <span class="keywordflow">in</span> range(nMats):</div>
+<div class="line"><span class="lineno">  326</span>         <span class="keywordflow">for</span> arr <span class="keywordflow">in</span> range(nSiPMArrays):</div>
+<div class="line"><span class="lineno">  327</span>           <span class="keywordflow">for</span> chan <span class="keywordflow">in</span> range(nChannelsPerSiPMArray):</div>
+<div class="line"><span class="lineno">  328</span>               key = int(1e6*s+1e5*o+1e4*mat+1e3*arr+chan)</div>
+<div class="line"><span class="lineno">  329</span>               histo = h[ <span class="stringliteral">&#39;CTR_ScifiMat&#39;</span>+str(key)+tag]<span class="comment"># was here</span></div>
+<div class="line"><span class="lineno">  330</span>               <span class="keywordflow">if</span> histo.GetEntries()==0: <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  331</span>               dt=histo.GetMean()</div>
+<div class="line"><span class="lineno">  332</span>               h[<span class="stringliteral">&#39;commonBlock_mat&#39;</span>].SetBinContent(1000*arr+chan,dt)</div>
+<div class="line"><span class="lineno">  333</span>               self.tdcScifiStationCalib[s][1][proj][1][arr][chan]=dt</div>
+<div class="line"><span class="lineno">  334</span>               print(<span class="stringliteral">&#39;corrections&#39;</span>, proj, arr, chan, self.tdcScifiStationCalib[s][1][proj][1][arr][chan])</div>
+<div class="line"><span class="lineno">  335</span> </div>
+<div class="line"><span class="lineno">  336</span>      <span class="keyword">with</span> open(<span class="stringliteral">&#39;ScifiTimeAlignment_v0&#39;</span>, <span class="stringliteral">&#39;wb&#39;</span>) <span class="keyword">as</span> fh:</div>
+<div class="line"><span class="lineno">  337</span>           pickle.dump(self.tdcScifiStationCalib, fh)</div>
+<div class="line"><span class="lineno">  338</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -496,51 +591,51 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ScifiCTR_8py_source.html#l00300">300</a> of file <a class="el" href="ScifiCTR_8py_source.html">ScifiCTR.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  300</span>   <span class="keyword">def </span>minimizeStation(self,b=&quot;&quot;):</div>
-<div class="line"><span class="lineno">  301</span>      h = self.M.h</div>
-<div class="line"><span class="lineno">  302</span>      tag = self.tag</div>
-<div class="line"><span class="lineno">  303</span>      self.meanAndSigmaStation = {}</div>
-<div class="line"><span class="lineno">  304</span>      self.meanAndSigmaStation[b]={}</div>
-<div class="line"><span class="lineno">  305</span>      <span class="keywordflow">for</span> s1 <span class="keywordflow">in</span> range(1, nStations+1): </div>
-<div class="line"><span class="lineno">  306</span>           <span class="keywordflow">for</span> s2 <span class="keywordflow">in</span> range(s1+1, nStations+1): </div>
-<div class="line"><span class="lineno">  307</span>                 key = s1*10+s2</div>
-<div class="line"><span class="lineno">  308</span>                 histo = h[ <span class="stringliteral">&#39;CTR_ScifiStation&#39;</span>+b+str(key)+tag]</div>
-<div class="line"><span class="lineno">  309</span>                 Fun = histo.GetFunction(<span class="stringliteral">&#39;gaus&#39;</span>)</div>
-<div class="line"><span class="lineno">  310</span>                 self.meanAndSigmaStation[b][key] = [Fun.GetParameter(1),Fun.GetParameter(2)]</div>
-<div class="line"><span class="lineno">  311</span>      <span class="keywordflow">for</span> s1 <span class="keywordflow">in</span> range(1, nStations+1):</div>
-<div class="line"><span class="lineno">  312</span>         <span class="keywordflow">for</span> s2 <span class="keywordflow">in</span> range(s1+1, nStations+1): </div>
-<div class="line"><span class="lineno">  313</span>            key = 10*s1+s2</div>
-<div class="line"><span class="lineno">  314</span>            dt = self.meanAndSigmaStation[b][key][0]</div>
-<div class="line"><span class="lineno">  315</span>            h[<span class="stringliteral">&#39;commonBlock&#39;</span>].SetBinContent(key,dt)</div>
-<div class="line"><span class="lineno">  316</span>         npar = 5</div>
-<div class="line"><span class="lineno">  317</span>         ierflg    = ctypes.c_int(0)</div>
-<div class="line"><span class="lineno">  318</span>         vstart  = array(<span class="stringliteral">&#39;d&#39;</span>,[0,-0.3365,-0.975,0.11,0.239])</div>
-<div class="line"><span class="lineno">  319</span>         gMinuit = ROOT.TMinuit(npar)</div>
-<div class="line"><span class="lineno">  320</span>         gMinuit.SetFCN(FCNS)</div>
-<div class="line"><span class="lineno">  321</span>         gMinuit.SetErrorDef(1.0)</div>
-<div class="line"><span class="lineno">  322</span>         gMinuit.SetMaxIterations(10000)</div>
-<div class="line"><span class="lineno">  323</span>         err = 1E-3</div>
-<div class="line"><span class="lineno">  324</span>         p = 0</div>
-<div class="line"><span class="lineno">  325</span>         <span class="keywordflow">for</span> s <span class="keywordflow">in</span> range(1, nStations+1):</div>
-<div class="line"><span class="lineno">  326</span>             name = <span class="stringliteral">&quot;station&quot;</span>+str(s)</div>
-<div class="line"><span class="lineno">  327</span>             gMinuit.mnparm(p, name, vstart[p], err, 0.,0.,ierflg)</div>
-<div class="line"><span class="lineno">  328</span>             p+=1</div>
-<div class="line"><span class="lineno">  329</span>         gMinuit.FixParameter(0)</div>
-<div class="line"><span class="lineno">  330</span>         strat = array(<span class="stringliteral">&#39;d&#39;</span>,[0])</div>
-<div class="line"><span class="lineno">  331</span>         gMinuit.mnexcm(<span class="stringliteral">&quot;SET STR&quot;</span>,strat,1,ierflg) <span class="comment"># 0 faster, 2 more reliable</span></div>
-<div class="line"><span class="lineno">  332</span>         gMinuit.mnexcm(<span class="stringliteral">&quot;SIMPLEX&quot;</span>,vstart,npar,ierflg)</div>
-<div class="line"><span class="lineno">  333</span>         gMinuit.mnexcm(<span class="stringliteral">&quot;MIGRAD&quot;</span>,vstart,npar,ierflg)</div>
-<div class="line"><span class="lineno">  334</span> </div>
-<div class="line"><span class="lineno">  335</span>         cor    = ctypes.c_double(0)</div>
-<div class="line"><span class="lineno">  336</span>         ecor  = ctypes.c_double(0)</div>
-<div class="line"><span class="lineno">  337</span>         <span class="keywordflow">for</span> s <span class="keywordflow">in</span> range(1, nStations+1):</div>
-<div class="line"><span class="lineno">  338</span>             rc = gMinuit.GetParameter(s-1,cor,ecor)</div>
-<div class="line"><span class="lineno">  339</span>             self.tdcScifiStationCalib[s][0] = cor.value</div>
-<div class="line"><span class="lineno">  340</span> </div>
-<div class="line"><span class="lineno">  341</span>      <span class="keyword">with</span> open(<span class="stringliteral">&#39;ScifiTimeAlignment_v2&#39;</span>, <span class="stringliteral">&#39;wb&#39;</span>) <span class="keyword">as</span> fh:</div>
-<div class="line"><span class="lineno">  342</span>           pickle.dump(self.tdcScifiStationCalib, fh)</div>
-<div class="line"><span class="lineno">  343</span> </div>
+<p class="definition">Definition at line <a class="el" href="ScifiCTR_8py_source.html#l00382">382</a> of file <a class="el" href="ScifiCTR_8py_source.html">ScifiCTR.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  382</span>   <span class="keyword">def </span>minimizeStation(self,b=&quot;&quot;):</div>
+<div class="line"><span class="lineno">  383</span>      h = self.M.h</div>
+<div class="line"><span class="lineno">  384</span>      tag = self.tag</div>
+<div class="line"><span class="lineno">  385</span>      self.meanAndSigmaStation = {}</div>
+<div class="line"><span class="lineno">  386</span>      self.meanAndSigmaStation[b]={}</div>
+<div class="line"><span class="lineno">  387</span>      <span class="keywordflow">for</span> s1 <span class="keywordflow">in</span> range(1, nStations+1): </div>
+<div class="line"><span class="lineno">  388</span>           <span class="keywordflow">for</span> s2 <span class="keywordflow">in</span> range(s1+1, nStations+1): </div>
+<div class="line"><span class="lineno">  389</span>                 key = s1*10+s2</div>
+<div class="line"><span class="lineno">  390</span>                 histo = h[ <span class="stringliteral">&#39;CTR_ScifiStation&#39;</span>+b+str(key)+tag]</div>
+<div class="line"><span class="lineno">  391</span>                 Fun = histo.GetFunction(<span class="stringliteral">&#39;gaus&#39;</span>)</div>
+<div class="line"><span class="lineno">  392</span>                 self.meanAndSigmaStation[b][key] = [Fun.GetParameter(1),Fun.GetParameter(2)]</div>
+<div class="line"><span class="lineno">  393</span>      <span class="keywordflow">for</span> s1 <span class="keywordflow">in</span> range(1, nStations+1):</div>
+<div class="line"><span class="lineno">  394</span>         <span class="keywordflow">for</span> s2 <span class="keywordflow">in</span> range(s1+1, nStations+1): </div>
+<div class="line"><span class="lineno">  395</span>            key = 10*s1+s2</div>
+<div class="line"><span class="lineno">  396</span>            dt = self.meanAndSigmaStation[b][key][0]</div>
+<div class="line"><span class="lineno">  397</span>            h[<span class="stringliteral">&#39;commonBlock&#39;</span>].SetBinContent(key,dt)</div>
+<div class="line"><span class="lineno">  398</span>         npar = nStations</div>
+<div class="line"><span class="lineno">  399</span>         ierflg    = ctypes.c_int(0)</div>
+<div class="line"><span class="lineno">  400</span>         vstart  = array(<span class="stringliteral">&#39;d&#39;</span>,[0]*npar)</div>
+<div class="line"><span class="lineno">  401</span>         gMinuit = ROOT.TMinuit(npar)</div>
+<div class="line"><span class="lineno">  402</span>         gMinuit.SetFCN(FCNS)</div>
+<div class="line"><span class="lineno">  403</span>         gMinuit.SetErrorDef(1.0)</div>
+<div class="line"><span class="lineno">  404</span>         gMinuit.SetMaxIterations(10000)</div>
+<div class="line"><span class="lineno">  405</span>         err = 1E-3</div>
+<div class="line"><span class="lineno">  406</span>         p = 0</div>
+<div class="line"><span class="lineno">  407</span>         <span class="keywordflow">for</span> s <span class="keywordflow">in</span> range(1, nStations+1):</div>
+<div class="line"><span class="lineno">  408</span>             name = <span class="stringliteral">&quot;station&quot;</span>+str(s)</div>
+<div class="line"><span class="lineno">  409</span>             gMinuit.mnparm(p, name, vstart[p], err, 0.,0.,ierflg)</div>
+<div class="line"><span class="lineno">  410</span>             p+=1</div>
+<div class="line"><span class="lineno">  411</span>         gMinuit.FixParameter(0)</div>
+<div class="line"><span class="lineno">  412</span>         strat = array(<span class="stringliteral">&#39;d&#39;</span>,[0])</div>
+<div class="line"><span class="lineno">  413</span>         gMinuit.mnexcm(<span class="stringliteral">&quot;SET STR&quot;</span>,strat,1,ierflg) <span class="comment"># 0 faster, 2 more reliable</span></div>
+<div class="line"><span class="lineno">  414</span>         gMinuit.mnexcm(<span class="stringliteral">&quot;SIMPLEX&quot;</span>,vstart,npar,ierflg)</div>
+<div class="line"><span class="lineno">  415</span>         gMinuit.mnexcm(<span class="stringliteral">&quot;MIGRAD&quot;</span>,vstart,npar,ierflg)</div>
+<div class="line"><span class="lineno">  416</span> </div>
+<div class="line"><span class="lineno">  417</span>         cor    = ctypes.c_double(0)</div>
+<div class="line"><span class="lineno">  418</span>         ecor  = ctypes.c_double(0)</div>
+<div class="line"><span class="lineno">  419</span>         <span class="keywordflow">for</span> s <span class="keywordflow">in</span> range(1, nStations+1):</div>
+<div class="line"><span class="lineno">  420</span>             rc = gMinuit.GetParameter(s-1,cor,ecor)</div>
+<div class="line"><span class="lineno">  421</span>             self.tdcScifiStationCalib[s][0] = cor.value</div>
+<div class="line"><span class="lineno">  422</span> </div>
+<div class="line"><span class="lineno">  423</span>      <span class="keyword">with</span> open(<span class="stringliteral">&#39;ScifiTimeAlignment_v2&#39;</span>, <span class="stringliteral">&#39;wb&#39;</span>) <span class="keyword">as</span> fh:</div>
+<div class="line"><span class="lineno">  424</span>           pickle.dump(self.tdcScifiStationCalib, fh)</div>
+<div class="line"><span class="lineno">  425</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -560,63 +655,82 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ScifiCTR_8py_source.html#l00186">186</a> of file <a class="el" href="ScifiCTR_8py_source.html">ScifiCTR.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  186</span>   <span class="keyword">def </span>Plot(self):</div>
-<div class="line"><span class="lineno">  187</span>      h = self.M.h</div>
-<div class="line"><span class="lineno">  188</span>      tag =  self.tag</div>
-<div class="line"><span class="lineno">  189</span>      <span class="keywordflow">for</span> b <span class="keywordflow">in</span> [<span class="stringliteral">&#39;&#39;</span>,<span class="stringliteral">&#39;_beam&#39;</span>]:</div>
-<div class="line"><span class="lineno">  190</span>         ut.bookCanvas(h,<span class="stringliteral">&#39;CTR&#39;</span>+b+tag,<span class="stringliteral">&#39;CTR&#39;</span>+tag,1800,1200,3,2)</div>
-<div class="line"><span class="lineno">  191</span>         <span class="keywordflow">for</span> s <span class="keywordflow">in</span> range(1, nStations+1): </div>
-<div class="line"><span class="lineno">  192</span>             tc =  h[<span class="stringliteral">&#39;CTR&#39;</span>+b+tag].cd(s)</div>
-<div class="line"><span class="lineno">  193</span>             histo = h[<span class="stringliteral">&#39;CTR_Scifi&#39;</span>+b+str(s)+tag]</div>
-<div class="line"><span class="lineno">  194</span>             rc = histo.Fit(<span class="stringliteral">&#39;gaus&#39;</span>,<span class="stringliteral">&#39;SQ&#39;</span>)</div>
-<div class="line"><span class="lineno">  195</span>             tc.Update()</div>
-<div class="line"><span class="lineno">  196</span>             stats = histo.FindObject(<span class="stringliteral">&#39;stats&#39;</span>)</div>
-<div class="line"><span class="lineno">  197</span>             stats.SetOptFit(1111111)</div>
-<div class="line"><span class="lineno">  198</span>             stats.SetX1NDC(0.62)</div>
-<div class="line"><span class="lineno">  199</span>             stats.SetY1NDC(0.63)</div>
-<div class="line"><span class="lineno">  200</span>             stats.SetX2NDC(0.98)</div>
-<div class="line"><span class="lineno">  201</span>             stats.SetY2NDC(0.94)</div>
-<div class="line"><span class="lineno">  202</span>             histo.Draw()</div>
-<div class="line"><span class="lineno">  203</span> </div>
-<div class="line"><span class="lineno">  204</span>         <span class="keywordflow">for</span> s <span class="keywordflow">in</span> range(1, nStations+1):</div>
-<div class="line"><span class="lineno">  205</span>             ut.bookCanvas(h,<span class="stringliteral">&#39;CTRM&#39;</span>+str(s)+b+tag,<span class="stringliteral">&#39;CTR per mat combi&#39;</span>,1800,1200,3,3)</div>
-<div class="line"><span class="lineno">  206</span>             j = 1</div>
-<div class="line"><span class="lineno">  207</span>             <span class="keywordflow">for</span> matH <span class="keywordflow">in</span> range(nMats):</div>
-<div class="line"><span class="lineno">  208</span>                <span class="keywordflow">for</span> matV <span class="keywordflow">in</span> range(nMats):</div>
-<div class="line"><span class="lineno">  209</span>                     tc =  h[<span class="stringliteral">&#39;CTRM&#39;</span>+str(s)+b+tag].cd(j)</div>
-<div class="line"><span class="lineno">  210</span>                     j+=1</div>
-<div class="line"><span class="lineno">  211</span>                     histo = h[<span class="stringliteral">&#39;CTR_Scifi&#39;</span>+b+str(100*s+10*matH+matV)+tag]</div>
-<div class="line"><span class="lineno">  212</span>                     histo.Fit(<span class="stringliteral">&#39;gaus&#39;</span>,<span class="stringliteral">&#39;SQ&#39;</span>)</div>
-<div class="line"><span class="lineno">  213</span>                     tc.Update()</div>
-<div class="line"><span class="lineno">  214</span>                     stats = histo.FindObject(<span class="stringliteral">&#39;stats&#39;</span>)</div>
-<div class="line"><span class="lineno">  215</span>                     stats.SetOptFit(1111111)</div>
-<div class="line"><span class="lineno">  216</span>                     stats.SetX1NDC(0.62)</div>
-<div class="line"><span class="lineno">  217</span>                     stats.SetY1NDC(0.63)</div>
-<div class="line"><span class="lineno">  218</span>                     stats.SetX2NDC(0.98)</div>
-<div class="line"><span class="lineno">  219</span>                     stats.SetY2NDC(0.94)</div>
-<div class="line"><span class="lineno">  220</span>                     histo.Draw()</div>
-<div class="line"><span class="lineno">  221</span> </div>
-<div class="line"><span class="lineno">  222</span>      <span class="keywordflow">if</span> tag!=<span class="stringliteral">&#39;v0&#39;</span>:</div>
-<div class="line"><span class="lineno">  223</span>        <span class="keywordflow">for</span> b <span class="keywordflow">in</span> [<span class="stringliteral">&#39;&#39;</span>,<span class="stringliteral">&#39;_beam&#39;</span>]:</div>
-<div class="line"><span class="lineno">  224</span>           ut.bookCanvas(h,<span class="stringliteral">&#39;CTRS&#39;</span>+b,<span class="stringliteral">&#39;CTR per station combination&#39;</span>+tag,1800,1200,5,2)</div>
-<div class="line"><span class="lineno">  225</span>           k=1</div>
-<div class="line"><span class="lineno">  226</span>           <span class="keywordflow">for</span> s1 <span class="keywordflow">in</span> range(1, nStations):</div>
-<div class="line"><span class="lineno">  227</span>              <span class="keywordflow">for</span> s2 <span class="keywordflow">in</span> range(s1+1, nStations+1):</div>
-<div class="line"><span class="lineno">  228</span>                  tc = h[<span class="stringliteral">&#39;CTRS&#39;</span>+b].cd(k)</div>
-<div class="line"><span class="lineno">  229</span>                  k+=1</div>
-<div class="line"><span class="lineno">  230</span>                  histo = h[<span class="stringliteral">&#39;CTR_ScifiStation&#39;</span>+b+str(s1*10+s2)+tag]</div>
-<div class="line"><span class="lineno">  231</span>                  histo.Draw()</div>
-<div class="line"><span class="lineno">  232</span>                  histo.Fit(<span class="stringliteral">&#39;gaus&#39;</span>,<span class="stringliteral">&#39;SQ&#39;</span>)</div>
-<div class="line"><span class="lineno">  233</span>                  tc.Update()</div>
-<div class="line"><span class="lineno">  234</span>                  stats = histo.FindObject(<span class="stringliteral">&#39;stats&#39;</span>)</div>
-<div class="line"><span class="lineno">  235</span>                  stats.SetOptFit(1111111)</div>
-<div class="line"><span class="lineno">  236</span>                  stats.SetX1NDC(0.62)</div>
-<div class="line"><span class="lineno">  237</span>                  stats.SetY1NDC(0.63)</div>
-<div class="line"><span class="lineno">  238</span>                  stats.SetX2NDC(0.98)</div>
-<div class="line"><span class="lineno">  239</span>                  stats.SetY2NDC(0.94)</div>
-<div class="line"><span class="lineno">  240</span>                  histo.Draw()</div>
-<div class="line"><span class="lineno">  241</span> </div>
+<p class="definition">Definition at line <a class="el" href="ScifiCTR_8py_source.html#l00224">224</a> of file <a class="el" href="ScifiCTR_8py_source.html">ScifiCTR.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  224</span>   <span class="keyword">def </span>Plot(self):</div>
+<div class="line"><span class="lineno">  225</span>      h = self.M.h</div>
+<div class="line"><span class="lineno">  226</span>      tag =  self.tag</div>
+<div class="line"><span class="lineno">  227</span>      </div>
+<div class="line"><span class="lineno">  228</span>      <span class="keywordflow">if</span> channelTimeAlignment==1:</div>
+<div class="line"><span class="lineno">  229</span>        <span class="keywordflow">for</span> s <span class="keywordflow">in</span> range(1, nStations+1): </div>
+<div class="line"><span class="lineno">  230</span>           <span class="keywordflow">for</span> proj <span class="keywordflow">in</span> [<span class="stringliteral">&#39;H&#39;</span>,<span class="stringliteral">&#39;V&#39;</span>]:</div>
+<div class="line"><span class="lineno">  231</span>              <span class="keywordflow">if</span> proj==<span class="stringliteral">&#39;H&#39;</span>: o=0</div>
+<div class="line"><span class="lineno">  232</span>              <span class="keywordflow">else</span>: o=1</div>
+<div class="line"><span class="lineno">  233</span>              <span class="keywordflow">if</span> s!=2 <span class="keywordflow">or</span> proj!=<span class="stringliteral">&#39;H&#39;</span>: <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  234</span>              ut.bookCanvas(h,<span class="stringliteral">&#39;CTR_mats&#39;</span>+str(s)+proj+tag,<span class="stringliteral">&#39;CTR&#39;</span>+tag,1800,1200,32,16)</div>
+<div class="line"><span class="lineno">  235</span>              j=1</div>
+<div class="line"><span class="lineno">  236</span>              <span class="keywordflow">for</span> mat <span class="keywordflow">in</span> range(nMats): </div>
+<div class="line"><span class="lineno">  237</span>                <span class="keywordflow">for</span> arr <span class="keywordflow">in</span> range(nSiPMArrays):</div>
+<div class="line"><span class="lineno">  238</span>                 <span class="keywordflow">for</span> chan <span class="keywordflow">in</span> range(nChannelsPerSiPMArray): </div>
+<div class="line"><span class="lineno">  239</span>                   tc =  h[<span class="stringliteral">&#39;CTR_mats&#39;</span>+str(s)+proj+tag].cd(j)</div>
+<div class="line"><span class="lineno">  240</span>                   j+=1</div>
+<div class="line"><span class="lineno">  241</span>                   histo = h[<span class="stringliteral">&#39;CTR_ScifiMat&#39;</span>+str(int(1e6*s+1e5*o+1e4*mat+1e3*arr+chan))+tag]</div>
+<div class="line"><span class="lineno">  242</span>                   <span class="keywordflow">if</span> 1: <span class="comment">#histo.GetEntries()&gt;3:</span></div>
+<div class="line"><span class="lineno">  243</span>                     histo.Draw() </div>
+<div class="line"><span class="lineno">  244</span>      </div>
+<div class="line"><span class="lineno">  245</span>      <span class="keywordflow">if</span> tag!=<span class="stringliteral">&#39;v0prime&#39;</span>:</div>
+<div class="line"><span class="lineno">  246</span>       <span class="keywordflow">for</span> b <span class="keywordflow">in</span> [<span class="stringliteral">&#39;&#39;</span>,<span class="stringliteral">&#39;_beam&#39;</span>]:</div>
+<div class="line"><span class="lineno">  247</span>         ut.bookCanvas(h,<span class="stringliteral">&#39;CTR&#39;</span>+b+tag,<span class="stringliteral">&#39;CTR&#39;</span>+tag,1800,1200,3,2)</div>
+<div class="line"><span class="lineno">  248</span>         <span class="keywordflow">for</span> s <span class="keywordflow">in</span> range(1, nStations+1): </div>
+<div class="line"><span class="lineno">  249</span>             tc =  h[<span class="stringliteral">&#39;CTR&#39;</span>+b+tag].cd(s)</div>
+<div class="line"><span class="lineno">  250</span>             histo = h[<span class="stringliteral">&#39;CTR_Scifi&#39;</span>+b+str(s)+tag]</div>
+<div class="line"><span class="lineno">  251</span>             rc = histo.Fit(<span class="stringliteral">&#39;gaus&#39;</span>,<span class="stringliteral">&#39;SQ&#39;</span>)</div>
+<div class="line"><span class="lineno">  252</span>             tc.Update()</div>
+<div class="line"><span class="lineno">  253</span>             stats = histo.FindObject(<span class="stringliteral">&#39;stats&#39;</span>)</div>
+<div class="line"><span class="lineno">  254</span>             stats.SetOptFit(1111111)</div>
+<div class="line"><span class="lineno">  255</span>             stats.SetX1NDC(0.62)</div>
+<div class="line"><span class="lineno">  256</span>             stats.SetY1NDC(0.63)</div>
+<div class="line"><span class="lineno">  257</span>             stats.SetX2NDC(0.98)</div>
+<div class="line"><span class="lineno">  258</span>             stats.SetY2NDC(0.94)</div>
+<div class="line"><span class="lineno">  259</span>             histo.Draw()</div>
+<div class="line"><span class="lineno">  260</span> </div>
+<div class="line"><span class="lineno">  261</span>         <span class="keywordflow">for</span> s <span class="keywordflow">in</span> range(1, nStations+1):</div>
+<div class="line"><span class="lineno">  262</span>             ut.bookCanvas(h,<span class="stringliteral">&#39;CTRM&#39;</span>+str(s)+b+tag,<span class="stringliteral">&#39;CTR per mat combi&#39;</span>,1800,1200,3,3)</div>
+<div class="line"><span class="lineno">  263</span>             j = 1</div>
+<div class="line"><span class="lineno">  264</span>             <span class="keywordflow">for</span> matH <span class="keywordflow">in</span> range(nMats):</div>
+<div class="line"><span class="lineno">  265</span>                <span class="keywordflow">for</span> matV <span class="keywordflow">in</span> range(nMats):</div>
+<div class="line"><span class="lineno">  266</span>                     tc =  h[<span class="stringliteral">&#39;CTRM&#39;</span>+str(s)+b+tag].cd(j)</div>
+<div class="line"><span class="lineno">  267</span>                     j+=1</div>
+<div class="line"><span class="lineno">  268</span>                     histo = h[<span class="stringliteral">&#39;CTR_Scifi&#39;</span>+b+str(100*s+10*matH+matV)+tag]</div>
+<div class="line"><span class="lineno">  269</span>                     histo.Fit(<span class="stringliteral">&#39;gaus&#39;</span>,<span class="stringliteral">&#39;SQ&#39;</span>)</div>
+<div class="line"><span class="lineno">  270</span>                     tc.Update()</div>
+<div class="line"><span class="lineno">  271</span>                     stats = histo.FindObject(<span class="stringliteral">&#39;stats&#39;</span>)</div>
+<div class="line"><span class="lineno">  272</span>                     stats.SetOptFit(1111111)</div>
+<div class="line"><span class="lineno">  273</span>                     stats.SetX1NDC(0.62)</div>
+<div class="line"><span class="lineno">  274</span>                     stats.SetY1NDC(0.63)</div>
+<div class="line"><span class="lineno">  275</span>                     stats.SetX2NDC(0.98)</div>
+<div class="line"><span class="lineno">  276</span>                     stats.SetY2NDC(0.94)</div>
+<div class="line"><span class="lineno">  277</span>                     histo.Draw()</div>
+<div class="line"><span class="lineno">  278</span> </div>
+<div class="line"><span class="lineno">  279</span>      <span class="keywordflow">if</span> tag!=<span class="stringliteral">&#39;v0&#39;</span>:</div>
+<div class="line"><span class="lineno">  280</span>        <span class="keywordflow">for</span> b <span class="keywordflow">in</span> [<span class="stringliteral">&#39;&#39;</span>,<span class="stringliteral">&#39;_beam&#39;</span>]:</div>
+<div class="line"><span class="lineno">  281</span>           ut.bookCanvas(h,<span class="stringliteral">&#39;CTRS&#39;</span>+b,<span class="stringliteral">&#39;CTR per station combination&#39;</span>+tag,1800,1200,5,2)</div>
+<div class="line"><span class="lineno">  282</span>           k=1</div>
+<div class="line"><span class="lineno">  283</span>           <span class="keywordflow">for</span> s1 <span class="keywordflow">in</span> range(1, nStations):</div>
+<div class="line"><span class="lineno">  284</span>              <span class="keywordflow">for</span> s2 <span class="keywordflow">in</span> range(s1+1, nStations+1):</div>
+<div class="line"><span class="lineno">  285</span>                  tc = h[<span class="stringliteral">&#39;CTRS&#39;</span>+b].cd(k)</div>
+<div class="line"><span class="lineno">  286</span>                  k+=1</div>
+<div class="line"><span class="lineno">  287</span>                  histo = h[<span class="stringliteral">&#39;CTR_ScifiStation&#39;</span>+b+str(s1*10+s2)+tag]</div>
+<div class="line"><span class="lineno">  288</span>                  histo.Draw()</div>
+<div class="line"><span class="lineno">  289</span>                  histo.Fit(<span class="stringliteral">&#39;gaus&#39;</span>,<span class="stringliteral">&#39;SQ&#39;</span>)</div>
+<div class="line"><span class="lineno">  290</span>                  tc.Update()</div>
+<div class="line"><span class="lineno">  291</span>                  stats = histo.FindObject(<span class="stringliteral">&#39;stats&#39;</span>)</div>
+<div class="line"><span class="lineno">  292</span>                  stats.SetOptFit(1111111)</div>
+<div class="line"><span class="lineno">  293</span>                  stats.SetX1NDC(0.62)</div>
+<div class="line"><span class="lineno">  294</span>                  stats.SetY1NDC(0.63)</div>
+<div class="line"><span class="lineno">  295</span>                  stats.SetX2NDC(0.98)</div>
+<div class="line"><span class="lineno">  296</span>                  stats.SetY2NDC(0.94)</div>
+<div class="line"><span class="lineno">  297</span>                  histo.Draw()</div>
+<div class="line"><span class="lineno">  298</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -649,7 +763,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ScifiCTR_8py_source.html#l00243">243</a> of file <a class="el" href="ScifiCTR_8py_source.html">ScifiCTR.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ScifiCTR_8py_source.html#l00300">300</a> of file <a class="el" href="ScifiCTR_8py_source.html">ScifiCTR.py</a>.</p>
 
 </div>
 </div>
@@ -665,7 +779,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ScifiCTR_8py_source.html#l00303">303</a> of file <a class="el" href="ScifiCTR_8py_source.html">ScifiCTR.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ScifiCTR_8py_source.html#l00385">385</a> of file <a class="el" href="ScifiCTR_8py_source.html">ScifiCTR.py</a>.</p>
 
 </div>
 </div>
@@ -761,7 +875,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ScifiCTR_8py_source.html#l00077">77</a> of file <a class="el" href="ScifiCTR_8py_source.html">ScifiCTR.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ScifiCTR_8py_source.html#l00091">91</a> of file <a class="el" href="ScifiCTR_8py_source.html">ScifiCTR.py</a>.</p>
 
 </div>
 </div>
@@ -777,7 +891,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ScifiCTR_8py_source.html#l00088">88</a> of file <a class="el" href="ScifiCTR_8py_source.html">ScifiCTR.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ScifiCTR_8py_source.html#l00109">109</a> of file <a class="el" href="ScifiCTR_8py_source.html">ScifiCTR.py</a>.</p>
 
 </div>
 </div>

@@ -4,6 +4,7 @@ var classScifiCTR_1_1Scifi__CTR =
     [ "ExtractMeanAndSigma", "classScifiCTR_1_1Scifi__CTR.html#ac5420d2037f43709db5771bb0cee03d7", null ],
     [ "Init", "classScifiCTR_1_1Scifi__CTR.html#a1f91f3d5eaf28bcca640edb65628cc21", null ],
     [ "minimize", "classScifiCTR_1_1Scifi__CTR.html#ac02c3ac40fc667456411144e5de80474", null ],
+    [ "minimizeMat", "classScifiCTR_1_1Scifi__CTR.html#a8ba13b937df2891f843f6d8008d5e4a4", null ],
     [ "minimizeStation", "classScifiCTR_1_1Scifi__CTR.html#a93bedf94324497a6b1662c7ff8c13766", null ],
     [ "Plot", "classScifiCTR_1_1Scifi__CTR.html#a026028a249d5f6a21a18c55d79a3f094", null ],
     [ "M", "classScifiCTR_1_1Scifi__CTR.html#a08127559497e6f2cc8848e10e745f7b2", null ],

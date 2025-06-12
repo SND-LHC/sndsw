@@ -362,32 +362,32 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8cxx_source.html#l00932">932</a> of file <a class="el" href="ConvRawData_8cxx_source.html">ConvRawData.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  933</span>{</div>
-<div class="line"><span class="lineno">  934</span>    TH1F* h = <span class="keyword">new</span> TH1F(<span class="stringliteral">&quot;chi2&quot;</span>,<span class="stringliteral">&quot;chi2&quot;</span>, 1000, 0., 10000);</div>
-<div class="line"><span class="lineno">  935</span>    map&lt;double, pair&lt;double, double&gt; &gt; report{};</div>
-<div class="line"><span class="lineno">  936</span>    <span class="keywordtype">int</span> TDC = 0;</div>
-<div class="line"><span class="lineno">  937</span>    <span class="keywordtype">double</span> chi2{}, chi2T{}, <a class="code hl_variable" href="namespaceextractNeutrinosAndUpdateWeight.html#a47804d77c17d9de386802c99c350d7a8">key</a>{};</div>
-<div class="line"><span class="lineno">  938</span>    <span class="comment">// loop over entries of X_qdc and get map keys</span></div>
-<div class="line"><span class="lineno">  939</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> it : <a class="code hl_variable" href="classConvRawData.html#a882c47754b875b8eb590b0157a7645d9">X_qdc</a>)</div>
-<div class="line"><span class="lineno">  940</span>    {</div>
-<div class="line"><span class="lineno">  941</span>      map&lt;string, double&gt; <a class="code hl_variable" href="namespacemakeDecay.html#ad0cca2a83c59bb283ee59cc30dc2ea4b">par</a>= <a class="code hl_variable" href="classConvRawData.html#a882c47754b875b8eb590b0157a7645d9">X_qdc</a>[{it.first[0], it.first[1], it.first[2], it.first[3]}];</div>
-<div class="line"><span class="lineno">  942</span>      <span class="keywordflow">if</span> (par[<span class="stringliteral">&quot;chi2Ndof&quot;</span>]) chi2 = <a class="code hl_variable" href="namespacemakeDecay.html#ad0cca2a83c59bb283ee59cc30dc2ea4b">par</a>[<span class="stringliteral">&quot;chi2Ndof&quot;</span>];</div>
-<div class="line"><span class="lineno">  943</span>      <span class="keywordflow">else</span> chi2 = -1;</div>
-<div class="line"><span class="lineno">  944</span>      map&lt;string, double&gt; parT = <a class="code hl_variable" href="classConvRawData.html#acd1484264b81a585fe9c52300dee7761">X_tdc</a>[{it.first[0], it.first[1], it.first[2], it.first[3], TDC}];</div>
-<div class="line"><span class="lineno">  945</span>      <span class="keywordflow">if</span> (parT[<span class="stringliteral">&quot;chi2Ndof&quot;</span>]) chi2T = parT[<span class="stringliteral">&quot;chi2Ndof&quot;</span>];</div>
-<div class="line"><span class="lineno">  946</span>      <span class="keywordflow">else</span> chi2T = -1;</div>
-<div class="line"><span class="lineno">  947</span>      <a class="code hl_variable" href="namespaceextractNeutrinosAndUpdateWeight.html#a47804d77c17d9de386802c99c350d7a8">key</a> = it.first[3] +10*it.first[2] + it.first[1]*10*100 + it.first[0]*10*100*100;</div>
-<div class="line"><span class="lineno">  948</span>      <span class="keywordflow">if</span> (report.count(key)==0) report[<a class="code hl_variable" href="namespaceextractNeutrinosAndUpdateWeight.html#a47804d77c17d9de386802c99c350d7a8">key</a>] = make_pair(chi2,chi2T);</div>
-<div class="line"><span class="lineno">  949</span>    }</div>
-<div class="line"><span class="lineno">  950</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> it : report)</div>
-<div class="line"><span class="lineno">  951</span>    {</div>
-<div class="line"><span class="lineno">  952</span>         <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a235bb5e32c7e7d7c71109654a19e16ed">h</a>-&gt;Fill(report[it.first].first);</div>
-<div class="line"><span class="lineno">  953</span>         <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a235bb5e32c7e7d7c71109654a19e16ed">h</a>-&gt;Fill(report[it.first].second);</div>
-<div class="line"><span class="lineno">  954</span>    }</div>
-<div class="line"><span class="lineno">  955</span>    <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a235bb5e32c7e7d7c71109654a19e16ed">h</a>-&gt;Draw();</div>
-<div class="line"><span class="lineno">  956</span>    <span class="keywordflow">return</span> report;</div>
-<div class="line"><span class="lineno">  957</span>}</div>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8cxx_source.html#l00936">936</a> of file <a class="el" href="ConvRawData_8cxx_source.html">ConvRawData.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  937</span>{</div>
+<div class="line"><span class="lineno">  938</span>    TH1F* h = <span class="keyword">new</span> TH1F(<span class="stringliteral">&quot;chi2&quot;</span>,<span class="stringliteral">&quot;chi2&quot;</span>, 1000, 0., 10000);</div>
+<div class="line"><span class="lineno">  939</span>    map&lt;double, pair&lt;double, double&gt; &gt; report{};</div>
+<div class="line"><span class="lineno">  940</span>    <span class="keywordtype">int</span> TDC = 0;</div>
+<div class="line"><span class="lineno">  941</span>    <span class="keywordtype">double</span> chi2{}, chi2T{}, <a class="code hl_variable" href="namespaceextractNeutrinosAndUpdateWeight.html#a47804d77c17d9de386802c99c350d7a8">key</a>{};</div>
+<div class="line"><span class="lineno">  942</span>    <span class="comment">// loop over entries of X_qdc and get map keys</span></div>
+<div class="line"><span class="lineno">  943</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> it : <a class="code hl_variable" href="classConvRawData.html#a882c47754b875b8eb590b0157a7645d9">X_qdc</a>)</div>
+<div class="line"><span class="lineno">  944</span>    {</div>
+<div class="line"><span class="lineno">  945</span>      map&lt;string, double&gt; <a class="code hl_variable" href="namespacemakeDecay.html#ad0cca2a83c59bb283ee59cc30dc2ea4b">par</a>= <a class="code hl_variable" href="classConvRawData.html#a882c47754b875b8eb590b0157a7645d9">X_qdc</a>[{it.first[0], it.first[1], it.first[2], it.first[3]}];</div>
+<div class="line"><span class="lineno">  946</span>      <span class="keywordflow">if</span> (par[<span class="stringliteral">&quot;chi2Ndof&quot;</span>]) chi2 = <a class="code hl_variable" href="namespacemakeDecay.html#ad0cca2a83c59bb283ee59cc30dc2ea4b">par</a>[<span class="stringliteral">&quot;chi2Ndof&quot;</span>];</div>
+<div class="line"><span class="lineno">  947</span>      <span class="keywordflow">else</span> chi2 = -1;</div>
+<div class="line"><span class="lineno">  948</span>      map&lt;string, double&gt; parT = <a class="code hl_variable" href="classConvRawData.html#acd1484264b81a585fe9c52300dee7761">X_tdc</a>[{it.first[0], it.first[1], it.first[2], it.first[3], TDC}];</div>
+<div class="line"><span class="lineno">  949</span>      <span class="keywordflow">if</span> (parT[<span class="stringliteral">&quot;chi2Ndof&quot;</span>]) chi2T = parT[<span class="stringliteral">&quot;chi2Ndof&quot;</span>];</div>
+<div class="line"><span class="lineno">  950</span>      <span class="keywordflow">else</span> chi2T = -1;</div>
+<div class="line"><span class="lineno">  951</span>      <a class="code hl_variable" href="namespaceextractNeutrinosAndUpdateWeight.html#a47804d77c17d9de386802c99c350d7a8">key</a> = it.first[3] +10*it.first[2] + it.first[1]*10*100 + it.first[0]*10*100*100;</div>
+<div class="line"><span class="lineno">  952</span>      <span class="keywordflow">if</span> (report.count(key)==0) report[<a class="code hl_variable" href="namespaceextractNeutrinosAndUpdateWeight.html#a47804d77c17d9de386802c99c350d7a8">key</a>] = make_pair(chi2,chi2T);</div>
+<div class="line"><span class="lineno">  953</span>    }</div>
+<div class="line"><span class="lineno">  954</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> it : report)</div>
+<div class="line"><span class="lineno">  955</span>    {</div>
+<div class="line"><span class="lineno">  956</span>         <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a235bb5e32c7e7d7c71109654a19e16ed">h</a>-&gt;Fill(report[it.first].first);</div>
+<div class="line"><span class="lineno">  957</span>         <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a235bb5e32c7e7d7c71109654a19e16ed">h</a>-&gt;Fill(report[it.first].second);</div>
+<div class="line"><span class="lineno">  958</span>    }</div>
+<div class="line"><span class="lineno">  959</span>    <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a235bb5e32c7e7d7c71109654a19e16ed">h</a>-&gt;Draw();</div>
+<div class="line"><span class="lineno">  960</span>    <span class="keywordflow">return</span> report;</div>
+<div class="line"><span class="lineno">  961</span>}</div>
 <div class="ttc" id="aclassConvRawData_html_a882c47754b875b8eb590b0157a7645d9"><div class="ttname"><a href="classConvRawData.html#a882c47754b875b8eb590b0157a7645d9">ConvRawData::X_qdc</a></div><div class="ttdeci">std::map&lt; std::vector&lt; int &gt;, std::map&lt; std::string, double &gt; &gt; X_qdc</div><div class="ttdef"><b>Definition</b> <a href="ConvRawData_8h_source.html#l00071">ConvRawData.h:71</a></div></div>
 <div class="ttc" id="aclassConvRawData_html_acd1484264b81a585fe9c52300dee7761"><div class="ttname"><a href="classConvRawData.html#acd1484264b81a585fe9c52300dee7761">ConvRawData::X_tdc</a></div><div class="ttdeci">std::map&lt; std::vector&lt; int &gt;, std::map&lt; std::string, double &gt; &gt; X_tdc</div><div class="ttdef"><b>Definition</b> <a href="ConvRawData_8h_source.html#l00072">ConvRawData.h:72</a></div></div>
 <div class="ttc" id="anamespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring_html_a235bb5e32c7e7d7c71109654a19e16ed"><div class="ttname"><a href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a235bb5e32c7e7d7c71109654a19e16ed">conditionsDatabase.demo.drifttubeMonitoring.h</a></div><div class="ttdeci">dict h</div><div class="ttdef"><b>Definition</b> <a href="drifttubeMonitoring_8py_source.html#l00056">drifttubeMonitoring.py:56</a></div></div>
@@ -437,10 +437,10 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Define some other functions </p>
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8cxx_source.html#l00959">959</a> of file <a class="el" href="ConvRawData_8cxx_source.html">ConvRawData.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  960</span>{</div>
-<div class="line"><span class="lineno">  961</span>    <span class="keywordflow">return</span> (64*tofpet_id + 63 - tofpet_channel + 512*position);<span class="comment">// 512 channels per mat, 1536 channels per plane. One channel covers all 6 layers of fibres.</span></div>
-<div class="line"><span class="lineno">  962</span>}</div>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8cxx_source.html#l00963">963</a> of file <a class="el" href="ConvRawData_8cxx_source.html">ConvRawData.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  964</span>{</div>
+<div class="line"><span class="lineno">  965</span>    <span class="keywordflow">return</span> (64*tofpet_id + 63 - tofpet_channel + 512*position);<span class="comment">// 512 channels per mat, 1536 channels per plane. One channel covers all 6 layers of fibres.</span></div>
+<div class="line"><span class="lineno">  966</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -588,21 +588,21 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8cxx_source.html#l00917">917</a> of file <a class="el" href="ConvRawData_8cxx_source.html">ConvRawData.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  918</span>{</div>
-<div class="line"><span class="lineno">  919</span>    map&lt;string, double&gt; par= X_qdc[{board_id,tofpet_id,channel,tac}];</div>
-<div class="line"><span class="lineno">  920</span>    map&lt;string, double&gt; parT = X_tdc[{board_id,tofpet_id,channel,tac,TDC}];</div>
-<div class="line"><span class="lineno">  921</span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="namespacegeometry__config.html#a1286b5c01494c311eb3a950d1ac8857c">x</a>    = t_fine;</div>
-<div class="line"><span class="lineno">  922</span>    <span class="keywordtype">double</span> ftdc = (-parT[<span class="stringliteral">&quot;b&quot;</span>]-sqrt(pow(parT[<span class="stringliteral">&quot;b&quot;</span>],2)</div>
-<div class="line"><span class="lineno">  923</span>                  -4*parT[<span class="stringliteral">&quot;a&quot;</span>]*(parT[<span class="stringliteral">&quot;c&quot;</span>]-x)))/(2*parT[<span class="stringliteral">&quot;a&quot;</span>]); <span class="comment">// Ettore 28/01/2022 +par[&#39;d&#39;]</span></div>
-<div class="line"><span class="lineno">  924</span>    <span class="keywordtype">double</span> timestamp = t_coarse + ftdc;</div>
-<div class="line"><span class="lineno">  925</span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="namespacerun__fixedTarget.html#a88c2881ae5560e00e9d2f1a3662f992f">tf</a> = timestamp - t_coarse;</div>
-<div class="line"><span class="lineno">  926</span>    <a class="code hl_variable" href="namespacegeometry__config.html#a1286b5c01494c311eb3a950d1ac8857c">x</a> = v_coarse - <a class="code hl_variable" href="namespacerun__fixedTarget.html#a88c2881ae5560e00e9d2f1a3662f992f">tf</a>;</div>
-<div class="line"><span class="lineno">  927</span>    <span class="keywordtype">double</span> fqdc = - <a class="code hl_variable" href="namespacemakeDecay.html#ad0cca2a83c59bb283ee59cc30dc2ea4b">par</a>[<span class="stringliteral">&quot;c&quot;</span>]*<a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c8cf5e21d8737d95d13d1f2681a4970">log</a>(1+exp( par[<span class="stringliteral">&quot;a&quot;</span>]*pow((x-par[<span class="stringliteral">&quot;e&quot;</span>]),2)-par[<span class="stringliteral">&quot;b&quot;</span>]*(x-par[<span class="stringliteral">&quot;e&quot;</span>]) ))</div>
-<div class="line"><span class="lineno">  928</span>                 + <a class="code hl_variable" href="namespacemakeDecay.html#ad0cca2a83c59bb283ee59cc30dc2ea4b">par</a>[<span class="stringliteral">&quot;d&quot;</span>];</div>
-<div class="line"><span class="lineno">  929</span>    <span class="keywordtype">double</span> value = (v_fine-fqdc)/GQDC;</div>
-<div class="line"><span class="lineno">  930</span>    <span class="keywordflow">return</span> make_tuple(timestamp,value,<a class="code hl_variable" href="namespacegeometry__config.html#a669b957607386750ed2077d789c9434e">max</a>(par[<span class="stringliteral">&quot;chi2Ndof&quot;</span>],parT[<span class="stringliteral">&quot;chi2Ndof&quot;</span>]),v_fine/par[<span class="stringliteral">&quot;d&quot;</span>]);</div>
-<div class="line"><span class="lineno">  931</span>}</div>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8cxx_source.html#l00921">921</a> of file <a class="el" href="ConvRawData_8cxx_source.html">ConvRawData.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  922</span>{</div>
+<div class="line"><span class="lineno">  923</span>    map&lt;string, double&gt; par= X_qdc[{board_id,tofpet_id,channel,tac}];</div>
+<div class="line"><span class="lineno">  924</span>    map&lt;string, double&gt; parT = X_tdc[{board_id,tofpet_id,channel,tac,TDC}];</div>
+<div class="line"><span class="lineno">  925</span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="namespacegeometry__config.html#a1286b5c01494c311eb3a950d1ac8857c">x</a>    = t_fine;</div>
+<div class="line"><span class="lineno">  926</span>    <span class="keywordtype">double</span> ftdc = (-parT[<span class="stringliteral">&quot;b&quot;</span>]-sqrt(pow(parT[<span class="stringliteral">&quot;b&quot;</span>],2)</div>
+<div class="line"><span class="lineno">  927</span>                  -4*parT[<span class="stringliteral">&quot;a&quot;</span>]*(parT[<span class="stringliteral">&quot;c&quot;</span>]-x)))/(2*parT[<span class="stringliteral">&quot;a&quot;</span>]); <span class="comment">// Ettore 28/01/2022 +par[&#39;d&#39;]</span></div>
+<div class="line"><span class="lineno">  928</span>    <span class="keywordtype">double</span> timestamp = t_coarse + ftdc;</div>
+<div class="line"><span class="lineno">  929</span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="namespacerun__fixedTarget.html#a88c2881ae5560e00e9d2f1a3662f992f">tf</a> = timestamp - t_coarse;</div>
+<div class="line"><span class="lineno">  930</span>    <a class="code hl_variable" href="namespacegeometry__config.html#a1286b5c01494c311eb3a950d1ac8857c">x</a> = v_coarse - <a class="code hl_variable" href="namespacerun__fixedTarget.html#a88c2881ae5560e00e9d2f1a3662f992f">tf</a>;</div>
+<div class="line"><span class="lineno">  931</span>    <span class="keywordtype">double</span> fqdc = - <a class="code hl_variable" href="namespacemakeDecay.html#ad0cca2a83c59bb283ee59cc30dc2ea4b">par</a>[<span class="stringliteral">&quot;c&quot;</span>]*<a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c8cf5e21d8737d95d13d1f2681a4970">log</a>(1+exp( par[<span class="stringliteral">&quot;a&quot;</span>]*pow((x-par[<span class="stringliteral">&quot;e&quot;</span>]),2)-par[<span class="stringliteral">&quot;b&quot;</span>]*(x-par[<span class="stringliteral">&quot;e&quot;</span>]) ))</div>
+<div class="line"><span class="lineno">  932</span>                 + <a class="code hl_variable" href="namespacemakeDecay.html#ad0cca2a83c59bb283ee59cc30dc2ea4b">par</a>[<span class="stringliteral">&quot;d&quot;</span>];</div>
+<div class="line"><span class="lineno">  933</span>    <span class="keywordtype">double</span> value = (v_fine-fqdc)/GQDC;</div>
+<div class="line"><span class="lineno">  934</span>    <span class="keywordflow">return</span> make_tuple(timestamp,value,<a class="code hl_variable" href="namespacegeometry__config.html#a669b957607386750ed2077d789c9434e">max</a>(par[<span class="stringliteral">&quot;chi2Ndof&quot;</span>],parT[<span class="stringliteral">&quot;chi2Ndof&quot;</span>]),v_fine/par[<span class="stringliteral">&quot;d&quot;</span>]);</div>
+<div class="line"><span class="lineno">  935</span>}</div>
 <div class="ttc" id="anamespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring_html_a1c8cf5e21d8737d95d13d1f2681a4970"><div class="ttname"><a href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c8cf5e21d8737d95d13d1f2681a4970">conditionsDatabase.demo.drifttubeMonitoring.log</a></div><div class="ttdeci">dict log</div><div class="ttdef"><b>Definition</b> <a href="drifttubeMonitoring_8py_source.html#l00057">drifttubeMonitoring.py:57</a></div></div>
 <div class="ttc" id="anamespacegeometry__config_html_a1286b5c01494c311eb3a950d1ac8857c"><div class="ttname"><a href="namespacegeometry__config.html#a1286b5c01494c311eb3a950d1ac8857c">geometry_config.x</a></div><div class="ttdeci">x</div><div class="ttdef"><b>Definition</b> <a href="geometry__config_8py_source.html#l00180">geometry_config.py:180</a></div></div>
 <div class="ttc" id="anamespacegeometry__config_html_a669b957607386750ed2077d789c9434e"><div class="ttname"><a href="namespacegeometry__config.html#a669b957607386750ed2077d789c9434e">geometry_config.max</a></div><div class="ttdeci">max</div><div class="ttdef"><b>Definition</b> <a href="geometry__config_8py_source.html#l00178">geometry_config.py:178</a></div></div>
@@ -650,24 +650,24 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8cxx_source.html#l01131">1131</a> of file <a class="el" href="ConvRawData_8cxx_source.html">ConvRawData.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno"> 1132</span>{</div>
-<div class="line"><span class="lineno"> 1133</span>  <span class="keywordtype">int</span> Key{}, SiPMChannel{}, n_SiPMs{}, n_Sides{}, <a class="code hl_enumeration" href="RPCUnpack_8cxx.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a>{}, DetID{}, SiPM_number{};</div>
-<div class="line"><span class="lineno"> 1134</span>  <span class="keywordtype">string</span> Tmp;</div>
-<div class="line"><span class="lineno"> 1135</span>  <span class="keywordtype">int</span> brdID{}, System{};</div>
-<div class="line"><span class="lineno"> 1136</span>  Key = (tofpetID%2)*1000 + tofpetChannel;</div>
-<div class="line"><span class="lineno"> 1137</span>  Tmp = <a class="code hl_variable" href="boardMappingParser_8cxx.html#aa65097b4ea51c8c6bc35d36c89927017">boardMapsMu</a>[<span class="stringliteral">&quot;MuFilter&quot;</span>][brd][<a class="code hl_variable" href="classConvRawData.html#a646544e3cb6b76e1f4fa42e8317a7b86">slots</a>[tofpetID]];</div>
-<div class="line"><span class="lineno"> 1138</span>  brdID = stoi(brd.substr(brd.find(<span class="stringliteral">&quot;_&quot;</span>)+1));</div>
-<div class="line"><span class="lineno"> 1139</span>  System = <a class="code hl_variable" href="classConvRawData.html#a80a0432dd318dae02cf36a3a5cea4c9e">MufiSystem</a>[brdID][tofpetID];</div>
-<div class="line"><span class="lineno"> 1140</span>  SiPMChannel = <a class="code hl_variable" href="classConvRawData.html#ae3b7269f6b27b5d560dc8f47d41a4854">TofpetMap</a>[System][Key]-1;</div>
-<div class="line"><span class="lineno"> 1141</span>  n_SiPMs = abs(offMap[Tmp][1]);</div>
-<div class="line"><span class="lineno"> 1142</span>  n_Sides = abs(offMap[Tmp][2]);</div>
-<div class="line"><span class="lineno"> 1143</span>  <a class="code hl_enumeration" href="RPCUnpack_8cxx.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a> = <a class="code hl_variable" href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">int</a>(offMap[Tmp][1]/n_SiPMs);</div>
-<div class="line"><span class="lineno"> 1144</span>  DetID = <a class="code hl_variable" href="classConvRawData.html#a414d89341ee535a0244c32a372c72f82">offMap</a>[Tmp][0] + <a class="code hl_enumeration" href="RPCUnpack_8cxx.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a>*<a class="code hl_variable" href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">int</a>(SiPMChannel/n_SiPMs);</div>
-<div class="line"><span class="lineno"> 1145</span>  SiPM_number = SiPMChannel%(n_SiPMs);</div>
-<div class="line"><span class="lineno"> 1146</span>  cout &lt;&lt; <span class="stringliteral">&quot;SiPM channel &quot;</span> &lt;&lt; SiPMChannel &lt;&lt; <span class="stringliteral">&quot; nSiPM &quot;</span> &lt;&lt; n_SiPMs &lt;&lt; <span class="stringliteral">&quot; nSides &quot;</span> &lt;&lt; n_Sides</div>
-<div class="line"><span class="lineno"> 1147</span>       &lt;&lt; <span class="stringliteral">&quot; detID &quot;</span> &lt;&lt; DetID &lt;&lt; <span class="stringliteral">&quot; SiPM number &quot;</span> &lt;&lt; SiPM_number &lt;&lt; endl;</div>
-<div class="line"><span class="lineno"> 1148</span>}</div>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8cxx_source.html#l01135">1135</a> of file <a class="el" href="ConvRawData_8cxx_source.html">ConvRawData.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1136</span>{</div>
+<div class="line"><span class="lineno"> 1137</span>  <span class="keywordtype">int</span> Key{}, SiPMChannel{}, n_SiPMs{}, n_Sides{}, <a class="code hl_enumeration" href="RPCUnpack_8cxx.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a>{}, DetID{}, SiPM_number{};</div>
+<div class="line"><span class="lineno"> 1138</span>  <span class="keywordtype">string</span> Tmp;</div>
+<div class="line"><span class="lineno"> 1139</span>  <span class="keywordtype">int</span> brdID{}, System{};</div>
+<div class="line"><span class="lineno"> 1140</span>  Key = (tofpetID%2)*1000 + tofpetChannel;</div>
+<div class="line"><span class="lineno"> 1141</span>  Tmp = <a class="code hl_variable" href="boardMappingParser_8cxx.html#aa65097b4ea51c8c6bc35d36c89927017">boardMapsMu</a>[<span class="stringliteral">&quot;MuFilter&quot;</span>][brd][<a class="code hl_variable" href="classConvRawData.html#a646544e3cb6b76e1f4fa42e8317a7b86">slots</a>[tofpetID]];</div>
+<div class="line"><span class="lineno"> 1142</span>  brdID = stoi(brd.substr(brd.find(<span class="stringliteral">&quot;_&quot;</span>)+1));</div>
+<div class="line"><span class="lineno"> 1143</span>  System = <a class="code hl_variable" href="classConvRawData.html#a80a0432dd318dae02cf36a3a5cea4c9e">MufiSystem</a>[brdID][tofpetID];</div>
+<div class="line"><span class="lineno"> 1144</span>  SiPMChannel = <a class="code hl_variable" href="classConvRawData.html#ae3b7269f6b27b5d560dc8f47d41a4854">TofpetMap</a>[System][Key]-1;</div>
+<div class="line"><span class="lineno"> 1145</span>  n_SiPMs = abs(offMap[Tmp][1]);</div>
+<div class="line"><span class="lineno"> 1146</span>  n_Sides = abs(offMap[Tmp][2]);</div>
+<div class="line"><span class="lineno"> 1147</span>  <a class="code hl_enumeration" href="RPCUnpack_8cxx.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a> = <a class="code hl_variable" href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">int</a>(offMap[Tmp][1]/n_SiPMs);</div>
+<div class="line"><span class="lineno"> 1148</span>  DetID = <a class="code hl_variable" href="classConvRawData.html#a414d89341ee535a0244c32a372c72f82">offMap</a>[Tmp][0] + <a class="code hl_enumeration" href="RPCUnpack_8cxx.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a>*<a class="code hl_variable" href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">int</a>(SiPMChannel/n_SiPMs);</div>
+<div class="line"><span class="lineno"> 1149</span>  SiPM_number = SiPMChannel%(n_SiPMs);</div>
+<div class="line"><span class="lineno"> 1150</span>  cout &lt;&lt; <span class="stringliteral">&quot;SiPM channel &quot;</span> &lt;&lt; SiPMChannel &lt;&lt; <span class="stringliteral">&quot; nSiPM &quot;</span> &lt;&lt; n_SiPMs &lt;&lt; <span class="stringliteral">&quot; nSides &quot;</span> &lt;&lt; n_Sides</div>
+<div class="line"><span class="lineno"> 1151</span>       &lt;&lt; <span class="stringliteral">&quot; detID &quot;</span> &lt;&lt; DetID &lt;&lt; <span class="stringliteral">&quot; SiPM number &quot;</span> &lt;&lt; SiPM_number &lt;&lt; endl;</div>
+<div class="line"><span class="lineno"> 1152</span>}</div>
 <div class="ttc" id="aRPCUnpack_8cxx_html_a224b9163917ac32fc95a60d8c1eec3aa"><div class="ttname"><a href="RPCUnpack_8cxx.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a></div><div class="ttdeci">Direction</div><div class="ttdef"><b>Definition</b> <a href="RPCUnpack_8cxx_source.html#l00023">RPCUnpack.cxx:23</a></div></div>
 <div class="ttc" id="aboardMappingParser_8cxx_html_aa65097b4ea51c8c6bc35d36c89927017"><div class="ttname"><a href="boardMappingParser_8cxx.html#aa65097b4ea51c8c6bc35d36c89927017">boardMapsMu</a></div><div class="ttdeci">map&lt; string, map&lt; string, map&lt; string, string &gt; &gt; &gt; boardMapsMu</div><div class="ttdef"><b>Definition</b> <a href="boardMappingParser_8cxx_source.html#l00015">boardMappingParser.cxx:15</a></div></div>
 <div class="ttc" id="aclassConvRawData_html_a414d89341ee535a0244c32a372c72f82"><div class="ttname"><a href="classConvRawData.html#a414d89341ee535a0244c32a372c72f82">ConvRawData::offMap</a></div><div class="ttdeci">std::map&lt; std::string, std::vector&lt; int &gt; &gt; offMap</div><div class="ttdef"><b>Definition</b> <a href="ConvRawData_8h_source.html#l00079">ConvRawData.h:79</a></div></div>
@@ -755,39 +755,43 @@ Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  848</span>         <span class="keywordflow">else</span> <a class="code hl_variable" href="namespacestudy__GammaConv.html#a6178e60a012f4ac198fff3a25fb91f78">s</a> = 3;</div>
 <div class="line"><span class="lineno">  849</span>         <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a983c4ccffa135d77a12bed4ff546e7c4">tmp</a> = <a class="code hl_variable" href="namespacegeometry__config.html#a1286b5c01494c311eb3a950d1ac8857c">x</a>.second.substr(0, <a class="code hl_variable" href="namespacegeometry__config.html#a1286b5c01494c311eb3a950d1ac8857c">x</a>.second.find(<span class="stringliteral">&quot;_&quot;</span>));</div>
 <div class="line"><span class="lineno">  850</span>         <span class="keywordflow">if</span> ( tmp ==<span class="stringliteral">&quot;US&quot;</span> ) <a class="code hl_variable" href="namespacestudy__GammaConv.html#a6178e60a012f4ac198fff3a25fb91f78">s</a> = 1;</div>
-<div class="line"><span class="lineno">  851</span>         <span class="keywordflow">if</span> ( tmp==<span class="stringliteral">&quot;DS&quot;</span> ) <a class="code hl_variable" href="namespacestudy__GammaConv.html#a6178e60a012f4ac198fff3a25fb91f78">s</a> = 2;</div>
-<div class="line"><span class="lineno">  852</span>         <span class="keywordflow">if</span> ( slots[slot.first] == <a class="code hl_variable" href="namespacegeometry__config.html#a1286b5c01494c311eb3a950d1ac8857c">x</a>.first )</div>
-<div class="line"><span class="lineno">  853</span>         {</div>
-<div class="line"><span class="lineno">  854</span>            <a class="code hl_variable" href="classConvRawData.html#a80a0432dd318dae02cf36a3a5cea4c9e">MufiSystem</a>[board_id_mu][slot.first] = <a class="code hl_variable" href="namespacestudy__GammaConv.html#a6178e60a012f4ac198fff3a25fb91f78">s</a>;</div>
-<div class="line"><span class="lineno">  855</span>            <a class="code hl_variable" href="boardMappingParser_8cxx.html#a39427948ba6f90f766189d06c52a8ec5">boardMaps</a>[<span class="stringliteral">&quot;MuFilter&quot;</span>][it.first][slot.second] = slot.first;</div>
-<div class="line"><span class="lineno">  856</span>         }</div>
-<div class="line"><span class="lineno">  857</span>       }</div>
-<div class="line"><span class="lineno">  858</span>     }</div>
-<div class="line"><span class="lineno">  859</span>  }</div>
-<div class="line"><span class="lineno">  860</span>  </div>
-<div class="line"><span class="lineno">  861</span>  <span class="comment">//string o;</span></div>
-<div class="line"><span class="lineno">  862</span>  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 1 ; <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a> &lt; 6; <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>++ )</div>
-<div class="line"><span class="lineno">  863</span>  {</div>
-<div class="line"><span class="lineno">  864</span>    <span class="keywordflow">if</span> (i&lt;3)</div>
-<div class="line"><span class="lineno">  865</span>    {</div>
-<div class="line"><span class="lineno">  866</span>      <a class="code hl_variable" href="classConvRawData.html#a414d89341ee535a0244c32a372c72f82">offMap</a>[Form(<span class="stringliteral">&quot;Veto_%iLeft&quot;</span>,i)]  = {10000 + (<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>-1)*1000+ 0, 8, 2};<span class="comment">//first channel, nSiPMs, nSides</span></div>
-<div class="line"><span class="lineno">  867</span>      <a class="code hl_variable" href="classConvRawData.html#a414d89341ee535a0244c32a372c72f82">offMap</a>[Form(<span class="stringliteral">&quot;Veto_%iRight&quot;</span>,i)] = {10000 + (<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>-1)*1000+ 0, 8, 2};</div>
-<div class="line"><span class="lineno">  868</span>    }</div>
-<div class="line"><span class="lineno">  869</span>    <span class="keywordflow">if</span> (i==3) <a class="code hl_variable" href="classConvRawData.html#a414d89341ee535a0244c32a372c72f82">offMap</a>[Form(<span class="stringliteral">&quot;Veto_%iVert&quot;</span>,i)] = {10000 + (<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>-1)*1000+ 6, -8, 1};<span class="comment">// 3rd Veto plane</span></div>
-<div class="line"><span class="lineno">  870</span>    <span class="keywordflow">if</span> (i&lt;4)</div>
-<div class="line"><span class="lineno">  871</span>    {</div>
-<div class="line"><span class="lineno">  872</span>      <span class="comment">// DS</span></div>
-<div class="line"><span class="lineno">  873</span>      <a class="code hl_variable" href="classConvRawData.html#a414d89341ee535a0244c32a372c72f82">offMap</a>[Form(<span class="stringliteral">&quot;DS_%iLeft&quot;</span>,i)]  = {30000 + (<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>-1)*1000+ 59, -1, 2};<span class="comment">// direction not known</span></div>
-<div class="line"><span class="lineno">  874</span>      <a class="code hl_variable" href="classConvRawData.html#a414d89341ee535a0244c32a372c72f82">offMap</a>[Form(<span class="stringliteral">&quot;DS_%iRight&quot;</span>,i)] = {30000 + (<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>-1)*1000+ 59, -1, 2};<span class="comment">// direction not known</span></div>
-<div class="line"><span class="lineno">  875</span>    }</div>
-<div class="line"><span class="lineno">  876</span>    <span class="keywordflow">if</span> (i&lt;5)</div>
-<div class="line"><span class="lineno">  877</span>    {</div>
-<div class="line"><span class="lineno">  878</span>      <a class="code hl_variable" href="classConvRawData.html#a414d89341ee535a0244c32a372c72f82">offMap</a>[Form(<span class="stringliteral">&quot;DS_%iVert&quot;</span>,i)] = {30000 + (<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>-1)*1000+ 119, -1, 1};<span class="comment">// direction not known</span></div>
+<div class="line"><span class="lineno">  851</span>         <span class="keywordflow">if</span> ( tmp==<span class="stringliteral">&quot;DS&quot;</span> )</div>
+<div class="line"><span class="lineno">  852</span>         {</div>
+<div class="line"><span class="lineno">  853</span>           <a class="code hl_variable" href="namespacestudy__GammaConv.html#a6178e60a012f4ac198fff3a25fb91f78">s</a> = 2;</div>
+<div class="line"><span class="lineno">  854</span>           <span class="keywordflow">if</span> ( Path.find(<span class="stringliteral">&quot;testbeam_24&quot;</span>) != string::npos &amp;&amp; <a class="code hl_variable" href="namespacegeometry__config.html#a1286b5c01494c311eb3a950d1ac8857c">x</a>.second.substr(<a class="code hl_variable" href="namespacegeometry__config.html#a1286b5c01494c311eb3a950d1ac8857c">x</a>.second.find(<span class="stringliteral">&quot;_&quot;</span>)+1,1)==2) <a class="code hl_variable" href="namespacestudy__GammaConv.html#a6178e60a012f4ac198fff3a25fb91f78">s</a> = 3;</div>
+<div class="line"><span class="lineno">  855</span>         }</div>
+<div class="line"><span class="lineno">  856</span>         <span class="keywordflow">if</span> ( slots[slot.first] == <a class="code hl_variable" href="namespacegeometry__config.html#a1286b5c01494c311eb3a950d1ac8857c">x</a>.first )</div>
+<div class="line"><span class="lineno">  857</span>         {</div>
+<div class="line"><span class="lineno">  858</span>            <a class="code hl_variable" href="classConvRawData.html#a80a0432dd318dae02cf36a3a5cea4c9e">MufiSystem</a>[board_id_mu][slot.first] = <a class="code hl_variable" href="namespacestudy__GammaConv.html#a6178e60a012f4ac198fff3a25fb91f78">s</a>;</div>
+<div class="line"><span class="lineno">  859</span>            <a class="code hl_variable" href="boardMappingParser_8cxx.html#a39427948ba6f90f766189d06c52a8ec5">boardMaps</a>[<span class="stringliteral">&quot;MuFilter&quot;</span>][it.first][slot.second] = slot.first;</div>
+<div class="line"><span class="lineno">  860</span>         }</div>
+<div class="line"><span class="lineno">  861</span>       }</div>
+<div class="line"><span class="lineno">  862</span>     }</div>
+<div class="line"><span class="lineno">  863</span>  }</div>
+<div class="line"><span class="lineno">  864</span>  </div>
+<div class="line"><span class="lineno">  865</span>  <span class="comment">//string o;</span></div>
+<div class="line"><span class="lineno">  866</span>  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 1 ; <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a> &lt; 6; <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>++ )</div>
+<div class="line"><span class="lineno">  867</span>  {</div>
+<div class="line"><span class="lineno">  868</span>    <span class="keywordflow">if</span> (i&lt;3)</div>
+<div class="line"><span class="lineno">  869</span>    {</div>
+<div class="line"><span class="lineno">  870</span>      <a class="code hl_variable" href="classConvRawData.html#a414d89341ee535a0244c32a372c72f82">offMap</a>[Form(<span class="stringliteral">&quot;Veto_%iLeft&quot;</span>,i)]  = {10000 + (<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>-1)*1000+ 0, 8, 2};<span class="comment">//first channel, nSiPMs, nSides</span></div>
+<div class="line"><span class="lineno">  871</span>      <a class="code hl_variable" href="classConvRawData.html#a414d89341ee535a0244c32a372c72f82">offMap</a>[Form(<span class="stringliteral">&quot;Veto_%iRight&quot;</span>,i)] = {10000 + (<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>-1)*1000+ 0, 8, 2};</div>
+<div class="line"><span class="lineno">  872</span>    }</div>
+<div class="line"><span class="lineno">  873</span>    <span class="keywordflow">if</span> (i==3) <a class="code hl_variable" href="classConvRawData.html#a414d89341ee535a0244c32a372c72f82">offMap</a>[Form(<span class="stringliteral">&quot;Veto_%iVert&quot;</span>,i)] = {10000 + (<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>-1)*1000+ 6, -8, 1};<span class="comment">// 3rd Veto plane</span></div>
+<div class="line"><span class="lineno">  874</span>    <span class="keywordflow">if</span> (i&lt;4)</div>
+<div class="line"><span class="lineno">  875</span>    {</div>
+<div class="line"><span class="lineno">  876</span>      <span class="comment">// DS</span></div>
+<div class="line"><span class="lineno">  877</span>      <a class="code hl_variable" href="classConvRawData.html#a414d89341ee535a0244c32a372c72f82">offMap</a>[Form(<span class="stringliteral">&quot;DS_%iLeft&quot;</span>,i)]  = {30000 + (<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>-1)*1000+ 59, -1, 2};<span class="comment">// direction not known</span></div>
+<div class="line"><span class="lineno">  878</span>      <a class="code hl_variable" href="classConvRawData.html#a414d89341ee535a0244c32a372c72f82">offMap</a>[Form(<span class="stringliteral">&quot;DS_%iRight&quot;</span>,i)] = {30000 + (<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>-1)*1000+ 59, -1, 2};<span class="comment">// direction not known</span></div>
 <div class="line"><span class="lineno">  879</span>    }</div>
-<div class="line"><span class="lineno">  880</span>    <a class="code hl_variable" href="classConvRawData.html#a414d89341ee535a0244c32a372c72f82">offMap</a>[Form(<span class="stringliteral">&quot;US_%iLeft&quot;</span>,i)]  = {20000 + (<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>-1)*1000+ 9, -8, 2}; <span class="comment">// from top to bottom</span></div>
-<div class="line"><span class="lineno">  881</span>    <a class="code hl_variable" href="classConvRawData.html#a414d89341ee535a0244c32a372c72f82">offMap</a>[Form(<span class="stringliteral">&quot;US_%iRight&quot;</span>,i)] = {20000 + (<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>-1)*1000+ 9, -8, 2};</div>
-<div class="line"><span class="lineno">  882</span>  }  </div>
-<div class="line"><span class="lineno">  883</span>}</div>
+<div class="line"><span class="lineno">  880</span>    <span class="keywordflow">if</span> (i&lt;5)</div>
+<div class="line"><span class="lineno">  881</span>    {</div>
+<div class="line"><span class="lineno">  882</span>      <a class="code hl_variable" href="classConvRawData.html#a414d89341ee535a0244c32a372c72f82">offMap</a>[Form(<span class="stringliteral">&quot;DS_%iVert&quot;</span>,i)] = {30000 + (<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>-1)*1000+ 119, -1, 1};<span class="comment">// direction not known</span></div>
+<div class="line"><span class="lineno">  883</span>    }</div>
+<div class="line"><span class="lineno">  884</span>    <a class="code hl_variable" href="classConvRawData.html#a414d89341ee535a0244c32a372c72f82">offMap</a>[Form(<span class="stringliteral">&quot;US_%iLeft&quot;</span>,i)]  = {20000 + (<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>-1)*1000+ 9, -8, 2}; <span class="comment">// from top to bottom</span></div>
+<div class="line"><span class="lineno">  885</span>    <a class="code hl_variable" href="classConvRawData.html#a414d89341ee535a0244c32a372c72f82">offMap</a>[Form(<span class="stringliteral">&quot;US_%iRight&quot;</span>,i)] = {20000 + (<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>-1)*1000+ 9, -8, 2};</div>
+<div class="line"><span class="lineno">  886</span>  }  </div>
+<div class="line"><span class="lineno">  887</span>}</div>
 <div class="ttc" id="aboardMappingParser_8cxx_html_a39427948ba6f90f766189d06c52a8ec5"><div class="ttname"><a href="boardMappingParser_8cxx.html#a39427948ba6f90f766189d06c52a8ec5">boardMaps</a></div><div class="ttdeci">map&lt; string, map&lt; string, map&lt; string, int &gt; &gt; &gt; boardMaps</div><div class="ttdef"><b>Definition</b> <a href="boardMappingParser_8cxx_source.html#l00014">boardMappingParser.cxx:14</a></div></div>
 <div class="ttc" id="aboardMappingParser_8cxx_html_a3d8efd15880eec4644ec3780f09c9b8c"><div class="ttname"><a href="boardMappingParser_8cxx.html#a3d8efd15880eec4644ec3780f09c9b8c">getBoardMapping</a></div><div class="ttdeci">tuple&lt; map&lt; string, map&lt; string, map&lt; string, int &gt; &gt; &gt;, map&lt; string, map&lt; string, map&lt; string, string &gt; &gt; &gt; &gt; getBoardMapping(json j)</div><div class="ttdef"><b>Definition</b> <a href="boardMappingParser_8cxx_source.html#l00065">boardMappingParser.cxx:65</a></div></div>
 <div class="ttc" id="anamespaceShipAna_html_aa4bf87f4d17f9d38b1d8f4d009bb54b3"><div class="ttname"><a href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">ShipAna.i</a></div><div class="ttdeci">int i</div><div class="ttdef"><b>Definition</b> <a href="ShipAna_8py_source.html#l00086">ShipAna.py:86</a></div></div>
@@ -969,7 +973,7 @@ Private Attributes</h2></td></tr>
 <div class="ttc" id="aclassConvRawData_html_aaa0cb1d23a585d8686d376deee080662"><div class="ttname"><a href="classConvRawData.html#aaa0cb1d23a585d8686d376deee080662">ConvRawData::fSNDLHCEventHeader</a></div><div class="ttdeci">SNDLHCEventHeader * fSNDLHCEventHeader</div><div class="ttdef"><b>Definition</b> <a href="ConvRawData_8h_source.html#l00103">ConvRawData.h:103</a></div></div>
 <div class="ttc" id="aclassConvRawData_html_aaa7ab578df03f94b2b4015473c9da871"><div class="ttname"><a href="classConvRawData.html#aaa7ab578df03f94b2b4015473c9da871">ConvRawData::fEventTree</a></div><div class="ttdeci">TTree * fEventTree</div><div class="ttdef"><b>Definition</b> <a href="ConvRawData_8h_source.html#l00087">ConvRawData.h:87</a></div></div>
 <div class="ttc" id="aclassConvRawData_html_ad108438190ff52db8aed742fb095bf39"><div class="ttname"><a href="classConvRawData.html#ad108438190ff52db8aed742fb095bf39">ConvRawData::eventNumber</a></div><div class="ttdeci">int eventNumber</div><div class="ttdef"><b>Definition</b> <a href="ConvRawData_8h_source.html#l00096">ConvRawData.h:96</a></div></div>
-<div class="ttc" id="aclassConvRawData_html_aecd6eb09bc266c52c2bb5c9ad4a89cd9"><div class="ttname"><a href="classConvRawData.html#aecd6eb09bc266c52c2bb5c9ad4a89cd9">ConvRawData::read_csv</a></div><div class="ttdeci">void read_csv(std::string path)</div><div class="ttdef"><b>Definition</b> <a href="ConvRawData_8cxx_source.html#l00964">ConvRawData.cxx:964</a></div></div>
+<div class="ttc" id="aclassConvRawData_html_aecd6eb09bc266c52c2bb5c9ad4a89cd9"><div class="ttname"><a href="classConvRawData.html#aecd6eb09bc266c52c2bb5c9ad4a89cd9">ConvRawData::read_csv</a></div><div class="ttdeci">void read_csv(std::string path)</div><div class="ttdef"><b>Definition</b> <a href="ConvRawData_8cxx_source.html#l00968">ConvRawData.cxx:968</a></div></div>
 <div class="ttc" id="aclassSNDLHCEventHeader_html"><div class="ttname"><a href="classSNDLHCEventHeader.html">SNDLHCEventHeader</a></div><div class="ttdef"><b>Definition</b> <a href="SNDLHCEventHeader_8h_source.html#l00014">SNDLHCEventHeader.h:15</a></div></div>
 <div class="ttc" id="aclassScifi_html"><div class="ttname"><a href="classScifi.html">Scifi</a></div><div class="ttdef"><b>Definition</b> <a href="Scifi_8h_source.html#l00019">Scifi.h:20</a></div></div>
 <div class="ttc" id="anamespaceconvertRawData__muTestbeam_html_a7bfaeee3479b045f5c8a541c8e9714c9"><div class="ttname"><a href="namespaceconvertRawData__muTestbeam.html#a7bfaeee3479b045f5c8a541c8e9714c9">convertRawData_muTestbeam.f0</a></div><div class="ttdeci">f0</div><div class="ttdef"><b>Definition</b> <a href="convertRawData__muTestbeam_8py_source.html#l00271">convertRawData_muTestbeam.py:271</a></div></div>
@@ -1303,12 +1307,12 @@ Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  449</span><span class="comment">  */</span> </div>
 <div class="line"><span class="lineno">  450</span>}</div>
 <div class="ttc" id="aclassConvRawData_html_a2a9a6dd77728681942dab8d5d521cf63"><div class="ttname"><a href="classConvRawData.html#a2a9a6dd77728681942dab8d5d521cf63">ConvRawData::counters</a></div><div class="ttdeci">std::map&lt; std::string, double &gt; counters</div><div class="ttdef"><b>Definition</b> <a href="ConvRawData_8h_source.html#l00081">ConvRawData.h:81</a></div></div>
-<div class="ttc" id="aclassConvRawData_html_a622f351c7799acc933a32ea814c9c6ba"><div class="ttname"><a href="classConvRawData.html#a622f351c7799acc933a32ea814c9c6ba">ConvRawData::comb_calibration</a></div><div class="ttdeci">std::tuple&lt; double, double, double, double &gt; comb_calibration(int board_id, int tofpet_id, int channel, int tac, uint16_t v_coarse, uint16_t v_fine, int64_t t_coarse, uint16_t t_fine, double GQDC, int TDC)</div><div class="ttdef"><b>Definition</b> <a href="ConvRawData_8cxx_source.html#l00917">ConvRawData.cxx:917</a></div></div>
+<div class="ttc" id="aclassConvRawData_html_a622f351c7799acc933a32ea814c9c6ba"><div class="ttname"><a href="classConvRawData.html#a622f351c7799acc933a32ea814c9c6ba">ConvRawData::comb_calibration</a></div><div class="ttdeci">std::tuple&lt; double, double, double, double &gt; comb_calibration(int board_id, int tofpet_id, int channel, int tac, uint16_t v_coarse, uint16_t v_fine, int64_t t_coarse, uint16_t t_fine, double GQDC, int TDC)</div><div class="ttdef"><b>Definition</b> <a href="ConvRawData_8cxx_source.html#l00921">ConvRawData.cxx:921</a></div></div>
 <div class="ttc" id="aclassConvRawData_html_a644b2a35ed2b4c79489f8a861436b792"><div class="ttname"><a href="classConvRawData.html#a644b2a35ed2b4c79489f8a861436b792">ConvRawData::digiMuFilterStore</a></div><div class="ttdeci">std::map&lt; int, MuFilterHit * &gt; digiMuFilterStore</div><div class="ttdef"><b>Definition</b> <a href="ConvRawData_8h_source.html#l00069">ConvRawData.h:69</a></div></div>
 <div class="ttc" id="aclassConvRawData_html_acb3c060da42a4574bb4b62dffab34cf0"><div class="ttname"><a href="classConvRawData.html#acb3c060da42a4574bb4b62dffab34cf0">ConvRawData::boards</a></div><div class="ttdeci">std::map&lt; std::string, TTree * &gt; boards</div><div class="ttdef"><b>Definition</b> <a href="ConvRawData_8h_source.html#l00089">ConvRawData.h:89</a></div></div>
 <div class="ttc" id="aclassConvRawData_html_adc3c1251f51c826af2e5ceef787df138"><div class="ttname"><a href="classConvRawData.html#adc3c1251f51c826af2e5ceef787df138">ConvRawData::frunNumber</a></div><div class="ttdeci">int frunNumber</div><div class="ttdef"><b>Definition</b> <a href="ConvRawData_8h_source.html#l00091">ConvRawData.h:91</a></div></div>
 <div class="ttc" id="aclassConvRawData_html_addbdaf5280037e244f697288c6c60948"><div class="ttname"><a href="classConvRawData.html#addbdaf5280037e244f697288c6c60948">ConvRawData::digiSciFiStore</a></div><div class="ttdeci">std::map&lt; int, sndScifiHit * &gt; digiSciFiStore</div><div class="ttdef"><b>Definition</b> <a href="ConvRawData_8h_source.html#l00070">ConvRawData.h:70</a></div></div>
-<div class="ttc" id="aclassConvRawData_html_ae3a6332aa2d68b07173f9f2927bdedb3"><div class="ttname"><a href="classConvRawData.html#ae3a6332aa2d68b07173f9f2927bdedb3">ConvRawData::channel_func</a></div><div class="ttdeci">int channel_func(int tofpet_id, int tofpet_channel, int position)</div><div class="ttdef"><b>Definition</b> <a href="ConvRawData_8cxx_source.html#l00959">ConvRawData.cxx:959</a></div></div>
+<div class="ttc" id="aclassConvRawData_html_ae3a6332aa2d68b07173f9f2927bdedb3"><div class="ttname"><a href="classConvRawData.html#ae3a6332aa2d68b07173f9f2927bdedb3">ConvRawData::channel_func</a></div><div class="ttdeci">int channel_func(int tofpet_id, int tofpet_channel, int position)</div><div class="ttdef"><b>Definition</b> <a href="ConvRawData_8cxx_source.html#l00963">ConvRawData.cxx:963</a></div></div>
 <div class="ttc" id="aclassMuFilterHit_html"><div class="ttname"><a href="classMuFilterHit.html">MuFilterHit</a></div><div class="ttdef"><b>Definition</b> <a href="MuFilterHit_8h_source.html#l00010">MuFilterHit.h:11</a></div></div>
 <div class="ttc" id="aclasssndScifiHit_html"><div class="ttname"><a href="classsndScifiHit.html">sndScifiHit</a></div><div class="ttdef"><b>Definition</b> <a href="sndScifiHit_8h_source.html#l00009">sndScifiHit.h:10</a></div></div>
 <div class="ttc" id="anamespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring_html_a0300c9226cb21058a0167e6076c29b1d"><div class="ttname"><a href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a0300c9226cb21058a0167e6076c29b1d">conditionsDatabase.demo.drifttubeMonitoring.n</a></div><div class="ttdeci">int n</div><div class="ttdef"><b>Definition</b> <a href="drifttubeMonitoring_8py_source.html#l00253">drifttubeMonitoring.py:253</a></div></div>
@@ -1719,16 +1723,16 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Define calibration functions </p>
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8cxx_source.html#l00885">885</a> of file <a class="el" href="ConvRawData_8cxx_source.html">ConvRawData.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  887</span>  {</div>
-<div class="line"><span class="lineno">  888</span>    <span class="keywordtype">double</span> GQDC = 1.0; <span class="comment">// or 3.6</span></div>
-<div class="line"><span class="lineno">  889</span>    map&lt;string, double&gt; par= X_qdc[{board_id,tofpet_id,channel,tac}];</div>
-<div class="line"><span class="lineno">  890</span>    <span class="keywordtype">double</span> x = v_coarse - tf;</div>
-<div class="line"><span class="lineno">  891</span>    <span class="keywordtype">double</span> fqdc = -par[<span class="stringliteral">&quot;c&quot;</span>]*log(1+exp( par[<span class="stringliteral">&quot;a&quot;</span>]*pow((x-par[<span class="stringliteral">&quot;e&quot;</span>]),2)</div>
-<div class="line"><span class="lineno">  892</span>                 -par[<span class="stringliteral">&quot;b&quot;</span>]*(x-par[<span class="stringliteral">&quot;e&quot;</span>]) )) + par[<span class="stringliteral">&quot;d&quot;</span>];</div>
-<div class="line"><span class="lineno">  893</span>    <span class="keywordtype">double</span> value = (v_fine-fqdc)/GQDC;</div>
-<div class="line"><span class="lineno">  894</span>    <span class="keywordflow">return</span> value;</div>
-<div class="line"><span class="lineno">  895</span>}</div>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8cxx_source.html#l00889">889</a> of file <a class="el" href="ConvRawData_8cxx_source.html">ConvRawData.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  891</span>  {</div>
+<div class="line"><span class="lineno">  892</span>    <span class="keywordtype">double</span> GQDC = 1.0; <span class="comment">// or 3.6</span></div>
+<div class="line"><span class="lineno">  893</span>    map&lt;string, double&gt; par= X_qdc[{board_id,tofpet_id,channel,tac}];</div>
+<div class="line"><span class="lineno">  894</span>    <span class="keywordtype">double</span> x = v_coarse - tf;</div>
+<div class="line"><span class="lineno">  895</span>    <span class="keywordtype">double</span> fqdc = -par[<span class="stringliteral">&quot;c&quot;</span>]*log(1+exp( par[<span class="stringliteral">&quot;a&quot;</span>]*pow((x-par[<span class="stringliteral">&quot;e&quot;</span>]),2)</div>
+<div class="line"><span class="lineno">  896</span>                 -par[<span class="stringliteral">&quot;b&quot;</span>]*(x-par[<span class="stringliteral">&quot;e&quot;</span>]) )) + par[<span class="stringliteral">&quot;d&quot;</span>];</div>
+<div class="line"><span class="lineno">  897</span>    <span class="keywordtype">double</span> value = (v_fine-fqdc)/GQDC;</div>
+<div class="line"><span class="lineno">  898</span>    <span class="keywordflow">return</span> value;</div>
+<div class="line"><span class="lineno">  899</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1784,12 +1788,12 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8cxx_source.html#l00896">896</a> of file <a class="el" href="ConvRawData_8cxx_source.html">ConvRawData.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  897</span>{</div>
-<div class="line"><span class="lineno">  898</span>    map&lt;string, double&gt; par = X_qdc[{board_id,tofpet_id,channel,tac}];</div>
-<div class="line"><span class="lineno">  899</span>    map&lt;string, double&gt; parT = X_tdc[{board_id,tofpet_id,channel,tac, TDC}];</div>
-<div class="line"><span class="lineno">  900</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="namespacegeometry__config.html#a669b957607386750ed2077d789c9434e">max</a>(par[<span class="stringliteral">&quot;chi2Ndof&quot;</span>],parT[<span class="stringliteral">&quot;chi2Ndof&quot;</span>]);</div>
-<div class="line"><span class="lineno">  901</span>}</div>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8cxx_source.html#l00900">900</a> of file <a class="el" href="ConvRawData_8cxx_source.html">ConvRawData.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  901</span>{</div>
+<div class="line"><span class="lineno">  902</span>    map&lt;string, double&gt; par = X_qdc[{board_id,tofpet_id,channel,tac}];</div>
+<div class="line"><span class="lineno">  903</span>    map&lt;string, double&gt; parT = X_tdc[{board_id,tofpet_id,channel,tac, TDC}];</div>
+<div class="line"><span class="lineno">  904</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="namespacegeometry__config.html#a669b957607386750ed2077d789c9434e">max</a>(par[<span class="stringliteral">&quot;chi2Ndof&quot;</span>],parT[<span class="stringliteral">&quot;chi2Ndof&quot;</span>]);</div>
+<div class="line"><span class="lineno">  905</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1845,11 +1849,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8cxx_source.html#l00902">902</a> of file <a class="el" href="ConvRawData_8cxx_source.html">ConvRawData.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  903</span>{</div>
-<div class="line"><span class="lineno">  904</span>    map&lt;string, double&gt; par = X_qdc[{board_id,tofpet_id,channel,tac}];</div>
-<div class="line"><span class="lineno">  905</span>    <span class="keywordflow">return</span> v_fine/par[<span class="stringliteral">&quot;d&quot;</span>];  </div>
-<div class="line"><span class="lineno">  906</span>}</div>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8cxx_source.html#l00906">906</a> of file <a class="el" href="ConvRawData_8cxx_source.html">ConvRawData.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  907</span>{</div>
+<div class="line"><span class="lineno">  908</span>    map&lt;string, double&gt; par = X_qdc[{board_id,tofpet_id,channel,tac}];</div>
+<div class="line"><span class="lineno">  909</span>    <span class="keywordflow">return</span> v_fine/par[<span class="stringliteral">&quot;d&quot;</span>];  </div>
+<div class="line"><span class="lineno">  910</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1878,173 +1882,173 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Read csv data files </p>
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8cxx_source.html#l00964">964</a> of file <a class="el" href="ConvRawData_8cxx_source.html">ConvRawData.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  965</span>{</div>
-<div class="line"><span class="lineno">  966</span>  ifstream infile; <span class="comment">// ifstream is the stream class to only read! from files.</span></div>
-<div class="line"><span class="lineno">  967</span>  stringstream X;</div>
-<div class="line"><span class="lineno">  968</span>  <span class="comment">// reading file with xrootd protocol</span></div>
-<div class="line"><span class="lineno">  969</span>  File file;</div>
-<div class="line"><span class="lineno">  970</span>  XRootDStatus status;</div>
-<div class="line"><span class="lineno">  971</span>  StatInfo *info;</div>
-<div class="line"><span class="lineno">  972</span>  uint64_t offset = 0;</div>
-<div class="line"><span class="lineno">  973</span>  uint32_t size;</div>
-<div class="line"><span class="lineno">  974</span>  uint32_t bytesRead = 0;</div>
-<div class="line"><span class="lineno">  975</span>  <span class="keywordtype">string</span> line, element;</div>
-<div class="line"><span class="lineno">  976</span>  <span class="keywordtype">double</span> chi2_Ndof{};</div>
-<div class="line"><span class="lineno">  977</span>  <span class="comment">// counter of number of elements</span></div>
-<div class="line"><span class="lineno">  978</span>  vector&lt;int&gt; key_vector{};</div>
-<div class="line"><span class="lineno">  979</span>  </div>
-<div class="line"><span class="lineno">  980</span>  <span class="comment">// Always read the SiPM mapping</span></div>
-<div class="line"><span class="lineno">  981</span>  <span class="keywordtype">int</span> SiPM{};</div>
-<div class="line"><span class="lineno">  982</span>  vector&lt;int&gt; data_vector{};</div>
-<div class="line"><span class="lineno">  983</span>  map&lt;string, map&lt;int, vector&lt;int&gt;&gt; &gt; <a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#ad8be45e4f0c277630d74752f4fff55be">SiPMmap</a>{};</div>
-<div class="line"><span class="lineno">  984</span>  vector&lt;int&gt; <a class="code hl_variable" href="namespacegeometry__config.html#aa74ea5bdeb340e64bfd3e6e88573a590">row</a>{};</div>
-<div class="line"><span class="lineno">  985</span>  map&lt;string, int&gt; <a class="code hl_variable" href="namespaceextractNeutrinosAndUpdateWeight.html#a47804d77c17d9de386802c99c350d7a8">key</a> { {<span class="stringliteral">&quot;BM&quot;</span>,3}, {<span class="stringliteral">&quot;DS&quot;</span>,2}, {<span class="stringliteral">&quot;US&quot;</span>,1}, {<span class="stringliteral">&quot;Veto&quot;</span>,0} };</div>
-<div class="line"><span class="lineno">  986</span>  <span class="keyword">struct </span>stat buffer;</div>
-<div class="line"><span class="lineno">  987</span>  TString sndRoot = gSystem-&gt;Getenv(<span class="stringliteral">&quot;SNDSW_ROOT&quot;</span>);</div>
-<div class="line"><span class="lineno">  988</span>  <span class="keywordtype">string</span> sndswPath = sndRoot.Data();</div>
-<div class="line"><span class="lineno">  989</span>  <span class="keywordtype">string</span> path_SiPMmap = Form(<span class="stringliteral">&quot;%s/geometry&quot;</span>, sndswPath.c_str());</div>
-<div class="line"><span class="lineno">  990</span>  <span class="keywordflow">if</span> (stat(path_SiPMmap.c_str(), &amp;buffer) != 0)</div>
-<div class="line"><span class="lineno">  991</span>  {</div>
-<div class="line"><span class="lineno">  992</span>    LOG (error) &lt;&lt; <span class="stringliteral">&quot;Path &quot;</span>&lt;&lt; path_SiPMmap.c_str() &lt;&lt; <span class="stringliteral">&quot; does not exist!&quot;</span>;</div>
-<div class="line"><span class="lineno">  993</span>    exit (0); </div>
-<div class="line"><span class="lineno">  994</span>  }</div>
-<div class="line"><span class="lineno">  995</span>  <span class="keywordflow">for</span> (<span class="keyword">auto</span> sys : <a class="code hl_variable" href="namespaceextractNeutrinosAndUpdateWeight.html#a47804d77c17d9de386802c99c350d7a8">key</a>)</div>
-<div class="line"><span class="lineno">  996</span>  {</div>
-<div class="line"><span class="lineno">  997</span>    <a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#a55b42ec39831a769512a1059c42ee2d9">infile</a>.open(Form(<span class="stringliteral">&quot;%s/%s_SiPM_mapping.csv&quot;</span>, path_SiPMmap.c_str(), sys.first.c_str()));</div>
-<div class="line"><span class="lineno">  998</span>    <a class="code hl_variable" href="namespacegeometry__config.html#a8aa4182e12a2746d01d4a85e5d322445">X</a> &lt;&lt; <a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#a55b42ec39831a769512a1059c42ee2d9">infile</a>.rdbuf();</div>
-<div class="line"><span class="lineno">  999</span>    <a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#a55b42ec39831a769512a1059c42ee2d9">infile</a>.close();</div>
-<div class="line"><span class="lineno"> 1000</span>          </div>
-<div class="line"><span class="lineno"> 1001</span>    <span class="comment">// Skip 1st line</span></div>
-<div class="line"><span class="lineno"> 1002</span>    getline(X,line);</div>
-<div class="line"><span class="lineno"> 1003</span>    LOG (info) &lt;&lt; <span class="stringliteral">&quot;In &quot;</span> &lt;&lt; sys.first &lt;&lt; <span class="stringliteral">&quot; SiPM map file: &quot;</span> &lt;&lt; line;</div>
-<div class="line"><span class="lineno"> 1004</span>    <span class="comment">// Read all other lines</span></div>
-<div class="line"><span class="lineno"> 1005</span>    <span class="keywordflow">while</span> (getline(X,line))</div>
-<div class="line"><span class="lineno"> 1006</span>    {</div>
-<div class="line"><span class="lineno"> 1007</span>        data_vector.clear();</div>
-<div class="line"><span class="lineno"> 1008</span>        stringstream items(line);</div>
-<div class="line"><span class="lineno"> 1009</span>        <span class="comment">// first element in line is SiPM</span></div>
-<div class="line"><span class="lineno"> 1010</span>        getline(items, element, <span class="charliteral">&#39;,&#39;</span>);</div>
-<div class="line"><span class="lineno"> 1011</span>        SiPM = stoi(element);</div>
-<div class="line"><span class="lineno"> 1012</span>        <span class="comment">// only taking first few elements of line</span></div>
-<div class="line"><span class="lineno"> 1013</span>        <span class="keywordflow">while</span> (data_vector.size()&lt;4 &amp;&amp; getline(items, element, <span class="charliteral">&#39;,&#39;</span>)) </div>
-<div class="line"><span class="lineno"> 1014</span>        {</div>
-<div class="line"><span class="lineno"> 1015</span>           data_vector.push_back(stoi(element));</div>
-<div class="line"><span class="lineno"> 1016</span>        }</div>
-<div class="line"><span class="lineno"> 1017</span>        <a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#ad8be45e4f0c277630d74752f4fff55be">SiPMmap</a>[sys.first][SiPM] = data_vector;</div>
-<div class="line"><span class="lineno"> 1018</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespacegeometry__config.html#a8aa4182e12a2746d01d4a85e5d322445">X</a>.peek() == EOF) <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno"> 1019</span>    }</div>
-<div class="line"><span class="lineno"> 1020</span>    <a class="code hl_variable" href="namespacegeometry__config.html#a8aa4182e12a2746d01d4a85e5d322445">X</a>.str(<span class="keywordtype">string</span>()); <a class="code hl_variable" href="namespacegeometry__config.html#a8aa4182e12a2746d01d4a85e5d322445">X</a>.clear(); line.clear();</div>
-<div class="line"><span class="lineno"> 1021</span>    size = 0; <a class="code hl_variable" href="namespacegeometry__config.html#a096864e8788dec1116bcc1ee523df8d1">offset</a> = 0; bytesRead = 0;</div>
-<div class="line"><span class="lineno"> 1022</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> channel : <a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#ad8be45e4f0c277630d74752f4fff55be">SiPMmap</a>[sys.<a class="code hl_variable" href="namespacescifiSimAna.html#a81078f4ac1fa779a85931ce7a77b3cc9">first</a>])</div>
-<div class="line"><span class="lineno"> 1023</span>    {</div>
-<div class="line"><span class="lineno"> 1024</span>      <a class="code hl_variable" href="namespacegeometry__config.html#aa74ea5bdeb340e64bfd3e6e88573a590">row</a> = <a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#a418eb48b7e1bdd81bf222d0f3238896e">channel</a>.second;</div>
-<div class="line"><span class="lineno"> 1025</span>      <a class="code hl_variable" href="classConvRawData.html#ae3b7269f6b27b5d560dc8f47d41a4854">TofpetMap</a>[sys.second][<a class="code hl_variable" href="namespacegeometry__config.html#aa74ea5bdeb340e64bfd3e6e88573a590">row</a>.at(2)*1000+<a class="code hl_variable" href="namespacegeometry__config.html#aa74ea5bdeb340e64bfd3e6e88573a590">row</a>.at(3)] = <a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#a418eb48b7e1bdd81bf222d0f3238896e">channel</a>.first;</div>
-<div class="line"><span class="lineno"> 1026</span>    }</div>
-<div class="line"><span class="lineno"> 1027</span>  } <span class="comment">// end filling SiPMmap and TofpetMap</span></div>
-<div class="line"><span class="lineno"> 1028</span> </div>
-<div class="line"><span class="lineno"> 1029</span>  <span class="comment">// Get QDC/TDC calibration data if flag is set</span></div>
-<div class="line"><span class="lineno"> 1030</span>  <span class="keywordflow">if</span> (!makeCalibration) <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno"> 1031</span> </div>
-<div class="line"><span class="lineno"> 1032</span>  <span class="comment">// Get QDC calibration data</span></div>
-<div class="line"><span class="lineno"> 1033</span>  <span class="keywordflow">if</span> (local)</div>
-<div class="line"><span class="lineno"> 1034</span>  {</div>
-<div class="line"><span class="lineno"> 1035</span>   <a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#a55b42ec39831a769512a1059c42ee2d9">infile</a>.open(Form(<span class="stringliteral">&quot;%s/qdc_cal.csv&quot;</span>, Path.c_str()));</div>
-<div class="line"><span class="lineno"> 1036</span>   <a class="code hl_variable" href="namespacegeometry__config.html#a8aa4182e12a2746d01d4a85e5d322445">X</a> &lt;&lt; <a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#a55b42ec39831a769512a1059c42ee2d9">infile</a>.rdbuf();</div>
-<div class="line"><span class="lineno"> 1037</span>   <a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#a55b42ec39831a769512a1059c42ee2d9">infile</a>.close();</div>
-<div class="line"><span class="lineno"> 1038</span>  }</div>
-<div class="line"><span class="lineno"> 1039</span>  <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno"> 1040</span>  {</div>
-<div class="line"><span class="lineno"> 1041</span>    <a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#acc0e8c0a4e13c384547a75bbba32164c">status</a> = file.Open(Form(<span class="stringliteral">&quot;%s/qdc_cal.csv&quot;</span>, Path.c_str()), OpenFlags::Read);</div>
-<div class="line"><span class="lineno"> 1042</span>    <span class="keywordflow">if</span>( !<a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#acc0e8c0a4e13c384547a75bbba32164c">status</a>.IsOK() )</div>
-<div class="line"><span class="lineno"> 1043</span>    {</div>
-<div class="line"><span class="lineno"> 1044</span>      LOG (error) &lt;&lt; <span class="stringliteral">&quot;Error opening file&quot;</span>;</div>
-<div class="line"><span class="lineno"> 1045</span>      exit(0);</div>
-<div class="line"><span class="lineno"> 1046</span>    }</div>
-<div class="line"><span class="lineno"> 1047</span>    file.Stat(<span class="keyword">false</span>, info);</div>
-<div class="line"><span class="lineno"> 1048</span>    size = <a class="code hl_variable" href="namespacerunPythia8PP.html#ab88840b147fdc1a1b19d96be690b0b4b">info</a>-&gt;GetSize();</div>
-<div class="line"><span class="lineno"> 1049</span>    <span class="keywordtype">char</span> *buff = <span class="keyword">new</span> <span class="keywordtype">char</span>[size];</div>
-<div class="line"><span class="lineno"> 1050</span>    <a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#acc0e8c0a4e13c384547a75bbba32164c">status</a> = file.Read(offset, size, buff, bytesRead);</div>
-<div class="line"><span class="lineno"> 1051</span>    <a class="code hl_variable" href="namespacegeometry__config.html#a8aa4182e12a2746d01d4a85e5d322445">X</a> &lt;&lt; buff;</div>
-<div class="line"><span class="lineno"> 1052</span>    <a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#acc0e8c0a4e13c384547a75bbba32164c">status</a> = file.Close();</div>
-<div class="line"><span class="lineno"> 1053</span>    <span class="keyword">delete</span> <a class="code hl_variable" href="namespacerunPythia8PP.html#ab88840b147fdc1a1b19d96be690b0b4b">info</a>;</div>
-<div class="line"><span class="lineno"> 1054</span>    <span class="keyword">delete</span> [] buff;  </div>
-<div class="line"><span class="lineno"> 1055</span>  }</div>
-<div class="line"><span class="lineno"> 1056</span>  LOG (info) &lt;&lt; <span class="stringliteral">&quot;Read_csv &quot;</span>&lt;&lt;Path.c_str();</div>
-<div class="line"><span class="lineno"> 1057</span>  <span class="comment">// Skip 1st line</span></div>
-<div class="line"><span class="lineno"> 1058</span>  getline(X, line);</div>
-<div class="line"><span class="lineno"> 1059</span>  LOG (info) &lt;&lt; <span class="stringliteral">&quot;In QDC cal file: &quot;</span> &lt;&lt; line;</div>
-<div class="line"><span class="lineno"> 1060</span>  vector&lt;double&gt; qdcData{};</div>
-<div class="line"><span class="lineno"> 1061</span>  <span class="comment">// Read all other lines</span></div>
-<div class="line"><span class="lineno"> 1062</span>  <span class="keywordflow">while</span> (getline(X, line))</div>
-<div class="line"><span class="lineno"> 1063</span>  {    </div>
-<div class="line"><span class="lineno"> 1064</span>    qdcData.clear();</div>
-<div class="line"><span class="lineno"> 1065</span>    stringstream items(line);</div>
-<div class="line"><span class="lineno"> 1066</span>    <span class="keywordflow">while</span> (getline(items, element, <span class="charliteral">&#39;,&#39;</span>))</div>
-<div class="line"><span class="lineno"> 1067</span>    {</div>
-<div class="line"><span class="lineno"> 1068</span>      <span class="keywordflow">if</span>(iscntrl(element[0])) <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno"> 1069</span>      qdcData.push_back(stof(element));</div>
-<div class="line"><span class="lineno"> 1070</span>    }</div>
-<div class="line"><span class="lineno"> 1071</span>    <span class="keywordflow">if</span> (qdcData.size()&lt;10) <span class="keywordflow">continue</span>;</div>
-<div class="line"><span class="lineno"> 1072</span>    key_vector.clear();</div>
-<div class="line"><span class="lineno"> 1073</span>    key_vector = {<a class="code hl_variable" href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">int</a>(qdcData[0]), <a class="code hl_variable" href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">int</a>(qdcData[1]), <a class="code hl_variable" href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">int</a>(qdcData[2]), <a class="code hl_variable" href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">int</a>(qdcData[3])};</div>
-<div class="line"><span class="lineno"> 1074</span>    chi2_Ndof = (qdcData[9] &lt; 2) ? 999999. : qdcData[7]/qdcData[9]; </div>
-<div class="line"><span class="lineno"> 1075</span>    <a class="code hl_variable" href="classConvRawData.html#a882c47754b875b8eb590b0157a7645d9">X_qdc</a>[key_vector] = { {<span class="stringliteral">&quot;a&quot;</span>,qdcData[4]}, {<span class="stringliteral">&quot;b&quot;</span>,qdcData[5]}, {<span class="stringliteral">&quot;c&quot;</span>,qdcData[6]},</div>
-<div class="line"><span class="lineno"> 1076</span>                          {<span class="stringliteral">&quot;d&quot;</span>,qdcData[8]}, {<span class="stringliteral">&quot;e&quot;</span>,qdcData[10]}, {<span class="stringliteral">&quot;chi2Ndof&quot;</span>,chi2_Ndof} };</div>
-<div class="line"><span class="lineno"> 1077</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespacegeometry__config.html#a8aa4182e12a2746d01d4a85e5d322445">X</a>.peek() == EOF) <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno"> 1078</span>  }</div>
-<div class="line"><span class="lineno"> 1079</span>  <a class="code hl_variable" href="namespacegeometry__config.html#a8aa4182e12a2746d01d4a85e5d322445">X</a>.str(<span class="keywordtype">string</span>()); <a class="code hl_variable" href="namespacegeometry__config.html#a8aa4182e12a2746d01d4a85e5d322445">X</a>.clear(); line.clear();</div>
-<div class="line"><span class="lineno"> 1080</span>  size = 0; <a class="code hl_variable" href="namespacegeometry__config.html#a096864e8788dec1116bcc1ee523df8d1">offset</a> = 0; bytesRead = 0;</div>
-<div class="line"><span class="lineno"> 1081</span>  <span class="comment">// Get TDC calibration data</span></div>
-<div class="line"><span class="lineno"> 1082</span>  <span class="keywordflow">if</span> (local)</div>
-<div class="line"><span class="lineno"> 1083</span>  {</div>
-<div class="line"><span class="lineno"> 1084</span>   <a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#a55b42ec39831a769512a1059c42ee2d9">infile</a>.open(Form(<span class="stringliteral">&quot;%s/tdc_cal.csv&quot;</span>, Path.c_str()));</div>
-<div class="line"><span class="lineno"> 1085</span>   <a class="code hl_variable" href="namespacegeometry__config.html#a8aa4182e12a2746d01d4a85e5d322445">X</a> &lt;&lt; <a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#a55b42ec39831a769512a1059c42ee2d9">infile</a>.rdbuf();</div>
-<div class="line"><span class="lineno"> 1086</span>   <a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#a55b42ec39831a769512a1059c42ee2d9">infile</a>.close();</div>
-<div class="line"><span class="lineno"> 1087</span>  }</div>
-<div class="line"><span class="lineno"> 1088</span>  <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno"> 1089</span>  {</div>
-<div class="line"><span class="lineno"> 1090</span>    <a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#acc0e8c0a4e13c384547a75bbba32164c">status</a> = file.Open(Form(<span class="stringliteral">&quot;%s/tdc_cal.csv&quot;</span>, Path.c_str()), OpenFlags::Read);</div>
-<div class="line"><span class="lineno"> 1091</span>    <span class="keywordflow">if</span>( !<a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#acc0e8c0a4e13c384547a75bbba32164c">status</a>.IsOK() )</div>
-<div class="line"><span class="lineno"> 1092</span>    {</div>
-<div class="line"><span class="lineno"> 1093</span>      LOG (error) &lt;&lt; <span class="stringliteral">&quot;Error opening file&quot;</span>;</div>
-<div class="line"><span class="lineno"> 1094</span>      exit(0);</div>
-<div class="line"><span class="lineno"> 1095</span>    }</div>
-<div class="line"><span class="lineno"> 1096</span>    file.Stat(<span class="keyword">false</span>, info);</div>
-<div class="line"><span class="lineno"> 1097</span>    size = <a class="code hl_variable" href="namespacerunPythia8PP.html#ab88840b147fdc1a1b19d96be690b0b4b">info</a>-&gt;GetSize();</div>
-<div class="line"><span class="lineno"> 1098</span>    <span class="keywordtype">char</span> *buff = <span class="keyword">new</span> <span class="keywordtype">char</span>[size];</div>
-<div class="line"><span class="lineno"> 1099</span>    <a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#acc0e8c0a4e13c384547a75bbba32164c">status</a> = file.Read(offset, size, buff, bytesRead);</div>
-<div class="line"><span class="lineno"> 1100</span>    <a class="code hl_variable" href="namespacegeometry__config.html#a8aa4182e12a2746d01d4a85e5d322445">X</a> &lt;&lt; buff;</div>
-<div class="line"><span class="lineno"> 1101</span>    <a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#acc0e8c0a4e13c384547a75bbba32164c">status</a> = file.Close();</div>
-<div class="line"><span class="lineno"> 1102</span>    <span class="keyword">delete</span> <a class="code hl_variable" href="namespacerunPythia8PP.html#ab88840b147fdc1a1b19d96be690b0b4b">info</a>;</div>
-<div class="line"><span class="lineno"> 1103</span>    <span class="keyword">delete</span> [] buff;</div>
-<div class="line"><span class="lineno"> 1104</span>  }</div>
-<div class="line"><span class="lineno"> 1105</span>  <span class="comment">// Skip 1st line</span></div>
-<div class="line"><span class="lineno"> 1106</span>  getline(X, line);</div>
-<div class="line"><span class="lineno"> 1107</span>  LOG (info) &lt;&lt; <span class="stringliteral">&quot;In TDC cal file: &quot;</span> &lt;&lt; line;</div>
-<div class="line"><span class="lineno"> 1108</span>  vector&lt;double&gt; tdcData{};</div>
-<div class="line"><span class="lineno"> 1109</span>  <span class="comment">// Read all other lines</span></div>
-<div class="line"><span class="lineno"> 1110</span>  <span class="keywordflow">while</span> (getline(X, line))</div>
-<div class="line"><span class="lineno"> 1111</span>  {</div>
-<div class="line"><span class="lineno"> 1112</span>    tdcData.clear();</div>
-<div class="line"><span class="lineno"> 1113</span>    stringstream items(line);</div>
-<div class="line"><span class="lineno"> 1114</span>    <span class="keywordflow">if</span> (line.length()&lt;5){<span class="keywordflow">continue</span>;}</div>
-<div class="line"><span class="lineno"> 1115</span>    <span class="keywordflow">while</span> (getline(items, element, <span class="charliteral">&#39;,&#39;</span>))</div>
-<div class="line"><span class="lineno"> 1116</span>    {</div>
-<div class="line"><span class="lineno"> 1117</span>      <span class="keywordflow">if</span>(iscntrl(element[0])) <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno"> 1118</span>      tdcData.push_back(stof(element));</div>
-<div class="line"><span class="lineno"> 1119</span>    }</div>
-<div class="line"><span class="lineno"> 1120</span>    <span class="keywordflow">if</span> (tdcData.size()&lt;9) <span class="keywordflow">continue</span>;</div>
-<div class="line"><span class="lineno"> 1121</span>    key_vector.clear();</div>
-<div class="line"><span class="lineno"> 1122</span>    key_vector = {<a class="code hl_variable" href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">int</a>(tdcData[0]), <a class="code hl_variable" href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">int</a>(tdcData[1]), <a class="code hl_variable" href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">int</a>(tdcData[2]), <a class="code hl_variable" href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">int</a>(tdcData[3]), <a class="code hl_variable" href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">int</a>(tdcData[4])};</div>
-<div class="line"><span class="lineno"> 1123</span>    chi2_Ndof = (tdcData[10] &lt; 2) ? 999999. : tdcData[8]/tdcData[10]; </div>
-<div class="line"><span class="lineno"> 1124</span>    <a class="code hl_variable" href="classConvRawData.html#acd1484264b81a585fe9c52300dee7761">X_tdc</a>[key_vector] = { {<span class="stringliteral">&quot;a&quot;</span>,tdcData[5]}, {<span class="stringliteral">&quot;b&quot;</span>,tdcData[6]}, {<span class="stringliteral">&quot;c&quot;</span>,tdcData[7]},</div>
-<div class="line"><span class="lineno"> 1125</span>                          {<span class="stringliteral">&quot;d&quot;</span>,tdcData[9]}, {<span class="stringliteral">&quot;chi2Ndof&quot;</span>,chi2_Ndof} };</div>
-<div class="line"><span class="lineno"> 1126</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespacegeometry__config.html#a8aa4182e12a2746d01d4a85e5d322445">X</a>.peek() == EOF) <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno"> 1127</span>  }</div>
-<div class="line"><span class="lineno"> 1128</span>  <a class="code hl_variable" href="namespacegeometry__config.html#a8aa4182e12a2746d01d4a85e5d322445">X</a>.str(<span class="keywordtype">string</span>()); <a class="code hl_variable" href="namespacegeometry__config.html#a8aa4182e12a2746d01d4a85e5d322445">X</a>.clear(); line.clear();</div>
-<div class="line"><span class="lineno"> 1129</span>  size = 0; <a class="code hl_variable" href="namespacegeometry__config.html#a096864e8788dec1116bcc1ee523df8d1">offset</a> = 0; bytesRead = 0;</div>
-<div class="line"><span class="lineno"> 1130</span>}</div>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8cxx_source.html#l00968">968</a> of file <a class="el" href="ConvRawData_8cxx_source.html">ConvRawData.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  969</span>{</div>
+<div class="line"><span class="lineno">  970</span>  ifstream infile; <span class="comment">// ifstream is the stream class to only read! from files.</span></div>
+<div class="line"><span class="lineno">  971</span>  stringstream X;</div>
+<div class="line"><span class="lineno">  972</span>  <span class="comment">// reading file with xrootd protocol</span></div>
+<div class="line"><span class="lineno">  973</span>  File file;</div>
+<div class="line"><span class="lineno">  974</span>  XRootDStatus status;</div>
+<div class="line"><span class="lineno">  975</span>  StatInfo *info;</div>
+<div class="line"><span class="lineno">  976</span>  uint64_t offset = 0;</div>
+<div class="line"><span class="lineno">  977</span>  uint32_t size;</div>
+<div class="line"><span class="lineno">  978</span>  uint32_t bytesRead = 0;</div>
+<div class="line"><span class="lineno">  979</span>  <span class="keywordtype">string</span> line, element;</div>
+<div class="line"><span class="lineno">  980</span>  <span class="keywordtype">double</span> chi2_Ndof{};</div>
+<div class="line"><span class="lineno">  981</span>  <span class="comment">// counter of number of elements</span></div>
+<div class="line"><span class="lineno">  982</span>  vector&lt;int&gt; key_vector{};</div>
+<div class="line"><span class="lineno">  983</span>  </div>
+<div class="line"><span class="lineno">  984</span>  <span class="comment">// Always read the SiPM mapping</span></div>
+<div class="line"><span class="lineno">  985</span>  <span class="keywordtype">int</span> SiPM{};</div>
+<div class="line"><span class="lineno">  986</span>  vector&lt;int&gt; data_vector{};</div>
+<div class="line"><span class="lineno">  987</span>  map&lt;string, map&lt;int, vector&lt;int&gt;&gt; &gt; <a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#ad8be45e4f0c277630d74752f4fff55be">SiPMmap</a>{};</div>
+<div class="line"><span class="lineno">  988</span>  vector&lt;int&gt; <a class="code hl_variable" href="namespacegeometry__config.html#aa74ea5bdeb340e64bfd3e6e88573a590">row</a>{};</div>
+<div class="line"><span class="lineno">  989</span>  map&lt;string, int&gt; <a class="code hl_variable" href="namespaceextractNeutrinosAndUpdateWeight.html#a47804d77c17d9de386802c99c350d7a8">key</a> { {<span class="stringliteral">&quot;BM&quot;</span>,3}, {<span class="stringliteral">&quot;DS&quot;</span>,2}, {<span class="stringliteral">&quot;US&quot;</span>,1}, {<span class="stringliteral">&quot;Veto&quot;</span>,0} };</div>
+<div class="line"><span class="lineno">  990</span>  <span class="keyword">struct </span>stat buffer;</div>
+<div class="line"><span class="lineno">  991</span>  TString sndRoot = gSystem-&gt;Getenv(<span class="stringliteral">&quot;SNDSW_ROOT&quot;</span>);</div>
+<div class="line"><span class="lineno">  992</span>  <span class="keywordtype">string</span> sndswPath = sndRoot.Data();</div>
+<div class="line"><span class="lineno">  993</span>  <span class="keywordtype">string</span> path_SiPMmap = Form(<span class="stringliteral">&quot;%s/geometry&quot;</span>, sndswPath.c_str());</div>
+<div class="line"><span class="lineno">  994</span>  <span class="keywordflow">if</span> (stat(path_SiPMmap.c_str(), &amp;buffer) != 0)</div>
+<div class="line"><span class="lineno">  995</span>  {</div>
+<div class="line"><span class="lineno">  996</span>    LOG (error) &lt;&lt; <span class="stringliteral">&quot;Path &quot;</span>&lt;&lt; path_SiPMmap.c_str() &lt;&lt; <span class="stringliteral">&quot; does not exist!&quot;</span>;</div>
+<div class="line"><span class="lineno">  997</span>    exit (0); </div>
+<div class="line"><span class="lineno">  998</span>  }</div>
+<div class="line"><span class="lineno">  999</span>  <span class="keywordflow">for</span> (<span class="keyword">auto</span> sys : <a class="code hl_variable" href="namespaceextractNeutrinosAndUpdateWeight.html#a47804d77c17d9de386802c99c350d7a8">key</a>)</div>
+<div class="line"><span class="lineno"> 1000</span>  {</div>
+<div class="line"><span class="lineno"> 1001</span>    <a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#a55b42ec39831a769512a1059c42ee2d9">infile</a>.open(Form(<span class="stringliteral">&quot;%s/%s_SiPM_mapping.csv&quot;</span>, path_SiPMmap.c_str(), sys.first.c_str()));</div>
+<div class="line"><span class="lineno"> 1002</span>    <a class="code hl_variable" href="namespacegeometry__config.html#a8aa4182e12a2746d01d4a85e5d322445">X</a> &lt;&lt; <a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#a55b42ec39831a769512a1059c42ee2d9">infile</a>.rdbuf();</div>
+<div class="line"><span class="lineno"> 1003</span>    <a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#a55b42ec39831a769512a1059c42ee2d9">infile</a>.close();</div>
+<div class="line"><span class="lineno"> 1004</span>          </div>
+<div class="line"><span class="lineno"> 1005</span>    <span class="comment">// Skip 1st line</span></div>
+<div class="line"><span class="lineno"> 1006</span>    getline(X,line);</div>
+<div class="line"><span class="lineno"> 1007</span>    LOG (info) &lt;&lt; <span class="stringliteral">&quot;In &quot;</span> &lt;&lt; sys.first &lt;&lt; <span class="stringliteral">&quot; SiPM map file: &quot;</span> &lt;&lt; line;</div>
+<div class="line"><span class="lineno"> 1008</span>    <span class="comment">// Read all other lines</span></div>
+<div class="line"><span class="lineno"> 1009</span>    <span class="keywordflow">while</span> (getline(X,line))</div>
+<div class="line"><span class="lineno"> 1010</span>    {</div>
+<div class="line"><span class="lineno"> 1011</span>        data_vector.clear();</div>
+<div class="line"><span class="lineno"> 1012</span>        stringstream items(line);</div>
+<div class="line"><span class="lineno"> 1013</span>        <span class="comment">// first element in line is SiPM</span></div>
+<div class="line"><span class="lineno"> 1014</span>        getline(items, element, <span class="charliteral">&#39;,&#39;</span>);</div>
+<div class="line"><span class="lineno"> 1015</span>        SiPM = stoi(element);</div>
+<div class="line"><span class="lineno"> 1016</span>        <span class="comment">// only taking first few elements of line</span></div>
+<div class="line"><span class="lineno"> 1017</span>        <span class="keywordflow">while</span> (data_vector.size()&lt;4 &amp;&amp; getline(items, element, <span class="charliteral">&#39;,&#39;</span>)) </div>
+<div class="line"><span class="lineno"> 1018</span>        {</div>
+<div class="line"><span class="lineno"> 1019</span>           data_vector.push_back(stoi(element));</div>
+<div class="line"><span class="lineno"> 1020</span>        }</div>
+<div class="line"><span class="lineno"> 1021</span>        <a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#ad8be45e4f0c277630d74752f4fff55be">SiPMmap</a>[sys.first][SiPM] = data_vector;</div>
+<div class="line"><span class="lineno"> 1022</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespacegeometry__config.html#a8aa4182e12a2746d01d4a85e5d322445">X</a>.peek() == EOF) <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno"> 1023</span>    }</div>
+<div class="line"><span class="lineno"> 1024</span>    <a class="code hl_variable" href="namespacegeometry__config.html#a8aa4182e12a2746d01d4a85e5d322445">X</a>.str(<span class="keywordtype">string</span>()); <a class="code hl_variable" href="namespacegeometry__config.html#a8aa4182e12a2746d01d4a85e5d322445">X</a>.clear(); line.clear();</div>
+<div class="line"><span class="lineno"> 1025</span>    size = 0; <a class="code hl_variable" href="namespacegeometry__config.html#a096864e8788dec1116bcc1ee523df8d1">offset</a> = 0; bytesRead = 0;</div>
+<div class="line"><span class="lineno"> 1026</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> channel : <a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#ad8be45e4f0c277630d74752f4fff55be">SiPMmap</a>[sys.<a class="code hl_variable" href="namespacescifiSimAna.html#a81078f4ac1fa779a85931ce7a77b3cc9">first</a>])</div>
+<div class="line"><span class="lineno"> 1027</span>    {</div>
+<div class="line"><span class="lineno"> 1028</span>      <a class="code hl_variable" href="namespacegeometry__config.html#aa74ea5bdeb340e64bfd3e6e88573a590">row</a> = <a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#a418eb48b7e1bdd81bf222d0f3238896e">channel</a>.second;</div>
+<div class="line"><span class="lineno"> 1029</span>      <a class="code hl_variable" href="classConvRawData.html#ae3b7269f6b27b5d560dc8f47d41a4854">TofpetMap</a>[sys.second][<a class="code hl_variable" href="namespacegeometry__config.html#aa74ea5bdeb340e64bfd3e6e88573a590">row</a>.at(2)*1000+<a class="code hl_variable" href="namespacegeometry__config.html#aa74ea5bdeb340e64bfd3e6e88573a590">row</a>.at(3)] = <a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#a418eb48b7e1bdd81bf222d0f3238896e">channel</a>.first;</div>
+<div class="line"><span class="lineno"> 1030</span>    }</div>
+<div class="line"><span class="lineno"> 1031</span>  } <span class="comment">// end filling SiPMmap and TofpetMap</span></div>
+<div class="line"><span class="lineno"> 1032</span> </div>
+<div class="line"><span class="lineno"> 1033</span>  <span class="comment">// Get QDC/TDC calibration data if flag is set</span></div>
+<div class="line"><span class="lineno"> 1034</span>  <span class="keywordflow">if</span> (!makeCalibration) <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno"> 1035</span> </div>
+<div class="line"><span class="lineno"> 1036</span>  <span class="comment">// Get QDC calibration data</span></div>
+<div class="line"><span class="lineno"> 1037</span>  <span class="keywordflow">if</span> (local)</div>
+<div class="line"><span class="lineno"> 1038</span>  {</div>
+<div class="line"><span class="lineno"> 1039</span>   <a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#a55b42ec39831a769512a1059c42ee2d9">infile</a>.open(Form(<span class="stringliteral">&quot;%s/qdc_cal.csv&quot;</span>, Path.c_str()));</div>
+<div class="line"><span class="lineno"> 1040</span>   <a class="code hl_variable" href="namespacegeometry__config.html#a8aa4182e12a2746d01d4a85e5d322445">X</a> &lt;&lt; <a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#a55b42ec39831a769512a1059c42ee2d9">infile</a>.rdbuf();</div>
+<div class="line"><span class="lineno"> 1041</span>   <a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#a55b42ec39831a769512a1059c42ee2d9">infile</a>.close();</div>
+<div class="line"><span class="lineno"> 1042</span>  }</div>
+<div class="line"><span class="lineno"> 1043</span>  <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno"> 1044</span>  {</div>
+<div class="line"><span class="lineno"> 1045</span>    <a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#acc0e8c0a4e13c384547a75bbba32164c">status</a> = file.Open(Form(<span class="stringliteral">&quot;%s/qdc_cal.csv&quot;</span>, Path.c_str()), OpenFlags::Read);</div>
+<div class="line"><span class="lineno"> 1046</span>    <span class="keywordflow">if</span>( !<a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#acc0e8c0a4e13c384547a75bbba32164c">status</a>.IsOK() )</div>
+<div class="line"><span class="lineno"> 1047</span>    {</div>
+<div class="line"><span class="lineno"> 1048</span>      LOG (error) &lt;&lt; <span class="stringliteral">&quot;Error opening file&quot;</span>;</div>
+<div class="line"><span class="lineno"> 1049</span>      exit(0);</div>
+<div class="line"><span class="lineno"> 1050</span>    }</div>
+<div class="line"><span class="lineno"> 1051</span>    file.Stat(<span class="keyword">false</span>, info);</div>
+<div class="line"><span class="lineno"> 1052</span>    size = <a class="code hl_variable" href="namespacerunPythia8PP.html#ab88840b147fdc1a1b19d96be690b0b4b">info</a>-&gt;GetSize();</div>
+<div class="line"><span class="lineno"> 1053</span>    <span class="keywordtype">char</span> *buff = <span class="keyword">new</span> <span class="keywordtype">char</span>[size];</div>
+<div class="line"><span class="lineno"> 1054</span>    <a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#acc0e8c0a4e13c384547a75bbba32164c">status</a> = file.Read(offset, size, buff, bytesRead);</div>
+<div class="line"><span class="lineno"> 1055</span>    <a class="code hl_variable" href="namespacegeometry__config.html#a8aa4182e12a2746d01d4a85e5d322445">X</a> &lt;&lt; buff;</div>
+<div class="line"><span class="lineno"> 1056</span>    <a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#acc0e8c0a4e13c384547a75bbba32164c">status</a> = file.Close();</div>
+<div class="line"><span class="lineno"> 1057</span>    <span class="keyword">delete</span> <a class="code hl_variable" href="namespacerunPythia8PP.html#ab88840b147fdc1a1b19d96be690b0b4b">info</a>;</div>
+<div class="line"><span class="lineno"> 1058</span>    <span class="keyword">delete</span> [] buff;  </div>
+<div class="line"><span class="lineno"> 1059</span>  }</div>
+<div class="line"><span class="lineno"> 1060</span>  LOG (info) &lt;&lt; <span class="stringliteral">&quot;Read_csv &quot;</span>&lt;&lt;Path.c_str();</div>
+<div class="line"><span class="lineno"> 1061</span>  <span class="comment">// Skip 1st line</span></div>
+<div class="line"><span class="lineno"> 1062</span>  getline(X, line);</div>
+<div class="line"><span class="lineno"> 1063</span>  LOG (info) &lt;&lt; <span class="stringliteral">&quot;In QDC cal file: &quot;</span> &lt;&lt; line;</div>
+<div class="line"><span class="lineno"> 1064</span>  vector&lt;double&gt; qdcData{};</div>
+<div class="line"><span class="lineno"> 1065</span>  <span class="comment">// Read all other lines</span></div>
+<div class="line"><span class="lineno"> 1066</span>  <span class="keywordflow">while</span> (getline(X, line))</div>
+<div class="line"><span class="lineno"> 1067</span>  {    </div>
+<div class="line"><span class="lineno"> 1068</span>    qdcData.clear();</div>
+<div class="line"><span class="lineno"> 1069</span>    stringstream items(line);</div>
+<div class="line"><span class="lineno"> 1070</span>    <span class="keywordflow">while</span> (getline(items, element, <span class="charliteral">&#39;,&#39;</span>))</div>
+<div class="line"><span class="lineno"> 1071</span>    {</div>
+<div class="line"><span class="lineno"> 1072</span>      <span class="keywordflow">if</span>(iscntrl(element[0])) <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno"> 1073</span>      qdcData.push_back(stof(element));</div>
+<div class="line"><span class="lineno"> 1074</span>    }</div>
+<div class="line"><span class="lineno"> 1075</span>    <span class="keywordflow">if</span> (qdcData.size()&lt;10) <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno"> 1076</span>    key_vector.clear();</div>
+<div class="line"><span class="lineno"> 1077</span>    key_vector = {<a class="code hl_variable" href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">int</a>(qdcData[0]), <a class="code hl_variable" href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">int</a>(qdcData[1]), <a class="code hl_variable" href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">int</a>(qdcData[2]), <a class="code hl_variable" href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">int</a>(qdcData[3])};</div>
+<div class="line"><span class="lineno"> 1078</span>    chi2_Ndof = (qdcData[9] &lt; 2) ? 999999. : qdcData[7]/qdcData[9]; </div>
+<div class="line"><span class="lineno"> 1079</span>    <a class="code hl_variable" href="classConvRawData.html#a882c47754b875b8eb590b0157a7645d9">X_qdc</a>[key_vector] = { {<span class="stringliteral">&quot;a&quot;</span>,qdcData[4]}, {<span class="stringliteral">&quot;b&quot;</span>,qdcData[5]}, {<span class="stringliteral">&quot;c&quot;</span>,qdcData[6]},</div>
+<div class="line"><span class="lineno"> 1080</span>                          {<span class="stringliteral">&quot;d&quot;</span>,qdcData[8]}, {<span class="stringliteral">&quot;e&quot;</span>,qdcData[10]}, {<span class="stringliteral">&quot;chi2Ndof&quot;</span>,chi2_Ndof} };</div>
+<div class="line"><span class="lineno"> 1081</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespacegeometry__config.html#a8aa4182e12a2746d01d4a85e5d322445">X</a>.peek() == EOF) <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno"> 1082</span>  }</div>
+<div class="line"><span class="lineno"> 1083</span>  <a class="code hl_variable" href="namespacegeometry__config.html#a8aa4182e12a2746d01d4a85e5d322445">X</a>.str(<span class="keywordtype">string</span>()); <a class="code hl_variable" href="namespacegeometry__config.html#a8aa4182e12a2746d01d4a85e5d322445">X</a>.clear(); line.clear();</div>
+<div class="line"><span class="lineno"> 1084</span>  size = 0; <a class="code hl_variable" href="namespacegeometry__config.html#a096864e8788dec1116bcc1ee523df8d1">offset</a> = 0; bytesRead = 0;</div>
+<div class="line"><span class="lineno"> 1085</span>  <span class="comment">// Get TDC calibration data</span></div>
+<div class="line"><span class="lineno"> 1086</span>  <span class="keywordflow">if</span> (local)</div>
+<div class="line"><span class="lineno"> 1087</span>  {</div>
+<div class="line"><span class="lineno"> 1088</span>   <a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#a55b42ec39831a769512a1059c42ee2d9">infile</a>.open(Form(<span class="stringliteral">&quot;%s/tdc_cal.csv&quot;</span>, Path.c_str()));</div>
+<div class="line"><span class="lineno"> 1089</span>   <a class="code hl_variable" href="namespacegeometry__config.html#a8aa4182e12a2746d01d4a85e5d322445">X</a> &lt;&lt; <a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#a55b42ec39831a769512a1059c42ee2d9">infile</a>.rdbuf();</div>
+<div class="line"><span class="lineno"> 1090</span>   <a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#a55b42ec39831a769512a1059c42ee2d9">infile</a>.close();</div>
+<div class="line"><span class="lineno"> 1091</span>  }</div>
+<div class="line"><span class="lineno"> 1092</span>  <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno"> 1093</span>  {</div>
+<div class="line"><span class="lineno"> 1094</span>    <a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#acc0e8c0a4e13c384547a75bbba32164c">status</a> = file.Open(Form(<span class="stringliteral">&quot;%s/tdc_cal.csv&quot;</span>, Path.c_str()), OpenFlags::Read);</div>
+<div class="line"><span class="lineno"> 1095</span>    <span class="keywordflow">if</span>( !<a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#acc0e8c0a4e13c384547a75bbba32164c">status</a>.IsOK() )</div>
+<div class="line"><span class="lineno"> 1096</span>    {</div>
+<div class="line"><span class="lineno"> 1097</span>      LOG (error) &lt;&lt; <span class="stringliteral">&quot;Error opening file&quot;</span>;</div>
+<div class="line"><span class="lineno"> 1098</span>      exit(0);</div>
+<div class="line"><span class="lineno"> 1099</span>    }</div>
+<div class="line"><span class="lineno"> 1100</span>    file.Stat(<span class="keyword">false</span>, info);</div>
+<div class="line"><span class="lineno"> 1101</span>    size = <a class="code hl_variable" href="namespacerunPythia8PP.html#ab88840b147fdc1a1b19d96be690b0b4b">info</a>-&gt;GetSize();</div>
+<div class="line"><span class="lineno"> 1102</span>    <span class="keywordtype">char</span> *buff = <span class="keyword">new</span> <span class="keywordtype">char</span>[size];</div>
+<div class="line"><span class="lineno"> 1103</span>    <a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#acc0e8c0a4e13c384547a75bbba32164c">status</a> = file.Read(offset, size, buff, bytesRead);</div>
+<div class="line"><span class="lineno"> 1104</span>    <a class="code hl_variable" href="namespacegeometry__config.html#a8aa4182e12a2746d01d4a85e5d322445">X</a> &lt;&lt; buff;</div>
+<div class="line"><span class="lineno"> 1105</span>    <a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#acc0e8c0a4e13c384547a75bbba32164c">status</a> = file.Close();</div>
+<div class="line"><span class="lineno"> 1106</span>    <span class="keyword">delete</span> <a class="code hl_variable" href="namespacerunPythia8PP.html#ab88840b147fdc1a1b19d96be690b0b4b">info</a>;</div>
+<div class="line"><span class="lineno"> 1107</span>    <span class="keyword">delete</span> [] buff;</div>
+<div class="line"><span class="lineno"> 1108</span>  }</div>
+<div class="line"><span class="lineno"> 1109</span>  <span class="comment">// Skip 1st line</span></div>
+<div class="line"><span class="lineno"> 1110</span>  getline(X, line);</div>
+<div class="line"><span class="lineno"> 1111</span>  LOG (info) &lt;&lt; <span class="stringliteral">&quot;In TDC cal file: &quot;</span> &lt;&lt; line;</div>
+<div class="line"><span class="lineno"> 1112</span>  vector&lt;double&gt; tdcData{};</div>
+<div class="line"><span class="lineno"> 1113</span>  <span class="comment">// Read all other lines</span></div>
+<div class="line"><span class="lineno"> 1114</span>  <span class="keywordflow">while</span> (getline(X, line))</div>
+<div class="line"><span class="lineno"> 1115</span>  {</div>
+<div class="line"><span class="lineno"> 1116</span>    tdcData.clear();</div>
+<div class="line"><span class="lineno"> 1117</span>    stringstream items(line);</div>
+<div class="line"><span class="lineno"> 1118</span>    <span class="keywordflow">if</span> (line.length()&lt;5){<span class="keywordflow">continue</span>;}</div>
+<div class="line"><span class="lineno"> 1119</span>    <span class="keywordflow">while</span> (getline(items, element, <span class="charliteral">&#39;,&#39;</span>))</div>
+<div class="line"><span class="lineno"> 1120</span>    {</div>
+<div class="line"><span class="lineno"> 1121</span>      <span class="keywordflow">if</span>(iscntrl(element[0])) <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno"> 1122</span>      tdcData.push_back(stof(element));</div>
+<div class="line"><span class="lineno"> 1123</span>    }</div>
+<div class="line"><span class="lineno"> 1124</span>    <span class="keywordflow">if</span> (tdcData.size()&lt;9) <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno"> 1125</span>    key_vector.clear();</div>
+<div class="line"><span class="lineno"> 1126</span>    key_vector = {<a class="code hl_variable" href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">int</a>(tdcData[0]), <a class="code hl_variable" href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">int</a>(tdcData[1]), <a class="code hl_variable" href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">int</a>(tdcData[2]), <a class="code hl_variable" href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">int</a>(tdcData[3]), <a class="code hl_variable" href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">int</a>(tdcData[4])};</div>
+<div class="line"><span class="lineno"> 1127</span>    chi2_Ndof = (tdcData[10] &lt; 2) ? 999999. : tdcData[8]/tdcData[10]; </div>
+<div class="line"><span class="lineno"> 1128</span>    <a class="code hl_variable" href="classConvRawData.html#acd1484264b81a585fe9c52300dee7761">X_tdc</a>[key_vector] = { {<span class="stringliteral">&quot;a&quot;</span>,tdcData[5]}, {<span class="stringliteral">&quot;b&quot;</span>,tdcData[6]}, {<span class="stringliteral">&quot;c&quot;</span>,tdcData[7]},</div>
+<div class="line"><span class="lineno"> 1129</span>                          {<span class="stringliteral">&quot;d&quot;</span>,tdcData[9]}, {<span class="stringliteral">&quot;chi2Ndof&quot;</span>,chi2_Ndof} };</div>
+<div class="line"><span class="lineno"> 1130</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespacegeometry__config.html#a8aa4182e12a2746d01d4a85e5d322445">X</a>.peek() == EOF) <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno"> 1131</span>  }</div>
+<div class="line"><span class="lineno"> 1132</span>  <a class="code hl_variable" href="namespacegeometry__config.html#a8aa4182e12a2746d01d4a85e5d322445">X</a>.str(<span class="keywordtype">string</span>()); <a class="code hl_variable" href="namespacegeometry__config.html#a8aa4182e12a2746d01d4a85e5d322445">X</a>.clear(); line.clear();</div>
+<div class="line"><span class="lineno"> 1133</span>  size = 0; <a class="code hl_variable" href="namespacegeometry__config.html#a096864e8788dec1116bcc1ee523df8d1">offset</a> = 0; bytesRead = 0;</div>
+<div class="line"><span class="lineno"> 1134</span>}</div>
 <div class="ttc" id="anamespaceconvertRawData__muTestbeam_html_a418eb48b7e1bdd81bf222d0f3238896e"><div class="ttname"><a href="namespaceconvertRawData__muTestbeam.html#a418eb48b7e1bdd81bf222d0f3238896e">convertRawData_muTestbeam.channel</a></div><div class="ttdeci">channel</div><div class="ttdef"><b>Definition</b> <a href="convertRawData__muTestbeam_8py_source.html#l00098">convertRawData_muTestbeam.py:98</a></div></div>
 <div class="ttc" id="anamespaceconvertRawData__muTestbeam_html_a55b42ec39831a769512a1059c42ee2d9"><div class="ttname"><a href="namespaceconvertRawData__muTestbeam.html#a55b42ec39831a769512a1059c42ee2d9">convertRawData_muTestbeam.infile</a></div><div class="ttdeci">str infile</div><div class="ttdef"><b>Definition</b> <a href="convertRawData__muTestbeam_8py_source.html#l00066">convertRawData_muTestbeam.py:66</a></div></div>
 <div class="ttc" id="anamespaceconvertRawData__muTestbeam_html_ad8be45e4f0c277630d74752f4fff55be"><div class="ttname"><a href="namespaceconvertRawData__muTestbeam.html#ad8be45e4f0c277630d74752f4fff55be">convertRawData_muTestbeam.SiPMmap</a></div><div class="ttdeci">dict SiPMmap</div><div class="ttdef"><b>Definition</b> <a href="convertRawData__muTestbeam_8py_source.html#l00063">convertRawData_muTestbeam.py:63</a></div></div>
@@ -2193,15 +2197,15 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8cxx_source.html#l00907">907</a> of file <a class="el" href="ConvRawData_8cxx_source.html">ConvRawData.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  909</span>{</div>
-<div class="line"><span class="lineno">  910</span>    map&lt;string, double&gt; parT = X_tdc[{board_id,tofpet_id,channel,tac, TDC}];</div>
-<div class="line"><span class="lineno">  911</span>    <span class="keywordtype">double</span> x = t_fine;</div>
-<div class="line"><span class="lineno">  912</span>    <span class="keywordtype">double</span> ftdc = (-parT[<span class="stringliteral">&quot;b&quot;</span>]-sqrt(pow(parT[<span class="stringliteral">&quot;b&quot;</span>],2)</div>
-<div class="line"><span class="lineno">  913</span>                  -4*parT[<span class="stringliteral">&quot;a&quot;</span>]*(parT[<span class="stringliteral">&quot;c&quot;</span>]-x)))/(2*parT[<span class="stringliteral">&quot;a&quot;</span>]);</div>
-<div class="line"><span class="lineno">  914</span>    <span class="keywordtype">double</span> timestamp = t_coarse+ftdc;</div>
-<div class="line"><span class="lineno">  915</span>    <span class="keywordflow">return</span> timestamp;</div>
-<div class="line"><span class="lineno">  916</span>}</div>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8cxx_source.html#l00911">911</a> of file <a class="el" href="ConvRawData_8cxx_source.html">ConvRawData.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  913</span>{</div>
+<div class="line"><span class="lineno">  914</span>    map&lt;string, double&gt; parT = X_tdc[{board_id,tofpet_id,channel,tac, TDC}];</div>
+<div class="line"><span class="lineno">  915</span>    <span class="keywordtype">double</span> x = t_fine;</div>
+<div class="line"><span class="lineno">  916</span>    <span class="keywordtype">double</span> ftdc = (-parT[<span class="stringliteral">&quot;b&quot;</span>]-sqrt(pow(parT[<span class="stringliteral">&quot;b&quot;</span>],2)</div>
+<div class="line"><span class="lineno">  917</span>                  -4*parT[<span class="stringliteral">&quot;a&quot;</span>]*(parT[<span class="stringliteral">&quot;c&quot;</span>]-x)))/(2*parT[<span class="stringliteral">&quot;a&quot;</span>]);</div>
+<div class="line"><span class="lineno">  918</span>    <span class="keywordtype">double</span> timestamp = t_coarse+ftdc;</div>
+<div class="line"><span class="lineno">  919</span>    <span class="keywordflow">return</span> timestamp;</div>
+<div class="line"><span class="lineno">  920</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
