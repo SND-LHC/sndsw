@@ -106,7 +106,7 @@ namespace ShipUnit
     //
     // Energy [E]
     //
-    static const Double_t megaelectronvolt = 1. ;
+    static const Double_t megaelectronvolt = 1./1000.; // used identical value to shipunit.py
     static const Double_t     electronvolt = 1.e-6*megaelectronvolt;
     static const Double_t kiloelectronvolt = 1.e-3*megaelectronvolt;
     static const Double_t gigaelectronvolt = 1.e+3*megaelectronvolt;
