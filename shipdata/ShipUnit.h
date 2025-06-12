@@ -329,7 +329,7 @@ namespace ShipUnit
     
     // specific SNDLHC constants
     static const Double_t snd_freq = 160.316*megahertz; // sndlhc clock
-    static const Double_t snd_TDC2ns = (1E9/snd_freq)*ns;
+    static const Double_t snd_TDC2ns = 1./snd_freq;
     };
     
 #endif /* defined(____ShipUnit__) */
