@@ -228,7 +228,10 @@ void snd::ScifiPlane::FindCentroid()
     int counts_x = std::count_if(cleaned_hits.begin(), cleaned_hits.end(), [](auto &hit)
                     { return hit.is_x; });
     int counts_y = cleaned_hits.size()-counts_x;
-    if (counts_x < configuration_.scifi_min_n_hits_for_centroid && counts_y < configuration_.scifi_min_n_hits_for_centroid ) return;
+    if (counts_x < configuration_.scifi_min_n_hits_for_centroid && counts_y < configuration_.scifi_min_n_hits_for_centroid ) {
+        centroid_.SetXYZ(std::nan(""), std::nan(""), std::nan(""));
+        return;
+    }
 
     for (auto &hit : cleaned_hits)
     {
