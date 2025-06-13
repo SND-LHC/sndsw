@@ -9,7 +9,7 @@
 #include "sndConfiguration.h"
 
 namespace snd {
-    class UsPlane
+    class USPlane
     {
     public:
     // small and large SiPMs
@@ -29,7 +29,7 @@ namespace snd {
     };
 
     // hits vector, each hit has info about timestamp, qdc and position
-    struct UsHit
+    struct USHit
     {
         int channel_index;
         int bar;
@@ -44,7 +44,7 @@ namespace snd {
         bool is_right;
     };
 
-    UsPlane(TClonesArray *snd_hits, Configuration configuration, MuFilter *muon_filter_geometry, int index_begin, int index_end, int station);
+    USPlane(TClonesArray *snd_hits, Configuration configuration, MuFilter *muon_filter_geometry, int index_begin, int index_end, int station);
 
     const sl_pair<int> GetNHits() const;
     const int GetStation() const { return station_; };
@@ -54,7 +54,7 @@ namespace snd {
     const rl_pair<double> GetSideQdc() const;
     const rl_pair<double> GetBarQdc(int bar_to_compute) const;
     const sl_pair<int> GetBarNHits(int bar_to_compute) const;
-    const std::vector<UsHit> GetHits() const { return hits_; };
+    const std::vector<USHit> GetHits() const { return hits_; };
     // The centroid is the qdc-weighted mean of hit positions, considering only hits with positive qdc
     void FindCentroid();
     const TVector3 GetCentroid() const { return centroid_; };
@@ -63,7 +63,7 @@ namespace snd {
     void TimeFilter(double min_timestamp, double max_timestamp);
 
     private:
-    std::vector<UsHit> hits_;
+    std::vector<USHit> hits_;
     Configuration configuration_;
     TVector3 centroid_;
     TVector3 centroid_error_;

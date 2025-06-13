@@ -8,12 +8,12 @@
 #include "MuFilter.h"
 #include "sndConfiguration.h"
 #include "sndScifiPlane.h"
-#include "sndUsPlane.h"
+#include "sndUSPlane.h"
 
 namespace snd {
     // Produce scifi and us planes from data 
     std::vector<ScifiPlane> FillScifi(const Configuration &configuration, TClonesArray *sf_hits, Scifi *scifi_geometry);
-    std::vector<UsPlane> FillUs(const Configuration &configuration, TClonesArray *mufi_hits, MuFilter *mufilter_geometry);
+    std::vector<USPlane> FillUS(const Configuration &configuration, TClonesArray *mufi_hits, MuFilter *mufilter_geometry);
 }
 
 #endif

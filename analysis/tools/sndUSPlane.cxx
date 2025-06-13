@@ -1,4 +1,4 @@
-#include "sndUsPlane.h"
+#include "sndUSPlane.h"
 
 #include <cmath>
 #include <stdexcept>
@@ -10,7 +10,7 @@
 #include "MuFilter.h"
 #include "MuFilterHit.h"
 
-snd::UsPlane::UsPlane(TClonesArray *snd_hits, snd::Configuration configuration, MuFilter *muon_filter_geometry, int index_begin, int index_end, int station) : configuration_(configuration), centroid_(std::nan(""), std::nan(""), std::nan("")), centroid_error_(std::nan(""), std::nan(""),std::nan("")), station_(station)
+snd::USPlane::USPlane(TClonesArray *snd_hits, snd::Configuration configuration, MuFilter *muon_filter_geometry, int index_begin, int index_end, int station) : configuration_(configuration), centroid_(std::nan(""), std::nan(""), std::nan("")), centroid_error_(std::nan(""), std::nan(""),std::nan("")), station_(station)
 {
     if (index_begin > index_end)
     {
@@ -23,7 +23,7 @@ snd::UsPlane::UsPlane(TClonesArray *snd_hits, snd::Configuration configuration, 
         for (int i{0}; i < 16; ++i)
         {
             if (mu_hit->isMasked(i) || mu_hit->GetSignal(i) < -990.) continue;
-            UsHit hit;
+            USHit hit;
             hit.bar = static_cast<int>(mu_hit->GetDetectorID() % 1000);
             hit.channel_index = 16 * hit.bar + i;
             hit.timestamp = mu_hit->GetTime(i);
@@ -42,7 +42,7 @@ snd::UsPlane::UsPlane(TClonesArray *snd_hits, snd::Configuration configuration, 
     }
 }
 
-void snd::UsPlane::FindCentroid()
+void snd::USPlane::FindCentroid()
 {
     // min number of hit in the plane to attempt to find a centroid
     if (hits_.size() < configuration_.us_min_n_hits_for_centroid)
@@ -78,7 +78,7 @@ void snd::UsPlane::FindCentroid()
     centroid_error_.SetXYZ(configuration_.us_centroid_error_x, configuration_.us_centroid_error_y, configuration_.us_centroid_error_z);
 }
 
-const snd::UsPlane::sl_pair<double> snd::UsPlane::GetTotQdc() const
+const snd::USPlane::sl_pair<double> snd::USPlane::GetTotQdc() const
 {
     sl_pair<double> totQdc{0.0, 0.0};
     for (const auto &hit : hits_)
@@ -91,7 +91,7 @@ const snd::UsPlane::sl_pair<double> snd::UsPlane::GetTotQdc() const
     return totQdc;
 }
 
-const snd::UsPlane::sl_pair<double> snd::UsPlane::GetTotEnergy() const
+const snd::USPlane::sl_pair<double> snd::USPlane::GetTotEnergy() const
 {
     sl_pair<double> tot_energy{0.0, 0.0};
     sl_pair<double> tot_qdc = GetTotQdc();
@@ -103,7 +103,7 @@ const snd::UsPlane::sl_pair<double> snd::UsPlane::GetTotEnergy() const
 }
 
 
-const snd::UsPlane::rl_pair<double> snd::UsPlane::GetSideQdc() const
+const snd::USPlane::rl_pair<double> snd::USPlane::GetSideQdc() const
 {
     rl_pair<double> side_qdc{0.0, 0.0};
     for (const auto &hit : hits_)
@@ -119,7 +119,7 @@ const snd::UsPlane::rl_pair<double> snd::UsPlane::GetSideQdc() const
     return side_qdc;
 }
 
-const snd::UsPlane::rl_pair<double> snd::UsPlane::GetBarQdc(int bar_to_compute) const
+const snd::USPlane::rl_pair<double> snd::USPlane::GetBarQdc(int bar_to_compute) const
 {
     rl_pair<double> bar_qdc{0.0, 0.0};
     for (const auto &hit : hits_)
@@ -140,7 +140,7 @@ const snd::UsPlane::rl_pair<double> snd::UsPlane::GetBarQdc(int bar_to_compute) 
     return bar_qdc;
 }
 
-const snd::UsPlane::sl_pair<int> snd::UsPlane::GetBarNHits(int bar_to_compute) const
+const snd::USPlane::sl_pair<int> snd::USPlane::GetBarNHits(int bar_to_compute) const
 {
     sl_pair<int> bar_hit{0, 0};
     for (const auto &hit : hits_)
@@ -160,7 +160,7 @@ const snd::UsPlane::sl_pair<int> snd::UsPlane::GetBarNHits(int bar_to_compute) c
     return bar_hit;
 }
 
-void snd::UsPlane::TimeFilter(double min_timestamp, double max_timestamp)
+void snd::USPlane::TimeFilter(double min_timestamp, double max_timestamp)
 {
     hits_.erase(std::remove_if(hits_.begin(), hits_.end(),
                                [&](auto &hit)
@@ -168,7 +168,7 @@ void snd::UsPlane::TimeFilter(double min_timestamp, double max_timestamp)
                 hits_.end());
 }
 
-const snd::UsPlane::sl_pair<int> snd::UsPlane::GetNHits() const
+const snd::USPlane::sl_pair<int> snd::USPlane::GetNHits() const
 {
     sl_pair<int> counts{0, 0};
     counts.large = std::count_if(hits_.begin(), hits_.end(), [](auto &hit)

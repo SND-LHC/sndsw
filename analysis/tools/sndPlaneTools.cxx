@@ -7,7 +7,7 @@
 #include "MuFilter.h"
 #include "sndConfiguration.h"
 #include "sndScifiPlane.h"
-#include "sndUsPlane.h"
+#include "sndUSPlane.h"
 #include "sndScifiHit.h"
 #include "MuFilterHit.h"
 
@@ -34,10 +34,10 @@ std::vector<snd::ScifiPlane> snd::FillScifi(const snd::Configuration &configurat
   return scifi_planes;
 }
 
-std::vector<snd::UsPlane> snd::FillUs(const snd::Configuration &configuration, TClonesArray *mufi_hits, MuFilter *mufilter_geometry)
+std::vector<snd::USPlane> snd::FillUS(const snd::Configuration &configuration, TClonesArray *mufi_hits, MuFilter *mufilter_geometry)
 {
 
-  std::vector<snd::UsPlane> us_planes;
+  std::vector<snd::USPlane> us_planes;
 
   int begin{0};
   int count{0};
@@ -59,7 +59,7 @@ std::vector<snd::UsPlane> snd::FillUs(const snd::Configuration &configuration, T
     {
       ++count;
     }
-    us_planes.emplace_back(snd::UsPlane(mufi_hits, configuration, mufilter_geometry, begin, count, pl + 1));
+    us_planes.emplace_back(snd::USPlane(mufi_hits, configuration, mufilter_geometry, begin, count, pl + 1));
   }
   return us_planes;
 }

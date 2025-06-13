@@ -15,7 +15,7 @@ sndTchainGetter.cxx
 sndGeometryGetter.cxx
 sndConfiguration.cxx
 sndScifiPlane.cxx
-sndUsPlane.cxx
+sndUSPlane.cxx
 sndPlaneTools.cxx
 )
 

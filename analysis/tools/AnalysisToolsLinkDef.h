@@ -9,7 +9,7 @@
 
 #pragma link C++ class sndConfiguration+;
 #pragma link C++ class sndScifiPlane+;
-#pragma link C++ class sndUsPlane+;
+#pragma link C++ class sndUSPlane+;
 
 #pragma link C++ namespace snd::analysis_tools;
 #pragma link C++ defined_in namespace snd::analysis_tools;
@@ -38,6 +38,6 @@
 #pragma link C++ function snd::analysis_tools::GetGeoPath(const std::string &,int);
 #pragma link C++ function snd::analysis_tools::GetGeometry(std::string);
 #pragma link C++ function snd::analysis_tools::FillScifi(const snd::Configuration &, TClonesArray *, Scifi *);
-#pragma link C++ function snd::analysis_tools::FillUs(const snd::Configuration &, TClonesArray *, MuFilter *);
+#pragma link C++ function snd::analysis_tools::FillUS(const snd::Configuration &, TClonesArray *, MuFilter *);
 
 #endif
