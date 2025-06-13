@@ -24,6 +24,8 @@ snd::Configuration::Configuration(Option option)
     us_min_timestamp = -0.5;
     us_max_timestamp = 3.0;
 
+    ds_spatial_resolution = 1.0/std::sqrt(12);
+
     if (option == Option::ti18_2024_2025)
     {
         veto_n_stations = 3;

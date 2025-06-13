@@ -40,6 +40,8 @@ namespace snd {
     double us_min_timestamp;
     double us_max_timestamp;
 
+    double ds_spatial_resolution;
+
     int veto_n_stations;
     
     int scifi_n_stations;
