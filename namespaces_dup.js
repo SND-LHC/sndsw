@@ -3952,7 +3952,7 @@ var namespaces_dup =
       [ "s", "namespaceshipunit.html#a5299b09901398d2f1fe193a7b6b47033", null ],
       [ "second", "namespaceshipunit.html#aff7b79e311729ac38235f2252f22d222", null ],
       [ "snd_freq", "namespaceshipunit.html#aa0145c5c8c45ec722d40d3c381b287f9", null ],
-      [ "snd_TDC2ns", "namespaceshipunit.html#a0b92f28c3eca7c8ef1bf10cc96ffd134", null ],
+      [ "snd_TDC2ns", "namespaceshipunit.html#aaee1403c20fa7e987ae596d543cb1c90", null ],
       [ "speedOfLight", "namespaceshipunit.html#ad07955d94261e29a79814924edd5d697", null ],
       [ "sr", "namespaceshipunit.html#adc9b74f77c02091679ae398b8f1c86ae", null ],
       [ "steradian", "namespaceshipunit.html#aae3b5510cf510c7a4e584d33c029f10a", null ],

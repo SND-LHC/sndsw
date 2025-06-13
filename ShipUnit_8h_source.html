@@ -206,7 +206,7 @@ $(document).ready(function(){initNavTree('ShipUnit_8h_source.html',''); initResi
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="comment">//</span></div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="comment">// Energy [E]</span></div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="comment">//</span></div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keyword">static</span> <span class="keyword">const</span> Double_t megaelectronvolt = 1. ;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keyword">static</span> <span class="keyword">const</span> Double_t megaelectronvolt = 1./1000.; <span class="comment">// used identical value to shipunit.py</span></div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="keyword">static</span> <span class="keyword">const</span> Double_t     electronvolt = 1.e-6*megaelectronvolt;</div>
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keyword">static</span> <span class="keyword">const</span> Double_t kiloelectronvolt = 1.e-3*megaelectronvolt;</div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keyword">static</span> <span class="keyword">const</span> Double_t gigaelectronvolt = 1.e+3*megaelectronvolt;</div>
@@ -429,7 +429,7 @@ $(document).ready(function(){initNavTree('ShipUnit_8h_source.html',''); initResi
 <div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>    </div>
 <div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>    <span class="comment">// specific SNDLHC constants</span></div>
 <div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>    <span class="keyword">static</span> <span class="keyword">const</span> Double_t snd_freq = 160.316*megahertz; <span class="comment">// sndlhc clock</span></div>
-<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>    <span class="keyword">static</span> <span class="keyword">const</span> Double_t snd_TDC2ns = (1E9/snd_freq)*ns;</div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>    <span class="keyword">static</span> <span class="keyword">const</span> Double_t snd_TDC2ns = 1./snd_freq;</div>
 <div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>    };</div>
 </div>
 <div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>    </div>
