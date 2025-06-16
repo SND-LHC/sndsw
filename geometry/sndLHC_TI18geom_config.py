@@ -355,3 +355,32 @@ with ConfigRegistry.register_config("basic") as c:
         c.Floor.MFeBlockX = c.MuFilter.FeX
         c.Floor.MFeBlockY = c.MuFilter.FeY
         c.Floor.MFeBlockZ = c.MuFilter.FeZ
+        # Drift Tubes
+        if year >= 2025:
+          c.DriftTube = AttrDict(z=c.MuFilter.Muon8Dy) # 
+          c.DriftTube.cellWidth = 42*u.mm
+          c.DriftTube.cellHeight = 11.5*u.mm
+          c.DriftTube.cellLength = 67.8*u.cm
+          c.DriftTube.IBeamThickness = 1.*u.mm
+          c.DriftTube.IBeamWingWidth = 7*u.mm
+          c.DriftTube.IBeamWingThickness = 1.0*u.mm + 0.5*u.mm # mylar  Al tape
+          c.DriftTube.plateThickness = 1.5*u.mm
+          c.DriftTube.plateWidth = 74*u.cm
+          c.DriftTube.plateLength = 73*u.cm
+          c.DriftTube.coverPlateThickness = 1.5*u.mm
+          c.DriftTube.coverPlateWidth = 74*u.cm
+          c.DriftTube.coverPlateLength = 80*u.cm
+          c.DriftTube.anodeRad = 0.05*u.mm
+          c.DriftTube.frameThickness = 1*u.cm
+          c.DriftTube.frameWidth = 74*u.cm
+          c.DriftTube.frameLength = 8*u.cm
+          c.DriftTube.frameHoleThickness = c.DriftTube.frameThickness - 0.2*u.cm
+          c.DriftTube.frameHoleWidth = c.DriftTube.frameWidth - 2*u.cm
+          c.DriftTube.frameHoleLength = c.DriftTube.frameLength - 1*u.cm
+          c.DriftTube.frameTopThickness = 0.8*u.cm
+          c.DriftTube.sideBarThickness = 1.1*u.mm
+          c.DriftTube.sideBarWidth = 80*u.cm
+          c.DriftTube.sideBarLength = 1.1*u.cm
+          c.DriftTube.nPlanes = 2
+          c.DriftTube.nLayers = 4  # per plane
+          c.DriftTube.nCells = 16  # per layer
