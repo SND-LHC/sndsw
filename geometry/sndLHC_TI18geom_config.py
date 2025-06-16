@@ -218,6 +218,12 @@ with ConfigRegistry.register_config("basic") as c:
         # relation between edge and right bar
         c.MuFilter.DSVLocX,c.MuFilter.DSVLocY,c.MuFilter.DSVLocZ       = 623.0*u.mm, 47.0*u.mm, 641.3*u.mm
 
+        if year >= 2025:
+          # DS3
+          c.MuFilter.Muon8Dx,c.MuFilter.Muon8Dy,c.MuFilter.Muon8Dz = -4.0*u.mm, 5402.3*u.mm-c.MuFilter.DSHLocY, 136.5*u.mm
+          # DS4
+          c.MuFilter.Muon9Dx,c.MuFilter.Muon9Dy,c.MuFilter.Muon9Dz = 70.66*u.mm, 5687.81*u.mm-60*u.mm-c.MuFilter.DSHLocY, 165.79*u.mm #FIXME
+
         # offsets in Z of first US bar 
         c.MuFilter.USOffZ1 = 4.35*u.mm
         c.MuFilter.USOffZ2 = 5.0*u.mm
@@ -238,6 +244,8 @@ with ConfigRegistry.register_config("basic") as c:
 
         c.MuFilter.FeX,c.MuFilter.FeY,c.MuFilter.FeZ                  = 80*u.cm, 60*u.cm, 20*u.cm
         c.MuFilter.FeEndX,c.MuFilter.FeEndY,c.MuFilter.FeEndZ = 40*u.cm, 40*u.cm, 20*u.cm
+        if year >=2025:
+          c.MuFilter.FeEndX,c.MuFilter.FeEndY,c.MuFilter.FeEndZ = 0*u.cm, 0*u.cm, 20*u.cm
         c.MuFilter.FeBotX,c.MuFilter.FeBotY,c.MuFilter.FeBotZ   = 80*u.cm,   9*u.cm, 40*u.cm
 
         c.MuFilter.UpstreamDetZ = 2.6*u.cm
@@ -384,3 +392,8 @@ with ConfigRegistry.register_config("basic") as c:
           c.DriftTube.nPlanes = 2
           c.DriftTube.nLayers = 4  # per plane
           c.DriftTube.nCells = 16  # per layer
+          # survey position of the two drift tube chambers
+          c.DriftTube.DT1Dx,  c.DriftTube.DT1Dy,   c.DriftTube.DT1Dz    = 893.8*u.mm, 5505.2*u.mm, 935.7*u.mm 
+          c.DriftTube.DT2Dx,  c.DriftTube.DT2Dy,   c.DriftTube.DT2Dz    = 17.34*u.mm, 5511.05*u.mm,  942.27*u.mm
+          c.DriftTube.DT1LocX,  c.DriftTube.DT1LocY,   c.DriftTube.DT1LocZ    = -451.9*u.mm, -54.25*u.mm, -20.8*u.mm
+          c.DriftTube.DT2LocX,  c.DriftTube.DT2LocY,   c.DriftTube.DT2LocZ    = 38.0*u.mm, 10.775*u.mm,  -394.4*u.mm
