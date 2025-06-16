@@ -5,6 +5,7 @@ var dir_2816adeb6e7b93146cc0980bde45ae79 =
     [ "ana_thermalNeutrons.py", "ana__thermalNeutrons_8py.html", "ana__thermalNeutrons_8py" ],
     [ "boxTarget.cxx", "boxTarget_8cxx.html", null ],
     [ "boxTarget.h", "boxTarget_8h.html", "boxTarget_8h" ],
+    [ "compareGeoFiles.py", "compareGeoFiles_8py.html", "compareGeoFiles_8py" ],
     [ "EmulsionDet.cxx", "EmulsionDet_8cxx.html", null ],
     [ "EmulsionDet.h", "EmulsionDet_8h.html", "EmulsionDet_8h" ],
     [ "EmulsionDetContFact.cxx", "EmulsionDetContFact_8cxx.html", "EmulsionDetContFact_8cxx" ],
