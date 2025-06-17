@@ -11,10 +11,10 @@
 #include "sndScifiHit.h"
 #include "MuFilterHit.h"
 
-std::vector<snd::ScifiPlane> snd::FillScifi(const snd::Configuration &configuration, TClonesArray *sf_hits, Scifi *scifi_geometry)
+std::vector<snd::analysis_tools::ScifiPlane> snd::analysis_tools::FillScifi(const snd::Configuration &configuration, TClonesArray *sf_hits, Scifi *scifi_geometry)
 {
 
-  std::vector<snd::ScifiPlane> scifi_planes;
+  std::vector<snd::analysis_tools::ScifiPlane> scifi_planes;
 
   int begin{0};
   int count{0};
@@ -29,15 +29,15 @@ std::vector<snd::ScifiPlane> snd::FillScifi(const snd::Configuration &configurat
     {
       ++count;
     }
-    scifi_planes.emplace_back(snd::ScifiPlane(sf_hits, configuration, scifi_geometry, begin, count, st));
+    scifi_planes.emplace_back(snd::analysis_tools::ScifiPlane(sf_hits, configuration, scifi_geometry, begin, count, st));
   }
   return scifi_planes;
 }
 
-std::vector<snd::USPlane> snd::FillUS(const snd::Configuration &configuration, TClonesArray *mufi_hits, MuFilter *mufilter_geometry)
+std::vector<snd::analysis_tools::USPlane> snd::analysis_tools::FillUS(const snd::Configuration &configuration, TClonesArray *mufi_hits, MuFilter *mufilter_geometry)
 {
 
-  std::vector<snd::USPlane> us_planes;
+  std::vector<snd::analysis_tools::USPlane> us_planes;
 
   int begin{0};
   int count{0};
@@ -59,7 +59,7 @@ std::vector<snd::USPlane> snd::FillUS(const snd::Configuration &configuration, T
     {
       ++count;
     }
-    us_planes.emplace_back(snd::USPlane(mufi_hits, configuration, mufilter_geometry, begin, count, pl + 1));
+    us_planes.emplace_back(snd::analysis_tools::USPlane(mufi_hits, configuration, mufilter_geometry, begin, count, pl + 1));
   }
   return us_planes;
 }
