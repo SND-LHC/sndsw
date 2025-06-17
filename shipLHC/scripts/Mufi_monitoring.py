@@ -675,7 +675,7 @@ class Mufi_hitMaps(ROOT.FairTask):
              for i in range(2):# sides left <-> right
                if (l%2==1 or l==6) and i==1: continue# vertical planes have readout on the top only
                counter += 1
-               xAxis.SetBinLabel(counter,plane_label[15+counter])
+               xAxis.SetBinLabel(counter,plane_label[len(plane_label)-10+counter])
                # loop over bars, each DS plane has 60 bars, significant histogram bins start from 1
                for barIndex in range(1,self.M.systemAndBars[s]+1):
                  if i%2==0:

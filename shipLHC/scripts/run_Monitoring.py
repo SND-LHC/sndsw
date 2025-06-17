@@ -45,7 +45,7 @@ parser.add_argument("-b", "--heartBeat", dest="heartBeat", help="heart beat", de
 parser.add_argument("-c", "--command", dest="command", help="command", default="")
 parser.add_argument("-n", "--nEvents", dest="nEvents", help="number of events", default=-1,type=int)
 parser.add_argument("-s", "--nStart", dest="nStart", help="first event", default=0,type=int)
-parser.add_argument("-t", "--trackType", dest="trackType", help="DS or Scifi", default="DS")
+parser.add_argument("-t", "--trackType", dest="trackType", help="DS or Scifi", default="ScifiDS")
 
 parser.add_argument("--ScifiNbinsRes", dest="ScifiNbinsRes", default=100)
 parser.add_argument("--Scifixmin", dest="Scifixmin", default=-2000.)

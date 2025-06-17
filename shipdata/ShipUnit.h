@@ -106,7 +106,7 @@ namespace ShipUnit
     //
     // Energy [E]
     //
-    static const Double_t megaelectronvolt = 1. ;
+    static const Double_t megaelectronvolt = 1./1000.; // used identical value to shipunit.py
     static const Double_t     electronvolt = 1.e-6*megaelectronvolt;
     static const Double_t kiloelectronvolt = 1.e-3*megaelectronvolt;
     static const Double_t gigaelectronvolt = 1.e+3*megaelectronvolt;
@@ -329,7 +329,7 @@ namespace ShipUnit
     
     // specific SNDLHC constants
     static const Double_t snd_freq = 160.316*megahertz; // sndlhc clock
-    static const Double_t snd_TDC2ns = (1E9/snd_freq)*ns;
+    static const Double_t snd_TDC2ns = 1./snd_freq;
     };
     
 #endif /* defined(____ShipUnit__) */
