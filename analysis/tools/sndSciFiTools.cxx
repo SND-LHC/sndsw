@@ -9,6 +9,7 @@
 #include "sndScifiHit.h"
 #include "ROOT/TSeq.hxx"
 #include "Scifi.h"
+#include "TROOT.h"
 
 void snd::analysis_tools::getSciFiHitsPerStation(const TClonesArray *digiHits, std::vector<int> &horizontal_hits,
                                                  std::vector<int> &vertical_hits)
@@ -132,8 +133,10 @@ float snd::analysis_tools::peakScifiTiming(const TClonesArray &digiHits, int bin
 
    TH1F ScifiTiming("Timing", "Scifi Timing", bins, min_x, max_x);
 
-   int refStation = ((sndScifiHit *)digiHits.At(0))->GetStation();
-   bool refOrientation = ((sndScifiHit *)digiHits.At(0))->isVertical();
+   Scifi *ScifiDet = dynamic_cast<Scifi*> (gROOT->GetListOfGlobals()->FindObject("Scifi") );
+   auto* hit = static_cast<sndScifiHit*>(digiHits[0]);
+   int refStation = hit->GetStation();
+   bool refOrientation = hit->isVertical();
    float hitTime = -1.0;
    float timeConversion = 1.;
    if (!isMC) {
@@ -146,6 +149,10 @@ float snd::analysis_tools::peakScifiTiming(const TClonesArray &digiHits, int bin
          continue;
       }
       hitTime = hit->GetTime() * timeConversion;
+      if (!isMC){
+        int id_hit = hit ->GetDetectorID();
+        hitTime = ScifiDet->GetCorrectedTime(id_hit, hitTime, 0);
+      }
       if (hitTime < min_x || hitTime > max_x) {
          continue;
       }
