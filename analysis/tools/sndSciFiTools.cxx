@@ -132,6 +132,7 @@ float snd::analysis_tools::peakScifiTiming(const TClonesArray &digiHits, int bin
 
    TH1F ScifiTiming("Timing", "Scifi Timing", bins, min_x, max_x);
 
+   Scifi *ScifiDet = dynamic_cast<Scifi*> (gROOT->GetListOfGlobals()->FindObject("Scifi") );
    int refStation = ((sndScifiHit *)digiHits.At(0))->GetStation();
    bool refOrientation = ((sndScifiHit *)digiHits.At(0))->isVertical();
    float hitTime = -1.0;
@@ -146,6 +147,10 @@ float snd::analysis_tools::peakScifiTiming(const TClonesArray &digiHits, int bin
          continue;
       }
       hitTime = hit->GetTime() * timeConversion;
+      if (!isMC){
+        int id_hit = hit ->GetDetectorID();
+        hitTime = ScifiDet->GetCorrectedTime(id_hit, hitTime, 0);
+      }
       if (hitTime < min_x || hitTime > max_x) {
          continue;
       }
