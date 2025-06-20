@@ -1,5 +1,6 @@
 var NAVTREEINDEX79 =
 {
+"namespacegeometry__config.html#a63d0e1a8b0d6721da0585a08c5a7a635":[11,0,56,167],
 "namespacegeometry__config.html#a6464f6cdb61f59d43897207f9ecceddd":[11,0,56,374],
 "namespacegeometry__config.html#a6577b7a1fb79291eda88da826d942143":[11,0,56,23],
 "namespacegeometry__config.html#a669b957607386750ed2077d789c9434e":[11,0,56,181],
@@ -248,6 +249,5 @@ var NAVTREEINDEX79 =
 "namespacegeometry__config.html#af1fa660511fcb9dd5d2a2b8e4c330c9d":[11,0,56,29],
 "namespacegeometry__config.html#af2753095678e769b6e0584939b81eb9c":[11,0,56,77],
 "namespacegeometry__config.html#af288093cdfb93a24567c4c79ae3daed4":[11,0,56,186],
-"namespacegeometry__config.html#af304a505d1d24cc7fc5b206f9cf2a28e":[11,0,56,296],
-"namespacegeometry__config.html#af31665c0cc2038d4333ef3d63cab87b5":[11,0,56,19]
+"namespacegeometry__config.html#af304a505d1d24cc7fc5b206f9cf2a28e":[11,0,56,296]
 };

@@ -1,5 +1,7 @@
 var NAVTREEINDEX94 =
 {
+"namespacestudy__muMSC.html#a6b14755453040cb3f775690620e2211e":[11,0,179,23],
+"namespacestudy__muMSC.html#a6c3f1023b01f15b5efc22b74002e8b14":[11,0,179,13],
 "namespacestudy__muMSC.html#a75382afe241c0be021497e8d372d8d17":[11,0,179,4],
 "namespacestudy__muMSC.html#a76a53729f50552341270317708029111":[11,0,179,49],
 "namespacestudy__muMSC.html#a77cbcf86b14e327d2a99157a38e82781":[11,0,179,38],
@@ -247,7 +249,5 @@ var NAVTREEINDEX94 =
 "option_page.html#cmd-linesearch":[0,1,1,18],
 "option_page.html#cmd-localfit":[0,1,1,19],
 "option_page.html#cmd-matiter":[0,1,1,20],
-"option_page.html#cmd-matmoni":[0,1,1,21],
-"option_page.html#cmd-maxrecord":[0,1,1,22],
-"option_page.html#cmd-measurement":[0,1,1,23]
+"option_page.html#cmd-matmoni":[0,1,1,21]
 };

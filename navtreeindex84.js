@@ -1,5 +1,7 @@
 var NAVTREEINDEX84 =
 {
+"namespacemufiHitMaps.html#a5c1a1098e44577d5bc4a0e5fdf0ab918":[11,0,94,9],
+"namespacemufiHitMaps.html#a5d6ec2683bd86068f7df9a0155b4d009":[11,0,94,6],
 "namespacemufiHitMaps.html#a6387c441dd76040aecbfdae90e4c5d06":[11,0,94,16],
 "namespacemufiHitMaps.html#a644ed256fa41c32878036f709269dda2":[11,0,94,23],
 "namespacemufiHitMaps.html#a654b14d10018d7ab7a6dea77a5f2fb54":[11,0,94,28],
@@ -247,7 +249,5 @@ var NAVTREEINDEX84 =
 "namespaceradio.html#aaba2c30e22cbd7e66dd5ca45122fb87c":[11,0,111,1],
 "namespaceradio.html#ab04309b8d7f83e8b3e4344c5e7776c5b":[11,0,111,6],
 "namespaceradio.html#ab7c39f1cdc8e36e629ff6f558d5f6abd":[11,0,111,5],
-"namespaceradio.html#acee94e200c829ee5b7c9a40f760e602d":[11,0,111,8],
-"namespacereadDecayTable.html":[11,0,113],
-"namespacereadDecayTable.html#a216e0525d0705b0b1690f178c74c2cf9":[11,0,113,5]
+"namespaceradio.html#acee94e200c829ee5b7c9a40f760e602d":[11,0,111,8]
 };

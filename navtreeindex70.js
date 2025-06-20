@@ -1,5 +1,6 @@
 var NAVTREEINDEX70 =
 {
+"namespaceScifiCluster.html#a38499ceced2656b2fa35496ffe1d6b6d":[11,0,140,7],
 "namespaceScifiCluster.html#a389e9da70e8154d7830c04265be8d22a":[11,0,140,58],
 "namespaceScifiCluster.html#a40069bfe02276c11c568c540a77c2910":[11,0,140,18],
 "namespaceScifiCluster.html#a42471a400072de22084421bcd6c64444":[11,0,140,14],
@@ -248,6 +249,5 @@ var NAVTREEINDEX70 =
 "namespaceSurvey-MufiScifi.html#a0519aa30ef9208a34e57875ac7b4b94a":[11,0,182,112],
 "namespaceSurvey-MufiScifi.html#a06b0780f336ceaad79d10ed0ff9832e7":[11,0,182,11],
 "namespaceSurvey-MufiScifi.html#a08346c1dc4e40facbf4b2de1e48e00fa":[11,0,182,16],
-"namespaceSurvey-MufiScifi.html#a0c14bde65a0ad618c7a51378154d0684":[11,0,182,77],
-"namespaceSurvey-MufiScifi.html#a0ca44961814930bb014bafad72dc57d9":[11,0,182,106]
+"namespaceSurvey-MufiScifi.html#a0c14bde65a0ad618c7a51378154d0684":[11,0,182,77]
 };

@@ -1,5 +1,6 @@
 var NAVTREEINDEX68 =
 {
+"mufiHitMaps_8py.html#a98354c7a8613d23f924339a200de92a4":[13,0,20,0,4,22],
 "mufiHitMaps_8py.html#aa4df94e58f60540a2959170ee7ae6857":[13,0,20,0,4,26],
 "mufiHitMaps_8py.html#aaa1098ee760a234c72324a2788080789":[13,0,20,0,4,8],
 "mufiHitMaps_8py.html#ab06e76997ad0fcccd42bb9181f32f348":[13,0,20,0,4,20],
@@ -248,6 +249,5 @@ var NAVTREEINDEX68 =
 "namespaceConvRawData.html":[11,0,26],
 "namespaceDAQ__monitoring.html":[11,0,28],
 "namespaceDriftTubes.html":[11,0,33],
-"namespaceDriftTubes.html#abb04b937b31586bc6141cd2e148977a5":[11,0,33,1],
-"namespaceDriftTubes.html#abb04b937b31586bc6141cd2e148977a5a197c9b392a022fdc0259b18a5f92af80":[11,0,33,1,1]
+"namespaceDriftTubes.html#abb04b937b31586bc6141cd2e148977a5":[11,0,33,1]
 };
