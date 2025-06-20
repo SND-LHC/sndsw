@@ -7,6 +7,10 @@
 #pragma link C++ nestedclasses;
 #pragma link C++ nestedtypedef;
 
+#pragma link C++ class snd::sndConfiguration+;
+#pragma link C++ class snd::analysis_tools::sndScifiPlane+;
+#pragma link C++ class snd::analysis_tools::sndUSPlane+;
+
 #pragma link C++ namespace snd::analysis_tools;
 #pragma link C++ defined_in namespace snd::analysis_tools;
 
@@ -33,6 +37,7 @@
 #pragma link C++ function snd::analysis_tools::GetTChain(std::string);
 #pragma link C++ function snd::analysis_tools::GetGeoPath(const std::string &,int);
 #pragma link C++ function snd::analysis_tools::GetGeometry(std::string);
-#pragma link C++ function snd::analysis_tools::GetGeometry(const std::string &,int);
+#pragma link C++ function snd::analysis_tools::FillScifi(const snd::Configuration &, TClonesArray *, Scifi *);
+#pragma link C++ function snd::analysis_tools::FillUS(const snd::Configuration &, TClonesArray *, MuFilter *);
 
 #endif
