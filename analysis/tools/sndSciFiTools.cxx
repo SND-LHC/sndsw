@@ -3,6 +3,7 @@
 #include <numeric>
 #include <algorithm>
 
+#include "TROOT.h"
 #include "TH1F.h"
 #include "FairLogger.h"
 #include "TClonesArray.h"
