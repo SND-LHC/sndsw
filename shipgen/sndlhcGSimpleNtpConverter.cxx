@@ -29,24 +29,17 @@ int main(int argc, char** argv){
   // Convert FLUKA to PDG particle IDs. (ONLY NEUTRINOS IMPLEMENTED!!!)
   std::map<int, int> FLUKAtoPDG { {27, 14},
                                   {28, -14},
-				  {5, 12},
-				  {6, -12},
-				  {43, 16},
-				  {44, -16} };
+                                  {5, 12},
+                                  {6, -12},
+                                  {43, 16},
+                                  {44, -16} };
 
   // To generate a random seed which is stored in the metadata.
   TRandom3 * ran = new TRandom3();
 
   bool verbose = false;
 
-  // Scoring plane info
-  // Plane z in FLUKA coordinates: 48386 cm
-  // FLUKA z = 0 in sndsw coordinates : -48000 cm
-  double z = (48386-48000); // In cm for consistency with the FLUKA file.
-  
-  double plane_corner[] = {-70., 5., z};
-  double plane_dir1[] = {140., 0, 0};
-  double plane_dir2[] = {0, 65., 0};
+  std::cout << "Start converting" << std::endl;
 
   // Set up input file
   std::ifstream in_file(inFileName);
@@ -66,13 +59,37 @@ int main(int argc, char** argv){
  # Col  8: y coord (cm)
  # Col  9: x dir cosine
  # Col 10: y dir cosine
- # Col 11: Particle age since primary event (sec)
- # Col 12: ...
-  */
+ # Col 11: z coord (cm)
+ # Col 12: Particle age since primary event (sec)
+ # Col 13: Last decay x cooord (cm)
+ # Col 14: Last decay y cooord (cm)
+ # Col 15: Last decay z cooord (cm)
+ # Col 16: Last decay ID
+ # Col 17: Kinetic energy of decay parent (GeV)
+ # Col 18: Last interaction x cooord (cm)
+ # Col 19: Last interaction y cooord (cm)
+ # Col 20: Last interaction z cooord (cm)
+ # Col 21: Last interaction ID
+ # Col 22: Kinetic energy of parent (GeV)
+ */
 
-  int FlukaRun, evtNumber, FlukaID, generationN;
-  float Ekin, weight, x, y, x_cos, y_cos, age;
-
+  int FlukaRun, evtNumber, FlukaID, generationN, last_decay_ID, last_interaction_ID;
+  double Ekin, weight, x, y, z, x_cos, y_cos, age, Ekin_parent;
+  double last_decay_x, last_decay_y, last_decay_z, Ekin_decay;
+  double last_interaction_x, last_interaction_y, last_interaction_z;
+  
+  // Scoring plane info
+  // Find a Minimum and Maximum of the x, y, z axis (FLUKA coordinates) cm
+  // Max z, min z
+  double min_z =  999;
+  double max_z = -999;
+  // Max x, min x
+  double min_x =  999;
+  double max_x = -999;
+  // Max y, min y
+  double min_y =  999;
+  double max_y = -999;
+  
   TFile * fOut = new TFile(outFileName.c_str(), "RECREATE");
   TTree * tOut = new TTree("flux", "a simple flux n-tuple");
   TTree * metaOut = new TTree("meta","metadata for flux n-tuple");
@@ -84,7 +101,6 @@ int main(int argc, char** argv){
 
   genie::flux::GSimpleNtpAux*  aux_entry  = new genie::flux::GSimpleNtpAux;
   tOut->Branch("aux", &aux_entry);
-
 
   UInt_t metakey = TString::Hash(outFileName.c_str(),strlen(outFileName.c_str()));
   metakey &= 0x7FFFFFFF;
@@ -99,6 +115,7 @@ int main(int argc, char** argv){
 
   if (in_file.is_open()){
     string in_line;
+
     while (!in_file.eof()){
       getline(in_file, in_line);
 
@@ -114,14 +131,35 @@ int main(int argc, char** argv){
 		>> y
 		>> x_cos
 		>> y_cos
-		>> age;
-
+    >> z
+		>> age
+    >> last_decay_x
+    >> last_decay_y
+    >> last_decay_z
+    >> last_decay_ID
+    >> Ekin_decay
+    >> last_interaction_x
+    >> last_interaction_y
+    >> last_interaction_z
+    >> last_interaction_ID
+    >> Ekin_parent
+    ;
+  
 	gsimple_entry->Reset();
 	aux_entry->Reset();
 
-    
+  // FLUKA z = 0 in sndsw coordinates : -48000 cm
+  z -= 48000; // In cm for consistency with the FLUKA file.
+
+  min_z = std::min(min_z, z);
+  max_z = std::max(max_z, z);
+  min_x = std::min(min_x, x);
+  max_x = std::max(max_x, x);
+  min_y = std::min(min_y, y);
+  max_y = std::max(max_y, y);
+
 	if (verbose) std::cout << "Got entry " << counter++ << std::endl;
-    
+  
 	if (verbose){
 	  std::cout << FlukaRun << "\n"
 		    << evtNumber << "\n"
@@ -131,10 +169,20 @@ int main(int argc, char** argv){
 		    << weight << "\n"
 		    << x << "\n"
 		    << y << "\n"
-		    << z << "\n"
 		    << x_cos << "\n"
 		    << y_cos << "\n"
+        << z << "\n"
 		    << age << "\n"
+        << last_decay_x << "\n"
+        << last_decay_y << "\n"
+        << last_decay_z << "\n"
+        << last_decay_ID << "\n"
+        << Ekin_decay << "\n"
+        << last_interaction_x << "\n"
+        << last_interaction_y << "\n"
+        << last_interaction_z << "\n"
+        << last_interaction_ID << "\n"
+        << Ekin_parent << "\n"
 		    << "--------------------------------------------------" << std::endl;
 	}
 
@@ -159,9 +207,24 @@ int main(int argc, char** argv){
 	aux_entry->auxint.push_back(evtNumber);
 	aux_entry->auxint.push_back(FlukaID);
 	aux_entry->auxint.push_back(generationN);
-    
+  aux_entry->auxint.push_back(last_decay_ID);
+  aux_entry->auxint.push_back(last_interaction_ID);
 	aux_entry->auxdbl.push_back(age);
 	aux_entry->auxdbl.push_back(weight);
+  aux_entry->auxdbl.push_back(Ekin);
+  aux_entry->auxdbl.push_back(x);
+  aux_entry->auxdbl.push_back(y);
+  aux_entry->auxdbl.push_back(z);
+  aux_entry->auxdbl.push_back(x_cos);
+  aux_entry->auxdbl.push_back(y_cos);
+  aux_entry->auxdbl.push_back(last_decay_x);
+  aux_entry->auxdbl.push_back(last_decay_y);
+  aux_entry->auxdbl.push_back(last_decay_z);
+  aux_entry->auxdbl.push_back(Ekin_decay);
+  aux_entry->auxdbl.push_back(last_interaction_x);
+  aux_entry->auxdbl.push_back(last_interaction_y);
+  aux_entry->auxdbl.push_back(last_interaction_z);
+  aux_entry->auxdbl.push_back(Ekin_parent);
 
 	// Accumulate metadata
 	pdglist.insert(gsimple_entry->pdg);
@@ -174,6 +237,11 @@ int main(int argc, char** argv){
       }
     }
   }
+  
+  // plane conner and plane direction of the scoring plane (The scoring plane is tilted)
+  double plane_corner[] = {min_x, min_y, min_z};
+  double plane_dir1[] = {max_x - min_x, 0, max_z - min_z};
+  double plane_dir2[] = {0, max_y - min_y, max_z - min_z};
 
   // Sort out metadata
   // Copy pdg list
@@ -198,9 +266,23 @@ int main(int argc, char** argv){
   meta_entry->auxintname.push_back("evtNumber");
   meta_entry->auxintname.push_back("FlukaID");
   meta_entry->auxintname.push_back("generationN");
-
+  meta_entry->auxintname.push_back("Last decay ID");
+  meta_entry->auxintname.push_back("Last interaction ID");
   meta_entry->auxdblname.push_back("age");
   meta_entry->auxdblname.push_back("FLUKA_weight");
+  meta_entry->auxdblname.push_back("Kenetic energy");
+  meta_entry->auxdblname.push_back("X coordinate");
+  meta_entry->auxdblname.push_back("Y coordinate");
+  meta_entry->auxdblname.push_back("X cosine");
+  meta_entry->auxdblname.push_back("Y cosine");
+  meta_entry->auxdblname.push_back("Last decay X coordinate");
+  meta_entry->auxdblname.push_back("Last decay Y coordinate");
+  meta_entry->auxdblname.push_back("Last decay Z coordinate");
+  meta_entry->auxdblname.push_back("Kenetic Energy of decay parent");
+  meta_entry->auxdblname.push_back("Last interaction in Z coordinate");
+  meta_entry->auxdblname.push_back("Last in interaction Y coordinate");
+  meta_entry->auxdblname.push_back("Last in interaction Z coordinate");
+  meta_entry->auxdblname.push_back("Kenetic energy of parent");
 
   metaOut->Fill();
   
@@ -208,6 +290,5 @@ int main(int argc, char** argv){
   metaOut->Write();
   tOut->Write();
   fOut->Close();
-
+  std::cout << "Done converting";
 }
-
