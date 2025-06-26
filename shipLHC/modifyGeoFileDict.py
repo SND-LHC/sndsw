@@ -9,17 +9,18 @@ from XRootD import client
 theClient = client.FileSystem('root://eospublic.cern.ch')
 commonPath = "/eos/experiment/sndlhc/convertedData/physics/"
 
-'''supportedGeoFiles = ["geofile_sndlhc_TI18_V1_06July2022.root","geofile_sndlhc_TI18_V2_12July2022.root","geofile_sndlhc_TI18_V3_08August2022.root",
-                     "geofile_sndlhc_TI18_V4_10August2022.root","geofile_sndlhc_TI18_V5_14August2022.root","geofile_sndlhc_TI18_V6_08October2022.root",
-                     "geofile_sndlhc_TI18_V7_22November2022.root"]
-'''
-supportedGeoFiles = {"geofile_sndlhc_TI18_V7_22November2022.root":commonPath+"2022/",
-                     "geofile_sndlhc_TI18_V0_2024.root":commonPath+"2024/"}
+supportedGeoFiles = {}
+supported_years = [2022, 2023, 2024]
+for year in supported_years:
+   supportedGeoFiles["geofile_sndlhc_TI18_V0_"+str(year)+".root"] = commonPath+str(year)+"/"
 
 def modifyDicts(year=2024):
+   if year not in supported_years:
+      print("Geometry for the required year "+str(year)+"is not supported.\n\
+             The list of supported years is:", supported_years)
+      return
    for geoFileName in supportedGeoFiles:
-         if (year == 2024 and geoFileName.find(str(year)) > 0) or \
-            (year != 2024 and geoFileName.find('2022') > 0):
+         if geoFileName.find(str(year)) > 0:
             # override locally existing file with the same name
             status = theClient.copy(supportedGeoFiles[geoFileName]+geoFileName,
                                     os.getcwd()+'/'+geoFileName, force=True)
@@ -69,13 +70,14 @@ def modifyDicts(year=2024):
          constants['t_9692'] =  [-6.58,-6.67,-6.76,-6.95,-6.47,-6.53,-6.07,-6.20,-6.22,-6.39,-6.01,-6.18,-8.23,-8.26,-8.43,-8.65,-8.19,-8.27,-8.20,-8.35]
          constants['t_9882'] =  [-6.22,-6.13,-6.37,-6.25,-6.02,-6.18,-5.65,-5.58,-5.76,-5.79,-5.53,-5.75,-7.81,-7.69,-8.02,-8.07,-7.74,-7.85,-7.81,-7.98]
          constants['t_10012']=  [-6.70,-6.84,-6.73,-6.86,-6.50,-6.64,-6.04,-6.19,-6.21,-6.41,-6.05,-6.24,-8.23,-8.38,-8.40,-8.64,-8.22,-8.38,-8.31,-8.52]
-         slopes_dict_2022 = {"t_0":0.000, "t_4361":0.082, "t_5117":0.085, "t_5478":0.082, "t_6208":0.086, "t_6443":0.082, "t_6677":0.084}
-         # new constants for 2024 and later on
-         slopes_dict_2024 = {"t_0":0.000, "t_7649":0.081, "t_8318":0.082, "t_8583":0.081, "t_8942":0.080, 
-                             "t_9156":0.083, "t_9286":0.082, "t_9379":0.083, "t_9462":0.083, "t_9613":0.082,
-                             "t_9692":0.078, "t_9882":0.084, "t_10012":0.085}
-         if year == 2024: slopes_dict = slopes_dict_2024
-         else: slopes_dict = slopes_dict_2022
+         ds_time_aligment_consts = {
+           2022: {"t_0":0.000, "t_4361":0.082, "t_5117":0.085},
+           2023: {"t_0":0.000, "t_5478":0.082, "t_6208":0.086, "t_6443":0.082, "t_6677":0.084},
+           2024: {"t_0":0.000, "t_7649":0.081, "t_8318":0.082, "t_8583":0.081, "t_8942":0.080, 
+                  "t_9156":0.083, "t_9286":0.082, "t_9379":0.083, "t_9462":0.083, "t_9613":0.082,
+                  "t_9692":0.078, "t_9882":0.084, "t_10012":0.085}
+         }
+         slopes_dict = ds_time_aligment_consts[year]
          #time delay corrections first order, only for DS at the moment
          for p in slopes_dict.keys():
             setattr(sGeo.MuFilter,'DSTcorslope'+p,slopes_dict[p])
@@ -183,11 +185,13 @@ def modifyDicts(year=2024):
   -0.406*u.ns,  0.000*u.ns,  -1.319*u.ns,  0.337*u.ns,   -2.012*u.ns,  -1.059*u.ns,  -0.618*u.ns,
   -0.825*u.ns,  0.000*u.ns,  -1.205*u.ns,  -0.952*u.ns,   0.241*u.ns,  -1.363*u.ns,  1.123*u.ns ]
 #
-         scifi_time_tags_2022 = ['t_0', 't_4361','t_5117', 't_5478', 't_6208', 't_6443', 't_6677']
-         scifi_time_tags_2024 = ['t_0', 't_7649', 't_8318', 't_8583', 't_8942', 't_9156', 't_9286',
-                                 't_9379', 't_9462', 't_9613', 't_9692', 't_9882', 't_10012']
-         if year == 2024: scifi_time_tags = scifi_time_tags_2024
-         else: scifi_time_tags = scifi_time_tags_2022
+         scifi_time_aligment_consts = {
+           2022: ['t_0', 't_4361','t_5117'],
+           2023: ['t_0', 't_5478', 't_6208', 't_6443', 't_6677'],
+           2024: ['t_0', 't_7649', 't_8318', 't_8583', 't_8942', 't_9156', 't_9286',
+                  't_9379', 't_9462', 't_9613', 't_9692', 't_9882', 't_10012']
+         }
+         scifi_time_tags = scifi_time_aligment_consts[year]
          for c in scifi_time_tags:
           k=0
           for s in range(1,6):
@@ -522,11 +526,13 @@ def modifyDicts(year=2024):
    0*u.mrad, -0.79*u.mrad, 0*u.mrad,
    0*u.mrad, 2.93*u.mrad, 0*u.mrad]
 
-         scifi_spatial_tags_2022 = ['t_0', 't_4361','t_4575','t_4855','t_5172','t_5431', 't_6443', 't_6677']
-         scifi_spatial_tags_2024 = ['t_0', 't_7649', 't_8318', 't_8583', 't_8942', 't_9156', 't_9286',
-                                    't_9379', 't_9462', 't_9613', 't_9692', 't_9882', 't_10012']
-         if year == 2024: scifi_spatial_tags = scifi_spatial_tags_2024
-         else: scifi_spatial_tags = scifi_spatial_tags_2022
+         scifi_spatial_aligment_consts = {
+           2022: ['t_0', 't_4361','t_4575','t_4855','t_5172'],
+           2023: ['t_0', 't_5431', 't_6443', 't_6677'],
+           2024: ['t_0', 't_7649', 't_8318', 't_8583', 't_8942', 't_9156', 't_9286',
+                  't_9379', 't_9462', 't_9613', 't_9692', 't_9882', 't_10012']
+         }
+         scifi_spatial_tags = scifi_spatial_aligment_consts[year]
          for c in scifi_spatial_tags:
           k=0
           for s in range(1,6):
