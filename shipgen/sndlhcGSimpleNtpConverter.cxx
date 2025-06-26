@@ -238,7 +238,7 @@ int main(int argc, char** argv){
     }
   }
   
-  // plane conner and plane direction of the scoring plane (The scoring plane is tilted)
+  // plane corner and plane direction of the scoring plane (The scoring plane is tilted)
   double plane_corner[] = {min_x, min_y, min_z};
   double plane_dir1[] = {max_x - min_x, 0, max_z - min_z};
   double plane_dir2[] = {0, max_y - min_y, max_z - min_z};
