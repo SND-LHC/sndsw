@@ -22,11 +22,11 @@ def start():
    if d!='': dd = d+'/'
    # safety net if B2noB1 and B1Only plots don't exist
    try:
-     h['mufi-'+x+d] = f.mufilter.Get(dd+'mufi-'+x+d).Clone('mufi-'+x+d)
+     h['mufi-'+x+d] = f.Get("mufilter").Get(dd+'mufi-'+x+d).Clone('mufi-'+x+d)
    except:
        try:
          #2024: changed structure of offline monitoring file with shifter and expert subdirs
-         h['mufi-'+x+d] = f.mufilter.Get('expert/'+dd+'mufi-'+x+d).Clone('mufi-'+x+d)
+         h['mufi-'+x+d] = f.Get("mufilter").Get('expert/'+dd+'mufi-'+x+d).Clone('mufi-'+x+d)
        except:
          continue
    h['mufi-'+x+d].Draw()

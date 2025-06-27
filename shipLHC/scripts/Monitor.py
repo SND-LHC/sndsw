@@ -160,7 +160,7 @@ class Monitoring():
                 f=ROOT.TFile.Open(options.fname)
                 eventChain = f.Get('rawConv')
                 if not eventChain:   
-                    eventChain = f.cbmsim
+                    eventChain = f.Get("cbmsim")
                     if eventChain.GetBranch('MCTrack'): self.MonteCarlo = True
                 partitions = []
             else:
@@ -268,7 +268,7 @@ class Monitoring():
    def GetEntries(self):
        if  self.options.online:
          if  self.converter.newFormat:  return self.converter.fiN.Get('data').GetEntries()
-         else:                                   return self.converter.fiN.event.GetEntries()
+         else:                                   return self.converter.fiN.Get("event").GetEntries()
        else:
            return self.eventTree.GetEntries()
 

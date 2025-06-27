@@ -32,10 +32,10 @@ def xPos(detID):
 
 if options.runNumber>0: 
               f=ROOT.TFile.Open(options.path+'sndsw_raw_'+str(options.runNumber).zfill(6)+'.root')
-              eventTree = f.rawConv
+              eventTree = f.Get("rawConv")
 else:
               f=ROOT.TFile.Open(options.fname)
-              eventTree = f.cbmsim
+              eventTree = f.Get("cbmsim")
 
 def slopes(Nev=-1):
     A,B = ROOT.TVector3(),ROOT.TVector3()

@@ -93,11 +93,11 @@ class ConvRawDataPY(ROOT.FairTask):
       if self.fiN.Get('event'):   self.newFormat = False # old format
       if not self.monitoring:
         if self.newFormat:
-           if options.nEvents<0:  self.nEvents = self.fiN.data.GetEntries()
-           else: self.nEvents = min(options.nEvents,self.fiN.data.GetEntries())
+           if options.nEvents<0:  self.nEvents = self.fiN.Get("data").GetEntries()
+           else: self.nEvents = min(options.nEvents,self.fiN.Get("data").GetEntries())
         else:
-           if options.nEvents<0:  self.nEvents = self.fiN.event.GetEntries()
-           else: self.nEvents = min(options.nEvents,self.fiN.event.GetEntries())
+           if options.nEvents<0:  self.nEvents = self.fiN.Get("event").GetEntries()
+           else: self.nEvents = min(options.nEvents,self.fiN.Get("event").GetEntries())
       print('converting ',self.nEvents,' events ',' of run',options.runNumber)
   # Pass input parameters to the task - runN, paths, etc.
       ioman.RegisterInputObject('runN', ROOT.TObjString(str(options.runNumber)))
@@ -429,7 +429,7 @@ class ConvRawDataPY(ROOT.FairTask):
      if eventNumber%self.options.heartBeat==0 or self.debug:
                print('run ',self.options.runNumber, ' event',eventNumber," ",time.ctime())
 
-     event = self.fiN.data
+     event = self.fiN.Get("data")
      event.GetEvent(eventNumber)
      self.header.SetEventTime(event.evt_timestamp)
      self.header.SetUTCtimestamp(int(event.evt_timestamp*6.23768*1e-9 + self.run_startUTC))
@@ -572,7 +572,7 @@ class ConvRawDataPY(ROOT.FairTask):
           return   
      if eventNumber%self.options.heartBeat==0 or self.debug:
                print('run ',self.options.runNumber, ' event',eventNumber," ",time.ctime())
-     event = self.fiN.event
+     event = self.fiN.Get("event")
      rc = event.GetEvent(eventNumber)
      self.header.SetEventTime(event.timestamp)
      self.header.SetRunId( self.options.runNumber )
@@ -709,7 +709,7 @@ class ConvRawDataPY(ROOT.FairTask):
           self.outfile.Close()
       else:
          if self.options.debug:
-             print('number of events processed',self.sTree.GetEntries(),self.fiN.event.GetEntries())
+             print('number of events processed',self.sTree.GetEntries(),self.fiN.Get("event").GetEntries())
          self.sTree.Write()
          self.fiN.Close()
          self.fSink.Close()

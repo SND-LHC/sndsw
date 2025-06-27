@@ -97,7 +97,7 @@ else:
 
 # check if simulation or raw data
 f=ROOT.TFile.Open(outFile)
-if f.cbmsim.FindBranch('MCTrack'): simulation = True
+if f.Get("cbmsim").FindBranch('MCTrack'): simulation = True
 else: simulation = False
 f.Close()
 

@@ -181,7 +181,7 @@ def convertAscii2Root(fname,version=2):
 
 def muonPreTransport():
     f = ROOT.TFile(options.muonIn)
-    nt = f.nt
+    nt = f.Get("nt")
     foutName = options.muonIn.replace('.root','_z'+str(options.z)+'.root')
     fout  = ROOT.TFile(foutName,'recreate')
     variables = ""
@@ -471,7 +471,7 @@ def makeMuDISEvents(withElossFunction=False,nucleon='p+'):
     dPartBranch = dTree.Branch("Particles",dPart,32000,-1)
 # read file with muons hitting concrete wall
     fin = ROOT.TFile(options.muonIn) # id:px:py:pz:x:y:z:w
-    sTree = fin.nt
+    sTree = fin.Get("nt")
     nTOT  = sTree.GetEntries()
     nEnd  = min(nTOT,options.nStart + options.nEvents)
 # stop pythia printout during loop
@@ -835,7 +835,7 @@ def muonRateAtSND(withFaser=False,withEff=False,version=1):
       ut.bookHist(h,'tanThetaXYMS_'+str(mu),  'tan theta X/Y',200,-0.01,0.01,200,-0.01,0.01)
       ut.bookHist(h,'tanThetaXYMSfaser_'+str(mu),  'tan theta X/Y',200,-0.01,0.01,200,-0.01,0.01)
       ut.bookHist(h,'theta',  'mult scattering angle',200,-1.,1.)
-      for sTree in fin.nt:
+      for sTree in fin.Get("nt"):
          px,py,pz = sTree.px,sTree.py,sTree.pz
          m2cm = 1.
          if version == 0:  m2cm = 100
@@ -1027,7 +1027,7 @@ def flukaMuons(version=1,Plimit=False,withFaser=True):
       ut.bookHist(h,'W_'+str(mu),  'w',100,0.,0.15)
    for mu in fnames:
       fin = ROOT.TFile(fnames[mu])
-      for sTree in fin.nt:
+      for sTree in fin.Get("nt"):
          m2cm = 1.
          if version == 0:  m2cm = 100.
          P = ROOT.TVector3(sTree.px,sTree.py,sTree.pz)
@@ -1149,7 +1149,7 @@ def muInterGeant4(version=2,njobs=100):
         f = ROOT.TFile(fname)
         ROOT.gROOT.cd()
         nEv = -1
-        for sTree in f.cbmsim:
+        for sTree in f.Get("cbmsim"):
              nEv+=1
              muon = sTree.MCTrack[0]
              w          = norm*muon.GetWeight()
@@ -1217,7 +1217,7 @@ def muondEdX(version=2,njobs=100,path='',withFaser=False, plotOnly=True):
         h[fname] = ROOT.TFile(fname)
         ROOT.gROOT.cd()
         nEv = -1
-        for sTree in h[fname].cbmsim:
+        for sTree in h[fname].Get("cbmsim"):
              nEv+=1
              muon = sTree.MCTrack[0]
              w          = norm*muon.GetWeight()
@@ -1647,7 +1647,7 @@ def muonDISfull(cycle = 0, sMin=0,sMax=200,rMin=1,rMax=11,path = '/eos/experimen
        if path.find('eos')<0:   h['f']  = ROOT.TFile.Open(path+prod+datafile)
        else:                                    h['f']  = ROOT.TFile.Open(os.environ['EOSSHIP']+path+prod+datafile)
        nEv = -1
-       for sTree in h['f'].cbmsim:
+       for sTree in h['f'].Get("cbmsim"):
             nEv+=1
             if nEv%1000 == 0: print('N ',nEv,prod)
             muon                = sTree.MCTrack[0]
@@ -1790,7 +1790,7 @@ def thermNeutron():
      ROOT.gROOT.cd()
      for pid in ['13','-13']: 
           h['g_'+pid] = fin.Get('g_'+pid).Clone('g_'+pid)
-     for sTree in f.cbmsim:
+     for sTree in f.Get("cbmsim"):
          muon                = sTree.MCTrack[0]
          muonEnergy = muon.GetEnergy()
          mupid               = muon.GetPdgCode()

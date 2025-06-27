@@ -16,7 +16,7 @@ class SndlhcDigi:
         outdir=os.getcwd()
         outfile=outdir+"/"+fout
         self.fn = ROOT.TFile(fout,'update')
-        self.sTree = self.fn.cbmsim
+        self.sTree = self.fn.Get("cbmsim")
 
         # event header
         self.header  = ROOT.SNDLHCEventHeader()
