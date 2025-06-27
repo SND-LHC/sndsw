@@ -103,11 +103,13 @@ class SndlhcDigi:
                     allWeights.push_back(p[1])
                aHit = ROOT.sndScifiHit(detID,allPoints,allWeights)
                if self.digiScifi.GetSize() == index: self.digiScifi.Expand(index+100)
-               self.digiScifi[index]=aHit
+               aHit_TCA = self.digiScifi.ConstructedAt(index)
+               ROOT.std.swap(aHit, aHit_TCA)
                index+=1
                for k in mcPoints[detID]:
                     mcLinks.Add(detID,k, mcPoints[detID][k]/norm[detID])
-        self.digiScifi2MCPoints[0]=mcLinks
+        mcLinks_TCA = self.digiScifi2MCPoints.ConstructedAt(0)
+        ROOT.std.swap(mcLinks, mcLinks_TCA)
 
     def digitizeMuFilter(self):
         hitContainer = {}
@@ -134,11 +136,13 @@ class SndlhcDigi:
             aHit = ROOT.MuFilterHit(detID,allPoints)
             
             if self.digiMuFilter.GetSize() == index: self.digiMuFilter.Expand(index+100)
-            self.digiMuFilter[index]=aHit
+            aHit_TCA = self.digiMuFilter.ConstructedAt(index)
+            ROOT.std.swap(aHit, aHit_TCA)
             index+=1
             for k in mcPoints[detID]:
                 mcLinks.Add(detID,k, mcPoints[detID][k]/norm[detID])
-        self.digiMuFilter2MCPoints[0]=mcLinks
+        mcLinks_TCA = self.digiMuFilter2MCPoints.ConstructedAt(0)
+        ROOT.std.swap(mcLinks, mcLinks_TCA)
 
     def clusterScifi(self):
         index = 0
@@ -167,7 +171,8 @@ class SndlhcDigi:
                         for aHit in tmp: hitlist.push_back( self.sTree.Digi_ScifiHits[hitDict[aHit]],)
                         aCluster = ROOT.sndCluster(first,N,hitlist,self.scifiDet)
                         if self.clusScifi.GetSize() == index: self.clusScifi.Expand(index+10)
-                        self.clusScifi[index]=aCluster
+                        aCluster_TCA = self.clusScifi.ConstructedAt(index)
+                        ROOT.std.swap(aCluster, aCluster_TCA)
                         index+=1
                         if c!=hitList[last]:
                              ncl+=1

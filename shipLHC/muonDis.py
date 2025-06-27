@@ -504,7 +504,9 @@ def makeMuDISEvents(withElossFunction=False,nucleon='p+'):
       for n in range(options.nMult):
          dPart.Clear()
          iMuon.Clear()
-         iMuon[0] = muPart
+         muPart_replica = ROOT.TParticle(muPart)
+         muPart_TCA = iMuon.ConstructedAt(0)
+         ROOT.std.swap(muPart_replica, muPart_TCA)
          myPythia.GenerateEvent()
 # remove all unnecessary stuff
          myPythia.Pyedit(2)
@@ -518,7 +520,8 @@ def makeMuDISEvents(withElossFunction=False,nucleon='p+'):
 # copy to branch
             nPart = dPart.GetEntries()
             if dPart.GetSize() == nPart: dPart.Expand(nPart+10)
-            dPart[nPart] = part
+            part_TCA = dPart.ConstructedAt(nPart)
+            ROOT.std.swap(part, part_TCA)
          nMade+=1
          if nMade%options.heartbeat==0: print('made so far  ',options.run,' :',nMade,time.ctime())
          dTree.Fill()

@@ -551,11 +551,15 @@ class ConvRawDataPY(ROOT.FairTask):
 # copy hits to detector branches
      for sipmID in digiSciFiStore:
                if self.digiSciFi.GetSize() == indexSciFi: self.digiSciFi.Expand(indexSciFi+100)
-               self.digiSciFi[indexSciFi]=digiSciFiStore[sipmID]
+               aHit = digiSciFiStore[sipmID]
+               aHit_TCA = self.digiSciFi.ConstructedAt(indexSciFi)
+               ROOT.std.swap(aHit, aHit_TCA)
                indexSciFi+=1
      for detID in digiMuFilterStore:
                if self.digiMuFilter.GetSize() == indexMuFilter: self.digiMuFilter.Expand(indexMuFilter+100)
-               self.digiMuFilter[indexMuFilter]=digiMuFilterStore[detID]
+               aHit = digiMuFilterStore[detID]
+               aHit_TCA = self.digiMuFilter.ConstructedAt(indexMuFilter)
+               ROOT.std.swap(aHit, aHit_TCA)
                indexMuFilter+=1
    def executeEvent0(self,eventNumber):
      if self.options.FairTask_convRaw:
@@ -682,11 +686,15 @@ class ConvRawDataPY(ROOT.FairTask):
 # copy hits to detector branches
      for sipmID in digiSciFiStore:
                if self.digiSciFi.GetSize() == indexSciFi: self.digiSciFi.Expand(indexSciFi+100)
-               self.digiSciFi[indexSciFi]=digiSciFiStore[sipmID]
+               aHit = digiSciFiStore[sipmID]
+               aHit_TCA = self.digiSciFi.ConstructedAt(indexSciFi)
+               ROOT.std.swap(aHit, aHit_TCA)
                indexSciFi+=1
      for detID in digiMuFilterStore:
                if self.digiMuFilter.GetSize() == indexMuFilter: self.digiMuFilter.Expand(indexMuFilter+100)
-               self.digiMuFilter[indexMuFilter]=digiMuFilterStore[detID]
+               aHit = digiMuFilterStore[detID]
+               aHit_TCA = self.digiMuFilter.ConstructedAt(indexMuFilter)
+               ROOT.std.swap(aHit, aHit_TCA)
                indexMuFilter+=1
 
 
