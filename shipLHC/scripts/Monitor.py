@@ -848,7 +848,8 @@ class TrackSelector():
            for item in track_container_list:
                for aTrack in item:
                    i_muon += 1
-                   self.fittedTracks[i_muon] = aTrack
+                   aTrack_TCA = self.fittedTracks.ConstructedAt(i_muon)
+                   ROOT.std.swap(aTrack, aTrack_TCA) 
 
    def Execute(self):
       for n in range(self.options.nStart,self.options.nStart+self.options.nEvents):
@@ -867,13 +868,15 @@ class TrackSelector():
                 self.clusScifi.Delete()
                 self.clusScifi.Expand(len(self.trackTask.clusScifi))
                 for index, aCl in enumerate(self.trackTask.clusScifi):
-                     self.clusScifi[index] = aCl
+                     aCl_TCA = self.clusScifi.ConstructedAt(index)
+                     ROOT.std.swap(aCl, aCl_TCA)
           if self.options.simpleTracking and not self.options.trackType.find('DS')<0:
              if not self.eventTree.GetBranch("Cluster_Mufi"):
                 self.clusMufi.Delete()
                 self.clusMufi.Expand(len(self.trackTask.clusMufi))
                 for index, aCl in enumerate(self.trackTask.clusMufi):
-                     self.clusMufi[index] = aCl
+                     aCl_TCA = self.clusMufi.ConstructedAt(index)
+                     ROOT.std.swap(aCl, aCl_TCA)
 
           # if using FairEventHeader, i.e. before sndlhc header was introduced
           if hasattr(self.OT.EventHeader, "SetMCEntryNumber"):

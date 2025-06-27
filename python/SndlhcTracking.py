@@ -132,7 +132,8 @@ class Tracking(ROOT.FairTask):
                     this_track.setRawMeasTimes(pointTimes)
                     this_track.setTrackType(rc.GetUniqueID())
                     # Store the track in sndRecoTrack format
-                    self.fittedTracks[i_muon] = this_track
+                    this_track_TCA = self.fittedTracks.ConstructedAt(i_muon)
+                    ROOT.std.swap(this_track, this_track_TCA)
             
 
  def DStrack(self):

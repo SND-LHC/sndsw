@@ -471,11 +471,15 @@ def run(nEvent):
 
    for sipmID in digiSciFiStore:
              if digiSciFi.GetSize() == indexSciFi: digiSciFi.Expand(indexSciFi+100)
-             digiSciFi[indexSciFi]=digiSciFiStore[sipmID]
+             aHit = digiSciFiStore[sipmID]
+             aHit_TCA = digiSciFi.ConstructedAt(indexSciFi)
+             ROOT.std.swap(aHit, aHit_TCA)
              indexSciFi+=1
    for detID in digiMuFilterStore:
              if digiMuFilter.GetSize() == indexMuFilter: digiMuFilter.Expand(indexMuFilter+100)
-             digiMuFilter[indexMuFilter]=digiMuFilterStore[detID]
+             aHit = digiMuFilterStore[detID]
+             aHit_TCA = digiMuFilter.ConstructedAt(indexMuFilter)
+             ROOT.std.swap(aHit, aHit_TCA)
              indexMuFilter+=1
 # make simple clustering for scifi, only works with geometry file. Don't think it is a good idea at the moment
    if withGeoFile:
@@ -509,7 +513,8 @@ def run(nEvent):
                         aCluster = ROOT.sndCluster(first,N,hitlist,scifiDet)
                         print("cluster created")
                         if  clusScifi.GetSize() == index: clusScifi.Expand(index+10)
-                        clusScifi[index]=aCluster
+                        aCluster_TCA = clusScifi.ConstructedAt(index)
+                        ROOT.std.swap(aCluster, aCluster_TCA)
                         index+=1
                         if c!=hitList[last]:
                              ncl+=1
