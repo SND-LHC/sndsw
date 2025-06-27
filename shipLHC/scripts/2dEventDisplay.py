@@ -89,11 +89,11 @@ else:
   f=ROOT.TFile.Open(options.path+options.inputFile)
 
 if f.FindKey('cbmsim'):
-        eventTree = f.cbmsim
+        eventTree = f.Get("cbmsim")
         runId = 'sim'
         if eventTree.GetBranch('ScifiPoint'): mc = True
 else:   
-        eventTree = f.rawConv
+        eventTree = f.Get("rawConv")
         ioman.SetTreeName('rawConv')
 
 outFile = ROOT.TMemFile('dummy','CREATE')

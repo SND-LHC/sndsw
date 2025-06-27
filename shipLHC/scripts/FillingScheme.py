@@ -159,10 +159,10 @@ class fillingScheme():
        options.rawData+"/run_"+str(runNumber).zfill(6)+"/data_0000.root")
        try:
          if R.Get('event'):
-            rc = R.event.GetEvent(R.event.GetEntries()-1)
-            flags = R.event.flags
+            rc = R.Get("event").GetEvent(R.Get("event").GetEntries()-1)
+            flags = R.Get("event").flags
          else:
-            event = R.data
+            event = R.Get("data")
             event.GetEvent(0)
             flags = event.evt_flags
          fillNumber = numpy.bitwise_and(FILL_NUMBER_MASK,flags)
@@ -259,7 +259,7 @@ class fillingScheme():
    def drawLumi(self,runNumber):
        R = ROOT.TFile.Open(www+"offline/run"+str(runNumber).zfill(6)+".root")
        ROOT.gROOT.cd()
-       bCanvas = R.daq.Get('T')
+       bCanvas = R.Get("daq").Get('T')
        Xt = {'time':None,'timeWtDS':None,'timeWt':None}
        for x in Xt:
             Xt[x] = bCanvas.FindObject(x)
@@ -582,9 +582,9 @@ class fillingScheme():
            R = ROOT.TFile.Open(www+"offline/run"+str(runNumber).zfill(6)+".root")
            ROOT.gROOT.cd()
            try:
-             self.h['bnr'] = R.daq.Get('bunchNumber').FindObject('bnr').Clone('bnr')
+             self.h['bnr'] = R.Get("daq").Get('bunchNumber').FindObject('bnr').Clone('bnr')
            except:
-             self.h['bnr'] = R.daq.Get('shifter/bunchNumber').FindObject('bnr').Clone('bnr')         
+             self.h['bnr'] = R.Get("daq").Get('shifter/bunchNumber').FindObject('bnr').Clone('bnr')         
            R.Close()
          # create the bunch number plot if offline monitoring file is missing
          except:
@@ -684,9 +684,9 @@ class fillingScheme():
          try:
            R = ROOT.TFile.Open(www+"offline/run"+str(runNumber).zfill(6)+".root")
            ROOT.gROOT.cd()
-           bCanvas = R.daq.Get('bunchNumber')
+           bCanvas = R.Get("daq").Get('bunchNumber')
            if not bCanvas:
-             bCanvas = R.daq.shifter.Get('bunchNumber')
+             bCanvas = R.Get("daq").Get("shifter").Get('bunchNumber')
            h['bnr']= bCanvas.FindObject('bnr').Clone('bnr')           
          # create the bunch number plot if offline monitoring file is missing
          except:
@@ -765,7 +765,7 @@ class fillingScheme():
          h['XIP2z'].SetStats(0)
          R = ROOT.TFile.Open(www+"offline/run"+str(runNumber).zfill(6)+".root")
          ROOT.gROOT.cd()
-         bCanvas = R.daq.Get('sndclock')
+         bCanvas = R.Get("daq").Get('sndclock')
          h['Xbnr']= bCanvas.FindObject('Xbnr').Clone('Xbnr')
          ROOT.gROOT.cd()
          h['c1'].cd()
@@ -980,7 +980,7 @@ class fillingScheme():
        xing = {'all':False,'B1only':False,'B2noB1':False,'noBeam':False}
                 
        for T in ['Txing','TD','T']:
-          h[T] = self.F.daq.Get(T).Clone(T)
+          h[T] = self.F.Get("daq").Get(T).Clone(T)
        for X in ['time','timeWt','timeWtDS']:
             h[X] = h['T'].FindObject(X).Clone(X)
        for t in ['time','timeWt','timeWtDS','bnr']:
@@ -1158,9 +1158,9 @@ class fillingScheme():
        for B in ['B2noB1','B1only','noBeam']:
          for x in ['scifi-trackDir','scifi-TtrackPos']:
            T = x+B
-           tmp = self.F.scifi.Get(T)
+           tmp = self.F.Get("scifi").Get(T)
            if not tmp:
-              tmp = self.F.scifi.Get(B+'/'+T)
+              tmp = self.F.Get("scifi").Get(B+'/'+T)
            h[T] = tmp.Clone(T)
            if x.find('Dir')>0:
             for y in ['scifi-trackSlopesXL','slopeXL','slopeYL']:
@@ -1189,9 +1189,9 @@ class fillingScheme():
 
          for x in ['muonDSTracks','mufi-TtrackPos']:
            T = x+B
-           tmp = self.F.mufilter.Get(T)
+           tmp = self.F.Get("mufilter").Get(T)
            if not tmp:
-              tmp = self.F.mufilter.Get(B+'/'+T)
+              tmp = self.F.Get("mufilter").Get(B+'/'+T)
            h[T] = tmp.Clone(T)
            if x.find('DSTrack')>0:
             for y in ['mufi-slopes','slopeX','slopeY']:
@@ -1643,7 +1643,7 @@ class fillingScheme():
                 runNumber = int(x[ir+4:ir+4+k+1])
                 if runNumber<options.rmin: continue
                 R = ROOT.TFile.Open(www+"offline/run"+str(runNumber).zfill(6)+".root")
-                bCanvas = R.daq.Get('T')
+                bCanvas = R.Get("daq").Get('T')
                 if not bCanvas:
                        print('Error with root file',runNumber)
                        continue
@@ -1704,7 +1704,7 @@ class fillingScheme():
              for x in ["timeWtDS","timeWt"]:
                hx = nm+x+'100'
                if aRun:
-                 h[hx] = Frun.daq.T.FindObject(x).Clone(hx)
+                 h[hx] = Frun.Get("daq").T.FindObject(x).Clone(hx)
                  h[hx].Rebin(100)
                  h[hx].Scale(0.01)
                else:
@@ -1778,12 +1778,12 @@ class fillingScheme():
              h['c1'].Print(nm+'Lumi-tracks.pdf')
 # integral of tracks per cm2
              self.R = ROOT.TFile.Open(www+"offline/run"+str(runNumber).zfill(6)+".root")
-             Nevts = self.R.daq.Get('T').FindObject('time').GetEntries()
+             Nevts = self.R.Get("daq").Get('T').FindObject('time').GetEntries()
              postScale = self.runInfo[runNumber]['Entries']/Nevts
              T = 'scifi-TtrackPos'
-             h[T] = self.R.scifi.Get(T).FindObject('scifi-trackPosBeam').Clone(T)
+             h[T] = self.R.Get("scifi").Get(T).FindObject('scifi-trackPosBeam').Clone(T)
              T = 'mufi-TtrackPos'
-             h[T] = self.R.mufilter.Get(T).FindObject('mufi-trackPosBeam').Clone(T)
+             h[T] = self.R.Get("mufilter").Get(T).FindObject('mufi-trackPosBeam').Clone(T)
              ROOT.gROOT.cd()
              rList = list(emulsionReplacements.keys())
              rList.sort(reverse=True)
@@ -1902,9 +1902,9 @@ class fillingScheme():
        R = ROOT.TFile.Open(www+"offline/run"+str(runNumber).zfill(6)+".root")
        ROOT.gROOT.cd()
        for hitmaps in ['mufi-barmapsVeto','mufi-barmapsUS','mufi-barmapsDS']:
-           h[hitmaps] = R.mufilter.Get(hitmaps).Clone(hitmaps)
+           h[hitmaps] = R.Get("mufilter").Get(hitmaps).Clone(hitmaps)
            for B in marker:
-               tc = R.mufilter.Get(B+'/'+hitmaps+B).Clone(hitmaps+B)
+               tc = R.Get("mufilter").Get(B+'/'+hitmaps+B).Clone(hitmaps+B)
                for pad in tc.GetListOfPrimitives():
                 for plane in pad.GetListOfPrimitives():
                    if plane.ClassName().find('TH')==0:
@@ -1933,9 +1933,9 @@ class fillingScheme():
                           h[hname+B].Draw('same')
            self.myPrint(hitmaps,hitmaps+'-'+str(runNumber).zfill(6))
        hitmaps = 'scifi-hitmaps'
-       h[hitmaps] = R.scifi.Get(hitmaps).Clone(hitmaps)
+       h[hitmaps] = R.Get("scifi").Get(hitmaps).Clone(hitmaps)
        for B in marker:
-           tc = R.scifi.Get(B+'/'+hitmaps+B).Clone(hitmaps+B)
+           tc = R.Get("scifi").Get(B+'/'+hitmaps+B).Clone(hitmaps+B)
            for pad in tc.GetListOfPrimitives():
               for plane in pad.GetListOfPrimitives():
                  if plane.ClassName().find('TH')==0:
@@ -1967,7 +1967,7 @@ class fillingScheme():
            fmc = ROOT.TFile(Q12MC)
            ROOT.gROOT.cd()
            for hitmaps in ['mufi-barmapsVeto','mufi-barmapsUS','mufi-barmapsDS']:
-              tc = fmc.mufilter.Get(hitmaps).Clone(hitmaps+'MC')
+              tc = fmc.Get("mufilter").Get(hitmaps).Clone(hitmaps+'MC')
               for pad in tc.GetListOfPrimitives():
                 for plane in pad.GetListOfPrimitives():
                    if plane.ClassName().find('TH')==0:
