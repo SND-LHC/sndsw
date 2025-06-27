@@ -433,6 +433,7 @@ print("Real time ",rtime, " s, CPU time ",ctime,"s")
 
 # ------------------------------------------------------------------------
 def checkOverlaps(removeScifi=False):
+ ROOT.gROOT.SetWebDisplay("off") # Workaround for https://github.com/root-project/root/issues/18881
  sGeo = ROOT.gGeoManager
  if removeScifi:
     for n in range(1,6):
