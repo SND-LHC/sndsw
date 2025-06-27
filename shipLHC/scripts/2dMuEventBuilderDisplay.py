@@ -33,13 +33,13 @@ lsOfGlobals.Add(modules['MuFilter'])
 mc = False
 if options.inputFile=="":
   f=ROOT.TFile('sndsw_raw_'+str(options.runNumber).zfill(6)+'.root')
-  eventTree = f.rawConv
+  eventTree = f.Get("rawConv")
 else:
   f=ROOT.TFile.Open(options.inputFile)
   if f.FindKey('cbmsim'):
-        eventTree = f.cbmsim
+        eventTree = f.Get("cbmsim")
         mc = True
-  else:   eventTree = f.rawConv
+  else:   eventTree = f.Get("rawConv")
 
 nav = ROOT.gGeoManager.GetCurrentNavigator()
 for p in [0,1]:

@@ -75,7 +75,7 @@ else:
 
 treename = None
 for test_treename in ["rawConv", "cbmsim"] :
-     if hasattr(F, test_treename) :
+     if F.Get(test_treename):
           treename = test_treename
           break
 

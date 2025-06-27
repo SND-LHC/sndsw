@@ -30,7 +30,7 @@ def count(hFile):
    ut.bookHist(h,'xyz','',   100,-0.1,0.1,100,-0.1,0.1,200,-1.,1.)
    ut.bookHist(h,'dxyz','',100,-0.1,0.1,100,-0.1,0.1,200,-1.,1.)
    Npassed = 0
-   for sTree in f.cbmsim:
+   for sTree in f.Get("cbmsim"):
        N = sTree.MCTrack[0]
        Ekin = N.GetP()**2/(2*N.GetMass())*1000.
        logEkin = ROOT.TMath.Log10(Ekin)
@@ -152,7 +152,7 @@ def absorptionLength(plotOnly=True):
      myPrint(h['T'+X],'fracEveWith'+X)
 #
     fntuple = ROOT.TFile.Open('neutronsTI18.root')
-    nt=fntuple.nt
+    nt=fntuple.Get("nt")
     ROOT.gROOT.cd()
     tcanv = 'TFig12'
     if tcanv in h: h.pop(tcanv)
@@ -201,7 +201,7 @@ def absorptionLength(plotOnly=True):
     n = 0
     RateIntegrated = 0
     RateIntegratedW = 0
-    for nt in fntuple.nt:
+    for nt in fntuple.Get("nt"):
            E = (nt.Eleft+nt.Eright)/2.
            dE = nt.Eright - nt.Eleft
            h['Fig12'].SetPoint(n,ROOT.TMath.Log10(E),ROOT.TMath.Log10(nt.N*E))
@@ -312,7 +312,7 @@ def reactions(hFile,distance=1E10):
    ut.bookHist(h,'E',';log10(Ekin [MeV])',1000,-12.,4.)
    stats = {}
    n=-1
-   for sTree in f.cbmsim:
+   for sTree in f.Get("cbmsim"):
         n+=1
         daughters = []
         for m in sTree.MCTrack:
@@ -397,7 +397,7 @@ def flukaRateIntegrated(save=False):
    h['neutronRate'] = ROOT.TGraph()
    h['N'] = ROOT.TGraph()
    n = 0
-   for nt in fntuple.nt:
+   for nt in fntuple.Get("nt"):
    # nt.N  = [cm/MeV]
            E    = (nt.Eleft+nt.Eright)/2.
            dE = nt.Eright - nt.Eleft
@@ -516,8 +516,8 @@ def coldBox(plotOnly=True,pas=''):
    ut.bookHist(h,'multN','mult neutrons',100,-0.5,99.5)
 
    flukaRateIntegrated()
-   Nsim = f.cbmsim.GetEntries()
-   for sTree in f.cbmsim:
+   Nsim = f.Get("cbmsim").GetEntries()
+   for sTree in f.Get("cbmsim"):
        rc=h['multN'].Fill(sTree.MCTrack.GetEntries())
        neutron = sTree.MCTrack[0]
        start = ROOT.TVector3(neutron.GetStartX(),neutron.GetStartY(),neutron.GetStartZ())

@@ -326,8 +326,8 @@ if options.runNumber>0:
 else:
 # for MC data and other files
               f=ROOT.TFile.Open(options.fname)
-              if f.Get('rawConv'):   eventChain = f.rawConv
-              else:                        eventChain = f.cbmsim
+              if f.Get('rawConv'):   eventChain = f.Get("rawConv")
+              else:                        eventChain = f.Get("cbmsim")
 if options.remakeScifiClusters: eventChain.SetBranchStatus("Cluster_Scifi*",0)
 rc = eventChain.GetEvent(0)
 run      = ROOT.FairRunAna()

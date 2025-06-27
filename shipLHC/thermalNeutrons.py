@@ -140,7 +140,7 @@ def count(hFile = outFile):
    ut.bookHist(h,'dxyz','',100,-0.1,0.1,100,-0.1,0.1,200,-1.,1.)
    ut.bookHist(h,'Epassed',';log10(Ekin [MeV])',1000,-10.,4.)
    Npassed = 0
-   for sTree in f.cbmsim:
+   for sTree in f.Get("cbmsim"):
        N = sTree.MCTrack[0]
        Ekin = N.GetP()**2/(2*N.GetMass())*1000.
        logEkin = ROOT.TMath.Log10(Ekin)

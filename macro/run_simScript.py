@@ -708,7 +708,7 @@ if simEngine == "MuonBack" and not options.followMuon:
     nm = ff.GetName().split('/')
     if nm[len(nm)-1] == check: fin = ff
  if not fin: fin   = ROOT.TFile.Open(outFile)
- t     = fin.cbmsim
+ t     = fin.Get("cbmsim")
  fout  = ROOT.TFile(tmpFile,'recreate')
  sTree = t.CloneTree(0)
  nEvents = 0
