@@ -7,7 +7,6 @@ def pyExit():
        # This is needed to bypass seg violation with exiting cpp digitization
        # Most likely related to file ownership.
        os.system('kill '+str(os.getpid()))
-atexit.register(pyExit)
 
 import resource
 def mem_monitor():
@@ -145,3 +144,5 @@ rtime = timer.RealTime()
 ctime = timer.CpuTime()
 print(' ') 
 print("Real time ",rtime, " s, CPU time ",ctime,"s")
+if options.FairTask_digi:
+  atexit.register(pyExit)
