@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SND@LHC Software: README</title>
+<title>SND@LHC Software: Changelog</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -63,7 +63,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('md_conditionsDatabase_2databases_2mongodb_2README.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('md_CHANGELOG.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -89,13 +89,52 @@ $(document).ready(function(){initNavTree('md_conditionsDatabase_2databases_2mong
 </div>
 
 <div><div class="header">
-  <div class="headertitle"><div class="title">README</div></div>
+  <div class="headertitle"><div class="title">Changelog</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md7"></a> This directory contains all the contents for the MongoDB back-end storage adapter.</p>
+<div class="textblock"><p><a class="anchor" id="autotoc_md0"></a> All notable changes to this project will be documented in this file. The latest changes are placed on top get assigned to the corresponding software release.</p>
+<p>The software versioning scheme is vMAJOR.MINOR.PATCH+DATE-comment, where</p><ul>
+<li>PATCH - quick bug fixes</li>
+<li>MINOR - new classes or functionality, updates to adapt to new external packages</li>
+<li>MAJOR - additions of the detectors, breaking changes - hopefully we won't have such</li>
+<li>DATE - to ease communication and mimic our CVMFS releases</li>
+<li>comment - a short description of changes if available</li>
+<li>e.g. v1.0.0+2025-07-updateScifi</li>
+</ul>
+<p>The format is based on <a href="https://keepachangelog.com/en/1.1.0/">Keep a Changelog</a>. There could be several types of changes:</p><ul>
+<li><code>Added</code> for new features.</li>
+<li><code>Changed</code> for changes in existing functionality.</li>
+<li><code>Deprecated</code> for soon-to-be removed features.</li>
+<li><code>Removed</code> for now removed features.</li>
+<li><code>Fixed</code> for any bug fixes.</li>
+<li><code>Security</code> in case of vulnerabilities.</li>
+</ul>
+<p>We start with the first sndsw release: v1.0.0+2025-07-updateScifi. Shall there be a strong will/need, one can go back and create and fill in the logs for previous stacks.</p>
+<h1><a class="anchor" id="autotoc_md1"></a>
+v1.0.0+2025-07-updateScifi</h1>
+<h2><a class="anchor" id="autotoc_md2"></a>
+Added</h2>
 <ul>
-<li>[<b>models/</b>] Contains Mongo Engine model classes.</li>
-<li>[<b><a class="el" href="mongodbadapter_8py.html">mongodbadapter.py</a></b>] Contains the actual adapter class. It implements the CDB API. </li>
+<li>CHANGELOG</li>
+<li>Data file and geometry getters from run number</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md3"></a>
+Changed</h2>
+<ul>
+<li>Major update on the TI18 and baby SciFi detector geometry</li>
+<li>Update on the testbeams system geometry to take care of air gaps</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md4"></a>
+Fixed</h2>
+<ul>
+<li>Units for energy and snd_TDC2ns in the cpp units header</li>
+<li>storage of Emulsion(using a flag) and Veto points(always)</li>
+<li>Adapted to the latest FairRoot v19</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md5"></a>
+Removed</h2>
+<ul>
+<li>TI18 MC geometry config file is gone. We use a single one for data and simulation </li>
 </ul>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
