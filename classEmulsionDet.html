@@ -499,13 +499,13 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>How to add your own point of type <a class="el" href="classEmulsionDetPoint.html">EmulsionDetPoint</a> to the clones array </p>
 
-<p class="definition">Definition at line <a class="el" href="EmulsionDet_8cxx_source.html#l00513">513</a> of file <a class="el" href="EmulsionDet_8cxx_source.html">EmulsionDet.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  517</span>{</div>
-<div class="line"><span class="lineno">  518</span>    TClonesArray&amp; clref = *<a class="code hl_variable" href="classEmulsionDet.html#a7a8d82f1ca7a068685166e0ee84441cf">fEmulsionDetPointCollection</a>;</div>
-<div class="line"><span class="lineno">  519</span>    Int_t size = clref.GetEntriesFast();</div>
-<div class="line"><span class="lineno">  520</span>    <span class="keywordflow">return</span> <span class="keyword">new</span>(clref[size]) <a class="code hl_class" href="classEmulsionDetPoint.html">EmulsionDetPoint</a>(trackID,detID, pos, mom,</div>
-<div class="line"><span class="lineno">  521</span>                    time, length, eLoss, pdgCode,Lpos,Lmom);</div>
-<div class="line"><span class="lineno">  522</span>}</div>
+<p class="definition">Definition at line <a class="el" href="EmulsionDet_8cxx_source.html#l00516">516</a> of file <a class="el" href="EmulsionDet_8cxx_source.html">EmulsionDet.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  520</span>{</div>
+<div class="line"><span class="lineno">  521</span>    TClonesArray&amp; clref = *<a class="code hl_variable" href="classEmulsionDet.html#a7a8d82f1ca7a068685166e0ee84441cf">fEmulsionDetPointCollection</a>;</div>
+<div class="line"><span class="lineno">  522</span>    Int_t size = clref.GetEntriesFast();</div>
+<div class="line"><span class="lineno">  523</span>    <span class="keywordflow">return</span> <span class="keyword">new</span>(clref[size]) <a class="code hl_class" href="classEmulsionDetPoint.html">EmulsionDetPoint</a>(trackID,detID, pos, mom,</div>
+<div class="line"><span class="lineno">  524</span>                    time, length, eLoss, pdgCode,Lpos,Lmom);</div>
+<div class="line"><span class="lineno">  525</span>}</div>
 <div class="ttc" id="aclassEmulsionDetPoint_html"><div class="ttname"><a href="classEmulsionDetPoint.html">EmulsionDetPoint</a></div><div class="ttdef"><b>Definition</b> <a href="EmulsionDetPoint_8h_source.html#l00010">EmulsionDetPoint.h:11</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -619,205 +619,208 @@ Protected Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  195</span>    </div>
 <div class="line"><span class="lineno">  196</span>    <span class="keywordtype">int</span> NTungstenPlatesTB24 = <a class="code hl_variable" href="classEmulsionDet.html#ad43f9abf2427a5b0458008b01e91f65d">conf_ints</a>[<span class="stringliteral">&quot;EmulsionDet/n_tungsten_plates_tb24&quot;</span>];</div>
 <div class="line"><span class="lineno">  197</span>    <span class="keywordtype">bool</span> testbeam_2024_setup = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  198</span> </div>
-<div class="line"><span class="lineno">  199</span>    TGeoVolume *<a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#ad2f75d8ae8cd0e24f5478929b5ebf22d">top</a>=gGeoManager-&gt;FindVolumeFast(<span class="stringliteral">&quot;Detector&quot;</span>);</div>
-<div class="line"><span class="lineno">  200</span>    <span class="keywordflow">if</span>(!top)  LOG(ERROR) &lt;&lt; <span class="stringliteral">&quot;no Detector volume found &quot;</span> ;</div>
-<div class="line"><span class="lineno">  201</span>    gGeoManager-&gt;SetVisLevel(10);</div>
-<div class="line"><span class="lineno">  202</span> </div>
-<div class="line"><span class="lineno">  203</span>        LOG(INFO) &lt;&lt; <span class="stringliteral">&quot;    X: &quot;</span>&lt;&lt; <a class="code hl_variable" href="classEmulsionDet.html#aad97c53c4c358d7c5fd0ef7e99fb3da4">XDimension</a>&lt;&lt; <span class="stringliteral">&quot;  &quot;</span>&lt;&lt; <a class="code hl_variable" href="classEmulsionDet.html#ae5ba173706b88fb191bb6b8b2d79385e">YDimension</a>&lt;&lt;<span class="stringliteral">&quot;   Z: &quot;</span>&lt;&lt;<a class="code hl_variable" href="classEmulsionDet.html#a8ea3a9a63c38564133b796f417ee3388">ZDimension</a>;</div>
-<div class="line"><span class="lineno">  204</span>    LOG(INFO) &lt;&lt;<span class="stringliteral">&quot;  BrickX: &quot;</span>&lt;&lt; <a class="code hl_variable" href="classEmulsionDet.html#aae1a53186db0e3e57ec8582c9dadad6b">BrickX</a>&lt;&lt;<span class="stringliteral">&quot;  Y: &quot;</span>&lt;&lt; <a class="code hl_variable" href="classEmulsionDet.html#a81bc0efd362f808bbcd59ce6fe182d6d">BrickY</a>&lt;&lt; <span class="stringliteral">&quot;  Z: &quot;</span>&lt;&lt; <a class="code hl_variable" href="classEmulsionDet.html#af2e17a43321177a62152d8cfa06a7eb6">BrickZ</a>;</div>
-<div class="line"><span class="lineno">  205</span>    <span class="comment">//Materials </span></div>
-<div class="line"><span class="lineno">  206</span>    <a class="code hl_function" href="classEmulsionDet.html#a5eb04191f546dd7fed462e358d321f68">InitMedium</a>(<span class="stringliteral">&quot;vacuum&quot;</span>);</div>
-<div class="line"><span class="lineno">  207</span>    TGeoMedium *vacuum =gGeoManager-&gt;GetMedium(<span class="stringliteral">&quot;vacuum&quot;</span>);</div>
-<div class="line"><span class="lineno">  208</span>    </div>
-<div class="line"><span class="lineno">  209</span>    <a class="code hl_function" href="classEmulsionDet.html#a5eb04191f546dd7fed462e358d321f68">InitMedium</a>(<span class="stringliteral">&quot;air&quot;</span>);</div>
-<div class="line"><span class="lineno">  210</span>    TGeoMedium *air =gGeoManager-&gt;GetMedium(<span class="stringliteral">&quot;air&quot;</span>);</div>
-<div class="line"><span class="lineno">  211</span> </div>
-<div class="line"><span class="lineno">  212</span>    <a class="code hl_function" href="classEmulsionDet.html#a5eb04191f546dd7fed462e358d321f68">InitMedium</a>(<span class="stringliteral">&quot;Aluminum&quot;</span>);</div>
-<div class="line"><span class="lineno">  213</span>    TGeoMedium *Al  = gGeoManager-&gt;GetMedium(<span class="stringliteral">&quot;Aluminum&quot;</span>);</div>
+<div class="line"><span class="lineno">  198</span>    <span class="keywordflow">if</span> (NTungstenPlatesTB24 &gt; 0) {</div>
+<div class="line"><span class="lineno">  199</span>      testbeam_2024_setup = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  200</span>    }</div>
+<div class="line"><span class="lineno">  201</span> </div>
+<div class="line"><span class="lineno">  202</span>    TGeoVolume *<a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#ad2f75d8ae8cd0e24f5478929b5ebf22d">top</a>=gGeoManager-&gt;FindVolumeFast(<span class="stringliteral">&quot;Detector&quot;</span>);</div>
+<div class="line"><span class="lineno">  203</span>    <span class="keywordflow">if</span>(!top)  LOG(ERROR) &lt;&lt; <span class="stringliteral">&quot;no Detector volume found &quot;</span> ;</div>
+<div class="line"><span class="lineno">  204</span>    gGeoManager-&gt;SetVisLevel(10);</div>
+<div class="line"><span class="lineno">  205</span> </div>
+<div class="line"><span class="lineno">  206</span>        LOG(INFO) &lt;&lt; <span class="stringliteral">&quot;    X: &quot;</span>&lt;&lt; <a class="code hl_variable" href="classEmulsionDet.html#aad97c53c4c358d7c5fd0ef7e99fb3da4">XDimension</a>&lt;&lt; <span class="stringliteral">&quot;  &quot;</span>&lt;&lt; <a class="code hl_variable" href="classEmulsionDet.html#ae5ba173706b88fb191bb6b8b2d79385e">YDimension</a>&lt;&lt;<span class="stringliteral">&quot;   Z: &quot;</span>&lt;&lt;<a class="code hl_variable" href="classEmulsionDet.html#a8ea3a9a63c38564133b796f417ee3388">ZDimension</a>;</div>
+<div class="line"><span class="lineno">  207</span>    LOG(INFO) &lt;&lt;<span class="stringliteral">&quot;  BrickX: &quot;</span>&lt;&lt; <a class="code hl_variable" href="classEmulsionDet.html#aae1a53186db0e3e57ec8582c9dadad6b">BrickX</a>&lt;&lt;<span class="stringliteral">&quot;  Y: &quot;</span>&lt;&lt; <a class="code hl_variable" href="classEmulsionDet.html#a81bc0efd362f808bbcd59ce6fe182d6d">BrickY</a>&lt;&lt; <span class="stringliteral">&quot;  Z: &quot;</span>&lt;&lt; <a class="code hl_variable" href="classEmulsionDet.html#af2e17a43321177a62152d8cfa06a7eb6">BrickZ</a>;</div>
+<div class="line"><span class="lineno">  208</span>    <span class="comment">//Materials </span></div>
+<div class="line"><span class="lineno">  209</span>    <a class="code hl_function" href="classEmulsionDet.html#a5eb04191f546dd7fed462e358d321f68">InitMedium</a>(<span class="stringliteral">&quot;vacuum&quot;</span>);</div>
+<div class="line"><span class="lineno">  210</span>    TGeoMedium *vacuum =gGeoManager-&gt;GetMedium(<span class="stringliteral">&quot;vacuum&quot;</span>);</div>
+<div class="line"><span class="lineno">  211</span>    </div>
+<div class="line"><span class="lineno">  212</span>    <a class="code hl_function" href="classEmulsionDet.html#a5eb04191f546dd7fed462e358d321f68">InitMedium</a>(<span class="stringliteral">&quot;air&quot;</span>);</div>
+<div class="line"><span class="lineno">  213</span>    TGeoMedium *air =gGeoManager-&gt;GetMedium(<span class="stringliteral">&quot;air&quot;</span>);</div>
 <div class="line"><span class="lineno">  214</span> </div>
-<div class="line"><span class="lineno">  215</span>    <a class="code hl_function" href="classEmulsionDet.html#a5eb04191f546dd7fed462e358d321f68">InitMedium</a>(<span class="stringliteral">&quot;PlasticBase&quot;</span>);</div>
-<div class="line"><span class="lineno">  216</span>    TGeoMedium *PBase =gGeoManager-&gt;GetMedium(<span class="stringliteral">&quot;PlasticBase&quot;</span>);</div>
+<div class="line"><span class="lineno">  215</span>    <a class="code hl_function" href="classEmulsionDet.html#a5eb04191f546dd7fed462e358d321f68">InitMedium</a>(<span class="stringliteral">&quot;Aluminum&quot;</span>);</div>
+<div class="line"><span class="lineno">  216</span>    TGeoMedium *Al  = gGeoManager-&gt;GetMedium(<span class="stringliteral">&quot;Aluminum&quot;</span>);</div>
 <div class="line"><span class="lineno">  217</span> </div>
-<div class="line"><span class="lineno">  218</span>    <a class="code hl_function" href="classEmulsionDet.html#a5eb04191f546dd7fed462e358d321f68">InitMedium</a>(<span class="stringliteral">&quot;NuclearEmulsion&quot;</span>);</div>
-<div class="line"><span class="lineno">  219</span>    TGeoMedium *NEmu =gGeoManager-&gt;GetMedium(<span class="stringliteral">&quot;NuclearEmulsion&quot;</span>);</div>
-<div class="line"><span class="lineno">  220</span>    </div>
-<div class="line"><span class="lineno">  221</span>    TGeoMaterial *NEmuMat = NEmu-&gt;GetMaterial(); <span class="comment">//I need the materials to build the mixture</span></div>
-<div class="line"><span class="lineno">  222</span>    TGeoMaterial *PBaseMat = PBase-&gt;GetMaterial();</div>
-<div class="line"><span class="lineno">  223</span> </div>
-<div class="line"><span class="lineno">  224</span>    TGeoMixture * emufilmmixture = <span class="keyword">new</span> TGeoMixture(<span class="stringliteral">&quot;EmulsionFilmMixture&quot;</span>, 2.00); <span class="comment">// two nuclear emulsions separated by the plastic base</span></div>
-<div class="line"><span class="lineno">  225</span>    Double_t frac_emu = NEmuMat-&gt;GetDensity() * 2 * <a class="code hl_variable" href="classEmulsionDet.html#a9b605bd7010d7cd2ef0b2fb22d28915d">EmulsionThickness</a> /(NEmuMat-&gt;GetDensity() * 2 * <a class="code hl_variable" href="classEmulsionDet.html#a9b605bd7010d7cd2ef0b2fb22d28915d">EmulsionThickness</a> + PBaseMat-&gt;GetDensity() * <a class="code hl_variable" href="classEmulsionDet.html#a43af8178b37622c5f27bda9f18074b7e">PlasticBaseThickness</a>);</div>
+<div class="line"><span class="lineno">  218</span>    <a class="code hl_function" href="classEmulsionDet.html#a5eb04191f546dd7fed462e358d321f68">InitMedium</a>(<span class="stringliteral">&quot;PlasticBase&quot;</span>);</div>
+<div class="line"><span class="lineno">  219</span>    TGeoMedium *PBase =gGeoManager-&gt;GetMedium(<span class="stringliteral">&quot;PlasticBase&quot;</span>);</div>
+<div class="line"><span class="lineno">  220</span> </div>
+<div class="line"><span class="lineno">  221</span>    <a class="code hl_function" href="classEmulsionDet.html#a5eb04191f546dd7fed462e358d321f68">InitMedium</a>(<span class="stringliteral">&quot;NuclearEmulsion&quot;</span>);</div>
+<div class="line"><span class="lineno">  222</span>    TGeoMedium *NEmu =gGeoManager-&gt;GetMedium(<span class="stringliteral">&quot;NuclearEmulsion&quot;</span>);</div>
+<div class="line"><span class="lineno">  223</span>    </div>
+<div class="line"><span class="lineno">  224</span>    TGeoMaterial *NEmuMat = NEmu-&gt;GetMaterial(); <span class="comment">//I need the materials to build the mixture</span></div>
+<div class="line"><span class="lineno">  225</span>    TGeoMaterial *PBaseMat = PBase-&gt;GetMaterial();</div>
 <div class="line"><span class="lineno">  226</span> </div>
-<div class="line"><span class="lineno">  227</span>    emufilmmixture-&gt;AddElement(NEmuMat,frac_emu);</div>
-<div class="line"><span class="lineno">  228</span>    emufilmmixture-&gt;AddElement(PBaseMat,1. - frac_emu);</div>
+<div class="line"><span class="lineno">  227</span>    TGeoMixture * emufilmmixture = <span class="keyword">new</span> TGeoMixture(<span class="stringliteral">&quot;EmulsionFilmMixture&quot;</span>, 2.00); <span class="comment">// two nuclear emulsions separated by the plastic base</span></div>
+<div class="line"><span class="lineno">  228</span>    Double_t frac_emu = NEmuMat-&gt;GetDensity() * 2 * <a class="code hl_variable" href="classEmulsionDet.html#a9b605bd7010d7cd2ef0b2fb22d28915d">EmulsionThickness</a> /(NEmuMat-&gt;GetDensity() * 2 * <a class="code hl_variable" href="classEmulsionDet.html#a9b605bd7010d7cd2ef0b2fb22d28915d">EmulsionThickness</a> + PBaseMat-&gt;GetDensity() * <a class="code hl_variable" href="classEmulsionDet.html#a43af8178b37622c5f27bda9f18074b7e">PlasticBaseThickness</a>);</div>
 <div class="line"><span class="lineno">  229</span> </div>
-<div class="line"><span class="lineno">  230</span>    TGeoMedium *Emufilm = <span class="keyword">new</span> TGeoMedium(<span class="stringliteral">&quot;EmulsionFilm&quot;</span>,100,emufilmmixture);</div>
-<div class="line"><span class="lineno">  231</span> </div>
-<div class="line"><span class="lineno">  232</span>    <a class="code hl_function" href="classEmulsionDet.html#a5eb04191f546dd7fed462e358d321f68">InitMedium</a>(<span class="stringliteral">&quot;tungstensifon&quot;</span>);</div>
-<div class="line"><span class="lineno">  233</span>    TGeoMedium *tungsten = gGeoManager-&gt;GetMedium(<span class="stringliteral">&quot;tungstensifon&quot;</span>);</div>
+<div class="line"><span class="lineno">  230</span>    emufilmmixture-&gt;AddElement(NEmuMat,frac_emu);</div>
+<div class="line"><span class="lineno">  231</span>    emufilmmixture-&gt;AddElement(PBaseMat,1. - frac_emu);</div>
+<div class="line"><span class="lineno">  232</span> </div>
+<div class="line"><span class="lineno">  233</span>    TGeoMedium *Emufilm = <span class="keyword">new</span> TGeoMedium(<span class="stringliteral">&quot;EmulsionFilm&quot;</span>,100,emufilmmixture);</div>
 <div class="line"><span class="lineno">  234</span> </div>
-<div class="line"><span class="lineno">  235</span> </div>
-<div class="line"><span class="lineno">  236</span>    Int_t NPlates = <a class="code hl_variable" href="classEmulsionDet.html#ad7a0ddbecc51ce7dcb6b3b4ed0de5086">number_of_plates</a>; <span class="comment">//Number of doublets emulsion + Pb    </span></div>
+<div class="line"><span class="lineno">  235</span>    <a class="code hl_function" href="classEmulsionDet.html#a5eb04191f546dd7fed462e358d321f68">InitMedium</a>(<span class="stringliteral">&quot;tungstensifon&quot;</span>);</div>
+<div class="line"><span class="lineno">  236</span>    TGeoMedium *tungsten = gGeoManager-&gt;GetMedium(<span class="stringliteral">&quot;tungstensifon&quot;</span>);</div>
 <div class="line"><span class="lineno">  237</span> </div>
 <div class="line"><span class="lineno">  238</span> </div>
-<div class="line"><span class="lineno">  239</span>    <span class="comment">//TGeoVolume *top = gGeoManager-&gt;MakeBox(&quot;Top&quot;,vacuum,10.,10.,10.);</span></div>
-<div class="line"><span class="lineno">  240</span>    <span class="comment">//gGeoManager-&gt;SetTopVolume(top);</span></div>
+<div class="line"><span class="lineno">  239</span>    Int_t NPlates = <a class="code hl_variable" href="classEmulsionDet.html#ad7a0ddbecc51ce7dcb6b3b4ed0de5086">number_of_plates</a>; <span class="comment">//Number of doublets emulsion + Pb    </span></div>
+<div class="line"><span class="lineno">  240</span> </div>
 <div class="line"><span class="lineno">  241</span> </div>
-<div class="line"><span class="lineno">  242</span>    <span class="comment">//Definition of the target box containing emulsion bricks + target trackers (TT) </span></div>
-<div class="line"><span class="lineno">  243</span>         TGeoVolumeAssembly *volTarget  = <span class="keyword">new</span> TGeoVolumeAssembly(<span class="stringliteral">&quot;volTarget&quot;</span>);</div>
+<div class="line"><span class="lineno">  242</span>    <span class="comment">//TGeoVolume *top = gGeoManager-&gt;MakeBox(&quot;Top&quot;,vacuum,10.,10.,10.);</span></div>
+<div class="line"><span class="lineno">  243</span>    <span class="comment">//gGeoManager-&gt;SetTopVolume(top);</span></div>
 <div class="line"><span class="lineno">  244</span> </div>
-<div class="line"><span class="lineno">  245</span>    <span class="comment">//</span></div>
-<div class="line"><span class="lineno">  246</span>    <span class="comment">//  //Volumes definition</span></div>
-<div class="line"><span class="lineno">  247</span>    <span class="comment">//    //</span></div>
-<div class="line"><span class="lineno">  248</span> </div>
-<div class="line"><span class="lineno">  249</span>        <span class="comment">/*For testbeam 2024 there are plastic plates filling the upstream part of the target.</span></div>
-<div class="line"><span class="lineno">  250</span><span class="comment">      The last 28 layers have W+plastic plates.</span></div>
-<div class="line"><span class="lineno">  251</span><span class="comment">      The plastic layers in Wall1, Brick 1 are the same thickness as the plastic base in TI18 conf.</span></div>
-<div class="line"><span class="lineno">  252</span><span class="comment">      The plastic layers in Wall2, Brick 1 are 2 types of different thickness: 1 or 4/3 times the thickness of the TI18 plastic base.</span></div>
-<div class="line"><span class="lineno">  253</span><span class="comment">      These layers are alternating starting with the 4/3x-thick one, then 1x-thick one.</span></div>
-<div class="line"><span class="lineno">  254</span><span class="comment">      Whenever testbeam 2024 items are added in this function, there will be a note.</span></div>
-<div class="line"><span class="lineno">  255</span><span class="comment">    */</span></div>
-<div class="line"><span class="lineno">  256</span>    </div>
-<div class="line"><span class="lineno">  257</span>    TGeoBBox *Walltot = <span class="keyword">new</span> TGeoBBox(<span class="stringliteral">&quot;walltot&quot;</span>,<a class="code hl_variable" href="classEmulsionDet.html#aad97c53c4c358d7c5fd0ef7e99fb3da4">XDimension</a>/2, <a class="code hl_variable" href="classEmulsionDet.html#ae5ba173706b88fb191bb6b8b2d79385e">YDimension</a>/2, <a class="code hl_variable" href="classEmulsionDet.html#a38a7fa7322eacbdfb5fe443ba377f346">TotalWallZDim</a>/2);</div>
-<div class="line"><span class="lineno">  258</span>        TGeoBBox *Wallint = <span class="keyword">new</span> TGeoBBox(<span class="stringliteral">&quot;wallint&quot;</span>,<a class="code hl_variable" href="classEmulsionDet.html#a6b8d357bec9b7c6109ac01cce978bcea">WallXDim</a>/2, <a class="code hl_variable" href="classEmulsionDet.html#a3bad4229ec20004308c6ec39855a61f8">WallYDim</a>/2, <a class="code hl_variable" href="classEmulsionDet.html#ab786033ec7b6bc071054a38f11d9d723">WallZDim</a>/2);</div>
-<div class="line"><span class="lineno">  259</span> </div>
-<div class="line"><span class="lineno">  260</span>        TGeoTranslation * Wallborderpos = <span class="keyword">new</span> TGeoTranslation(<span class="stringliteral">&quot;Walborderpos&quot;</span>,0,0,<a class="code hl_variable" href="classEmulsionDet.html#a229bd7696fa0b79df7332ce4860f0be7">WallZBorder_offset</a>);</div>
-<div class="line"><span class="lineno">  261</span>        Wallborderpos-&gt;RegisterYourself();</div>
+<div class="line"><span class="lineno">  245</span>    <span class="comment">//Definition of the target box containing emulsion bricks + target trackers (TT) </span></div>
+<div class="line"><span class="lineno">  246</span>         TGeoVolumeAssembly *volTarget  = <span class="keyword">new</span> TGeoVolumeAssembly(<span class="stringliteral">&quot;volTarget&quot;</span>);</div>
+<div class="line"><span class="lineno">  247</span> </div>
+<div class="line"><span class="lineno">  248</span>    <span class="comment">//</span></div>
+<div class="line"><span class="lineno">  249</span>    <span class="comment">//  //Volumes definition</span></div>
+<div class="line"><span class="lineno">  250</span>    <span class="comment">//    //</span></div>
+<div class="line"><span class="lineno">  251</span> </div>
+<div class="line"><span class="lineno">  252</span>        <span class="comment">/*For testbeam 2024 there are plastic plates filling the upstream part of the target.</span></div>
+<div class="line"><span class="lineno">  253</span><span class="comment">      The last 28 layers have W+plastic plates.</span></div>
+<div class="line"><span class="lineno">  254</span><span class="comment">      The plastic layers in Wall1, Brick 1 are the same thickness as the plastic base in TI18 conf.</span></div>
+<div class="line"><span class="lineno">  255</span><span class="comment">      The plastic layers in Wall2, Brick 1 are 2 types of different thickness: 1 or 4/3 times the thickness of the TI18 plastic base.</span></div>
+<div class="line"><span class="lineno">  256</span><span class="comment">      These layers are alternating starting with the 4/3x-thick one, then 1x-thick one.</span></div>
+<div class="line"><span class="lineno">  257</span><span class="comment">      Whenever testbeam 2024 items are added in this function, there will be a note.</span></div>
+<div class="line"><span class="lineno">  258</span><span class="comment">    */</span></div>
+<div class="line"><span class="lineno">  259</span>    </div>
+<div class="line"><span class="lineno">  260</span>    TGeoBBox *Walltot = <span class="keyword">new</span> TGeoBBox(<span class="stringliteral">&quot;walltot&quot;</span>,<a class="code hl_variable" href="classEmulsionDet.html#aad97c53c4c358d7c5fd0ef7e99fb3da4">XDimension</a>/2, <a class="code hl_variable" href="classEmulsionDet.html#ae5ba173706b88fb191bb6b8b2d79385e">YDimension</a>/2, <a class="code hl_variable" href="classEmulsionDet.html#a38a7fa7322eacbdfb5fe443ba377f346">TotalWallZDim</a>/2);</div>
+<div class="line"><span class="lineno">  261</span>        TGeoBBox *Wallint = <span class="keyword">new</span> TGeoBBox(<span class="stringliteral">&quot;wallint&quot;</span>,<a class="code hl_variable" href="classEmulsionDet.html#a6b8d357bec9b7c6109ac01cce978bcea">WallXDim</a>/2, <a class="code hl_variable" href="classEmulsionDet.html#a3bad4229ec20004308c6ec39855a61f8">WallYDim</a>/2, <a class="code hl_variable" href="classEmulsionDet.html#ab786033ec7b6bc071054a38f11d9d723">WallZDim</a>/2);</div>
 <div class="line"><span class="lineno">  262</span> </div>
-<div class="line"><span class="lineno">  263</span>        TGeoCompositeShape *Wallborder = <span class="keyword">new</span> TGeoCompositeShape(<span class="stringliteral">&quot;wallborder&quot;</span>,<span class="stringliteral">&quot;walltot - (wallint:Walborderpos)&quot;</span>);</div>
-<div class="line"><span class="lineno">  264</span>        TGeoVolume *volWallborder = <span class="keyword">new</span> TGeoVolume(<span class="stringliteral">&quot;volWallborder&quot;</span>, Wallborder, Al);</div>
-<div class="line"><span class="lineno">  265</span>        volWallborder-&gt;SetLineColor(kGray);</div>
-<div class="line"><span class="lineno">  266</span> </div>
-<div class="line"><span class="lineno">  267</span>        TGeoVolume *volWall = <span class="keyword">new</span> TGeoVolume(<span class="stringliteral">&quot;Wall&quot;</span>,Wallint,air);</div>
-<div class="line"><span class="lineno">  268</span>        TGeoVolume *volWall_2 = <span class="keyword">new</span> TGeoVolume(<span class="stringliteral">&quot;Wall_2&quot;</span>,Wallint,air);</div>
-<div class="line"><span class="lineno">  269</span>    </div>
-<div class="line"><span class="lineno">  270</span>    <span class="comment">//Rows</span></div>
-<div class="line"><span class="lineno">  271</span>    TGeoBBox *Row = <span class="keyword">new</span> TGeoBBox(<span class="stringliteral">&quot;row&quot;</span>,<a class="code hl_variable" href="classEmulsionDet.html#a6b8d357bec9b7c6109ac01cce978bcea">WallXDim</a>/2, <a class="code hl_variable" href="classEmulsionDet.html#a81bc0efd362f808bbcd59ce6fe182d6d">BrickY</a>/2, <a class="code hl_variable" href="classEmulsionDet.html#af2e17a43321177a62152d8cfa06a7eb6">BrickZ</a>/2);</div>
-<div class="line"><span class="lineno">  272</span>    TGeoVolume *volRow = <span class="keyword">new</span> TGeoVolume(<span class="stringliteral">&quot;Row&quot;</span>,Row,air);</div>
-<div class="line"><span class="lineno">  273</span>    TGeoBBox *Row_W2 = <span class="keyword">new</span> TGeoBBox(<span class="stringliteral">&quot;row_W2&quot;</span>,<a class="code hl_variable" href="classEmulsionDet.html#a6b8d357bec9b7c6109ac01cce978bcea">WallXDim</a>/2, <a class="code hl_variable" href="classEmulsionDet.html#a81bc0efd362f808bbcd59ce6fe182d6d">BrickY</a>/2, <a class="code hl_variable" href="classEmulsionDet.html#af2e17a43321177a62152d8cfa06a7eb6">BrickZ</a>/2);<span class="comment">// testbeam 2024</span></div>
-<div class="line"><span class="lineno">  274</span>    TGeoVolume *volRow_W2 = <span class="keyword">new</span> TGeoVolume(<span class="stringliteral">&quot;Row_W2&quot;</span>,Row_W2,air);</div>
-<div class="line"><span class="lineno">  275</span> </div>
-<div class="line"><span class="lineno">  276</span>    <span class="comment">//Bricks</span></div>
-<div class="line"><span class="lineno">  277</span>    TGeoBBox *Brick = <span class="keyword">new</span> TGeoBBox(<span class="stringliteral">&quot;brick&quot;</span>, <a class="code hl_variable" href="classEmulsionDet.html#aae1a53186db0e3e57ec8582c9dadad6b">BrickX</a>/2, <a class="code hl_variable" href="classEmulsionDet.html#a81bc0efd362f808bbcd59ce6fe182d6d">BrickY</a>/2, <a class="code hl_variable" href="classEmulsionDet.html#af2e17a43321177a62152d8cfa06a7eb6">BrickZ</a>/2);</div>
-<div class="line"><span class="lineno">  278</span>    TGeoVolume *volBrick = <span class="keyword">new</span> TGeoVolume(<span class="stringliteral">&quot;Brick&quot;</span>,Brick,air);</div>
-<div class="line"><span class="lineno">  279</span>    volBrick-&gt;SetLineColor(kCyan);</div>
-<div class="line"><span class="lineno">  280</span>    volBrick-&gt;SetTransparency(1);</div>
-<div class="line"><span class="lineno">  281</span>    </div>
-<div class="line"><span class="lineno">  282</span>    TGeoBBox *Brick_W2 = <span class="keyword">new</span> TGeoBBox(<span class="stringliteral">&quot;brick_W2&quot;</span>, <a class="code hl_variable" href="classEmulsionDet.html#aae1a53186db0e3e57ec8582c9dadad6b">BrickX</a>/2, <a class="code hl_variable" href="classEmulsionDet.html#a81bc0efd362f808bbcd59ce6fe182d6d">BrickY</a>/2, <a class="code hl_variable" href="classEmulsionDet.html#af2e17a43321177a62152d8cfa06a7eb6">BrickZ</a>/2);<span class="comment">// testbeam 2024</span></div>
-<div class="line"><span class="lineno">  283</span>    TGeoVolume *volBrick_W2 = <span class="keyword">new</span> TGeoVolume(<span class="stringliteral">&quot;Brick_W2&quot;</span>,Brick_W2,air);</div>
-<div class="line"><span class="lineno">  284</span>    volBrick_W2-&gt;SetLineColor(kOrange);</div>
-<div class="line"><span class="lineno">  285</span>    volBrick_W2-&gt;SetTransparency(1);</div>
-<div class="line"><span class="lineno">  286</span> </div>
-<div class="line"><span class="lineno">  287</span>    TGeoBBox *Passive = <span class="keyword">new</span> TGeoBBox(<span class="stringliteral">&quot;Passive&quot;</span>, <a class="code hl_variable" href="classEmulsionDet.html#afbeb82777ca241b2aa95ccf9c5e7d494">EmulsionX</a>/2, <a class="code hl_variable" href="classEmulsionDet.html#af5b0a75d5780cac0f4d11a34a565c2d1">EmulsionY</a>/2, <a class="code hl_variable" href="classEmulsionDet.html#a0849f896ec0372b64886bd0a69433d43">PassiveThickness</a>/2);</div>
-<div class="line"><span class="lineno">  288</span>    TGeoVolume *volPassive = <span class="keyword">new</span> TGeoVolume(<span class="stringliteral">&quot;volPassive&quot;</span>,Passive,tungsten);</div>
-<div class="line"><span class="lineno">  289</span>    volPassive-&gt;SetTransparency(1);</div>
-<div class="line"><span class="lineno">  290</span>    volPassive-&gt;SetLineColor(kGray);</div>
-<div class="line"><span class="lineno">  291</span>    </div>
-<div class="line"><span class="lineno">  292</span>    <span class="comment">// For the testbeam 2024, the upstream part of the brick is filled with plastic</span></div>
-<div class="line"><span class="lineno">  293</span>    <span class="keywordtype">float</span> UpstreamPlasticThickness = (NPlates-NTungstenPlatesTB24)*<a class="code hl_variable" href="classEmulsionDet.html#a303e8460c5cb5d8b486ff2f177365b42">AllPlateWidth</a>;</div>
-<div class="line"><span class="lineno">  294</span>    <span class="comment">// it is a little thinner for Wall2, where the pлastic plates have 2 thicknesses</span></div>
-<div class="line"><span class="lineno">  295</span>    <span class="keywordtype">float</span> correction_W2 = NTungstenPlatesTB24/2*<a class="code hl_variable" href="classEmulsionDet.html#a43af8178b37622c5f27bda9f18074b7e">PlasticBaseThickness</a>/3.;</div>
-<div class="line"><span class="lineno">  296</span>    <span class="keywordtype">float</span> UpstreamPlasticThickness_W2 = UpstreamPlasticThickness - correction_W2;</div>
-<div class="line"><span class="lineno">  297</span>    TGeoBBox *Passive_plastic = <span class="keyword">new</span> TGeoBBox(<span class="stringliteral">&quot;Passive_plastic&quot;</span>, (<a class="code hl_variable" href="classEmulsionDet.html#afbeb82777ca241b2aa95ccf9c5e7d494">EmulsionX</a>-2.)/2, (<a class="code hl_variable" href="classEmulsionDet.html#af5b0a75d5780cac0f4d11a34a565c2d1">EmulsionY</a>-2.)/2, UpstreamPlasticThickness/2);</div>
-<div class="line"><span class="lineno">  298</span>    TGeoVolume *volPassive_plastic = <span class="keyword">new</span> TGeoVolume(<span class="stringliteral">&quot;volPassive_plastic&quot;</span>,Passive_plastic,PBase);</div>
-<div class="line"><span class="lineno">  299</span>    volPassive_plastic-&gt;SetLineColor(kMagenta);</div>
-<div class="line"><span class="lineno">  300</span>    volPassive_plastic-&gt;SetVisibility(kTRUE);</div>
-<div class="line"><span class="lineno">  301</span>    </div>
-<div class="line"><span class="lineno">  302</span>    TGeoBBox *Passive_plastic_W2 = <span class="keyword">new</span> TGeoBBox(<span class="stringliteral">&quot;Passive_plastic_W2&quot;</span>, (<a class="code hl_variable" href="classEmulsionDet.html#afbeb82777ca241b2aa95ccf9c5e7d494">EmulsionX</a>-2.)/2, (<a class="code hl_variable" href="classEmulsionDet.html#af5b0a75d5780cac0f4d11a34a565c2d1">EmulsionY</a>-2.)/2, UpstreamPlasticThickness_W2/2);</div>
-<div class="line"><span class="lineno">  303</span>    TGeoVolume *volPassive_plastic_W2 = <span class="keyword">new</span> TGeoVolume(<span class="stringliteral">&quot;volPassive_plastic_W2&quot;</span>,Passive_plastic_W2,PBase);</div>
-<div class="line"><span class="lineno">  304</span>    volPassive_plastic_W2-&gt;SetLineColor(kMagenta+2);</div>
-<div class="line"><span class="lineno">  305</span>    volPassive_plastic_W2-&gt;SetVisibility(kTRUE);</div>
-<div class="line"><span class="lineno">  306</span>    </div>
-<div class="line"><span class="lineno">  307</span>    <span class="keywordtype">float</span> accumulatve_width = UpstreamPlasticThickness_W2; <span class="comment">// testbeam 2024</span></div>
-<div class="line"><span class="lineno">  308</span> </div>
-<div class="line"><span class="lineno">  309</span>    <span class="keywordflow">for</span>(Int_t n=0; <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a0300c9226cb21058a0167e6076c29b1d">n</a>&lt;NPlates; <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a0300c9226cb21058a0167e6076c29b1d">n</a>++)</div>
-<div class="line"><span class="lineno">  310</span>    {</div>
-<div class="line"><span class="lineno">  311</span>        <span class="keywordflow">if</span> (n==0 &amp;&amp; testbeam_2024_setup){<span class="comment">// testbeam 2024</span></div>
-<div class="line"><span class="lineno">  312</span>          volBrick-&gt;AddNode(volPassive_plastic, n, </div>
-<div class="line"><span class="lineno">  313</span>                       <span class="keyword">new</span> TGeoTranslation(0,0,-<a class="code hl_variable" href="classEmulsionDet.html#af2e17a43321177a62152d8cfa06a7eb6">BrickZ</a>/2 + UpstreamPlasticThickness/2));<span class="comment">// upstream plastic</span></div>
-<div class="line"><span class="lineno">  314</span>          volBrick_W2-&gt;AddNode(volPassive_plastic_W2, n, <span class="keyword">new</span> TGeoTranslation(0,0,-<a class="code hl_variable" href="classEmulsionDet.html#af2e17a43321177a62152d8cfa06a7eb6">BrickZ</a>/2 + UpstreamPlasticThickness_W2/2));<span class="comment">// upstream plastic</span></div>
-<div class="line"><span class="lineno">  315</span>        }</div>
-<div class="line"><span class="lineno">  316</span>        <span class="keywordflow">if</span> (n&gt;=(NPlates-NTungstenPlatesTB24) || !testbeam_2024_setup) { <span class="comment">// instrumented part for both TI18 and testbeam 2024</span></div>
-<div class="line"><span class="lineno">  317</span>          volBrick-&gt;AddNode(volPassive, n, </div>
-<div class="line"><span class="lineno">  318</span>                       <span class="keyword">new</span> TGeoTranslation(0,0,-<a class="code hl_variable" href="classEmulsionDet.html#af2e17a43321177a62152d8cfa06a7eb6">BrickZ</a>/2 + <a class="code hl_variable" href="classEmulsionDet.html#a73b1b009805bec9eb0555d5d4574f297">EmPlateWidth</a> + <a class="code hl_variable" href="classEmulsionDet.html#a0849f896ec0372b64886bd0a69433d43">PassiveThickness</a>/2 + n*<a class="code hl_variable" href="classEmulsionDet.html#a303e8460c5cb5d8b486ff2f177365b42">AllPlateWidth</a>));<span class="comment">// default(1x) plastic base thickness</span></div>
-<div class="line"><span class="lineno">  319</span>          <span class="keywordflow">if</span> (testbeam_2024_setup){ <span class="comment">// testbeam 2024</span></div>
-<div class="line"><span class="lineno">  320</span>            <span class="comment">// interchange plastic plates of 1x or 4/3x default thickness</span></div>
-<div class="line"><span class="lineno">  321</span>            volBrick_W2-&gt;AddNode(volPassive, n, </div>
-<div class="line"><span class="lineno">  322</span>                            <span class="keyword">new</span> TGeoTranslation(0,0,-<a class="code hl_variable" href="classEmulsionDet.html#af2e17a43321177a62152d8cfa06a7eb6">BrickZ</a>/2 + (1+((n+1)%2)/3.)*<a class="code hl_variable" href="classEmulsionDet.html#a73b1b009805bec9eb0555d5d4574f297">EmPlateWidth</a> + <a class="code hl_variable" href="classEmulsionDet.html#a0849f896ec0372b64886bd0a69433d43">PassiveThickness</a>/2 + accumulatve_width));</div>
-<div class="line"><span class="lineno">  323</span>            accumulatve_width+=(1+((<a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a0300c9226cb21058a0167e6076c29b1d">n</a>+1)%2)/3.)*<a class="code hl_variable" href="classEmulsionDet.html#a73b1b009805bec9eb0555d5d4574f297">EmPlateWidth</a> + <a class="code hl_variable" href="classEmulsionDet.html#a0849f896ec0372b64886bd0a69433d43">PassiveThickness</a>;</div>
-<div class="line"><span class="lineno">  324</span>          }</div>
-<div class="line"><span class="lineno">  325</span>        }</div>
-<div class="line"><span class="lineno">  326</span>    }</div>
-<div class="line"><span class="lineno">  327</span> </div>
-<div class="line"><span class="lineno">  328</span>    TGeoBBox *EmulsionFilm = <span class="keyword">new</span> TGeoBBox(<span class="stringliteral">&quot;EmulsionFilm&quot;</span>, <a class="code hl_variable" href="classEmulsionDet.html#afbeb82777ca241b2aa95ccf9c5e7d494">EmulsionX</a>/2, <a class="code hl_variable" href="classEmulsionDet.html#af5b0a75d5780cac0f4d11a34a565c2d1">EmulsionY</a>/2, <a class="code hl_variable" href="classEmulsionDet.html#a73b1b009805bec9eb0555d5d4574f297">EmPlateWidth</a>/2);</div>
-<div class="line"><span class="lineno">  329</span>    TGeoVolume *volEmulsionFilm = <span class="keyword">new</span> TGeoVolume(<span class="stringliteral">&quot;Emulsion&quot;</span>,EmulsionFilm,Emufilm); <span class="comment">//TOP</span></div>
-<div class="line"><span class="lineno">  330</span>    volEmulsionFilm-&gt;SetLineColor(kBlue);</div>
-<div class="line"><span class="lineno">  331</span>    LOG(INFO) &lt;&lt; <span class="stringliteral">&quot;EmulsionDet : Passive option (0: all active, 1: all passive) set to &quot;</span> &lt;&lt; <a class="code hl_variable" href="classEmulsionDet.html#a102a058696a06df963c00e87e8e2929a">fPassiveOption</a> ;</div>
-<div class="line"><span class="lineno">  332</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="classEmulsionDet.html#a102a058696a06df963c00e87e8e2929a">fPassiveOption</a> == 0) AddSensitiveVolume(volEmulsionFilm);</div>
-<div class="line"><span class="lineno">  333</span>    <span class="keywordflow">if</span> (!testbeam_2024_setup){ <span class="comment">// TI18</span></div>
-<div class="line"><span class="lineno">  334</span>      <span class="keywordflow">for</span>(Int_t n=0; <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a0300c9226cb21058a0167e6076c29b1d">n</a>&lt;NPlates+1; <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a0300c9226cb21058a0167e6076c29b1d">n</a>++)</div>
-<div class="line"><span class="lineno">  335</span>      {</div>
-<div class="line"><span class="lineno">  336</span>        volBrick-&gt;AddNode(volEmulsionFilm, n, <span class="keyword">new</span> TGeoTranslation(0,0,-<a class="code hl_variable" href="classEmulsionDet.html#af2e17a43321177a62152d8cfa06a7eb6">BrickZ</a>/2+ <a class="code hl_variable" href="classEmulsionDet.html#a73b1b009805bec9eb0555d5d4574f297">EmPlateWidth</a>/2 + n*<a class="code hl_variable" href="classEmulsionDet.html#a303e8460c5cb5d8b486ff2f177365b42">AllPlateWidth</a>));</div>
-<div class="line"><span class="lineno">  337</span>      }</div>
-<div class="line"><span class="lineno">  338</span>    }</div>
-<div class="line"><span class="lineno">  339</span> </div>
-<div class="line"><span class="lineno">  340</span>    volBrick-&gt;SetVisibility(kTRUE);</div>
-<div class="line"><span class="lineno">  341</span>    <span class="keywordflow">if</span> (testbeam_2024_setup) { <span class="comment">// testbeam 2024</span></div>
-<div class="line"><span class="lineno">  342</span>      volBrick_W2-&gt;SetVisibility(kTRUE);</div>
-<div class="line"><span class="lineno">  343</span>    }</div>
-<div class="line"><span class="lineno">  344</span> </div>
-<div class="line"><span class="lineno">  345</span><span class="comment">//alignment</span></div>
-<div class="line"><span class="lineno">  346</span>    <span class="keywordtype">double</span> dx_survey[5] = {<a class="code hl_variable" href="classEmulsionDet.html#aa8e9c2a73d09125c548fb3653e988240">conf_floats</a>[<span class="stringliteral">&quot;EmulsionDet/Xpos0&quot;</span>],<a class="code hl_variable" href="classEmulsionDet.html#aa8e9c2a73d09125c548fb3653e988240">conf_floats</a>[<span class="stringliteral">&quot;EmulsionDet/Xpos1&quot;</span>],<a class="code hl_variable" href="classEmulsionDet.html#aa8e9c2a73d09125c548fb3653e988240">conf_floats</a>[<span class="stringliteral">&quot;EmulsionDet/Xpos2&quot;</span>],<a class="code hl_variable" href="classEmulsionDet.html#aa8e9c2a73d09125c548fb3653e988240">conf_floats</a>[<span class="stringliteral">&quot;EmulsionDet/Xpos3&quot;</span>],<a class="code hl_variable" href="classEmulsionDet.html#aa8e9c2a73d09125c548fb3653e988240">conf_floats</a>[<span class="stringliteral">&quot;EmulsionDet/Xpos4&quot;</span>]};</div>
-<div class="line"><span class="lineno">  347</span>    <span class="keywordtype">double</span> dy_survey[5] = {<a class="code hl_variable" href="classEmulsionDet.html#aa8e9c2a73d09125c548fb3653e988240">conf_floats</a>[<span class="stringliteral">&quot;EmulsionDet/Ypos0&quot;</span>],<a class="code hl_variable" href="classEmulsionDet.html#aa8e9c2a73d09125c548fb3653e988240">conf_floats</a>[<span class="stringliteral">&quot;EmulsionDet/Ypos1&quot;</span>],<a class="code hl_variable" href="classEmulsionDet.html#aa8e9c2a73d09125c548fb3653e988240">conf_floats</a>[<span class="stringliteral">&quot;EmulsionDet/Ypos2&quot;</span>],<a class="code hl_variable" href="classEmulsionDet.html#aa8e9c2a73d09125c548fb3653e988240">conf_floats</a>[<span class="stringliteral">&quot;EmulsionDet/Ypos3&quot;</span>],<a class="code hl_variable" href="classEmulsionDet.html#aa8e9c2a73d09125c548fb3653e988240">conf_floats</a>[<span class="stringliteral">&quot;EmulsionDet/Ypos4&quot;</span>]};</div>
-<div class="line"><span class="lineno">  348</span>    <span class="keywordtype">double</span> dz_survey[5] = {<a class="code hl_variable" href="classEmulsionDet.html#aa8e9c2a73d09125c548fb3653e988240">conf_floats</a>[<span class="stringliteral">&quot;EmulsionDet/Zpos0&quot;</span>],<a class="code hl_variable" href="classEmulsionDet.html#aa8e9c2a73d09125c548fb3653e988240">conf_floats</a>[<span class="stringliteral">&quot;EmulsionDet/Zpos1&quot;</span>],<a class="code hl_variable" href="classEmulsionDet.html#aa8e9c2a73d09125c548fb3653e988240">conf_floats</a>[<span class="stringliteral">&quot;EmulsionDet/Zpos2&quot;</span>],<a class="code hl_variable" href="classEmulsionDet.html#aa8e9c2a73d09125c548fb3653e988240">conf_floats</a>[<span class="stringliteral">&quot;EmulsionDet/Zpos3&quot;</span>],<a class="code hl_variable" href="classEmulsionDet.html#aa8e9c2a73d09125c548fb3653e988240">conf_floats</a>[<span class="stringliteral">&quot;EmulsionDet/Zpos4&quot;</span>]};</div>
-<div class="line"><span class="lineno">  349</span> </div>
-<div class="line"><span class="lineno">  350</span>    <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#ad2f75d8ae8cd0e24f5478929b5ebf22d">top</a>-&gt;AddNode(volTarget,1,<span class="keyword">new</span> TGeoTranslation(0,0,0));</div>
-<div class="line"><span class="lineno">  351</span> </div>
-<div class="line"><span class="lineno">  352</span>    <span class="comment">//adding walls</span></div>
-<div class="line"><span class="lineno">  353</span>    </div>
-<div class="line"><span class="lineno">  354</span>    Double_t d_cl_z = - <a class="code hl_variable" href="classEmulsionDet.html#a8ea3a9a63c38564133b796f417ee3388">ZDimension</a>/2;</div>
-<div class="line"><span class="lineno">  355</span> </div>
-<div class="line"><span class="lineno">  356</span>    <span class="keywordflow">if</span> (!testbeam_2024_setup){</div>
-<div class="line"><span class="lineno">  357</span>      <span class="keywordflow">for</span>(<span class="keywordtype">int</span> l = 0; <a class="code hl_variable" href="namespaceana__ShipMuon.html#a368dc3d523e04b368da1981e73859f4c">l</a> &lt; <a class="code hl_variable" href="classEmulsionDet.html#a083392d22ac0fde5e138b0c5272eaafe">fNWall</a>; <a class="code hl_variable" href="namespaceana__ShipMuon.html#a368dc3d523e04b368da1981e73859f4c">l</a>++) {</div>
-<div class="line"><span class="lineno">  358</span>        volTarget-&gt;AddNode(volWallborder,l,<span class="keyword">new</span> TGeoTranslation(-dx_survey[l]-<a class="code hl_variable" href="classEmulsionDet.html#aad97c53c4c358d7c5fd0ef7e99fb3da4">XDimension</a>/2., dz_survey[l]+<a class="code hl_variable" href="classEmulsionDet.html#ae5ba173706b88fb191bb6b8b2d79385e">YDimension</a>/2., dy_survey[l]+<a class="code hl_variable" href="classEmulsionDet.html#a38a7fa7322eacbdfb5fe443ba377f346">TotalWallZDim</a>/2.)); <span class="comment">//the survey points refer to the down-left corner</span></div>
-<div class="line"><span class="lineno">  359</span>        volTarget-&gt;AddNode(volWall,l,<span class="keyword">new</span> TGeoTranslation(-dx_survey[l]-<a class="code hl_variable" href="classEmulsionDet.html#aad97c53c4c358d7c5fd0ef7e99fb3da4">XDimension</a>/2., dz_survey[l]+<a class="code hl_variable" href="classEmulsionDet.html#ae5ba173706b88fb191bb6b8b2d79385e">YDimension</a>/2., dy_survey[l]+<a class="code hl_variable" href="classEmulsionDet.html#a38a7fa7322eacbdfb5fe443ba377f346">TotalWallZDim</a>/2.+<a class="code hl_variable" href="classEmulsionDet.html#a229bd7696fa0b79df7332ce4860f0be7">WallZBorder_offset</a>)); <span class="comment">//the survey points refer to the down-left corner</span></div>
-<div class="line"><span class="lineno">  360</span>        d_cl_z += <a class="code hl_variable" href="classEmulsionDet.html#af2e17a43321177a62152d8cfa06a7eb6">BrickZ</a> + <a class="code hl_variable" href="classEmulsionDet.html#a4b982cb06763a0ecf8093e0feaf43c4c">TTrackerZ</a>;</div>
-<div class="line"><span class="lineno">  361</span>      }</div>
-<div class="line"><span class="lineno">  362</span>    }</div>
-<div class="line"><span class="lineno">  363</span>    <span class="keywordflow">else</span> { <span class="comment">// testbeam 2024 </span></div>
-<div class="line"><span class="lineno">  364</span>      volTarget-&gt;AddNode(volWallborder,0,<span class="keyword">new</span> TGeoTranslation(-dx_survey[0]-<a class="code hl_variable" href="classEmulsionDet.html#aad97c53c4c358d7c5fd0ef7e99fb3da4">XDimension</a>/2., dz_survey[0]+<a class="code hl_variable" href="classEmulsionDet.html#ae5ba173706b88fb191bb6b8b2d79385e">YDimension</a>/2., dy_survey[0]+<a class="code hl_variable" href="classEmulsionDet.html#a38a7fa7322eacbdfb5fe443ba377f346">TotalWallZDim</a>/2.));</div>
-<div class="line"><span class="lineno">  365</span>      volTarget-&gt;AddNode(volWall,0,<span class="keyword">new</span> TGeoTranslation(-dx_survey[0]-<a class="code hl_variable" href="classEmulsionDet.html#aad97c53c4c358d7c5fd0ef7e99fb3da4">XDimension</a>/2., dz_survey[0]+<a class="code hl_variable" href="classEmulsionDet.html#ae5ba173706b88fb191bb6b8b2d79385e">YDimension</a>/2., dy_survey[0]+<a class="code hl_variable" href="classEmulsionDet.html#a38a7fa7322eacbdfb5fe443ba377f346">TotalWallZDim</a>/2.+<a class="code hl_variable" href="classEmulsionDet.html#a229bd7696fa0b79df7332ce4860f0be7">WallZBorder_offset</a>));</div>
-<div class="line"><span class="lineno">  366</span>      d_cl_z += <a class="code hl_variable" href="classEmulsionDet.html#af2e17a43321177a62152d8cfa06a7eb6">BrickZ</a> + <a class="code hl_variable" href="classEmulsionDet.html#a4b982cb06763a0ecf8093e0feaf43c4c">TTrackerZ</a>;</div>
-<div class="line"><span class="lineno">  367</span>      volTarget-&gt;AddNode(volWallborder,1,<span class="keyword">new</span> TGeoTranslation(-dx_survey[1]-<a class="code hl_variable" href="classEmulsionDet.html#aad97c53c4c358d7c5fd0ef7e99fb3da4">XDimension</a>/2., dz_survey[1]+<a class="code hl_variable" href="classEmulsionDet.html#ae5ba173706b88fb191bb6b8b2d79385e">YDimension</a>/2., dy_survey[1]+<a class="code hl_variable" href="classEmulsionDet.html#a38a7fa7322eacbdfb5fe443ba377f346">TotalWallZDim</a>/2.));</div>
-<div class="line"><span class="lineno">  368</span>      volTarget-&gt;AddNode(volWall_2,1,<span class="keyword">new</span> TGeoTranslation(-dx_survey[1]-<a class="code hl_variable" href="classEmulsionDet.html#aad97c53c4c358d7c5fd0ef7e99fb3da4">XDimension</a>/2., dz_survey[1]+<a class="code hl_variable" href="classEmulsionDet.html#ae5ba173706b88fb191bb6b8b2d79385e">YDimension</a>/2., dy_survey[1]+<a class="code hl_variable" href="classEmulsionDet.html#a38a7fa7322eacbdfb5fe443ba377f346">TotalWallZDim</a>/2.+<a class="code hl_variable" href="classEmulsionDet.html#a229bd7696fa0b79df7332ce4860f0be7">WallZBorder_offset</a>));</div>
+<div class="line"><span class="lineno">  263</span>        TGeoTranslation * Wallborderpos = <span class="keyword">new</span> TGeoTranslation(<span class="stringliteral">&quot;Walborderpos&quot;</span>,0,0,<a class="code hl_variable" href="classEmulsionDet.html#a229bd7696fa0b79df7332ce4860f0be7">WallZBorder_offset</a>);</div>
+<div class="line"><span class="lineno">  264</span>        Wallborderpos-&gt;RegisterYourself();</div>
+<div class="line"><span class="lineno">  265</span> </div>
+<div class="line"><span class="lineno">  266</span>        TGeoCompositeShape *Wallborder = <span class="keyword">new</span> TGeoCompositeShape(<span class="stringliteral">&quot;wallborder&quot;</span>,<span class="stringliteral">&quot;walltot - (wallint:Walborderpos)&quot;</span>);</div>
+<div class="line"><span class="lineno">  267</span>        TGeoVolume *volWallborder = <span class="keyword">new</span> TGeoVolume(<span class="stringliteral">&quot;volWallborder&quot;</span>, Wallborder, Al);</div>
+<div class="line"><span class="lineno">  268</span>        volWallborder-&gt;SetLineColor(kGray);</div>
+<div class="line"><span class="lineno">  269</span> </div>
+<div class="line"><span class="lineno">  270</span>        TGeoVolume *volWall = <span class="keyword">new</span> TGeoVolume(<span class="stringliteral">&quot;Wall&quot;</span>,Wallint,air);</div>
+<div class="line"><span class="lineno">  271</span>        TGeoVolume *volWall_2 = <span class="keyword">new</span> TGeoVolume(<span class="stringliteral">&quot;Wall_2&quot;</span>,Wallint,air);</div>
+<div class="line"><span class="lineno">  272</span>    </div>
+<div class="line"><span class="lineno">  273</span>    <span class="comment">//Rows</span></div>
+<div class="line"><span class="lineno">  274</span>    TGeoBBox *Row = <span class="keyword">new</span> TGeoBBox(<span class="stringliteral">&quot;row&quot;</span>,<a class="code hl_variable" href="classEmulsionDet.html#a6b8d357bec9b7c6109ac01cce978bcea">WallXDim</a>/2, <a class="code hl_variable" href="classEmulsionDet.html#a81bc0efd362f808bbcd59ce6fe182d6d">BrickY</a>/2, <a class="code hl_variable" href="classEmulsionDet.html#af2e17a43321177a62152d8cfa06a7eb6">BrickZ</a>/2);</div>
+<div class="line"><span class="lineno">  275</span>    TGeoVolume *volRow = <span class="keyword">new</span> TGeoVolume(<span class="stringliteral">&quot;Row&quot;</span>,Row,air);</div>
+<div class="line"><span class="lineno">  276</span>    TGeoBBox *Row_W2 = <span class="keyword">new</span> TGeoBBox(<span class="stringliteral">&quot;row_W2&quot;</span>,<a class="code hl_variable" href="classEmulsionDet.html#a6b8d357bec9b7c6109ac01cce978bcea">WallXDim</a>/2, <a class="code hl_variable" href="classEmulsionDet.html#a81bc0efd362f808bbcd59ce6fe182d6d">BrickY</a>/2, <a class="code hl_variable" href="classEmulsionDet.html#af2e17a43321177a62152d8cfa06a7eb6">BrickZ</a>/2);<span class="comment">// testbeam 2024</span></div>
+<div class="line"><span class="lineno">  277</span>    TGeoVolume *volRow_W2 = <span class="keyword">new</span> TGeoVolume(<span class="stringliteral">&quot;Row_W2&quot;</span>,Row_W2,air);</div>
+<div class="line"><span class="lineno">  278</span> </div>
+<div class="line"><span class="lineno">  279</span>    <span class="comment">//Bricks</span></div>
+<div class="line"><span class="lineno">  280</span>    TGeoBBox *Brick = <span class="keyword">new</span> TGeoBBox(<span class="stringliteral">&quot;brick&quot;</span>, <a class="code hl_variable" href="classEmulsionDet.html#aae1a53186db0e3e57ec8582c9dadad6b">BrickX</a>/2, <a class="code hl_variable" href="classEmulsionDet.html#a81bc0efd362f808bbcd59ce6fe182d6d">BrickY</a>/2, <a class="code hl_variable" href="classEmulsionDet.html#af2e17a43321177a62152d8cfa06a7eb6">BrickZ</a>/2);</div>
+<div class="line"><span class="lineno">  281</span>    TGeoVolume *volBrick = <span class="keyword">new</span> TGeoVolume(<span class="stringliteral">&quot;Brick&quot;</span>,Brick,air);</div>
+<div class="line"><span class="lineno">  282</span>    volBrick-&gt;SetLineColor(kCyan);</div>
+<div class="line"><span class="lineno">  283</span>    volBrick-&gt;SetTransparency(1);</div>
+<div class="line"><span class="lineno">  284</span>    </div>
+<div class="line"><span class="lineno">  285</span>    TGeoBBox *Brick_W2 = <span class="keyword">new</span> TGeoBBox(<span class="stringliteral">&quot;brick_W2&quot;</span>, <a class="code hl_variable" href="classEmulsionDet.html#aae1a53186db0e3e57ec8582c9dadad6b">BrickX</a>/2, <a class="code hl_variable" href="classEmulsionDet.html#a81bc0efd362f808bbcd59ce6fe182d6d">BrickY</a>/2, <a class="code hl_variable" href="classEmulsionDet.html#af2e17a43321177a62152d8cfa06a7eb6">BrickZ</a>/2);<span class="comment">// testbeam 2024</span></div>
+<div class="line"><span class="lineno">  286</span>    TGeoVolume *volBrick_W2 = <span class="keyword">new</span> TGeoVolume(<span class="stringliteral">&quot;Brick_W2&quot;</span>,Brick_W2,air);</div>
+<div class="line"><span class="lineno">  287</span>    volBrick_W2-&gt;SetLineColor(kOrange);</div>
+<div class="line"><span class="lineno">  288</span>    volBrick_W2-&gt;SetTransparency(1);</div>
+<div class="line"><span class="lineno">  289</span> </div>
+<div class="line"><span class="lineno">  290</span>    TGeoBBox *Passive = <span class="keyword">new</span> TGeoBBox(<span class="stringliteral">&quot;Passive&quot;</span>, <a class="code hl_variable" href="classEmulsionDet.html#afbeb82777ca241b2aa95ccf9c5e7d494">EmulsionX</a>/2, <a class="code hl_variable" href="classEmulsionDet.html#af5b0a75d5780cac0f4d11a34a565c2d1">EmulsionY</a>/2, <a class="code hl_variable" href="classEmulsionDet.html#a0849f896ec0372b64886bd0a69433d43">PassiveThickness</a>/2);</div>
+<div class="line"><span class="lineno">  291</span>    TGeoVolume *volPassive = <span class="keyword">new</span> TGeoVolume(<span class="stringliteral">&quot;volPassive&quot;</span>,Passive,tungsten);</div>
+<div class="line"><span class="lineno">  292</span>    volPassive-&gt;SetTransparency(1);</div>
+<div class="line"><span class="lineno">  293</span>    volPassive-&gt;SetLineColor(kGray);</div>
+<div class="line"><span class="lineno">  294</span>    </div>
+<div class="line"><span class="lineno">  295</span>    <span class="comment">// For the testbeam 2024, the upstream part of the brick is filled with plastic</span></div>
+<div class="line"><span class="lineno">  296</span>    <span class="keywordtype">float</span> UpstreamPlasticThickness = (NPlates-NTungstenPlatesTB24)*<a class="code hl_variable" href="classEmulsionDet.html#a303e8460c5cb5d8b486ff2f177365b42">AllPlateWidth</a>;</div>
+<div class="line"><span class="lineno">  297</span>    <span class="comment">// it is a little thinner for Wall2, where the pлastic plates have 2 thicknesses</span></div>
+<div class="line"><span class="lineno">  298</span>    <span class="keywordtype">float</span> correction_W2 = NTungstenPlatesTB24/2*<a class="code hl_variable" href="classEmulsionDet.html#a43af8178b37622c5f27bda9f18074b7e">PlasticBaseThickness</a>/3.;</div>
+<div class="line"><span class="lineno">  299</span>    <span class="keywordtype">float</span> UpstreamPlasticThickness_W2 = UpstreamPlasticThickness - correction_W2;</div>
+<div class="line"><span class="lineno">  300</span>    TGeoBBox *Passive_plastic = <span class="keyword">new</span> TGeoBBox(<span class="stringliteral">&quot;Passive_plastic&quot;</span>, (<a class="code hl_variable" href="classEmulsionDet.html#afbeb82777ca241b2aa95ccf9c5e7d494">EmulsionX</a>-2.)/2, (<a class="code hl_variable" href="classEmulsionDet.html#af5b0a75d5780cac0f4d11a34a565c2d1">EmulsionY</a>-2.)/2, UpstreamPlasticThickness/2);</div>
+<div class="line"><span class="lineno">  301</span>    TGeoVolume *volPassive_plastic = <span class="keyword">new</span> TGeoVolume(<span class="stringliteral">&quot;volPassive_plastic&quot;</span>,Passive_plastic,PBase);</div>
+<div class="line"><span class="lineno">  302</span>    volPassive_plastic-&gt;SetLineColor(kMagenta);</div>
+<div class="line"><span class="lineno">  303</span>    volPassive_plastic-&gt;SetVisibility(kTRUE);</div>
+<div class="line"><span class="lineno">  304</span>    </div>
+<div class="line"><span class="lineno">  305</span>    TGeoBBox *Passive_plastic_W2 = <span class="keyword">new</span> TGeoBBox(<span class="stringliteral">&quot;Passive_plastic_W2&quot;</span>, (<a class="code hl_variable" href="classEmulsionDet.html#afbeb82777ca241b2aa95ccf9c5e7d494">EmulsionX</a>-2.)/2, (<a class="code hl_variable" href="classEmulsionDet.html#af5b0a75d5780cac0f4d11a34a565c2d1">EmulsionY</a>-2.)/2, UpstreamPlasticThickness_W2/2);</div>
+<div class="line"><span class="lineno">  306</span>    TGeoVolume *volPassive_plastic_W2 = <span class="keyword">new</span> TGeoVolume(<span class="stringliteral">&quot;volPassive_plastic_W2&quot;</span>,Passive_plastic_W2,PBase);</div>
+<div class="line"><span class="lineno">  307</span>    volPassive_plastic_W2-&gt;SetLineColor(kMagenta+2);</div>
+<div class="line"><span class="lineno">  308</span>    volPassive_plastic_W2-&gt;SetVisibility(kTRUE);</div>
+<div class="line"><span class="lineno">  309</span>    </div>
+<div class="line"><span class="lineno">  310</span>    <span class="keywordtype">float</span> accumulatve_width = UpstreamPlasticThickness_W2; <span class="comment">// testbeam 2024</span></div>
+<div class="line"><span class="lineno">  311</span> </div>
+<div class="line"><span class="lineno">  312</span>    <span class="keywordflow">for</span>(Int_t n=0; <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a0300c9226cb21058a0167e6076c29b1d">n</a>&lt;NPlates; <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a0300c9226cb21058a0167e6076c29b1d">n</a>++)</div>
+<div class="line"><span class="lineno">  313</span>    {</div>
+<div class="line"><span class="lineno">  314</span>        <span class="keywordflow">if</span> (n==0 &amp;&amp; testbeam_2024_setup){<span class="comment">// testbeam 2024</span></div>
+<div class="line"><span class="lineno">  315</span>          volBrick-&gt;AddNode(volPassive_plastic, n, </div>
+<div class="line"><span class="lineno">  316</span>                       <span class="keyword">new</span> TGeoTranslation(0,0,-<a class="code hl_variable" href="classEmulsionDet.html#af2e17a43321177a62152d8cfa06a7eb6">BrickZ</a>/2 + UpstreamPlasticThickness/2));<span class="comment">// upstream plastic</span></div>
+<div class="line"><span class="lineno">  317</span>          volBrick_W2-&gt;AddNode(volPassive_plastic_W2, n, <span class="keyword">new</span> TGeoTranslation(0,0,-<a class="code hl_variable" href="classEmulsionDet.html#af2e17a43321177a62152d8cfa06a7eb6">BrickZ</a>/2 + UpstreamPlasticThickness_W2/2));<span class="comment">// upstream plastic</span></div>
+<div class="line"><span class="lineno">  318</span>        }</div>
+<div class="line"><span class="lineno">  319</span>        <span class="keywordflow">if</span> (n&gt;=(NPlates-NTungstenPlatesTB24) || !testbeam_2024_setup) { <span class="comment">// instrumented part for both TI18 and testbeam 2024</span></div>
+<div class="line"><span class="lineno">  320</span>          volBrick-&gt;AddNode(volPassive, n, </div>
+<div class="line"><span class="lineno">  321</span>                       <span class="keyword">new</span> TGeoTranslation(0,0,-<a class="code hl_variable" href="classEmulsionDet.html#af2e17a43321177a62152d8cfa06a7eb6">BrickZ</a>/2 + <a class="code hl_variable" href="classEmulsionDet.html#a73b1b009805bec9eb0555d5d4574f297">EmPlateWidth</a> + <a class="code hl_variable" href="classEmulsionDet.html#a0849f896ec0372b64886bd0a69433d43">PassiveThickness</a>/2 + n*<a class="code hl_variable" href="classEmulsionDet.html#a303e8460c5cb5d8b486ff2f177365b42">AllPlateWidth</a>));<span class="comment">// default(1x) plastic base thickness</span></div>
+<div class="line"><span class="lineno">  322</span>          <span class="keywordflow">if</span> (testbeam_2024_setup){ <span class="comment">// testbeam 2024</span></div>
+<div class="line"><span class="lineno">  323</span>            <span class="comment">// interchange plastic plates of 1x or 4/3x default thickness</span></div>
+<div class="line"><span class="lineno">  324</span>            volBrick_W2-&gt;AddNode(volPassive, n, </div>
+<div class="line"><span class="lineno">  325</span>                            <span class="keyword">new</span> TGeoTranslation(0,0,-<a class="code hl_variable" href="classEmulsionDet.html#af2e17a43321177a62152d8cfa06a7eb6">BrickZ</a>/2 + (1+((n+1)%2)/3.)*<a class="code hl_variable" href="classEmulsionDet.html#a73b1b009805bec9eb0555d5d4574f297">EmPlateWidth</a> + <a class="code hl_variable" href="classEmulsionDet.html#a0849f896ec0372b64886bd0a69433d43">PassiveThickness</a>/2 + accumulatve_width));</div>
+<div class="line"><span class="lineno">  326</span>            accumulatve_width+=(1+((<a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a0300c9226cb21058a0167e6076c29b1d">n</a>+1)%2)/3.)*<a class="code hl_variable" href="classEmulsionDet.html#a73b1b009805bec9eb0555d5d4574f297">EmPlateWidth</a> + <a class="code hl_variable" href="classEmulsionDet.html#a0849f896ec0372b64886bd0a69433d43">PassiveThickness</a>;</div>
+<div class="line"><span class="lineno">  327</span>          }</div>
+<div class="line"><span class="lineno">  328</span>        }</div>
+<div class="line"><span class="lineno">  329</span>    }</div>
+<div class="line"><span class="lineno">  330</span> </div>
+<div class="line"><span class="lineno">  331</span>    TGeoBBox *EmulsionFilm = <span class="keyword">new</span> TGeoBBox(<span class="stringliteral">&quot;EmulsionFilm&quot;</span>, <a class="code hl_variable" href="classEmulsionDet.html#afbeb82777ca241b2aa95ccf9c5e7d494">EmulsionX</a>/2, <a class="code hl_variable" href="classEmulsionDet.html#af5b0a75d5780cac0f4d11a34a565c2d1">EmulsionY</a>/2, <a class="code hl_variable" href="classEmulsionDet.html#a73b1b009805bec9eb0555d5d4574f297">EmPlateWidth</a>/2);</div>
+<div class="line"><span class="lineno">  332</span>    TGeoVolume *volEmulsionFilm = <span class="keyword">new</span> TGeoVolume(<span class="stringliteral">&quot;Emulsion&quot;</span>,EmulsionFilm,Emufilm); <span class="comment">//TOP</span></div>
+<div class="line"><span class="lineno">  333</span>    volEmulsionFilm-&gt;SetLineColor(kBlue);</div>
+<div class="line"><span class="lineno">  334</span>    LOG(INFO) &lt;&lt; <span class="stringliteral">&quot;EmulsionDet : Passive option (0: all active, 1: all passive) set to &quot;</span> &lt;&lt; <a class="code hl_variable" href="classEmulsionDet.html#a102a058696a06df963c00e87e8e2929a">fPassiveOption</a> ;</div>
+<div class="line"><span class="lineno">  335</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="classEmulsionDet.html#a102a058696a06df963c00e87e8e2929a">fPassiveOption</a> == 0) AddSensitiveVolume(volEmulsionFilm);</div>
+<div class="line"><span class="lineno">  336</span>    <span class="keywordflow">if</span> (!testbeam_2024_setup){ <span class="comment">// TI18</span></div>
+<div class="line"><span class="lineno">  337</span>      <span class="keywordflow">for</span>(Int_t n=0; <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a0300c9226cb21058a0167e6076c29b1d">n</a>&lt;NPlates+1; <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a0300c9226cb21058a0167e6076c29b1d">n</a>++)</div>
+<div class="line"><span class="lineno">  338</span>      {</div>
+<div class="line"><span class="lineno">  339</span>        volBrick-&gt;AddNode(volEmulsionFilm, n, <span class="keyword">new</span> TGeoTranslation(0,0,-<a class="code hl_variable" href="classEmulsionDet.html#af2e17a43321177a62152d8cfa06a7eb6">BrickZ</a>/2+ <a class="code hl_variable" href="classEmulsionDet.html#a73b1b009805bec9eb0555d5d4574f297">EmPlateWidth</a>/2 + n*<a class="code hl_variable" href="classEmulsionDet.html#a303e8460c5cb5d8b486ff2f177365b42">AllPlateWidth</a>));</div>
+<div class="line"><span class="lineno">  340</span>      }</div>
+<div class="line"><span class="lineno">  341</span>    }</div>
+<div class="line"><span class="lineno">  342</span> </div>
+<div class="line"><span class="lineno">  343</span>    volBrick-&gt;SetVisibility(kTRUE);</div>
+<div class="line"><span class="lineno">  344</span>    <span class="keywordflow">if</span> (testbeam_2024_setup) { <span class="comment">// testbeam 2024</span></div>
+<div class="line"><span class="lineno">  345</span>      volBrick_W2-&gt;SetVisibility(kTRUE);</div>
+<div class="line"><span class="lineno">  346</span>    }</div>
+<div class="line"><span class="lineno">  347</span> </div>
+<div class="line"><span class="lineno">  348</span><span class="comment">//alignment</span></div>
+<div class="line"><span class="lineno">  349</span>    <span class="keywordtype">double</span> dx_survey[5] = {<a class="code hl_variable" href="classEmulsionDet.html#aa8e9c2a73d09125c548fb3653e988240">conf_floats</a>[<span class="stringliteral">&quot;EmulsionDet/Xpos0&quot;</span>],<a class="code hl_variable" href="classEmulsionDet.html#aa8e9c2a73d09125c548fb3653e988240">conf_floats</a>[<span class="stringliteral">&quot;EmulsionDet/Xpos1&quot;</span>],<a class="code hl_variable" href="classEmulsionDet.html#aa8e9c2a73d09125c548fb3653e988240">conf_floats</a>[<span class="stringliteral">&quot;EmulsionDet/Xpos2&quot;</span>],<a class="code hl_variable" href="classEmulsionDet.html#aa8e9c2a73d09125c548fb3653e988240">conf_floats</a>[<span class="stringliteral">&quot;EmulsionDet/Xpos3&quot;</span>],<a class="code hl_variable" href="classEmulsionDet.html#aa8e9c2a73d09125c548fb3653e988240">conf_floats</a>[<span class="stringliteral">&quot;EmulsionDet/Xpos4&quot;</span>]};</div>
+<div class="line"><span class="lineno">  350</span>    <span class="keywordtype">double</span> dy_survey[5] = {<a class="code hl_variable" href="classEmulsionDet.html#aa8e9c2a73d09125c548fb3653e988240">conf_floats</a>[<span class="stringliteral">&quot;EmulsionDet/Ypos0&quot;</span>],<a class="code hl_variable" href="classEmulsionDet.html#aa8e9c2a73d09125c548fb3653e988240">conf_floats</a>[<span class="stringliteral">&quot;EmulsionDet/Ypos1&quot;</span>],<a class="code hl_variable" href="classEmulsionDet.html#aa8e9c2a73d09125c548fb3653e988240">conf_floats</a>[<span class="stringliteral">&quot;EmulsionDet/Ypos2&quot;</span>],<a class="code hl_variable" href="classEmulsionDet.html#aa8e9c2a73d09125c548fb3653e988240">conf_floats</a>[<span class="stringliteral">&quot;EmulsionDet/Ypos3&quot;</span>],<a class="code hl_variable" href="classEmulsionDet.html#aa8e9c2a73d09125c548fb3653e988240">conf_floats</a>[<span class="stringliteral">&quot;EmulsionDet/Ypos4&quot;</span>]};</div>
+<div class="line"><span class="lineno">  351</span>    <span class="keywordtype">double</span> dz_survey[5] = {<a class="code hl_variable" href="classEmulsionDet.html#aa8e9c2a73d09125c548fb3653e988240">conf_floats</a>[<span class="stringliteral">&quot;EmulsionDet/Zpos0&quot;</span>],<a class="code hl_variable" href="classEmulsionDet.html#aa8e9c2a73d09125c548fb3653e988240">conf_floats</a>[<span class="stringliteral">&quot;EmulsionDet/Zpos1&quot;</span>],<a class="code hl_variable" href="classEmulsionDet.html#aa8e9c2a73d09125c548fb3653e988240">conf_floats</a>[<span class="stringliteral">&quot;EmulsionDet/Zpos2&quot;</span>],<a class="code hl_variable" href="classEmulsionDet.html#aa8e9c2a73d09125c548fb3653e988240">conf_floats</a>[<span class="stringliteral">&quot;EmulsionDet/Zpos3&quot;</span>],<a class="code hl_variable" href="classEmulsionDet.html#aa8e9c2a73d09125c548fb3653e988240">conf_floats</a>[<span class="stringliteral">&quot;EmulsionDet/Zpos4&quot;</span>]};</div>
+<div class="line"><span class="lineno">  352</span> </div>
+<div class="line"><span class="lineno">  353</span>    <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#ad2f75d8ae8cd0e24f5478929b5ebf22d">top</a>-&gt;AddNode(volTarget,1,<span class="keyword">new</span> TGeoTranslation(0,0,0));</div>
+<div class="line"><span class="lineno">  354</span> </div>
+<div class="line"><span class="lineno">  355</span>    <span class="comment">//adding walls</span></div>
+<div class="line"><span class="lineno">  356</span>    </div>
+<div class="line"><span class="lineno">  357</span>    Double_t d_cl_z = - <a class="code hl_variable" href="classEmulsionDet.html#a8ea3a9a63c38564133b796f417ee3388">ZDimension</a>/2;</div>
+<div class="line"><span class="lineno">  358</span> </div>
+<div class="line"><span class="lineno">  359</span>    <span class="keywordflow">if</span> (!testbeam_2024_setup){</div>
+<div class="line"><span class="lineno">  360</span>      <span class="keywordflow">for</span>(<span class="keywordtype">int</span> l = 0; <a class="code hl_variable" href="namespaceana__ShipMuon.html#a368dc3d523e04b368da1981e73859f4c">l</a> &lt; <a class="code hl_variable" href="classEmulsionDet.html#a083392d22ac0fde5e138b0c5272eaafe">fNWall</a>; <a class="code hl_variable" href="namespaceana__ShipMuon.html#a368dc3d523e04b368da1981e73859f4c">l</a>++) {</div>
+<div class="line"><span class="lineno">  361</span>        volTarget-&gt;AddNode(volWallborder,l,<span class="keyword">new</span> TGeoTranslation(-dx_survey[l]-<a class="code hl_variable" href="classEmulsionDet.html#aad97c53c4c358d7c5fd0ef7e99fb3da4">XDimension</a>/2., dz_survey[l]+<a class="code hl_variable" href="classEmulsionDet.html#ae5ba173706b88fb191bb6b8b2d79385e">YDimension</a>/2., dy_survey[l]+<a class="code hl_variable" href="classEmulsionDet.html#a38a7fa7322eacbdfb5fe443ba377f346">TotalWallZDim</a>/2.)); <span class="comment">//the survey points refer to the down-left corner</span></div>
+<div class="line"><span class="lineno">  362</span>        volTarget-&gt;AddNode(volWall,l,<span class="keyword">new</span> TGeoTranslation(-dx_survey[l]-<a class="code hl_variable" href="classEmulsionDet.html#aad97c53c4c358d7c5fd0ef7e99fb3da4">XDimension</a>/2., dz_survey[l]+<a class="code hl_variable" href="classEmulsionDet.html#ae5ba173706b88fb191bb6b8b2d79385e">YDimension</a>/2., dy_survey[l]+<a class="code hl_variable" href="classEmulsionDet.html#a38a7fa7322eacbdfb5fe443ba377f346">TotalWallZDim</a>/2.+<a class="code hl_variable" href="classEmulsionDet.html#a229bd7696fa0b79df7332ce4860f0be7">WallZBorder_offset</a>)); <span class="comment">//the survey points refer to the down-left corner</span></div>
+<div class="line"><span class="lineno">  363</span>        d_cl_z += <a class="code hl_variable" href="classEmulsionDet.html#af2e17a43321177a62152d8cfa06a7eb6">BrickZ</a> + <a class="code hl_variable" href="classEmulsionDet.html#a4b982cb06763a0ecf8093e0feaf43c4c">TTrackerZ</a>;</div>
+<div class="line"><span class="lineno">  364</span>      }</div>
+<div class="line"><span class="lineno">  365</span>    }</div>
+<div class="line"><span class="lineno">  366</span>    <span class="keywordflow">else</span> { <span class="comment">// testbeam 2024 </span></div>
+<div class="line"><span class="lineno">  367</span>      volTarget-&gt;AddNode(volWallborder,0,<span class="keyword">new</span> TGeoTranslation(-dx_survey[0]-<a class="code hl_variable" href="classEmulsionDet.html#aad97c53c4c358d7c5fd0ef7e99fb3da4">XDimension</a>/2., dz_survey[0]+<a class="code hl_variable" href="classEmulsionDet.html#ae5ba173706b88fb191bb6b8b2d79385e">YDimension</a>/2., dy_survey[0]+<a class="code hl_variable" href="classEmulsionDet.html#a38a7fa7322eacbdfb5fe443ba377f346">TotalWallZDim</a>/2.));</div>
+<div class="line"><span class="lineno">  368</span>      volTarget-&gt;AddNode(volWall,0,<span class="keyword">new</span> TGeoTranslation(-dx_survey[0]-<a class="code hl_variable" href="classEmulsionDet.html#aad97c53c4c358d7c5fd0ef7e99fb3da4">XDimension</a>/2., dz_survey[0]+<a class="code hl_variable" href="classEmulsionDet.html#ae5ba173706b88fb191bb6b8b2d79385e">YDimension</a>/2., dy_survey[0]+<a class="code hl_variable" href="classEmulsionDet.html#a38a7fa7322eacbdfb5fe443ba377f346">TotalWallZDim</a>/2.+<a class="code hl_variable" href="classEmulsionDet.html#a229bd7696fa0b79df7332ce4860f0be7">WallZBorder_offset</a>));</div>
 <div class="line"><span class="lineno">  369</span>      d_cl_z += <a class="code hl_variable" href="classEmulsionDet.html#af2e17a43321177a62152d8cfa06a7eb6">BrickZ</a> + <a class="code hl_variable" href="classEmulsionDet.html#a4b982cb06763a0ecf8093e0feaf43c4c">TTrackerZ</a>;</div>
-<div class="line"><span class="lineno">  370</span>    }</div>
-<div class="line"><span class="lineno">  371</span> </div>
-<div class="line"><span class="lineno">  372</span>    <span class="comment">//adding rows</span></div>
-<div class="line"><span class="lineno">  373</span>    Double_t d_cl_y = -<a class="code hl_variable" href="classEmulsionDet.html#a3bad4229ec20004308c6ec39855a61f8">WallYDim</a>/2;</div>
-<div class="line"><span class="lineno">  374</span>    </div>
-<div class="line"><span class="lineno">  375</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> k= 0; <a class="code hl_variable" href="namespacerunPythia8.html#a4cd74a33c53eaeef70fcb6b448b9b285">k</a>&lt; <a class="code hl_variable" href="classEmulsionDet.html#a0941c79765428aa3fa7241e7d8470d3f">fNRow</a>; <a class="code hl_variable" href="namespacerunPythia8.html#a4cd74a33c53eaeef70fcb6b448b9b285">k</a>++)</div>
-<div class="line"><span class="lineno">  376</span>      {</div>
-<div class="line"><span class="lineno">  377</span>      volWall-&gt;AddNode(volRow,k,<span class="keyword">new</span> TGeoTranslation(0, d_cl_y + <a class="code hl_variable" href="classEmulsionDet.html#a81bc0efd362f808bbcd59ce6fe182d6d">BrickY</a>/2,0));</div>
-<div class="line"><span class="lineno">  378</span>      <span class="keywordflow">if</span> (testbeam_2024_setup){ <span class="comment">// testbeam 2024 </span></div>
-<div class="line"><span class="lineno">  379</span>        volWall_2-&gt;AddNode(volRow_W2,k,<span class="keyword">new</span> TGeoTranslation(0, d_cl_y + <a class="code hl_variable" href="classEmulsionDet.html#a81bc0efd362f808bbcd59ce6fe182d6d">BrickY</a>/2,0));</div>
-<div class="line"><span class="lineno">  380</span>      }</div>
-<div class="line"><span class="lineno">  381</span> </div>
-<div class="line"><span class="lineno">  382</span>      <span class="comment">// 2mm is the distance for the structure that holds the brick</span></div>
-<div class="line"><span class="lineno">  383</span>      d_cl_y += <a class="code hl_variable" href="classEmulsionDet.html#a81bc0efd362f808bbcd59ce6fe182d6d">BrickY</a>;</div>
-<div class="line"><span class="lineno">  384</span>      }</div>
-<div class="line"><span class="lineno">  385</span> </div>
-<div class="line"><span class="lineno">  386</span>    <span class="comment">//adding columns of bricks</span></div>
-<div class="line"><span class="lineno">  387</span>    Double_t d_cl_x = -<a class="code hl_variable" href="classEmulsionDet.html#a6b8d357bec9b7c6109ac01cce978bcea">WallXDim</a>/2;</div>
-<div class="line"><span class="lineno">  388</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j= 0; <a class="code hl_variable" href="namespaceconditionsDatabase_1_1snd__conDB.html#aefe45588482a96fe32b00d4855c3a4df">j</a> &lt; <a class="code hl_variable" href="classEmulsionDet.html#a8b0f7db2c95b6d8ecd9d62f3c67af24c">fNCol</a>; <a class="code hl_variable" href="namespaceconditionsDatabase_1_1snd__conDB.html#aefe45588482a96fe32b00d4855c3a4df">j</a>++)</div>
-<div class="line"><span class="lineno">  389</span>      {</div>
-<div class="line"><span class="lineno">  390</span>        volRow-&gt;AddNode(volBrick,j,<span class="keyword">new</span> TGeoTranslation(d_cl_x+<a class="code hl_variable" href="classEmulsionDet.html#aae1a53186db0e3e57ec8582c9dadad6b">BrickX</a>/2, 0, 0));</div>
-<div class="line"><span class="lineno">  391</span>        <span class="keywordflow">if</span> (testbeam_2024_setup){ <span class="comment">// testbeam 2024 </span></div>
-<div class="line"><span class="lineno">  392</span>          volRow_W2-&gt;AddNode(volBrick_W2,j,<span class="keyword">new</span> TGeoTranslation(d_cl_x+<a class="code hl_variable" href="classEmulsionDet.html#aae1a53186db0e3e57ec8582c9dadad6b">BrickX</a>/2, 0, 0));</div>
-<div class="line"><span class="lineno">  393</span>        }</div>
-<div class="line"><span class="lineno">  394</span>        d_cl_x += <a class="code hl_variable" href="classEmulsionDet.html#aae1a53186db0e3e57ec8582c9dadad6b">BrickX</a>;</div>
-<div class="line"><span class="lineno">  395</span>      }</div>
-<div class="line"><span class="lineno">  396</span>}</div>
+<div class="line"><span class="lineno">  370</span>      volTarget-&gt;AddNode(volWallborder,1,<span class="keyword">new</span> TGeoTranslation(-dx_survey[1]-<a class="code hl_variable" href="classEmulsionDet.html#aad97c53c4c358d7c5fd0ef7e99fb3da4">XDimension</a>/2., dz_survey[1]+<a class="code hl_variable" href="classEmulsionDet.html#ae5ba173706b88fb191bb6b8b2d79385e">YDimension</a>/2., dy_survey[1]+<a class="code hl_variable" href="classEmulsionDet.html#a38a7fa7322eacbdfb5fe443ba377f346">TotalWallZDim</a>/2.));</div>
+<div class="line"><span class="lineno">  371</span>      volTarget-&gt;AddNode(volWall_2,1,<span class="keyword">new</span> TGeoTranslation(-dx_survey[1]-<a class="code hl_variable" href="classEmulsionDet.html#aad97c53c4c358d7c5fd0ef7e99fb3da4">XDimension</a>/2., dz_survey[1]+<a class="code hl_variable" href="classEmulsionDet.html#ae5ba173706b88fb191bb6b8b2d79385e">YDimension</a>/2., dy_survey[1]+<a class="code hl_variable" href="classEmulsionDet.html#a38a7fa7322eacbdfb5fe443ba377f346">TotalWallZDim</a>/2.+<a class="code hl_variable" href="classEmulsionDet.html#a229bd7696fa0b79df7332ce4860f0be7">WallZBorder_offset</a>));</div>
+<div class="line"><span class="lineno">  372</span>      d_cl_z += <a class="code hl_variable" href="classEmulsionDet.html#af2e17a43321177a62152d8cfa06a7eb6">BrickZ</a> + <a class="code hl_variable" href="classEmulsionDet.html#a4b982cb06763a0ecf8093e0feaf43c4c">TTrackerZ</a>;</div>
+<div class="line"><span class="lineno">  373</span>    }</div>
+<div class="line"><span class="lineno">  374</span> </div>
+<div class="line"><span class="lineno">  375</span>    <span class="comment">//adding rows</span></div>
+<div class="line"><span class="lineno">  376</span>    Double_t d_cl_y = -<a class="code hl_variable" href="classEmulsionDet.html#a3bad4229ec20004308c6ec39855a61f8">WallYDim</a>/2;</div>
+<div class="line"><span class="lineno">  377</span>    </div>
+<div class="line"><span class="lineno">  378</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> k= 0; <a class="code hl_variable" href="namespacerunPythia8.html#a4cd74a33c53eaeef70fcb6b448b9b285">k</a>&lt; <a class="code hl_variable" href="classEmulsionDet.html#a0941c79765428aa3fa7241e7d8470d3f">fNRow</a>; <a class="code hl_variable" href="namespacerunPythia8.html#a4cd74a33c53eaeef70fcb6b448b9b285">k</a>++)</div>
+<div class="line"><span class="lineno">  379</span>      {</div>
+<div class="line"><span class="lineno">  380</span>      volWall-&gt;AddNode(volRow,k,<span class="keyword">new</span> TGeoTranslation(0, d_cl_y + <a class="code hl_variable" href="classEmulsionDet.html#a81bc0efd362f808bbcd59ce6fe182d6d">BrickY</a>/2,0));</div>
+<div class="line"><span class="lineno">  381</span>      <span class="keywordflow">if</span> (testbeam_2024_setup){ <span class="comment">// testbeam 2024 </span></div>
+<div class="line"><span class="lineno">  382</span>        volWall_2-&gt;AddNode(volRow_W2,k,<span class="keyword">new</span> TGeoTranslation(0, d_cl_y + <a class="code hl_variable" href="classEmulsionDet.html#a81bc0efd362f808bbcd59ce6fe182d6d">BrickY</a>/2,0));</div>
+<div class="line"><span class="lineno">  383</span>      }</div>
+<div class="line"><span class="lineno">  384</span> </div>
+<div class="line"><span class="lineno">  385</span>      <span class="comment">// 2mm is the distance for the structure that holds the brick</span></div>
+<div class="line"><span class="lineno">  386</span>      d_cl_y += <a class="code hl_variable" href="classEmulsionDet.html#a81bc0efd362f808bbcd59ce6fe182d6d">BrickY</a>;</div>
+<div class="line"><span class="lineno">  387</span>      }</div>
+<div class="line"><span class="lineno">  388</span> </div>
+<div class="line"><span class="lineno">  389</span>    <span class="comment">//adding columns of bricks</span></div>
+<div class="line"><span class="lineno">  390</span>    Double_t d_cl_x = -<a class="code hl_variable" href="classEmulsionDet.html#a6b8d357bec9b7c6109ac01cce978bcea">WallXDim</a>/2;</div>
+<div class="line"><span class="lineno">  391</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j= 0; <a class="code hl_variable" href="namespaceconditionsDatabase_1_1snd__conDB.html#aefe45588482a96fe32b00d4855c3a4df">j</a> &lt; <a class="code hl_variable" href="classEmulsionDet.html#a8b0f7db2c95b6d8ecd9d62f3c67af24c">fNCol</a>; <a class="code hl_variable" href="namespaceconditionsDatabase_1_1snd__conDB.html#aefe45588482a96fe32b00d4855c3a4df">j</a>++)</div>
+<div class="line"><span class="lineno">  392</span>      {</div>
+<div class="line"><span class="lineno">  393</span>        volRow-&gt;AddNode(volBrick,j,<span class="keyword">new</span> TGeoTranslation(d_cl_x+<a class="code hl_variable" href="classEmulsionDet.html#aae1a53186db0e3e57ec8582c9dadad6b">BrickX</a>/2, 0, 0));</div>
+<div class="line"><span class="lineno">  394</span>        <span class="keywordflow">if</span> (testbeam_2024_setup){ <span class="comment">// testbeam 2024 </span></div>
+<div class="line"><span class="lineno">  395</span>          volRow_W2-&gt;AddNode(volBrick_W2,j,<span class="keyword">new</span> TGeoTranslation(d_cl_x+<a class="code hl_variable" href="classEmulsionDet.html#aae1a53186db0e3e57ec8582c9dadad6b">BrickX</a>/2, 0, 0));</div>
+<div class="line"><span class="lineno">  396</span>        }</div>
+<div class="line"><span class="lineno">  397</span>        d_cl_x += <a class="code hl_variable" href="classEmulsionDet.html#aae1a53186db0e3e57ec8582c9dadad6b">BrickX</a>;</div>
+<div class="line"><span class="lineno">  398</span>      }</div>
+<div class="line"><span class="lineno">  399</span>}</div>
 <div class="ttc" id="aclassEmulsionDet_html_a083392d22ac0fde5e138b0c5272eaafe"><div class="ttname"><a href="classEmulsionDet.html#a083392d22ac0fde5e138b0c5272eaafe">EmulsionDet::fNWall</a></div><div class="ttdeci">Int_t fNWall</div><div class="ttdef"><b>Definition</b> <a href="EmulsionDet_8h_source.html#l00103">EmulsionDet.h:103</a></div></div>
 <div class="ttc" id="aclassEmulsionDet_html_a0849f896ec0372b64886bd0a69433d43"><div class="ttname"><a href="classEmulsionDet.html#a0849f896ec0372b64886bd0a69433d43">EmulsionDet::PassiveThickness</a></div><div class="ttdeci">Double_t PassiveThickness</div><div class="ttdef"><b>Definition</b> <a href="EmulsionDet_8h_source.html#l00119">EmulsionDet.h:119</a></div></div>
 <div class="ttc" id="aclassEmulsionDet_html_a0941c79765428aa3fa7241e7d8470d3f"><div class="ttname"><a href="classEmulsionDet.html#a0941c79765428aa3fa7241e7d8470d3f">EmulsionDet::fNRow</a></div><div class="ttdeci">Int_t fNRow</div><div class="ttdef"><b>Definition</b> <a href="EmulsionDet_8h_source.html#l00103">EmulsionDet.h:103</a></div></div>
@@ -1006,10 +1009,10 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="EmulsionDet_8cxx_source.html#l00482">482</a> of file <a class="el" href="EmulsionDet_8cxx_source.html">EmulsionDet.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  483</span>{</div>
-<div class="line"><span class="lineno">  484</span>    <a class="code hl_variable" href="classEmulsionDet.html#a7a8d82f1ca7a068685166e0ee84441cf">fEmulsionDetPointCollection</a>-&gt;Clear();</div>
-<div class="line"><span class="lineno">  485</span>}</div>
+<p class="definition">Definition at line <a class="el" href="EmulsionDet_8cxx_source.html#l00485">485</a> of file <a class="el" href="EmulsionDet_8cxx_source.html">EmulsionDet.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  486</span>{</div>
+<div class="line"><span class="lineno">  487</span>    <a class="code hl_variable" href="classEmulsionDet.html#a7a8d82f1ca7a068685166e0ee84441cf">fEmulsionDetPointCollection</a>-&gt;Clear();</div>
+<div class="line"><span class="lineno">  488</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1094,11 +1097,11 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Gets the produced collections </p>
 
-<p class="definition">Definition at line <a class="el" href="EmulsionDet_8cxx_source.html#l00501">501</a> of file <a class="el" href="EmulsionDet_8cxx_source.html">EmulsionDet.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  502</span>{</div>
-<div class="line"><span class="lineno">  503</span>    <span class="keywordflow">if</span> (iColl == 0) { <span class="keywordflow">return</span> <a class="code hl_variable" href="classEmulsionDet.html#a7a8d82f1ca7a068685166e0ee84441cf">fEmulsionDetPointCollection</a>; }</div>
-<div class="line"><span class="lineno">  504</span>    <span class="keywordflow">else</span> { <span class="keywordflow">return</span> NULL; }</div>
-<div class="line"><span class="lineno">  505</span>}</div>
+<p class="definition">Definition at line <a class="el" href="EmulsionDet_8cxx_source.html#l00504">504</a> of file <a class="el" href="EmulsionDet_8cxx_source.html">EmulsionDet.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  505</span>{</div>
+<div class="line"><span class="lineno">  506</span>    <span class="keywordflow">if</span> (iColl == 0) { <span class="keywordflow">return</span> <a class="code hl_variable" href="classEmulsionDet.html#a7a8d82f1ca7a068685166e0ee84441cf">fEmulsionDetPointCollection</a>; }</div>
+<div class="line"><span class="lineno">  507</span>    <span class="keywordflow">else</span> { <span class="keywordflow">return</span> NULL; }</div>
+<div class="line"><span class="lineno">  508</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1399,83 +1402,83 @@ Protected Attributes</h2></td></tr>
 <p>Method called for each step during simulation (see FairMCApplication::Stepping()) </p>
 <p>This method is called from the MC stepping</p>
 
-<p class="definition">Definition at line <a class="el" href="EmulsionDet_8cxx_source.html#l00402">402</a> of file <a class="el" href="EmulsionDet_8cxx_source.html">EmulsionDet.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  403</span>{</div>
-<div class="line"><span class="lineno">  405</span>    <span class="comment">//Set parameters at entrance of volume. Reset ELoss.</span></div>
-<div class="line"><span class="lineno">  406</span>    <span class="keywordflow">if</span> ( <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;IsTrackEntering() ) {</div>
-<div class="line"><span class="lineno">  407</span>        <a class="code hl_variable" href="classEmulsionDet.html#ae82f1aae30fe49c199931facc0c7f96c">fELoss</a>  = 0.;</div>
-<div class="line"><span class="lineno">  408</span>        <a class="code hl_variable" href="classEmulsionDet.html#ab937a782bd5c8a149eb31e059d76dacb">fTime</a>   = <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;TrackTime() * 1.0e09;</div>
-<div class="line"><span class="lineno">  409</span>        <a class="code hl_variable" href="classEmulsionDet.html#a7926f3eff1a13d215ecafa8ae789c086">fLength</a> = <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;TrackLength();</div>
-<div class="line"><span class="lineno">  410</span>        <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;TrackPosition(<a class="code hl_variable" href="classEmulsionDet.html#aa985891b4442771462be1f09fe000cde">fPos</a>);</div>
-<div class="line"><span class="lineno">  411</span>        <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;TrackMomentum(<a class="code hl_variable" href="classEmulsionDet.html#ae4e4a8c62d814b61bd0a9f327da4ccd2">fMom</a>);</div>
-<div class="line"><span class="lineno">  412</span>    }</div>
-<div class="line"><span class="lineno">  413</span>    <span class="comment">// Sum energy loss for all steps in the active volume</span></div>
-<div class="line"><span class="lineno">  414</span>    <a class="code hl_variable" href="classEmulsionDet.html#ae82f1aae30fe49c199931facc0c7f96c">fELoss</a> += <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;Edep();</div>
-<div class="line"><span class="lineno">  415</span>    </div>
-<div class="line"><span class="lineno">  416</span>    <span class="comment">// Create EmulsionDetPoint at exit of active volume</span></div>
-<div class="line"><span class="lineno">  417</span>    <span class="keywordflow">if</span> ( <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;IsTrackExiting()    ||</div>
-<div class="line"><span class="lineno">  418</span>        <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;IsTrackStop()       ||</div>
-<div class="line"><span class="lineno">  419</span>        <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;IsTrackDisappeared()   ) {</div>
-<div class="line"><span class="lineno">  420</span>        fTrackID  = <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;GetStack()-&gt;GetCurrentTrackNumber();</div>
-<div class="line"><span class="lineno">  421</span>    <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;CurrentVolID(<a class="code hl_variable" href="classEmulsionDet.html#a8f46c8e7cf9602718c1be0d917497106">fVolumeID</a>);</div>
-<div class="line"><span class="lineno">  422</span> </div>
-<div class="line"><span class="lineno">  423</span>        <span class="comment">//finding number of wall, row and column</span></div>
-<div class="line"><span class="lineno">  424</span>        Int_t detID = <a class="code hl_variable" href="classEmulsionDet.html#a8f46c8e7cf9602718c1be0d917497106">fVolumeID</a>;</div>
-<div class="line"><span class="lineno">  425</span>        Int_t MaxLevel = gGeoManager-&gt;GetLevel();</div>
-<div class="line"><span class="lineno">  426</span>        <span class="keyword">const</span> Int_t MaxL = MaxLevel;</div>
-<div class="line"><span class="lineno">  427</span>        <span class="comment">//cout &lt;&lt; &quot;MaxLevel = &quot; &lt;&lt; MaxL &lt;&lt; endl;</span></div>
-<div class="line"><span class="lineno">  428</span>        <span class="comment">//cout &lt;&lt; gMC-&gt;CurrentVolPath()&lt;&lt; endl;</span></div>
-<div class="line"><span class="lineno">  429</span>    </div>
-<div class="line"><span class="lineno">  430</span> </div>
-<div class="line"><span class="lineno">  431</span>        Int_t motherV[MaxL];</div>
-<div class="line"><span class="lineno">  432</span>        Int_t NPlate =0;</div>
-<div class="line"><span class="lineno">  433</span>        <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code hl_variable" href="namespacemakeCascade.html#add259298592a80ac35262a17847aee2d">name</a>;</div>
-<div class="line"><span class="lineno">  434</span>    </div>
-<div class="line"><span class="lineno">  435</span>        <a class="code hl_variable" href="namespacemakeCascade.html#add259298592a80ac35262a17847aee2d">name</a> = <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;CurrentVolName();</div>
-<div class="line"><span class="lineno">  436</span>        <span class="comment">//cout &lt;&lt; name &lt;&lt; endl;</span></div>
-<div class="line"><span class="lineno">  437</span>        NPlate = detID;</div>
-<div class="line"><span class="lineno">  438</span>    </div>
-<div class="line"><span class="lineno">  439</span>        Int_t  NWall = -2, NColumn =-2, NRow =-2;</div>
-<div class="line"><span class="lineno">  440</span> </div>
-<div class="line"><span class="lineno">  441</span>        <span class="keywordflow">for</span>(Int_t i = 0; <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a> &lt;= MaxL;<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>++)</div>
-<div class="line"><span class="lineno">  442</span>      {  </div>
-<div class="line"><span class="lineno">  443</span>        <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;CurrentVolOffID(i, motherV[i]);         </div>
-<div class="line"><span class="lineno">  444</span>        <span class="keyword">const</span> <span class="keywordtype">char</span> *mumname = <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;CurrentVolOffName(i);                 </div>
-<div class="line"><span class="lineno">  445</span>        </div>
-<div class="line"><span class="lineno">  446</span>        <span class="keywordflow">if</span>(strcmp(mumname, <span class="stringliteral">&quot;Brick&quot;</span>) == 0) NColumn = (1-motherV[<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>]); <span class="comment">//0 or 1 (0 higher x, 1 lower x, x are negative, so higher x are closer to the beam)</span></div>
-<div class="line"><span class="lineno">  447</span>        <span class="keywordflow">if</span>(strcmp(mumname, <span class="stringliteral">&quot;Row&quot;</span>) == 0) NRow = motherV[i]; <span class="comment">// 0 or 1 (0 lower y, 1 higher y)</span></div>
-<div class="line"><span class="lineno">  448</span>        <span class="keywordflow">if</span>(strcmp(mumname, <span class="stringliteral">&quot;Wall&quot;</span>) == 0) NWall = motherV[i]; <span class="comment">//0,1,2,3 (increasing along the beam verse)</span></div>
-<div class="line"><span class="lineno">  449</span>        </div>
-<div class="line"><span class="lineno">  450</span>      }</div>
-<div class="line"><span class="lineno">  451</span> </div>
-<div class="line"><span class="lineno">  452</span>        detID = (NWall+1)*1E4+(NRow*2+NColumn+1)*1E3+(NPlate+1);</div>
-<div class="line"><span class="lineno">  453</span>        <a class="code hl_variable" href="classEmulsionDet.html#a8f46c8e7cf9602718c1be0d917497106">fVolumeID</a> = detID;</div>
-<div class="line"><span class="lineno">  454</span>    <span class="comment">//found number of row, column and wall</span></div>
-<div class="line"><span class="lineno">  455</span>        <span class="comment">//if (NColumn &gt; 2 || NRow &gt; 2 || NWall &gt; 5) cout&lt;&lt;&quot;Debug test for detID &quot;&lt;&lt;detID&lt;&lt;&quot; is &quot;&lt;&lt;NColumn&lt;&lt;&quot; &quot;&lt;&lt;NRow&lt;&lt;&quot; &quot;&lt;&lt;NWall&lt;&lt;&quot; &quot;&lt;&lt;NPlate&lt;&lt;endl;</span></div>
-<div class="line"><span class="lineno">  456</span>        TParticle* <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a>=<a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;GetStack()-&gt;GetCurrentTrack();</div>
-<div class="line"><span class="lineno">  457</span>    Int_t pdgCode = <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a>-&gt;GetPdgCode();</div>
-<div class="line"><span class="lineno">  458</span>    <span class="keywordflow">if</span> (pdgCode == 22) { <span class="keywordflow">return</span> kFALSE; } <span class="comment">//discard only photons</span></div>
-<div class="line"><span class="lineno">  459</span>    </div>
-<div class="line"><span class="lineno">  460</span>        TLorentzVector Pos; </div>
-<div class="line"><span class="lineno">  461</span>        <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;TrackPosition(Pos); </div>
-<div class="line"><span class="lineno">  462</span>        Double_t xmean = (<a class="code hl_variable" href="classEmulsionDet.html#aa985891b4442771462be1f09fe000cde">fPos</a>.X()+Pos.X())/2. ;      </div>
-<div class="line"><span class="lineno">  463</span>        Double_t ymean = (<a class="code hl_variable" href="classEmulsionDet.html#aa985891b4442771462be1f09fe000cde">fPos</a>.Y()+Pos.Y())/2. ;      </div>
-<div class="line"><span class="lineno">  464</span>        Double_t zmean = (<a class="code hl_variable" href="classEmulsionDet.html#aa985891b4442771462be1f09fe000cde">fPos</a>.Z()+Pos.Z())/2. ;     </div>
-<div class="line"><span class="lineno">  465</span>        </div>
-<div class="line"><span class="lineno">  466</span>        TLorentzVector Mom;</div>
-<div class="line"><span class="lineno">  467</span>        <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;TrackMomentum(Mom);</div>
-<div class="line"><span class="lineno">  468</span>        <a class="code hl_function" href="classEmulsionDet.html#a8c4a5127d468915e7a563fba1d6c8790">AddHit</a>(fTrackID, <a class="code hl_variable" href="classEmulsionDet.html#a8f46c8e7cf9602718c1be0d917497106">fVolumeID</a>, TVector3(xmean, ymean,  zmean),</div>
-<div class="line"><span class="lineno">  469</span>           TVector3(<a class="code hl_variable" href="classEmulsionDet.html#ae4e4a8c62d814b61bd0a9f327da4ccd2">fMom</a>.Px(), <a class="code hl_variable" href="classEmulsionDet.html#ae4e4a8c62d814b61bd0a9f327da4ccd2">fMom</a>.Py(), <a class="code hl_variable" href="classEmulsionDet.html#ae4e4a8c62d814b61bd0a9f327da4ccd2">fMom</a>.Pz()), <a class="code hl_variable" href="classEmulsionDet.html#ab937a782bd5c8a149eb31e059d76dacb">fTime</a>, <a class="code hl_variable" href="classEmulsionDet.html#a7926f3eff1a13d215ecafa8ae789c086">fLength</a>,</div>
-<div class="line"><span class="lineno">  470</span>           <a class="code hl_variable" href="classEmulsionDet.html#ae82f1aae30fe49c199931facc0c7f96c">fELoss</a>,pdgCode,TVector3(Pos.X(), Pos.Y(), Pos.Z()),TVector3(Mom.Px(), Mom.Py(), Mom.Pz()) );</div>
-<div class="line"><span class="lineno">  471</span>    </div>
-<div class="line"><span class="lineno">  472</span>        <span class="comment">// Increment number of muon det points in TParticle</span></div>
-<div class="line"><span class="lineno">  473</span>        <a class="code hl_class" href="classShipStack.html">ShipStack</a>* <a class="code hl_variable" href="namespacemakeCascade.html#a15662d966fe998f4f8b9b6547975083e">stack</a> = (<a class="code hl_class" href="classShipStack.html">ShipStack</a>*) <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;GetStack();</div>
-<div class="line"><span class="lineno">  474</span>        <a class="code hl_variable" href="namespacemakeCascade.html#a15662d966fe998f4f8b9b6547975083e">stack</a>-&gt;AddPoint(<a class="code hl_enumvalue" href="ShipDetectorList_8h.html#a1806da1a0fbae8ab81f7330906f65680a32370a0aea43651ef82cddf23d38ee74">kEmulsionDet</a>);</div>
-<div class="line"><span class="lineno">  475</span>    }</div>
-<div class="line"><span class="lineno">  476</span>    </div>
-<div class="line"><span class="lineno">  477</span>    <span class="keywordflow">return</span> kTRUE;</div>
-<div class="line"><span class="lineno">  478</span>}</div>
-<div class="ttc" id="aclassEmulsionDet_html_a8c4a5127d468915e7a563fba1d6c8790"><div class="ttname"><a href="classEmulsionDet.html#a8c4a5127d468915e7a563fba1d6c8790">EmulsionDet::AddHit</a></div><div class="ttdeci">EmulsionDetPoint * AddHit(Int_t trackID, Int_t detID, TVector3 pos, TVector3 mom, Double_t time, Double_t length, Double_t eLoss, Int_t pdgcode, TVector3 Lpos, TVector3 Lmom)</div><div class="ttdef"><b>Definition</b> <a href="EmulsionDet_8cxx_source.html#l00513">EmulsionDet.cxx:513</a></div></div>
+<p class="definition">Definition at line <a class="el" href="EmulsionDet_8cxx_source.html#l00405">405</a> of file <a class="el" href="EmulsionDet_8cxx_source.html">EmulsionDet.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  406</span>{</div>
+<div class="line"><span class="lineno">  408</span>    <span class="comment">//Set parameters at entrance of volume. Reset ELoss.</span></div>
+<div class="line"><span class="lineno">  409</span>    <span class="keywordflow">if</span> ( <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;IsTrackEntering() ) {</div>
+<div class="line"><span class="lineno">  410</span>        <a class="code hl_variable" href="classEmulsionDet.html#ae82f1aae30fe49c199931facc0c7f96c">fELoss</a>  = 0.;</div>
+<div class="line"><span class="lineno">  411</span>        <a class="code hl_variable" href="classEmulsionDet.html#ab937a782bd5c8a149eb31e059d76dacb">fTime</a>   = <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;TrackTime() * 1.0e09;</div>
+<div class="line"><span class="lineno">  412</span>        <a class="code hl_variable" href="classEmulsionDet.html#a7926f3eff1a13d215ecafa8ae789c086">fLength</a> = <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;TrackLength();</div>
+<div class="line"><span class="lineno">  413</span>        <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;TrackPosition(<a class="code hl_variable" href="classEmulsionDet.html#aa985891b4442771462be1f09fe000cde">fPos</a>);</div>
+<div class="line"><span class="lineno">  414</span>        <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;TrackMomentum(<a class="code hl_variable" href="classEmulsionDet.html#ae4e4a8c62d814b61bd0a9f327da4ccd2">fMom</a>);</div>
+<div class="line"><span class="lineno">  415</span>    }</div>
+<div class="line"><span class="lineno">  416</span>    <span class="comment">// Sum energy loss for all steps in the active volume</span></div>
+<div class="line"><span class="lineno">  417</span>    <a class="code hl_variable" href="classEmulsionDet.html#ae82f1aae30fe49c199931facc0c7f96c">fELoss</a> += <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;Edep();</div>
+<div class="line"><span class="lineno">  418</span>    </div>
+<div class="line"><span class="lineno">  419</span>    <span class="comment">// Create EmulsionDetPoint at exit of active volume</span></div>
+<div class="line"><span class="lineno">  420</span>    <span class="keywordflow">if</span> ( <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;IsTrackExiting()    ||</div>
+<div class="line"><span class="lineno">  421</span>        <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;IsTrackStop()       ||</div>
+<div class="line"><span class="lineno">  422</span>        <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;IsTrackDisappeared()   ) {</div>
+<div class="line"><span class="lineno">  423</span>        fTrackID  = <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;GetStack()-&gt;GetCurrentTrackNumber();</div>
+<div class="line"><span class="lineno">  424</span>    <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;CurrentVolID(<a class="code hl_variable" href="classEmulsionDet.html#a8f46c8e7cf9602718c1be0d917497106">fVolumeID</a>);</div>
+<div class="line"><span class="lineno">  425</span> </div>
+<div class="line"><span class="lineno">  426</span>        <span class="comment">//finding number of wall, row and column</span></div>
+<div class="line"><span class="lineno">  427</span>        Int_t detID = <a class="code hl_variable" href="classEmulsionDet.html#a8f46c8e7cf9602718c1be0d917497106">fVolumeID</a>;</div>
+<div class="line"><span class="lineno">  428</span>        Int_t MaxLevel = gGeoManager-&gt;GetLevel();</div>
+<div class="line"><span class="lineno">  429</span>        <span class="keyword">const</span> Int_t MaxL = MaxLevel;</div>
+<div class="line"><span class="lineno">  430</span>        <span class="comment">//cout &lt;&lt; &quot;MaxLevel = &quot; &lt;&lt; MaxL &lt;&lt; endl;</span></div>
+<div class="line"><span class="lineno">  431</span>        <span class="comment">//cout &lt;&lt; gMC-&gt;CurrentVolPath()&lt;&lt; endl;</span></div>
+<div class="line"><span class="lineno">  432</span>    </div>
+<div class="line"><span class="lineno">  433</span> </div>
+<div class="line"><span class="lineno">  434</span>        Int_t motherV[MaxL];</div>
+<div class="line"><span class="lineno">  435</span>        Int_t NPlate =0;</div>
+<div class="line"><span class="lineno">  436</span>        <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code hl_variable" href="namespacemakeCascade.html#add259298592a80ac35262a17847aee2d">name</a>;</div>
+<div class="line"><span class="lineno">  437</span>    </div>
+<div class="line"><span class="lineno">  438</span>        <a class="code hl_variable" href="namespacemakeCascade.html#add259298592a80ac35262a17847aee2d">name</a> = <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;CurrentVolName();</div>
+<div class="line"><span class="lineno">  439</span>        <span class="comment">//cout &lt;&lt; name &lt;&lt; endl;</span></div>
+<div class="line"><span class="lineno">  440</span>        NPlate = detID;</div>
+<div class="line"><span class="lineno">  441</span>    </div>
+<div class="line"><span class="lineno">  442</span>        Int_t  NWall = -2, NColumn =-2, NRow =-2;</div>
+<div class="line"><span class="lineno">  443</span> </div>
+<div class="line"><span class="lineno">  444</span>        <span class="keywordflow">for</span>(Int_t i = 0; <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a> &lt;= MaxL;<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>++)</div>
+<div class="line"><span class="lineno">  445</span>      {  </div>
+<div class="line"><span class="lineno">  446</span>        <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;CurrentVolOffID(i, motherV[i]);         </div>
+<div class="line"><span class="lineno">  447</span>        <span class="keyword">const</span> <span class="keywordtype">char</span> *mumname = <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;CurrentVolOffName(i);                 </div>
+<div class="line"><span class="lineno">  448</span>        </div>
+<div class="line"><span class="lineno">  449</span>        <span class="keywordflow">if</span>(strcmp(mumname, <span class="stringliteral">&quot;Brick&quot;</span>) == 0) NColumn = (1-motherV[<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>]); <span class="comment">//0 or 1 (0 higher x, 1 lower x, x are negative, so higher x are closer to the beam)</span></div>
+<div class="line"><span class="lineno">  450</span>        <span class="keywordflow">if</span>(strcmp(mumname, <span class="stringliteral">&quot;Row&quot;</span>) == 0) NRow = motherV[i]; <span class="comment">// 0 or 1 (0 lower y, 1 higher y)</span></div>
+<div class="line"><span class="lineno">  451</span>        <span class="keywordflow">if</span>(strcmp(mumname, <span class="stringliteral">&quot;Wall&quot;</span>) == 0) NWall = motherV[i]; <span class="comment">//0,1,2,3 (increasing along the beam verse)</span></div>
+<div class="line"><span class="lineno">  452</span>        </div>
+<div class="line"><span class="lineno">  453</span>      }</div>
+<div class="line"><span class="lineno">  454</span> </div>
+<div class="line"><span class="lineno">  455</span>        detID = (NWall+1)*1E4+(NRow*2+NColumn+1)*1E3+(NPlate+1);</div>
+<div class="line"><span class="lineno">  456</span>        <a class="code hl_variable" href="classEmulsionDet.html#a8f46c8e7cf9602718c1be0d917497106">fVolumeID</a> = detID;</div>
+<div class="line"><span class="lineno">  457</span>    <span class="comment">//found number of row, column and wall</span></div>
+<div class="line"><span class="lineno">  458</span>        <span class="comment">//if (NColumn &gt; 2 || NRow &gt; 2 || NWall &gt; 5) cout&lt;&lt;&quot;Debug test for detID &quot;&lt;&lt;detID&lt;&lt;&quot; is &quot;&lt;&lt;NColumn&lt;&lt;&quot; &quot;&lt;&lt;NRow&lt;&lt;&quot; &quot;&lt;&lt;NWall&lt;&lt;&quot; &quot;&lt;&lt;NPlate&lt;&lt;endl;</span></div>
+<div class="line"><span class="lineno">  459</span>        TParticle* <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a>=<a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;GetStack()-&gt;GetCurrentTrack();</div>
+<div class="line"><span class="lineno">  460</span>    Int_t pdgCode = <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a>-&gt;GetPdgCode();</div>
+<div class="line"><span class="lineno">  461</span>    <span class="keywordflow">if</span> (pdgCode == 22) { <span class="keywordflow">return</span> kFALSE; } <span class="comment">//discard only photons</span></div>
+<div class="line"><span class="lineno">  462</span>    </div>
+<div class="line"><span class="lineno">  463</span>        TLorentzVector Pos; </div>
+<div class="line"><span class="lineno">  464</span>        <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;TrackPosition(Pos); </div>
+<div class="line"><span class="lineno">  465</span>        Double_t xmean = (<a class="code hl_variable" href="classEmulsionDet.html#aa985891b4442771462be1f09fe000cde">fPos</a>.X()+Pos.X())/2. ;      </div>
+<div class="line"><span class="lineno">  466</span>        Double_t ymean = (<a class="code hl_variable" href="classEmulsionDet.html#aa985891b4442771462be1f09fe000cde">fPos</a>.Y()+Pos.Y())/2. ;      </div>
+<div class="line"><span class="lineno">  467</span>        Double_t zmean = (<a class="code hl_variable" href="classEmulsionDet.html#aa985891b4442771462be1f09fe000cde">fPos</a>.Z()+Pos.Z())/2. ;     </div>
+<div class="line"><span class="lineno">  468</span>        </div>
+<div class="line"><span class="lineno">  469</span>        TLorentzVector Mom;</div>
+<div class="line"><span class="lineno">  470</span>        <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;TrackMomentum(Mom);</div>
+<div class="line"><span class="lineno">  471</span>        <a class="code hl_function" href="classEmulsionDet.html#a8c4a5127d468915e7a563fba1d6c8790">AddHit</a>(fTrackID, <a class="code hl_variable" href="classEmulsionDet.html#a8f46c8e7cf9602718c1be0d917497106">fVolumeID</a>, TVector3(xmean, ymean,  zmean),</div>
+<div class="line"><span class="lineno">  472</span>           TVector3(<a class="code hl_variable" href="classEmulsionDet.html#ae4e4a8c62d814b61bd0a9f327da4ccd2">fMom</a>.Px(), <a class="code hl_variable" href="classEmulsionDet.html#ae4e4a8c62d814b61bd0a9f327da4ccd2">fMom</a>.Py(), <a class="code hl_variable" href="classEmulsionDet.html#ae4e4a8c62d814b61bd0a9f327da4ccd2">fMom</a>.Pz()), <a class="code hl_variable" href="classEmulsionDet.html#ab937a782bd5c8a149eb31e059d76dacb">fTime</a>, <a class="code hl_variable" href="classEmulsionDet.html#a7926f3eff1a13d215ecafa8ae789c086">fLength</a>,</div>
+<div class="line"><span class="lineno">  473</span>           <a class="code hl_variable" href="classEmulsionDet.html#ae82f1aae30fe49c199931facc0c7f96c">fELoss</a>,pdgCode,TVector3(Pos.X(), Pos.Y(), Pos.Z()),TVector3(Mom.Px(), Mom.Py(), Mom.Pz()) );</div>
+<div class="line"><span class="lineno">  474</span>    </div>
+<div class="line"><span class="lineno">  475</span>        <span class="comment">// Increment number of muon det points in TParticle</span></div>
+<div class="line"><span class="lineno">  476</span>        <a class="code hl_class" href="classShipStack.html">ShipStack</a>* <a class="code hl_variable" href="namespacemakeCascade.html#a15662d966fe998f4f8b9b6547975083e">stack</a> = (<a class="code hl_class" href="classShipStack.html">ShipStack</a>*) <a class="code hl_variable" href="namespacerun__simScript.html#a671e51e119017a06d69c162c6e24b051">gMC</a>-&gt;GetStack();</div>
+<div class="line"><span class="lineno">  477</span>        <a class="code hl_variable" href="namespacemakeCascade.html#a15662d966fe998f4f8b9b6547975083e">stack</a>-&gt;AddPoint(<a class="code hl_enumvalue" href="ShipDetectorList_8h.html#a1806da1a0fbae8ab81f7330906f65680a32370a0aea43651ef82cddf23d38ee74">kEmulsionDet</a>);</div>
+<div class="line"><span class="lineno">  478</span>    }</div>
+<div class="line"><span class="lineno">  479</span>    </div>
+<div class="line"><span class="lineno">  480</span>    <span class="keywordflow">return</span> kTRUE;</div>
+<div class="line"><span class="lineno">  481</span>}</div>
+<div class="ttc" id="aclassEmulsionDet_html_a8c4a5127d468915e7a563fba1d6c8790"><div class="ttname"><a href="classEmulsionDet.html#a8c4a5127d468915e7a563fba1d6c8790">EmulsionDet::AddHit</a></div><div class="ttdeci">EmulsionDetPoint * AddHit(Int_t trackID, Int_t detID, TVector3 pos, TVector3 mom, Double_t time, Double_t length, Double_t eLoss, Int_t pdgcode, TVector3 Lpos, TVector3 Lmom)</div><div class="ttdef"><b>Definition</b> <a href="EmulsionDet_8cxx_source.html#l00516">EmulsionDet.cxx:516</a></div></div>
 <div class="ttc" id="aclassShipStack_html"><div class="ttname"><a href="classShipStack.html">ShipStack</a></div><div class="ttdef"><b>Definition</b> <a href="ShipStack_8h_source.html#l00046">ShipStack.h:47</a></div></div>
 <div class="ttc" id="anamespaceShipAna_html_aa4bf87f4d17f9d38b1d8f4d009bb54b3"><div class="ttname"><a href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">ShipAna.i</a></div><div class="ttdeci">int i</div><div class="ttdef"><b>Definition</b> <a href="ShipAna_8py_source.html#l00086">ShipAna.py:86</a></div></div>
 <div class="ttc" id="anamespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring_html_a1c800df226d66062268fa28c3e0c7f7a"><div class="ttname"><a href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">conditionsDatabase.demo.drifttubeMonitoring.p</a></div><div class="ttdeci">str p</div><div class="ttdef"><b>Definition</b> <a href="drifttubeMonitoring_8py_source.html#l00289">drifttubeMonitoring.py:289</a></div></div>
@@ -1510,12 +1513,12 @@ Protected Attributes</h2></td></tr>
  </p>
 <p>This will create a branch in the output tree called <a class="el" href="classTargetPoint.html">TargetPoint</a>, setting the last parameter to kFALSE means: this collection will not be written to the file, it will exist only during the simulation.</p>
 
-<p class="definition">Definition at line <a class="el" href="EmulsionDet_8cxx_source.html#l00488">488</a> of file <a class="el" href="EmulsionDet_8cxx_source.html">EmulsionDet.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  489</span>{</div>
-<div class="line"><span class="lineno">  490</span>    </div>
-<div class="line"><span class="lineno">  497</span>    FairRootManager::Instance()-&gt;Register(<span class="stringliteral">&quot;EmulsionDetPoint&quot;</span>, <span class="stringliteral">&quot;EmulsionDet&quot;</span>,</div>
-<div class="line"><span class="lineno">  498</span>                                          <a class="code hl_variable" href="classEmulsionDet.html#a7a8d82f1ca7a068685166e0ee84441cf">fEmulsionDetPointCollection</a>, kTRUE);</div>
-<div class="line"><span class="lineno">  499</span>}</div>
+<p class="definition">Definition at line <a class="el" href="EmulsionDet_8cxx_source.html#l00491">491</a> of file <a class="el" href="EmulsionDet_8cxx_source.html">EmulsionDet.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  492</span>{</div>
+<div class="line"><span class="lineno">  493</span>    </div>
+<div class="line"><span class="lineno">  500</span>    FairRootManager::Instance()-&gt;Register(<span class="stringliteral">&quot;EmulsionDetPoint&quot;</span>, <span class="stringliteral">&quot;EmulsionDet&quot;</span>,</div>
+<div class="line"><span class="lineno">  501</span>                                          <a class="code hl_variable" href="classEmulsionDet.html#a7a8d82f1ca7a068685166e0ee84441cf">fEmulsionDetPointCollection</a>, kTRUE);</div>
+<div class="line"><span class="lineno">  502</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1544,10 +1547,10 @@ Protected Attributes</h2></td></tr>
 <p>has to be called after each event to reset the containers <br  />
  </p>
 
-<p class="definition">Definition at line <a class="el" href="EmulsionDet_8cxx_source.html#l00507">507</a> of file <a class="el" href="EmulsionDet_8cxx_source.html">EmulsionDet.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  508</span>{</div>
-<div class="line"><span class="lineno">  509</span>    <a class="code hl_variable" href="classEmulsionDet.html#a7a8d82f1ca7a068685166e0ee84441cf">fEmulsionDetPointCollection</a>-&gt;Clear();</div>
-<div class="line"><span class="lineno">  510</span>}</div>
+<p class="definition">Definition at line <a class="el" href="EmulsionDet_8cxx_source.html#l00510">510</a> of file <a class="el" href="EmulsionDet_8cxx_source.html">EmulsionDet.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  511</span>{</div>
+<div class="line"><span class="lineno">  512</span>    <a class="code hl_variable" href="classEmulsionDet.html#a7a8d82f1ca7a068685166e0ee84441cf">fEmulsionDetPointCollection</a>-&gt;Clear();</div>
+<div class="line"><span class="lineno">  513</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
