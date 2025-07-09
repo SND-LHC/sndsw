@@ -1,5 +1,7 @@
 var NAVTREEINDEX43 =
 {
+"classgenfit_1_1RKTrackRep.html#a248147a042b603431d22bd285ee14adc":[13,0,13,55,101],
+"classgenfit_1_1RKTrackRep.html#a27fe628afd6be77f1f9de8a5a10d3b0a":[12,0,54,57,127],
 "classgenfit_1_1RKTrackRep.html#a27fe628afd6be77f1f9de8a5a10d3b0a":[13,0,13,55,127],
 "classgenfit_1_1RKTrackRep.html#a281fc9087c22ee0ed63e22330fecad9d":[12,0,54,57,17],
 "classgenfit_1_1RKTrackRep.html#a281fc9087c22ee0ed63e22330fecad9d":[13,0,13,55,16],
@@ -247,7 +249,5 @@ var NAVTREEINDEX43 =
 "classgenfit_1_1RectangularFinitePlane.html#ae1a71c9145e4e39c9d2b52ed5675bce9":[13,0,13,52,3],
 "classgenfit_1_1ReferenceStateOnPlane.html":[13,0,13,53],
 "classgenfit_1_1ReferenceStateOnPlane.html":[12,0,54,55],
-"classgenfit_1_1ReferenceStateOnPlane.html#a030a88393e2b63312aebc3db2771c9a2":[12,0,54,55,3],
-"classgenfit_1_1ReferenceStateOnPlane.html#a030a88393e2b63312aebc3db2771c9a2":[13,0,13,53,3],
-"classgenfit_1_1ReferenceStateOnPlane.html#a08ba586d1db4765184117bbc72be7475":[13,0,13,53,39]
+"classgenfit_1_1ReferenceStateOnPlane.html#a030a88393e2b63312aebc3db2771c9a2":[12,0,54,55,3]
 };

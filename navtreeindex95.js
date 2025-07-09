@@ -1,5 +1,9 @@
 var NAVTREEINDEX95 =
 {
+"option_page.html#cmd-force":[0,1,1,12],
+"option_page.html#cmd-fortranfiles":[0,1,1,13],
+"option_page.html#cmd-globalcorr":[0,1,1,14],
+"option_page.html#cmd-histprint":[0,1,1,15],
 "option_page.html#cmd-hugecut":[0,1,1,16],
 "option_page.html#cmd-iterateentries":[0,1,1,17],
 "option_page.html#cmd-linesearch":[0,1,1,18],
@@ -245,9 +249,5 @@ var NAVTREEINDEX95 =
 "readMilleBinary_8py.html#a6a55a20ce62de62b6fab6432f7cfa2b9":[14,0,9,0,0,3],
 "readMilleBinary_8py.html#a7413cfeb3bc839d82d4e1fa40c3408c9":[14,0,9,0,0,12],
 "readMilleBinary_8py.html#a7a632b97efdf6bdfc5b4423bfa26966e":[14,0,9,0,0,19],
-"readMilleBinary_8py.html#a837787ba33dda72e3974b3a2c4f4ddd0":[14,0,9,0,0,1],
-"readMilleBinary_8py.html#a8aa8cebf98323fc0fc1534b2a6a8228a":[14,0,9,0,0,14],
-"readMilleBinary_8py.html#a8e3d4f4eb18249b2689c1393ad6653f8":[14,0,9,0,0,17],
-"readMilleBinary_8py.html#a9bd2145ea98272cd2f37e2814b3afe63":[14,0,9,0,0,4],
-"readMilleBinary_8py.html#aa5029fee38de108bb42ce94c75edcf2f":[14,0,9,0,0,21]
+"readMilleBinary_8py.html#a837787ba33dda72e3974b3a2c4f4ddd0":[14,0,9,0,0,1]
 };

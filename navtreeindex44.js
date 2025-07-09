@@ -1,5 +1,7 @@
 var NAVTREEINDEX44 =
 {
+"classgenfit_1_1ReferenceStateOnPlane.html#a030a88393e2b63312aebc3db2771c9a2":[13,0,13,53,3],
+"classgenfit_1_1ReferenceStateOnPlane.html#a08ba586d1db4765184117bbc72be7475":[13,0,13,53,39],
 "classgenfit_1_1ReferenceStateOnPlane.html#a08ba586d1db4765184117bbc72be7475":[12,0,54,55,39],
 "classgenfit_1_1ReferenceStateOnPlane.html#a1a0b3514e290e0e04a27bd382d6692f3":[12,0,54,55,19],
 "classgenfit_1_1ReferenceStateOnPlane.html#a1a0b3514e290e0e04a27bd382d6692f3":[13,0,13,53,19],
@@ -247,7 +249,5 @@ var NAVTREEINDEX44 =
 "classgenfit_1_1TGeoMaterialInterface.html#a3fdf0212196630c8a5a56973431a1708":[13,0,13,59,12],
 "classgenfit_1_1TGeoMaterialInterface.html#a3fdf0212196630c8a5a56973431a1708":[12,0,54,61,12],
 "classgenfit_1_1TGeoMaterialInterface.html#a3fdf0212196630c8a5a56973431a1708":[13,0,13,59,13],
-"classgenfit_1_1TGeoMaterialInterface.html#a8efab4baa48efa1bcf0cf7e664d4c3cf":[12,0,54,61,3],
-"classgenfit_1_1TGeoMaterialInterface.html#a8efab4baa48efa1bcf0cf7e664d4c3cf":[12,0,54,61,1],
-"classgenfit_1_1TGeoMaterialInterface.html#a8efab4baa48efa1bcf0cf7e664d4c3cf":[13,0,13,59,1]
+"classgenfit_1_1TGeoMaterialInterface.html#a8efab4baa48efa1bcf0cf7e664d4c3cf":[12,0,54,61,3]
 };

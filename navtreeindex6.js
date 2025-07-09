@@ -1,5 +1,7 @@
 var NAVTREEINDEX6 =
 {
+"Survey-MufiScifi_8py.html#acf9a3f57e276d9c4dc27b16ac70c9403":[14,0,20,1,16,1],
+"Survey-MufiScifi_8py.html#ad071975730030ab45a650191331c15f4":[14,0,20,1,16,43],
 "Survey-MufiScifi_8py.html#ad418c232f4b0960e1f22e9a529a673fe":[14,0,20,1,16,21],
 "Survey-MufiScifi_8py.html#ad5c82faa7c76c0c96db83ea5e7d71ccc":[14,0,20,1,16,95],
 "Survey-MufiScifi_8py.html#ad9c0eb30b7b83e8991f56000d7bc33e9":[14,0,20,1,16,32],
@@ -247,7 +249,5 @@ var NAVTREEINDEX6 =
 "add__noise__to__field_8py.html#ac0ccac9074ea58e6b1bd65830caa940f":[14,0,4,0,13],
 "add__noise__to__field_8py.html#ac2f8eee2da4664aeddd4d34a8cabd99e":[14,0,4,0,9],
 "add__noise__to__field_8py.html#ac8c461fc99cff345995bf60fcdfefa01":[14,0,4,0,11],
-"add__noise__to__field_8py.html#ad3bdeebe3d0279aca028937b765abdb3":[14,0,4,0,4],
-"add__noise__to__field_8py.html#ad9efc3056172174fd51491e6695173bc":[14,0,4,0,0],
-"add__noise__to__field_8py.html#ada38192948951a9c388875eaac66cb7e":[14,0,4,0,1]
+"add__noise__to__field_8py.html#ad3bdeebe3d0279aca028937b765abdb3":[14,0,4,0,4]
 };

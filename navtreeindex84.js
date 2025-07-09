@@ -1,5 +1,9 @@
 var NAVTREEINDEX84 =
 {
+"namespacemufiHitMaps.html#a3bb1b24491f44f4dd1d5adb877bb2eb2":[12,0,94,12],
+"namespacemufiHitMaps.html#a3fa1ebbc8a8e2e506f45f1d004b1d71b":[12,0,94,24],
+"namespacemufiHitMaps.html#a42848d36c221a6b9c3337d57eefb7908":[12,0,94,0],
+"namespacemufiHitMaps.html#a44406d132a911dbc782bdcbcaba52630":[12,0,94,13],
 "namespacemufiHitMaps.html#a54539278cf45ea4636c84e928d8a3f47":[12,0,94,21],
 "namespacemufiHitMaps.html#a54c8948dbb9deb9280df23b3dc670f2a":[12,0,94,1],
 "namespacemufiHitMaps.html#a56349c5d1b8d8e7fdc8a09c83f33c968":[12,0,94,10],
@@ -245,9 +249,5 @@ var NAVTREEINDEX84 =
 "namespacequicktype.html#aaf78a0549686ac1b8791ee9a8f9abb4a":[12,0,110,2],
 "namespaceradio.html":[12,0,111],
 "namespaceradio.html#a185405eec7acfdb148448e1a9c76b5ea":[12,0,111,9],
-"namespaceradio.html#a2173c1232cd54d49a5435ae267c4f764":[12,0,111,4],
-"namespaceradio.html#a21d612c97d4258591273bae6c081de92":[12,0,111,11],
-"namespaceradio.html#a28c894dea59a38f01b6fefc7deb3668d":[12,0,111,10],
-"namespaceradio.html#a4fdb86116c516600a808ac90997045df":[12,0,111,0],
-"namespaceradio.html#a805bb081d220b4620ab31116ca4eb039":[12,0,111,7]
+"namespaceradio.html#a2173c1232cd54d49a5435ae267c4f764":[12,0,111,4]
 };

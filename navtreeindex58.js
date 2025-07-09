@@ -1,5 +1,7 @@
 var NAVTREEINDEX58 =
 {
+"drifttubeMonitoring_8py.html#abfcc1d81eb487e6b40dc8426c8afd8d2":[14,0,1,1,1,252],
+"drifttubeMonitoring_8py.html#ac1ba8c265e14509f1ff33d5852c8bc70":[14,0,1,1,1,184],
 "drifttubeMonitoring_8py.html#ac440b75558af5f5269b7176f72a8cfba":[14,0,1,1,1,53],
 "drifttubeMonitoring_8py.html#ac4736e8db0e1f0877a220965f9299e5e":[14,0,1,1,1,90],
 "drifttubeMonitoring_8py.html#ac5142618cff6eb2db71467d5126b08ce":[14,0,1,1,1,263],
@@ -247,7 +249,5 @@ var NAVTREEINDEX58 =
 "eventDisplay__shipLHC_8py.html#a2cc61db86961cebb0b8fb56a6c24b501":[14,0,8,9,10],
 "eventDisplay__shipLHC_8py.html#a2d92d5e2afb57a138825f981ce33728e":[14,0,8,9,45],
 "eventDisplay__shipLHC_8py.html#a2f023b12d4dc93b34c82a41df53c975d":[14,0,8,9,66],
-"eventDisplay__shipLHC_8py.html#a3118e6fb3ddf47337f0c1ad709e92996":[14,0,8,9,13],
-"eventDisplay__shipLHC_8py.html#a334d428120c6b7f84429956141a2ebf6":[14,0,8,9,34],
-"eventDisplay__shipLHC_8py.html#a338a361b1fdee549ed295a40db2773a8":[14,0,8,9,17]
+"eventDisplay__shipLHC_8py.html#a3118e6fb3ddf47337f0c1ad709e92996":[14,0,8,9,13]
 };

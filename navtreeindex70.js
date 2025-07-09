@@ -1,5 +1,9 @@
 var NAVTREEINDEX70 =
 {
+"namespaceScifiCluster.html#a1ab846cf0c3ca92d9d29c07dd1b11484":[12,0,140,2],
+"namespaceScifiCluster.html#a1ae6516a29cded3dcabe871e38130e5c":[12,0,140,13],
+"namespaceScifiCluster.html#a1ca1344e8fcc34d072bdf702e4098c58":[12,0,140,70],
+"namespaceScifiCluster.html#a1f6cb3751d3d3024648156a713ab3dce":[12,0,140,71],
 "namespaceScifiCluster.html#a208956035f9b35275e927642ce40b599":[12,0,140,34],
 "namespaceScifiCluster.html#a20dc1a36be6f58a49cba12fce039abef":[12,0,140,50],
 "namespaceScifiCluster.html#a22cff15108384bc914ce014f42defe90":[12,0,140,32],
@@ -245,9 +249,5 @@ var NAVTREEINDEX70 =
 "namespaceSndlhcMuonReco.html":[12,0,175],
 "namespaceSndlhcMuonReco.html#a5cfee1b9751de6b61bd24fa61c343d7b":[12,0,175,2],
 "namespaceSndlhcMuonReco.html#ac574f8b2654f484c399108225a23d74c":[12,0,175,3],
-"namespaceSndlhcTracking.html":[12,0,176],
-"namespaceSndlhcTracking.html#a3b238a86475d23985b7c07c8ee9c371a":[12,0,176,2],
-"namespaceSndlhcTracking.html#a5341bc410f95621569c75ff5f9a13c7a":[12,0,176,1],
-"namespaceSurvey-MufiScifi.html":[12,0,182],
-"namespaceSurvey-MufiScifi.html#a011de4169181476bd4427eb6eefbcea9":[12,0,182,19]
+"namespaceSndlhcTracking.html":[12,0,176]
 };

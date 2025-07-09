@@ -1,5 +1,7 @@
 var NAVTREEINDEX53 =
 {
+"classsnd_1_1analysis__cuts_1_1minSciFiConsecutivePlanes.html#a8c53eb3a609cebc1312cdb60adecc2bb":[13,0,38,0,7,0],
+"classsnd_1_1analysis__cuts_1_1minSciFiConsecutivePlanes.html#a8c53eb3a609cebc1312cdb60adecc2bb":[12,0,168,0,7,0],
 "classsnd_1_1analysis__cuts_1_1minSciFiConsecutivePlanes.html#aff6b5f33910d9bd5836f211e8603d5bb":[13,0,38,0,7,1],
 "classsnd_1_1analysis__cuts_1_1minSciFiConsecutivePlanes.html#aff6b5f33910d9bd5836f211e8603d5bb":[12,0,168,0,7,1],
 "classsnd_1_1analysis__cuts_1_1minSciFiHits.html":[13,0,38,0,8],
@@ -247,7 +249,5 @@ var NAVTREEINDEX53 =
 "classstrawtubes.html#a1697c4c8e505b8a334924a5c8d71a7a8":[13,0,184,39],
 "classstrawtubes.html#a16b22a4db78d4a63384a5da34b461733":[13,0,184,59],
 "classstrawtubes.html#a1b3cc6365235cd289ff731f2809d1d47":[13,0,184,53],
-"classstrawtubes.html#a21641d64c58212d70694ecf35d6227b4":[13,0,184,71],
-"classstrawtubes.html#a24bcd547fd7597a34cff5c1d5473b6e2":[13,0,184,63],
-"classstrawtubes.html#a27098b457bbe01dc9a93e7782496e736":[13,0,184,29]
+"classstrawtubes.html#a21641d64c58212d70694ecf35d6227b4":[13,0,184,71]
 };
