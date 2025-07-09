@@ -11,9 +11,12 @@ include_directories( ${INCLUDE_DIRECTORIES} )
 
 set(SRCS
 sndSciFiTools.cxx
+sndTchainGetter.cxx
+sndGeometryGetter.cxx
 )
 
 set(LINK_DIRECTORIES
+${ROOT_LIBRARY_DIR}
 ${FAIRROOT_LIBRARY_DIR}
 )
 
@@ -25,3 +28,5 @@ Set(LIBRARY_NAME snd_analysis_tools)
 Set(DEPENDENCIES shipLHC)
 
 GENERATE_LIBRARY()
+
+target_link_libraries(snd_analysis_tools -lROOTTPython)

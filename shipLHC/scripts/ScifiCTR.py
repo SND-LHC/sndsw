@@ -58,10 +58,24 @@ class Scifi_CTR(ROOT.FairTask):
        for s in range(1, nStations+1):
                ut.bookHist(h,'CTR_Scifi'+str(s)+tag,'CTR '+str(s)+tag+'; dt [ns]; ',100,-5.,5.)
                ut.bookHist(h,'CTR_Scifi_beam'+str(s)+tag,'CTR beam'+str(s)+tag+'; dt [ns]; ',100,-5.,5.)
+               ut.bookHist(h,'dT_posxV'+str(s)+tag,'; x [cm]; dt [ns]',100,-50.,-30., 100,-5.,5.)
+               ut.bookHist(h,'dT_posxH'+str(s)+tag,'; x [cm]; dt [ns]',100,-50.,-30., 100,-5.,5.)
+               ut.bookHist(h,'dT_posyH'+str(s)+tag,'; y [cm]; dt [ns]',100,35,55., 100,-5.,5.)
+               ut.bookHist(h,'dT_posyV'+str(s)+tag,'; y [cm]; dt [ns]',100,35,55., 100,-5.,5.)
+               ut.bookHist(h,'CTR_timeH_posy_Scifi'+str(s)+tag,'CTR '+str(s)+tag+'; y [cm]; cluster time [ns]; ',100,35,55,100,-5.,15.)
+               ut.bookHist(h,'CTR_timeV_posy_Scifi'+str(s)+tag,'CTR '+str(s)+tag+'; y [cm]; cluster time [ns]; ',100,35,55,100,-5.,15.)
+
                for matH in range(nMats):
                    for matV in range(nMats):
                     ut.bookHist(h,'CTR_Scifi'+str(s*100+10*matH+matV)+tag,'CTR '+str(s)+tag+'; dt [ns]; ',100,-5.,5.)
                     ut.bookHist(h,'CTR_Scifi_beam'+str(s*100+10*matH+matV)+tag,'CTR beam'+str(s)+tag+'; dt [ns]; ',100,-5.,5.)
+
+                   # For the testbeam 2024, perform time alignment per channel in Scifi 2H
+                   if s==2 and channelTimeAlignment==1:
+                     for arr in range(nSiPMArrays):
+                       for chan in range(nChannelsPerSiPMArray):
+                         detid = int(s*1e6+0*1e5+matH*1e4+arr*1e3+chan)
+                         ut.bookHist(h,'CTR_ScifiMat'+str(detid)+tag,'CTR mat '+str(detid)+tag+'; dt [ns]; ',100,-5.,5.)
 
                for p in self.projs:
                     ut.bookHist(h,'res'+str(s)+self.projs[p],'d;  [cm]; ',100,-1.,1.)
@@ -73,14 +87,21 @@ class Scifi_CTR(ROOT.FairTask):
               ut.bookHist(h,'CTR_ScifiStation'+str(s1*10+s2)+tag,'CTR station'+str(s1*10+s2)+'; dt [ns]; ',100,-5.,5.)
               ut.bookHist(h,'CTR_ScifiStation_beam'+str(s1*10+s2)+tag,'CTR station beam'+str(s1*10+s2)+'; dt [ns]; ',100,-5.,5.)
 
-       if self.tag == "v0":
+       if channelTimeAlignment==1 and tag == "v0prime":
+           self.tdcScifiStationCalib = {}
+           for s in range(1, nStations+1):
+              if nMats == 1 :
+                self.tdcScifiStationCalib[s] = [0,{'H': [0, {arr: {ch: 0 for ch in range(nChannelsPerSiPMArray)} for arr in range(nSiPMArrays)},],\
+                                                   'V': [0, {arr: {ch: 0 for ch in range(nChannelsPerSiPMArray)} for arr in range(nSiPMArrays)},],},]
+              if nMats == 3:
+                self.tdcScifiStationCalib[s] = [0,{'H':{0:0,1:0,2:0},'V':{0:0,1:0,2:0}}]
+       elif channelTimeAlignment==0 and tag == "v0":
            self.tdcScifiStationCalib = {}
            for s in range(1, nStations+1):
               if nMats == 1 :
                 self.tdcScifiStationCalib[s] = [0,{'H':{0:0},'V':{0:0}}]
               if nMats == 3:
                 self.tdcScifiStationCalib[s] = [0,{'H':{0:0,1:0,2:0},'V':{0:0,1:0,2:0}}]
-
        else:
             with open('ScifiTimeAlignment_'+self.tag, 'rb') as fh:
                self.tdcScifiStationCalib = pickle.load(fh)
@@ -113,16 +134,17 @@ class Scifi_CTR(ROOT.FairTask):
               clkey = W.getHitId()
               aCl    = self.M.trackTask.clusScifi[clkey]
               aHit = event.Digi_ScifiHits[DetID2Key[aCl.GetFirst()]]
-              s = aCl.GetFirst()//1000000
+              detID = aCl.GetFirst()
+              s = detID//1000000
               aCl.GetPosition(A,B)
-              mat = (aCl.GetFirst()//10000)%10
+              mat = (detID//10000)%10
               if aHit.isVertical(): 
                         L = B[1]-state.getPos()[1]
-                        sortedClusters[s]['V'].append( [clkey,L,B[0],state.getPos()[1],mat,(A[2]+B[2])/2.] )
+                        sortedClusters[s]['V'].append( [clkey,L,B[0],state.getPos()[1],mat,(A[2]+B[2])/2.,state.getPos()[0],aCl.GetFirst(),aCl.GetTime()] )
                         rc = h['res'+str(s)+'V'].Fill( (A[0]+B[0])/2.-state.getPos()[0])
               else:  
                         L = A[0]-state.getPos()[0]
-                        sortedClusters[s]['H'].append( [clkey,L,A[1],state.getPos()[0],mat,(A[2]+B[2])/2.] )
+                        sortedClusters[s]['H'].append( [clkey,L,A[1],state.getPos()[0],mat,(A[2]+B[2])/2.,state.getPos()[1],aCl.GetFirst(),aCl.GetTime()] )
                         rc = h['res'+str(s)+'H'].Fill( (A[1]+B[1])/2.-state.getPos()[1])
           # find station with exactly 1 x and 1 y cluster:
           for s in range(1, nStations+1):
@@ -136,12 +158,28 @@ class Scifi_CTR(ROOT.FairTask):
                   time = aCl.GetTime()   # Get time in ns, use fastest TDC of cluster
                   if M.options.check: time = self.M.Scifi.GetCorrectedTime(aCl.GetFirst(),aCl.GetTime(),0)
                   mat = sortedClusters[s][proj][0][4]
+                  sipm_array = int(sortedClusters[s][proj][0][7]/1000)%10
+                  sipm_channel = sortedClusters[s][proj][0][7]%1000
+                  if channelTimeAlignment==1 and s==2 and proj=='H':# apply the corrections per channel
+                    time-=  self.tdcScifiStationCalib[s][1][proj][1][sipm_array][sipm_channel]
                   time-=  self.tdcScifiStationCalib[s][1][proj][mat]
                   time-=  self.tdcScifiStationCalib[s][0]
                   timeCorr[proj] = time - abs(L)/self.V
                   # print(s,proj,time,L,L/self.V)
               dt = timeCorr['H']  - timeCorr['V']
               rc = h['CTR_Scifi'+str(s)+tag].Fill(dt)
+              for proj in ['V','H']:
+                if proj=='V': o=1
+                else: o=0
+                if channelTimeAlignment==1 and s==2 and proj=='H': # plots for the corrections per channel
+                   rc = h['CTR_ScifiMat'+str(sortedClusters[s][proj][0][7])+tag].Fill(dt)
+                rc=h['dT_posxV'+str(s)+tag].Fill(sortedClusters[s]['V'][0][6],dt)
+                rc=h['dT_posxH'+str(s)+tag].Fill(sortedClusters[s]['H'][0][3],dt)
+                rc=h['dT_posyH'+str(s)+tag].Fill(sortedClusters[s]['H'][0][6], dt)
+                rc=h['dT_posyV'+str(s)+tag].Fill(sortedClusters[s]['V'][0][3], dt)
+                rc=h['CTR_timeH_posy_Scifi'+str(s)+tag].Fill(sortedClusters[s]['H'][0][6], sortedClusters[s][proj][0][8])
+                rc=h['CTR_timeV_posy_Scifi'+str(s)+tag].Fill(sortedClusters[s]['V'][0][3],sortedClusters[s][proj][0][8])
+
               matH,matV = sortedClusters[s]['H'][0][4],sortedClusters[s]['V'][0][4]
               rc = h['CTR_Scifi'+str(100*s+10*matH+matV)+tag].Fill(dt)
               if abs(slopeX)<0.1 and abs(slopeY)<0.1:  
@@ -151,8 +189,8 @@ class Scifi_CTR(ROOT.FairTask):
               rc = h['resX'+str(s)+'V'].Fill(dR)
               dR = sortedClusters[s]['H'][0][2]-sortedClusters[s]['V'][0][3]
               rc = h['resX'+str(s)+'H'].Fill(dR)
-#
-              if tag!='v0':
+              
+              if tag!='v0' and tag!='v0prime':
                  stationTimes = {}
                  for s in range(1, nStations+1):
                    if not (len(sortedClusters[s]['V']) * len(sortedClusters[s]['H']) ) ==1: continue
@@ -186,7 +224,26 @@ class Scifi_CTR(ROOT.FairTask):
    def Plot(self):
       h = self.M.h
       tag =  self.tag
-      for b in ['','_beam']:
+      
+      if channelTimeAlignment==1:
+        for s in range(1, nStations+1): 
+           for proj in ['H','V']:
+              if proj=='H': o=0
+              else: o=1
+              if s!=2 or proj!='H': continue
+              ut.bookCanvas(h,'CTR_mats'+str(s)+proj+tag,'CTR'+tag,1800,1200,32,16)
+              j=1
+              for mat in range(nMats): 
+                for arr in range(nSiPMArrays):
+                 for chan in range(nChannelsPerSiPMArray): 
+                   tc =  h['CTR_mats'+str(s)+proj+tag].cd(j)
+                   j+=1
+                   histo = h['CTR_ScifiMat'+str(int(1e6*s+1e5*o+1e4*mat+1e3*arr+chan))+tag]
+                   if 1: #histo.GetEntries()>3:
+                     histo.Draw() 
+      
+      if tag!='v0prime':
+       for b in ['','_beam']:
          ut.bookCanvas(h,'CTR'+b+tag,'CTR'+tag,1800,1200,3,2)
          for s in range(1, nStations+1): 
              tc =  h['CTR'+b+tag].cd(s)
@@ -254,6 +311,31 @@ class Scifi_CTR(ROOT.FairTask):
                      Fun = histo.GetFunction('gaus')
                      self.meanAndSigma[b][key] = [Fun.GetParameter(1),Fun.GetParameter(2)]
 
+   def minimizeMat(self,b=""):
+      h = self.M.h
+      tag =  self.tag
+      ut.bookHist(h,'commonBlock_mat','',4000,0.,4000.)
+
+      for s in range(1, nStations+1):
+       for proj in ['H', 'V']:
+        # only done for SciFi 2H in the tb_24 setup
+        if s!=2 or proj!='H': continue
+        if proj=='H': o=0
+        else: o=1
+        for mat in range(nMats):
+         for arr in range(nSiPMArrays):
+           for chan in range(nChannelsPerSiPMArray):
+               key = int(1e6*s+1e5*o+1e4*mat+1e3*arr+chan)
+               histo = h[ 'CTR_ScifiMat'+str(key)+tag]# was here
+               if histo.GetEntries()==0: continue
+               dt=histo.GetMean()
+               h['commonBlock_mat'].SetBinContent(1000*arr+chan,dt)
+               self.tdcScifiStationCalib[s][1][proj][1][arr][chan]=dt
+               print('corrections', proj, arr, chan, self.tdcScifiStationCalib[s][1][proj][1][arr][chan])
+
+      with open('ScifiTimeAlignment_v0', 'wb') as fh:
+           pickle.dump(self.tdcScifiStationCalib, fh)
+
    def minimize(self,b=""):
       h = self.M.h
       self.ExtractMeanAndSigma()
@@ -313,9 +395,9 @@ class Scifi_CTR(ROOT.FairTask):
             key = 10*s1+s2
             dt = self.meanAndSigmaStation[b][key][0]
             h['commonBlock'].SetBinContent(key,dt)
-         npar = 5
+         npar = nStations
          ierflg    = ctypes.c_int(0)
-         vstart  = array('d',[0,-0.3365,-0.975,0.11,0.239])
+         vstart  = array('d',[0]*npar)
          gMinuit = ROOT.TMinuit(npar)
          gMinuit.SetFCN(FCNS)
          gMinuit.SetErrorDef(1.0)
@@ -383,10 +465,10 @@ class Scifi_TimeOfTracks(ROOT.FairTask):
 
               if aHit.isVertical(): 
                         L = B[1]-state.getPos()[1]
-                        sortedClusters[s]['V'].append( [clkey,L,B[0],state.getPos()[1],mat,(A[2]+B[2])/2.] )
+                        sortedClusters[s]['V'].append( [clkey,L,B[0],state.getPos()[1],mat,(A[2]+B[2])/2.,state.getPos()[0],aCl.GetFirst(),aCl.GetTime()] )
               else:  
                         L = A[0]-state.getPos()[0]
-                        sortedClusters[s]['H'].append( [clkey,L,A[1],state.getPos()[0],mat,(A[2]+B[2])/2.] )
+                        sortedClusters[s]['H'].append( [clkey,L,A[1],state.getPos()[0],mat,(A[2]+B[2])/2.,state.getPos()[1],aCl.GetFirst(),aCl.GetTime()] )
           stationTimes = {}
           for s in range(1, nStations+1):
              if not (len(sortedClusters[s]['V']) * len(sortedClusters[s]['H']) ) ==1: continue
@@ -397,6 +479,10 @@ class Scifi_TimeOfTracks(ROOT.FairTask):
                 L = sortedClusters[s][proj][0][1]
                 time =  aCl.GetTime()   # Get time in ns, use fastest TDC of cluster
                 mat  =  sortedClusters[s][proj][0][4]
+                sipm_array = int(sortedClusters[s][proj][0][7]/1000)%10
+                sipm_channel = sortedClusters[s][proj][0][7]%1000
+                if channelTimeAlignment==1 and s==2 and proj=='H':# apply the corrections per channel
+                   time-=  self.tdcScifiStationCalib[s][1][proj][1][sipm_array][sipm_channel]
                 time-=  self.tdcScifiStationCalib[s][1][proj][mat]  # correct as function of station / projection / mat
                 time-=  self.tdcScifiStationCalib[s][0]                  # internal station calibration
                 time-=  abs(L)/self.V
@@ -464,10 +550,25 @@ if __name__ == '__main__':
    M = Monitor.Monitoring(options,FairTasks)
    nMats = M.Scifi.GetConfParI("Scifi/nmats")
    nStations = M.Scifi.GetConfParI("Scifi/nscifi")
+   nChannelsPerSiPMArray = M.Scifi.GetConfParI("Scifi/nsipm_channels")
+   nSiPMArrays = M.Scifi.GetConfParI("Scifi/nsipm_mat")
+   channelTimeAlignment = M.Scifi.GetConfParI("Scifi/channelTimeAlignment")
 
    if options.nEvents <0: options.nEvents = M.GetEntries()
    if options.command == "full":
        task = Scifi_CTR()
+       # channel alignment for testbeam 2024 - needed for station 2H
+       if channelTimeAlignment==1:
+# mat alignment
+         M.iteration = 'v0prime'
+         task.Init(M)
+         for n in range(options.nEvents):
+              event = M.GetEvent(n)
+              task.ExecuteEvent(event)
+         task.Plot()
+         task.minimizeMat(b="")
+# the usual plane and station alignment 
+# plane alignment
        M.iteration = 'v0'
        task.Init(M)
        for n in range(options.nEvents):

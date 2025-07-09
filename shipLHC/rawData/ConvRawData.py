@@ -41,9 +41,11 @@ class ConvRawDataPY(ROOT.FairTask):
          self.outFile = ROOT.TMemFile('monitorRawData', 'recreate')
 
 # get filling scheme per run
-      self.fsdict = False
+      self.fsdict = False      
       try:
-         if options.path.find('2022'): fpath = "/eos/experiment/sndlhc/convertedData/physics/2022/"
+         if options.path.find('2022')!=-1: fpath = "/eos/experiment/sndlhc/convertedData/physics/2022/"
+         elif options.path.find('2023')!=-1: fpath = "/eos/experiment/sndlhc/convertedData/physics/2023/"
+         elif options.path.find('2024')!=-1: fpath = "/eos/experiment/sndlhc/convertedData/physics/2024/"
          else: fpath = "/eos/experiment/sndlhc/convertedData/commissioning/TI18/"
          fg = ROOT.TFile.Open(options.server+fpath+"/FSdict.root")
          pkl = Unpickler(fg)
@@ -56,10 +58,16 @@ class ConvRawDataPY(ROOT.FairTask):
       
       # put the run's FS in format to be passed to FairTasks as input
       self.FSmap = ROOT.TMap()
-      if self.fsdict:         
-         for bunchNumber in range (0, 3564):
-             nb1 = (3564 + bunchNumber - self.fsdict['phaseShift1'])%3564
-             nb2 = (3564 + bunchNumber - self.fsdict['phaseShift1']- self.fsdict['phaseShift2'])%3564
+      if self.fsdict:   
+         # For LHC ion runs the phase shift of beam 2 could not be
+         # determined and is assigned 0 or 1718(=1782-64) in the FS dict
+         # For pp runs phase2 is 3564-129.
+         if self.fsdict['phaseShift2'] == 0 or self.fsdict['phaseShift2'] == 1718:
+             Nbunches = 1782
+         else: Nbunches = 3564 # proton runs
+         for bunchNumber in range (0, Nbunches):
+             nb1 = (Nbunches + bunchNumber - self.fsdict['phaseShift1'])%Nbunches
+             nb2 = (Nbunches + bunchNumber - self.fsdict['phaseShift1']- self.fsdict['phaseShift2'])%Nbunches
              b1 = nb1 in self.fsdict['B1']
              b2 = nb2 in self.fsdict['B2']
              IP1 = False
@@ -112,7 +120,7 @@ class ConvRawDataPY(ROOT.FairTask):
       logger = ROOT.FairLogger.GetLogger()
       logger.SetColoredLog(True)
       logger.SetLogVerbosityLevel('low')
-      logger.SetLogScreenLevel('warn')
+      logger.SetLogScreenLevel('error')
       logger.SetLogToScreen(True)
       if options.debug:
          logger.SetLogToFile(True)
@@ -429,7 +437,10 @@ class ConvRawDataPY(ROOT.FairTask):
      self.header.SetFlags(event.evt_flags)
      self.header.SetRunId( self.options.runNumber )
      if self.FSmap.GetEntries()>1:
-          self.header.SetBunchType(int(str(self.FSmap.GetValue(str(int((event.evt_timestamp%(4*3564))/4))))))
+          if self.header.GetAccMode()== 12: # ion runs
+            self.header.SetBunchType(int(str(self.FSmap.GetValue(str(int((event.evt_timestamp%(4*3564))/8))))))
+          else: # proton runs
+            self.header.SetBunchType(int(str(self.FSmap.GetValue(str(int((event.evt_timestamp%(4*3564))/4))))))
      else:
           self.header.SetBunchType(int(str(self.FSmap.GetValue("0"))))
 

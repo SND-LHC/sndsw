@@ -468,6 +468,7 @@ void MuFilter::InitEvent(SNDLHCEventHeader *e){
 	covered_runs_time_alignment.push_back(stoi(tag_string.substr(tag_string.find("t_")+2)));
       }
     }
+    std::sort(covered_runs_time_alignment.begin(),covered_runs_time_alignment.end());
   }
 };
 

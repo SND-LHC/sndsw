@@ -76,15 +76,20 @@ specific and will not apply to SND@LHC software).
 
 ## On lxplus or systems with CVMFS
 
-On `lxplus` or any CC7/CC8 machine with access to CVMFS, you can do the following:
+On `lxplus` or supported platforms with access to CVMFS, you can do the following:
 
 1. Make sure you can access the SNDLHC CVMFS Repository
     ```bash
     ls /cvmfs/sndlhc.cern.ch
     ```
+    Check if your platform is supported for the given release in production.
+    The latest release is the recommended one.
+    ```bash
+    cat /cvmfs/sndlhc.cern.ch/README
+    ```
 2. Source the `setUp.sh` script
     ```bash
-    source /cvmfs/sndlhc.cern.ch/SNDLHC-2024/June25/setUp.sh  # recommended latest version
+    source /cvmfs/sndlhc.cern.ch/SNDLHC-2025/Jan30/setUp.sh  # recommended latest version
     ```
 3. If you don't want to modify the sndsw package, skip step 3:
     ```bash

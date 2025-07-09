@@ -108,9 +108,13 @@ IF(NOT UNIX)
   MESSAGE(FATAL_ERROR "You're not on an UNIX system. The project was up to now only tested on UNIX systems, so we break here. If you want to go on please edit the CMakeLists.txt in the source directory.")
 ENDIF(NOT UNIX)  
 
+string(REGEX MATCH "[0-9]+\\.[0-9]+\\.[0-9]+" FAIRROOT_VER "$(basename$ENV{FAIRROOT_ROOT})")
+message(STATUS "Extracted FairRoot version is ${FAIRROOT_VER}")
+IF (FAIRROOT_VER LESS 18.8)
 # Check if the external packages are installed into a separate install
 # directory
-CHECK_EXTERNAL_PACKAGE_INSTALL_DIR()
+  CHECK_EXTERNAL_PACKAGE_INSTALL_DIR()
+ENDIF(FAIRROOT_VER LESS 18.8)
 
 # Set the build type. Possibilities are None, Debug, Release, 
 # RelWithDebInfo and MinSizeRel 
@@ -121,7 +125,16 @@ CHECK_EXTERNAL_PACKAGE_INSTALL_DIR()
 # For example the framework can run without GEANT4, but ROOT is
 # mandatory
 
-find_package(ROOT 6.10.06 REQUIRED)
+IF (FAIRROOT_VER GREATER_EQUAL 18.8)
+  find_package(FairCMakeModules 1.0 REQUIRED)
+  include(FairFindPackage2)
+ENDIF(FAIRROOT_VER GREATER_EQUAL 18.8)
+
+find_package(ROOT 6.22 REQUIRED)
+
+IF (FAIRROOT_VER GREATER_EQUAL 18.8)
+  include(ROOTMacros)
+ENDIF(FAIRROOT_VER GREATER_EQUAL 18.8)
 find_package2(PUBLIC Pythia8 REQUIRED)
 find_package2(PUBLIC EvtGen REQUIRED)
 # (GENERATORS REQUIRED)
@@ -131,8 +144,8 @@ find_package2(PUBLIC GEANT4DATA)
 find_package2(PUBLIC GEANT4VMC)
 find_package2(PUBLIC HEPMC)
 
-cmake_print_variables(ROOT_vmc_FOUND)
-if(ROOT_FOUND_VERSION GREATER 62599)
+if(ROOT_VERSION VERSION_GREATER_EQUAL "6.26")
+  message(STATUS "Standalone VMC is used.")
   find_package2(PUBLIC VMC REQUIRED)
   set(VMCLIB VMCLibrary)
 else()
@@ -199,21 +212,15 @@ SET(FAIRROOT_MINOR_VERSION 0)
 SET(FAIRROOT_PATCH_VERSION 0)
 SET(FAIRROOT_VERSION "${FAIRROOT_MAJOR_VERSION}.${FAIRROOT_MINOR_VERSION}.${FAIRROOT_PATCH_VERSION}")
 
-If(ROOT_FOUND_VERSION LESS 59999)
-  SET(FAIRROOT_LIBRARY_PROPERTIES ${FAIRROOT_LIBRARY_PROPERTIES}
-      VERSION "${FAIRROOT_VERSION}"
-      SOVERSION "${FAIRROOT_MAJOR_VERSION}"
-      SUFFIX ".so"
-  )
-Else()
-  SET(FAIRROOT_LIBRARY_PROPERTIES ${FAIRROOT_LIBRARY_PROPERTIES}
-      VERSION "${FAIRROOT_VERSION}"
-      SOVERSION "${FAIRROOT_MAJOR_VERSION}"
-  )
-  SET(CMAKE_SHARED_LIBRARY_SUFFIX .so)
-EndIf()
+set(FAIRROOT_LIBRARY_PROPERTIES ${FAIRROOT_LIBRARY_PROPERTIES}
+  VERSION "${FAIRROOT_VERSION}"
+  SOVERSION "${FAIRROOT_MAJOR_VERSION}"
+)
+set(CMAKE_SHARED_LIBRARY_SUFFIX .so)
 
-Generate_Version_Info()
+IF (FAIRROOT_VER LESS 19.0)
+  Generate_Version_Info()
+ENDIF(FAIRROOT_VER LESS 19.0)
 
 SET(CBMLIBDIR ${CMAKE_BINARY_DIR}/lib)
 SET(LD_LIBRARY_PATH  ${CBMLIBDIR} ${LD_LIBRARY_PATH})

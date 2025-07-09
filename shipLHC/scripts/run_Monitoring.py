@@ -45,7 +45,7 @@ parser.add_argument("-b", "--heartBeat", dest="heartBeat", help="heart beat", de
 parser.add_argument("-c", "--command", dest="command", help="command", default="")
 parser.add_argument("-n", "--nEvents", dest="nEvents", help="number of events", default=-1,type=int)
 parser.add_argument("-s", "--nStart", dest="nStart", help="first event", default=0,type=int)
-parser.add_argument("-t", "--trackType", dest="trackType", help="DS or Scifi", default="DS")
+parser.add_argument("-t", "--trackType", dest="trackType", help="DS or Scifi", default="ScifiDS")
 
 parser.add_argument("--ScifiNbinsRes", dest="ScifiNbinsRes", default=100)
 parser.add_argument("--Scifixmin", dest="Scifixmin", default=-2000.)
@@ -71,7 +71,7 @@ options = parser.parse_args()
 options.slowStream = True
 if options.cosmics: options.slowStream = False
 options.startTime = ""
-options.dashboard = "/mnt/raid5/data_online/run_status.json"
+options.dashboard = "/mnt/raid10/data_online/run_status.json"
 options.monitorTag = ''
 if (options.auto and not options.interactive) or options.batch: ROOT.gROOT.SetBatch(True)
 
@@ -144,6 +144,8 @@ else:
 # works only for runs on EOS
    if not options.server.find('eos')<0:
       if options.rawDataPath: rawDataPath = options.rawDataPath
+      elif options.path.find('2025')>0:
+          rawDataPath = "/eos/experiment/sndlhc/raw_data/physics/2025/run_251"
       elif options.path.find('2024')>0:
           rawDataPath = "/eos/experiment/sndlhc/raw_data/physics/2024/run_241"
       elif options.path.find('2023')>0:

@@ -277,7 +277,7 @@ void ConvRawData::Process0()
          
          // Print a warning if TDC or QDC is nan.        
          if ( TDC != TDC || QDC!=QDC) {
-         LOG (warning) << "NAN tdc/qdc detected! Check maps!"
+         LOG (error) << "NAN tdc/qdc detected! Check maps!"
                        << " " << board_id << " " << bt->GetLeaf("tofpetId")->GetValue(n)
                        << " " << bt->GetLeaf("tofpetChannel")->GetValue(n)
                        << " " << bt->GetLeaf("tac")->GetValue(n)
@@ -487,8 +487,18 @@ void ConvRawData::Process1()
   fSNDLHCEventHeader->SetUTCtimestamp(eventTime*6.23768*1e-9 + runStartUTC);
   fSNDLHCEventHeader->SetEventNumber(fEventTree->GetLeaf("evtNumber")->GetValue());
   // Fill filling scheme data into the event header
-  if (FSmap->GetEntries()>1)
-      fSNDLHCEventHeader->SetBunchType(stoi(((TObjString*)FSmap->GetValue(Form("%d", int((eventTime%(4*3564))/4))))->GetString().Data()));
+  if (FSmap->GetEntries()>1){
+      // ion runs
+      if (fSNDLHCEventHeader->GetAccMode()== 12){
+         fSNDLHCEventHeader->SetBunchType(stoi(((TObjString*)FSmap->GetValue(Form("%d",
+                                             int((eventTime%(4*3564))/8+0.5))))->GetString().Data()));
+      }
+      // proton runs
+      else{
+         fSNDLHCEventHeader->SetBunchType(stoi(((TObjString*)FSmap->GetValue(Form("%d",
+                                             int((eventTime%(4*3564))/4))))->GetString().Data()));
+      }
+  }    
   else
       fSNDLHCEventHeader->SetBunchType(stoi(((TObjString*)FSmap->GetValue("0"))->GetString().Data())); 
   
@@ -561,7 +571,7 @@ void ConvRawData::Process1()
   
        // Print a warning if TDC or QDC is nan.        
        if ( TDC != TDC || QDC!=QDC) {
-       LOG (warning) << "NAN tdc/qdc detected! Check maps!"
+       LOG (error) << "NAN tdc/qdc detected! Check maps!"
                       << " " << board_id << " " << fEventTree->GetLeaf("tofpetId")->GetValue(n)
                      << " " << fEventTree->GetLeaf("tofpetChannel")->GetValue(n)
                      << " " << fEventTree->GetLeaf("tac")->GetValue(n)
@@ -838,7 +848,11 @@ void ConvRawData::DetMapping(string Path)
          else s = 3;
          tmp = x.second.substr(0, x.second.find("_"));
          if ( tmp =="US" ) s = 1;
-         if ( tmp=="DS" ) s = 2;
+         if ( tmp=="DS" )
+         {
+           s = 2;
+           if ( Path.find("testbeam_24") != string::npos && x.second.substr(x.second.find("_")+1,1)==2) s = 3;
+         }
          if ( slots[slot.first] == x.first )
          {
             MufiSystem[board_id_mu][slot.first] = s;

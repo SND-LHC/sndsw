@@ -14,7 +14,12 @@ import numpy as np
 from datetime import datetime
 from pathlib import Path
 
+import logging
+logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.WARNING)
+logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.FATAL)
+
 ROOT.gStyle.SetPalette(ROOT.kViridis)
+ROOT.gInterpreter.ProcessLine('#include "'+os.environ['SNDSW_ROOT']+'/analysis/tools/sndSciFiTools.h"')
 
 def pyExit():
        "unfortunately need as bypassing an issue related to use xrootd"
@@ -71,6 +76,7 @@ lsOfGlobals.Add(geo.modules['Scifi'])
 lsOfGlobals.Add(geo.modules['MuFilter'])
 
 detSize = {}
+em = geo.snd_geo.EmulsionDet
 si = geo.snd_geo.Scifi
 detSize[0] =[si.channel_width, si.channel_width, si.scifimat_z ]
 mi = geo.snd_geo.MuFilter
@@ -257,7 +263,7 @@ def drawLegend(max_density, max_QDC, n_legend_points):
        """Draws legend for hit colour"""
        h['simpleDisplay'].cd(1)
        n_legend_points = 5
-       padLegScifi = ROOT.TPad("legend","legend",0.4,0.15,0.4+0.25, 0.15+0.25)
+       padLegScifi = ROOT.TPad("legend","legend",0.4,0.15,0.4+0.27, 0.15+0.25)
        padLegScifi.SetFillStyle(4000)
        padLegScifi.Draw()
        padLegScifi.cd()
@@ -307,24 +313,55 @@ def loopEvents(
               minSipmMult=1,
               withTiming=False,
               option=None,
-              Setup='',
+              Setup='TI18',
               verbose=0,
               auto=False,
-              hitColour=None
+              hitColour=None,
+              FilterScifiHits=None
               ):
- if 'simpleDisplay' not in h:
-     ut.bookCanvas(h, key='simpleDisplay', title='simple event display', nx=1200 * resolution_factor, ny=900 * resolution_factor, cx=1, cy=2)
+
+ # check the format of FilterScifiHits if set
+ if FilterScifiHits: 
+    important_keys = {"bins_x", "min_x", "max_x", "time_lower_range", "time_upper_range"}
+    all_keys = important_keys.copy()
+    all_keys.add("method")
+    filter_parameters = {"bins_x":52., "min_x":0., "max_x":26.,
+                         "time_lower_range":1E9/(2*u.snd_freq/u.hertz),
+                         "time_upper_range":2E9/(u.snd_freq/u.hertz),
+                         "method":0}
+    if FilterScifiHits!="default" and not important_keys.issubset(FilterScifiHits): 
+       logging.fatal("Invalid FilterScifiHits format. Two options are supported:\n"
+       "#1 FilterScifiHits = 'default'\nwhich sets the default parameters:\n"+
+       str(filter_parameters)+" or\n"
+       "#2 FilterScifiHits = filter_dictionary \nwhere filter_dictionary has all of the following keys\n"+
+       str(important_keys)+"\nAn additional key 'method' exists: its single supported value, also default, is 0.")
+       return
+    if FilterScifiHits!="default" and any(k not in all_keys for k in FilterScifiHits):
+       logging.warning("Ignoring provided keys other than "+str(all_keys))
+
+ if 'simpleDisplay' not in h: 
+    ut.bookCanvas(h,key='simpleDisplay',title='simple event display',nx=1200,ny=1600,cx=1,cy=2)
+
  h['simpleDisplay'].cd(1)
- zStart = 250. # TI18 coordinate system
+ # TI18 coordinate system
+ zStart = 250.
+ zEnd = 600.
+ xStart = -100.
+ yStart =  -30.
  if Setup == 'H6': zStart = 60.
  if Setup == 'TP': zStart = -50. # old coordinate system with origin in middle of target
+ if Setup == 'H4': 
+   xStart = -110.
+   yStart = -10.
+   zStart = 300.
+   zEnd = 430.
  if 'xz' in h: 
     h.pop('xz').Delete()
     h.pop('yz').Delete()
  else:
-    h['xmin'],h['xmax'] = -100.,10.
-    h['ymin'],h['ymax'] = -30.,80.
-    h['zmin'],h['zmax'] = zStart,zStart+350.
+    h['xmin'],h['xmax'] = xStart,xStart+110.
+    h['ymin'],h['ymax'] = yStart,yStart+110.
+    h['zmin'],h['zmax'] = zStart,zEnd
     for d in ['xmin','xmax','ymin','ymax','zmin','zmax']: h['c'+d]=h[d]
  ut.bookHist(h,'xz','; z [cm]; x [cm]',500,h['czmin'],h['czmax'],100,h['cxmin'],h['cxmax'])
  ut.bookHist(h,'yz','; z [cm]; y [cm]',500,h['czmin'],h['czmax'],100,h['cymin'],h['cymax'])
@@ -406,7 +443,29 @@ def loopEvents(
     if nAlltracks > 0: print('total number of tracks: ', nAlltracks)
 
     digis = []
-    if event.FindBranch("Digi_ScifiHits"): digis.append(event.Digi_ScifiHits)
+    if event.FindBranch("Digi_ScifiHits"):
+       method = 0
+       if FilterScifiHits!=None and FilterScifiHits!="default":
+          filter_parameters = {k: FilterScifiHits[k] for k in important_keys if k in FilterScifiHits}
+          method = FilterScifiHits.get("method", 0) # set to the default 0, if item is not provided
+       if FilterScifiHits and (Setup=="TI18" or Setup=="H8" or Setup=="H4"):
+          setup = Setup
+          # Only H8 is explicitly supported in the SciFi tools. However, the same baby SciFi
+          # system was reused in H4. It is then safe to use the SciFi tools for H4 as well.
+          if Setup =="H4":
+            setup ="H8"
+          # Convert the filter_parameters to the needed std.map format
+          selection_parameters = ROOT.std.map('string', 'float')()
+          selection_parameters["bins_x"] = float(filter_parameters["bins_x"])
+          selection_parameters["min_x"] = float(filter_parameters["min_x"])
+          selection_parameters["max_x"] = float(filter_parameters["max_x"])
+          selection_parameters["time_lower_range"] = float(filter_parameters["time_lower_range"])
+          selection_parameters["time_upper_range"] = float(filter_parameters["time_upper_range"])
+          digis.append(ROOT.snd.analysis_tools.filterScifiHits(event.Digi_ScifiHits,selection_parameters,method,setup,mc))
+       else:
+          if FilterScifiHits:
+             logging.warning(Setup+" is not supported for the time-filtering of SciFi hits, using all hits instead.")
+          digis.append(event.Digi_ScifiHits)
     if event.FindBranch("Digi_MuFilterHits"): digis.append(event.Digi_MuFilterHits)
     if event.FindBranch("Digi_MuFilterHit"): digis.append(event.Digi_MuFilterHit)
     empty = True
@@ -744,6 +803,12 @@ def drawDetectors():
          if i==2: nodes['volVeto_1/volVetoPlane_{}_{}/volVetoBar_ver_1{}{:0>3d}'.format(i, i, i, j)]=ROOT.kRed
       if i<2: nodes['volVeto_1/subVetoBox_{}'.format(i)]=ROOT.kGray+1
       if i==2: nodes['volVeto_1/subVeto3Box_{}'.format(i)]=ROOT.kGray+1
+   for i in range(si.nscifi): # number of scifi stations
+      nodes['volTarget_1/ScifiVolume{}_{}000000'.format(i+1, i+1)]=ROOT.kBlue+1
+      # iron blocks btw SciFi planes in the testbeam 2023-2024 det layout
+      nodes['volTarget_1/volFeTarget{}_1'.format(i+1)]=ROOT.kGreen-6
+   for i in range(em.wall): # number of target walls
+      nodes['volTarget_1/volWallborder_{}'.format(i)]=ROOT.kGray
    for i in range(mi.NDownstreamPlanes):
       nodes['volMuFilter_1/volMuDownstreamDet_{}_{}'.format(i, i+mi.NVetoPlanes+mi.NUpstreamPlanes)]=ROOT.kBlue+1
       for j in range(mi.NDownstreamBars):
@@ -753,12 +818,8 @@ def drawDetectors():
    for i in range(mi.NDownstreamPlanes):
       nodes['volMuFilter_1/subDSBox_{}'.format(i+mi.NVetoPlanes+mi.NUpstreamPlanes)]=ROOT.kGray+1
    for i in range(mi.NUpstreamPlanes):
-      nodes['volTarget_1/ScifiVolume{}_{}000000'.format(i+1, i+1)]=ROOT.kBlue+1
-      nodes['volTarget_1/volWallborder_{}'.format(i)]=ROOT.kGray
       nodes['volMuFilter_1/subUSBox_{}'.format(i+mi.NVetoPlanes)]=ROOT.kGray+1
       nodes['volMuFilter_1/volMuUpstreamDet_{}_{}'.format(i, i+mi.NVetoPlanes)]=ROOT.kBlue+1
-      # iron blocks btw SciFi planes in the testbeam 2023 det layout
-      nodes['volTarget_1/volFeTarget{}_1'.format(i+1)]=ROOT.kGreen-6
       for j in range(mi.NUpstreamBars):
          nodes['volMuFilter_1/volMuUpstreamDet_{}_{}/volMuUpstreamBar_2{}00{}'.format(i, i+mi.NVetoPlanes, i, j)]=ROOT.kBlue+1
       nodes['volMuFilter_1/volFeBlock_{}'.format(i)]=ROOT.kGreen-6

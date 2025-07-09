@@ -8,9 +8,6 @@
 #include <map>
 #include <string>
 #include <vector>
-
-using namespace std;
-
 /**
  * Event header class based on FairEventHeader
  */
@@ -42,15 +39,16 @@ class SNDLHCEventHeader : public TNamed
     int64_t GetEventTime() { return fEventTime; }
     int GetInputFileId() { return fInputFileId; }
     int GetEventNumber() { return fEventNumber; }
-    string GetTimeAsString(); // GMT time
+    std::string GetTimeAsString(); // GMT time
     int64_t GetUTCtimestamp() const { return fUTCtimestamp; }
     uint16_t GetFillNumber() const { return fFillNumber; }
     int GetAccMode() const { return fAccMode; }
     int GetBeamMode() const { return fBeamMode; }
-    map<string, bool> GetFastNoiseFilters();
-    map<string, bool> GetAdvNoiseFilters();
-    vector<string> GetPassedFastNFCriteria();
-    vector<string> GetPassedAdvNFCriteria();
+    uint64_t GetFlags() { return fFlags; }
+    std::map<std::string, bool> GetFastNoiseFilters();
+    std::map<std::string, bool> GetAdvNoiseFilters();
+    std::vector<std::string> GetPassedFastNFCriteria();
+    std::vector<std::string> GetPassedAdvNFCriteria();
     int16_t GetBunchType() { return fBunchType; }
     /** Functions to check bunch xing type **/
     bool isB1();

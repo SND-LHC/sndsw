@@ -8,6 +8,7 @@
 #include "TClonesArray.h"
 #include "sndScifiHit.h"
 #include "ROOT/TSeq.hxx"
+#include "Scifi.h"
 
 void snd::analysis_tools::getSciFiHitsPerStation(const TClonesArray *digiHits, std::vector<int> &horizontal_hits,
                                                  std::vector<int> &vertical_hits)
@@ -121,7 +122,7 @@ bool validateHit(sndScifiHit *aHit, int ref_station, bool ref_orientation)
 // Getting the max for the ScifiHits timing distribution in order to select hits within \pm 3ns
 // min_x and max_x should be given in ns
 // The code automatically filters for hits within the same station and orientation as the first hit
-float snd::analysis_tools::peakScifiTiming(const TClonesArray &digiHits, int bins, float min_x, float max_x)
+float snd::analysis_tools::peakScifiTiming(const TClonesArray &digiHits, int bins, float min_x, float max_x, bool isMC)
 {
 
    if (digiHits.GetEntries() <= 0) {
@@ -134,13 +135,17 @@ float snd::analysis_tools::peakScifiTiming(const TClonesArray &digiHits, int bin
    int refStation = ((sndScifiHit *)digiHits.At(0))->GetStation();
    bool refOrientation = ((sndScifiHit *)digiHits.At(0))->isVertical();
    float hitTime = -1.0;
+   float timeConversion = 1.;
+   if (!isMC) {
+      timeConversion = 1E9 / (ShipUnit::snd_freq / ShipUnit::hertz);
+   }
 
    for (auto *p : digiHits) {
       auto *hit = dynamic_cast<sndScifiHit *>(p);
       if (!validateHit(hit, refStation, refOrientation)) {
          continue;
       }
-      hitTime = hit->GetTime() * 1E9 / (ShipUnit::snd_freq / ShipUnit::hertz);
+      hitTime = hit->GetTime() * timeConversion;
       if (hitTime < min_x || hitTime > max_x) {
          continue;
       }
@@ -182,7 +187,8 @@ snd::analysis_tools::getScifiHits(const TClonesArray &digiHits, int station, boo
 std::unique_ptr<TClonesArray> snd::analysis_tools::selectScifiHits(const TClonesArray &digiHits, int station,
                                                                    bool orientation, int bins_x, float min_x,
                                                                    float max_x, float time_lower_range,
-                                                                   float time_upper_range, bool make_selection)
+                                                                   float time_upper_range, bool make_selection,
+								   bool isMC)
 {
 
    if (bins_x < 1) {
@@ -211,11 +217,16 @@ std::unique_ptr<TClonesArray> snd::analysis_tools::selectScifiHits(const TClones
 
    float peakTiming = -1.0;
 
+   float timeConversion = 1.;
+   if (!isMC) {
+      timeConversion = 1E9 / (ShipUnit::snd_freq / ShipUnit::hertz);
+   }
+
    if (make_selection) {
 
       auto selectedHits = getScifiHits(digiHits, station, orientation);
 
-      peakTiming = peakScifiTiming(*selectedHits, bins_x, min_x, max_x);
+      peakTiming = peakScifiTiming(*selectedHits, bins_x, min_x, max_x, isMC);
 
       int i = 0;
       for (auto *p : *selectedHits) {
@@ -223,8 +234,8 @@ std::unique_ptr<TClonesArray> snd::analysis_tools::selectScifiHits(const TClones
          if (!validateHit(hit, station, orientation)) {
             continue;
          }
-         if ((peakTiming - time_lower_range > hit->GetTime() * 1E9 / (ShipUnit::snd_freq / ShipUnit::hertz)) ||
-             (hit->GetTime() * 1E9 / (ShipUnit::snd_freq / ShipUnit::hertz) > peakTiming + time_upper_range)) {
+         if ((peakTiming - time_lower_range > hit->GetTime() * timeConversion) ||
+             (hit->GetTime() * timeConversion > peakTiming + time_upper_range)) {
             continue;
          }
          new ((*filteredHits)[i++]) sndScifiHit(*hit);
@@ -233,7 +244,7 @@ std::unique_ptr<TClonesArray> snd::analysis_tools::selectScifiHits(const TClones
    } else {
       // Does not create selectedHits and just uses digiHits (not unique_ptr)
 
-      peakTiming = peakScifiTiming(digiHits, bins_x, min_x, max_x);
+      peakTiming = peakScifiTiming(digiHits, bins_x, min_x, max_x, isMC);
 
       int i = 0;
       for (auto *p : digiHits) {
@@ -241,8 +252,8 @@ std::unique_ptr<TClonesArray> snd::analysis_tools::selectScifiHits(const TClones
          if (!validateHit(hit, station, orientation)) {
             continue;
          }
-         if ((peakTiming - time_lower_range > hit->GetTime() * 1E9 / (ShipUnit::snd_freq / ShipUnit::hertz)) ||
-             (hit->GetTime() * 1E9 / (ShipUnit::snd_freq / ShipUnit::hertz) > peakTiming + time_upper_range)) {
+         if ((peakTiming - time_lower_range > hit->GetTime() * timeConversion) ||
+             (hit->GetTime() * timeConversion > peakTiming + time_upper_range)) {
             continue;
          }
          new ((*filteredHits)[i++]) sndScifiHit(*hit);
@@ -257,7 +268,8 @@ std::unique_ptr<TClonesArray> snd::analysis_tools::selectScifiHits(const TClones
 // User may foreit "time_upper_range" and function will assume a symmetric time interval
 std::unique_ptr<TClonesArray>
 snd::analysis_tools::selectScifiHits(const TClonesArray &digiHits, int station, bool orientation,
-                                     const std::map<std::string, float> &selection_parameters, bool make_selection)
+                                     const std::map<std::string, float> &selection_parameters, bool make_selection,
+				     bool isMC)
 {
 
    if ((selection_parameters.find("bins_x") == selection_parameters.end()) ||
@@ -280,13 +292,14 @@ snd::analysis_tools::selectScifiHits(const TClonesArray &digiHits, int station, 
 
    return selectScifiHits(digiHits, station, orientation, int(selection_parameters.at("bins_x")),
                           selection_parameters.at("min_x"), selection_parameters.at("max_x"),
-                          selection_parameters.at("time_lower_range"), time_upper_range, make_selection);
+                          selection_parameters.at("time_lower_range"), time_upper_range, make_selection,
+			  isMC);
 }
 
 std::unique_ptr<TClonesArray>
 snd::analysis_tools::filterScifiHits(const TClonesArray &digiHits,
                                      const std::map<std::string, float> &selection_parameters, int method,
-                                     std::string setup)
+                                     std::string setup, bool isMC)
 {
    TClonesArray supportArray("sndScifiHit", 0);
    auto filteredHits = std::make_unique<TClonesArray>("sndScifiHit", digiHits.GetEntries());
@@ -310,14 +323,14 @@ snd::analysis_tools::filterScifiHits(const TClonesArray &digiHits,
          LOG(FATAL) << "In order to use method 0 please provide the correct selection_parameters. Consider the default "
                        "= {{\"bins_x\", 52.}, {\"min_x\", 0.}, {\"max_x\", 26.}, {\"time_lower_range\", "
                        "1E9/(2*ShipUnit::snd_freq/ShipUnit::hertz)}, {\"time_upper_range\", "
-                       "2E9/(ShipUnit::snd_freq/ShipUnit::hertz)}}";
+                       "1.2E9/(ShipUnit::snd_freq/ShipUnit::hertz)}}";
       }
 
       // This is overwriting the previous arrays with the newest one
       for (auto station : ROOT::MakeSeq(1, ScifiStations + 1)) {
          for (auto orientation : {false, true}) {
 
-            auto supportArray = selectScifiHits(digiHits, station, orientation, selection_parameters, true);
+            auto supportArray = selectScifiHits(digiHits, station, orientation, selection_parameters, true, isMC);
             for (auto *p : *supportArray) {
                auto *hit = dynamic_cast<sndScifiHit *>(p);
                if (hit->isValid()) {
@@ -336,7 +349,7 @@ snd::analysis_tools::filterScifiHits(const TClonesArray &digiHits,
 }
 
 std::unique_ptr<TClonesArray>
-snd::analysis_tools::filterScifiHits(const TClonesArray &digiHits, int method, std::string setup)
+snd::analysis_tools::filterScifiHits(const TClonesArray &digiHits, int method, std::string setup, bool isMC)
 {
 
    std::map<std::string, float> selection_parameters;
@@ -347,13 +360,13 @@ snd::analysis_tools::filterScifiHits(const TClonesArray &digiHits, int method, s
       selection_parameters["min_x"] = 0.0;
       selection_parameters["max_x"] = 26.0;
       selection_parameters["time_lower_range"] = 1E9 / (2 * ShipUnit::snd_freq / ShipUnit::hertz);
-      selection_parameters["time_upper_range"] = 2E9 / (ShipUnit::snd_freq / ShipUnit::hertz);
+      selection_parameters["time_upper_range"] = 1.2E9 / (ShipUnit::snd_freq / ShipUnit::hertz);
 
    } else {
       LOG(FATAL) << "Please use method=0. No other methods implemented so far.";
    }
 
-   return filterScifiHits(digiHits, selection_parameters, method, setup);
+   return filterScifiHits(digiHits, selection_parameters, method, setup, isMC);
 }
 
 // Caculate the number of the SiPM channel in the whole station by inputing its number in the
@@ -540,4 +553,47 @@ int snd::analysis_tools::showerInteractionWall(const TClonesArray &digiHits, int
    std::map<std::string, float> selection_parameters = {{"radius", 64.}, {"min_hit_density", 36.}};
 
    return showerInteractionWall(digiHits, selection_parameters, method, setup);
+}
+
+double computeMean(const std::vector<double>& values)
+{
+   double sum = std::accumulate(values.begin(), values.end(), 0.0);
+   double mean = sum / values.size();
+   return mean;
+}
+
+std::pair<double, double>
+snd::analysis_tools::findCentreOfGravityPerStation(const TClonesArray* digiHits, int station, Scifi* ScifiDet)
+{
+   if (!digiHits) {
+      LOG(ERROR) << "Error: digiHits is null in findCentreOfGravityPerStation";
+   }
+   std::vector<double> x_positions;
+   std::vector<double> y_positions;
+   TVector3 A, B;
+   for (auto* obj : *digiHits) {
+      auto* hit = dynamic_cast<sndScifiHit*>(obj);
+      if (!hit || !hit->isValid()) {
+         continue;
+      }
+      if (hit->GetStation() != station) {
+         continue;
+      }
+      ScifiDet->GetSiPMPosition(hit->GetDetectorID(), A, B);
+      if (hit->isVertical()) {
+         x_positions.push_back((A.X() + B.X()) * 0.5);
+      }
+      else {
+         y_positions.push_back((A.Y() + B.Y()) * 0.5);
+      }
+   }
+   if (x_positions.empty()) {
+      LOG(ERROR) << "Error: No hits enter.";
+   }
+   double meanX = computeMean(x_positions);
+   if (y_positions.empty()) {
+      LOG(ERROR) << "Error: No hits enter.";
+   }
+   double meanY = computeMean(y_positions);
+   return {meanX, meanY};
 }

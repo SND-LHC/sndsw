@@ -21,7 +21,10 @@
  #include "sndCluster.h"	     // for Clusters
  #include "Hit2MCPoints.h"           // for linking hits to true MC points
 
-using namespace std;
+using std::map;
+using std::vector;
+using std::pair;
+using std::make_pair;
 
 DigiTaskSND::DigiTaskSND()
     : FairTask("DigTaskSND")
@@ -34,6 +37,7 @@ DigiTaskSND::DigiTaskSND()
     , fScifiHit2MCPointsArray(nullptr)
     , fMuFilterHit2MCPointsArray(nullptr)
     , fMakeClusterScifi(true)
+    , fCopyEmulsionPoints(false)
 {}
 
 DigiTaskSND::~DigiTaskSND() {}
@@ -42,9 +46,7 @@ InitStatus DigiTaskSND::Init()
 {
     FairRootManager* ioman = FairRootManager::Instance();
     if (!ioman) {
-        cout << "-E- DigiTaskSND::Init: "   /// todo replace with logger!
-                  << "RootManager not instantiated!" << endl;
-        return kFATAL;
+        LOG(FATAL) << "DigiTaskSND::Init: RootManager not instantiated!";
     }
 
     // Get the SciFi detector and sipm to fibre mapping
@@ -66,15 +68,14 @@ InitStatus DigiTaskSND::Init()
     fEmulsionPointArray = static_cast<TClonesArray*>(ioman->GetObject("EmulsionDetPoint"));
     fMuFilterPointArray = static_cast<TClonesArray*>(ioman->GetObject("MuFilterPoint"));
     if (!fScifiPointArray and !fMuFilterPointArray) {
-        cout << "-W- DigiTaskSND::Init: "
-                  << "No Scifi and no MuFilter MC Point array!" << endl;
+        LOG(ERROR) << "No Scifi and no MuFilter MC Point array!";
         return kERROR;
     }
     // copy branches from input file:
     fMCTrackArray = static_cast<TClonesArray*>(ioman->GetObject("MCTrack"));
     ioman->Register("MCTrack", "ShipMCTrack", fMCTrackArray, kTRUE);
     ioman->Register("vetoPoint", "vetoPoints", fvetoPointArray, kTRUE);
-    ioman->Register("EmulsionDetPoint", "EmulsionDetPoints", fvetoPointArray, kTRUE);
+    ioman->Register("EmulsionDetPoint", "EmulsionDetPoints", fEmulsionPointArray, fCopyEmulsionPoints);
     ioman->Register("ScifiPoint", "ScifiPoints", fScifiPointArray, kTRUE);
     ioman->Register("MuFilterPoint", "MuFilterPoints", fMuFilterPointArray, kTRUE);
  
@@ -164,7 +165,7 @@ void DigiTaskSND::digitizeScifi()
     for (auto it = hitContainer.begin(); it != hitContainer.end(); it++){
         new ((*fScifiDigiHitArray)[index]) sndScifiHit(it->first, hitContainer[it->first].first, hitContainer[it->first].second);
         index++;
- 	for (auto mcit = mcPoints.begin(); mcit != mcPoints.end(); mcit++){
+        for (auto mcit = mcPoints.begin(); mcit != mcPoints.end(); mcit++){
             if(it->first == mcit->first.first) mcLinks.Add(it->first, mcit->first.second, mcPoints[make_pair(it->first, mcit->first.second)]/norm[it->first]);
         }
     }
@@ -242,13 +243,11 @@ void DigiTaskSND::digitizeMuFilter()
     int index = 0;
     // Loop over entries of the hitContainer map and collect all hits in same detector element
     for (auto it = hitContainer.begin(); it != hitContainer.end(); it++){
-        /*MuFilterHit* aHit = */new ((*fMuFilterDigiHitArray)[index]) MuFilterHit(it->first, hitContainer[it->first]);
+        new ((*fMuFilterDigiHitArray)[index]) MuFilterHit(it->first, hitContainer[it->first]);
         index++;
- 	for (auto mcit = mcPoints.begin(); mcit != mcPoints.end(); mcit++){
+        for (auto mcit = mcPoints.begin(); mcit != mcPoints.end(); mcit++){
             if(it->first == mcit->first.first) mcLinks.Add(it->first, mcit->first.second, mcPoints[make_pair(it->first, mcit->first.second)]/norm[it->first]);
         }
     }
     new((*fMuFilterHit2MCPointsArray)[0]) Hit2MCPoints(mcLinks); 
 }
-
-ClassImp(DigiTaskSND);

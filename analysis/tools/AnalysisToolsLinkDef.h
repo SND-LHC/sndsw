@@ -6,7 +6,6 @@
 
 #pragma link C++ nestedclasses;
 #pragma link C++ nestedtypedef;
-#pragma link C++ nestedfunctions;
 
 #pragma link C++ namespace snd::analysis_tools;
 #pragma link C++ defined_in namespace snd::analysis_tools;
@@ -18,16 +17,22 @@
 #pragma link C++ function snd::analysis_tools::getFractionalHitsPerScifiPlane(TClonesArray *);
 #pragma link C++ function snd::analysis_tools::findScifiStation(std::vector<int> &, std::vector<int> &, float);
 #pragma link C++ function snd::analysis_tools::findScifiStation(TClonesArray *, float);
-#pragma link C++ function snd::analysis_tools::peakScifiHits(const TClonesArray &, int, float, float);
+#pragma link C++ function snd::analysis_tools::peakScifiHits(const TClonesArray &, int, float, float, bool);
 #pragma link C++ function snd::analysis_tools::getScifiHits(const TClonesArray &, int, bool);
-#pragma link C++ function snd::analysis_tools::selectScifiHits(const TClonesArray &, int, bool, int, float, float, float, float, bool);
-#pragma link C++ function snd::analysis_tools::selectScifiHits(const TClonesArray &, int, bool, const std::map<std::string, float> &, bool);
-#pragma link C++ function snd::analysis_tools::filterScifiHits(const TClonesArray &, std::map<std::string, float> &, int, std::string);
-#pragma link C++ function snd::analysis_tools::filterScifiHits(const TClonesArray &, int, std::string);
+#pragma link C++ function snd::analysis_tools::selectScifiHits(const TClonesArray &, int, bool, int, float, float, float, float, bool, bool);
+#pragma link C++ function snd::analysis_tools::selectScifiHits(const TClonesArray &, int, bool, const std::map<std::string, float> &, bool, bool);
+#pragma link C++ function snd::analysis_tools::filterScifiHits(const TClonesArray &, std::map<std::string, float> &, int, std::string, bool);
+#pragma link C++ function snd::analysis_tools::filterScifiHits(const TClonesArray &, int, std::string, bool);
 #pragma link C++ function snd::analysis_tools::calculateSiPMNumber(int);
 #pragma link C++ function snd::analysis_tools::densityScifi(int,const TClonesArray &, int, int, bool);
 #pragma link C++ function snd::analysis_tools::densityCheck(const TClonesArray &, int, int, int, bool);
 #pragma link C++ function snd::analysis_tools::showerInteractionWall(const TClonesArray &,const std::map<std::string, float> &, int, std::string);
 #pragma link C++ function snd::analysis_tools::showerInteractionWall(const TClonesArray &, int, std::string);
+#pragma link C++ function snd::analysis_tools::GetDataBasePath(const std::string &, int);
+#pragma link C++ function snd::analysis_tools::GetTChain(const std::string &, int, int);
+#pragma link C++ function snd::analysis_tools::GetTChain(std::string);
+#pragma link C++ function snd::analysis_tools::GetGeoPath(const std::string &,int);
+#pragma link C++ function snd::analysis_tools::GetGeometry(std::string);
+#pragma link C++ function snd::analysis_tools::GetGeometry(const std::string &,int);
 
 #endif

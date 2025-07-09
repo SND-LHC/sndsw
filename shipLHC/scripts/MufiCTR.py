@@ -1,19 +1,34 @@
 import ROOT,os,sys
 import rootUtils as ut
 
-f = ROOT.TFile('run004705.root')
+from argparse import ArgumentParser
+parser = ArgumentParser()
+parser.add_argument("-f", dest="file", help="input offline monitoring file",default='/eos/experiment/sndlhc/www/offline/run004705.root')
+options = parser.parse_args()   
+
+f = ROOT.TFile(options.file)
 ROOT.gROOT.cd()
 h={}
 S = {1:[1800,800,2,1],2:[1800,1500,2,3],3:[1800,1800,2,4]}
 channelsPerPlane = {1:7*16,3:60*2}
 Planes = {1:2,3:7}
 
+runN=options.file[options.file.find(".root")-6:options.file.find(".root")]
+
 def start():
  for x in ['dTScifiDS','dTcorScifiDS']:
   for d in ['','B2noB1','B1only']:
    dd=''
    if d!='': dd = d+'/'
-   h['mufi-'+x+d] = f.mufilter.Get(dd+'mufi-'+x+d).Clone('mufi-'+x+d)
+   # safety net if B2noB1 and B1Only plots don't exist
+   try:
+     h['mufi-'+x+d] = f.mufilter.Get(dd+'mufi-'+x+d).Clone('mufi-'+x+d)
+   except:
+       try:
+         #2024: changed structure of offline monitoring file with shifter and expert subdirs
+         h['mufi-'+x+d] = f.mufilter.Get('expert/'+dd+'mufi-'+x+d).Clone('mufi-'+x+d)
+       except:
+         continue
    h['mufi-'+x+d].Draw()
    h['mufi-'+x+d].Print('mufi-'+x+d+'.png')
    for pad in h['mufi-'+x+d].GetListOfPrimitives():
@@ -42,8 +57,12 @@ def start0(plist=['tmp4705p9'],s=3):
               n = l+1
               tag = str(10*s+l)+d
               if s==3 and n==7: n=8
-              tc = h[detector+'dT'+x+'Scifi'+system+d].cd(n)
-              h[detector+'dT'+x+'_'+tag].Draw('colz')
+              # safety net if B2noB1 and B1Only plots don't exist
+              try:
+                tc = h[detector+'dT'+x+'Scifi'+system+d].cd(n)
+                h[detector+'dT'+x+'_'+tag].Draw('colz')
+              except:
+                 continue
      h[detector+'dT'+x+'Scifi'+system+d].Print('mufi-dT'+x+'Scifi'+system+d+'.png')
 
 def xCheck():
@@ -53,7 +72,10 @@ def xCheck():
    h['meanAndSig'] = {}
    for b in ['','B2noB1']:
     j=0
-    tc = h['mufi-dTcorScifiDS'+b]
+    try:
+      tc = h['mufi-dTcorScifiDS'+b]
+    except:
+       continue
     h['meanAndSig'][b] = {}
     xmin,xmax = -5.,5.
     if b=='B2noB1': xmin,xmax = -20.,-8.
@@ -94,14 +116,16 @@ def xCheck():
          h['txt'+str(x)].SetTextColor(h['mufi-dTcor_3'+str(x)+'B1'].GetLineColor())
          j+=1
       j+=1
-      if c=='H':
-       h['txtB2H'] = txt.DrawLatexNDC(0.15,0.85-j*0.05,"BW tracks DS0H: %5.2Fns DS1H: %5.2Fns DS2H: %5.2Fns  "%(
-         h['meanAndSig']['B2noB1'][1][0],h['meanAndSig']['B2noB1'][3][0],h['meanAndSig']['B2noB1'][5][0]))
-       h['txtB2H'].SetTextColor(ROOT.kMagenta)
-      else:
-       h['txtB2V'] = txt.DrawLatexNDC(0.15,0.85-j*0.05,"BW tracks DS0V: %5.2Fns DS1V: %5.2Fns DS2V: %5.2Fns  DS3V: %5.2Fns  "%(
-         h['meanAndSig']['B2noB1'][2][0],h['meanAndSig']['B2noB1'][4][0],h['meanAndSig']['B2noB1'][6][0],h['meanAndSig']['B2noB1'][8][0]))
-       h['txtB2V'].SetTextColor(ROOT.kMagenta)
+      try:
+        if c=='H':
+         h['txtB2H'] = txt.DrawLatexNDC(0.15,0.85-j*0.05,"BW tracks DS0H: %5.2Fns DS1H: %5.2Fns DS2H: %5.2Fns  "%(
+           h['meanAndSig']['B2noB1'][1][0],h['meanAndSig']['B2noB1'][3][0],h['meanAndSig']['B2noB1'][5][0]))
+         h['txtB2H'].SetTextColor(ROOT.kMagenta)
+        else:
+         h['txtB2V'] = txt.DrawLatexNDC(0.15,0.85-j*0.05,"BW tracks DS0V: %5.2Fns DS1V: %5.2Fns DS2V: %5.2Fns  DS3V: %5.2Fns  "%(
+           h['meanAndSig']['B2noB1'][2][0],h['meanAndSig']['B2noB1'][4][0],h['meanAndSig']['B2noB1'][6][0],h['meanAndSig']['B2noB1'][8][0]))
+         h['txtB2V'].SetTextColor(ROOT.kMagenta)
+      except: pass
       h['xCheck'+c].Update()
       h['xCheck'+c].Print('mufi-dTScifiDS-xCheck'+c+'.png')
 
@@ -134,11 +158,13 @@ def execute(s=3):
         if fitres:
              alignTpar[s*10+l][i]=[fitres.Parameter(1),fitres.Parameter(2)]
         alignTparB2[s*10+l][i] = [100,-100]
-        tmp = h[detector+'dT_'+tag+'B2noB1'].ProjectionX('tmp',i+1,i+1)
-        rc = tmp.Fit('gaus','SQ','',fitLimits[s+10][0],fitLimits[s+10][1])
-        fitres = rc.Get()
-        if fitres:
-             alignTparB2[s*10+l][i]=[fitres.Parameter(1),fitres.Parameter(2)]
+        try:
+          tmp = h[detector+'dT_'+tag+'B2noB1'].ProjectionX('tmp',i+1,i+1)
+          rc = tmp.Fit('gaus','SQ','',fitLimits[s+10][0],fitLimits[s+10][1])
+          fitres = rc.Get()
+          if fitres:
+               alignTparB2[s*10+l][i]=[fitres.Parameter(1),fitres.Parameter(2)]
+        except: pass
   nbins = channelsPerPlane[s] * Planes[s]
   ut.bookHist(h,'talign','time alignment B1;channel;offset [ns]',nbins,-0.5,nbins-0.5)
   ut.bookHist(h,'talign2','time alignment B2;channel;offset [ns]',nbins,-0.5,nbins-0.5)
@@ -178,7 +204,7 @@ def execute(s=3):
   h['talign'].Draw('phist')
   tc = h['results'].cd(2)
   h['tres'].Draw('phist')
-  h['results'].Print(system+'timeAlign-run004705.png')
+  h['results'].Print(system+'timeAlign-run'+runN+'.png')
   h['t12'].SetMinimum(-30)
   h['t12'].SetMaximum(0)
   h['t12'].SetStats(0)
@@ -188,7 +214,7 @@ def execute(s=3):
   ut.bookCanvas(h,'results2','time diff between FW and BW tracks',1200,600,1,1)
   h ['results2'].cd()
   h['t12'].Draw('phist')
-  h['results2'].Print(system+'timeAlignFWBW-run004705.png')
+  h['results2'].Print(system+'timeAlignFWBW-run'+runN+'.png')
   
   for k in range(0,4):
     h['talignReorder'+str(k)] = h['talign'].Clone('talignReorder'+str(k))
@@ -234,11 +260,21 @@ def execute(s=3):
        par1 = slope
        planes = 20
        iv = 30
-       h[c].SetMinimum(-8)
-       h[c].SetMaximum(-3)
+       h[c].SetMinimum(-20)
+       h[c].SetMaximum(3)
     for p in range(planes):
-      imin = 0.+p*iv
-      imax = 0.+imin+iv
+      if p==10:
+        imin = 0.+p*iv+7
+        imax = 0.+imin+iv-3
+      elif p==3:
+        imin = 0.+p*iv
+        imax = 0.+imin+iv-10
+      elif p==6:
+        imin = 0.+p*iv+5
+        imax = 0.+imin+iv-5
+      else:
+        imin = 0.+p*iv
+        imax = 0.+imin+iv
       theFun =  'fun'+str(l*100+p)
       h[theFun]=ROOT.TF1(theFun,'[0]+x*[1]')
       sign = 1
@@ -259,7 +295,7 @@ def execute(s=3):
       print("%i slope %5.3F b = %5.2F"%(p,res.Parameter(1),res.Parameter(0)))
     h[c].GetXaxis().SetRange(1,600)
     h[c].Draw()
-    h['results'+c].Print(system+'timeAlignFit'+str(l)+'-run004705.png')
+    h['results'+c].Print(system+'timeAlignFit'+str(l)+'-run'+runN+'.png')
     
    c = 'talignReorder3'
    ut.bookHist(h,'resT','t residuals',100,-3.,3.)
@@ -276,7 +312,7 @@ def execute(s=3):
    h[c].SetMinimum(-1)
    h[c].SetMaximum(1)
    h[c].Draw()
-   h['results'+c].Print(system+'timeAlignFit3'+'-run004705.png')
+   h['results'+c].Print(system+'timeAlignFit3'+'-run'+runN+'.png')
    h['c1'].cd()
    rc = h['resT'].Fit('gaus','S','')
    h['c1'].Update()
@@ -287,7 +323,7 @@ def execute(s=3):
    stats.SetY1NDC(0.614035)
    stats.SetX2NDC(0.979624)
    stats.SetY2NDC(0.936404)
-   h['c1'].Print(system+'timeResiudals'+'-run004705.png')
+   h['c1'].Print(system+'timeResiudals'+'-run'+runN+'.png')
       
    h['c1'].cd()
    for I in [ [10.5,89.5],[249.5,328.5],[492.5,571.5] ]:

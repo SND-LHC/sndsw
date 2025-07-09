@@ -14,6 +14,7 @@ add_subdirectory(cuts)
 add_subdirectory(tools)
 
 set(LINK_DIRECTORIES
+${ROOT_LIBRARY_DIR}
 ${FAIRROOT_LIBRARY_DIR}
 )
  

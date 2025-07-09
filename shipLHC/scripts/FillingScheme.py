@@ -9,6 +9,9 @@ import pickle
 from rootpyPickler import Pickler
 from rootpyPickler import Unpickler
 import atexit
+import requests
+import json
+import re
 
 def pyExit():
        print("Make suicide until solution found for freezing")
@@ -113,19 +116,39 @@ class fillingScheme():
         if alternative: tmp = alternative
         Y = "2022"
         if fillnr > 8500 : Y = "2023"
+        if fillnr >= 9323 : Y="2024"
         if not self.lpcFillingscheme:
              with urlopen('https://lpc.web.cern.ch/cgi-bin/fillTable.py?year='+Y) as webpage:
                self.lpcFillingscheme = webpage.read().decode()
                self.tagi = '<td>XXXX</td>'
                self.tagj = 'fillingSchemes/'+Y+'/candidates/'
+               # end of line
+               self.tagl = '</td></tr>'
         fs = 0
         i = self.lpcFillingscheme.find(self.tagi.replace('XXXX',str(tmp)))
-        if i>0:
-          j = self.lpcFillingscheme[i:].find(self.tagj)+i+len(self.tagj)
-          if j>0:
-             k = self.lpcFillingscheme[j:].find('.csv')
-             if k>0:
-               fs = self.lpcFillingscheme[j:j+k]
+        if int(Y)>=2024:
+          if i>0:
+            end_of_line = self.lpcFillingscheme[i:].find(self.tagl)            
+            # In rare cases there is a link to download the FS file
+            # One needs to skip this link data
+            end_link_data = self.lpcFillingscheme[i:i+end_of_line].find('</a>')
+            if end_link_data!=-1: 
+              end_of_line = self.lpcFillingscheme[i:].find('</a>'+self.tagl)
+            line_of_interest = self.lpcFillingscheme[i:i+end_of_line]
+            last_separator = line_of_interest.rfind("<td>")
+            # Skip download link data, if it exists
+            last_separator_link_check = line_of_interest.rfind('.csv">')
+            if last_separator_link_check!=-1:
+              fs = line_of_interest[last_separator_link_check+6:]
+            else:
+              fs = line_of_interest[last_separator+4:]
+        else:
+          if i>0:
+            j = self.lpcFillingscheme[i:].find(self.tagj)+i+len(self.tagj)
+            if j>0:
+               k = self.lpcFillingscheme[j:].find('.csv')
+               if k>0:
+                 fs = self.lpcFillingscheme[j:j+k]
         return fs
         
    def getFillNrFromRunNr(self,runNumber):
@@ -153,6 +176,7 @@ class fillingScheme():
    def getLumiAtIP1(self,fillnr=None,fromnxcals=False, fromAtlas=False):
      Y = "2022"
      if fillnr>8500: Y = "2023"
+     if fillnr>=9323: Y="2024"
      if not fromnxcals and not fromAtlas:
        try:
           with urlopen('https://lpc.web.cern.ch/cgi-bin/fillAnalysis.py?year='+Y+'&action=fillData&exp=ATLAS&fillnr='+str(fillnr)) as webpage:
@@ -406,46 +430,170 @@ class fillingScheme():
        return alternative
        
    def extractFillingScheme(self,fillNr):
-       if fillNr in []: # only exists a binary csv file
-            F=urlopen('https://lpc.web.cern.ch/fillingSchemes/2022/candidates/25ns_156b_144_90_96_48bpi_4inj_MD7003.csv')
-            X = F.read()
-            F.close()
-            csv = X.decode().split('\n')
-       else:
         alternative = self.alternativeFill(str(fillNr))
-        if alternative: 
-          with urlopen('https://lpc.web.cern.ch/cgi-bin/schemeInfo.py?fill='+alternative+'&fmt=json') as webpage:
-              tmp = webpage.read().decode()
+        # Get the FS name from the all-year LPC table
+        fs_name_table = self.getNameOfFillingscheme(int(fillNr))
+        # this 2024 ion run FS has its attributes swapped btw LPC table and json
+        # this is the most elegant fix since many fills are affected
+        if fs_name_table=="50ns_119b_58_51_58_56bpi_9inj_3INDIV_4NC_PbPb":
+           fs_name_table="50ns_119b_58_51_58_56bpi_9inj_4NC_3INDIV_PbPb"
+        print('Name of filling scheme: ',fs_name_table)
+        if fs_name_table==0: 
+          return -1
+        # since 2024 new there is new storage of FS in json files, no csv
+        fs_url="https://gitlab.cern.ch/lhc-injection-scheme/injection-schemes/-/raw/master/"+\
+                 fs_name_table+".json"
+        F = ROOT.TFile(self.path+'fillingScheme-'+fillNr+'.root','recreate')
+        nt = ROOT.TNtuple('fill'+fillNr,'b1 IP1 IP2','B1:IP1:IP2:IsB2')
+        # Get the 2024 data
+        # 9323 is first fillNr for 2024
+        if int(fillNr) >= 9323: 
+          # Get the JSON file content from the web
+          response = requests.get(fs_url)
+          # If JSON file is not found, try adding char 's' to FS name
+          if response.status_code == 404:
+            fs_url="https://gitlab.cern.ch/lhc-injection-scheme/injection-schemes/-/raw/master/"+\
+                     fs_name_table+"s.json"
+            response = requests.get(fs_url)
+          response.raise_for_status()
+          fs_data_json = response.json()
+          # check if collision data exists - for 2024 ion runs it doesn't
+          # and SND files from eos are to be used.
+          # These files were generated using the LPC Filling Scheme Editor.
+          if 'collsPatternB1' not in fs_data_json:
+             with open('/eos/experiment/sndlhc/filling_schemes/2024/ion_run/'+
+                         fs_name_table+'_snd_generated.json', 'r') as custom_json:
+                fs_data_json = json.load(custom_json)
+             print('Using FS generated using LPC Filling Scheme Editor!\nJSON:'\
+                    '/eos/experiment/sndlhc/filling_schemes/2024/ion_run/'+
+                     fs_name_table+'_snd_generated.json')
+          # check name of file and fs_name in file are the same
+          if 'schemeName' in fs_data_json:
+           fs_name_json = fs_data_json['schemeName']
+           if fs_name_json!=fs_name_table:
+             print('FS name differs btw the LPC JSON and the all-year LPC table, check!', '\n', \
+                    'JSON:',  fillNr, fs_name_json, '\n', \
+                    'all-year table:', fs_name_table)
+             # Accept if difference is char 's'
+             if fs_name_json!=fs_name_table+'s':
+               return -1
+             
+           nB1 = fs_data_json['collsPatternB1']#B1 bucket number,IP1,IP2,IP5,IP8
+           nB2 = fs_data_json['collsPatternB2']#B2 bucket number,IP1,IP2,IP5,IP8
+           # Sanity checks.
+           if not len(nB1)==5 or not len(nB2)==5:
+             print("missing collsPattern data in the FS JSON file")	
+             return -1
+
+           # Get N colliding bunches from name of the FS json file
+           # Convention is {spacing}_{bunches}_{IP1/5}_{IP2}_{IP8}_{trainlength}_{injections}_{special info}
+           fs_n_bunches = re.findall(r'(?<=_)\d+(?=_)', fs_name_table)
+           n_ip1_in_title = int(fs_n_bunches[0])
+           n_ip2_in_title = int(fs_n_bunches[1])
+           n_ip8_in_title = int(fs_n_bunches[2])
+           
+           summary_collisions = {'B1':[], 'B2':[]}
+           collsPatterns = {'B1':nB1, 'B2':nB2}
+           for beam in collsPatterns.keys():
+             for i in range(1,5): 
+               summary_collisions[beam].append(numpy.count_nonzero(numpy.array(collsPatterns[beam][i])))
+               if i==1 or i==3: #IP1/5
+                  if not summary_collisions[beam][i-1]== n_ip1_in_title:
+                    print("For the number of IP1/5 bunches for {0} got {1} expected {2}. Check the FS!".format(beam,summary_collisions[beam][i-1],n_ip1_in_title))
+               if beam=='B1': # asymmetric collisions in IP2 and IP8
+                 if i==2: #IP2
+                   if not summary_collisions[beam][i-1]== n_ip2_in_title:
+                     print("For the number of IP2 bunches for {0} got {1} expected {2}. Check the FS!".format(beam,summary_collisions[beam][i-1],n_ip2_in_title))
+                 if i==4: #IP8
+                   if not summary_collisions[beam][i-1]== n_ip8_in_title:
+                     print("For the number of IP8 bunches for {0} got {1} expected {2}. Check the FS!".format(beam,summary_collisions[beam][i-1],n_ip8_in_title))
+           print("From the json file, we got:\nBeam1:\nIP1 {0}, IP2 {1}, IP5 {2}, IP8 {3}".format(*summary_collisions['B1']))
+           print("Beam2:\nIP1 {0}, IP2 {1}, IP5 {2}, IP8 {3}".format(*summary_collisions['B2']))
+           
+           for i in range(len(nB1[0])):
+             if nB1[1][i]==1: # 1 if headon in IP1
+                 b1_ip1_id = int(nB1[0][i])
+             else: b1_ip1_id = -1
+             if nB1[2][i]==1: # 1 if headon in IP2
+                b1_ip2_id = int(nB1[0][i])
+             else: b1_ip2_id = -1
+             rc = nt.Fill(int(nB1[0][i]),b1_ip1_id,b1_ip2_id,0)
+           for i in range(len(nB2[0])):
+             if nB2[1][i]==1: # 1 if headon in IP1
+                b2_ip1_id = int(nB2[0][i])
+             else: b2_ip1_id = -1
+             if nB2[2][i]==1: # 1 if headon in IP2
+                b2_ip2_id = int(nB2[0][i])
+             else: b2_ip2_id = -1
+             rc = nt.Fill(int(nB2[0][i]),b2_ip1_id, b2_ip2_id,1)
+             
         else:
-          with urlopen('https://lpc.web.cern.ch/cgi-bin/schemeInfo.py?fill='+fillNr+'&fmt=json') as webpage:
+          # 2022-2023 FS storage in csv files
+          # cases where only a binary csv file exists or the json file is wrong
+          if fillNr in ['9231', '9232']:
+            File = urlopen('https://lpc.web.cern.ch/fillingSchemes/2023/candidates/50ns_1123b_1010_1010_320_56bpi_23inj_3INDIV_PbPb.csv')
+            X = File.read()
+            File.close()
+            csv = X.decode().split('\n')
+          else:
+            fs_url="https://lpc.web.cern.ch/cgi-bin/schemeInfo.py?fill="
+            if alternative:
+              fs_url=fs_url+alternative+'&fmt=json'
+            else:
+              fs_url = fs_url+fillNr+'&fmt=json'
+            with urlopen(fs_url) as webpage:
               tmp = webpage.read().decode()
-        exec("self.content = "+tmp)
-        if len(self.content['fills']) < 1: 
+              
+            exec("self.content = "+tmp)
+            if len(self.content['fills']) < 1: 
               print('Filling scheme not yet known',fillNr,self.options.runNumbers)
               return -1
-        if alternative:           
+            if alternative:
                self.content['fills'][fillNr] = self.content['fills'][alternative]
-        csv = self.content['fills'][fillNr]['csv'].split('\n')
+            if (self.content['fills'][fillNr]['name'] != fs_name_table ):
+               print('FS data differs btw the LPC JSON and the all-year LPC table, check!', '\n', \
+                     'JSON:',  fillNr, self.content['fills'][fillNr]['name'], '\n', \
+                     'all-year table:', fs_name_table, '\n', \
+                     'One can look for the candidates csv files here\n' \
+                     "https://lpc.web.cern.ch/fillingSchemes/202X/candidates")
+               return -1
+            csv = self.content['fills'][fillNr]['csv'].split('\n')
+            
+          nB1 = csv.index('B1 bucket number,IP1,IP2,IP5,IP8')
+          while nB1>0:
+            tmp = csv[nB1+1].split(',')
+            if len(tmp)!=5: break
+            nB1+=1
+            rc = nt.Fill(int(tmp[0]),int(tmp[1].replace('-','-1')),int(tmp[2].replace('-','-1')),0)
+          nB2 = csv.index('B2 bucket number,IP1,IP2,IP5,IP8')
+          while nB2>0:
+            tmp = csv[nB2+1].split(',')
+            if len(tmp)!=5: break
+            nB2+=1
+            rc = nt.Fill(int(tmp[0]),int(tmp[1].replace('-','-1')),int(tmp[2].replace('-','-1')),1)
 
-       nB1 = csv.index('B1 bucket number,IP1,IP2,IP5,IP8')
-       F = ROOT.TFile(self.path+'fillingScheme-'+fillNr+'.root','recreate')
-       nt = ROOT.TNtuple('fill'+fillNr,'b1 IP1 IP2','B1:IP1:IP2:IsB2')
-       while nB1>0:
-           tmp = csv[nB1+1].split(',')
-           if len(tmp)!=5: break
-           nB1+=1
-           rc = nt.Fill(int(tmp[0]),int(tmp[1].replace('-','-1')),int(tmp[2].replace('-','-1')),0)
-       nB2 = csv.index('B2 bucket number,IP1,IP2,IP5,IP8')
-       while nB2>0:
-           tmp = csv[nB2+1].split(',')
-           if len(tmp)!=5: break
-           nB2+=1
-           rc = nt.Fill(int(tmp[0]),int(tmp[1].replace('-','-1')),int(tmp[2].replace('-','-1')),1)
-       nt.Write()
-       F.Close()
-       return 0
+        nt.Write()
+        F.Close()
+        return 0
 
    def extractPhaseShift(self,fillNr,runNumber):
+         # Check if the offline monitoring file exists
+         try:
+           R = ROOT.TFile.Open(www+"offline/run"+str(runNumber).zfill(6)+".root")
+           ROOT.gROOT.cd()
+           try:
+             self.h['bnr'] = R.daq.Get('bunchNumber').FindObject('bnr').Clone('bnr')
+           except:
+             self.h['bnr'] = R.daq.Get('shifter/bunchNumber').FindObject('bnr').Clone('bnr')         
+           R.Close()
+         # create the bunch number plot if offline monitoring file is missing
+         except:
+           try:
+             self.h['bnr']=self.h['bnr_from_data']
+           except:
+             self.h['bnr'] = self.BunchNumberPlotFromData(runNumber)         
+         Nbunches = self.h['bnr'].GetNbinsX()
+#Filling scheme
          self.F = ROOT.TFile(self.path+'fillingScheme-'+fillNr+'.root')
          self.fs = self.F.Get('fill'+fillNr)
 # convert to dictionary
@@ -453,81 +601,109 @@ class fillingScheme():
          fsdict = self.FSdict[runNumber]
          for x in self.fs:
               if x.IsB2>0:
-                   fsdict['B2'][(x.B1-1)/10]={'IP1':x.IP1>0,'IP2':x.IP2>0}
+                   if Nbunches==3564:
+                     fsdict['B2'][(x.B1-1)/10]={'IP1':x.IP1>0,'IP2':x.IP2>0}
+                   if Nbunches==1782:
+                     fsdict['B2'][(x.B1-1)//20]={'IP1':x.IP1>0,'IP2':x.IP2>0}
               else:
-                   fsdict['B1'][(x.B1-1)/10]={'IP1':x.IP1>0,'IP2':x.IP2>0}
-         R = ROOT.TFile.Open(www+"offline/run"+str(runNumber).zfill(6)+".root")
-         ROOT.gROOT.cd()
-         self.h['bnr'] = R.daq.Get('bunchNumber').FindObject('bnr').Clone('bnr')
-         R.Close()
+                   if Nbunches==3564:
+                     fsdict['B1'][(x.B1-1)/10]={'IP1':x.IP1>0,'IP2':x.IP2>0}
+                   if Nbunches==1782:
+                     fsdict['B1'][(x.B1-1)//20]={'IP1':x.IP1>0,'IP2':x.IP2>0}
          self.matches = {}
-         for phase1 in range(0,3564):
+         for phase1 in range(0,Nbunches):
                self.matches[phase1]=0
-               for n in range(0,3564):
+               for n in range(0,Nbunches):
                    if not n in fsdict['B1']: continue
-                   j = (n+phase1)%3564 + 1
+                   j = (n+phase1)%Nbunches + 1
                    if fsdict['B1'][n]['IP1']: self.matches[phase1]+=self.h['bnr'].GetBinContent(j)
          self.phaseShift1 = max(self.matches,key=self.matches.get)
-         print('phaseShift1 found:',self.phaseShift1,3564-self.phaseShift1)
+         print('phaseShift1 found:',self.phaseShift1,Nbunches-self.phaseShift1)
          self.matches = {}
-         for phase2 in range(0,3564):
+         if Nbunches == 1782: self.phaseShift2 = Nbunches-64
+         else:
+           for phase2 in range(0,Nbunches):
                self.matches[phase2]=0
-               for n in range(0,3564):
-                   if not n in fsdict['B2']: continue
-                   j = (n+self.phaseShift1+phase2)%3564 + 1    # bin number
-                   ip1 = (j-1+3564-self.phaseShift1)%3564
-                   # take only bins which are not associated to collisions in IP1
+               for n in range(0,Nbunches):
+                   if not n in fsdict['B2']:
+                       continue
+                   # calculate the bunch number of SND events
+                   j = (n+self.phaseShift1+phase2)%Nbunches + 1    # bin number
+                   # adjust it with the found B1 phase to determine(and exclude)
+                   # bunches associated with IP1 collisions
+                   ip1 = (j-1+Nbunches-self.phaseShift1)%Nbunches
                    if ip1 in fsdict['B1']:
                        if fsdict['B1'][ip1]['IP1']: continue
                    if fsdict['B2'][n]['IP2'] or 1>0: 
                       self.matches[phase2]+=self.h['bnr'].GetBinContent(j)
-         self.phaseShift2 = max(self.matches,key=self.matches.get)
-         print('phaseShift2 found:',self.phaseShift2,3564-self.phaseShift2)
-         if not (3564-self.phaseShift2) == 129:
-            print('There is a problem with phaseshift2 for run',runNumber,3564-self.phaseShift2)
-            if self.phaseShift2 == 129:
+           self.phaseShift2 = max(self.matches,key=self.matches.get)
+           print('phaseShift2 found:',self.phaseShift2,Nbunches-self.phaseShift2)
+           if not (Nbunches-self.phaseShift2) == 129:
+              print('There is a problem with phaseshift2 for run',runNumber,Nbunches-self.phaseShift2)
+              if self.phaseShift2 == 129:
                      print("!!! Probably beam 1 and beam 2 are interchanged. Try reverse")
                      self.phaseShift1 = FS.phaseShift1 +129
-         if fillNr=="8178":
+           if fillNr=="8178":
                 print('special LHCf run. Phaseshift determined by hand: 430-1017+3564')
                 self.phaseShift1 = 430-1017+3564
-         if fillNr=="8056":
+           if fillNr=="8056":
                 print('run with very low lumi at IP1, beam 2 background dominates')
                 self.phaseShift1 = 3564-1732+129
-         if fillNr=="8056":
+           if fillNr=="8056":
                 print('run with very low lumi at IP1, beam 2 background dominates')
                 self.phaseShift1 = 3564-1603
-         if fillNr=="8140" or fillNr=="8070" or fillNr=="8045":
+           if fillNr=="8140" or fillNr=="8070" or fillNr=="8045":
                 print('run with very low lumi at IP1, beam 2 background dominates')
                 self.phaseShift1 = 3564-1456
-         if fillNr == "8383":
+           if fillNr == "8383":
                 print('run with very low lumi at IP1, fit does not converge correctly')
                 self.phaseShift1 = 1978 + 130
-         if fillNr == "8342":
+           if fillNr == "8342":
                 print('run with very low lumi at IP1, beam 2 background dominates')
                 self.phaseShift1 = 2107
-         if fillNr == "8256":
+           if fillNr == "8256":
                 print('run with very low lumi at IP1, beam 2 background dominates')
                 self.phaseShift1 = 2108
-         if fillNr == "8294":
+           if fillNr == "8294":
                 print('run with very low lumi at IP1, beam 2 background dominates')
                 self.phaseShift1 =  2598 +129
-
+           # force 129 for proton beams
+           # It is determined using ~480m distance to IP1 and 25-ns distance between bunches:
+           # 482.5m/speed of light/bunch distance = 64.33 
+           # This is multiplied by 2 to arrive at 129.
+           self.phaseShift2 = Nbunches - 129
+         print('phaseShift2 is set to:',self.phaseShift2,Nbunches-self.phaseShift2)
+         fsdict['phaseShift2'] = self.phaseShift2
          fsdict['phaseShift1'] = self.phaseShift1
-         fsdict['phaseShift2'] = 3564 - 129
-         self.phaseShift2 = fsdict['phaseShift2']
 
    def plotBunchStructure(self,fillNr,runNumber):
          h=self.h
          self.F = ROOT.TFile(self.path+'fillingScheme-'+fillNr+'.root')
          self.fs = self.F.Get('fill'+fillNr)
+         
+         try:
+           R = ROOT.TFile.Open(www+"offline/run"+str(runNumber).zfill(6)+".root")
+           ROOT.gROOT.cd()
+           bCanvas = R.daq.Get('bunchNumber')
+           if not bCanvas:
+             bCanvas = R.daq.shifter.Get('bunchNumber')
+           h['bnr']= bCanvas.FindObject('bnr').Clone('bnr')           
+         # create the bunch number plot if offline monitoring file is missing
+         except:
+            try:
+               h['bnr'] = h["bnr_from_data"]
+            except:
+               h['bnr'] = self.BunchNumberPlotFromData(runNumber)
+         Nbunches = h['bnr'].GetNbinsX()
+         ROOT.gROOT.cd()
+         
          ut.bookHist(h,'b1','b1',35640,-0.5,35639.5)
          ut.bookHist(h,'IP1','IP1',35640,-0.5,35639.5)
          ut.bookHist(h,'IP2','IP2',35640,-0.5,35639.5)
-         ut.bookHist(h,'b1z','b1',3564,-0.5,3563.5)
-         ut.bookHist(h,'b2z','b2',3564,-0.5,3563.5)
-         ut.bookHist(h,'IP1z','IP1',3564,-0.5,3563.5)
-         ut.bookHist(h,'IP2z','IP2',3564,-0.5,3563.5)
+         ut.bookHist(h,'b1z','b1',Nbunches,-0.5,Nbunches-0.5)
+         ut.bookHist(h,'b2z','b2',Nbunches,-0.5,Nbunches-0.5)
+         ut.bookHist(h,'IP1z','IP1',Nbunches,-0.5,Nbunches-0.5)
+         ut.bookHist(h,'IP2z','IP2',Nbunches,-0.5,Nbunches-0.5)
          h['b1'].Draw()
          h['b1z'].SetLineColor(ROOT.kBlue)
          h['b2z'].SetLineColor(ROOT.kCyan)
@@ -538,21 +714,21 @@ class fillingScheme():
          h['IP1z'].SetStats(0)
          h['IP2z'].SetStats(0)
 
-         R = ROOT.TFile.Open(www+"offline/run"+str(runNumber).zfill(6)+".root")
-         ROOT.gROOT.cd()
-         bCanvas = R.daq.Get('bunchNumber')
-         h['bnr']= bCanvas.FindObject('bnr').Clone('bnr')
-         ROOT.gROOT.cd()
-
          self.Draw()
 
    def Draw(self):
          h = self.h
+         Nbunches = h['bnr'].GetNbinsX()
+         eq = ''
+         if Nbunches==1782: 
+           equation_str ='floor((B1-1)/20)'
+         if Nbunches==3564: 
+           equation_str = '(B1-1)/10'
          h['c1'].cd()
-         self.fs.Draw('(( (B1-1)/10+'+str(self.phaseShift1)+')%3564)>>b1z','!(IsB2>0)','hist')
-         self.fs.Draw('(( (B1-1)/10+'+str(self.phaseShift1)+')%3564)>>IP1z','IP1>-0.6&&(!(IsB2>0))','hist')
-         self.fs.Draw('(( (B1-1)/10+'+str(self.phaseShift1+ self.phaseShift2)+')%3564)>>IP2z','IP2>-0.6&&IsB2>0','hist')
-         self.fs.Draw('(( (B1-1)/10+'+str(self.phaseShift1+ self.phaseShift2)+')%3564)>>b2z','IsB2>0','hist')
+         self.fs.Draw('(( '+equation_str+'+'+str(self.phaseShift1)+')%'+str(Nbunches)+')>>b1z','!(IsB2>0)','hist')
+         self.fs.Draw('(( '+equation_str+'+'+str(self.phaseShift1)+')%'+str(Nbunches)+')>>IP1z','IP1>-0.6&&(!(IsB2>0))','hist')
+         self.fs.Draw('(( '+equation_str+'+'+str(self.phaseShift1+ self.phaseShift2)+')%'+str(Nbunches)+')>>IP2z','IP2>-0.6&&IsB2>0','hist')
+         self.fs.Draw('(( '+equation_str+'+'+str(self.phaseShift1+ self.phaseShift2)+')%'+str(Nbunches)+')>>b2z','IsB2>0','hist')
          norm = h['bnr'].GetBinContent(h['bnr'].GetMaximumBin())
          h['b1z'].Scale(norm*1.5)
          h['IP1z'].Scale(norm*1.0)
@@ -564,13 +740,14 @@ class fillingScheme():
          h['b1z'].Draw('hist')
          h['bnr'].Draw('histsame')
          h['b1z'].Draw('histsame')
-         txt = 'phase shift B1, B2: '+str(3564-self.phaseShift1)+','+str(3564-self.phaseShift2)+' for run '+str(options.runNumbers)
+         txt = 'phase shift B1, B2: '+str(Nbunches-self.phaseShift1)+','+str(Nbunches-self.phaseShift2)+' for run '+str(options.runNumbers)
          txt += " fill nr "+options.fillNumbers
          h['b1z'].SetTitle(txt)
          if self.options.withIP2: 
                h['IP2z'].Draw('histsame')
                h['b2z'].Draw('histsame')
          h['IP1z'].Draw('histsame')
+         h['bnr'].Draw('histsame')
 
    def Xbunch(self):
          h = self.h
@@ -608,7 +785,8 @@ class fillingScheme():
          h['Xb1z'].Draw('hist')
          h['Xbnr'].Draw('histsame')
          h['Xb1z'].Draw('histsame')
-         txt = 'phase shift B1, B2: '+str(3564-self.phaseShift1)+','+str(3564-self.phaseShift2)+' for run '+str(options.runNumbers)
+         Nbunches = h['bnr'].GetNbinsX()
+         txt = 'phase shift B1, B2: '+str(Nbunches-self.phaseShift1)+','+str(Nbunches-self.phaseShift2)+' for run '+str(options.runNumbers)
          txt += " fill nr "+options.fillNumbers
          h['Xb1z'].SetTitle(txt)
          h['XIP2z'].Draw('histsame')
@@ -616,9 +794,11 @@ class fillingScheme():
          h['XIP1z'].Draw('histsame')
          # overlay all snd subcycles
          ut.bookHist(h,'scycle','overlay',4,-0.5,3.5)
+         if Nbunches == 3564: div=4
+         if Nbunches == 1782: div=8
          for n in range(h['XIP1z'].GetNbinsX()):
             if h['XIP1z'].GetBinContent(n+1)>0:
-              rc = h['scycle'].Fill(n%4, h['Xbnr'].GetBinContent(n+1))
+              rc = h['scycle'].Fill(n%div, h['Xbnr'].GetBinContent(n+1))
 
    def Extract(self):
         if self.options.fillNumbers=='':
@@ -629,16 +809,21 @@ class fillingScheme():
                rc = self.extractFillingScheme(str(fillNumber))
                if not rc<0:
                  self.options.fillNumbers = str(fillNumber)
-                 self.extractPhaseShift(self.options.fillNumbers,self.options.runNumbers)
+                 self.extractPhaseShift(self.options.fillNumbers,int(self.options.runNumbers))
                  r = int(self.options.runNumbers)
                  self.plotBunchStructure(self.options.fillNumbers,r)
                  self.myPrint('c1','FS-run'+str(r).zfill(6))
+                 # add the FS to the file without running all other modules
+                 self.merge()
+                 self.storeDict(self.FSdict,'FSdict','FSdict') 
+       
         else:
            for r in options.fillNumbers.split(','):
               self.extractFillingScheme(r)
 
    def test(self,runnr,I=True):
        h = self.h
+       Nbunches = h['bnr'].GetNbinsX()
        p = open("FSdict.pkl",'rb')
        self.FSdict = pickle.load(p)
        if runnr in self.FSdict: fsdict = self.FSdict[runnr]
@@ -659,7 +844,7 @@ class fillingScheme():
           print(keys)
           A = X[keys['A6R4.B2']//2].replace('\n','').split(',')
           print(len(A))
-          for bunchNumber in range(1,3565):
+          for bunchNumber in range(1,Nbunches+1):
              b1 = (bunchNumber-1) in fsdict['B1']
              if b1 and float(A[bunchNumber])>1: continue
              if not b1 and float(A[bunchNumber])<1: continue
@@ -671,25 +856,27 @@ class fillingScheme():
        for x in ['b1z','IP1z','b2z','IP2z']:
           w[x]=h[x].GetMaximum()
           h[x].Reset()
-       for bunchNumber in range(0,3564):
-             nb1 = ( 3564+bunchNumber - fsdict['phaseShift1'])%3564
+       for bunchNumber in range(0,Nbunches):
+             nb1 = ( Nbunches+bunchNumber - fsdict['phaseShift1'])%Nbunches
              if nb1 in fsdict['B1']:
                  rc = h['b1z'].Fill(bunchNumber,w['b1z'])
                  if fsdict['B1'][nb1]['IP1']: rc = h['IP1z'].Fill(bunchNumber,w['IP1z'])
-             nb2 = ( 3564 + bunchNumber - fsdict['phaseShift1'] - fsdict['phaseShift2'])%3564
+             nb2 = ( Nbunches + bunchNumber - fsdict['phaseShift1'] - fsdict['phaseShift2'])%Nbunches
              if nb2 in fsdict['B2']:
                  rc = h['b2z'].Fill(bunchNumber,w['b2z'])
                  if fsdict['B2'][nb2]['IP2']: rc = h['IP2z'].Fill(bunchNumber,w['IP2z'])
 
    def b1b2(self,runnr,b):
+     Nbunches = self.h['bnr'].GetNbinsX()
      if runnr in self.FSdict: 
             fsdict = self.FSdict[runnr]
-            nb1 = ( 3564 + b - fsdict['phaseShift1'])%3564
-            nb2 = ( 3564 + b - fsdict['phaseShift1'] - fsdict['phaseShift2'])%3564
+            nb1 = ( Nbunches + b - fsdict['phaseShift1'])%Nbunches
+            nb2 = ( Nbunches + b - fsdict['phaseShift1'] - fsdict['phaseShift2'])%Nbunches
             print('b1 bunch number',nb1,nb2)
 
    def calcMu(self):
        sigma = 80E6 # 80mb
+       Nbunches = self.h['bnr'].GetNbinsX()
        self.L = ROOT.TFile.Open("Lumi.root")
        L = self.L
        h = self.h
@@ -713,7 +900,7 @@ class fillingScheme():
            tag = 2
            if fs.find('Multi')==0: tag=3
            IP1 = int(fs.split('_')[tag])
-           collPerTurn = IP1/3564
+           collPerTurn = IP1/Nbunches
            i=-1
            for x in tc.GetListOfPrimitives():
                 i+=1
@@ -1130,6 +1317,7 @@ class fillingScheme():
 
    def lhcNumbering(self):
         h = self.h
+        Nbunches = h['bnr'].GetNbinsX()
         F = ROOT.TFile('BunchStructure.root')
         p = open("FSdict.pkl",'rb')
         self.FSdict = pickle.load(p)
@@ -1155,13 +1343,43 @@ class fillingScheme():
                    histo=X[hname]
                    if not hasattr(histo,'GetBinContent'): continue
                    tmp = {}
-                   for i in range(3564):
+                   for i in range(Nbunches):
                       tmp[i+1] = histo.GetBinContent(i+1)
-                   for i in range(3564):
-                        newBin = (3564 - phaseShift1 + i)%3564
+                   for i in range(Nbunches):
+                        newBin = (Nbunches - phaseShift1 + i)%Nbunches
                         histo.SetBinContent(newBin,tmp[i+1])
                 h[newname].Update()
                 h[newname].Write()
+
+   def BunchNumberPlotFromData(self,r):
+# check for partitions
+          runNr = str(r).zfill(6)
+          partitions = []
+          conv_data_path = options.rawData.replace("raw_data", "convertedData")
+          eventChain = ROOT.TChain('rawConv')
+          eventChain.Add(os.environ['EOSSHIP']+conv_data_path+'run_'+runNr+'/*.root')
+          nEvents = eventChain.GetEntries()
+# make the plot
+          # figure out the number of bunches in the LHC
+          rc = eventChain.GetEvent(0)
+          if eventChain.EventHeader.GetAccMode()==12: # ion runs
+            Nbunches = 1782
+            div = 8
+          else: # proton runs
+            Nbunches = 3564
+            div = 4
+          ut.bookHist(self.h,'bnr_from_data','bunch number; LHC bunch number', Nbunches,-0.5,Nbunches-0.5)
+          # use postscale, same logic as in the monitoring task
+          postScale = 0
+          if nEvents>10E6: postScale = 10
+          if nEvents>100E6: postScale = 100
+          print('using postScale ',postScale,' for run ',r)
+          for event in eventChain:
+            if postScale>0:
+              if ROOT.gRandom.Rndm()>1./postScale: continue
+            self.h['bnr_from_data'].Fill(int((event.EventHeader.GetEventTime()%(div*Nbunches))/div+0.5))
+          
+          return self.h['bnr_from_data']
 
    def getEntriesPerRun(self,r):
 # check for partitions
@@ -1652,10 +1870,11 @@ class fillingScheme():
 
    def fillStats(self,runNr):
        fsdict = self.FSdict[runNr]
+       Nbunches = self.h['bnr'].GetNbinsX()
        self.stats = {'B2noB1':0,'B1only':0,'noBeam':0,'IP1':0,'B2andB1':0,'B1':0,'B2':0}
-       for bunchNumber in range(3564):
-             nb1 = (3564 + bunchNumber - fsdict['phaseShift1'])%3564
-             nb2 = (3564 + bunchNumber - fsdict['phaseShift1']- fsdict['phaseShift2'])%3564
+       for bunchNumber in range(Nbunches):
+             nb1 = (Nbunches + bunchNumber - fsdict['phaseShift1'])%Nbunches
+             nb2 = (Nbunches + bunchNumber - fsdict['phaseShift1']- fsdict['phaseShift2'])%Nbunches
              b1 = nb1 in fsdict['B1']
              b2 = nb2 in fsdict['B2']
              IP1 = False
@@ -1676,9 +1895,10 @@ class fillingScheme():
        marker = {'B2noB1':22,'B1only':21,'noBeam':20}
        colors = {'B2noB1':ROOT.kRed,'B1only':ROOT.kOrange,'noBeam':ROOT.kGreen}
        h=self.h
+       Nbunches = self.h['bnr'].GetNbinsX()
        self.fillStats(runNumber)
        stats = self.stats
-       norm = {'B2noB1':stats['B2'],'B1only':stats['B1'],'noBeam':3564}
+       norm = {'B2noB1':stats['B2'],'B1only':stats['B1'],'noBeam':Nbunches}
        R = ROOT.TFile.Open(www+"offline/run"+str(runNumber).zfill(6)+".root")
        ROOT.gROOT.cd()
        for hitmaps in ['mufi-barmapsVeto','mufi-barmapsUS','mufi-barmapsDS']:
@@ -1721,7 +1941,7 @@ class fillingScheme():
                  if plane.ClassName().find('TH')==0:
                     hname = plane.GetName()
                     h[hname] = plane.Clone(hname)
-                    h[hname].Scale(3564/stats[B])
+                    h[hname].Scale(Nbunches/stats[B])
                     h[hname].SetStats(0)
                     h[hname].SetMarkerStyle(marker[B])
                     h[hname].SetLineColor(colors[B])
@@ -1817,25 +2037,32 @@ if __name__ == '__main__':
     parser.add_argument("-r", "--runNumbers", dest="runNumbers", help="list of run numbers",required=False, type=str,default="")
     parser.add_argument("-F", "--fillNumbers",  dest="fillNumbers",   help="corresponding fill number",type=str,required=False,default="")
     parser.add_argument("-c", "--command", dest="command",       help="command", default=None)
-    parser.add_argument("-p", dest="path",       help="path to filling scheme", default="/mnt/hgfs/microDisk/SND@LHC/TI18/FillingSchemes/")
+    parser.add_argument("-p", dest="path",       help="path to filling scheme", default="./")
     parser.add_argument("-L", dest="lumiversion", help="offline or online lumi from ATLAS", default="offline")
     parser.add_argument("-ip2", dest="withIP2", help="with IP2",default=True)
-    parser.add_argument("-raw", dest="rawData", help="path to rawData",default="/eos/experiment/sndlhc/raw_data/physics/2023_tmp")   # before "/eos/experiment/sndlhc/raw_data/commissioning/TI18/data"
+    parser.add_argument("-raw", dest="rawData", help="path to rawData",default="/eos/experiment/sndlhc/raw_data/physics/2023")   # before "/eos/experiment/sndlhc/raw_data/commissioning/TI18/data"
     parser.add_argument("-www", dest="www", help="path to offline folder",default=os.environ['EOSSHIP']+"/eos/experiment/sndlhc/www/")
     parser.add_argument("-nMin", dest="nMin", help="min entries for a run",default=100000)
+    parser.add_argument("--batch", help="run in batch mode",default=False,action='store_true')
     
     options = parser.parse_args()
+    if options.batch:
+      ROOT.gROOT.SetBatch(True)    
     www = options.www
-    if options.rawData.find('2022')>0 and options.path.find('TI18')>0: 
-       options.path="/mnt/hgfs/microDisk/SND@LHC/2022/FillingSchemes/"
+    if options.rawData.find('2022')>0:
        options.convpath = "/eos/experiment/sndlhc/convertedData/physics/2022/"
        options.rmin = 4361-1
        offline =www+"offline.html"
-    elif options.rawData.find('2023')>0 and options.path.find('TI18')>0: 
-       options.path="/mnt/hgfs/microDisk/SND@LHC/2023/FillingSchemes/"
+    elif options.rawData.find('2023')>0:
        options.convpath = "/eos/experiment/sndlhc/convertedData/physics/2023/"
        options.rmin = 5413-1
-       offline =www+"offline2023.html"
+       offline =www+"offline.html"
+    elif options.rawData.find('2024')>0:
+       # extract the em target run from the rawData path
+       em_run = options.rawData[options.rawData.find("run_"):]
+       options.convpath = "/eos/experiment/sndlhc/convertedData/physics/2024/"+em_run
+       options.rmin = 7649-1
+       offline =www+"offline.html"
     FS = fillingScheme()
     FS.Init(options)
     ut.bookCanvas(FS.h,'c1','c1',1800,900,1,1)
@@ -1913,7 +2140,6 @@ if __name__ == '__main__':
                                           'lumiAtIP1':FS.LumiInt[r][0],'lumiAtIP1withSNDLHC':FS.LumiInt[r][1],
                                           'OfflineMonitoring':"https://snd-lhc-monitoring.web.cern.ch/offline/run.html?file=run"+str(r).zfill(6)+".root&lastcycle",
                                           'FillingScheme':fillScheme}
-
            FS.merge()
            FS.storeDict(FS.FSdict,'FSdict','FSdict')
 
@@ -1936,6 +2162,8 @@ if __name__ == '__main__':
            # os.system('pdflatex LumiSummary.tex')
            
            print('problems',problems)
+           # other functionalities of this manager that will be skipped for now
+           '''
            print('do not forget to copy to EOS:')
            print('xrdcp -f  Lumi.root              $EOSSHIP/eos/experiment/sndlhc/www/offline/Lumi2023.root')
            print('xrdcp -f Lumidict.root          $EOSSHIP//eos/experiment/sndlhc/convertedData/physics/2023/')
@@ -1945,8 +2173,4 @@ if __name__ == '__main__':
            print('xrdcp -f RunInfodict.root      $EOSSHIP//eos/experiment/sndlhc/convertedData/physics/2023/')
            print('xrdcp -f RunInfodict.pkl       $EOSSHIP//eos/experiment/sndlhc/convertedData/physics/2023/')
            print('xrdcp -f Lumi-tracks.root     $EOSSHIP//eos/experiment/sndlhc/www/offline/Lumi-tracks2023.root')
-           print('xrdcp -f LumiSummary.pdf   $EOSSHIP//eos/experiment/sndlhc/www/offline/RunSummary2023.pdf')
-
-
-
-
+           print('xrdcp -f LumiSummary.pdf   $EOSSHIP//eos/experiment/sndlhc/www/offline/RunSummary2023.pdf')'''

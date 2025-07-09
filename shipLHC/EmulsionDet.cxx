@@ -192,6 +192,12 @@ void EmulsionDet::ConstructGeometry()
 	TTrackerZ = conf_floats["EmulsionDet/TTz"];
 	ShiftX = conf_floats["EmulsionDet/ShiftX"];
 	ShiftY = conf_floats["EmulsionDet/ShiftY"];
+	
+	int NTungstenPlatesTB24 = conf_ints["EmulsionDet/n_tungsten_plates_tb24"];
+	bool testbeam_2024_setup = false;
+	if (NTungstenPlatesTB24 > 0) {
+	  testbeam_2024_setup = true;
+	}
 
 	TGeoVolume *top=gGeoManager->FindVolumeFast("Detector");
 	if(!top)  LOG(ERROR) << "no Detector volume found " ;
@@ -243,6 +249,13 @@ void EmulsionDet::ConstructGeometry()
 	//  //Volumes definition
 	//    //
 
+        /*For testbeam 2024 there are plastic plates filling the upstream part of the target.
+	  The last 28 layers have W+plastic plates.
+	  The plastic layers in Wall1, Brick 1 are the same thickness as the plastic base in TI18 conf.
+	  The plastic layers in Wall2, Brick 1 are 2 types of different thickness: 1 or 4/3 times the thickness of the TI18 plastic base.
+	  These layers are alternating starting with the 4/3x-thick one, then 1x-thick one.
+	  Whenever testbeam 2024 items are added in this function, there will be a note.
+	*/
 	
 	TGeoBBox *Walltot = new TGeoBBox("walltot",XDimension/2, YDimension/2, TotalWallZDim/2);
         TGeoBBox *Wallint = new TGeoBBox("wallint",WallXDim/2, WallYDim/2, WallZDim/2);
@@ -255,25 +268,64 @@ void EmulsionDet::ConstructGeometry()
         volWallborder->SetLineColor(kGray);
 
         TGeoVolume *volWall = new TGeoVolume("Wall",Wallint,air);
+        TGeoVolume *volWall_2 = new TGeoVolume("Wall_2",Wallint,air);
 	
 	//Rows
 	TGeoBBox *Row = new TGeoBBox("row",WallXDim/2, BrickY/2, BrickZ/2);
-        TGeoVolume *volRow = new TGeoVolume("Row",Row,air);
+	TGeoVolume *volRow = new TGeoVolume("Row",Row,air);
+	TGeoBBox *Row_W2 = new TGeoBBox("row_W2",WallXDim/2, BrickY/2, BrickZ/2);// testbeam 2024
+	TGeoVolume *volRow_W2 = new TGeoVolume("Row_W2",Row_W2,air);
 
 	//Bricks
 	TGeoBBox *Brick = new TGeoBBox("brick", BrickX/2, BrickY/2, BrickZ/2);
 	TGeoVolume *volBrick = new TGeoVolume("Brick",Brick,air);
 	volBrick->SetLineColor(kCyan);
 	volBrick->SetTransparency(1);
+	
+	TGeoBBox *Brick_W2 = new TGeoBBox("brick_W2", BrickX/2, BrickY/2, BrickZ/2);// testbeam 2024
+	TGeoVolume *volBrick_W2 = new TGeoVolume("Brick_W2",Brick_W2,air);
+	volBrick_W2->SetLineColor(kOrange);
+	volBrick_W2->SetTransparency(1);
 
 	TGeoBBox *Passive = new TGeoBBox("Passive", EmulsionX/2, EmulsionY/2, PassiveThickness/2);
 	TGeoVolume *volPassive = new TGeoVolume("volPassive",Passive,tungsten);
 	volPassive->SetTransparency(1);
 	volPassive->SetLineColor(kGray);
+	
+	// For the testbeam 2024, the upstream part of the brick is filled with plastic
+	float UpstreamPlasticThickness = (NPlates-NTungstenPlatesTB24)*AllPlateWidth;
+	// it is a little thinner for Wall2, where the pлastic plates have 2 thicknesses
+	float correction_W2 = NTungstenPlatesTB24/2*PlasticBaseThickness/3.;
+	float UpstreamPlasticThickness_W2 = UpstreamPlasticThickness - correction_W2;
+	TGeoBBox *Passive_plastic = new TGeoBBox("Passive_plastic", (EmulsionX-2.)/2, (EmulsionY-2.)/2, UpstreamPlasticThickness/2);
+	TGeoVolume *volPassive_plastic = new TGeoVolume("volPassive_plastic",Passive_plastic,PBase);
+	volPassive_plastic->SetLineColor(kMagenta);
+	volPassive_plastic->SetVisibility(kTRUE);
+	
+	TGeoBBox *Passive_plastic_W2 = new TGeoBBox("Passive_plastic_W2", (EmulsionX-2.)/2, (EmulsionY-2.)/2, UpstreamPlasticThickness_W2/2);
+	TGeoVolume *volPassive_plastic_W2 = new TGeoVolume("volPassive_plastic_W2",Passive_plastic_W2,PBase);
+	volPassive_plastic_W2->SetLineColor(kMagenta+2);
+	volPassive_plastic_W2->SetVisibility(kTRUE);
+	
+	float accumulatve_width = UpstreamPlasticThickness_W2; // testbeam 2024
 
 	for(Int_t n=0; n<NPlates; n++)
 	{
-		volBrick->AddNode(volPassive, n, new TGeoTranslation(0,0,-BrickZ/2+ EmPlateWidth + PassiveThickness/2 + n*AllPlateWidth)); //LEAD
+		if (n==0 && testbeam_2024_setup){// testbeam 2024
+		  volBrick->AddNode(volPassive_plastic, n, 
+		               new TGeoTranslation(0,0,-BrickZ/2 + UpstreamPlasticThickness/2));// upstream plastic
+		  volBrick_W2->AddNode(volPassive_plastic_W2, n, new TGeoTranslation(0,0,-BrickZ/2 + UpstreamPlasticThickness_W2/2));// upstream plastic
+		}
+		if (n>=(NPlates-NTungstenPlatesTB24) || !testbeam_2024_setup) { // instrumented part for both TI18 and testbeam 2024
+		  volBrick->AddNode(volPassive, n, 
+		               new TGeoTranslation(0,0,-BrickZ/2 + EmPlateWidth + PassiveThickness/2 + n*AllPlateWidth));// default(1x) plastic base thickness
+		  if (testbeam_2024_setup){ // testbeam 2024
+		    // interchange plastic plates of 1x or 4/3x default thickness
+		    volBrick_W2->AddNode(volPassive, n, 
+		                    new TGeoTranslation(0,0,-BrickZ/2 + (1+((n+1)%2)/3.)*EmPlateWidth + PassiveThickness/2 + accumulatve_width));
+		    accumulatve_width+=(1+((n+1)%2)/3.)*EmPlateWidth + PassiveThickness;
+		  }
+		}
 	}
 
 	TGeoBBox *EmulsionFilm = new TGeoBBox("EmulsionFilm", EmulsionX/2, EmulsionY/2, EmPlateWidth/2);
@@ -281,12 +333,17 @@ void EmulsionDet::ConstructGeometry()
 	volEmulsionFilm->SetLineColor(kBlue);
 	LOG(INFO) << "EmulsionDet : Passive option (0: all active, 1: all passive) set to " << fPassiveOption ;
 	if (fPassiveOption == 0) AddSensitiveVolume(volEmulsionFilm);
-	for(Int_t n=0; n<NPlates+1; n++)
-	{
+	if (!testbeam_2024_setup){ // TI18
+	  for(Int_t n=0; n<NPlates+1; n++)
+	  {
 		volBrick->AddNode(volEmulsionFilm, n, new TGeoTranslation(0,0,-BrickZ/2+ EmPlateWidth/2 + n*AllPlateWidth));
+	  }
 	}
 
 	volBrick->SetVisibility(kTRUE);
+	if (testbeam_2024_setup) { // testbeam 2024
+	  volBrick_W2->SetVisibility(kTRUE);
+	}
 
 //alignment
 	double dx_survey[5] = {conf_floats["EmulsionDet/Xpos0"],conf_floats["EmulsionDet/Xpos1"],conf_floats["EmulsionDet/Xpos2"],conf_floats["EmulsionDet/Xpos3"],conf_floats["EmulsionDet/Xpos4"]};
@@ -296,23 +353,35 @@ void EmulsionDet::ConstructGeometry()
  	top->AddNode(volTarget,1,new TGeoTranslation(0,0,0));
 
 	//adding walls
+	
+	Double_t d_cl_z = - ZDimension/2;
 
-        Double_t d_cl_z = - ZDimension/2;
-
-	for(int l = 0; l < fNWall; l++)
-	  {
+	if (!testbeam_2024_setup){
+	  for(int l = 0; l < fNWall; l++) {
 		volTarget->AddNode(volWallborder,l,new TGeoTranslation(-dx_survey[l]-XDimension/2., dz_survey[l]+YDimension/2., dy_survey[l]+TotalWallZDim/2.)); //the survey points refer to the down-left corner
 		volTarget->AddNode(volWall,l,new TGeoTranslation(-dx_survey[l]-XDimension/2., dz_survey[l]+YDimension/2., dy_survey[l]+TotalWallZDim/2.+WallZBorder_offset)); //the survey points refer to the down-left corner
 		d_cl_z += BrickZ + TTrackerZ;
 	  }
+	}
+	else { // testbeam 2024 
+	  volTarget->AddNode(volWallborder,0,new TGeoTranslation(-dx_survey[0]-XDimension/2., dz_survey[0]+YDimension/2., dy_survey[0]+TotalWallZDim/2.));
+	  volTarget->AddNode(volWall,0,new TGeoTranslation(-dx_survey[0]-XDimension/2., dz_survey[0]+YDimension/2., dy_survey[0]+TotalWallZDim/2.+WallZBorder_offset));
+	  d_cl_z += BrickZ + TTrackerZ;
+	  volTarget->AddNode(volWallborder,1,new TGeoTranslation(-dx_survey[1]-XDimension/2., dz_survey[1]+YDimension/2., dy_survey[1]+TotalWallZDim/2.));
+	  volTarget->AddNode(volWall_2,1,new TGeoTranslation(-dx_survey[1]-XDimension/2., dz_survey[1]+YDimension/2., dy_survey[1]+TotalWallZDim/2.+WallZBorder_offset));
+	  d_cl_z += BrickZ + TTrackerZ;
+	}
 
 	//adding rows
 	Double_t d_cl_y = -WallYDim/2;
-       
-        for(int k= 0; k< fNRow; k++)
+	
+	for(int k= 0; k< fNRow; k++)
 	  {
 	  volWall->AddNode(volRow,k,new TGeoTranslation(0, d_cl_y + BrickY/2,0));
-        
+	  if (testbeam_2024_setup){ // testbeam 2024 
+	    volWall_2->AddNode(volRow_W2,k,new TGeoTranslation(0, d_cl_y + BrickY/2,0));
+	  }
+
 	  // 2mm is the distance for the structure that holds the brick
 	  d_cl_y += BrickY;
 	  }
@@ -322,6 +391,9 @@ void EmulsionDet::ConstructGeometry()
 	for(int j= 0; j < fNCol; j++)
 	  {
 	    volRow->AddNode(volBrick,j,new TGeoTranslation(d_cl_x+BrickX/2, 0, 0));
+	    if (testbeam_2024_setup){ // testbeam 2024 
+	      volRow_W2->AddNode(volBrick_W2,j,new TGeoTranslation(d_cl_x+BrickX/2, 0, 0));
+	    }
 	    d_cl_x += BrickX;
 	  }
 }

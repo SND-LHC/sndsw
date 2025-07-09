@@ -14,7 +14,8 @@
 #include "TMath.h"
 #include "TH1.h"
 
-using namespace std;
+using std::cout;
+using std::endl;
 class FairPrimaryGenerator;
 
 class Co3Rng{

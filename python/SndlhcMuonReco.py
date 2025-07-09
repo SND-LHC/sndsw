@@ -244,32 +244,20 @@ class MuonReco(ROOT.FairTask) :
             self.ScifiHits       = eventTree.Digi_ScifiHits
             self.EventHeader        = eventTree.EventHeader
         else:
-        # Try the FairRoot way 
-            self.MuFilterHits = self.ioman.GetObject("Digi_MuFilterHits")
-            self.ScifiHits = self.ioman.GetObject("Digi_ScifiHits")
-            self.EventHeader = self.ioman.GetObject("EventHeader")
+            # Use standard ROOT to access branches and not the FairRoot way
+            # of getting objects from the i/o manager. The latter was initially
+            # broken in v19 and fixed in a patch release.
+            self.MuFilterHits = self.ioman.GetInTree().Digi_MuFilterHits
+            self.ScifiHits = self.ioman.GetInTree().Digi_ScifiHits
+            self.EventHeader = self.ioman.GetInTree().EventHeader
 
-        # If that doesn't work, try using standard ROOT
-            if self.MuFilterHits == None :
-               if self.logger.IsLogNeeded(ROOT.fair.Severity.info):
-                  print("Digi_MuFilterHits not in branch list")
-               self.MuFilterHits = self.ioman.GetInTree().Digi_MuFilterHits
-            if self.ScifiHits == None :
-               if self.logger.IsLogNeeded(ROOT.fair.Severity.info):
-                  print("Digi_ScifiHits not in branch list")
-               self.ScifiHits = self.ioman.GetInTree().Digi_ScifiHits
-            if self.EventHeader == None :
-               if self.logger.IsLogNeeded(ROOT.fair.Severity.info):
-                  print("EventHeader not in branch list")
-               self.EventHeader = self.ioman.GetInTree().EventHeader
-        
         if self.MuFilterHits == None :
             raise RuntimeError("Digi_MuFilterHits not found in input file.")
         if self.ScifiHits == None :
             raise RuntimeError("Digi_ScifiHits not found in input file.")
         if self.EventHeader == None :
             raise RuntimeError("EventHeader not found in input file.")
-        
+
         # Initialize event counters in case scaling of events is required
         self.scale = 1
         self.events_run = 0
