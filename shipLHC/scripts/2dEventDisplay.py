@@ -37,8 +37,8 @@ parser.add_argument("-P", "--partition", dest="partition", help="partition of da
 parser.add_argument("--server", dest="server", help="xrootd server",default=os.environ["EOSSHIP"])
 parser.add_argument("--no-extraInfo", dest="extraInfo", action="store_false", help="Do not print extra information on the event.")
 
-parser.add_argument("--extension", dest="extension", help="Extension of file to save. E.g. png, pdf, root, etc.", default="png")
-parser.add_argument("--rootbatch", dest="rootbatch", help="Run ROOT in batch mode.", action="store_true")
+parser.add_argument("--extension", help="Extension of file to save. E.g. png, pdf, root, etc.", default="png")
+parser.add_argument("--rootbatch", help="Run ROOT in batch mode.", action="store_true")
 
 parser.add_argument("--collision_axis", dest="drawCollAxis", help="Draw collision axis", action="store_true")
 
@@ -312,7 +312,8 @@ def loopEvents(
               auto=False,
               hitColour=None
               ):
- if 'simpleDisplay' not in h: ut.bookCanvas(h,key='simpleDisplay',title='simple event display',nx=1200*resolution_factor,ny=900*resolution_factor,cx=1,cy=2)
+ if 'simpleDisplay' not in h:
+     ut.bookCanvas(h, key='simpleDisplay', title='simple event display', nx=1200 * resolution_factor, ny=900 * resolution_factor, cx=1, cy=2)
  h['simpleDisplay'].cd(1)
  zStart = 250. # TI18 coordinate system
  if Setup == 'H6': zStart = 60.
@@ -582,18 +583,20 @@ def loopEvents(
     if verbose>0: dumpChannels()
     userProcessing(event)
 
-    if save: h['simpleDisplay'].Print('{:0>2d}-event_{:04d}'.format(runId,N)+'.'+options.extension)
+    if save:
+        h['simpleDisplay'].Print('{:0>2d}-event_{:04d}'.format(runId, N) + '.' + options.extension)
     if auto:
-        h['simpleDisplay'].Print(options.storePic+str(runId)+'-event_'+str(event.EventHeader.GetEventNumber())+'.'+options.extension)
+        h['simpleDisplay'].Print(options.storePic + str(runId) + '-event_' + str(event.EventHeader.GetEventNumber()) + '.' + options.extension)
     if not auto:
        rc = input("hit return for next event or p for print or q for quit: ")
        if rc=='p': 
-             h['simpleDisplay'].Print(options.storePic+str(runId)+'-event_'+str(event.EventHeader.GetEventNumber())+'.'+options.extension)
+           h['simpleDisplay'].Print(options.storePic + str(runId) + '-event_' + str(event.EventHeader.GetEventNumber()) + '.' + options.extension)
        elif rc == 'q':
           break
        else:
           eventComment[f"{runId}-event_{event.EventHeader.GetEventNumber()}"] = rc
- if save: os.system("convert -delay 60 -loop 0 event*."+options.extension+" animated.gif")
+ if save:
+     os.system("convert -delay 60 -loop 0 event*." + options.extension + " animated.gif")
 
 def addTrack(OT,scifi=False):
    xax = h['xz'].GetXaxis()
@@ -1141,19 +1144,19 @@ def drawInfo(pad, k, run, event, timestamp,moreEventInfo=[]):
       pad.cd(k)
 
 def drawCollisionAxis(pad, k):
-   h["collision_axis_line_"+str(k)] = ROOT.TLine(h["zmin"], 0, h["zmax"], 0)
-   h["collision_axis_line_"+str(k)].SetLineColor(ROOT.kRed)
-   h["collision_axis_line_"+str(k)].SetLineStyle(2)
+   h["collision_axis_line_" + str(k)] = ROOT.TLine(h["zmin"], 0, h["zmax"], 0)
+   h["collision_axis_line_" + str(k)].SetLineColor(ROOT.kRed)
+   h["collision_axis_line_" + str(k)].SetLineStyle(2)
    
-   h["collision_axis_text_"+str(k)] = ROOT.TText(h["zmin"]+8, 0+2, "Collision axis")
-   h["collision_axis_text_"+str(k)].SetTextAlign(12)
-   h["collision_axis_text_"+str(k)].SetTextFont(43)
-   h["collision_axis_text_"+str(k)].SetTextSize(13*resolution_factor)
-   h["collision_axis_text_"+str(k)].SetTextColor(ROOT.kRed)   
+   h["collision_axis_text_" + str(k)] = ROOT.TText(h["zmin"] + 8, 0 + 2, "Collision axis")
+   h["collision_axis_text_" + str(k)].SetTextAlign(12)
+   h["collision_axis_text_" + str(k)].SetTextFont(43)
+   h["collision_axis_text_" + str(k)].SetTextSize(13 * resolution_factor)
+   h["collision_axis_text_" + str(k)].SetTextColor(ROOT.kRed)   
    
    pad.cd(k)
-   h["collision_axis_line_"+str(k)].Draw()
-   h["collision_axis_text_"+str(k)].Draw()
+   h["collision_axis_line_" + str(k)].Draw()
+   h["collision_axis_text_" + str(k)].Draw()
 
    
        
