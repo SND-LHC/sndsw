@@ -14,7 +14,12 @@ import numpy as np
 from datetime import datetime
 from pathlib import Path
 
+import logging
+logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.WARNING)
+logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.FATAL)
+
 ROOT.gStyle.SetPalette(ROOT.kViridis)
+ROOT.gInterpreter.ProcessLine('#include "'+os.environ['SNDSW_ROOT']+'/analysis/tools/sndSciFiTools.h"')
 
 def pyExit():
        "unfortunately need as bypassing an issue related to use xrootd"
@@ -296,11 +301,32 @@ def loopEvents(
               minSipmMult=1,
               withTiming=False,
               option=None,
-              Setup='',
+              Setup='TI18',
               verbose=0,
               auto=False,
-              hitColour=None
+              hitColour=None,
+              FilterScifiHits=None
               ):
+
+ # check the format of FilterScifiHits if set
+ if FilterScifiHits: 
+    important_keys = {"bins_x", "min_x", "max_x", "time_lower_range", "time_upper_range"}
+    all_keys = important_keys.copy()
+    all_keys.add("method")
+    filter_parameters = {"bins_x":52., "min_x":0., "max_x":26.,
+                         "time_lower_range":1E9/(2*u.snd_freq/u.hertz),
+                         "time_upper_range":2E9/(u.snd_freq/u.hertz),
+                         "method":0}
+    if FilterScifiHits!="default" and not important_keys.issubset(FilterScifiHits): 
+       logging.fatal("Invalid FilterScifiHits format. Two options are supported:\n"
+       "#1 FilterScifiHits = 'default'\nwhich sets the default parameters:\n"+
+       str(filter_parameters)+" or\n"
+       "#2 FilterScifiHits = filter_dictionary \nwhere filter_dictionary has all of the following keys\n"+
+       str(important_keys)+"\nAn additional key 'method' exists: its single supported value, also default, is 0.")
+       return
+    if FilterScifiHits!="default" and any(k not in all_keys for k in FilterScifiHits):
+       logging.warning("Ignoring provided keys other than "+str(all_keys))
+
  if 'simpleDisplay' not in h: ut.bookCanvas(h,key='simpleDisplay',title='simple event display',nx=1200,ny=1600,cx=1,cy=2)
  h['simpleDisplay'].cd(1)
  # TI18 coordinate system
@@ -403,7 +429,29 @@ def loopEvents(
     if nAlltracks > 0: print('total number of tracks: ', nAlltracks)
 
     digis = []
-    if event.FindBranch("Digi_ScifiHits"): digis.append(event.Digi_ScifiHits)
+    if event.FindBranch("Digi_ScifiHits"):
+       method = 0
+       if FilterScifiHits!=None and FilterScifiHits!="default":
+          filter_parameters =dict(list(FilterScifiHits.items())[:5])# take the first 5 dict items
+          method = FilterScifiHits.get("method", 0) # set to the default 0, if item is not provided
+       if FilterScifiHits and (Setup=="TI18" or Setup=="H8" or Setup=="H4"):
+          setup = Setup
+          # Only H8 is explicitly supported in the SciFi tools. However, the same baby SciFi
+          # system was reused in H4. It is then safe to use the SciFi tools for H4 as well.
+          if Setup =="H4":
+            setup ="H8"
+          # Convert the filter_parameters to the needed std.map format
+          selection_parameters = ROOT.std.map('string', 'float')()
+          selection_parameters["bins_x"] = float(filter_parameters["bins_x"])
+          selection_parameters["min_x"] = float(filter_parameters["min_x"])
+          selection_parameters["max_x"] = float(filter_parameters["max_x"])
+          selection_parameters["time_lower_range"] = float(filter_parameters["time_lower_range"])
+          selection_parameters["time_upper_range"] = float(filter_parameters["time_upper_range"])
+          digis.append(ROOT.snd.analysis_tools.filterScifiHits(event.Digi_ScifiHits,selection_parameters,method,setup,mc))
+       else:
+          if FilterScifiHits:
+             logging.warning(Setup+" is not supported for the time-filtering of SciFi hits, using all hits instead.")
+          digis.append(event.Digi_ScifiHits)
     if event.FindBranch("Digi_MuFilterHits"): digis.append(event.Digi_MuFilterHits)
     if event.FindBranch("Digi_MuFilterHit"): digis.append(event.Digi_MuFilterHit)
     empty = True
