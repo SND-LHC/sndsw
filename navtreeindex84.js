@@ -1,5 +1,11 @@
 var NAVTREEINDEX84 =
 {
+"namespacemufiHitMaps.html#a0320dfb9c7eb3b39913fe050910912e2":[12,0,94,5],
+"namespacemufiHitMaps.html#a044807a37bdf0c72d08ef3bae1ccd3d4":[12,0,94,14],
+"namespacemufiHitMaps.html#a04665c67ee46468bea40f37f99360954":[12,0,94,4],
+"namespacemufiHitMaps.html#a0a920dc55b984ab75ed50810241da7ca":[12,0,94,34],
+"namespacemufiHitMaps.html#a1513dcccb04c5adc06d44e0b1f52cded":[12,0,94,30],
+"namespacemufiHitMaps.html#a1c8d969077bb65d92a6179835905ac69":[12,0,94,19],
 "namespacemufiHitMaps.html#a3bb1b24491f44f4dd1d5adb877bb2eb2":[12,0,94,12],
 "namespacemufiHitMaps.html#a3fa1ebbc8a8e2e506f45f1d004b1d71b":[12,0,94,24],
 "namespacemufiHitMaps.html#a42848d36c221a6b9c3337d57eefb7908":[12,0,94,0],
@@ -243,11 +249,5 @@ var NAVTREEINDEX84 =
 "namespacepythia8darkphoton__conf.html#a4e665f9019e795ebc2533973bbe5a2a1":[12,0,108,5],
 "namespacepythia8darkphoton__conf.html#a7aa8f7540430e7572460a9e92b5082e3":[12,0,108,2],
 "namespacepythia8darkphoton__conf.html#a7ce8c8aa53e93dfe5afaa43e2f0901b6":[12,0,108,4],
-"namespacepythia8darkphoton__conf.html#abf09dd3a8d5afdafed0abf06741d1fed":[12,0,108,6],
-"namespacepythia8darkphoton__conf.html#acd520394960a5dfa80c744de77b559f4":[12,0,108,1],
-"namespacequicktype.html":[12,0,110],
-"namespacequicktype.html#aaf78a0549686ac1b8791ee9a8f9abb4a":[12,0,110,2],
-"namespaceradio.html":[12,0,111],
-"namespaceradio.html#a185405eec7acfdb148448e1a9c76b5ea":[12,0,111,9],
-"namespaceradio.html#a2173c1232cd54d49a5435ae267c4f764":[12,0,111,4]
+"namespacepythia8darkphoton__conf.html#abf09dd3a8d5afdafed0abf06741d1fed":[12,0,108,6]
 };

@@ -1,5 +1,11 @@
 var NAVTREEINDEX95 =
 {
+"option_page.html#cmd-compress":[0,1,1,5],
+"option_page.html#cmd-constraint":[0,1,1,7],
+"option_page.html#cmd-debug":[0,1,1,8],
+"option_page.html#cmd-dwfractioncut":[0,1,1,9],
+"option_page.html#cmd-entries":[0,1,1,10],
+"option_page.html#cmd-errlabels":[0,1,1,11],
 "option_page.html#cmd-force":[0,1,1,12],
 "option_page.html#cmd-fortranfiles":[0,1,1,13],
 "option_page.html#cmd-globalcorr":[0,1,1,14],
@@ -243,11 +249,5 @@ var NAVTREEINDEX95 =
 "readMilleBinary_8py.html#a332b61af90ded4fd933e806d1c9eb683":[14,0,9,0,0,13],
 "readMilleBinary_8py.html#a3b46fcf9a120f9fcfbb08ddadd25c1ea":[14,0,9,0,0,15],
 "readMilleBinary_8py.html#a41a8aa4897eb6b21c171b8372de56c9b":[14,0,9,0,0,20],
-"readMilleBinary_8py.html#a462e2d6cc06ebf2246b5b3e39fbb8491":[14,0,9,0,0,5],
-"readMilleBinary_8py.html#a499d2098fb4fda70815bd8eca88900bc":[14,0,9,0,0,7],
-"readMilleBinary_8py.html#a4c927e06f252b79589e269062ba29b63":[14,0,9,0,0,2],
-"readMilleBinary_8py.html#a6a55a20ce62de62b6fab6432f7cfa2b9":[14,0,9,0,0,3],
-"readMilleBinary_8py.html#a7413cfeb3bc839d82d4e1fa40c3408c9":[14,0,9,0,0,12],
-"readMilleBinary_8py.html#a7a632b97efdf6bdfc5b4423bfa26966e":[14,0,9,0,0,19],
-"readMilleBinary_8py.html#a837787ba33dda72e3974b3a2c4f4ddd0":[14,0,9,0,0,1]
+"readMilleBinary_8py.html#a462e2d6cc06ebf2246b5b3e39fbb8491":[14,0,9,0,0,5]
 };

@@ -53,7 +53,7 @@ var searchData=
   ['xlayers_50',['xLayers',['../namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#ab9b09fb2b4557b41bcadd86524548986',1,'conditionsDatabase::demo::drifttubeMonitoring']]],
   ['xloopn_51',['xloopn',['../pede_8f90.html#a1f814e28cf6765f05543d04194f8d4ac',1,'pede.f90']]],
   ['xlow_52',['xlow',['../classMonitor_1_1Monitoring.html#a51b029b02c19871e90a76dd79b6ae806',1,'Monitor::Monitoring']]],
-  ['xmax_53',['xmax',['../namespacegeometry__config.html#a437302764acd932304dabd2a65070edf',1,'geometry_config.xMax'],['../namespacegeometry__config.html#a3c7ce2f9d309441314dcc2cd986172c3',1,'geometry_config.XMax'],['../classShipGoliathField.html#ab2b98db40114d0360cd4650e603d7dce',1,'ShipGoliathField::xmax']]],
+  ['xmax_53',['xmax',['../namespacegeometry__config.html#a3c7ce2f9d309441314dcc2cd986172c3',1,'geometry_config.XMax'],['../namespacegeometry__config.html#a437302764acd932304dabd2a65070edf',1,'geometry_config.xMax'],['../classShipGoliathField.html#ab2b98db40114d0360cd4650e603d7dce',1,'ShipGoliathField::xmax']]],
   ['xmax_5f_54',['xMax_',['../classShipBFieldMap.html#a00ebcf5d5871b4d60a087710fca705a6',1,'ShipBFieldMap']]],
   ['xmin_55',['xmin',['../classShipGoliathField.html#a18c8cd8ce6af9147ce66953c365a57df',1,'ShipGoliathField']]],
   ['xmin_5f_56',['xMin_',['../classShipBFieldMap.html#a686affa4758dc834602d7274f111fa76',1,'ShipBFieldMap']]],

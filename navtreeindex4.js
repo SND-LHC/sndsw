@@ -1,5 +1,8 @@
 var NAVTREEINDEX4 =
 {
+"ScifiCluster_8py.html#ac287e22c1bddf0604d13e88b5a9bfd02":[14,0,17,37,43],
+"ScifiCluster_8py.html#ac28865a5c5fe004b77e3288b827e49ff":[14,0,17,37,45],
+"ScifiCluster_8py.html#ac6434c9a240d0b933a9c32a0d20b43ec":[14,0,17,37,1],
 "ScifiCluster_8py.html#ace91ce50b6033a792590c138c5ac4653":[14,0,17,37,49],
 "ScifiCluster_8py.html#ad15118358450cfe215bdff122182a57f":[14,0,17,37,42],
 "ScifiCluster_8py.html#ad4f85835850421f2f80a170f0edc9fcb":[14,0,17,37,47],
@@ -246,8 +249,5 @@ var NAVTREEINDEX4 =
 "ShipMagnet_8cxx.html":[14,0,14,11],
 "ShipMagnet_8cxx_source.html":[14,0,14,11],
 "ShipMagnet_8h.html":[14,0,14,12],
-"ShipMagnet_8h_source.html":[14,0,14,12],
-"ShipMuonShield_8cxx.html":[14,0,14,13],
-"ShipMuonShield_8cxx.html#a051a74c8506be0a4072e69b52b7113a8":[14,0,14,13,4],
-"ShipMuonShield_8cxx.html#a36fc4b47251281f99efceaa80c7877f0":[14,0,14,13,0]
+"ShipMagnet_8h_source.html":[14,0,14,12]
 };

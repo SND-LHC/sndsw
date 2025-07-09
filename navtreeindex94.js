@@ -1,5 +1,11 @@
 var NAVTREEINDEX94 =
 {
+"namespacestudy__muMSC.html#a1b0a87a3b4e2a340e26073b1f81df6f3":[12,0,179,11],
+"namespacestudy__muMSC.html#a20d3ae69c549e22a15d8bacc6dffd57d":[12,0,179,26],
+"namespacestudy__muMSC.html#a235aad16d3c1f1d4e8af0c3f536aa482":[12,0,179,22],
+"namespacestudy__muMSC.html#a250f6f8936dd0f6c85cc30a085041f11":[12,0,179,0],
+"namespacestudy__muMSC.html#a257d0c9a808d31e9e46250b231ebd696":[12,0,179,3],
+"namespacestudy__muMSC.html#a2af1a2254649d30dec2bb025fed9360e":[12,0,179,43],
 "namespacestudy__muMSC.html#a2d1fc976d3a121d530f3039ce4fa5b5f":[12,0,179,20],
 "namespacestudy__muMSC.html#a3f170ac334e8290592953deb3f124812":[12,0,179,40],
 "namespacestudy__muMSC.html#a4c914249f916700584a39d0bd5c4a4de":[12,0,179,15],
@@ -243,11 +249,5 @@ var NAVTREEINDEX94 =
 "option_page.html#cmd-cfiles":[0,1,1,2],
 "option_page.html#cmd-checkinput":[0,1,1,3],
 "option_page.html#cmd-chisqcut":[0,1,1,4],
-"option_page.html#cmd-closeandreopen":[0,1,1,6],
-"option_page.html#cmd-compress":[0,1,1,5],
-"option_page.html#cmd-constraint":[0,1,1,7],
-"option_page.html#cmd-debug":[0,1,1,8],
-"option_page.html#cmd-dwfractioncut":[0,1,1,9],
-"option_page.html#cmd-entries":[0,1,1,10],
-"option_page.html#cmd-errlabels":[0,1,1,11]
+"option_page.html#cmd-closeandreopen":[0,1,1,6]
 };
