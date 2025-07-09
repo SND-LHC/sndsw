@@ -432,7 +432,7 @@ def loopEvents(
     if event.FindBranch("Digi_ScifiHits"):
        method = 0
        if FilterScifiHits!=None and FilterScifiHits!="default":
-          filter_parameters =dict(list(FilterScifiHits.items())[:5])# take the first 5 dict items
+          filter_parameters = {k: FilterScifiHits[k] for k in important_keys if k in FilterScifiHits}
           method = FilterScifiHits.get("method", 0) # set to the default 0, if item is not provided
        if FilterScifiHits and (Setup=="TI18" or Setup=="H8" or Setup=="H4"):
           setup = Setup
