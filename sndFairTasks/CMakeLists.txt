@@ -10,6 +10,9 @@ ${CMAKE_SOURCE_DIR}/sndFairTasks
 ${CMAKE_SOURCE_DIR}/veto
 ${XROOTD_INCLUDE_DIR}
 ${XROOTD_INCLUDE_DIR}/..
+${GEANT4_ROOT}/include/Geant4
+${GEANT4_VMC_ROOT}/include/geant4vmc
+${CMAKE_SOURCE_DIR}/G4Processes
 )
 
 include_directories( ${INCLUDE_DIRECTORIES}  ${VMC_INCLUDE_DIRS}  ${FAIRROOT_INCLUDE_DIR} ${FairLogger_INCDIR} ${FMT_INCLUDE_DIR}
@@ -20,7 +23,7 @@ set(LINK_DIRECTORIES
 ${ROOT_LIBRARY_DIR}
 ${XROOTD_LIBRARY_DIR}
 ${FAIRROOT_LIBRARY_DIR}
-
+${G4Processes_LIBRARY_DIR}
 )
  
 link_directories( ${LINK_DIRECTORIES})
@@ -30,11 +33,12 @@ DigiTaskSND.cxx
 ConvRawData.cxx
 boardMappingParser.cxx
 MCEventBuilder.cxx
+MuonDISProcessInjector.cxx
 )
 
 Set(HEADERS)
 Set(LINKDEF sndFairTasksLinkDef.h)
 Set(LIBRARY_NAME sndFairTasks)
-Set(DEPENDENCIES Base ShipData shipLHC GeoBase ParBase Geom Core)
+Set(DEPENDENCIES Base ShipData shipLHC GeoBase ParBase Geom Core G4Processes)
 
 GENERATE_LIBRARY()
