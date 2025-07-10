@@ -48,6 +48,15 @@ parser.add_argument('--eMin', type=float, help="energy cut", dest='ecut', defaul
 parser.add_argument('--zMax', type=float, help="max distance to apply energy cut", dest='zmax', default=70000.)
 parser.add_argument("--Nuage",     dest="nuage",  help="Use Nuage, neutrino generator of OPERA", required=False, action="store_true")
 parser.add_argument("--MuDIS",     dest="mudis",  help="Use muon deep inelastic scattering generator", required=False, action="store_true")
+
+parser.add_argument("--MuDISG4",     dest="mudisg4",  help="Use external muon deep inelastic scattering generator with Geant4", required=False, action="store_true")
+parser.add_argument('--nucleon', choices=['p+', 'n'], help='Type of nucleon')
+parser.add_argument('--x_range', help='x position range placing muonDIS interaction as two values: start and end', type=float, nargs=2, default=[-1e10,1e10])
+parser.add_argument('--y_range', help='y position range placing muonDIS interaction as two values: start and end', type=float, nargs=2, default=[-1e10,1e10])
+parser.add_argument('--z_range', help='z position range placing muonDIS interaction as two values: start and end', type=float, nargs=2, default=[-1e10,1e10])
+parser.add_argument('--volume',  help='Name of geometry volume where to simulate the DIS; e.g. volTarget, volMuUpstreamDet, volMuDownstreamDet, volVetoPlane, Wall', default="")
+parser.add_argument('--dis_xsec_file', help='Name of DIS cross section file', default="/eos/experiment/sndlhc/MonteCarlo/Pythia6/MuonDIS/muDIScrossSec.root")
+
 parser.add_argument("-n", "--nEvents",dest="nEvents",  help="Number of events to generate", required=False,  default=100, type=int)
 parser.add_argument("-i", "--firstEvent",dest="firstEvent",  help="First event of input file to use", required=False,  default=0, type=int)
 parser.add_argument("-s", "--seed",dest="theSeed",  help="Seed for random number. Only for experts, see TRrandom::SetSeed documentation", required=False,  default=0, type=int)
@@ -305,6 +314,26 @@ else:            run.SetStoreTraj(ROOT.kFALSE)
 
 # -----Initialize simulation run------------------------------------
 run.Init()
+
+# -----muon DIS Background: add muonDIS from an external generator as a process in GEANT4
+# Only after Geant4 is initialized can one add a process to the simulation,
+# thus one adds the custom DIS after run.Init()
+if options.mudisg4:
+  # Make sure ranges run from lower to higher limit
+  options.x_range = sorted(options.x_range)
+  options.y_range = sorted(options.y_range)
+  options.z_range = sorted(options.z_range)
+  # add a process injector task for the Geant4 propagation
+  external_muDIS_injector = ROOT.MuonDISProcessInjector(options.nucleon,
+                                                        options.x_range, 
+                                                        options.y_range,
+                                                        options.z_range,
+                                                        options.volume,
+                                                        options.dis_xsec_file)
+  external_muDIS_injector.Init()
+  run.AddTask(external_muDIS_injector)
+#------------------------------------------------------------------------
+
 gMC = ROOT.TVirtualMC.GetMC()
 fStack = gMC.GetStack()
 if MCTracksWithHitsOnly:
