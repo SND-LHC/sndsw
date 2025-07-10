@@ -946,7 +946,8 @@ class MuonReco(ROOT.FairTask) :
                   this_track.setRawMeasTimes(pointTimes)
                   this_track.setTrackType(self.track_type)
                   # Save the track in sndRecoTrack format
-                  self.kalman_tracks[i_muon] = this_track
+                  this_track_TCA = self.kalman_tracks.ConstructedAt(i_muon)
+                  ROOT.std.swap(this_track, this_track_TCA)
                   # Delete the Kalman track object
                   theTrack.Delete()
 

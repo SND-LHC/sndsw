@@ -209,15 +209,15 @@ class prodManager():
       print('checkfile',path,r,p)
       inFile = self.options.server+path+'run_'+ r+'/data_'+p+'.root'
       fI = ROOT.TFile.Open(inFile)
-      if fI.Get('event'): Nraw = fI.event.GetEntries()
-      else: Nraw = fI.data.GetEntries()
+      if fI.Get('event'): Nraw = fI.Get("event").GetEntries()
+      else: Nraw = fI.Get("data").GetEntries()
       outFile = 'sndsw_raw_'+r+'-'+p+self.Mext+'.root'
       fC = ROOT.TFile(outFile)
       test = fC.Get('rawConv')
       if not test:
           print('Error:',path,r,p,' rawConv not found')
           return -2       
-      Nconv = fC.rawConv.GetEntries()
+      Nconv = fC.Get("rawConv").GetEntries()
       if Nraw != Nconv: 
           print('Error:',path,r,p,':',Nraw,Nconv)
           return -1
@@ -331,7 +331,7 @@ class prodManager():
      for run in runList:
        try: 
           f=ROOT.TFile.Open("sndsw_raw_"+str(run).zfill(6)+'.root')
-          print(run,':',f.rawConv.GetEntries())
+          print(run,':',f.Get("rawConv").GetEntries())
        except:
           print('problem:',run)
          
@@ -339,8 +339,8 @@ class prodManager():
       for run in runList:
          runNr   = str(run).zfill(6)
          r = ROOT.TFile.Open(os.environ['EOSSHIP']+path+"/run_"+runNr+"/data.root")
-         if fI.Get('event'): raw = r.event.GetEntries()
-         else:               raw = r.data.GetEntries()
+         if fI.Get('event'): raw = r.Get("event").GetEntries()
+         else:               raw = r.Get("data").GetEntries()
          print(run,':',raw)
 
    def makeHistos(self,runList):
