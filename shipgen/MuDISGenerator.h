@@ -33,7 +33,6 @@ class MuDISGenerator : public FairGenerator
     endZ        = zE; 
   }
 
- private:
   Double_t MeanMaterialBudget(const Double_t *start, const Double_t *end, Double_t *mparam);
 
   
