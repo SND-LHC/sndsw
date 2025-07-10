@@ -257,7 +257,6 @@ IF(NOT FairRoot_FOUND)
 Message("--- FairRoot not found ...")
 ENDIF (NOT FairRoot_FOUND)
 
-add_subdirectory (sndFairTasks)
 add_subdirectory (shipLHC)
 add_subdirectory (shipdata)
 add_subdirectory (passive)
@@ -267,6 +266,8 @@ add_subdirectory (field)
 add_subdirectory (genfit)
 add_subdirectory (millepede)
 add_subdirectory (analysis)
+add_subdirectory (G4Processes)
+add_subdirectory (sndFairTasks)
 
 FIND_PATH(TEvePath NAMES TEveEventManager.h PATHS
   ${SIMPATH}/tools/root/include
