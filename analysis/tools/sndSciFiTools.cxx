@@ -3,6 +3,7 @@
 #include <numeric>
 #include <algorithm>
 
+#include "TROOT.h"
 #include "TH1F.h"
 #include "FairLogger.h"
 #include "TClonesArray.h"
@@ -132,6 +133,7 @@ float snd::analysis_tools::peakScifiTiming(const TClonesArray &digiHits, int bin
 
    TH1F ScifiTiming("Timing", "Scifi Timing", bins, min_x, max_x);
 
+   Scifi *ScifiDet = dynamic_cast<Scifi*> (gROOT->GetListOfGlobals()->FindObject("Scifi") );
    int refStation = ((sndScifiHit *)digiHits.At(0))->GetStation();
    bool refOrientation = ((sndScifiHit *)digiHits.At(0))->isVertical();
    float hitTime = -1.0;
@@ -146,6 +148,10 @@ float snd::analysis_tools::peakScifiTiming(const TClonesArray &digiHits, int bin
          continue;
       }
       hitTime = hit->GetTime() * timeConversion;
+      if (!isMC){
+        int id_hit = hit ->GetDetectorID();
+        hitTime = ScifiDet->GetCorrectedTime(id_hit, hitTime, 0);
+      }
       if (hitTime < min_x || hitTime > max_x) {
          continue;
       }
@@ -597,3 +603,52 @@ snd::analysis_tools::findCentreOfGravityPerStation(const TClonesArray* digiHits,
    double meanY = computeMean(y_positions);
    return {meanX, meanY};
 }
+
+double density_of_hits(std::vector<double> hit_position_vec){
+    /* 
+    This function returns the hit density which is described as the summation of the hit weights 
+    where a hit weigth is the number of neighbouring hits within 1 cm postion (default width)
+
+    arguments: hit position vector : vector ontaining the positions of the hits in a specific SciFi station
+    returns: the sum of the weights of the hits in the vector
+    If the vector is empty, it returns 0.
+    If the sum of weights is 0, it returns 0.
+    */
+
+    if (hit_position_vec.size()==0) {
+        LOG(INFO)<< "Warning: The hit position vector is empty." << endl;
+        return 0; // Check if the vector is empty
+    }
+    
+    std::vector<double> weights; // Vector to store the weights of each hit based on its neighbours
+    double width = 1;
+
+    for (int i = 0; i<hit_position_vec.size(); i++){
+        double neighbour_no_of_hits = 0; // Variable to count the number of hits within the specified width around the specific hit
+       
+        for ( int j = 0; j< hit_position_vec.size(); j++){
+
+            double specific_hit = hit_position_vec[i];
+            double neighbour_hit = hit_position_vec[j];
+            
+            // Skip if the hits are the same
+            if(specific_hit==neighbour_hit) continue;
+            if (TMath::Abs(specific_hit-neighbour_hit)<= width){
+                neighbour_no_of_hits++;
+            }
+        }
+        // Store the number of neighbouring hits for the specific hit
+        weights.push_back(neighbour_no_of_hits);        
+    }
+    // Calculate the sum of all weights
+    double sum_weights = std::accumulate(weights.begin(),weights.end(), 0.0);
+    // Clear the weights vector to free memory
+    weights.clear();
+    if (sum_weights)
+        return sum_weights;
+    else {
+        LOG(INFO)<<  "Warning: The sum of weights is 0." << endl;
+        return 0;
+    }
+}
+

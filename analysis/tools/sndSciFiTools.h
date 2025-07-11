@@ -79,5 +79,9 @@ namespace snd {
 
     // Find the Center of Particle Showering on the SciFi plane
     std::pair<double, double> findCentreOfGravityPerStation(const TClonesArray* digiHits, int station, Scifi* ScifiDet);
+   
+   //Evaluate the Summed hit weights for a  particular  event in a specific station
+   //It takes a vector of hit position in a specific SciFi station and retruns the summed hit weights
+   double density_of_hits(std::vector<double> hit_position_vec);
   }
 }
