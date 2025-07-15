@@ -76,6 +76,9 @@ options = parser.parse_args()
 # user hook
 userTask = False
 
+# make log colourful
+ROOT.FairLogger.GetLogger().SetColoredLog(True)
+
 class MyTask(ROOT.FairTask):
     "user task"
 
@@ -87,7 +90,9 @@ class MyTask(ROOT.FairTask):
         if MCTracks.GetEntries()>100:  fMC.StopRun()
 
 checking4overlaps = False
-if options.debug: checking4overlaps = True
+if options.debug: 
+  checking4overlaps = True
+  ROOT.fair.Logger.SetConsoleSeverity("debug")
 
 if options.pythia8:       simEngine = "Pythia8"
 if options.pg:                 simEngine = "PG"
@@ -206,7 +211,8 @@ if simEngine == "PG":
         f'({options.EVx},{options.EVy},{options.EVz})[cm × cm × cm] \n'
         f'with a uniform x-y spread of (Dx,Dy)=({options.Dx},{options.Dy})[cm × cm]'
         f' and {options.nZSlices} z slices in steps of {options.zSliceStep}[cm].')
-  ROOT.FairLogger.GetLogger().SetLogScreenLevel("WARNING") # otherwise stupid printout for each event
+  if not options.debug:
+    ROOT.FairLogger.GetLogger().SetLogScreenLevel("WARNING") # otherwise stupid printout for each event
 # -----muon DIS Background------------------------
 if simEngine == "muonDIS":
    ut.checkFileExists(inputFile)
@@ -408,7 +414,6 @@ if inactivateMuonProcesses :
  procmu = gProcessTable.FindProcess(ROOT.G4String('muIoni'),ROOT.G4String('mu+'))
  procmu.SetVerboseLevel(2)
 
-if options.debug:  ROOT.fair.Logger.SetConsoleSeverity("debug")
 # -----Start run----------------------------------------------------
 run.Run(options.nEvents)
 # -----Runtime database---------------------------------------------
