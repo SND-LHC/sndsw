@@ -77,7 +77,20 @@ namespace snd {
     // Foregoing the selection_parameters option runs with the default values
     int showerInteractionWall(const TClonesArray &digiHits, int method=0, std::string setup="TI18");
 
+    // Function to get the hit position vectors for a specific station
+    // Returns a pair of vectors containing the x and y positions of the hits in the specified station
+    std::pair<std::vector<double>, std::vector<double>> hitPositionVectorsPerStation(const TClonesArray &digiHits, int station);
+
     // Find the Center of Particle Showering on the SciFi plane
     std::pair<double, double> findCentreOfGravityPerStation(const TClonesArray* digiHits, int station, Scifi* ScifiDet);
+   
+    // Evaluate the Summed hit weights for a  particular  event in a specific station
+    // It takes a vector of hit position in a specific SciFi station and returns the summed hit weights
+    double hitWeightComputation(std::vector<double> hit_position);
+
+    // Function to compute the hit density per station
+    // Returns a pair of doubles containing the hit density for horizontal and vertical orientations of that station
+    std::pair<double,double> hitDensityPerStation(const TClonesArray &digiHits, int station);
+
   }
 }
