@@ -1,5 +1,8 @@
 var NAVTREEINDEX94 =
 {
+"namespacestudy__muMSC.html#a095debddfe44389671ec77620720ace7":[12,0,179,25],
+"namespacestudy__muMSC.html#a12ed239a556befefc248d387fa2109b2":[12,0,179,29],
+"namespacestudy__muMSC.html#a1316fb365e15ab71f542f159d28327df":[12,0,179,28],
 "namespacestudy__muMSC.html#a1b0a87a3b4e2a340e26073b1f81df6f3":[12,0,179,11],
 "namespacestudy__muMSC.html#a20d3ae69c549e22a15d8bacc6dffd57d":[12,0,179,26],
 "namespacestudy__muMSC.html#a235aad16d3c1f1d4e8af0c3f536aa482":[12,0,179,22],
@@ -246,8 +249,5 @@ var NAVTREEINDEX94 =
 "option_page.html":[0,1],
 "option_page.html#cmd-bandwidth":[0,1,1,0],
 "option_page.html#cmd-cache":[0,1,1,1],
-"option_page.html#cmd-cfiles":[0,1,1,2],
-"option_page.html#cmd-checkinput":[0,1,1,3],
-"option_page.html#cmd-chisqcut":[0,1,1,4],
-"option_page.html#cmd-closeandreopen":[0,1,1,6]
+"option_page.html#cmd-cfiles":[0,1,1,2]
 };

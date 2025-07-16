@@ -245,8 +245,8 @@ var NAVTREEINDEX31 =
 "classecalStructureFiller.html#af37fe70adf9302ffbbda1d24c7ae9be3":[13,0,86,23],
 "classecalStructureFiller.html#af706a7d4a6710b5e5db592968070e81b":[13,0,86,2],
 "classes.html":[13,1],
-"classeventDisplay_1_1DrawDigi.html":[12,0,41,0],
 "classeventDisplay_1_1DrawDigi.html":[13,0,5,0],
+"classeventDisplay_1_1DrawDigi.html":[12,0,41,0],
 "classeventDisplay_1_1DrawDigi.html#a133b7fa60374e4954bb18ad2a2691151":[12,0,41,0,1],
 "classeventDisplay_1_1DrawDigi.html#a133b7fa60374e4954bb18ad2a2691151":[13,0,5,0,1],
 "classeventDisplay_1_1DrawDigi.html#a4bb33cef08131ac218d53ad60c2d736e":[13,0,5,0,3]

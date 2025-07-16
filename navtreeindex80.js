@@ -1,5 +1,8 @@
 var NAVTREEINDEX80 =
 {
+"namespacegeometry__config.html#aec12a8846b6daa0ea8c4ed4d16e256de":[12,0,56,61],
+"namespacegeometry__config.html#aec42d0e857bcd0a39be15111276da221":[12,0,56,283],
+"namespacegeometry__config.html#aec6c9e5da6e0e3dac0bc7c6cecfb0e09":[12,0,56,154],
 "namespacegeometry__config.html#aec9f911e3feb7f47dd236effdf98d46f":[12,0,56,53],
 "namespacegeometry__config.html#aeccaf26e593eab33ccfe6148361b0607":[12,0,56,227],
 "namespacegeometry__config.html#aed55a053377bac249d4da00c13a0d851":[12,0,56,190],
@@ -246,8 +249,5 @@ var NAVTREEINDEX80 =
 "namespacelinesrch.html#ac10ccae3380187377a27750f40c0b55c":[12,0,64,7],
 "namespacelinesrch.html#acab027208ff9f75b0aee185d7a53df2f":[12,0,64,10],
 "namespacelogger.html":[12,0,65],
-"namespacelogger.html#a0aeef8538d69a0c5b00592bf0cba4d99":[12,0,65,0],
-"namespacelogger.html#aa12d989a54051a882135fc0636fb8023":[12,0,65,1],
-"namespacemakeALPACAEvents.html":[12,0,66],
-"namespacemakeALPACAEvents.html#a11508a7a9095d1192ca9cb161e375713":[12,0,66,0]
+"namespacelogger.html#a0aeef8538d69a0c5b00592bf0cba4d99":[12,0,65,0]
 };

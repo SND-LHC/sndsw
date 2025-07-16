@@ -1,5 +1,8 @@
 var NAVTREEINDEX83 =
 {
+"namespacempmod.html#a31ed3022f8cd8aede6f4d869cf3ca045":[12,0,86,168],
+"namespacempmod.html#a326295fba843acf6f02d15618292c126":[12,0,86,202],
+"namespacempmod.html#a33e7585dc2943d8d4ed1022787a3f5a6":[12,0,86,80],
 "namespacempmod.html#a35bd9aa2a4c5b99227310b10bf934cc3":[12,0,86,12],
 "namespacempmod.html#a3688e8f65ab58bddfac03c3043166b24":[12,0,86,81],
 "namespacempmod.html#a36a3d618536d1c68b83256502a3f91b8":[12,0,86,110],
@@ -246,8 +249,5 @@ var NAVTREEINDEX83 =
 "namespacemuDIS__mergeFiles.html#a1a441eb731971198a418bf5e43b8498f":[12,0,91,0],
 "namespacemuDIS__mergeFiles.html#a2ad4e59b5b770f5e8954ae02a12b75c0":[12,0,91,3],
 "namespacemuDIS__mergeFiles.html#a500b25fa8ced3622c7a6fb33f4a5c4a9":[12,0,91,2],
-"namespacemuDIS__mergeFiles.html#a83f94c211fdeec0f62c2f112ef51da13":[12,0,91,4],
-"namespacemuDIS__mergeFiles.html#ae633d630389477c65ffb7896803ee8db":[12,0,91,1],
-"namespacemufiHitMaps.html":[12,0,94],
-"namespacemufiHitMaps.html#a015226becbaf17db3e1848bc41fe5e21":[12,0,94,2]
+"namespacemuDIS__mergeFiles.html#a83f94c211fdeec0f62c2f112ef51da13":[12,0,91,4]
 };

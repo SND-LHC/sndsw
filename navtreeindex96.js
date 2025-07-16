@@ -1,5 +1,8 @@
 var NAVTREEINDEX96 =
 {
+"readMilleBinary_8py.html#a3b46fcf9a120f9fcfbb08ddadd25c1ea":[14,0,9,0,0,15],
+"readMilleBinary_8py.html#a41a8aa4897eb6b21c171b8372de56c9b":[14,0,9,0,0,20],
+"readMilleBinary_8py.html#a462e2d6cc06ebf2246b5b3e39fbb8491":[14,0,9,0,0,5],
 "readMilleBinary_8py.html#a499d2098fb4fda70815bd8eca88900bc":[14,0,9,0,0,7],
 "readMilleBinary_8py.html#a4c927e06f252b79589e269062ba29b63":[14,0,9,0,0,2],
 "readMilleBinary_8py.html#a6a55a20ce62de62b6fab6432f7cfa2b9":[14,0,9,0,0,3],
@@ -246,8 +249,5 @@ var NAVTREEINDEX96 =
 "run__Calibration-rawTimestamp_8py_source.html":[14,0,20,1,10],
 "run__Monitoring_8py.html":[14,0,20,1,11],
 "run__Monitoring_8py.html#a055b44cf8da622f5b68ba881efb6f47f":[14,0,20,1,11,53],
-"run__Monitoring_8py.html#a0689f82d0846971eeeb0f9017923632f":[14,0,20,1,11,3],
-"run__Monitoring_8py.html#a08265ae03c8280b62b9656639463220a":[14,0,20,1,11,37],
-"run__Monitoring_8py.html#a135fa42e01f88d9ea339a946c27404d3":[14,0,20,1,11,46],
-"run__Monitoring_8py.html#a146073a2a7bd8ec7e369566574f0f8c3":[14,0,20,1,11,2]
+"run__Monitoring_8py.html#a0689f82d0846971eeeb0f9017923632f":[14,0,20,1,11,3]
 };

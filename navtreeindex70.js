@@ -1,5 +1,8 @@
 var NAVTREEINDEX70 =
 {
+"namespaceScifiCTR.html#af213d6b5539cbd9db345a4d0041f05e5":[12,0,141,21],
+"namespaceScifiCTR.html#af5c92dea68d9cb74fe6f92a8c3506637":[12,0,141,35],
+"namespaceScifiCTR.html#af72d853a11dd5265eb3594d61349ebea":[12,0,141,30],
 "namespaceScifiCluster.html":[12,0,140],
 "namespaceScifiCluster.html#a06bf8d7b0d9364f0d39cd524f4f1bfcd":[12,0,140,73],
 "namespaceScifiCluster.html#a083094558b980326f58f05b32a406b4e":[12,0,140,21],
@@ -246,8 +249,5 @@ var NAVTREEINDEX70 =
 "namespaceShipStyle.html#ace960c7b82800552889605f900ef71ff":[12,0,162,13],
 "namespaceShipStyle.html#ad9ca9021dae28cb264cf9ddda588922f":[12,0,162,7],
 "namespaceShipStyle.html#adc603c7968bedf3723679914b710a283":[12,0,162,4],
-"namespaceShipStyle.html#ae61f2cd355a1a4c44243b5fafe340000":[12,0,162,9],
-"namespaceShipUnit.html":[12,0,164],
-"namespaceSndlhcDigi.html":[12,0,173],
-"namespaceSndlhcDigi.html#a6cb09601edc39f995449a88dfb39aa19":[12,0,173,2]
+"namespaceShipStyle.html#ae61f2cd355a1a4c44243b5fafe340000":[12,0,162,9]
 };

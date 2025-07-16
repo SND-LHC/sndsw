@@ -1,5 +1,8 @@
 var NAVTREEINDEX68 =
 {
+"mufiHitMaps_8py.html#a54539278cf45ea4636c84e928d8a3f47":[14,0,20,0,4,21],
+"mufiHitMaps_8py.html#a54c8948dbb9deb9280df23b3dc670f2a":[14,0,20,0,4,1],
+"mufiHitMaps_8py.html#a56349c5d1b8d8e7fdc8a09c83f33c968":[14,0,20,0,4,10],
 "mufiHitMaps_8py.html#a565c1301283ed7930cd575060bb7ee26":[14,0,20,0,4,11],
 "mufiHitMaps_8py.html#a569c47d2bcc7faae41c2146a86043224":[14,0,20,0,4,15],
 "mufiHitMaps_8py.html#a57a39274ab8ee9b8407e23810ad8f4ab":[14,0,20,0,4,35],
@@ -246,8 +249,5 @@ var NAVTREEINDEX68 =
 "namespaceCalibration-TDC.html#a3ff5b77a16124e0360452524d008cca2":[12,0,9,2],
 "namespaceCalibration-TDC.html#a40b567bbb8ddb162245e48d3071d3dcc":[12,0,9,7],
 "namespaceCalibration-TDC.html#a4ca43c61d73d5152730d306b7aebbf63":[12,0,9,3],
-"namespaceCalibration-TDC.html#a517a855b3050fd62fd99741d757d339c":[12,0,9,22],
-"namespaceCalibration-TDC.html#a52ea6494bb3ef9df2e46ee5b8091bf65":[12,0,9,24],
-"namespaceCalibration-TDC.html#a5b85775fb31b19873535f7beef816046":[12,0,9,0],
-"namespaceCalibration-TDC.html#a5c23bbc266dd9945f86aec314681153f":[12,0,9,19]
+"namespaceCalibration-TDC.html#a517a855b3050fd62fd99741d757d339c":[12,0,9,22]
 };

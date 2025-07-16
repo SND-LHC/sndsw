@@ -1,5 +1,8 @@
 var NAVTREEINDEX95 =
 {
+"option_page.html#cmd-checkinput":[0,1,1,3],
+"option_page.html#cmd-chisqcut":[0,1,1,4],
+"option_page.html#cmd-closeandreopen":[0,1,1,6],
 "option_page.html#cmd-compress":[0,1,1,5],
 "option_page.html#cmd-constraint":[0,1,1,7],
 "option_page.html#cmd-debug":[0,1,1,8],
@@ -246,8 +249,5 @@ var NAVTREEINDEX95 =
 "readMilleBinary_8py.html#a086df2e53c3fe934fc143d7e368e8cb9":[14,0,9,0,0,6],
 "readMilleBinary_8py.html#a18936e419f4db5c3d318aa472886908c":[14,0,9,0,0,9],
 "readMilleBinary_8py.html#a245a306690ffb71682659a1d903d3f70":[14,0,9,0,0,10],
-"readMilleBinary_8py.html#a332b61af90ded4fd933e806d1c9eb683":[14,0,9,0,0,13],
-"readMilleBinary_8py.html#a3b46fcf9a120f9fcfbb08ddadd25c1ea":[14,0,9,0,0,15],
-"readMilleBinary_8py.html#a41a8aa4897eb6b21c171b8372de56c9b":[14,0,9,0,0,20],
-"readMilleBinary_8py.html#a462e2d6cc06ebf2246b5b3e39fbb8491":[14,0,9,0,0,5]
+"readMilleBinary_8py.html#a332b61af90ded4fd933e806d1c9eb683":[14,0,9,0,0,13]
 };
