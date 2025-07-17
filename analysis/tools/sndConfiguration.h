@@ -1,6 +1,9 @@
 #ifndef SND_CONFIGURATION_H
 #define SND_CONFIGURATION_H
 
+#include "Scifi.h"
+#include "MuFilter.h"
+
 namespace snd {
     struct Configuration
     {
@@ -12,35 +15,43 @@ namespace snd {
         test_beam_2024
     };
 
-    const double tdc_to_ns{6.25};
+    double tdc_to_ns;
     
     double scifi_qdc_to_gev;
+    double scifi_fiber_lenght;
+    double scifi_centroid_error_x;
+    double scifi_centroid_error_y;
+    double scifi_centroid_error_z;
+    double scifi_min_timestamp;
+    double scifi_max_timestamp;
+    // For plots
     double scifi_x_min;
     double scifi_x_max;
     double scifi_y_min;
     double scifi_y_max;
     double scifi_z_min;
     double scifi_z_max;
-    double scifi_centroid_error_x;
-    double scifi_centroid_error_y;
-    double scifi_centroid_error_z;
-    double scifi_min_timestamp;
-    double scifi_max_timestamp;
 
     double us_qdc_to_gev;
+    double us_centroid_error_x;
+    double us_centroid_error_y;
+    double us_centroid_error_z;
+    double us_min_timestamp;
+    double us_max_timestamp;
+    // For plots
     double us_x_min;
     double us_x_max;
     double us_y_min;
     double us_y_max;
     double us_z_min;
     double us_z_max;
-    double us_centroid_error_x;
-    double us_centroid_error_y;
-    double us_centroid_error_z;
-    double us_min_timestamp;
-    double us_max_timestamp;
 
-    double ds_spatial_resolution;
+    double ds_hor_spatial_resolution_x;
+    double ds_hor_spatial_resolution_y;
+    double ds_hor_spatial_resolution_z;
+    double ds_ver_spatial_resolution_x;
+    double ds_ver_spatial_resolution_y;
+    double ds_ver_spatial_resolution_z;
 
     int veto_n_stations;
     
@@ -61,8 +72,8 @@ namespace snd {
 
     int ds_n_stations;
 
-    Configuration(Option option);
-    static Configuration ChooseConfiguration(int run_number);
+    Configuration(Option option, Scifi *scifi_geometry, MuFilter *muon_filter_geometry);
+    static Option GetOption(int run_number);
     };
 }
 
