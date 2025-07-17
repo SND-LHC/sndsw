@@ -195,6 +195,9 @@ void EmulsionDet::ConstructGeometry()
 	
 	int NTungstenPlatesTB24 = conf_ints["EmulsionDet/n_tungsten_plates_tb24"];
 	bool testbeam_2024_setup = false;
+	if (NTungstenPlatesTB24 > 0) {
+	  testbeam_2024_setup = true;
+	}
 
 	TGeoVolume *top=gGeoManager->FindVolumeFast("Detector");
 	if(!top)  LOG(ERROR) << "no Detector volume found " ;

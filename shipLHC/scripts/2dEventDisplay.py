@@ -14,7 +14,12 @@ import numpy as np
 from datetime import datetime
 from pathlib import Path
 
+import logging
+logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.WARNING)
+logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.FATAL)
+
 ROOT.gStyle.SetPalette(ROOT.kViridis)
+ROOT.gInterpreter.ProcessLine('#include "'+os.environ['SNDSW_ROOT']+'/analysis/tools/sndSciFiTools.h"')
 
 def pyExit():
        "unfortunately need as bypassing an issue related to use xrootd"
@@ -35,12 +40,24 @@ parser.add_argument("-f", "--inputFile", dest="inputFile", help="input file data
 parser.add_argument("-g", "--geoFile", dest="geoFile", help="geofile", default=os.environ["EOSSHIP"]+"/eos/experiment/sndlhc/convertedData/physics/2022/geofile_sndlhc_TI18_V0_2022.root")
 parser.add_argument("-P", "--partition", dest="partition", help="partition of data", type=int,required=False,default=-1)
 parser.add_argument("--server", dest="server", help="xrootd server",default=os.environ["EOSSHIP"])
-parser.add_argument("-X", dest="extraInfo", help="print extra event info",default=True)
+parser.add_argument("--no-extraInfo", dest="extraInfo", action="store_false", help="Do not print extra information on the event.")
+
+parser.add_argument("--extension", help="Extension of file to save. E.g. png, pdf, root, etc.", default="png")
+parser.add_argument("--rootbatch", help="Run ROOT in batch mode.", action="store_true")
+
+parser.add_argument("--collision_axis", dest="drawCollAxis", help="Draw collision axis", action="store_true")
 
 parser.add_argument("-par", "--parFile", dest="parFile", help="parameter file", default=os.environ['SNDSW_ROOT']+"/python/TrackingParams.xml")
 parser.add_argument("-hf", "--HoughSpaceFormat", dest="HspaceFormat", help="Hough space representation. Should match the 'Hough_space_format' name in parFile, use quotes", default='linearSlopeIntercept')
 
 options = parser.parse_args()
+
+resolution_factor = 1
+if options.rootbatch:
+   ROOT.gROOT.SetBatch()
+   # Produce figures larger than the screen resolution. E.g., for printing.
+   resolution_factor = 2
+
 options.storePic = ''
 trans2local = False
 runInfo = False
@@ -296,12 +313,35 @@ def loopEvents(
               minSipmMult=1,
               withTiming=False,
               option=None,
-              Setup='',
+              Setup='TI18',
               verbose=0,
               auto=False,
-              hitColour=None
+              hitColour=None,
+              FilterScifiHits=None
               ):
- if 'simpleDisplay' not in h: ut.bookCanvas(h,key='simpleDisplay',title='simple event display',nx=1200,ny=1600,cx=1,cy=2)
+
+ # check the format of FilterScifiHits if set
+ if FilterScifiHits: 
+    important_keys = {"bins_x", "min_x", "max_x", "time_lower_range", "time_upper_range"}
+    all_keys = important_keys.copy()
+    all_keys.add("method")
+    filter_parameters = {"bins_x":52., "min_x":0., "max_x":26.,
+                         "time_lower_range":1E9/(2*u.snd_freq/u.hertz),
+                         "time_upper_range":2E9/(u.snd_freq/u.hertz),
+                         "method":0}
+    if FilterScifiHits!="default" and not important_keys.issubset(FilterScifiHits): 
+       logging.fatal("Invalid FilterScifiHits format. Two options are supported:\n"
+       "#1 FilterScifiHits = 'default'\nwhich sets the default parameters:\n"+
+       str(filter_parameters)+" or\n"
+       "#2 FilterScifiHits = filter_dictionary \nwhere filter_dictionary has all of the following keys\n"+
+       str(important_keys)+"\nAn additional key 'method' exists: its single supported value, also default, is 0.")
+       return
+    if FilterScifiHits!="default" and any(k not in all_keys for k in FilterScifiHits):
+       logging.warning("Ignoring provided keys other than "+str(all_keys))
+
+ if 'simpleDisplay' not in h: 
+    ut.bookCanvas(h,key='simpleDisplay',title='simple event display',nx=1200,ny=1600,cx=1,cy=2)
+
  h['simpleDisplay'].cd(1)
  # TI18 coordinate system
  zStart = 250.
@@ -403,7 +443,29 @@ def loopEvents(
     if nAlltracks > 0: print('total number of tracks: ', nAlltracks)
 
     digis = []
-    if event.FindBranch("Digi_ScifiHits"): digis.append(event.Digi_ScifiHits)
+    if event.FindBranch("Digi_ScifiHits"):
+       method = 0
+       if FilterScifiHits!=None and FilterScifiHits!="default":
+          filter_parameters = {k: FilterScifiHits[k] for k in important_keys if k in FilterScifiHits}
+          method = FilterScifiHits.get("method", 0) # set to the default 0, if item is not provided
+       if FilterScifiHits and (Setup=="TI18" or Setup=="H8" or Setup=="H4"):
+          setup = Setup
+          # Only H8 is explicitly supported in the SciFi tools. However, the same baby SciFi
+          # system was reused in H4. It is then safe to use the SciFi tools for H4 as well.
+          if Setup =="H4":
+            setup ="H8"
+          # Convert the filter_parameters to the needed std.map format
+          selection_parameters = ROOT.std.map('string', 'float')()
+          selection_parameters["bins_x"] = float(filter_parameters["bins_x"])
+          selection_parameters["min_x"] = float(filter_parameters["min_x"])
+          selection_parameters["max_x"] = float(filter_parameters["max_x"])
+          selection_parameters["time_lower_range"] = float(filter_parameters["time_lower_range"])
+          selection_parameters["time_upper_range"] = float(filter_parameters["time_upper_range"])
+          digis.append(ROOT.snd.analysis_tools.filterScifiHits(event.Digi_ScifiHits,selection_parameters,method,setup,mc))
+       else:
+          if FilterScifiHits:
+             logging.warning(Setup+" is not supported for the time-filtering of SciFi hits, using all hits instead.")
+          digis.append(event.Digi_ScifiHits)
     if event.FindBranch("Digi_MuFilterHits"): digis.append(event.Digi_MuFilterHits)
     if event.FindBranch("Digi_MuFilterHit"): digis.append(event.Digi_MuFilterHit)
     empty = True
@@ -440,6 +502,10 @@ def loopEvents(
        rc = h[ 'simpleDisplay'].cd(p)
        h[proj[p]].Draw('b')
 
+    if options.drawCollAxis:
+       for k in proj:
+          drawCollisionAxis(h['simpleDisplay'], k)
+       
     if withDetector:
       drawDetectors()
     for D in digis:
@@ -576,18 +642,20 @@ def loopEvents(
     if verbose>0: dumpChannels()
     userProcessing(event)
 
-    if save: h['simpleDisplay'].Print('{:0>2d}-event_{:04d}'.format(runId,N)+'.png')
+    if save:
+        h['simpleDisplay'].Print('{:0>2d}-event_{:04d}'.format(runId, N) + '.' + options.extension)
     if auto:
-        h['simpleDisplay'].Print(options.storePic+str(runId)+'-event_'+str(event.EventHeader.GetEventNumber())+'.png')
+        h['simpleDisplay'].Print(options.storePic + str(runId) + '-event_' + str(event.EventHeader.GetEventNumber()) + '.' + options.extension)
     if not auto:
        rc = input("hit return for next event or p for print or q for quit: ")
        if rc=='p': 
-             h['simpleDisplay'].Print(options.storePic+str(runId)+'-event_'+str(event.EventHeader.GetEventNumber())+'.png')
+           h['simpleDisplay'].Print(options.storePic + str(runId) + '-event_' + str(event.EventHeader.GetEventNumber()) + '.' + options.extension)
        elif rc == 'q':
           break
        else:
           eventComment[f"{runId}-event_{event.EventHeader.GetEventNumber()}"] = rc
- if save: os.system("convert -delay 60 -loop 0 event*.png animated.gif")
+ if save:
+     os.system("convert -delay 60 -loop 0 event*." + options.extension + " animated.gif")
 
 def addTrack(OT,scifi=False):
    xax = h['xz'].GetXaxis()
@@ -1094,7 +1162,6 @@ def drawInfo(pad, k, run, event, timestamp,moreEventInfo=[]):
       padLogo.Draw()
       logo = ROOT.TImage.Open('$SNDSW_ROOT/shipLHC/Large__SND_Logo_black_cut.png')
       logo.SetConstRatio(True)
-      logo.DrawText(0, 0, 'SND', 98)
       padLogo.cd()
       logo.Draw()
       pad.cd(k)
@@ -1137,3 +1204,22 @@ def drawInfo(pad, k, run, event, timestamp,moreEventInfo=[]):
         textInfo.DrawLatex(0.4, 0.9-dely*i, moreEventInfo[i])
       pad.cd(k)
 
+def drawCollisionAxis(pad, k):
+   line_name = "collision_axis_line_" + str(k)
+   h[line_name] = ROOT.TLine(h["zmin"], 0, h["zmax"], 0)
+   h[line_name].SetLineColor(ROOT.kRed)
+   h[line_name].SetLineStyle(2)
+
+   text_name = "collision_axis_text_" + str(k)
+   h[text_name] = ROOT.TText(h["zmin"] + 8, 0 + 2, "Collision axis")
+   h[text_name].SetTextAlign(12)
+   h[text_name].SetTextFont(43)
+   h[text_name].SetTextSize(13 * resolution_factor)
+   h[text_name].SetTextColor(ROOT.kRed)   
+   
+   pad.cd(k)
+   h[line_name].Draw()
+   h[text_name].Draw()
+
+   
+       
