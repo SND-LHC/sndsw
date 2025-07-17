@@ -12,7 +12,7 @@ snd::Configuration::Configuration(Option option, Scifi *scifi_geometry, MuFilter
     // Parameters from geometry
     scifi_n_stations = scifi_geometry->GetConfParI("Scifi/nscifi");
     scifi_boards_per_plane = scifi_geometry->GetConfParI("Scifi/nmats");
-    scifi_n_channels_per_plane = scifi_n_stations * scifi_boards_per_plane;
+    scifi_n_channels_per_plane = scifi_geometry->GetConfParI("Scifi/nsipm_channels") * scifi_geometry->GetConfParI("Scifi/nmats") * scifi_geometry->GetConfParI("Scifi/nsipm_mat");
     scifi_fiber_lenght = scifi_geometry->GetConfParF("Scifi/fiber_length");
     scifi_centroid_error_x = scifi_geometry->GetConfParF("Scifi/channel_width");
     scifi_centroid_error_y = scifi_geometry->GetConfParF("Scifi/channel_width");

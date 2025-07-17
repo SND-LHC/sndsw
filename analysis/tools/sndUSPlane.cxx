@@ -56,22 +56,21 @@ void snd::analysis_tools::USPlane::FindCentroid()
     {
         for (const auto &hit : hits_)
         {
-            // weigthed sum for y and z
+            // weigthed sum
             double  weighted_sum_x{0.0}, weighted_sum_y{0.0}, weighted_sum_z{0.0};
-            double total_qdc{0.0};
-            for (const auto &hit : hits_)
+            double total_qdc_positive{0.0};
+
+            if (hit.qdc > 0.0)
             {
-                if (hit.qdc > 0.0)
-                {
-                    weighted_sum_x += hit.x * hit.qdc;
-                    weighted_sum_y += hit.y * hit.qdc;
-                    weighted_sum_z += hit.z * hit.qdc;
-                    total_qdc += hit.qdc;
-                }
+                weighted_sum_x += hit.x * hit.qdc;
+                weighted_sum_y += hit.y * hit.qdc;
+                weighted_sum_z += hit.z * hit.qdc;
+                total_qdc_positive += hit.qdc;
             }
-            double x = weighted_sum_x / total_qdc;
-            double y = weighted_sum_y / total_qdc;
-            double z = weighted_sum_z / total_qdc;
+
+            double x = weighted_sum_x / total_qdc_positive;
+            double y = weighted_sum_y / total_qdc_positive;
+            double z = weighted_sum_z / total_qdc_positive;
             centroid_.SetXYZ(x, y, z);
         }
     }
