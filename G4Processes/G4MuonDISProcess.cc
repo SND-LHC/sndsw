@@ -224,9 +224,13 @@ G4double G4MuonDISProcess::PostStepGetPhysicalInteractionLength(const G4Track &t
          // density relative to Prob largest density along this trajectory, i.e. use rho(Pt)
          prob2int = material->GetDensity() / max_density;
          if (prob2int > 1.) {
-            LOG(WARNING) << "MuDISGenerator: prob2int > Maximum density????" << prob2int
-                         << " maxrho along path in [z_start, z_end]:" << max_density
-                         << " material: " << material->GetName();
+            LOG(WARNING) << "MuDISGenerator: prob2int > Maximum density???? " << prob2int
+                         << " maxrho along path in [z_start, z_end]: " << max_density
+                         << " material: " << material->GetName()
+                         << " full path: " << gGeoManager->GetPath()
+                         << "\ncurrent pos " << pos
+                         << "\nstart pos " << start[0] << " " << start[1] << " " << start[2]
+                         << "\nend pos " << end[0] << " " << end[1] << " " << end[2];
          }
          // Reset navigator again
          gGeoManager->CdTop(); // go to top volume
