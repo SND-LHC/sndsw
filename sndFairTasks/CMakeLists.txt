@@ -29,6 +29,7 @@ set(SRCS
 DigiTaskSND.cxx
 ConvRawData.cxx
 boardMappingParser.cxx
+MCEventBuilder.cxx
 )
 
 Set(HEADERS)
