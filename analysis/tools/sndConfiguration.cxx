@@ -16,7 +16,7 @@ snd::Configuration::Configuration(Option option, Scifi *scifi_geometry, MuFilter
     scifi_fiber_lenght = scifi_geometry->GetConfParF("Scifi/fiber_length");
     scifi_centroid_error_x = scifi_geometry->GetConfParF("Scifi/channel_width");
     scifi_centroid_error_y = scifi_geometry->GetConfParF("Scifi/channel_width");
-    scifi_centroid_error_z = scifi_geometry->GetConfParF("Scifi/channel_width") * scifi_geometry->GetConfParF("Scifi/nfibers_z");
+    scifi_centroid_error_z = scifi_geometry->GetConfParF("Scifi/channel_height");
 
     veto_n_stations = muon_filter_geometry->GetConfParI("MuFilter/NVetoPlanes");
 
@@ -37,7 +37,6 @@ snd::Configuration::Configuration(Option option, Scifi *scifi_geometry, MuFilter
     ds_ver_spatial_resolution_z = muon_filter_geometry->GetConfParF("MuFilter/DownstreamBarZ_ver") / std::sqrt(12);
 
     // Common parameters not present in geometry
-    tdc_to_ns = 6.25;
     scifi_min_timestamp = -0.5;
     scifi_max_timestamp = 0.5;
     us_min_timestamp = -0.5;

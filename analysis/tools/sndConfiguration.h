@@ -14,8 +14,6 @@ namespace snd {
         test_beam_2023, 
         test_beam_2024
     };
-
-    double tdc_to_ns;
     
     double scifi_qdc_to_gev;
     double scifi_fiber_lenght;
