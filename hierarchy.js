@@ -55,6 +55,7 @@ var hierarchy =
     [ "DriftTubes::ChannelId", "structDriftTubes_1_1ChannelId.html", null ],
     [ "hnl.CKMmatrix", "classhnl_1_1CKMmatrix.html", null ],
     [ "Co3Rng", "classCo3Rng.html", null ],
+    [ "snd::Configuration", "structsnd_1_1Configuration.html", null ],
     [ "hnl.constants", "classhnl_1_1constants.html", null ],
     [ "rpvsusy.constants", "classrpvsusy_1_1constants.html", null ],
     [ "darkphoton.DarkPhoton", "classdarkphoton_1_1DarkPhoton.html", null ],
@@ -319,6 +320,7 @@ var hierarchy =
     [ "regression", "structregression.html", null ],
     [ "reverseMapping.reversChannelMapping", "classreverseMapping_1_1reversChannelMapping.html", null ],
     [ "genfit::RKStep", "structgenfit_1_1RKStep.html", null ],
+    [ "snd::analysis_tools::USPlane::rl_pair< T >", "structsnd_1_1analysis__tools_1_1USPlane_1_1rl__pair.html", null ],
     [ "Pythia8::RndmEngine", null, [
       [ "PyTr1Rng", "classPyTr1Rng.html", null ],
       [ "PyTr3Rng", "classPyTr3Rng.html", null ]
@@ -330,8 +332,11 @@ var hierarchy =
     [ "ScalarFrame", "structScalarFrame.html", null ],
     [ "ScifiCluster.ScifiCluster", "classScifiCluster_1_1ScifiCluster.html", null ],
     [ "SciFiDataFrame", "structSciFiDataFrame.html", null ],
+    [ "snd::analysis_tools::ScifiPlane::ScifiHit", "structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit.html", null ],
+    [ "snd::analysis_tools::ScifiPlane", "classsnd_1_1analysis__tools_1_1ScifiPlane.html", null ],
     [ "shipDigiReco.ShipDigiReco", "classshipDigiReco_1_1ShipDigiReco.html", null ],
     [ "ShipGeo.ShipGeo", "classShipGeo_1_1ShipGeo.html", null ],
+    [ "snd::analysis_tools::USPlane::sl_pair< T >", "structsnd_1_1analysis__tools_1_1USPlane_1_1sl__pair.html", null ],
     [ "SndlhcDigi.SndlhcDigi", "classSndlhcDigi_1_1SndlhcDigi.html", null ],
     [ "genfit::StepLimits", "classgenfit_1_1StepLimits.html", null ],
     [ "shipPid.Task", "classshipPid_1_1Task.html", null ],
@@ -463,9 +468,12 @@ var hierarchy =
     [ "pickle.Unpickler", null, [
       [ "rootpyPickler.Unpickler", "classrootpyPickler_1_1Unpickler.html", null ]
     ] ],
+    [ "snd::analysis_tools::USPlane::USHit", "structsnd_1_1analysis__tools_1_1USPlane_1_1USHit.html", null ],
+    [ "snd::analysis_tools::USPlane", "classsnd_1_1analysis__tools_1_1USPlane.html", null ],
     [ "gbl::VMatrix", "classgbl_1_1VMatrix.html", null ],
     [ "gbl::VSymMatrix", "classgbl_1_1VSymMatrix.html", null ],
     [ "gbl::VVector", "classgbl_1_1VVector.html", null ],
+    [ "snd::analysis_tools::ScifiPlane::xy_pair< T >", "structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html", null ],
     [ "Document", null, [
       [ "conditionsDatabase.databases.mongodb.models.detectorWrapper.DetectorWrapper", "classconditionsDatabase_1_1databases_1_1mongodb_1_1models_1_1detectorWrapper_1_1DetectorWrapper.html", null ]
     ] ],

@@ -18,7 +18,7 @@ var searchData=
   ['uran_15',['uran',['../randoms_8f90.html#a02d661f95dca7e6597206cff5bb36fa9',1,'randoms.f90']]],
   ['usdsenergy_16',['USDSEnergy',['../namespaceSurvey-MufiScifi.html#a37e2bfdd20dc2ad8c0b35aa6162260a4',1,'Survey-MufiScifi']]],
   ['usecache_17',['usecache',['../classgenfit_1_1FieldManager.html#ae2127405db832936bdacc9c33ad04f1e',1,'genfit::FieldManager::useCache(bool opt=true, unsigned int nBuckets=8)'],['../classgenfit_1_1FieldManager.html#ae2127405db832936bdacc9c33ad04f1e',1,'genfit::FieldManager::useCache(bool opt=true, unsigned int nBuckets=8)']]],
-  ['usedeepcopy_18',['usedeepcopy',['../classHNLPythia8Generator.html#af7588a6cbdec62a69fad17e79774678c',1,'HNLPythia8Generator::UseDeepCopy()'],['../classDPPythia8Generator.html#a01a421c64a1ddc7904529672e65a6f47',1,'DPPythia8Generator::UseDeepCopy()'],['../classtPythia6Generator.html#a299d4f4bec3f4f2f3492d634452f8a7f',1,'tPythia6Generator::UseDeepCopy()']]],
+  ['usedeepcopy_18',['usedeepcopy',['../classtPythia6Generator.html#a299d4f4bec3f4f2f3492d634452f8a7f',1,'tPythia6Generator::UseDeepCopy()'],['../classDPPythia8Generator.html#a01a421c64a1ddc7904529672e65a6f47',1,'DPPythia8Generator::UseDeepCopy()'],['../classHNLPythia8Generator.html#af7588a6cbdec62a69fad17e79774678c',1,'HNLPythia8Generator::UseDeepCopy()']]],
   ['useexternalfile_19',['useexternalfile',['../classPythia8Generator.html#acffe3c4053cea5e523e8605eb29d8e4b',1,'Pythia8Generator::UseExternalFile()'],['../classHNLPythia8Generator.html#a62bcd3a347bd5d0f3211389190d9be82',1,'HNLPythia8Generator::UseExternalFile()'],['../classDPPythia8Generator.html#afe248e9ae3c822f3b6310d2894323dbb',1,'DPPythia8Generator::UseExternalFile()']]],
   ['usefficiency_20',['USEfficiency',['../namespacemufiHitMaps.html#ae7e4b5df32b61f99d70a6587d7705766',1,'mufiHitMaps']]],
   ['userandom1_21',['userandom1',['../classDPPythia8Generator.html#ab4c1edc6b0d596bb683bf06696a3cdba',1,'DPPythia8Generator::UseRandom1()'],['../classFixedTargetGenerator.html#a19a2c4d106fac196fa4f874edc09c3b9',1,'FixedTargetGenerator::UseRandom1()'],['../classHNLPythia8Generator.html#af5c3daa98bc8428d66a7569e3c60c0f9',1,'HNLPythia8Generator::UseRandom1()'],['../classPythia8Generator.html#aceb1443f87222964e0d7885b23d85549',1,'Pythia8Generator::UseRandom1()']]],
@@ -27,6 +27,7 @@ var searchData=
   ['usersteppingaction_24',['usersteppingaction',['../classg4Ex__args_1_1MySteppingAction.html#aff96d8d24444908bb2d5dd349a868ecd',1,'g4Ex_args.MySteppingAction.UserSteppingAction()'],['../classg4Ex__gap_1_1MySteppingAction.html#a8aaf84d995520342a0949a90e2287bd9',1,'g4Ex_gap.MySteppingAction.UserSteppingAction()'],['../classg4Ex_1_1MySteppingAction.html#af228919c375ca4e6ffe0f9c0713df739',1,'g4Ex.MySteppingAction.UserSteppingAction()']]],
   ['usesquarerootformalism_25',['useSquareRootFormalism',['../classgenfit_1_1KalmanFitter.html#a6e0f43ff3a4d4a72764494ec72ec32ee',1,'genfit::KalmanFitter']]],
   ['usesymmetry_26',['UseSymmetry',['../classShipBFieldMap.html#a8ce60bff834f49ad519b0d381bae4333',1,'ShipBFieldMap']]],
-  ['usqdccut_27',['USQDCCut',['../classsnd_1_1analysis__cuts_1_1USQDCCut.html#a0b8f3566afe8c227a33e5995f2e285d5',1,'snd::analysis_cuts::USQDCCut']]],
-  ['usshower_28',['USshower',['../namespaceSurvey-MufiScifi.html#a7be5ab13ee936c2ca1538b4223c218a0',1,'Survey-MufiScifi']]]
+  ['usplane_27',['USPlane',['../classsnd_1_1analysis__tools_1_1USPlane.html#a74c31b4553cce57da9d3644f00886455',1,'snd::analysis_tools::USPlane']]],
+  ['usqdccut_28',['USQDCCut',['../classsnd_1_1analysis__cuts_1_1USQDCCut.html#a0b8f3566afe8c227a33e5995f2e285d5',1,'snd::analysis_cuts::USQDCCut']]],
+  ['usshower_29',['USshower',['../namespaceSurvey-MufiScifi.html#a7be5ab13ee936c2ca1538b4223c218a0',1,'Survey-MufiScifi']]]
 ];

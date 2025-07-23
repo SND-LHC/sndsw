@@ -1,0 +1,7 @@
+<map id="snd::analysis_tools::ScifiPlane" name="snd::analysis_tools::ScifiPlane">
+<area shape="rect" id="Node000001" title=" " alt="" coords="69,108,215,148"/>
+<area shape="rect" id="Node000002" href="$structsnd_1_1Configuration.html" title=" " alt="" coords="5,5,145,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="76,44,78,64,84,83,107,106,103,110,80,85,72,65,71,44"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="169,5,248,31"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="202,45,182,85,163,109,159,106,177,83,197,42"/>
+</map>

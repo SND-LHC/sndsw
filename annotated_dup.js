@@ -275,7 +275,12 @@ var annotated_dup =
         [ "sciFiStationCut", "classsnd_1_1analysis__cuts_1_1sciFiStationCut.html", "classsnd_1_1analysis__cuts_1_1sciFiStationCut" ],
         [ "USQDCCut", "classsnd_1_1analysis__cuts_1_1USQDCCut.html", "classsnd_1_1analysis__cuts_1_1USQDCCut" ],
         [ "vetoCut", "classsnd_1_1analysis__cuts_1_1vetoCut.html", "classsnd_1_1analysis__cuts_1_1vetoCut" ]
-      ] ]
+      ] ],
+      [ "analysis_tools", "namespacesnd_1_1analysis__tools.html", [
+        [ "ScifiPlane", "classsnd_1_1analysis__tools_1_1ScifiPlane.html", "classsnd_1_1analysis__tools_1_1ScifiPlane" ],
+        [ "USPlane", "classsnd_1_1analysis__tools_1_1USPlane.html", "classsnd_1_1analysis__tools_1_1USPlane" ]
+      ] ],
+      [ "Configuration", "structsnd_1_1Configuration.html", "structsnd_1_1Configuration" ]
     ] ],
     [ "SndlhcDigi", "namespaceSndlhcDigi.html", [
       [ "SndlhcDigi", "classSndlhcDigi_1_1SndlhcDigi.html", "classSndlhcDigi_1_1SndlhcDigi" ]

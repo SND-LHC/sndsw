@@ -43,7 +43,7 @@ var searchData=
   ['makertrelations_40',['makeRTrelations',['../namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#af91b2b8f8b82e3c74b6149ccd25c5574',1,'conditionsDatabase::demo::drifttubeMonitoring']]],
   ['makertrelpersistent_41',['makeRTrelPersistent',['../namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a5711223520353f104c1db44ecf65c62f',1,'conditionsDatabase::demo::drifttubeMonitoring']]],
   ['makesegments_42',['MakeSegments',['../classveto.html#ab0997acf4fb3333c94cde5668ca88d7b',1,'veto']]],
-  ['makesensitive_43',['makesensitive',['../classFloor.html#afe80cd6812b13ba619cfce26f0e3ca02',1,'Floor::MakeSensitive()'],['../classstudy__GammaConv_1_1Block.html#a9ce2f869c5f3c4561793883795e7fdee',1,'study_GammaConv.Block.makeSensitive()']]],
+  ['makesensitive_43',['makesensitive',['../classstudy__GammaConv_1_1Block.html#a9ce2f869c5f3c4561793883795e7fdee',1,'study_GammaConv.Block.makeSensitive()'],['../classFloor.html#afe80cd6812b13ba619cfce26f0e3ca02',1,'Floor::MakeSensitive()']]],
   ['makesplines_44',['makeSplines',['../namespacemakeGenieEvents.html#a51ee08e532e9a864c9dc5b6aefd234ac',1,'makeGenieEvents']]],
   ['makesummaryplot_45',['makeSummaryPlot',['../namespacestudy__muEloss.html#a6049755551eb75a912a79a6c3129c2f1',1,'study_muEloss']]],
   ['manipulatephysics_46',['manipulatePhysics',['../namespacepythia8darkphoton__conf.html#a7aa8f7540430e7572460a9e92b5082e3',1,'pythia8darkphoton_conf']]],

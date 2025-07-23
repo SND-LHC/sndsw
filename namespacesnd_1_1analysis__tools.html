@@ -90,11 +90,19 @@ $(document).ready(function(){initNavTree('namespacesnd_1_1analysis__tools.html',
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">snd::analysis_tools Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html">ScifiPlane</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsnd_1_1analysis__tools_1_1USPlane.html">USPlane</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:af9dc94b86e9ace9b75641ffdce56ce29" id="r_af9dc94b86e9ace9b75641ffdce56ce29"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesnd_1_1analysis__tools.html#af9dc94b86e9ace9b75641ffdce56ce29">GetGeoPath</a> (const std::string &amp;csv_file_path, int run_number)</td></tr>
@@ -103,6 +111,10 @@ Functions</h2></td></tr>
 <tr class="separator:ac8ac5e58c7b25c02f701f2aaebd3cb50"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a54f54b504a754e266119954a1541d4d4" id="r_a54f54b504a754e266119954a1541d4d4"><td class="memItemLeft" align="right" valign="top">std::pair&lt; <a class="el" href="classScifi.html">Scifi</a> *, <a class="el" href="classMuFilter.html">MuFilter</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesnd_1_1analysis__tools.html#a54f54b504a754e266119954a1541d4d4">GetGeometry</a> (const std::string &amp;csv_file_path, int run_number)</td></tr>
 <tr class="separator:a54f54b504a754e266119954a1541d4d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b8d5076a98f5ad030ea9e19de318532" id="r_a1b8d5076a98f5ad030ea9e19de318532"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html">ScifiPlane</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesnd_1_1analysis__tools.html#a1b8d5076a98f5ad030ea9e19de318532">FillScifi</a> (const <a class="el" href="structsnd_1_1Configuration.html">Configuration</a> &amp;configuration, TClonesArray *sf_hits, <a class="el" href="classScifi.html">Scifi</a> *scifi_geometry)</td></tr>
+<tr class="separator:a1b8d5076a98f5ad030ea9e19de318532"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39d6b49491d4a739d88c1e370492e2cf" id="r_a39d6b49491d4a739d88c1e370492e2cf"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classsnd_1_1analysis__tools_1_1USPlane.html">USPlane</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesnd_1_1analysis__tools.html#a39d6b49491d4a739d88c1e370492e2cf">FillUS</a> (const <a class="el" href="structsnd_1_1Configuration.html">Configuration</a> &amp;configuration, TClonesArray *mufi_hits, <a class="el" href="classMuFilter.html">MuFilter</a> *mufilter_geometry)</td></tr>
+<tr class="separator:a39d6b49491d4a739d88c1e370492e2cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4366cddb81edce8fb50a4dedd3875e84" id="r_a4366cddb81edce8fb50a4dedd3875e84"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesnd_1_1analysis__tools.html#a4366cddb81edce8fb50a4dedd3875e84">getSciFiHitsPerStation</a> (const TClonesArray *digiHits, std::vector&lt; int &gt; &amp;horizontal_hits, std::vector&lt; int &gt; &amp;vertical_hits)</td></tr>
 <tr class="separator:a4366cddb81edce8fb50a4dedd3875e84"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add38a36ae42dce4c3e48621c2c4d0b23" id="r_add38a36ae42dce4c3e48621c2c4d0b23"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesnd_1_1analysis__tools.html#add38a36ae42dce4c3e48621c2c4d0b23">getTotalSciFiHits</a> (std::vector&lt; int &gt; &amp;horizontal_hits, std::vector&lt; int &gt; &amp;vertical_hits)</td></tr>
@@ -367,6 +379,137 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  421</span> </div>
 <div class="line"><span class="lineno">  422</span>   <span class="keywordflow">return</span> hit_density;</div>
 <div class="line"><span class="lineno">  423</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a1b8d5076a98f5ad030ea9e19de318532" name="a1b8d5076a98f5ad030ea9e19de318532"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b8d5076a98f5ad030ea9e19de318532">&#9670;&#160;</a></span>FillScifi()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html">snd::analysis_tools::ScifiPlane</a> &gt; snd::analysis_tools::FillScifi </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structsnd_1_1Configuration.html">Configuration</a> &amp;&#160;</td>
+          <td class="paramname"><em>configuration</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TClonesArray *&#160;</td>
+          <td class="paramname"><em>sf_hits</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classScifi.html">Scifi</a> *&#160;</td>
+          <td class="paramname"><em>scifi_geometry</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="sndPlaneTools_8cxx_source.html#l00014">14</a> of file <a class="el" href="sndPlaneTools_8cxx_source.html">sndPlaneTools.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   15</span>{</div>
+<div class="line"><span class="lineno">   16</span> </div>
+<div class="line"><span class="lineno">   17</span>  std::vector&lt;snd::analysis_tools::ScifiPlane&gt; scifi_planes;</div>
+<div class="line"><span class="lineno">   18</span> </div>
+<div class="line"><span class="lineno">   19</span>  <span class="keywordtype">int</span> begin{0};</div>
+<div class="line"><span class="lineno">   20</span>  <span class="keywordtype">int</span> count{0};</div>
+<div class="line"><span class="lineno">   21</span> </div>
+<div class="line"><span class="lineno">   22</span>  <span class="keywordtype">int</span> n_sf_hits{sf_hits-&gt;GetEntries()};</div>
+<div class="line"><span class="lineno">   23</span> </div>
+<div class="line"><span class="lineno">   24</span>  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> st{1}; st &lt;= configuration.<a class="code hl_variable" href="structsnd_1_1Configuration.html#ad5cdcc8a4612043414960c1e588fe7c5">scifi_n_stations</a>; ++st)</div>
+<div class="line"><span class="lineno">   25</span>  {</div>
+<div class="line"><span class="lineno">   26</span>    begin = <a class="code hl_variable" href="namespaceconditionsDatabase_1_1getconditions__condDB.html#ada36c3d9fe2448340f6f292f33ea72ae">count</a>;</div>
+<div class="line"><span class="lineno">   27</span>    <span class="keywordflow">while</span> (count &lt; n_sf_hits &amp;&amp;</div>
+<div class="line"><span class="lineno">   28</span>           st == <span class="keyword">static_cast&lt;</span><a class="code hl_class" href="classsndScifiHit.html">sndScifiHit</a> *<span class="keyword">&gt;</span>(sf_hits-&gt;At(count))-&gt;<a class="code hl_function" href="classsndScifiHit.html#a18eb9526024996df83366096a1e41b0b">GetStation</a>())</div>
+<div class="line"><span class="lineno">   29</span>    {</div>
+<div class="line"><span class="lineno">   30</span>      ++<a class="code hl_variable" href="namespaceconditionsDatabase_1_1getconditions__condDB.html#ada36c3d9fe2448340f6f292f33ea72ae">count</a>;</div>
+<div class="line"><span class="lineno">   31</span>    }</div>
+<div class="line"><span class="lineno">   32</span>    scifi_planes.emplace_back(<a class="code hl_class" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html">snd::analysis_tools::ScifiPlane</a>(sf_hits, configuration, scifi_geometry, begin, count, st));</div>
+<div class="line"><span class="lineno">   33</span>  }</div>
+<div class="line"><span class="lineno">   34</span>  <span class="keywordflow">return</span> scifi_planes;</div>
+<div class="line"><span class="lineno">   35</span>}</div>
+<div class="ttc" id="aclasssndScifiHit_html_a18eb9526024996df83366096a1e41b0b"><div class="ttname"><a href="classsndScifiHit.html#a18eb9526024996df83366096a1e41b0b">sndScifiHit::GetStation</a></div><div class="ttdeci">Int_t GetStation()</div><div class="ttdef"><b>Definition</b> <a href="sndScifiHit_8h_source.html#l00031">sndScifiHit.h:31</a></div></div>
+<div class="ttc" id="aclasssnd_1_1analysis__tools_1_1ScifiPlane_html"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1ScifiPlane.html">snd::analysis_tools::ScifiPlane</a></div><div class="ttdef"><b>Definition</b> <a href="sndScifiPlane_8h_source.html#l00013">sndScifiPlane.h:14</a></div></div>
+<div class="ttc" id="anamespaceconditionsDatabase_1_1getconditions__condDB_html_ada36c3d9fe2448340f6f292f33ea72ae"><div class="ttname"><a href="namespaceconditionsDatabase_1_1getconditions__condDB.html#ada36c3d9fe2448340f6f292f33ea72ae">conditionsDatabase.getconditions_condDB.count</a></div><div class="ttdeci">int count</div><div class="ttdef"><b>Definition</b> <a href="getconditions__condDB_8py_source.html#l00039">getconditions_condDB.py:39</a></div></div>
+<div class="ttc" id="astructsnd_1_1Configuration_html_ad5cdcc8a4612043414960c1e588fe7c5"><div class="ttname"><a href="structsnd_1_1Configuration.html#ad5cdcc8a4612043414960c1e588fe7c5">snd::Configuration::scifi_n_stations</a></div><div class="ttdeci">int scifi_n_stations</div><div class="ttdef"><b>Definition</b> <a href="sndConfiguration_8h_source.html#l00056">sndConfiguration.h:56</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a39d6b49491d4a739d88c1e370492e2cf" name="a39d6b49491d4a739d88c1e370492e2cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39d6b49491d4a739d88c1e370492e2cf">&#9670;&#160;</a></span>FillUS()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="classsnd_1_1analysis__tools_1_1USPlane.html">snd::analysis_tools::USPlane</a> &gt; snd::analysis_tools::FillUS </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structsnd_1_1Configuration.html">Configuration</a> &amp;&#160;</td>
+          <td class="paramname"><em>configuration</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TClonesArray *&#160;</td>
+          <td class="paramname"><em>mufi_hits</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classMuFilter.html">MuFilter</a> *&#160;</td>
+          <td class="paramname"><em>mufilter_geometry</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="sndPlaneTools_8cxx_source.html#l00037">37</a> of file <a class="el" href="sndPlaneTools_8cxx_source.html">sndPlaneTools.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   38</span>{</div>
+<div class="line"><span class="lineno">   39</span> </div>
+<div class="line"><span class="lineno">   40</span>  std::vector&lt;snd::analysis_tools::USPlane&gt; us_planes;</div>
+<div class="line"><span class="lineno">   41</span> </div>
+<div class="line"><span class="lineno">   42</span>  <span class="keywordtype">int</span> begin{0};</div>
+<div class="line"><span class="lineno">   43</span>  <span class="keywordtype">int</span> count{0};</div>
+<div class="line"><span class="lineno">   44</span> </div>
+<div class="line"><span class="lineno">   45</span>  <span class="keywordtype">int</span> n_mufi_hits{mufi_hits-&gt;GetEntries()};</div>
+<div class="line"><span class="lineno">   46</span>  <span class="comment">// skip veto/beam monitor</span></div>
+<div class="line"><span class="lineno">   47</span>  <span class="keywordflow">while</span> (count &lt; n_mufi_hits &amp;&amp;</div>
+<div class="line"><span class="lineno">   48</span>         <span class="keyword">static_cast&lt;</span><a class="code hl_class" href="classMuFilterHit.html">MuFilterHit</a> *<span class="keyword">&gt;</span>(mufi_hits-&gt;At(count))-&gt;<a class="code hl_function" href="classMuFilterHit.html#aa53b551caf7ff397426665e7106e3e15">GetSystem</a>() != 2)</div>
+<div class="line"><span class="lineno">   49</span>  {</div>
+<div class="line"><span class="lineno">   50</span>    ++<a class="code hl_variable" href="namespaceconditionsDatabase_1_1getconditions__condDB.html#ada36c3d9fe2448340f6f292f33ea72ae">count</a>;</div>
+<div class="line"><span class="lineno">   51</span>  }</div>
+<div class="line"><span class="lineno">   52</span>  <span class="comment">// plane count starts from 0</span></div>
+<div class="line"><span class="lineno">   53</span>  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> pl{0}; <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#abfcc1d81eb487e6b40dc8426c8afd8d2">pl</a> &lt; configuration.<a class="code hl_variable" href="structsnd_1_1Configuration.html#a84f6db4454772f74bb7b15ee8b9c1819">us_n_stations</a>; ++<a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#abfcc1d81eb487e6b40dc8426c8afd8d2">pl</a>)</div>
+<div class="line"><span class="lineno">   54</span>  {</div>
+<div class="line"><span class="lineno">   55</span>    begin = <a class="code hl_variable" href="namespaceconditionsDatabase_1_1getconditions__condDB.html#ada36c3d9fe2448340f6f292f33ea72ae">count</a>;</div>
+<div class="line"><span class="lineno">   56</span>    <span class="keywordflow">while</span> (count &lt; n_mufi_hits &amp;&amp;</div>
+<div class="line"><span class="lineno">   57</span>           pl == <span class="keyword">static_cast&lt;</span><a class="code hl_class" href="classMuFilterHit.html">MuFilterHit</a> *<span class="keyword">&gt;</span>(mufi_hits-&gt;At(count))-&gt;<a class="code hl_function" href="classMuFilterHit.html#a92eeef7d192027351ec7994f74b009e1">GetPlane</a>() &amp;&amp;</div>
+<div class="line"><span class="lineno">   58</span>           <span class="keyword">static_cast&lt;</span><a class="code hl_class" href="classMuFilterHit.html">MuFilterHit</a> *<span class="keyword">&gt;</span>(mufi_hits-&gt;At(count))-&gt;<a class="code hl_function" href="classMuFilterHit.html#aa53b551caf7ff397426665e7106e3e15">GetSystem</a>() == 2) <span class="comment">// stop before DS</span></div>
+<div class="line"><span class="lineno">   59</span>    {</div>
+<div class="line"><span class="lineno">   60</span>      ++<a class="code hl_variable" href="namespaceconditionsDatabase_1_1getconditions__condDB.html#ada36c3d9fe2448340f6f292f33ea72ae">count</a>;</div>
+<div class="line"><span class="lineno">   61</span>    }</div>
+<div class="line"><span class="lineno">   62</span>    us_planes.emplace_back(<a class="code hl_class" href="classsnd_1_1analysis__tools_1_1USPlane.html">snd::analysis_tools::USPlane</a>(mufi_hits, configuration, mufilter_geometry, begin, count, pl + 1));</div>
+<div class="line"><span class="lineno">   63</span>  }</div>
+<div class="line"><span class="lineno">   64</span>  <span class="keywordflow">return</span> us_planes;</div>
+<div class="line"><span class="lineno">   65</span>}</div>
+<div class="ttc" id="aclassMuFilterHit_html"><div class="ttname"><a href="classMuFilterHit.html">MuFilterHit</a></div><div class="ttdef"><b>Definition</b> <a href="MuFilterHit_8h_source.html#l00010">MuFilterHit.h:11</a></div></div>
+<div class="ttc" id="aclassMuFilterHit_html_a92eeef7d192027351ec7994f74b009e1"><div class="ttname"><a href="classMuFilterHit.html#a92eeef7d192027351ec7994f74b009e1">MuFilterHit::GetPlane</a></div><div class="ttdeci">int GetPlane()</div><div class="ttdef"><b>Definition</b> <a href="MuFilterHit_8h_source.html#l00042">MuFilterHit.h:42</a></div></div>
+<div class="ttc" id="aclassMuFilterHit_html_aa53b551caf7ff397426665e7106e3e15"><div class="ttname"><a href="classMuFilterHit.html#aa53b551caf7ff397426665e7106e3e15">MuFilterHit::GetSystem</a></div><div class="ttdeci">int GetSystem()</div><div class="ttdef"><b>Definition</b> <a href="MuFilterHit_8h_source.html#l00041">MuFilterHit.h:41</a></div></div>
+<div class="ttc" id="aclasssnd_1_1analysis__tools_1_1USPlane_html"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1USPlane.html">snd::analysis_tools::USPlane</a></div><div class="ttdef"><b>Definition</b> <a href="sndUSPlane_8h_source.html#l00013">sndUSPlane.h:14</a></div></div>
+<div class="ttc" id="anamespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring_html_abfcc1d81eb487e6b40dc8426c8afd8d2"><div class="ttname"><a href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#abfcc1d81eb487e6b40dc8426c8afd8d2">conditionsDatabase.demo.drifttubeMonitoring.pl</a></div><div class="ttdeci">dict pl</div><div class="ttdef"><b>Definition</b> <a href="drifttubeMonitoring_8py_source.html#l02145">drifttubeMonitoring.py:2145</a></div></div>
+<div class="ttc" id="astructsnd_1_1Configuration_html_a84f6db4454772f74bb7b15ee8b9c1819"><div class="ttname"><a href="structsnd_1_1Configuration.html#a84f6db4454772f74bb7b15ee8b9c1819">snd::Configuration::us_n_stations</a></div><div class="ttdeci">int us_n_stations</div><div class="ttdef"><b>Definition</b> <a href="sndConfiguration_8h_source.html#l00063">sndConfiguration.h:63</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1055,7 +1198,6 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   33</span>      }</div>
 <div class="line"><span class="lineno">   34</span>   }</div>
 <div class="line"><span class="lineno">   35</span>}</div>
-<div class="ttc" id="aclasssndScifiHit_html_a18eb9526024996df83366096a1e41b0b"><div class="ttname"><a href="classsndScifiHit.html#a18eb9526024996df83366096a1e41b0b">sndScifiHit::GetStation</a></div><div class="ttdeci">Int_t GetStation()</div><div class="ttdef"><b>Definition</b> <a href="sndScifiHit_8h_source.html#l00031">sndScifiHit.h:31</a></div></div>
 <div class="ttc" id="aclasssndScifiHit_html_ac527f08d5770476f38f11f33efbf849e"><div class="ttname"><a href="classsndScifiHit.html#ac527f08d5770476f38f11f33efbf849e">sndScifiHit::isVertical</a></div><div class="ttdeci">bool isVertical()</div><div class="ttdef"><b>Definition</b> <a href="sndScifiHit_8h_source.html#l00032">sndScifiHit.h:32</a></div></div>
 </div><!-- fragment -->
 </div>
