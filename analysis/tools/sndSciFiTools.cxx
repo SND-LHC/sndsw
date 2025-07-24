@@ -576,25 +576,9 @@ snd::analysis_tools::findCentreOfGravityPerStation(const TClonesArray* digiHits,
    if (!digiHits) {
       LOG(ERROR) << "Error: digiHits is null in findCentreOfGravityPerStation";
    }
-   std::vector<double> x_positions;
-   std::vector<double> y_positions;
-   TVector3 A, B;
-   for (auto* obj : *digiHits) {
-      auto* hit = dynamic_cast<sndScifiHit*>(obj);
-      if (!hit || !hit->isValid()) {
-         continue;
-      }
-      if (hit->GetStation() != station) {
-         continue;
-      }
-      ScifiDet->GetSiPMPosition(hit->GetDetectorID(), A, B);
-      if (hit->isVertical()) {
-         x_positions.push_back((A.X() + B.X()) * 0.5);
-      }
-      else {
-         y_positions.push_back((A.Y() + B.Y()) * 0.5);
-      }
-   }
+   
+   auto [x_positions, y_positions] = snd::analysis_tools::hitPositionVectorsPerStation(digiHits, station, ScifiDet);
+
    if (x_positions.empty()) {
       LOG(ERROR) << "Error: No hits enter.";
    }
@@ -647,4 +631,5 @@ std::pair<std::vector<double>,std::vector<double>> snd::analysis_tools::hitPosit
     }
     return {x_positions, y_positions};
 }
+  
 
