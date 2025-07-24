@@ -67,17 +67,7 @@ private:
   TClonesArray*      fOutSciArray;
   TClonesArray*      fOutMCTrackArray;
 
-  //Global Variables
-  float timeWindow;
-
-  MuFilter* MuFilterDet;
-  float DsPropSpeed;
-  float VandUpPropSpeed;
-
-  Scifi* ScifiDet;
-  float ScifisignalSpeed;
-  std::map<Int_t, std::map<Int_t, std::array<float, 2>>> siPMFibres;
-
+  
   ClassDef(MCEventBuilder, 1)
 };
 

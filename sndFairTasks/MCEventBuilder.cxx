@@ -21,6 +21,18 @@
 #include "ScifiPoint.h"
 #include "ShipMCTrack.h"
 
+namespace {
+  float timeWindow = 0.0f;
+
+  MuFilter* MuFilterDet = nullptr;
+  float DsPropSpeed = 0.0f;
+  float VandUpPropSpeed = 0.0f;
+
+  Scifi* ScifiDet = nullptr;
+  float ScifisignalSpeed = 0.0f;
+  std::map<Int_t, std::map<Int_t, std::array<float, 2>>> siPMFibres;
+}
+
 MCEventBuilder::MCEventBuilder(const std::string& outputFileName)
   : FairTask("MCEventBuilder"),
     fOutputFileName(outputFileName),
