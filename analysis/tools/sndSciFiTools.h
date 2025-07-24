@@ -79,5 +79,10 @@ namespace snd {
 
     // Find the Center of Particle Showering on the SciFi plane
     std::pair<double, double> findCentreOfGravityPerStation(const TClonesArray* digiHits, int station, Scifi* ScifiDet);
+
+    // Function to get the hit position vectors for a specific station
+    // Returns a pair of vectors containing the x and y positions of the hits in the specified station
+    std::pair<std::vector<double>, std::vector<double>> hitPositionVectorsPerStation(const TClonesArray* digiHits, int station, Scifi* ScifiDet);
+
   }
 }

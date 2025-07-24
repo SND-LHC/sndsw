@@ -10,6 +10,7 @@
 #include "ROOT/TSeq.hxx"
 #include "Scifi.h"
 #include "TROOT.h"
+#include "ROOT/RRangeCast.hxx"
 
 void snd::analysis_tools::getSciFiHitsPerStation(const TClonesArray *digiHits, std::vector<int> &horizontal_hits,
                                                  std::vector<int> &vertical_hits)
@@ -604,3 +605,46 @@ snd::analysis_tools::findCentreOfGravityPerStation(const TClonesArray* digiHits,
    double meanY = computeMean(y_positions);
    return {meanX, meanY};
 }
+
+std::pair<std::vector<double>,std::vector<double>> snd::analysis_tools::hitPositionVectorsPerStation(const TClonesArray *digiHits, int station, Scifi* ScifiDet){
+     /*This function returns the hit vector position for the digiHits in both orientations
+       Arguments:
+         digiHits: A TClonesArray containing the hits in the SciFi detector.
+         station: The station number for which to retrieve the hit positions.
+         ScifiDet: A pointer to the Scifi detector object to retrieve SiPM positions.
+       Returns:
+         A pair of vectors containing the x and y positions of the hits in the specified station.
+       If no hits are found, it returns empty vectors and logs an error message.
+     */
+
+     if (!digiHits) {
+       LOG(ERROR) << "Error: digiHits is null";
+    }
+    std::vector<double> x_positions;
+    std::vector<double> y_positions;
+
+    TVector3 A, B;
+    for (auto* hit : ROOT::RRangeCast<sndScifiHit*, false, decltype(*digiHits)>(*digiHits)) {
+      if (!hit || !hit->isValid()) {
+         continue;
+      }
+      if (hit->GetStation() != station) {
+         continue;
+      }
+      ScifiDet->GetSiPMPosition(hit->GetDetectorID(), A, B);
+      if (hit->isVertical()) {
+         x_positions.push_back((A.X() + B.X()) * 0.5);
+      }
+      else {
+         y_positions.push_back((A.Y() + B.Y()) * 0.5);
+      }
+    }
+    if (x_positions.empty()) {
+       LOG(ERROR) << "Error: No hits enter.";
+    }
+    if (y_positions.empty()) {
+       LOG(ERROR) << "Error: No hits enter.";
+    }
+    return {x_positions, y_positions};
+}
+
