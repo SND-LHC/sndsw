@@ -21,8 +21,9 @@
 #include "ScifiPoint.h"
 #include "ShipMCTrack.h"
 
-MCEventBuilder::MCEventBuilder()
+MCEventBuilder::MCEventBuilder(const std::string& outputFileName)
   : FairTask("MCEventBuilder"),
+    fOutputFileName(outputFileName),
     fOutFile(nullptr),
     fOutTree(nullptr),
     fInMuArray(nullptr),
@@ -38,7 +39,8 @@ MCEventBuilder::MCEventBuilder()
 MCEventBuilder::~MCEventBuilder() {}
 
 InitStatus MCEventBuilder::Init() {
-  std::cout << "Initiating MCEventBuilder" << std::endl;
+  LOG(INFO) << "Initializing MCEventBuilder";
+
   FairRootManager* ioman = FairRootManager::Instance();
   if (!ioman) {
     LOG(FATAL) << "MCEventBuilder::Init: RootManager not instantiated!";
@@ -56,11 +58,8 @@ InitStatus MCEventBuilder::Init() {
   }
 
   // —---------- OUTPUT FILE & TREE —----------
-  TObject* tobj = ioman->GetObject("outFileName");
-  TObjString* strobj = dynamic_cast<TObjString*>(tobj);
-  fOutputFileName = strobj->GetString();
 
-  fOutFile = TFile::Open(fOutputFileName.Data(), "RECREATE");
+  fOutFile = TFile::Open(fOutputFileName.c_str(), "RECREATE");
   fOutTree = new TTree("cbmsim", "RebuiltEvents");
 
   fOutHeader   = new FairMCEventHeader();
@@ -81,7 +80,7 @@ InitStatus MCEventBuilder::Init() {
   //Muon Filter
   MuFilterDet = dynamic_cast<MuFilter*>(gROOT->GetListOfGlobals()->FindObject("MuFilter"));
   if (!MuFilterDet) {
-    std::cerr << "[ERROR] MuFilter detector not found in gROOT" << std::endl;
+    LOG(ERROR) << "MuFilter detector not found in gROOT";
     return kERROR;
   }
   DsPropSpeed = MuFilterDet->GetConfParF("MuFilter/DsPropSpeed");
@@ -90,31 +89,37 @@ InitStatus MCEventBuilder::Init() {
   //Scifi
   ScifiDet = dynamic_cast<Scifi*>(gROOT->GetListOfGlobals()->FindObject("Scifi"));
   if (!ScifiDet) {
-    std::cerr << "[ERROR] Scifi detector not found in gROOT" << std::endl;
+    LOG(ERROR) << "Scifi detector not found in gROOT";
     return kERROR;
   }
   ScifisignalSpeed = ScifiDet->GetConfParF("Scifi/signalSpeed");
   ScifiDet->SiPMmapping();
   siPMFibres = ScifiDet->GetFibresMap();
 
-  std::cout << "MCEventBuilder Initialized" << std::endl;
+  LOG(INFO) << "MCEventBuilder initialized successfully.";
   return kSUCCESS;
 }
 
 void MCEventBuilder::Exec(Option_t*) {
-  static int eventCount = 0;
   ProcessEvent();
-  ++eventCount;
-  std::cout << "\rEvents processed: " << eventCount << std::flush;
 }
 
 std::vector<int> MCEventBuilder::OrderedIds(const std::vector<double>& times,
                                             double firstTime) const {
   size_t n = times.size();
   std::vector<long long> bins(n);
-  for (size_t i = 0; i < n; ++i) bins[i] = static_cast<long long>((times[i] - firstTime) / timeWindow);
+  for (size_t i = 0; i < n; ++i) {
+        bins[i] = static_cast<long long>((times[i] - firstTime) / timeWindow);
+    }
+
   std::vector<int> ids(n, 0);
-  for (size_t i = 1; i < n; ++i) ids[i] = (bins[i] - bins[i-1] < 1) ? ids[i-1] : ids[i-1] + 1;
+  for (size_t i = 1; i < n; ++i) {
+    if ((bins[i] - bins[i - 1]) < 1) {
+        ids[i] = ids[i - 1];
+    } else {
+        ids[i] = ids[i - 1] + 1;
+    }
+  }
   return ids;
 }
 
@@ -223,11 +228,10 @@ void MCEventBuilder::ProcessEvent() {
 
   //----------------------------------Tracks-------------------------------------
   std::vector<ShipMCTrack*> mcTrackClones;
-  for (int i = 0; i < fInMCTrackArray->GetEntriesFast(); ++i) {
-    auto* t = static_cast<ShipMCTrack*>(fInMCTrackArray->At(i));
+  for (auto&& obj : *fInMCTrackArray) {
+    auto* t = static_cast<ShipMCTrack*>(obj);
     mcTrackClones.push_back(static_cast<ShipMCTrack*>(t->Clone()));
   }
-
 
   //---------Finding the earliest time between Scifi and MuFilter-----------------
   double tMu  = sortedMuArrivalTimes.empty()  ? -1 : sortedMuArrivalTimes.front();
@@ -357,7 +361,7 @@ void MCEventBuilder::ProcessEvent() {
     }
     ++sliceScifi; 
 
-
+    //Noise Filters
     if (!(FastNoiseFilterScifi_Hits(fOutSciArray) || FastNoiseFilterMu_Hits(fOutMuArray))) {
       fOutMuArray->Clear("C");
       fOutSciArray->Clear("C");
@@ -526,15 +530,13 @@ bool MCEventBuilder::AdvancedNoiseFilterScifi(
     return false;
   }  
 
-
 void MCEventBuilder::FinishTask() {
   fOutSciArray->Delete();
   fOutMuArray->Delete();
   fOutMCTrackArray->Delete();
   if (fOutTree) fOutTree->Write();
   if (fOutFile) {
-    std::cout << " " << std::endl;
-    std::cout << "Writing and closing output file: " << fOutputFileName.Data() << std::endl;
+    LOG(INFO) << "Writing and closing output file: " << fOutputFileName;
     fOutFile->Write();
     fOutFile->Close();
     delete fOutFile;

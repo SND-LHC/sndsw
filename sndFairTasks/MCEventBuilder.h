@@ -22,15 +22,12 @@ class ShipMCTrack;
 
 class MCEventBuilder : public FairTask {
 public:
-  MCEventBuilder();
+  MCEventBuilder(const std::string& outputFileName);
   ~MCEventBuilder();
 
   virtual InitStatus Init();
   virtual void Exec(Option_t* opt);
   virtual void FinishTask();
-  
-  //void SetInputFile(const std::string& path)  { fInputFile = path; }
-  //void SetOutputFile(const std::string& path) { fOutputFile = path; }
 
 private:
   //Function I need later for ordering the mc points
@@ -48,7 +45,6 @@ private:
     TClonesArray* scifiArray,
     const std::map<Int_t, std::map<Int_t, std::array<float, 2>>>& siPMFibres);
 
-
   //Advance Noise Filter
   bool AdvancedNoiseFilterScifi(
     TClonesArray* scifiArray,
@@ -57,12 +53,11 @@ private:
   bool AdvancedNoiseFilterMu(TClonesArray* muArray);
 
   //Input
-  TString       fOutputFileName;
+  std::string fOutputFileName;
   FairMCEventHeader* fInHeader;
   TClonesArray*      fInMuArray;
   TClonesArray*      fInSciArray;
   TClonesArray*      fInMCTrackArray;
-
 
   //Output
   TFile*      fOutFile;
@@ -82,7 +77,6 @@ private:
   Scifi* ScifiDet;
   float ScifisignalSpeed;
   std::map<Int_t, std::map<Int_t, std::array<float, 2>>> siPMFibres;
-
 
   ClassDef(MCEventBuilder, 1)
 };

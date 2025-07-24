@@ -40,8 +40,6 @@ ioman.SetSource(source)
 outFile = ROOT.TMemFile('dummy','CREATE') #IGNORE
 sink = ROOT.FairRootFileSink(outFile)
 ioman.SetSink(sink)
-param = TObjString(options.outputFile) #Needed
-ioman.RegisterInputObject("outFileName", param)
 
 #Avoiding some error messages
 xrdb = ROOT.FairRuntimeDb.instance()
@@ -49,7 +47,7 @@ xrdb.getContainer("FairBaseParSet").setStatic()
 xrdb.getContainer("FairGeoParSet").setStatic()
 
 # Add tasks 
-eventBuilder = ROOT.MCEventBuilder()
+eventBuilder = ROOT.MCEventBuilder(options.outputFile)
 run.AddTask(eventBuilder)
 
 # Initialize and run
