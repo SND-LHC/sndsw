@@ -633,3 +633,98 @@ std::pair<std::vector<double>,std::vector<double>> snd::analysis_tools::hitPosit
 }
   
 
+double hitWeightComputation(std::vector<double> hit_position) {
+    /* This function returns the summation of the hit weights 
+    where a hit weight is the number of neighbouring hits within 1 cm position (default width).
+
+    Arguments: 
+        hit_position: A vector containing the positions of the hits in a specific SciFi station.
+    
+    Returns: 
+        The sum of the weights of the hits in the vector.
+        Returns 0 if the vector is empty or if the sum of weights is 0.
+    */
+
+    if (hit_position.empty()) {
+        LOG(INFO) << "Warning: The hit position vector is empty." << std::endl;
+        return 0; // Return 0 if the vector is empty
+    }
+
+    int n_hits = hit_position.size();
+    double width = 1.0; // Width around the hit to consider as a neighbour, in cm
+    std::vector<double> weights; // Vector to store the weights of each hit
+
+    // Sorting the hits for efficient neighbour counting
+    std::sort(hit_position.begin(), hit_position.end());
+
+    // Initialize pointers for the sliding window.
+    // Both pointers will only move forward (or stay put) across the outer loop iterations.
+    int left_ptr = 0; 
+    int right_ptr = 0; 
+
+    // Loop through each hit position to calculate its neighbour count
+    for (int i = 0; i < n_hits; i++) {
+        double specific_hit = hit_position[i];
+        
+        // Move right_ptr forward to include all hits within (specific_hit + width).
+        // It will point to the first element *just outside* the right boundary of the window.
+        while (right_ptr < n_hits && hit_position[right_ptr] <= specific_hit + width) {
+            right_ptr++;
+        }
+        
+        // Move left_ptr forward to exclude all hits *less than* (specific_hit - width).
+        // It will point to the first element *just inside* or at the left boundary of the window.
+        while (left_ptr < n_hits && hit_position[left_ptr] < specific_hit - width) {
+            left_ptr++;
+        }
+        
+        // Calculate neighbouring hits within the window:
+        // The number of hits in the current window is (right_ptr - left_ptr).
+        // This count includes the 'specific_hit' itself.
+        double count_in_window = right_ptr - left_ptr;
+        
+        // Subtract 1 to exclude the 'specific_hit' itself from the neighbour count.
+        // We must ensure that 'specific_hit' (hit_position[i]) is actually within the window
+        // defined by left_ptr and right_ptr. Since the array is sorted and we are iterating
+        // through 'i', hit_position[i] will always be between hit_position[left_ptr] and 
+        // hit_position[right_ptr-1] (if left_ptr <= i < right_ptr).
+        double neighbour_no_of_hits = count_in_window - 1; 
+
+        // Ensure the neighbour count is non-negative
+        if (neighbour_no_of_hits < 0) {
+            neighbour_no_of_hits = 0; 
+        }
+        
+        weights.push_back(neighbour_no_of_hits);
+    }
+
+    // Calculate the sum of all computed weights
+    double sum_weights = std::accumulate(weights.begin(), weights.end(), 0.0);
+
+    return sum_weights;
+}
+
+std::pair<double,double> snd::analysis_tools::hitDensityPerStation(const TClonesArray *digiHits, int station, Scifi* ScifiDet){
+    /* 
+     This function returns the hit density which is described as the summation of the hit weights 
+     where a hit weigth is the number of neighbouring hits within 1 cm postion (default width)
+     arguments: hit position vector : vector ontaining the positions of the hits in a specific SciFi station
+     returns: the sum of the weights of the hits in the vector
+     If the vector is empty, it returns 0.
+     If the sum of weights is 0, it returns 0.
+     */
+    std::pair<std::vector<double>, std::vector<double>> hit_position_vec = hitPositionVectorsPerStation(digiHits, station, ScifiDet);
+    std::vector<double> hit_position_x = hit_position_vec.first; // Assuming we are interested in X positions
+    std::vector<double> hit_position_y = hit_position_vec.second; // Assuming we are interested in Y positions
+
+    if (hit_position_x.size()==0 && hit_position_y.size()==0) {
+        LOG(INFO)<< "Warning: The hit position vector is empty." << std::endl;
+        return {0.0,0.0}; // Check if the vector is empty
+    }
+
+    double sum_weights_x = hitWeightComputation(hit_position_x);
+    double sum_weights_y = hitWeightComputation(hit_position_y);
+
+    return {sum_weights_x, sum_weights_y};
+}
+
