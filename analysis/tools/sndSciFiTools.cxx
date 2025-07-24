@@ -576,23 +576,10 @@ snd::analysis_tools::findCentreOfGravityPerStation(const TClonesArray* digiHits,
    }
    std::vector<double> x_positions;
    std::vector<double> y_positions;
-   TVector3 A, B;
-   for (auto* obj : *digiHits) {
-      auto* hit = dynamic_cast<sndScifiHit*>(obj);
-      if (!hit || !hit->isValid()) {
-         continue;
-      }
-      if (hit->GetStation() != station) {
-         continue;
-      }
-      ScifiDet->GetSiPMPosition(hit->GetDetectorID(), A, B);
-      if (hit->isVertical()) {
-         x_positions.push_back((A.X() + B.X()) * 0.5);
-      }
-      else {
-         y_positions.push_back((A.Y() + B.Y()) * 0.5);
-      }
-   }
+   
+   x_positions = snd::analysis_tools::hitPositionVectorsPerStation(digiHits, station, ScifiDet).first; // Get x positions
+   y_positions = snd::analysis_tools::hitPositionVectorsPerStation(digiHits, station, ScifiDet).second; // Get y positions
+
    if (x_positions.empty()) {
       LOG(ERROR) << "Error: No hits enter.";
    }
