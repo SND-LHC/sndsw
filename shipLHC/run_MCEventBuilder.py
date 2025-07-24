@@ -6,11 +6,16 @@ from argparse import ArgumentParser
 import SndlhcGeo
 import shipunit as u
 
-#------------Geo file----------------
+# ------------ Argument parser ----------------
 parser = ArgumentParser()
-parser.add_argument("-f", "--inputFile", dest="inputFile", help="single input file", required=True)
-parser.add_argument("-g", "--geoFile", dest="geoFile", help="geofile", required=False)
+parser.add_argument("-f", "--inputFile", help="Input file")
+parser.add_argument("-g", "--geoFile", help="geo file")
+parser.add_argument("-o", "--outputFile", help="Output file")
+parser.add_argument("--firstEvent", type=int, default=0, help="First event to process")
+parser.add_argument("--nEvents", type=int, default=0, help="Number of events to process (0 = all)")
 options = parser.parse_args()
+
+# ------------ Geo setup ----------------
 geo = SndlhcGeo.GeoInterface(options.geoFile)
 lsOfGlobals = ROOT.gROOT.GetListOfGlobals()
 lsOfGlobals.Add(geo.modules['Scifi'])
@@ -18,19 +23,16 @@ scifiDet = lsOfGlobals.FindObject('Scifi')
 scifiDet.SetConfPar("Scifi/signalSpeed", 15*u.cm/u.nanosecond)
 lsOfGlobals.Add(geo.modules['MuFilter'])
 
-#------------------------------------
-
 
 #-----------Executioner--------------
 start = time.time()
-fullPath = options.inputFile
-print(fullPath)
-inRootTFile = ROOT.TFile(fullPath)
-
+inRootTFile = ROOT.TFile(options.inputFile)
+print(f"Input file: {options.inputFile}")
 
 # Use FairRoot framework to arrange the workflow
 # A FairRun is a wrapper of a collection of tasks
 run = ROOT.FairRunAna()
+
 # Input/output manager
 ioman = ROOT.FairRootManager.Instance()
 source = ROOT.FairFileSource(inRootTFile)
@@ -38,25 +40,23 @@ ioman.SetSource(source)
 outFile = ROOT.TMemFile('dummy','CREATE') #IGNORE
 sink = ROOT.FairRootFileSink(outFile)
 ioman.SetSink(sink)
-Outputfilename = "/eos/user/p/pbaculim/SWAN_projects/SND/neutrinos/DELETEMEweirdEvents_file109.root"
-param = TObjString(Outputfilename)
+param = TObjString(options.outputFile) #Needed
 ioman.RegisterInputObject("outFileName", param)
-#avoiding some error messages
+
+#Avoiding some error messages
 xrdb = ROOT.FairRuntimeDb.instance()
 xrdb.getContainer("FairBaseParSet").setStatic()
 xrdb.getContainer("FairGeoParSet").setStatic()
 
-# Add all task you'd like to run
-myTask = ROOT.MCEventBuilder()# XX = name of my task
-run.AddTask(myTask)
-# Initialize the task collection(Fair run)
+# Add tasks 
+eventBuilder = ROOT.MCEventBuilder()
+run.AddTask(eventBuilder)
+
+# Initialize and run
 run.Init()
-firstEvent = 0 #example
-nEvents = 0 # example
-run.Run(firstEvent, nEvents)
+run.Run(options.firstEvent, options.nEvents)
 
 end = time.time()
-
 elapsed = end - start
 print(f"Elapsed time: {elapsed:.2f} seconds")
 
