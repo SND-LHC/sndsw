@@ -6,6 +6,7 @@
 
 #pragma link C++ class DigiTaskSND;
 #pragma link C++ class ConvRawData;
+#pragma link C++ class MCEventBuilder;
 #endif
 
 
