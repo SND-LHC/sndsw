@@ -70,7 +70,6 @@ InitStatus MCEventBuilder::Init() {
   }
 
   // —---------- OUTPUT FILE & TREE —----------
-
   fOutFile = TFile::Open(fOutputFileName.c_str(), "RECREATE");
   fOutTree = new TTree("cbmsim", "RebuiltEvents");
 
@@ -145,7 +144,7 @@ void MCEventBuilder::ProcessEvent() {
 
   for (int i = 0; i < fInMuArray->GetEntriesFast(); ++i) {
     auto* p = static_cast<MuFilterPoint*>(fInMuArray->At(i));
-    muFilterPoints.push_back(static_cast<MuFilterPoint*>(p->Clone()));
+    muFilterPoints.push_back(p);
     muTrackIDs.push_back(p->GetTrackID());
 
     int detID = p->GetDetectorID();
@@ -195,7 +194,7 @@ void MCEventBuilder::ProcessEvent() {
 
   for (int i = 0; i < fInSciArray->GetEntriesFast(); ++i) {
     auto* p = static_cast<ScifiPoint*>(fInSciArray->At(i));
-    scifiPoints.push_back(static_cast<ScifiPoint*>(p->Clone()));
+    scifiPoints.push_back(p);
     scifiTrackIDs.push_back(p->GetTrackID());
 
     TVector3 impact(p->GetX(), p->GetY(), p->GetZ());
@@ -237,12 +236,11 @@ void MCEventBuilder::ProcessEvent() {
     sortedScifiTrackIDs.push_back(scifiTrackIDs[i]);
   }
 
-
   //----------------------------------Tracks-------------------------------------
   std::vector<ShipMCTrack*> mcTrackClones;
   for (auto&& obj : *fInMCTrackArray) {
     auto* t = static_cast<ShipMCTrack*>(obj);
-    mcTrackClones.push_back(static_cast<ShipMCTrack*>(t->Clone()));
+    mcTrackClones.push_back(t);
   }
 
   //---------Finding the earliest time between Scifi and MuFilter-----------------
