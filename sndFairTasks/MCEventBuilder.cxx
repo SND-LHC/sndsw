@@ -1,4 +1,5 @@
 #include "MCEventBuilder.h"
+#include <ROOT/RRangeCast.hxx>
 #include <numeric>
 #include <TClonesArray.h>           
 #include <TGenericClassInfo.h>      
@@ -142,9 +143,8 @@ void MCEventBuilder::ProcessEvent() {
   std::vector<double> muArrivalTimes;
   std::vector<int> muTrackIDs;
 
-  for (int i = 0; i < fInMuArray->GetEntriesFast(); ++i) {
-    auto* p = static_cast<MuFilterPoint*>(fInMuArray->At(i));
-    muFilterPoints.push_back(p);
+  for (auto* p : ROOT::RRangeCast<MuFilterPoint*, false, decltype(*fInMuArray)>(*fInMuArray)) { 
+    muFilterPoints.push_back(p); 
     muTrackIDs.push_back(p->GetTrackID());
 
     int detID = p->GetDetectorID();
@@ -192,9 +192,8 @@ void MCEventBuilder::ProcessEvent() {
 
   float signalSpeed = ScifisignalSpeed;
 
-  for (int i = 0; i < fInSciArray->GetEntriesFast(); ++i) {
-    auto* p = static_cast<ScifiPoint*>(fInSciArray->At(i));
-    scifiPoints.push_back(p);
+  for (auto* p : ROOT::RRangeCast<ScifiPoint*, false, decltype(*fInSciArray)>(*fInSciArray)) { 
+    scifiPoints.push_back(p); 
     scifiTrackIDs.push_back(p->GetTrackID());
 
     TVector3 impact(p->GetX(), p->GetY(), p->GetZ());
@@ -238,9 +237,8 @@ void MCEventBuilder::ProcessEvent() {
 
   //----------------------------------Tracks-------------------------------------
   std::vector<ShipMCTrack*> mcTrackClones;
-  for (auto&& obj : *fInMCTrackArray) {
-    auto* t = static_cast<ShipMCTrack*>(obj);
-    mcTrackClones.push_back(t);
+  for (auto* t : ROOT::RRangeCast<ShipMCTrack*, false, decltype(*fInMCTrackArray)>(*fInMCTrackArray)) { 
+    mcTrackClones.push_back(t); 
   }
 
   //---------Finding the earliest time between Scifi and MuFilter-----------------
