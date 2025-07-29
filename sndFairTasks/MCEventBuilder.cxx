@@ -34,9 +34,11 @@ namespace {
   std::map<Int_t, std::map<Int_t, std::array<float, 2>>> siPMFibres;
 }
 
-MCEventBuilder::MCEventBuilder(const std::string& outputFileName)
+MCEventBuilder::MCEventBuilder(const std::string& outputFileName,
+                               bool saveOnlyFirst25)
   : FairTask("MCEventBuilder"),
     fOutputFileName(outputFileName),
+    fSaveOnlyFirst25(saveOnlyFirst25),
     fOutFile(nullptr),
     fOutTree(nullptr),
     fInMuArray(nullptr),
@@ -259,6 +261,8 @@ void MCEventBuilder::ProcessEvent() {
   auto idsMu  = OrderedIds(sortedMuArrivalTimes,  firstT);
   auto idsScifi = OrderedIds(sortedScifiArrivalTimes, firstT);
 
+  bool FirstEvent = true;
+
   std::vector<int> used;  
   int im = 0, is = 0, sliceMu = 0, sliceScifi = 0;
 
@@ -374,12 +378,14 @@ void MCEventBuilder::ProcessEvent() {
       fOutMuArray->Clear("C");
       fOutSciArray->Clear("C");
       fOutMCTrackArray->Clear("C");
+      FirstEvent = false;
       continue;  
     }
     else if(!(FastNoiseFilterScifi_Boards(fOutSciArray, siPMFibres) || FastNoiseFilterMu_Boards(fOutMuArray))){
       fOutMuArray->Clear("C");
       fOutSciArray->Clear("C");
       fOutMCTrackArray->Clear("C");
+      FirstEvent = false;
       continue;
     }
 
@@ -387,10 +393,21 @@ void MCEventBuilder::ProcessEvent() {
       fOutMuArray->Clear("C");
       fOutSciArray->Clear("C");
       fOutMCTrackArray->Clear("C");
+      FirstEvent = false;
       continue;
     }
-    fOutTree->Fill();
 
+    //--------Save only first 25ns chunks mode-------
+    if (fSaveOnlyFirst25) {
+      if (FirstEvent) {
+        fOutTree->Fill();
+        FirstEvent = false;
+      }
+    }
+    //-----Save all chunks mode-------
+    else {
+      fOutTree->Fill();
+    }
   }
 }
 

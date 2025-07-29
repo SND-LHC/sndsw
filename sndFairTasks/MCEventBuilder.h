@@ -22,7 +22,7 @@ class ShipMCTrack;
 
 class MCEventBuilder : public FairTask {
 public:
-  MCEventBuilder(const std::string& outputFileName);
+  MCEventBuilder(const std::string& outputFileName, bool saveOnlyFirst25);
   ~MCEventBuilder();
 
   virtual InitStatus Init();
@@ -53,13 +53,14 @@ private:
   bool AdvancedNoiseFilterMu(TClonesArray* muArray);
 
   //Input
-  std::string fOutputFileName;
+  bool fSaveOnlyFirst25;
   FairMCEventHeader* fInHeader;
   TClonesArray*      fInMuArray;
   TClonesArray*      fInSciArray;
   TClonesArray*      fInMCTrackArray;
 
   //Output
+  std::string fOutputFileName;
   TFile*      fOutFile;
   TTree*      fOutTree;
   FairMCEventHeader* fOutHeader;

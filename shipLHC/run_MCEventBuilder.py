@@ -13,6 +13,7 @@ parser.add_argument("-g", "--geoFile", help="geo file")
 parser.add_argument("-o", "--outputFile", help="Output file")
 parser.add_argument("--firstEvent", type=int, default=0, help="First event to process")
 parser.add_argument("--nEvents", type=int, default=0, help="Number of events to process (0 = all)")
+parser.add_argument("--saveOnlyFirst25", action="store_true", help="Only store the firs 25ns chunk of each event")
 options = parser.parse_args()
 
 # ------------ Geo setup ----------------
@@ -47,7 +48,7 @@ xrdb.getContainer("FairBaseParSet").setStatic()
 xrdb.getContainer("FairGeoParSet").setStatic()
 
 # Add tasks 
-eventBuilder = ROOT.MCEventBuilder(options.outputFile)
+eventBuilder = ROOT.MCEventBuilder(options.outputFile, options.saveOnlyFirst25)
 run.AddTask(eventBuilder)
 
 # Initialize and run
