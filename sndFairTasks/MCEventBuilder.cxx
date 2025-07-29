@@ -162,7 +162,7 @@ void MCEventBuilder::ProcessEvent() {
     MuFilterDet->GetPosition(detID, vLeft, vRight);
     TVector3 vTop = vLeft; //Used for vertical bars
 
-    //Vertical bars with only 1 redout at the top
+    //Vertical bars with only 1 readout at the top
     if ( (floor(detID/10000)==3&&detID%1000>59) || 
           (floor(detID/10000)==1&&int(detID/1000)%10==2) )  {
       double tTop = p->GetTime() + (vTop - impact).Mag() / propspeed;
