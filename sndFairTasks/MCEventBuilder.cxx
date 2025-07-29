@@ -160,11 +160,22 @@ void MCEventBuilder::ProcessEvent() {
     TVector3 vLeft,vRight;
     TVector3 impact(p->GetX(), p->GetY(), p->GetZ());
     MuFilterDet->GetPosition(detID, vLeft, vRight);
+    TVector3 vTop = vLeft; //Used for vertical bars
 
-    double tLeft  = p->GetTime() + (vLeft - impact).Mag()  / propspeed;
-    double tRight = p->GetTime() + (vRight - impact).Mag() / propspeed;
-    double arrivalTime = std::min(tLeft, tRight);
-    muArrivalTimes.push_back(arrivalTime);
+    //Vertical bars with only 1 redout at the top
+    if ( (floor(detID/10000)==3&&detID%1000>59) || 
+          (floor(detID/10000)==1&&int(detID/1000)%10==2) )  {
+      double tTop = p->GetTime() + (vTop - impact).Mag() / propspeed;
+      double arrivalTime = tTop;
+      muArrivalTimes.push_back(arrivalTime);
+    }
+    //Horizontal
+    else{
+      double tLeft  = p->GetTime() + (vLeft - impact).Mag()  / propspeed;
+      double tRight = p->GetTime() + (vRight - impact).Mag() / propspeed;
+      double arrivalTime = std::min(tLeft, tRight);
+      muArrivalTimes.push_back(arrivalTime);
+    }
   }
 
   std::vector<size_t> idxM(muArrivalTimes.size());
