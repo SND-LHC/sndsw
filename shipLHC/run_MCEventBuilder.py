@@ -12,7 +12,7 @@ parser.add_argument("-f", "--inputFile", help="Input file")
 parser.add_argument("-g", "--geoFile", help="geo file")
 parser.add_argument("-o", "--outputFile", help="Output file")
 parser.add_argument("--firstEvent", type=int, default=0, help="First event to process")
-parser.add_argument("--nEvents", type=int, default=0, help="Number of events to process (0 = all)")
+parser.add_argument("-n", "--nEvents", type=int, default=0, help="Number of events to process (0 = all)")
 parser.add_argument("--saveOnlyFirst25", action="store_true", help="Only store the first 25 ns chunk of each event")
 options = parser.parse_args()
 
