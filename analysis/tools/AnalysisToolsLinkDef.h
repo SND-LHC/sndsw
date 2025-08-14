@@ -7,9 +7,9 @@
 #pragma link C++ nestedclasses;
 #pragma link C++ nestedtypedef;
 
-#pragma link C++ class snd::sndConfiguration+;
-#pragma link C++ class snd::analysis_tools::sndScifiPlane+;
-#pragma link C++ class snd::analysis_tools::sndUSPlane+;
+#pragma link C++ class snd::Configuration+;
+#pragma link C++ class snd::analysis_tools::ScifiPlane+;
+#pragma link C++ class snd::analysis_tools::USPlane+;
 
 #pragma link C++ namespace snd::analysis_tools;
 #pragma link C++ defined_in namespace snd::analysis_tools;
