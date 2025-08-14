@@ -45,7 +45,7 @@ private:
     TClonesArray* scifiArray,
     const std::map<Int_t, std::map<Int_t, std::array<float, 2>>>& siPMFibres);
 
-  //Advance Noise Filter
+  //Advanced Noise Filter
   bool AdvancedNoiseFilterScifi(
     TClonesArray* scifiArray,
     const std::map<Int_t, std::map<Int_t, std::array<float, 2>>>& siPMFibres);
@@ -55,8 +55,8 @@ private:
   //Input
   bool fSaveOnlyFirst25;
   FairMCEventHeader* fInHeader;
-  TClonesArray*      fInMuArray;
-  TClonesArray*      fInSciArray;
+  TClonesArray*      fInMufiArray;
+  TClonesArray*      fInSciFiArray;
   TClonesArray*      fInMCTrackArray;
 
   //Output
@@ -64,8 +64,8 @@ private:
   TFile*      fOutFile;
   TTree*      fOutTree;
   FairMCEventHeader* fOutHeader;
-  TClonesArray*      fOutMuArray;
-  TClonesArray*      fOutSciArray;
+  TClonesArray*      fOutMufiArray;
+  TClonesArray*      fOutSciFiArray;
   TClonesArray*      fOutMCTrackArray;
 
   

@@ -41,12 +41,12 @@ MCEventBuilder::MCEventBuilder(const std::string& outputFileName,
     fSaveOnlyFirst25(saveOnlyFirst25),
     fOutFile(nullptr),
     fOutTree(nullptr),
-    fInMuArray(nullptr),
-    fInSciArray(nullptr),
+    fInMufiArray(nullptr),
+    fInSciFiArray(nullptr),
     fInMCTrackArray(nullptr),
     fInHeader(nullptr),
-    fOutMuArray(nullptr),
-    fOutSciArray(nullptr),
+    fOutMufiArray(nullptr),
+    fOutSciFiArray(nullptr),
     fOutMCTrackArray(nullptr),
     fOutHeader(nullptr)
 {}
@@ -63,11 +63,11 @@ InitStatus MCEventBuilder::Init() {
 
   // —---------- INPUT BRANCHES —-----------
   fInHeader  = static_cast<FairMCEventHeader*>(ioman->GetObject("MCEventHeader."));
-  fInMuArray  = static_cast<TClonesArray*>(ioman->GetObject("MuFilterPoint"));
-  fInSciArray = static_cast<TClonesArray*>(ioman->GetObject("ScifiPoint"));
+  fInMufiArray  = static_cast<TClonesArray*>(ioman->GetObject("MuFilterPoint"));
+  fInSciFiArray = static_cast<TClonesArray*>(ioman->GetObject("ScifiPoint"));
   fInMCTrackArray  = static_cast<TClonesArray*>(ioman->GetObject("MCTrack"));
 
-  if (!fInMuArray && !fInSciArray) {
+  if (!fInMufiArray && !fInSciFiArray) {
     LOG(ERROR) << "No Scifi and no MuFilter MC points array!";
     return kERROR;
   }
@@ -77,12 +77,12 @@ InitStatus MCEventBuilder::Init() {
   fOutTree = new TTree("cbmsim", "RebuiltEvents");
 
   fOutHeader   = new FairMCEventHeader();
-  fOutMuArray  = new TClonesArray("MuFilterPoint");
-  fOutSciArray = new TClonesArray("ScifiPoint");
+  fOutMufiArray  = new TClonesArray("MuFilterPoint");
+  fOutSciFiArray = new TClonesArray("ScifiPoint");
   fOutMCTrackArray  = new TClonesArray("ShipMCTrack");
   
-  fOutTree->Branch("MuFilterPoint",  &fOutMuArray,  32000, 1);
-  fOutTree->Branch("ScifiPoint",     &fOutSciArray, 32000, 1);
+  fOutTree->Branch("MuFilterPoint",  &fOutMufiArray,  32000, 1);
+  fOutTree->Branch("ScifiPoint",     &fOutSciFiArray, 32000, 1);
   fOutTree->Branch("MCTrack",        &fOutMCTrackArray,  32000, 1);
   fOutTree->Branch("MCEventHeader.", &fOutHeader,   32000, 1);
 
@@ -145,7 +145,7 @@ void MCEventBuilder::ProcessEvent() {
   std::vector<double> muArrivalTimes;
   std::vector<int> muTrackIDs;
 
-  for (auto* p : ROOT::RRangeCast<MuFilterPoint*, false, decltype(*fInMuArray)>(*fInMuArray)) { 
+  for (auto* p : ROOT::RRangeCast<MuFilterPoint*, false, decltype(*fInMufiArray)>(*fInMufiArray)) { 
     muFilterPoints.push_back(p); 
     muTrackIDs.push_back(p->GetTrackID());
 
@@ -205,7 +205,7 @@ void MCEventBuilder::ProcessEvent() {
 
   float signalSpeed = ScifisignalSpeed;
 
-  for (auto* p : ROOT::RRangeCast<ScifiPoint*, false, decltype(*fInSciArray)>(*fInSciArray)) { 
+  for (auto* p : ROOT::RRangeCast<ScifiPoint*, false, decltype(*fInSciFiArray)>(*fInSciFiArray)) { 
     scifiPoints.push_back(p); 
     scifiTrackIDs.push_back(p->GetTrackID());
 
@@ -261,8 +261,8 @@ void MCEventBuilder::ProcessEvent() {
   double firstT = has ? (tMu < 0 ? tScifi : (tScifi < 0 ? tMu : std::min(tMu, tScifi))): 0;
 
   if (!has) {
-    fOutMuArray->Clear();
-    fOutSciArray->Clear();
+    fOutMufiArray->Clear();
+    fOutSciFiArray->Clear();
     fOutMCTrackArray->Clear();
     fOutTree->Fill();
     return;
@@ -278,8 +278,8 @@ void MCEventBuilder::ProcessEvent() {
   int im = 0, is = 0, sliceMu = 0, sliceScifi = 0;
 
   while (im < (int)sortedMuArrivalTimes.size() || is < (int)sortedScifiArrivalTimes.size()) {
-    fOutMuArray->Clear("C");
-    fOutSciArray->Clear("C");
+    fOutMufiArray->Clear("C");
+    fOutSciFiArray->Clear("C");
     fOutMCTrackArray->Clear("C");
 
     std::vector<MuFilterPoint*> muSlicePoints;
@@ -317,7 +317,7 @@ void MCEventBuilder::ProcessEvent() {
       Double_t length = origMu->GetLength();
       Double_t eLoss  = origMu->GetEnergyLoss();
       Int_t pdgCode   = origMu->PdgCode();
-      new ((*fOutMuArray)[fOutMuArray->GetEntriesFast()])
+      new ((*fOutMufiArray)[fOutMufiArray->GetEntriesFast()])
         MuFilterPoint(trackID, detID, pos, mom, time, length, eLoss, pdgCode);
 
       int tid = sortedMuTrackIDs[im++];
@@ -357,7 +357,7 @@ void MCEventBuilder::ProcessEvent() {
       Double_t eLoss  = origSci->GetEnergyLoss();
       Int_t pdgCode   = origSci->PdgCode();
 
-      new ((*fOutSciArray)[fOutSciArray->GetEntriesFast()])
+      new ((*fOutSciFiArray)[fOutSciFiArray->GetEntriesFast()])
         ScifiPoint(trackID, detID, pos, mom, time, length, eLoss, pdgCode);
 
       int tid = sortedScifiTrackIDs[is++];
@@ -385,24 +385,24 @@ void MCEventBuilder::ProcessEvent() {
     ++sliceScifi; 
 
     //Noise Filters
-    if (!(FastNoiseFilterScifi_Hits(fOutSciArray) || FastNoiseFilterMu_Hits(fOutMuArray))) {
-      fOutMuArray->Clear("C");
-      fOutSciArray->Clear("C");
+    if (!(FastNoiseFilterScifi_Hits(fOutSciFiArray) || FastNoiseFilterMu_Hits(fOutMufiArray))) {
+      fOutMufiArray->Clear("C");
+      fOutSciFiArray->Clear("C");
       fOutMCTrackArray->Clear("C");
       FirstEvent = false;
       continue;  
     }
-    else if(!(FastNoiseFilterScifi_Boards(fOutSciArray, siPMFibres) || FastNoiseFilterMu_Boards(fOutMuArray))){
-      fOutMuArray->Clear("C");
-      fOutSciArray->Clear("C");
+    else if(!(FastNoiseFilterScifi_Boards(fOutSciFiArray, siPMFibres) || FastNoiseFilterMu_Boards(fOutMufiArray))){
+      fOutMufiArray->Clear("C");
+      fOutSciFiArray->Clear("C");
       fOutMCTrackArray->Clear("C");
       FirstEvent = false;
       continue;
     }
 
-    if (!(AdvancedNoiseFilterScifi(fOutSciArray, siPMFibres) || AdvancedNoiseFilterMu(fOutMuArray))){
-      fOutMuArray->Clear("C");
-      fOutSciArray->Clear("C");
+    if (!(AdvancedNoiseFilterScifi(fOutSciFiArray, siPMFibres) || AdvancedNoiseFilterMu(fOutMufiArray))){
+      fOutMufiArray->Clear("C");
+      fOutSciFiArray->Clear("C");
       fOutMCTrackArray->Clear("C");
       FirstEvent = false;
       continue;
@@ -567,8 +567,8 @@ bool MCEventBuilder::AdvancedNoiseFilterScifi(
   }  
 
 void MCEventBuilder::FinishTask() {
-  fOutSciArray->Delete();
-  fOutMuArray->Delete();
+  fOutSciFiArray->Delete();
+  fOutMufiArray->Delete();
   fOutMCTrackArray->Delete();
   if (fOutTree) fOutTree->Write();
   if (fOutFile) {
