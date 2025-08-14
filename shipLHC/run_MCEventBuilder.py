@@ -58,4 +58,3 @@ run.Run(options.firstEvent, options.nEvents)
 end = time.time()
 elapsed = end - start
 print(f"Elapsed time: {elapsed:.2f} seconds")
-
