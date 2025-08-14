@@ -21,24 +21,28 @@
 #include "MuFilterPoint.h"
 #include "ScifiPoint.h"
 #include "ShipMCTrack.h"
+#include "ShipUnit.h"
 
 namespace {
-  float timeWindow = 0.0f;
+  int n_clockcycles = 4;
+
+  float t_electronics = 0.0; //if known
+  float timeWindow = n_clockcycles * (1 /(ShipUnit::snd_freq)) + t_electronics;
 
   MuFilter* MuFilterDet = nullptr;
-  float DsPropSpeed = 0.0f;
-  float VandUpPropSpeed = 0.0f;
+  float DsPropSpeed = 0.0;
+  float VandUpPropSpeed = 0.0;
 
   Scifi* ScifiDet = nullptr;
-  float ScifisignalSpeed = 0.0f;
+  float ScifisignalSpeed = 0.0;
   std::map<Int_t, std::map<Int_t, std::array<float, 2>>> siPMFibres;
 }
 
 MCEventBuilder::MCEventBuilder(const std::string& outputFileName,
-                               bool saveOnlyFirst25)
+                               bool saveFirst25nsOnly)
   : FairTask("MCEventBuilder"),
     fOutputFileName(outputFileName),
-    fSaveOnlyFirst25(saveOnlyFirst25),
+    fSaveFirst25nsOnly(saveFirst25nsOnly),
     fOutFile(nullptr),
     fOutTree(nullptr),
     fInMufiArray(nullptr),
@@ -88,9 +92,7 @@ InitStatus MCEventBuilder::Init() {
 
 
   // --------------Global Variables--------------------
-  float t_electronics = 0.0; //If known
-  timeWindow = 25.0 + t_electronics; //Change the size of the chunk windows
-  
+  std::cout << "timeWindow = " << timeWindow << " ns" << std::endl;
   //Muon Filter
   MuFilterDet = dynamic_cast<MuFilter*>(gROOT->GetListOfGlobals()->FindObject("MuFilter"));
   if (!MuFilterDet) {
@@ -165,8 +167,7 @@ void MCEventBuilder::ProcessEvent() {
     //Vertical bars with only 1 readout at the top
     if ( (floor(detID/10000)==3&&detID%1000>59) || 
           (floor(detID/10000)==1&&int(detID/1000)%10==2) )  {
-      double tTop = p->GetTime() + (vTop - impact).Mag() / propspeed;
-      double arrivalTime = tTop;
+      double arrivalTime = p->GetTime() + (vTop - impact).Mag() / propspeed;
       muArrivalTimes.push_back(arrivalTime);
     }
     //Horizontal
@@ -409,7 +410,7 @@ void MCEventBuilder::ProcessEvent() {
     }
 
     //--------Save only first 25ns chunks mode-------
-    if (fSaveOnlyFirst25) {
+    if (fSaveFirst25nsOnly) {
       if (FirstEvent) {
         fOutTree->Fill();
         FirstEvent = false;

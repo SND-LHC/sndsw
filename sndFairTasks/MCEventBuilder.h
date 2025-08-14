@@ -53,7 +53,7 @@ private:
   bool AdvancedNoiseFilterMu(TClonesArray* muArray);
 
   //Input
-  bool fSaveOnlyFirst25;
+  bool fSaveFirst25nsOnly;
   FairMCEventHeader* fInHeader;
   TClonesArray*      fInMufiArray;
   TClonesArray*      fInSciFiArray;

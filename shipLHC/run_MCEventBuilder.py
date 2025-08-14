@@ -48,7 +48,7 @@ xrdb.getContainer("FairBaseParSet").setStatic()
 xrdb.getContainer("FairGeoParSet").setStatic()
 
 # Add tasks 
-eventBuilder = ROOT.MCEventBuilder(options.outputFile, options.saveOnlyFirst25)
+eventBuilder = ROOT.MCEventBuilder(options.outputFile, options.saveFirst25nsOnly)
 run.AddTask(eventBuilder)
 
 # Initialize and run
