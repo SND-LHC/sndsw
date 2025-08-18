@@ -42,7 +42,7 @@ std::string snd::analysis_tools::GetGeoPath(const std::string& csv_file_path, in
 }
 
 // Get SciFi and MuFilter geometries
-std::pair<Scifi *, MuFilter *> snd::analysis_tools::GetGeometry(std::string geometry_path)
+std::pair<Scifi *, MuFilter *> snd::analysis_tools::GetGeometry(const std::string& geometry_path)
 {
     TPython::Exec("import SndlhcGeo");
     TPython::Exec(("SndlhcGeo.GeoInterface('" + geometry_path + "')").c_str());

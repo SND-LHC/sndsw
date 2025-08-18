@@ -52,7 +52,7 @@ std::unique_ptr<TChain> snd::analysis_tools::GetTChain(const std::string& csv_fi
     return tchain;
 };
 
-std::unique_ptr<TChain> snd::analysis_tools::GetTChain(std::string file_name){
+std::unique_ptr<TChain> snd::analysis_tools::GetTChain(const std::string& file_name){
     auto tchain = std::make_unique<TChain>("rawConv");
     tchain->Add(file_name.c_str());
     return tchain;

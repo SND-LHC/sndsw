@@ -34,9 +34,9 @@
 #pragma link C++ function snd::analysis_tools::showerInteractionWall(const TClonesArray &, int, std::string);
 #pragma link C++ function snd::analysis_tools::GetDataBasePath(const std::string &, int);
 #pragma link C++ function snd::analysis_tools::GetTChain(const std::string &, int, int);
-#pragma link C++ function snd::analysis_tools::GetTChain(std::string);
+#pragma link C++ function snd::analysis_tools::GetTChain(const std::string &);
 #pragma link C++ function snd::analysis_tools::GetGeoPath(const std::string &,int);
-#pragma link C++ function snd::analysis_tools::GetGeometry(std::string);
+#pragma link C++ function snd::analysis_tools::GetGeometry(const std::string &);
 #pragma link C++ function snd::analysis_tools::FillScifi(const snd::Configuration &, TClonesArray *, Scifi *);
 #pragma link C++ function snd::analysis_tools::FillUS(const snd::Configuration &, TClonesArray *, MuFilter *);
 
