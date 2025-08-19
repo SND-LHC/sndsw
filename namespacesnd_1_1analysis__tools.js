@@ -24,6 +24,8 @@ var namespacesnd_1_1analysis__tools =
     [ "GetTChain", "namespacesnd_1_1analysis__tools.html#a7b1e884a03c24b887a7fca201a0a4b69", null ],
     [ "getTotalSciFiHits", "namespacesnd_1_1analysis__tools.html#ab2e65a7ac6bc899bf97748cab9c03da6", null ],
     [ "getTotalSciFiHits", "namespacesnd_1_1analysis__tools.html#add38a36ae42dce4c3e48621c2c4d0b23", null ],
+    [ "hitDensityPerStation", "namespacesnd_1_1analysis__tools.html#adbacfdc9078e23b4b863ca20be5a2dd0", null ],
+    [ "hitPositionVectorsPerStation", "namespacesnd_1_1analysis__tools.html#a5d534fa34696441a71d6684f5ee710e8", null ],
     [ "peakScifiTiming", "namespacesnd_1_1analysis__tools.html#a22e18e1d83715d3cecf04d03eb350cac", null ],
     [ "selectScifiHits", "namespacesnd_1_1analysis__tools.html#a06cbff42f3e162d8c91b1d3388771179", null ],
     [ "selectScifiHits", "namespacesnd_1_1analysis__tools.html#ac24087a94e7ae37f910b9482ddf021b0", null ],

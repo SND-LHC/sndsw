@@ -14,6 +14,8 @@ var sndSciFiTools_8h =
     [ "getSciFiHitsPerStation", "sndSciFiTools_8h.html#a4366cddb81edce8fb50a4dedd3875e84", null ],
     [ "getTotalSciFiHits", "sndSciFiTools_8h.html#ab2e65a7ac6bc899bf97748cab9c03da6", null ],
     [ "getTotalSciFiHits", "sndSciFiTools_8h.html#add38a36ae42dce4c3e48621c2c4d0b23", null ],
+    [ "hitDensityPerStation", "sndSciFiTools_8h.html#adbacfdc9078e23b4b863ca20be5a2dd0", null ],
+    [ "hitPositionVectorsPerStation", "sndSciFiTools_8h.html#a5d534fa34696441a71d6684f5ee710e8", null ],
     [ "peakScifiTiming", "sndSciFiTools_8h.html#a22e18e1d83715d3cecf04d03eb350cac", null ],
     [ "selectScifiHits", "sndSciFiTools_8h.html#a06cbff42f3e162d8c91b1d3388771179", null ],
     [ "selectScifiHits", "sndSciFiTools_8h.html#ac24087a94e7ae37f910b9482ddf021b0", null ],
