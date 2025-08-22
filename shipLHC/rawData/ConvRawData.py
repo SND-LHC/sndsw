@@ -93,11 +93,11 @@ class ConvRawDataPY(ROOT.FairTask):
       if self.fiN.Get('event'):   self.newFormat = False # old format
       if not self.monitoring:
         if self.newFormat:
-           if options.nEvents<0:  self.nEvents = self.fiN.data.GetEntries()
-           else: self.nEvents = min(options.nEvents,self.fiN.data.GetEntries())
+           if options.nEvents<0:  self.nEvents = self.fiN.Get("data").GetEntries()
+           else: self.nEvents = min(options.nEvents,self.fiN.Get("data").GetEntries())
         else:
-           if options.nEvents<0:  self.nEvents = self.fiN.event.GetEntries()
-           else: self.nEvents = min(options.nEvents,self.fiN.event.GetEntries())
+           if options.nEvents<0:  self.nEvents = self.fiN.Get("event").GetEntries()
+           else: self.nEvents = min(options.nEvents,self.fiN.Get("event").GetEntries())
       print('converting ',self.nEvents,' events ',' of run',options.runNumber)
   # Pass input parameters to the task - runN, paths, etc.
       ioman.RegisterInputObject('runN', ROOT.TObjString(str(options.runNumber)))
@@ -429,7 +429,7 @@ class ConvRawDataPY(ROOT.FairTask):
      if eventNumber%self.options.heartBeat==0 or self.debug:
                print('run ',self.options.runNumber, ' event',eventNumber," ",time.ctime())
 
-     event = self.fiN.data
+     event = self.fiN.Get("data")
      event.GetEvent(eventNumber)
      self.header.SetEventTime(event.evt_timestamp)
      self.header.SetUTCtimestamp(int(event.evt_timestamp*6.23768*1e-9 + self.run_startUTC))
@@ -551,11 +551,15 @@ class ConvRawDataPY(ROOT.FairTask):
 # copy hits to detector branches
      for sipmID in digiSciFiStore:
                if self.digiSciFi.GetSize() == indexSciFi: self.digiSciFi.Expand(indexSciFi+100)
-               self.digiSciFi[indexSciFi]=digiSciFiStore[sipmID]
+               aHit = digiSciFiStore[sipmID]
+               aHit_TCA = self.digiSciFi.ConstructedAt(indexSciFi)
+               ROOT.std.swap(aHit, aHit_TCA)
                indexSciFi+=1
      for detID in digiMuFilterStore:
                if self.digiMuFilter.GetSize() == indexMuFilter: self.digiMuFilter.Expand(indexMuFilter+100)
-               self.digiMuFilter[indexMuFilter]=digiMuFilterStore[detID]
+               aHit = digiMuFilterStore[detID]
+               aHit_TCA = self.digiMuFilter.ConstructedAt(indexMuFilter)
+               ROOT.std.swap(aHit, aHit_TCA)
                indexMuFilter+=1
    def executeEvent0(self,eventNumber):
      if self.options.FairTask_convRaw:
@@ -568,7 +572,7 @@ class ConvRawDataPY(ROOT.FairTask):
           return   
      if eventNumber%self.options.heartBeat==0 or self.debug:
                print('run ',self.options.runNumber, ' event',eventNumber," ",time.ctime())
-     event = self.fiN.event
+     event = self.fiN.Get("event")
      rc = event.GetEvent(eventNumber)
      self.header.SetEventTime(event.timestamp)
      self.header.SetRunId( self.options.runNumber )
@@ -682,11 +686,15 @@ class ConvRawDataPY(ROOT.FairTask):
 # copy hits to detector branches
      for sipmID in digiSciFiStore:
                if self.digiSciFi.GetSize() == indexSciFi: self.digiSciFi.Expand(indexSciFi+100)
-               self.digiSciFi[indexSciFi]=digiSciFiStore[sipmID]
+               aHit = digiSciFiStore[sipmID]
+               aHit_TCA = self.digiSciFi.ConstructedAt(indexSciFi)
+               ROOT.std.swap(aHit, aHit_TCA)
                indexSciFi+=1
      for detID in digiMuFilterStore:
                if self.digiMuFilter.GetSize() == indexMuFilter: self.digiMuFilter.Expand(indexMuFilter+100)
-               self.digiMuFilter[indexMuFilter]=digiMuFilterStore[detID]
+               aHit = digiMuFilterStore[detID]
+               aHit_TCA = self.digiMuFilter.ConstructedAt(indexMuFilter)
+               ROOT.std.swap(aHit, aHit_TCA)
                indexMuFilter+=1
 
 
@@ -701,7 +709,7 @@ class ConvRawDataPY(ROOT.FairTask):
           self.outfile.Close()
       else:
          if self.options.debug:
-             print('number of events processed',self.sTree.GetEntries(),self.fiN.event.GetEntries())
+             print('number of events processed',self.sTree.GetEntries(),self.fiN.Get("event").GetEntries())
          self.sTree.Write()
          self.fiN.Close()
          self.fSink.Close()

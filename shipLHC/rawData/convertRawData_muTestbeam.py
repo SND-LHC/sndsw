@@ -269,8 +269,8 @@ part = ""
 if not (options.partition < 0):   part = '_'+str(options.partition).zfill(4)
 dataName = 'data'+part+'.root'
 f0=ROOT.TFile.Open(X+path+dataName)
-if options.nEvents<0:  nEvent = f0.event.GetEntries()
-else: nEvent = min(options.nEvents,f0.event.GetEntries())
+if options.nEvents<0:  nEvent = f0.Get("event").GetEntries()
+else: nEvent = min(options.nEvents,f0.Get("event").GetEntries())
 print('converting ',nEvent,' events ',' of run',options.runNumber)
 
 boards = {}
@@ -303,7 +303,7 @@ fSink.WriteObject(B,"BranchList", ROOT.TObject.kSingleKey)
 
 import time
 def run(nEvent):
- event = f0.event
+ event = f0.Get("event")
  for eventNumber in range(options.nStart,nEvent):
    ncreated = 0
    rc = event.GetEvent(eventNumber)
@@ -471,11 +471,15 @@ def run(nEvent):
 
    for sipmID in digiSciFiStore:
              if digiSciFi.GetSize() == indexSciFi: digiSciFi.Expand(indexSciFi+100)
-             digiSciFi[indexSciFi]=digiSciFiStore[sipmID]
+             aHit = digiSciFiStore[sipmID]
+             aHit_TCA = digiSciFi.ConstructedAt(indexSciFi)
+             ROOT.std.swap(aHit, aHit_TCA)
              indexSciFi+=1
    for detID in digiMuFilterStore:
              if digiMuFilter.GetSize() == indexMuFilter: digiMuFilter.Expand(indexMuFilter+100)
-             digiMuFilter[indexMuFilter]=digiMuFilterStore[detID]
+             aHit = digiMuFilterStore[detID]
+             aHit_TCA = digiMuFilter.ConstructedAt(indexMuFilter)
+             ROOT.std.swap(aHit, aHit_TCA)
              indexMuFilter+=1
 # make simple clustering for scifi, only works with geometry file. Don't think it is a good idea at the moment
    if withGeoFile:
@@ -509,7 +513,8 @@ def run(nEvent):
                         aCluster = ROOT.sndCluster(first,N,hitlist,scifiDet)
                         print("cluster created")
                         if  clusScifi.GetSize() == index: clusScifi.Expand(index+10)
-                        clusScifi[index]=aCluster
+                        aCluster_TCA = clusScifi.ConstructedAt(index)
+                        ROOT.std.swap(aCluster, aCluster_TCA)
                         index+=1
                         if c!=hitList[last]:
                              ncl+=1
@@ -520,7 +525,7 @@ def run(nEvent):
    if options.debug: 
         print('====> number of created hits',ncreated)
  if options.debug:
-     print('number of events processed',sTree.GetEntries(),f0.event.GetEntries())
+     print('number of events processed',sTree.GetEntries(),f0.Get("event").GetEntries())
  sTree.Write()
 
 # https://gitlab.cern.ch/snd-scifi/software/-/wikis/Raw-data-format 
@@ -533,7 +538,7 @@ def run(nEvent):
 theMap = {}
 def getMapEvent2Time():
      k = 0
-     for event in f0.event:  
+     for event in f0.Get("event"):  
           theMap[event.timestamp]=k
           k+=1
           if k%10000000==0: print('key time map: now at ',k)
