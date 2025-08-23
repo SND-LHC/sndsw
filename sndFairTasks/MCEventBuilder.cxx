@@ -92,7 +92,6 @@ InitStatus MCEventBuilder::Init() {
 
 
   // --------------Global Variables--------------------
-  std::cout << "timeWindow = " << timeWindow << " ns" << std::endl;
   //Muon Filter
   MuFilterDet = dynamic_cast<MuFilter*>(gROOT->GetListOfGlobals()->FindObject("MuFilter"));
   if (!MuFilterDet) {
@@ -256,12 +255,12 @@ void MCEventBuilder::ProcessEvent() {
   }
 
   //---------Finding the earliest time between Scifi and MuFilter-----------------
-  double tMu  = sortedMuArrivalTimes.empty()  ? -1 : sortedMuArrivalTimes.front();
+  double tMufi  = sortedMuArrivalTimes.empty()  ? -1 : sortedMuArrivalTimes.front();
   double tScifi = sortedScifiArrivalTimes.empty() ? -1 : sortedScifiArrivalTimes.front();
-  bool has   = (tMu >= 0 || tScifi >= 0);
-  double firstT = has ? (tMu < 0 ? tScifi : (tScifi < 0 ? tMu : std::min(tMu, tScifi))): 0;
+  bool hasMCPoints   = (tMufi >= 0 || tScifi >= 0);
+  double firstT = hasMCPoints ? (tMufi < 0 ? tScifi : (tScifi < 0 ? tMufi : std::min(tMufi, tScifi))): 0;
 
-  if (!has) {
+  if (!hasMCPoints) {
     fOutMufiArray->Clear();
     fOutSciFiArray->Clear();
     fOutMCTrackArray->Clear();
@@ -270,15 +269,15 @@ void MCEventBuilder::ProcessEvent() {
   }
 
   //------------------Preparations before chunking the data---------------------
-  auto idsMu  = OrderedIds(sortedMuArrivalTimes,  firstT);
+  auto idsMufi  = OrderedIds(sortedMuArrivalTimes,  firstT);
   auto idsScifi = OrderedIds(sortedScifiArrivalTimes, firstT);
 
   bool FirstEvent = true;
 
   std::vector<int> used;  
-  int im = 0, is = 0, sliceMu = 0, sliceScifi = 0;
+  int i_mufi = 0, i_scifi = 0, sliceMufi = 0, sliceScifi = 0;
 
-  while (im < (int)sortedMuArrivalTimes.size() || is < (int)sortedScifiArrivalTimes.size()) {
+  while (i_mufi < (int)sortedMuArrivalTimes.size() || i_scifi < (int)sortedScifiArrivalTimes.size()) {
     fOutMufiArray->Clear("C");
     fOutSciFiArray->Clear("C");
     fOutMCTrackArray->Clear("C");
@@ -287,28 +286,13 @@ void MCEventBuilder::ProcessEvent() {
     std::vector<ScifiPoint*> scifiSlicePoints;
     fOutMCTrackArray->Delete();  
     fOutMCTrackArray->ExpandCreate(mcTrackClones.size());
+
     //Adding the mother track:
-    ShipMCTrack* origTrack = mcTrackClones[0];
-    Int_t trackPdgCode = origTrack->GetPdgCode();
-    Int_t motherID     = origTrack->GetMotherId();
-    Double_t px = origTrack->GetPx();
-    Double_t py = origTrack->GetPy();
-    Double_t pz = origTrack->GetPz();
-    Double_t E  = origTrack->GetEnergy();
-    Double_t x  = origTrack->GetStartX();
-    Double_t y  = origTrack->GetStartY();
-    Double_t z  = origTrack->GetStartZ();
-    Double_t t  = origTrack->GetStartT();
-    Int_t nPoints = 0;
-    Double_t w    = origTrack->GetWeight();
+    ShipMCTrack* newTrack = new ((*fOutMCTrackArray)[0]) ShipMCTrack(*mcTrackClones[0]);
 
-    ShipMCTrack* newTrack = new ((*fOutMCTrackArray)[0])
-      ShipMCTrack(trackPdgCode, motherID, px, py, pz, E, x, y, z, t, nPoints, w);
-    newTrack->SetProcID(origTrack->GetProcID());
-
-    //Muon Filter Points chunking
-    while (im < (int)sortedMuArrivalTimes.size() && idsMu[im] == sliceMu) {
-      MuFilterPoint* origMu = sortedMuPoints[im];
+    //MUON FILTER POINTS CHUNKING
+    while (i_mufi < (int)sortedMuArrivalTimes.size() && idsMufi[i_mufi] == sliceMufi) {
+      MuFilterPoint* origMu = sortedMuPoints[i_mufi];
       muSlicePoints.push_back(origMu);
       Int_t trackID   = origMu->GetTrackID();
       Int_t detID     = origMu->GetDetectorID();
@@ -318,37 +302,22 @@ void MCEventBuilder::ProcessEvent() {
       Double_t length = origMu->GetLength();
       Double_t eLoss  = origMu->GetEnergyLoss();
       Int_t pdgCode   = origMu->PdgCode();
+      
       new ((*fOutMufiArray)[fOutMufiArray->GetEntriesFast()])
         MuFilterPoint(trackID, detID, pos, mom, time, length, eLoss, pdgCode);
 
-      int tid = sortedMuTrackIDs[im++];
+      int tid = sortedMuTrackIDs[i_mufi++];
+      //MC tracks having ID=-2 are below the pre-set energy threshold (default is 100MeV) and cannot be linked to their corresponding MC point. Such tracks are not saved to the chunked events.
       if (tid != -2) {
-        ShipMCTrack* origTrack = mcTrackClones[tid];
-        Int_t trackPdgCode = origTrack->GetPdgCode();
-        Int_t motherID     = origTrack->GetMotherId();
-        Double_t px = origTrack->GetPx();
-        Double_t py = origTrack->GetPy();
-        Double_t pz = origTrack->GetPz();
-        Double_t E  = origTrack->GetEnergy();
-        Double_t x  = origTrack->GetStartX();
-        Double_t y  = origTrack->GetStartY();
-        Double_t z  = origTrack->GetStartZ();
-        Double_t t  = origTrack->GetStartT();
-        Int_t nPoints = 0;
-        Double_t w    = origTrack->GetWeight();
-
-        ShipMCTrack* newTrack = new ((*fOutMCTrackArray)[tid])
-          ShipMCTrack(trackPdgCode, motherID, px, py, pz, E, x, y, z, t, nPoints, w);
-        newTrack->SetProcID(origTrack->GetProcID());  
+        ShipMCTrack* newTrack = new ((*fOutMCTrackArray)[tid]) ShipMCTrack(*mcTrackClones[tid]);  
       }
     }
-    ++sliceMu;
+    ++sliceMufi;
 
-    //Scifi Points chunking
-    while (is < (int)sortedScifiArrivalTimes.size() && idsScifi[is] == sliceScifi) {
-      ScifiPoint* origSci = sortedScifiPoints[is];
+    //SCIFI POINTS CHUNKING
+    while (i_scifi < (int)sortedScifiArrivalTimes.size() && idsScifi[i_scifi] == sliceScifi) {
+      ScifiPoint* origSci = sortedScifiPoints[i_scifi];
       scifiSlicePoints.push_back(origSci);
-
       Int_t trackID   = origSci->GetTrackID();
       Int_t detID     = origSci->GetDetectorID();
       TVector3 pos;    origSci->Position(pos);
@@ -361,26 +330,10 @@ void MCEventBuilder::ProcessEvent() {
       new ((*fOutSciFiArray)[fOutSciFiArray->GetEntriesFast()])
         ScifiPoint(trackID, detID, pos, mom, time, length, eLoss, pdgCode);
 
-      int tid = sortedScifiTrackIDs[is++];
+      int tid = sortedScifiTrackIDs[i_scifi++];
+      //MC tracks having ID=-2 are below the pre-set energy threshold (default is 100MeV) and cannot be linked to their corresponding MC point. Such tracks are not saved to the chunked events.
       if (tid != -2) {
-        ShipMCTrack* origTrack = mcTrackClones[tid];
-        Int_t trackPdgCode = origTrack->GetPdgCode();
-        Int_t motherID     = origTrack->GetMotherId();
-        Double_t px = origTrack->GetPx();
-        Double_t py = origTrack->GetPy();
-        Double_t pz = origTrack->GetPz();
-        Double_t E  = origTrack->GetEnergy();
-        Double_t x  = origTrack->GetStartX();
-        Double_t y  = origTrack->GetStartY();
-        Double_t z  = origTrack->GetStartZ();
-        Double_t t  = origTrack->GetStartT();
-        Int_t nPoints = 0;
-        Double_t w    = origTrack->GetWeight();
-
-        ShipMCTrack* newTrack = new ((*fOutMCTrackArray)[tid])
-          ShipMCTrack(trackPdgCode, motherID, px, py, pz, E, x, y, z, t, nPoints, w);
-        newTrack->SetProcID(origTrack->GetProcID());
-      
+        ShipMCTrack* newTrack = new ((*fOutMCTrackArray)[tid]) ShipMCTrack(*mcTrackClones[tid]);
       }
     }
     ++sliceScifi; 
