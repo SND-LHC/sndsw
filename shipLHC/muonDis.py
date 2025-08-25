@@ -324,7 +324,7 @@ ROOT.gInterpreter.Declare("""
 
 Float_t fixXsec(TPythia6& g) {
     Pyint5_t* p5 = g.GetPyint5();
-    return p5->XSEC[0][3];
+    return p5->XSEC[2][0];
 }
 """)
 
@@ -2315,7 +2315,11 @@ if not options.command.find("muonDIS")<0:
 elif not options.command.find("convert")<0: convertAscii2Root(options.muonIn)
 elif not options.command.find("make")<0:    makeMuDISEvents(nucleon=options.nucleon)
 elif not options.command.find("ana")<0:     analyze(options.muonIn)
-elif not options.command.find("cross")<0:   getPythiaCrossSec(options.nEvents)
+elif not options.command.find("cross")<0:   
+     if options.pythia6:
+         getPythia6CrossSec(options.nEvents)
+     else:
+         getPythia8CrossSec(options.nEvents) 
 elif not options.command.find("muonPreTransport")<0:    muonPreTransport()
 elif not options.command.find("muon")<0:    muonRateAtSND()
 
