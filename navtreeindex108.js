@@ -1,5 +1,7 @@
 var NAVTREEINDEX108 =
 {
+"tPythia6Generator_8cxx.html":[14,0,19,31],
+"tPythia6Generator_8cxx_source.html":[14,0,19,31],
 "tPythia6Generator_8h.html":[14,0,19,32],
 "tPythia6Generator_8h_source.html":[14,0,19,32],
 "test__factory_8py.html":[14,0,1,2,4],

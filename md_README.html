@@ -120,25 +120,25 @@ $(document).ready(function(){initNavTree('md_README.html',''); initResizable(); 
 </li>
 <li>Docker Instructions</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md30"></a>
+<h1><a class="anchor" id="autotoc_md32"></a>
 Introduction</h1>
 <p><code>sndsw</code> is the software framework of the SND@LHC collaboration. It is based on the <a href="https://github.com/ShipSoft/FairShip">FairShip</a> framework developed by the SHiP collaboration which in turn is based on <a href="https://github.com/FairRootGroup/FairRoot/">FairRoot</a>, making use of the automatic python bindings provided by PyROOT.</p>
-<h2><a class="anchor" id="autotoc_md31"></a>
+<h2><a class="anchor" id="autotoc_md33"></a>
 Contact and communication</h2>
 <p>If you have questions or problems, please feel free to contact the @SND-LHC/core-developers. For troubleshooting and development, we plan to discuss on <a href="https://mattermost.web.cern.ch/sndlhc-daq/channels/software-and-analysis">Mattermost</a>.</p>
 <p>The <a href="#" onclick="location.href='mai'+'lto:'+'snd'+'-s'+'oft'+'wa'+'re@'+'ce'+'rn.'+'ch'; return false;">snd-software</a> mailing list can be used to discuss the software and report issues. Important annoucements will be made there.</p>
 <p>The <a href="#" onclick="location.href='mai'+'lto:'+'snd'+'-s'+'oft'+'wa'+'re-'+'no'+'tif'+'ic'+'ati'+'on'+'s@c'+'er'+'n.c'+'h'; return false;">snd-software-notifications</a> mailing list will be used for automated notifications from Github and CI/CD etc..</p>
 <p>Both mailing lists are self-subscribe CERN e-groups.</p>
-<h2><a class="anchor" id="autotoc_md32"></a>
+<h2><a class="anchor" id="autotoc_md34"></a>
 Branches</h2>
 <dl>
 <dt><code>master</code> </dt>
 <dd>Main development branch. All python code is <b>required to be compatible with 3</b> Requires aliBuild default <code>release</code>. </dd>
 </dl>
-<h1><a class="anchor" id="autotoc_md33"></a>
+<h1><a class="anchor" id="autotoc_md35"></a>
 Build instructions</h1>
 <p>The <code>aliBuild</code> family of tools developed by ALICE is used to set up <code>sndsw</code> and its dependencies.</p>
-<h2><a class="anchor" id="autotoc_md34"></a>
+<h2><a class="anchor" id="autotoc_md36"></a>
 Introduction to &lt;tt&gt;aliBuild&lt;/tt&gt;</h2>
 <p>The basic commands are the same regardless of whether CVMFS is used:</p>
 <dl>
@@ -150,7 +150,7 @@ Introduction to &lt;tt&gt;aliBuild&lt;/tt&gt;</h2>
 <dd>Enter an environment with <code>&lt;package-name&gt;</code> and its dependencies. </dd>
 </dl>
 <p>For more information on using <code>aliBuild</code>, see its <a href="https://alisw.github.io/alibuild/">documentation</a> (note: some things are ALICE specific and will not apply to SND@LHC software).</p>
-<h2><a class="anchor" id="autotoc_md35"></a>
+<h2><a class="anchor" id="autotoc_md37"></a>
 On lxplus or systems with CVMFS</h2>
 <p>On <code>lxplus</code> or supported platforms with access to CVMFS, you can do the following:</p>
 <ol type="1">
@@ -175,7 +175,7 @@ On lxplus or systems with CVMFS</h2>
 <p>However, this won't work if you are using HTCondor. In such case you can do:</p>
 <div class="fragment"><div class="line">eval $(alienv load sndsw/latest --no-refresh)</div>
 </div><!-- fragment --><p>If you modify <code>sndsw</code>, simply repeat step 4 from <code>sndsw</code>'s parent directory.</p>
-<h2><a class="anchor" id="autotoc_md36"></a>
+<h2><a class="anchor" id="autotoc_md38"></a>
 On systems without access to CVMFS</h2>
 <p>Commands are similar to the previous case, but without access to CVMFS you need to build the required packages from source.</p>
 <ol type="1">
@@ -196,7 +196,7 @@ On systems without access to CVMFS</h2>
 <li>Load the environment <div class="fragment"><div class="line">alienv enter sndsw/latest</div>
 </div><!-- fragment --></li>
 </ol>
-<h1><a class="anchor" id="autotoc_md37"></a>
+<h1><a class="anchor" id="autotoc_md39"></a>
 Run instructions</h1>
 <p>Set up the bulk of the environment from CVMFS.</p>
 <div class="fragment"><div class="line">source /cvmfs/sndlhc.cern.ch/SNDLHC-2024/June25/setUp.sh</div>
@@ -216,7 +216,7 @@ Run instructions</h1>
 </div><!-- fragment --><p> a) Use the GUI to display events: SHiP actions / next event</p>
 <p>b) Hovering over trajectory will display additional information :</p>
 <p>c) At python prompt: <code>sTree.MCTrack.Dump()</code> will display info about all MC particles</p>
-<h2><a class="anchor" id="autotoc_md38"></a>
+<h2><a class="anchor" id="autotoc_md40"></a>
 Use cases covered by &lt;tt&gt;run_simSND.py&lt;/tt&gt;</h2>
 <ol type="1">
 <li><p class="startli">Transport muons, output of FLUKA simulation, to TI18 and the detector. Positive and negative muons, up and down crossing angles, exist. Possible options are setting minimum energy for transporting particles, transport only muons, increase EM cross sections of muons.</p>
@@ -227,14 +227,14 @@ Use cases covered by &lt;tt&gt;run_simSND.py&lt;/tt&gt;</h2>
 <li>Neutrino events, produced by GENIE and then positioned in TI18 and transported by Geant4: <div class="fragment"><div class="line">python  $SNDSW_ROOT/shipLHC/run_simSND.py  --Genie -n nEvents -f ...</div>
 </div><!-- fragment --></li>
 </ol>
-<h2><a class="anchor" id="autotoc_md39"></a>
+<h2><a class="anchor" id="autotoc_md41"></a>
 Digitization of MC data</h2>
 <ol type="1">
 <li><p class="startli">Convert MC points to detector hits. Input required, data from simulation together with the geometry file created when running simulation. New objects created are <code>Digi_ScifiHits</code> together with <code>Cluster_Scifi</code> and <code>Digi_MuFilterHit</code>, and in parallel objects to make the link to the original MC points, <code>Digi_MuFilterHits2MCPoints</code> and <code>Digi_ScifiHits2MCPoints</code>.</p>
 <div class="fragment"><div class="line">python $SNDSW_ROOT/shipLHC/run_digiSND.py   -f sndLHC.Ntuple-TGeant4.root -g geofile_full.Ntuple-TGeant4.root</div>
 </div><!-- fragment --></li>
 </ol>
-<h2><a class="anchor" id="autotoc_md40"></a>
+<h2><a class="anchor" id="autotoc_md42"></a>
 Converting raw data to sndsw format</h2>
 <ol type="1">
 <li><p class="startli">Runs the calibration procedure and creates <code>Digi_ScifiHits</code> and <code>Digi_MuFilterHit</code> with signal and time information from SiPM channels.</p>
@@ -244,7 +244,7 @@ Converting raw data to sndsw format</h2>
 <div class="fragment"><div class="line">python $SNDSW_ROOT/shipLHC/rawData/convertRawData_convertRawData_muTestbeam.py -p /eos/experiment/sndlhc/testbeam/MuFilter/TB_data_commissioning/ -n 5000000  -r 91</div>
 </div><!-- fragment --> </li>
 </ol>
-<h2><a class="anchor" id="autotoc_md41"></a>
+<h2><a class="anchor" id="autotoc_md43"></a>
 Example scripts for accessing the raw data and making histograms</h2>
 <ol type="1">
 <li>For scifi data: <div class="fragment"><div class="line">python $SNDSW_ROOT/shipLHC/rawData/scifiHitMaps.py -p /eos/experiment/sndlhc/testbeam/scifi/sndsw/ -r 1 -g geofile_full.Ntuple-TGeant4.root</div>
@@ -252,17 +252,17 @@ Example scripts for accessing the raw data and making histograms</h2>
 <li>For MuFi data: <div class="fragment"><div class="line">python $SNDSW_ROOT/shipLHC/rawData/mufiHitMaps.py -p /eos/experiment/sndlhc/testbeam/MuFilter/TB_data_commissioning/sndsw/ -r 90 -g geofile_full.Ntuple-TGeant4.root</div>
 </div><!-- fragment --> Two methods implemented, hitMaps(Nev = -1) and eventTime().</li>
 </ol>
-<h2><a class="anchor" id="autotoc_md42"></a>
+<h2><a class="anchor" id="autotoc_md44"></a>
 simple 2d event display with Scifi tracking</h2>
 <ol type="1">
 <li>Use method loopEvents(start=0,save=False,goodEvents=False,withTrack=False) <div class="fragment"><div class="line">python $SNDSW_ROOT/shipLHC/scripts/scifiHitMaps.py -p /eos/experiment/sndlhc/testbeam/scifi/sndsw/ -r 1 -g geofile_full.Ntuple-TGeant4.root</div>
 </div><!-- fragment --></li>
 </ol>
-<h1><a class="anchor" id="autotoc_md43"></a>
+<h1><a class="anchor" id="autotoc_md45"></a>
 Development</h1>
 <p>All packages are managed in Git and GitHub. Please either use the web interface to create pull requests or issues, or <a href="https://git-send-email.io/">send patches via email</a>.</p>
 <p>If your changes would also benefit <a href="https://github.com/ShipSoft/FairShip">FairShip</a>, please consider making a pull-request for your changes there. We can then pick up the changes from FairShip automatically.</p>
-<h2><a class="anchor" id="autotoc_md44"></a>
+<h2><a class="anchor" id="autotoc_md46"></a>
 How to keep branches up to date</h2>
 <p>To update one's local copy of a branch with the latest modifications of that branch on the upstream repository do: </p><div class="fragment"><div class="line">cd sndsw</div>
 <div class="line">git checkout &lt;branch&gt;</div>
@@ -281,7 +281,7 @@ How to keep branches up to date</h2>
 <p>After solving any encountered <code>conflict</code>, build the updated branch as per the Build instructions.</p>
 <p>Following a <code>rebase</code> and after solving <code>conflicts</code>, to push one's local changes to the feature <code>branch</code> on the upstream repository do: </p><div class="fragment"><div class="line">git push --force-with-lease --set-upstream origin &lt;branch&gt;</div>
 </div><!-- fragment --><p> Follow the link for further reading why we use <a href="https://stackoverflow.com/questions/52823692/git-push-force-with-lease-vs-force/52823955#52823955"><code>--force-with-lease</code> flag</a>.</p>
-<h2><a class="anchor" id="autotoc_md45"></a>
+<h2><a class="anchor" id="autotoc_md47"></a>
 How to contribute code</h2>
 <p>Proposals for contributions to any target branch are made using <code>Pull requests</code>. Furthermore, all <code>Pull requests</code> to the <code>master</code> branch on the upstream repository go through a review process by the <code>sndsw</code> <a href="https://github.com/orgs/SND-LHC/teams/core-developers"><code>core-developers</code></a>. To make a <code>Pull request</code>, follow the guidelines below:</p>
 <ol type="1">
@@ -292,7 +292,7 @@ How to contribute code</h2>
 <li>On the right panel, under the <code>Reviewers</code> heading one can chose who should review the code, e.g. the expert for a syb-system or topic, or someone who you have discussed the changes with. Otherwise, the default is <code>core-developers</code>.</li>
 <li>Create the <code>Pull request</code>.</li>
 </ol>
-<h1><a class="anchor" id="autotoc_md46"></a>
+<h1><a class="anchor" id="autotoc_md48"></a>
 Docker Instructions</h1>
 <p>Docker is <b>not</b> the recommended way to run <code>sndsw</code> locally. It is ideal for reproducing reproducible, stateless environments for debugging, HTCondor and cluster use, or when a strict separation between <code>sndsw</code> and the host is desirable.</p>
 <ol type="1">

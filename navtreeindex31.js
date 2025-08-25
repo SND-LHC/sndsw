@@ -247,7 +247,7 @@ var NAVTREEINDEX31 =
 "classes.html":[13,1],
 "classeventDisplay_1_1DrawDigi.html":[12,0,41,0],
 "classeventDisplay_1_1DrawDigi.html":[13,0,5,0],
-"classeventDisplay_1_1DrawDigi.html#a133b7fa60374e4954bb18ad2a2691151":[12,0,41,0,1],
 "classeventDisplay_1_1DrawDigi.html#a133b7fa60374e4954bb18ad2a2691151":[13,0,5,0,1],
+"classeventDisplay_1_1DrawDigi.html#a133b7fa60374e4954bb18ad2a2691151":[12,0,41,0,1],
 "classeventDisplay_1_1DrawDigi.html#a4bb33cef08131ac218d53ad60c2d736e":[12,0,41,0,3]
 };
