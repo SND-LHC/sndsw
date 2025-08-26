@@ -40,7 +40,9 @@ private:
   bool FastNoiseFilterMu_Hits(TClonesArray* muArray);
   bool FastNoiseFilterMu_Boards(TClonesArray* muArray);
 
-  bool FastNoiseFilterScifi_Hits(TClonesArray* scifiArray);
+  bool FastNoiseFilterScifi_Hits(
+    TClonesArray* scifiArray,
+    const std::map<Int_t, std::map<Int_t, std::array<float, 2>>>& siPMFibres);
   bool FastNoiseFilterScifi_Boards(
     TClonesArray* scifiArray,
     const std::map<Int_t, std::map<Int_t, std::array<float, 2>>>& siPMFibres);

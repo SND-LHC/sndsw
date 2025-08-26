@@ -36,6 +36,20 @@ namespace {
   Scifi* ScifiDet = nullptr;
   float ScifisignalSpeed = 0.0;
   std::map<Int_t, std::map<Int_t, std::array<float, 2>>> siPMFibres;
+
+  //Scifi Fast & Advanced Noise Filter Params
+  int min_scifi_boards = 3;
+  int min_us_boards = 5;
+  int min_ds_boards = 2;
+
+  int min_veto_hits = 5;
+  int min_scifi_hits = 10;
+  int min_ds_hits =2;
+
+  int min_veto_planes = 1;
+  int min_scifi_planes = 4;
+  int min_us_planes = 2;
+  int min_ds_planes = 2;
 }
 
 MCEventBuilder::MCEventBuilder(const std::string& outputFileName,
@@ -339,7 +353,7 @@ void MCEventBuilder::ProcessEvent() {
     ++sliceScifi; 
 
     //Noise Filters
-    if (!(FastNoiseFilterScifi_Hits(fOutSciFiArray) || FastNoiseFilterMu_Hits(fOutMufiArray))) {
+    if (!(FastNoiseFilterScifi_Hits(fOutSciFiArray, siPMFibres) || FastNoiseFilterMu_Hits(fOutMufiArray))) {
       fOutMufiArray->Clear("C");
       fOutSciFiArray->Clear("C");
       fOutMCTrackArray->Clear("C");
@@ -385,13 +399,13 @@ bool MCEventBuilder::FastNoiseFilterMu_Hits(TClonesArray* muArray) {
         int system = detID / 10000;
         if (system == 1) {
           veto.insert(detID);
-          if (veto.size() >= 5) {
+          if (veto.size() >= min_veto_hits) {
             return true;
           }
         }
         else if (system == 3) {
           ds.insert(detID);
-          if (ds.size() >= 2) {
+          if (ds.size() >= min_ds_hits) {
             return true;
           }
         }
@@ -400,6 +414,7 @@ bool MCEventBuilder::FastNoiseFilterMu_Hits(TClonesArray* muArray) {
 }
 
 bool MCEventBuilder::FastNoiseFilterMu_Boards(TClonesArray* muArray) {
+    //The digits used here to assign IDs to systems are set to match the DAQ board IDs from the 2022 board_mapping.json file
     std::set<int> us, ds;
     for (int i = 0; i < muArray->GetEntriesFast(); ++i) {
         auto* p = static_cast<MuFilterPoint*>(muArray->At(i));
@@ -414,7 +429,7 @@ bool MCEventBuilder::FastNoiseFilterMu_Boards(TClonesArray* muArray) {
             } else if (TypeofPlane == 5) {
                 us.insert(52);
             }
-            if (us.size() >= 5) {
+            if (us.size() >= min_us_boards) {
                 return true;
             }
         } else if (system == 3) {
@@ -425,7 +440,7 @@ bool MCEventBuilder::FastNoiseFilterMu_Boards(TClonesArray* muArray) {
             } else if (TypeofPlane == 3 || TypeofPlane == 4) {
                 ds.insert(55);
             }
-            if (ds.size() >= 2) {
+            if (ds.size() >= min_ds_boards) {
                 return true;
             }
         }
@@ -442,17 +457,17 @@ bool MCEventBuilder::AdvancedNoiseFilterMu(TClonesArray* muArray) {
         int system = detID / 10000;
         if (system == 1) {
             veto_planes.insert(detID / 1000);
-            if (veto_planes.size() >= 1) {
+            if (veto_planes.size() >= min_veto_planes) {
                 return true;
             }
         } else if (system == 2) {
             us_planes.insert(detID / 1000);
-            if (us_planes.size() >= 2) {
+            if (us_planes.size() >= min_us_planes) {
                 return true;
             }
         } else if (system == 3) {
             ds_planes.insert(detID / 1000);
-            if (ds_planes.size() >= 2) {
+            if (ds_planes.size() >= min_ds_planes) {
                 return true;
             }
         }
@@ -462,21 +477,34 @@ bool MCEventBuilder::AdvancedNoiseFilterMu(TClonesArray* muArray) {
 
 
 //-----------------------Scifi Fast Noise Filtering-------------------------------
-bool MCEventBuilder::FastNoiseFilterScifi_Hits(TClonesArray* scifiArray) {
+bool MCEventBuilder::FastNoiseFilterScifi_Hits(
+    TClonesArray* scifiArray,
+    const std::map<Int_t, std::map<Int_t, std::array<float, 2>>>& siPMFibresMap)
+  {
     std::set<int> detIDs;
     for (int i = 0; i < scifiArray->GetEntriesFast(); ++i) {
         auto* p = static_cast<ScifiPoint*>(scifiArray->At(i));
-        detIDs.insert(p->GetDetectorID());
-        if (detIDs.size() >= 10)
-            return true;
+        int point_detID = p->GetDetectorID();
+        int locFibreID = point_detID % 100000;
+        
+        for (const auto& sipmChan : siPMFibresMap.at(locFibreID)) {
+            int channel = sipmChan.first;
+            int detID_geo = (point_detID / 100000) * 100000 + channel;
+            detIDs.insert(detID_geo);
+
+            if (detIDs.size() >= min_scifi_hits){
+                return true;
+              }
+        }
     }
     return false;
-}
+  }
 
 bool MCEventBuilder::FastNoiseFilterScifi_Boards(
     TClonesArray* scifiArray,
     const std::map<Int_t, std::map<Int_t, std::array<float, 2>>>& siPMFibresMap)
   {
+    //A DAQ board reads one Scifi mat and we use the first three digits of the detID_geo, representing the unique combination of StationPlaneMat, to count boards with fired channels.
     std::set<int> dividedDetIds;
 
     for (int i = 0; i < scifiArray->GetEntriesFast(); ++i) {
@@ -489,8 +517,9 @@ bool MCEventBuilder::FastNoiseFilterScifi_Boards(
             int detID_geo = (point_detID / 100000) * 100000 + channel;
             dividedDetIds.insert(detID_geo / 10000);
 
-            if (dividedDetIds.size() >= 3)
+            if (dividedDetIds.size() >= min_scifi_boards){
                 return true;
+              }
         }
     }
     return false;
@@ -512,7 +541,7 @@ bool MCEventBuilder::AdvancedNoiseFilterScifi(
             int detID_geo = (point_detID / 100000) * 100000 + channel;
             UniquePlanes.insert(detID_geo / 100000);
 
-            if (UniquePlanes.size() >= 4) {
+            if (UniquePlanes.size() >= min_scifi_planes) {
               return true;
             }
         }
