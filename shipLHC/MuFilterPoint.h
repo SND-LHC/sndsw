@@ -38,17 +38,17 @@ class MuFilterPoint : public FairMCPoint
     
 
     Int_t PdgCode() const {return fPdgCode;}
+    
+    /** Copy constructor **/
+    MuFilterPoint(const MuFilterPoint& point);
+    
+    MuFilterPoint operator=(const MuFilterPoint& point);
 
   private:
 
 
     Int_t fPdgCode;
     
-    /** Copy constructor **/
-    
-    MuFilterPoint(const MuFilterPoint& point);
-    MuFilterPoint operator=(const MuFilterPoint& point);
-
     ClassDef(MuFilterPoint,1)
 
 };
