@@ -10,7 +10,7 @@ theClient = client.FileSystem('root://eospublic.cern.ch')
 commonPath = "/eos/experiment/sndlhc/convertedData/physics/"
 
 supportedGeoFiles = {}
-supported_years = [2022, 2023, 2024]
+supported_years = [2022, 2023, 2024, 2025]
 for year in supported_years:
    supportedGeoFiles["geofile_sndlhc_TI18_V0_"+str(year)+".root"] = commonPath+str(year)+"/"
 
@@ -37,7 +37,8 @@ def modifyDicts(year=2024):
          mufi_spatial_aligment_consts = {
            2022: [ 0.11,-0.04, 0.00, 0.10, 0.26, 0.24, 0.31, 0.34, 0.43, 1.13, 0.53, 1.31, 0.61, 1.35, 1.39],
            2023: [ 0.15, 0.03, 0.00,-0.01, 0.09,-0.01, 0.06, 0.06, 0.49, 0.86, 0.20, 0.98, 0.24, 1.01, 1.11],
-           2024: [-0.06, 0.04, 0.65,-0.15,-0.12,-0.26,-0.29,-0.36, 0.00, 0.35,-0.37, 0.38,-0.41, 0.30, 0.35]
+           2024: [-0.06, 0.04, 0.65,-0.15,-0.12,-0.26,-0.29,-0.36, 0.00, 0.35,-0.37, 0.38,-0.41, 0.30, 0.35],
+           2025: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
          }
          mufi_spatial_aligment_keys = ['Veto1ShiftY','Veto2ShiftY','Veto3ShiftX',
                                        'US1ShiftY','US2ShiftY','US3ShiftY','US4ShiftY','US5ShiftY',
@@ -75,7 +76,8 @@ def modifyDicts(year=2024):
            2023: {"t_0":0.000, "t_5478":0.082, "t_6208":0.086, "t_6443":0.082, "t_6677":0.084},
            2024: {"t_0":0.000, "t_7649":0.081, "t_8318":0.082, "t_8583":0.081, "t_8942":0.080, 
                   "t_9156":0.083, "t_9286":0.082, "t_9379":0.083, "t_9462":0.083, "t_9613":0.082,
-                  "t_9692":0.078, "t_9882":0.084, "t_10012":0.085}
+                  "t_9692":0.078, "t_9882":0.084, "t_10012":0.085},
+           2025: {"t_0": 0.000}
          }
          slopes_dict = ds_time_aligment_consts[year]
          #time delay corrections first order, only for DS at the moment
@@ -189,7 +191,8 @@ def modifyDicts(year=2024):
            2022: ['t_0', 't_4361','t_5117'],
            2023: ['t_0', 't_5478', 't_6208', 't_6443', 't_6677'],
            2024: ['t_0', 't_7649', 't_8318', 't_8583', 't_8942', 't_9156', 't_9286',
-                  't_9379', 't_9462', 't_9613', 't_9692', 't_9882', 't_10012']
+                  't_9379', 't_9462', 't_9613', 't_9692', 't_9882', 't_10012'],
+           2025: ['t_0']
          }
          scifi_time_tags = scifi_time_aligment_consts[year]
          for c in scifi_time_tags:
@@ -525,12 +528,77 @@ def modifyDicts(year=2024):
    0*u.mrad, 1.65*u.mrad, 0*u.mrad,
    0*u.mrad, -0.79*u.mrad, 0*u.mrad,
    0*u.mrad, 2.93*u.mrad, 0*u.mrad]
+         alignment['t_10423']=[     #2025 emulsion run 19 run_251
+   908.9748*u.um, 573.9855*u.um, 812.3022*u.um,
+   86.541*u.um, 123.4473*u.um, 88.648*u.um,
+   357.9727*u.um, 241.2571*u.um, 309.628*u.um,
+   18.2807*u.um, 87.3165*u.um, 94.6991*u.um,
+   -1.8476*u.um, 78.9774*u.um, 13.9775*u.um,
+   100.7577*u.um, -59.748*u.um, 174.542*u.um,
+   -100*u.um, 236.436*u.um, 196.9426*u.um,
+   -11.044*u.um, -185.1257*u.um, 17.2473*u.um,
+   -593.3074*u.um, -118.6736*u.um, -339.1444*u.um,
+  -101.3628*u.um, -25.2405*u.um, 184.0245*u.um,
+   0*u.mrad, -0.82*u.mrad, 0*u.mrad,
+   0*u.mrad, -0.73*u.mrad, 0*u.mrad,
+   0*u.mrad, 0*u.mrad, 0*u.mrad,
+   0*u.mrad, -0.43*u.mrad, 0*u.mrad,
+   0*u.mrad, 0.12*u.mrad, 0*u.mrad]
+         alignment['t_11158']=[     #2025 emulsion run 20 run_252
+   758.176*u.um, 84.0408*u.um, 221.625*u.um,
+   126.9696*u.um, -100.0*u.um, -542.1658*u.um,
+   56.0*u.um, -234.5533*u.um, -264.4273*u.um,
+   210.2911*u.um, 130.0*u.um, 9.9216*u.um,
+   -150.0*u.um, -102.0*u.um, -250.0*u.um,
+   100.7577*u.um, -59.748*u.um, 304.0*u.um,
+   -200.0*u.um, 256.0*u.um, 96.9426*u.um,
+   -550.0*u.um, -600.0*u.um, 50*u.um,
+   -892.3995*u.um, -108.0*u.um, -489.6239*u.um,
+   -300.0*u.um, 129.0*u.um, 911.9577*u.um,
+   0*u.mrad, -3.16*u.mrad, 0*u.mrad,
+   0*u.mrad, -1.13*u.mrad, 0*u.mrad,
+   0*u.mrad, 0*u.mrad, 0*u.mrad,
+   0*u.mrad, -2.00*u.mrad, 0*u.mrad,
+   0*u.mrad, 1.86*u.mrad, 0*u.mrad]
+         alignment['t_11576']=[ #2025 emulsion run 21 run_253
+   208.20*u.um, 125.00*u.um, 195.00*u.um,
+   -8.53*u.um, 44.46*u.um, 52.20*u.um,
+   -8.71*u.um, -30.53*u.um, -63.62*u.um,
+   -98.60*u.um, 10.00*u.um, -45.00*u.um,
+   -30.00*u.um, -8.00*u.um, -51.29*u.um,
+   180.00*u.um, 98.05*u.um, 228.20*u.um,
+   25.19*u.um, 67.28*u.um, 127.54*u.um,
+   7.54*u.um, -141.72*u.um, -70.68*u.um,
+   -5.00*u.um, 0.00*u.um, -50.29*u.um,
+   -64.05*u.um, 86.94*u.um, 4.89*u.um,
+   0.00*u.mrad, 0.01*u.mrad, -0.01*u.mrad,
+   -0.47*u.mrad, -0.01*u.mrad, 0.08*u.mrad,
+   0.90*u.mrad, 0.05*u.mrad, 0.00*u.mrad,
+   -0.40*u.mrad, -0.01*u.mrad, 0.08*u.mrad,
+   -0.23*u.mrad, 0.01*u.mrad, 0.04*u.mrad]
+         alignment['t_11676']=[ #2025 emulsion run 22 run_254
+   233.2526*u.um,  203.3113*u.um,  261.1019*u.um,
+   -248.7328*u.um, -168.8227*u.um, -98.6278*u.um,
+   -238.4141*u.um, -238.2084*u.um, -260.8086*u.um,
+   72.2430*u.um, 152.4410*u.um, 162.6312*u.um,
+   0.0000*u.um, -37.1101*u.um, -101.2731*u.um,
+   130.0000*u.um, 13.4088*u.um, 150.0951*u.um,
+   223.6887*u.um, 223.8778*u.um, 254.0594*u.um,
+   -215.8022*u.um, -413.1773*u.um, -344.0464*u.um,
+   -177.8921*u.um, -214.8997*u.um, -295.3263*u.um,
+   125.5983*u.um, 255.9729*u.um, 212.1852*u.um,
+   -0.4488*u.mrad, -0.3531*u.mrad, 0.3427*u.mrad,
+   0.5384*u.mrad, 0.0341*u.mrad, 0.1195*u.mrad,
+   0.7200*u.mrad, 0.2000*u.mrad, 0.0000*u.mrad,
+   -1.0244*u.mrad, -0.5787*u.mrad, 0.0171*u.mrad,
+   0.9128*u.mrad, 0.4085*u.mrad, 0.0171*u.mrad]
 
          scifi_spatial_aligment_consts = {
            2022: ['t_0', 't_4361','t_4575','t_4855','t_5172'],
            2023: ['t_0', 't_5431', 't_6443', 't_6677'],
            2024: ['t_0', 't_7649', 't_8318', 't_8583', 't_8942', 't_9156', 't_9286',
-                  't_9379', 't_9462', 't_9613', 't_9692', 't_9882', 't_10012']
+                  't_9379', 't_9462', 't_9613', 't_9692', 't_9882', 't_10012'],
+           2025: ['t_0', 't_10423', 't_11158', 't_11576', 't_11676']
          }
          scifi_spatial_tags = scifi_spatial_aligment_consts[year]
          for c in scifi_spatial_tags:
