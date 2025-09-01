@@ -109,7 +109,7 @@ Variables</h2></td></tr>
 <tr class="separator:a2c745d95a9150948dfad7ce5a084575f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa15f222f5ac4c7145236c029dc8ab34a" id="r_aa15f222f5ac4c7145236c029dc8ab34a"><td class="memItemLeft" align="right" valign="top">dict&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemodifyGeoFileDict.html#aa15f222f5ac4c7145236c029dc8ab34a">supportedGeoFiles</a> = {}</td></tr>
 <tr class="separator:aa15f222f5ac4c7145236c029dc8ab34a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5149020522295acb1351f496cfbefb0" id="r_aa5149020522295acb1351f496cfbefb0"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemodifyGeoFileDict.html#aa5149020522295acb1351f496cfbefb0">supported_years</a> = [2022, 2023, 2024]</td></tr>
+<tr class="memitem:aa5149020522295acb1351f496cfbefb0" id="r_aa5149020522295acb1351f496cfbefb0"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemodifyGeoFileDict.html#aa5149020522295acb1351f496cfbefb0">supported_years</a> = [2022, 2023, 2024, 2025]</td></tr>
 <tr class="separator:aa5149020522295acb1351f496cfbefb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -153,521 +153,615 @@ Variables</h2></td></tr>
 <div class="line"><span class="lineno">   37</span>         mufi_spatial_aligment_consts = {</div>
 <div class="line"><span class="lineno">   38</span>           2022: [ 0.11,-0.04, 0.00, 0.10, 0.26, 0.24, 0.31, 0.34, 0.43, 1.13, 0.53, 1.31, 0.61, 1.35, 1.39],</div>
 <div class="line"><span class="lineno">   39</span>           2023: [ 0.15, 0.03, 0.00,-0.01, 0.09,-0.01, 0.06, 0.06, 0.49, 0.86, 0.20, 0.98, 0.24, 1.01, 1.11],</div>
-<div class="line"><span class="lineno">   40</span>           2024: [-0.06, 0.04, 0.65,-0.15,-0.12,-0.26,-0.29,-0.36, 0.00, 0.35,-0.37, 0.38,-0.41, 0.30, 0.35]</div>
-<div class="line"><span class="lineno">   41</span>         }</div>
-<div class="line"><span class="lineno">   42</span>         mufi_spatial_aligment_keys = [<span class="stringliteral">&#39;Veto1ShiftY&#39;</span>,<span class="stringliteral">&#39;Veto2ShiftY&#39;</span>,<span class="stringliteral">&#39;Veto3ShiftX&#39;</span>,</div>
-<div class="line"><span class="lineno">   43</span>                                       <span class="stringliteral">&#39;US1ShiftY&#39;</span>,<span class="stringliteral">&#39;US2ShiftY&#39;</span>,<span class="stringliteral">&#39;US3ShiftY&#39;</span>,<span class="stringliteral">&#39;US4ShiftY&#39;</span>,<span class="stringliteral">&#39;US5ShiftY&#39;</span>,</div>
-<div class="line"><span class="lineno">   44</span>                                       <span class="stringliteral">&#39;DS1ShiftY&#39;</span>,<span class="stringliteral">&#39;DS1ShiftX&#39;</span>,<span class="stringliteral">&#39;DS2ShiftY&#39;</span>,<span class="stringliteral">&#39;DS2ShiftX&#39;</span>,</div>
-<div class="line"><span class="lineno">   45</span>                                       <span class="stringliteral">&#39;DS3ShiftY&#39;</span>,<span class="stringliteral">&#39;DS3ShiftX&#39;</span>,<span class="stringliteral">&#39;DS4ShiftX&#39;</span>]</div>
-<div class="line"><span class="lineno">   46</span>         <span class="keywordflow">for</span> i, key <span class="keywordflow">in</span> enumerate(mufi_spatial_aligment_keys):</div>
-<div class="line"><span class="lineno">   47</span>           <span class="keywordflow">if</span> year &lt; 2024 <span class="keywordflow">and</span> key == <span class="stringliteral">&#39;Veto3ShiftX&#39;</span>: <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">   48</span>           setattr(sGeo.MuFilter,key,mufi_spatial_aligment_consts[year][i]*u.cm)</div>
-<div class="line"><span class="lineno">   49</span>           sGeo.MuFilter[key] = mufi_spatial_aligment_consts[year][i]*u.cm</div>
-<div class="line"><span class="lineno">   50</span> </div>
-<div class="line"><span class="lineno">   51</span>         <span class="comment"># DS part</span></div>
-<div class="line"><span class="lineno">   52</span>         constants = {}</div>
-<div class="line"><span class="lineno">   53</span>         constants[<span class="stringliteral">&#39;t_0&#39;</span>] =  [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]</div>
-<div class="line"><span class="lineno">   54</span>         constants[<span class="stringliteral">&#39;t_4361&#39;</span>] =  [-5.61,-5.63,-5.90,-5.39,-5.40,-5.58,-5.99,-6.08,-6.27,-6.43,-5.94,-6.20,-5.45,-5.52,-5.75,-5.93,-5.40,-5.56,-5.46,-5.74]</div>
-<div class="line"><span class="lineno">   55</span>         constants[<span class="stringliteral">&#39;t_5117&#39;</span>] =  [-6.56,-6.53,-6.75,-6.27,-6.34,-6.46,-7.50,-7.60,-7.79,-7.94,-7.51,-7.72,-8.09,-8.15,-8.38,-8.55,-8.04,-8.14,-8.02,-8.24]</div>
-<div class="line"><span class="lineno">   56</span>         constants[<span class="stringliteral">&#39;t_5478&#39;</span>] =  [-5.28,-5.38,-5.71,-5.76,-5.28,-5.46,-4.22,-4.38,-4.55,-4.70,-4.27,-4.46,-5.31,-5.43,-5.71,-5.88,-5.34,-5.45,-5.38,-5.57]</div>
-<div class="line"><span class="lineno">   57</span>         constants[<span class="stringliteral">&#39;t_6208&#39;</span>] =  [-6.00,-5.92,-6.33,-6.22,-5.94,-6.15,-5.53,-5.49,-5.81,-5.86,-5.53,-5.77,-7.74,-7.71,-8.01,-8.04,-7.68,-7.82,-7.65,-7.87]</div>
-<div class="line"><span class="lineno">   58</span>         constants[<span class="stringliteral">&#39;t_6443&#39;</span>] =  [-6.56,-6.70,-6.78,-6.88,-6.40,-6.59,-5.97,-6.08,-6.15,-6.29,-5.93,-6.14,-8.10,-8.20,-8.41,-8.56,-8.11,-8.21,-8.20,-8.39]</div>
-<div class="line"><span class="lineno">   59</span>         constants[<span class="stringliteral">&#39;t_6677&#39;</span>] =  [-6.72,-6.80,-6.87,-6.87,-6.49,-6.67,-6.03,-6.16,-6.35,-6.49,-6.08,-6.29,-8.23,-8.36,-8.54,-8.69,-8.22,-8.38,-8.27,-8.47]</div>
-<div class="line"><span class="lineno">   60</span>         <span class="comment"># 2024 and later on</span></div>
-<div class="line"><span class="lineno">   61</span>         constants[<span class="stringliteral">&#39;t_7649&#39;</span>] =  [-6.43,-6.56,-6.76,-6.83,-6.46,-6.59,-5.97,-6.04,-6.24,-6.42,-6.04,-6.24,-8.18,-8.26,-8.44,-8.61,-8.18,-8.26,-8.15,-8.31]</div>
-<div class="line"><span class="lineno">   62</span>         constants[<span class="stringliteral">&#39;t_8318&#39;</span>] =  [-6.50,-6.66,-6.69,-6.75,-6.36,-6.53,-5.85,-5.92,-6.19,-6.34,-5.96,-6.18,-8.09,-8.23,-8.36,-8.56,-8.10,-8.16,-8.10,-8.31]</div>
-<div class="line"><span class="lineno">   63</span>         constants[<span class="stringliteral">&#39;t_8583&#39;</span>] =  [-6.61,-6.68,-6.79,-6.81,-6.45,-6.62,-6.01,-6.17,-6.23,-6.35,-6.01,-6.24,-8.16,-8.29,-8.44,-8.62,-8.21,-8.35,-8.30,-8.48]</div>
-<div class="line"><span class="lineno">   64</span>         constants[<span class="stringliteral">&#39;t_8942&#39;</span>] =  [-6.44,-6.52,-6.72,-6.81,-6.39,-6.53,-6.04,-6.06,-6.18,-6.34,-5.98,-6.17,-8.15,-8.13,-8.39,-8.57,-8.13,-8.19,-8.16,-8.29]</div>
-<div class="line"><span class="lineno">   65</span>         constants[<span class="stringliteral">&#39;t_9156&#39;</span>] =  [-6.47,-6.50,-6.85,-6.92,-6.47,-6.58,-6.07,-6.20,-6.33,-6.48,-6.07,-6.28,-8.19,-8.30,-8.53,-8.67,-8.20,-8.32,-8.21,-8.37]</div>
-<div class="line"><span class="lineno">   66</span>         constants[<span class="stringliteral">&#39;t_9286&#39;</span>] =  [-6.41,-6.48,-6.84,-6.89,-6.47,-6.62,-5.96,-6.05,-6.35,-6.47,-6.08,-6.28,-8.13,-8.20,-8.52,-8.70,-8.19,-8.31,-8.15,-8.33]</div>
-<div class="line"><span class="lineno">   67</span>         constants[<span class="stringliteral">&#39;t_9379&#39;</span>] =  [-6.42,-6.54,-6.83,-6.88,-6.41,-6.60,-5.93,-6.00,-6.37,-6.49,-6.05,-6.30,-8.11,-8.20,-8.51,-8.63,-8.14,-8.25,-8.11,-8.31]</div>
-<div class="line"><span class="lineno">   68</span>         constants[<span class="stringliteral">&#39;t_9462&#39;</span>] =  [-6.47,-6.56,-6.77,-6.86,-6.44,-6.58,-6.01,-6.04,-6.30,-6.52,-6.07,-6.29,-8.18,-8.25,-8.46,-8.65,-8.17,-8.26,-8.13,-8.24]</div>
-<div class="line"><span class="lineno">   69</span>         constants[<span class="stringliteral">&#39;t_9613&#39;</span>] =  [-6.50,-6.55,-6.78,-6.88,-6.47,-6.63,-5.98,-6.01,-6.24,-6.38,-6.03,-6.19,-8.21,-8.25,-8.43,-8.67,-8.18,-8.25,-8.13,-8.29]</div>
-<div class="line"><span class="lineno">   70</span>         constants[<span class="stringliteral">&#39;t_9692&#39;</span>] =  [-6.58,-6.67,-6.76,-6.95,-6.47,-6.53,-6.07,-6.20,-6.22,-6.39,-6.01,-6.18,-8.23,-8.26,-8.43,-8.65,-8.19,-8.27,-8.20,-8.35]</div>
-<div class="line"><span class="lineno">   71</span>         constants[<span class="stringliteral">&#39;t_9882&#39;</span>] =  [-6.22,-6.13,-6.37,-6.25,-6.02,-6.18,-5.65,-5.58,-5.76,-5.79,-5.53,-5.75,-7.81,-7.69,-8.02,-8.07,-7.74,-7.85,-7.81,-7.98]</div>
-<div class="line"><span class="lineno">   72</span>         constants[<span class="stringliteral">&#39;t_10012&#39;</span>]=  [-6.70,-6.84,-6.73,-6.86,-6.50,-6.64,-6.04,-6.19,-6.21,-6.41,-6.05,-6.24,-8.23,-8.38,-8.40,-8.64,-8.22,-8.38,-8.31,-8.52]</div>
-<div class="line"><span class="lineno">   73</span>         ds_time_aligment_consts = {</div>
-<div class="line"><span class="lineno">   74</span>           2022: {<span class="stringliteral">&quot;t_0&quot;</span>:0.000, <span class="stringliteral">&quot;t_4361&quot;</span>:0.082, <span class="stringliteral">&quot;t_5117&quot;</span>:0.085},</div>
-<div class="line"><span class="lineno">   75</span>           2023: {<span class="stringliteral">&quot;t_0&quot;</span>:0.000, <span class="stringliteral">&quot;t_5478&quot;</span>:0.082, <span class="stringliteral">&quot;t_6208&quot;</span>:0.086, <span class="stringliteral">&quot;t_6443&quot;</span>:0.082, <span class="stringliteral">&quot;t_6677&quot;</span>:0.084},</div>
-<div class="line"><span class="lineno">   76</span>           2024: {<span class="stringliteral">&quot;t_0&quot;</span>:0.000, <span class="stringliteral">&quot;t_7649&quot;</span>:0.081, <span class="stringliteral">&quot;t_8318&quot;</span>:0.082, <span class="stringliteral">&quot;t_8583&quot;</span>:0.081, <span class="stringliteral">&quot;t_8942&quot;</span>:0.080, </div>
-<div class="line"><span class="lineno">   77</span>                  <span class="stringliteral">&quot;t_9156&quot;</span>:0.083, <span class="stringliteral">&quot;t_9286&quot;</span>:0.082, <span class="stringliteral">&quot;t_9379&quot;</span>:0.083, <span class="stringliteral">&quot;t_9462&quot;</span>:0.083, <span class="stringliteral">&quot;t_9613&quot;</span>:0.082,</div>
-<div class="line"><span class="lineno">   78</span>                  <span class="stringliteral">&quot;t_9692&quot;</span>:0.078, <span class="stringliteral">&quot;t_9882&quot;</span>:0.084, <span class="stringliteral">&quot;t_10012&quot;</span>:0.085}</div>
-<div class="line"><span class="lineno">   79</span>         }</div>
-<div class="line"><span class="lineno">   80</span>         slopes_dict = ds_time_aligment_consts[year]</div>
-<div class="line"><span class="lineno">   81</span>         <span class="comment">#time delay corrections first order, only for DS at the moment</span></div>
-<div class="line"><span class="lineno">   82</span>         <span class="keywordflow">for</span> p <span class="keywordflow">in</span> slopes_dict.keys():</div>
-<div class="line"><span class="lineno">   83</span>            setattr(sGeo.MuFilter,<span class="stringliteral">&#39;DSTcorslope&#39;</span>+p,slopes_dict[p])</div>
-<div class="line"><span class="lineno">   84</span>            sGeo.MuFilter[<span class="stringliteral">&#39;DSTcorslope&#39;</span>+p] = slopes_dict[p]</div>
-<div class="line"><span class="lineno">   85</span>            <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(len(constants[p])): </div>
-<div class="line"><span class="lineno">   86</span>               setattr(sGeo.MuFilter,<span class="stringliteral">&#39;DSTcorC&#39;</span>+str(i)+p,constants[p][i])</div>
-<div class="line"><span class="lineno">   87</span>               sGeo.MuFilter[<span class="stringliteral">&#39;DSTcorC&#39;</span>+str(i)+p] = constants[p][i]</div>
-<div class="line"><span class="lineno">   88</span> </div>
-<div class="line"><span class="lineno">   89</span>       <span class="comment"># Scifi part</span></div>
-<div class="line"><span class="lineno">   90</span>         constants={}</div>
-<div class="line"><span class="lineno">   91</span>         constants[<span class="stringliteral">&#39;t_0&#39;</span>]=[   0.000*u.ns,  0.000*u.ns,  0.000*u.ns, 0.000*u.ns, 0.000*u.ns,  0.000*u.ns, 0.000*u.ns,</div>
-<div class="line"><span class="lineno">   92</span>  0.000*u.ns,  0.000*u.ns,   0.000*u.ns, 0.000*u.ns, 0.000*u.ns,  0.000*u.ns, 0.000*u.ns,</div>
-<div class="line"><span class="lineno">   93</span>  0.000*u.ns,  0.000*u.ns,  0.000*u.ns,  0.000*u.ns,  0.000*u.ns,  0.000*u.ns,  0.000*u.ns,</div>
-<div class="line"><span class="lineno">   94</span>   0.000*u.ns,  0.000*u.ns,  0.000*u.ns,  0.000*u.ns, 0.000*u.ns,  0.000*u.ns, 0.0000*u.ns,</div>
-<div class="line"><span class="lineno">   95</span>   0.000*u.ns,  0.000*u.ns,  0.000*u.ns, 0.000*u.ns, 0.000*u.ns,  0.000*u.ns,  0.000*u.ns ]</div>
-<div class="line"><span class="lineno">   96</span>         constants[<span class="stringliteral">&#39;t_4361&#39;</span>]=[   0.000*u.ns,  0.000*u.ns,  -0.222*u.ns, -0.509*u.ns, -0.517*u.ns,  -1.156*u.ns, -0.771*u.ns,</div>
-<div class="line"><span class="lineno">   97</span>  -0.287*u.ns,  0.000*u.ns,   0.250*u.ns, -0.854*u.ns, -1.455*u.ns,  -0.812*u.ns, -1.307*u.ns,</div>
-<div class="line"><span class="lineno">   98</span>  -0.861*u.ns,  0.000*u.ns,  -0.307*u.ns,  0.289*u.ns,  0.069*u.ns,  -0.895*u.ns,  0.731*u.ns,</div>
-<div class="line"><span class="lineno">   99</span>   0.164*u.ns,  0.000*u.ns,  -1.451*u.ns,  0.196*u.ns, -2.025*u.ns,  -1.049*u.ns, -0.938*u.ns,</div>
-<div class="line"><span class="lineno">  100</span>   0.337*u.ns,  0.000*u.ns,  -1.157*u.ns, -1.060*u.ns, -0.627*u.ns,  -2.405*u.ns,  0.071*u.ns ]</div>
-<div class="line"><span class="lineno">  101</span>         constants[<span class="stringliteral">&#39;t_5117&#39;</span>]=[   0.000*u.ns,  0.000*u.ns,  -0.325*u.ns, -0.497*u.ns,  0.228*u.ns,  -0.368*u.ns,  0.076*u.ns,</div>
-<div class="line"><span class="lineno">  102</span>  -0.906*u.ns,  0.000*u.ns,   0.259*u.ns, -0.775*u.ns, -0.370*u.ns,   0.243*u.ns, -0.284*u.ns,</div>
-<div class="line"><span class="lineno">  103</span>  -0.995*u.ns,  0.000*u.ns,  -0.133*u.ns,  0.473*u.ns,  0.753*u.ns,  -0.433*u.ns,  1.106*u.ns,</div>
-<div class="line"><span class="lineno">  104</span>  -0.371*u.ns,  0.000*u.ns,  -1.331*u.ns,  0.319*u.ns, -1.979*u.ns,  -1.120*u.ns, -0.981*u.ns,</div>
-<div class="line"><span class="lineno">  105</span>  -1.276*u.ns,  0.000*u.ns,  -0.755*u.ns, -0.630*u.ns,  0.886*u.ns,  -0.873*u.ns,  1.639*u.ns ]</div>
-<div class="line"><span class="lineno">  106</span>         constants[<span class="stringliteral">&#39;t_5478&#39;</span>]=[   0.000*u.ns,  0.000*u.ns,  -0.309*u.ns,  -0.591*u.ns,  -0.502*u.ns,  -1.164*u.ns,  -0.753*u.ns, </div>
-<div class="line"><span class="lineno">  107</span>  -0.369*u.ns,  0.000*u.ns,  0.239*u.ns,  -0.815*u.ns,   -1.138*u.ns,  -0.578*u.ns,  -1.054*u.ns, </div>
-<div class="line"><span class="lineno">  108</span>  -1.011*u.ns,  0.000*u.ns,  -0.270*u.ns,  0.447*u.ns,   0.760*u.ns,  -0.512*u.ns,  0.566*u.ns, </div>
-<div class="line"><span class="lineno">  109</span>   0.024*u.ns,  0.000*u.ns,  -1.348*u.ns,  0.283*u.ns,   -1.495*u.ns,  -0.559*u.ns,  -0.545*u.ns, </div>
-<div class="line"><span class="lineno">  110</span>   0.195*u.ns,  0.000*u.ns,  -1.131*u.ns,  -0.937*u.ns,   -0.391*u.ns,  -2.102*u.ns,  0.365*u.ns ]</div>
-<div class="line"><span class="lineno">  111</span>         constants[<span class="stringliteral">&#39;t_6208&#39;</span>]=[   0.000*u.ns,  0.000*u.ns,  -0.309*u.ns,  -0.546*u.ns,   0.169*u.ns,  -0.454*u.ns,  -0.116*u.ns, </div>
-<div class="line"><span class="lineno">  112</span>  -0.920*u.ns,  0.000*u.ns,  0.238*u.ns,  -0.799*u.ns,   -0.430*u.ns,  0.186*u.ns,  -0.324*u.ns, </div>
-<div class="line"><span class="lineno">  113</span>  -1.042*u.ns,  0.000*u.ns,  -0.140*u.ns,  0.515*u.ns,   0.728*u.ns,  -0.572*u.ns,  0.673*u.ns, </div>
-<div class="line"><span class="lineno">  114</span>  -0.432*u.ns,  0.000*u.ns,  -1.366*u.ns,  0.326*u.ns,   -2.076*u.ns,  -1.152*u.ns,  -1.075*u.ns, </div>
-<div class="line"><span class="lineno">  115</span>  -1.067*u.ns,  0.000*u.ns,  -1.021*u.ns,  -0.873*u.ns,   0.623*u.ns,  -1.094*u.ns,  1.365*u.ns ]</div>
-<div class="line"><span class="lineno">  116</span>         constants[<span class="stringliteral">&#39;t_6443&#39;</span>]=[     0.000*u.ns,  0.000*u.ns,  -0.284*u.ns,  -0.469*u.ns,   0.274*u.ns,  -0.356*u.ns,  0.078*u.ns,</div>
-<div class="line"><span class="lineno">  117</span>  -0.856*u.ns,  0.000*u.ns,  0.250*u.ns,  -0.754*u.ns,   -0.393*u.ns,  0.219*u.ns,  -0.828*u.ns,</div>
-<div class="line"><span class="lineno">  118</span>  -0.939*u.ns,  0.000*u.ns,  -0.137*u.ns,  0.519*u.ns,   0.725*u.ns,  -0.480*u.ns,  1.024*u.ns,</div>
-<div class="line"><span class="lineno">  119</span>  -0.311*u.ns,  0.000*u.ns,  -1.334*u.ns,  0.314*u.ns,   -2.028*u.ns,  -1.130*u.ns,  -1.037*u.ns,</div>
-<div class="line"><span class="lineno">  120</span>  -0.979*u.ns,  0.000*u.ns,  -0.983*u.ns,  -0.862*u.ns,   0.627*u.ns,  -1.059*u.ns,  1.370*u.ns]</div>
-<div class="line"><span class="lineno">  121</span>         constants[<span class="stringliteral">&#39;t_6677&#39;</span>]=[   0.000*u.ns,  0.000*u.ns,  -0.340*u.ns,  -0.511*u.ns,   0.214*u.ns,  -0.387*u.ns,  -0.070*u.ns,</div>
-<div class="line"><span class="lineno">  122</span>  -0.893*u.ns,  0.000*u.ns,  0.234*u.ns,  -0.762*u.ns,   -0.409*u.ns,  0.230*u.ns,  -0.291*u.ns, </div>
-<div class="line"><span class="lineno">  123</span>  -1.009*u.ns,  0.000*u.ns,  -0.140*u.ns,  0.546*u.ns,   0.762*u.ns,  -0.425*u.ns,  1.033*u.ns,</div>
-<div class="line"><span class="lineno">  124</span>  -0.373*u.ns,  0.000*u.ns,  -1.356*u.ns,  0.322*u.ns,   -2.043*u.ns,  -1.122*u.ns,  -0.978*u.ns, </div>
-<div class="line"><span class="lineno">  125</span>  -1.055*u.ns,  0.000*u.ns,  -0.969*u.ns,  -0.823*u.ns,   0.644*u.ns,  -1.079*u.ns,  1.423*u.ns ]</div>
-<div class="line"><span class="lineno">  126</span><span class="comment">#2024  </span></div>
-<div class="line"><span class="lineno">  127</span>         constants[<span class="stringliteral">&#39;t_7649&#39;</span>]=[     0.000*u.ns,  0.000*u.ns,  -0.299*u.ns,  -0.510*u.ns,   0.217*u.ns,  -0.401*u.ns,  0.016*u.ns,</div>
-<div class="line"><span class="lineno">  128</span>  -1.194*u.ns,  0.000*u.ns,  0.547*u.ns,  -0.473*u.ns,   -0.080*u.ns,  0.500*u.ns,  0.002*u.ns,</div>
-<div class="line"><span class="lineno">  129</span>  -1.017*u.ns,  0.000*u.ns,  -0.129*u.ns,  0.513*u.ns,   0.736*u.ns,  -0.466*u.ns,  0.963*u.ns,</div>
-<div class="line"><span class="lineno">  130</span>  -0.359*u.ns,  0.000*u.ns,  -1.346*u.ns,  0.307*u.ns,   -2.019*u.ns,  -1.096*u.ns,  -1.012*u.ns,</div>
-<div class="line"><span class="lineno">  131</span>  -1.032*u.ns,  0.000*u.ns,  -1.002*u.ns,  -0.860*u.ns,   0.630*u.ns,  -1.134*u.ns,  1.393*u.ns ]</div>
-<div class="line"><span class="lineno">  132</span>         constants[<span class="stringliteral">&#39;t_8318&#39;</span>]=[     0.000*u.ns,  0.000*u.ns,  -0.312*u.ns,  -0.498*u.ns,   0.336*u.ns,  -0.291*u.ns,  0.153*u.ns,</div>
-<div class="line"><span class="lineno">  133</span>  -0.882*u.ns,  0.000*u.ns,  0.277*u.ns,  -0.753*u.ns,   -0.348*u.ns,  0.257*u.ns,  -0.237*u.ns,</div>
-<div class="line"><span class="lineno">  134</span>  -0.957*u.ns,  0.000*u.ns,  -0.102*u.ns,  0.507*u.ns,   0.786*u.ns,  -0.420*u.ns,  0.987*u.ns,</div>
-<div class="line"><span class="lineno">  135</span>  -0.365*u.ns,  0.000*u.ns,  -1.311*u.ns,  0.362*u.ns,   -2.152*u.ns,  -0.970*u.ns,  -0.725*u.ns,</div>
-<div class="line"><span class="lineno">  136</span>  -0.982*u.ns,  0.000*u.ns,  -0.994*u.ns,  -0.895*u.ns,   0.454*u.ns,  -1.216*u.ns,  1.361*u.ns ]</div>
-<div class="line"><span class="lineno">  137</span>         constants[<span class="stringliteral">&#39;t_8583&#39;</span>]=[      0.000*u.ns,  0.000*u.ns,  -0.327*u.ns,  -0.494*u.ns,   0.226*u.ns,  -0.377*u.ns,  0.077*u.ns,</div>
-<div class="line"><span class="lineno">  138</span>  -0.902*u.ns,  0.000*u.ns,  0.270*u.ns,  -0.751*u.ns,   -0.345*u.ns,  0.243*u.ns,  -0.259*u.ns,</div>
-<div class="line"><span class="lineno">  139</span>  -0.937*u.ns,  0.000*u.ns,  -0.172*u.ns,  0.427*u.ns,   0.696*u.ns,  -0.478*u.ns,  0.916*u.ns,</div>
-<div class="line"><span class="lineno">  140</span>  -0.355*u.ns,  0.000*u.ns,  -1.380*u.ns,  0.301*u.ns,   -1.998*u.ns,  -1.108*u.ns,  -1.020*u.ns,</div>
-<div class="line"><span class="lineno">  141</span>  -1.021*u.ns,  0.000*u.ns,  -0.994*u.ns,  -0.892*u.ns,   0.591*u.ns,  -1.051*u.ns,  1.368*u.ns ]</div>
-<div class="line"><span class="lineno">  142</span>         constants[<span class="stringliteral">&#39;t_8942&#39;</span>]=[      0.000*u.ns,  0.000*u.ns,  -0.213*u.ns,  -0.431*u.ns,   0.276*u.ns,  -0.330*u.ns,  0.155*u.ns,</div>
-<div class="line"><span class="lineno">  143</span>  -0.857*u.ns,  0.000*u.ns,  0.284*u.ns,  -0.734*u.ns,   -0.410*u.ns,  0.231*u.ns,  -0.269*u.ns,</div>
-<div class="line"><span class="lineno">  144</span>  -1.586*u.ns,  0.000*u.ns,  0.567*u.ns,  1.171*u.ns,   1.438*u.ns,  0.180*u.ns,  1.604*u.ns,</div>
-<div class="line"><span class="lineno">  145</span>  -0.269*u.ns,  0.000*u.ns,  -1.392*u.ns,  0.305*u.ns,   -2.027*u.ns,  -1.114*u.ns,  -1.019*u.ns,</div>
-<div class="line"><span class="lineno">  146</span>  -0.941*u.ns,  0.000*u.ns,  -1.004*u.ns,  -0.897*u.ns,   0.607*u.ns,  -1.056*u.ns,  1.348*u.ns ]</div>
-<div class="line"><span class="lineno">  147</span>         constants[<span class="stringliteral">&#39;t_9156&#39;</span>]=[      0.000*u.ns,  0.000*u.ns,  -0.373*u.ns,  -0.552*u.ns,   0.075*u.ns,  -0.450*u.ns,  0.117*u.ns,</div>
-<div class="line"><span class="lineno">  148</span>  -0.948*u.ns,  0.000*u.ns,  0.263*u.ns,  -0.762*u.ns,   -0.451*u.ns,  0.193*u.ns,  -0.296*u.ns,</div>
-<div class="line"><span class="lineno">  149</span>  -0.990*u.ns,  0.000*u.ns,  -0.172*u.ns,  0.438*u.ns,   0.751*u.ns,  -0.470*u.ns,  0.897*u.ns,</div>
-<div class="line"><span class="lineno">  150</span>  -0.417*u.ns,  0.000*u.ns,  -1.338*u.ns,  0.323*u.ns,   -2.035*u.ns,  -1.183*u.ns,  -0.603*u.ns,</div>
-<div class="line"><span class="lineno">  151</span>  -1.115*u.ns,  0.000*u.ns,  -0.973*u.ns,  -0.854*u.ns,   0.591*u.ns,  -1.119*u.ns,  1.384*u.ns ]</div>
-<div class="line"><span class="lineno">  152</span>         constants[<span class="stringliteral">&#39;t_9286&#39;</span>]=[      0.000*u.ns,  0.000*u.ns,  -0.366*u.ns,  -0.542*u.ns,   0.121*u.ns,  -0.410*u.ns,  0.050*u.ns,</div>
-<div class="line"><span class="lineno">  153</span>  -0.968*u.ns,  0.000*u.ns,  0.295*u.ns,  -0.730*u.ns,   -0.321*u.ns,  0.266*u.ns,  -0.245*u.ns,</div>
-<div class="line"><span class="lineno">  154</span>  -0.989*u.ns,  0.000*u.ns,  -0.154*u.ns,  0.465*u.ns,   0.728*u.ns,  -0.477*u.ns,  0.974*u.ns,</div>
-<div class="line"><span class="lineno">  155</span>  -0.399*u.ns,  0.000*u.ns,  -1.381*u.ns,  0.304*u.ns,   -1.991*u.ns,  -1.041*u.ns,  -0.609*u.ns,</div>
-<div class="line"><span class="lineno">  156</span>  -1.142*u.ns,  0.000*u.ns,  -0.939*u.ns,  -0.823*u.ns,   0.687*u.ns,  -0.993*u.ns,  1.449*u.ns ]</div>
-<div class="line"><span class="lineno">  157</span>         constants[<span class="stringliteral">&#39;t_9379&#39;</span>]=[      0.000*u.ns,  0.000*u.ns,  -0.376*u.ns,  -0.528*u.ns,   0.150*u.ns,  -0.419*u.ns,  0.056*u.ns,</div>
-<div class="line"><span class="lineno">  158</span>  -0.943*u.ns,  0.000*u.ns,  0.258*u.ns,  -0.739*u.ns,   -0.390*u.ns,  0.233*u.ns,  -0.241*u.ns,</div>
-<div class="line"><span class="lineno">  159</span>  -0.988*u.ns,  0.000*u.ns,  -0.130*u.ns,  0.499*u.ns,   0.796*u.ns,  -0.498*u.ns,  0.953*u.ns,</div>
-<div class="line"><span class="lineno">  160</span>  -0.391*u.ns,  0.000*u.ns,  -1.382*u.ns,  0.295*u.ns,   -1.967*u.ns,  -1.040*u.ns,  -0.673*u.ns,</div>
-<div class="line"><span class="lineno">  161</span>  -1.113*u.ns,  0.000*u.ns,  -0.950*u.ns,  -0.838*u.ns,   0.682*u.ns,  -1.071*u.ns,  1.423*u.ns ]</div>
-<div class="line"><span class="lineno">  162</span>         constants[<span class="stringliteral">&#39;t_9462&#39;</span>]=[      0.000*u.ns,  0.000*u.ns,  -0.370*u.ns,  -0.528*u.ns,   0.056*u.ns,  -0.427*u.ns,  0.035*u.ns,</div>
-<div class="line"><span class="lineno">  163</span>  -0.937*u.ns,  0.000*u.ns,  0.252*u.ns,  -0.752*u.ns,   -0.409*u.ns,  0.208*u.ns,  -0.295*u.ns,</div>
-<div class="line"><span class="lineno">  164</span>  -0.971*u.ns,  0.000*u.ns,  -0.147*u.ns,  -0.516*u.ns,   0.678*u.ns,  -0.588*u.ns,  0.911*u.ns,</div>
-<div class="line"><span class="lineno">  165</span>  -0.396*u.ns,  0.000*u.ns,  -1.337*u.ns,  0.302*u.ns,   -2.044*u.ns,  -1.074*u.ns,  -0.644*u.ns,</div>
-<div class="line"><span class="lineno">  166</span>  -0.799*u.ns,  0.000*u.ns,  -1.269*u.ns,  -1.154*u.ns,   0.323*u.ns,  -1.328*u.ns,  1.106*u.ns ]</div>
-<div class="line"><span class="lineno">  167</span>         constants[<span class="stringliteral">&#39;t_9613&#39;</span>]=[      0.000*u.ns,  0.000*u.ns,  -0.359*u.ns,  -0.525*u.ns,   0.030*u.ns,  -0.418*u.ns,  0.036*u.ns,</div>
-<div class="line"><span class="lineno">  168</span>  -0.957*u.ns,  0.000*u.ns,  0.278*u.ns,  -0.737*u.ns,   -0.375*u.ns,  0.236*u.ns,  -0.261*u.ns,</div>
-<div class="line"><span class="lineno">  169</span>  -0.981*u.ns,  0.000*u.ns,  -0.140*u.ns,  -0.536*u.ns,   0.731*u.ns,  -0.598*u.ns,  0.902*u.ns,</div>
-<div class="line"><span class="lineno">  170</span>  -0.387*u.ns,  0.000*u.ns,  -1.343*u.ns,  0.312*u.ns,   -2.000*u.ns,  -1.093*u.ns,  -0.768*u.ns,</div>
-<div class="line"><span class="lineno">  171</span>  -0.738*u.ns,  0.000*u.ns,  -1.317*u.ns,  -1.200*u.ns,   0.319*u.ns,  -1.310*u.ns,  1.057*u.ns ]</div>
-<div class="line"><span class="lineno">  172</span>         constants[<span class="stringliteral">&#39;t_9692&#39;</span>]=[      0.000*u.ns,  0.000*u.ns,  -0.377*u.ns,  -0.526*u.ns,   0.041*u.ns,  -0.404*u.ns,  0.158*u.ns,</div>
-<div class="line"><span class="lineno">  173</span>  -0.927*u.ns,  0.000*u.ns,  0.285*u.ns,  -0.755*u.ns,   -0.411*u.ns,  0.199*u.ns,  -0.284*u.ns,</div>
-<div class="line"><span class="lineno">  174</span>  -0.973*u.ns,  0.000*u.ns,  -0.117*u.ns,  -0.486*u.ns,   0.754*u.ns,  0.000*u.ns,  0.941*u.ns,</div>
-<div class="line"><span class="lineno">  175</span>  -0.381*u.ns,  0.000*u.ns,  -1.338*u.ns,  0.338*u.ns,   -2.007*u.ns,  -0.998*u.ns,  -0.618*u.ns,</div>
-<div class="line"><span class="lineno">  176</span>  -0.784*u.ns,  0.000*u.ns,  -1.238*u.ns,  -1.000*u.ns,   0.292*u.ns,  -1.381*u.ns,  1.070*u.ns ]</div>
-<div class="line"><span class="lineno">  177</span>         constants[<span class="stringliteral">&#39;t_9882&#39;</span>]=[      0.000*u.ns,  0.000*u.ns,  -0.386*u.ns,  -0.539*u.ns,   0.037*u.ns,  -0.491*u.ns,  -0.024*u.ns,</div>
-<div class="line"><span class="lineno">  178</span>  -1.197*u.ns,  0.000*u.ns,  0.499*u.ns,  -0.616*u.ns,   -0.273*u.ns,  0.402*u.ns,  -0.072*u.ns,</div>
-<div class="line"><span class="lineno">  179</span>  -1.135*u.ns,  0.000*u.ns,  -0.016*u.ns,  0.584*u.ns,   0.871*u.ns,  -0.408*u.ns,  1.039*u.ns,</div>
-<div class="line"><span class="lineno">  180</span>  -0.442*u.ns,  0.000*u.ns,  -1.381*u.ns,  0.339*u.ns,   -2.014*u.ns,  -1.068*u.ns,  -0.715*u.ns,</div>
-<div class="line"><span class="lineno">  181</span>  -0.803*u.ns,  0.000*u.ns,  -1.330*u.ns,  -1.034*u.ns,   0.257*u.ns,  -1.478*u.ns,  1.000*u.ns ]</div>
-<div class="line"><span class="lineno">  182</span>         constants[<span class="stringliteral">&#39;t_10012&#39;</span>]=[      0.000*u.ns,  0.000*u.ns, -0.347*u.ns,  -0.546*u.ns,   0.124*u.ns,  -0.432*u.ns,  0.051*u.ns,</div>
-<div class="line"><span class="lineno">  183</span>  -1.577*u.ns,  0.000*u.ns,  0.886*u.ns,  -0.188*u.ns,   0.229*u.ns,  0.858*u.ns,  0.286*u.ns,</div>
-<div class="line"><span class="lineno">  184</span>  -1.119*u.ns,  0.000*u.ns,  -0.005*u.ns,  0.582*u.ns,   0.875*u.ns,  -0.390*u.ns,  1.059*u.ns,</div>
-<div class="line"><span class="lineno">  185</span>  -0.406*u.ns,  0.000*u.ns,  -1.319*u.ns,  0.337*u.ns,   -2.012*u.ns,  -1.059*u.ns,  -0.618*u.ns,</div>
-<div class="line"><span class="lineno">  186</span>  -0.825*u.ns,  0.000*u.ns,  -1.205*u.ns,  -0.952*u.ns,   0.241*u.ns,  -1.363*u.ns,  1.123*u.ns ]</div>
-<div class="line"><span class="lineno">  187</span><span class="comment">#</span></div>
-<div class="line"><span class="lineno">  188</span>         scifi_time_aligment_consts = {</div>
-<div class="line"><span class="lineno">  189</span>           2022: [<span class="stringliteral">&#39;t_0&#39;</span>, <span class="stringliteral">&#39;t_4361&#39;</span>,<span class="stringliteral">&#39;t_5117&#39;</span>],</div>
-<div class="line"><span class="lineno">  190</span>           2023: [<span class="stringliteral">&#39;t_0&#39;</span>, <span class="stringliteral">&#39;t_5478&#39;</span>, <span class="stringliteral">&#39;t_6208&#39;</span>, <span class="stringliteral">&#39;t_6443&#39;</span>, <span class="stringliteral">&#39;t_6677&#39;</span>],</div>
-<div class="line"><span class="lineno">  191</span>           2024: [<span class="stringliteral">&#39;t_0&#39;</span>, <span class="stringliteral">&#39;t_7649&#39;</span>, <span class="stringliteral">&#39;t_8318&#39;</span>, <span class="stringliteral">&#39;t_8583&#39;</span>, <span class="stringliteral">&#39;t_8942&#39;</span>, <span class="stringliteral">&#39;t_9156&#39;</span>, <span class="stringliteral">&#39;t_9286&#39;</span>,</div>
-<div class="line"><span class="lineno">  192</span>                  <span class="stringliteral">&#39;t_9379&#39;</span>, <span class="stringliteral">&#39;t_9462&#39;</span>, <span class="stringliteral">&#39;t_9613&#39;</span>, <span class="stringliteral">&#39;t_9692&#39;</span>, <span class="stringliteral">&#39;t_9882&#39;</span>, <span class="stringliteral">&#39;t_10012&#39;</span>]</div>
-<div class="line"><span class="lineno">  193</span>         }</div>
-<div class="line"><span class="lineno">  194</span>         scifi_time_tags = scifi_time_aligment_consts[year]</div>
-<div class="line"><span class="lineno">  195</span>         <span class="keywordflow">for</span> c <span class="keywordflow">in</span> scifi_time_tags:</div>
-<div class="line"><span class="lineno">  196</span>          k=0</div>
-<div class="line"><span class="lineno">  197</span>          <span class="keywordflow">for</span> s <span class="keywordflow">in</span> range(1,6):</div>
-<div class="line"><span class="lineno">  198</span>            setattr(sGeo.Scifi,<span class="stringliteral">&#39;station&#39;</span>+str(s)+c,constants[c][k])</div>
-<div class="line"><span class="lineno">  199</span>            sGeo.Scifi[<span class="stringliteral">&#39;station&#39;</span>+str(s)+c] = constants[c][k]</div>
-<div class="line"><span class="lineno">  200</span>            k+=1</div>
-<div class="line"><span class="lineno">  201</span>            <span class="keywordflow">for</span> p <span class="keywordflow">in</span> [<span class="stringliteral">&#39;H0&#39;</span>,<span class="stringliteral">&#39;H1&#39;</span>,<span class="stringliteral">&#39;H2&#39;</span>,<span class="stringliteral">&#39;V0&#39;</span>,<span class="stringliteral">&#39;V1&#39;</span>,<span class="stringliteral">&#39;V2&#39;</span>]:</div>
-<div class="line"><span class="lineno">  202</span>               setattr(sGeo.Scifi,<span class="stringliteral">&#39;station&#39;</span>+str(s)+p+c,constants[c][k])</div>
-<div class="line"><span class="lineno">  203</span>               sGeo.Scifi[<span class="stringliteral">&#39;station&#39;</span>+str(s)+p+c] = constants[c][k]</div>
-<div class="line"><span class="lineno">  204</span>               k+=1</div>
-<div class="line"><span class="lineno">  205</span> </div>
-<div class="line"><span class="lineno">  206</span>         alignment={}</div>
-<div class="line"><span class="lineno">  207</span>         alignment[<span class="stringliteral">&#39;t_0&#39;</span>]=[</div>
-<div class="line"><span class="lineno">  208</span>    0.00*u.um,  0.00*u.um,  0.00*u.um,</div>
-<div class="line"><span class="lineno">  209</span> 0.00*u.um, 0.00*u.um,    0.00*u.um,</div>
-<div class="line"><span class="lineno">  210</span> 0.00*u.um,  0.00*u.um,  0.00*u.um,</div>
-<div class="line"><span class="lineno">  211</span>  0.00*u.um,  0.00*u.um,  0.00*u.um,</div>
-<div class="line"><span class="lineno">  212</span>   0.00*u.um,   0.00*u.um,   0.00*u.um,</div>
-<div class="line"><span class="lineno">  213</span>    0.00*u.um, 0.00*u.um,   0.00*u.um,</div>
-<div class="line"><span class="lineno">  214</span>  0.00*u.um,   0.00*u.um,   0.00*u.um,</div>
-<div class="line"><span class="lineno">  215</span>   0.00*u.um,  0.00*u.um,   0.00*u.um,</div>
-<div class="line"><span class="lineno">  216</span>   0.00*u.um,   0.00*u.um,  0.00*u.um,</div>
-<div class="line"><span class="lineno">  217</span>  0.00*u.um,  0.00*u.um,   0.00*u.um,</div>
-<div class="line"><span class="lineno">  218</span>   0.00*u.mrad,    0.00*u.mrad,    0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  219</span>   0.00*u.mrad,    0.00*u.mrad,    0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  220</span>   0.00*u.mrad,    0.00*u.mrad,    0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  221</span>   0.00*u.mrad,    0.00*u.mrad,    0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  222</span>   0.00*u.mrad,    0.00*u.mrad,    0.00*u.mrad]</div>
-<div class="line"><span class="lineno">  223</span>         alignment[<span class="stringliteral">&#39;t_4361&#39;</span>]=[</div>
-<div class="line"><span class="lineno">  224</span>    7.30*u.um,  219.99*u.um,  247.73*u.um,</div>
-<div class="line"><span class="lineno">  225</span> -103.87*u.um, -105.64*u.um,    2.54*u.um,</div>
-<div class="line"><span class="lineno">  226</span> -286.76*u.um,  -53.99*u.um,  -85.45*u.um,</div>
-<div class="line"><span class="lineno">  227</span>  103.99*u.um,  113.92*u.um,  148.52*u.um,</div>
-<div class="line"><span class="lineno">  228</span>   -1.85*u.um,   78.98*u.um,   13.98*u.um,</div>
-<div class="line"><span class="lineno">  229</span>    0.76*u.um, -109.75*u.um,   74.54*u.um,</div>
-<div class="line"><span class="lineno">  230</span>  -16.79*u.um,   56.44*u.um,   96.94*u.um,</div>
-<div class="line"><span class="lineno">  231</span>   71.04*u.um,  -64.13*u.um,   17.25*u.um,</div>
-<div class="line"><span class="lineno">  232</span>   76.32*u.um,   51.34*u.um,  -13.33*u.um,</div>
-<div class="line"><span class="lineno">  233</span>  -78.20*u.um,  158.73*u.um,   39.76*u.um,</div>
-<div class="line"><span class="lineno">  234</span>   0.00*u.mrad,   -1.00*u.mrad,    0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  235</span>   0.00*u.mrad,    0.00*u.mrad,    0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  236</span>   0.00*u.mrad,    0.00*u.mrad,    0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  237</span>   0.00*u.mrad,    0.00*u.mrad,    0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  238</span>   0.00*u.mrad,    0.00*u.mrad,    0.00*u.mrad]</div>
-<div class="line"><span class="lineno">  239</span>         alignment[<span class="stringliteral">&#39;t_4575&#39;</span>]=[</div>
-<div class="line"><span class="lineno">  240</span>  316.44*u.um,  521.82*u.um,  518.38*u.um,</div>
-<div class="line"><span class="lineno">  241</span> -226.06*u.um, -103.68*u.um,   65.08*u.um,</div>
-<div class="line"><span class="lineno">  242</span> -157.97*u.um,   59.67*u.um,  -12.36*u.um,</div>
-<div class="line"><span class="lineno">  243</span>  -70.05*u.um,   63.72*u.um,   78.74*u.um,</div>
-<div class="line"><span class="lineno">  244</span>   -1.85*u.um,   78.98*u.um,   13.98*u.um,</div>
-<div class="line"><span class="lineno">  245</span>    0.76*u.um, -109.75*u.um,   74.54*u.um,</div>
-<div class="line"><span class="lineno">  246</span>  -16.79*u.um,   56.44*u.um,   96.94*u.um,</div>
-<div class="line"><span class="lineno">  247</span>   71.04*u.um,  -64.13*u.um,   17.25*u.um,</div>
-<div class="line"><span class="lineno">  248</span>  172.36*u.um,   79.96*u.um,   57.20*u.um,</div>
-<div class="line"><span class="lineno">  249</span> -128.66*u.um,  104.65*u.um,  -31.24*u.um,</div>
-<div class="line"><span class="lineno">  250</span> 0.00*u.mrad,   -1.17*u.mrad,    0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  251</span> 0.00*u.mrad,   -0.47*u.mrad,    0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  252</span> 0.00*u.mrad,    0.00*u.mrad,    0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  253</span> 0.00*u.mrad,   -0.28*u.mrad,    0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  254</span> 0.00*u.mrad,   -0.33*u.mrad,    0.00*u.mrad]</div>
-<div class="line"><span class="lineno">  255</span>         alignment[<span class="stringliteral">&#39;t_4855&#39;</span>]=[</div>
-<div class="line"><span class="lineno">  256</span>  513.31*u.um,  775.65*u.um,  629.35*u.um,</div>
-<div class="line"><span class="lineno">  257</span> -339.98*u.um,  133.28*u.um,   83.79*u.um,</div>
-<div class="line"><span class="lineno">  258</span>  162.48*u.um,  395.88*u.um,  297.98*u.um,</div>
-<div class="line"><span class="lineno">  259</span> -135.61*u.um,  144.02*u.um,   86.72*u.um,</div>
-<div class="line"><span class="lineno">  260</span>   -1.85*u.um,   78.98*u.um,   13.98*u.um,</div>
-<div class="line"><span class="lineno">  261</span>    0.76*u.um, -109.75*u.um,   74.54*u.um,</div>
-<div class="line"><span class="lineno">  262</span>  -16.79*u.um,   56.44*u.um,   96.94*u.um,</div>
-<div class="line"><span class="lineno">  263</span>   71.04*u.um,  -64.13*u.um,   17.25*u.um,</div>
-<div class="line"><span class="lineno">  264</span>   83.73*u.um,   14.94*u.um,   33.91*u.um,</div>
-<div class="line"><span class="lineno">  265</span> -173.09*u.um, -184.25*u.um,   -8.56*u.um,</div>
-<div class="line"><span class="lineno">  266</span>   0.00*u.mrad,   -1.68*u.mrad,    0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  267</span>   0.00*u.mrad,   -0.68*u.mrad,    0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  268</span>   0.00*u.mrad,    0.00*u.mrad,    0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  269</span>   0.00*u.mrad,    0.08*u.mrad,    0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  270</span>   0.00*u.mrad,   -0.37*u.mrad,    0.00*u.mrad]</div>
-<div class="line"><span class="lineno">  271</span>         alignment[<span class="stringliteral">&#39;t_5172&#39;</span>]=[</div>
-<div class="line"><span class="lineno">  272</span>   331.99*u.um,  560.17*u.um,  460.83*u.um,</div>
-<div class="line"><span class="lineno">  273</span>    13.37*u.um,  -57.78*u.um,  230.51*u.um,</div>
-<div class="line"><span class="lineno">  274</span>  -136.69*u.um,   63.70*u.um,  -30.45*u.um,</div>
-<div class="line"><span class="lineno">  275</span>     7.77*u.um,   -5.01*u.um,  156.92*u.um,</div>
-<div class="line"><span class="lineno">  276</span>    -1.85*u.um,   78.98*u.um,   13.98*u.um,</div>
-<div class="line"><span class="lineno">  277</span>     0.76*u.um, -109.75*u.um,   74.54*u.um,</div>
-<div class="line"><span class="lineno">  278</span>   -16.79*u.um,   56.44*u.um,   96.94*u.um,</div>
-<div class="line"><span class="lineno">  279</span>    71.04*u.um,  -64.13*u.um,   17.25*u.um,</div>
-<div class="line"><span class="lineno">  280</span>    26.80*u.um,   51.14*u.um,  -31.93*u.um,</div>
-<div class="line"><span class="lineno">  281</span>  -343.13*u.um,  -60.93*u.um, -260.49*u.um,</div>
-<div class="line"><span class="lineno">  282</span>    0.00*u.mrad,   -1.00*u.mrad,    0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  283</span>    0.00*u.mrad,   -0.59*u.mrad,    0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  284</span>    0.00*u.mrad,    0.00*u.mrad,    0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  285</span>    0.00*u.mrad,    0.35*u.mrad,    0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  286</span>    0.00*u.mrad,   -0.32*u.mrad,    0.00*u.mrad]</div>
-<div class="line"><span class="lineno">  287</span>         alignment[<span class="stringliteral">&#39;t_5431&#39;</span>]=[       <span class="comment"># 2023 emulsion run 4</span></div>
-<div class="line"><span class="lineno">  288</span>   458.16*u.um,  658.14*u.um,  569.77*u.um,</div>
-<div class="line"><span class="lineno">  289</span>  -285.21*u.um, -215.62*u.um,  -10.06*u.um,</div>
-<div class="line"><span class="lineno">  290</span>  -131.42*u.um,   61.04*u.um,   18.21*u.um,</div>
-<div class="line"><span class="lineno">  291</span>   -55.62*u.um,  -44.88*u.um,   60.99*u.um,</div>
-<div class="line"><span class="lineno">  292</span>   -1.85*u.um,   78.98*u.um,   13.98*u.um,</div>
-<div class="line"><span class="lineno">  293</span>    0.76*u.um, -109.75*u.um,   74.54*u.um,</div>
-<div class="line"><span class="lineno">  294</span>  -16.79*u.um,   56.44*u.um,   96.94*u.um,</div>
-<div class="line"><span class="lineno">  295</span>   71.04*u.um,  -64.13*u.um,   17.25*u.um,</div>
-<div class="line"><span class="lineno">  296</span>   588.09*u.um,  500.82*u.um,  306.64*u.um,</div>
-<div class="line"><span class="lineno">  297</span>  -429.88*u.um, -350.11*u.um, -408.64*u.um,</div>
-<div class="line"><span class="lineno">  298</span>   0.00*u.mrad,   -3.06*u.mrad,    0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  299</span>   0.00*u.mrad,   -1.34*u.mrad,    0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  300</span>   0.00*u.mrad,    0.00*u.mrad,    0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  301</span>   0.00*u.mrad,    0.81*u.mrad,    0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  302</span>   0.00*u.mrad,   -0.30*u.mrad,    0.00*u.mrad]</div>
-<div class="line"><span class="lineno">  303</span>         alignment[<span class="stringliteral">&#39;t_6443&#39;</span>]=[       <span class="comment"># 2023 emuslsion run 5</span></div>
-<div class="line"><span class="lineno">  304</span>   705.43*u.um,  608.93*u.um,  822.19*u.um,</div>
-<div class="line"><span class="lineno">  305</span>   697.92*u.um,  -64.00*u.um, -139.46*u.um,</div>
-<div class="line"><span class="lineno">  306</span>   37.98*u.um,   74.00*u.um,  121.46*u.um,</div>
-<div class="line"><span class="lineno">  307</span>   606.52*u.um,  137.93*u.um,   92.85*u.um,</div>
-<div class="line"><span class="lineno">  308</span>  -1.85*u.um,  180.00*u.um,   13.98*u.um,</div>
-<div class="line"><span class="lineno">  309</span>   100.76*u.um, -229.00*u.um, -104.00*u.um,</div>
-<div class="line"><span class="lineno">  310</span>  -416.79*u.um, -156.00*u.um, -396.94*u.um,</div>
-<div class="line"><span class="lineno">  311</span>   71.04*u.um,  -64.13*u.um,   17.25*u.um,</div>
-<div class="line"><span class="lineno">  312</span>  -262.36*u.um,   54.92*u.um, -472.75*u.um,</div>
-<div class="line"><span class="lineno">  313</span>  -562.60*u.um,  -45.39*u.um,  -78.87*u.um,</div>
-<div class="line"><span class="lineno">  314</span>   0.00*u.mrad,   -3.88*u.mrad,    0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  315</span>   0.00*u.mrad,   -1.00*u.mrad,    0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  316</span>   0.00*u.mrad,    0.00*u.mrad,    0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  317</span>   0.00*u.mrad,    2.27*u.mrad,    0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  318</span>   0.00*u.mrad,    2.99*u.mrad,    0.00*u.mrad]</div>
-<div class="line"><span class="lineno">  319</span>         alignment[<span class="stringliteral">&#39;t_6677&#39;</span>]=[       <span class="comment"># 2023 ion run</span></div>
-<div class="line"><span class="lineno">  320</span>   700.00*u.um, 895.00*u.um, 824.00*u.um,</div>
-<div class="line"><span class="lineno">  321</span>  -373.00*u.um, -246.00*u.um, -266.00*u.um,</div>
-<div class="line"><span class="lineno">  322</span>   161.00*u.um, 400.00*u.um, 287.00*u.um,</div>
-<div class="line"><span class="lineno">  323</span>  -190.00*u.um, -59.80*u.um, -109.00*u.um,</div>
-<div class="line"><span class="lineno">  324</span>  -2.05*u.um, 175.00*u.um,  12.00*u.um,</div>
-<div class="line"><span class="lineno">  325</span>   0.77*u.um, -100.00*u.um,  77.50*u.um,</div>
-<div class="line"><span class="lineno">  326</span>  -6.80*u.um, 134.00*u.um,  91.90*u.um,</div>
-<div class="line"><span class="lineno">  327</span>   71.00*u.um, -64.10*u.um,  18.20*u.um,</div>
-<div class="line"><span class="lineno">  328</span>   490.00*u.um, 573.00*u.um, 484.00*u.um,</div>
-<div class="line"><span class="lineno">  329</span>  -547.00*u.um, -287.00*u.um, -298.00*u.um,</div>
-<div class="line"><span class="lineno">  330</span>  0.00*u.mrad,  -4.55*u.mrad,   0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  331</span>  0.00*u.mrad,  -2.75*u.mrad,   0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  332</span>  0.00*u.mrad,   0.00*u.mrad,   0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  333</span>  0.00*u.mrad,   0.72*u.mrad,   0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  334</span>  0.00*u.mrad,  -0.10*u.mrad,   0.00*u.mrad]</div>
-<div class="line"><span class="lineno">  335</span><span class="comment"># 2024</span></div>
-<div class="line"><span class="lineno">  336</span>         alignment[<span class="stringliteral">&#39;t_7649&#39;</span>]=[       <span class="comment"># 2024 emuslsion run 8</span></div>
-<div class="line"><span class="lineno">  337</span>   509.86*u.um, 732.95*u.um, 621.19*u.um,</div>
-<div class="line"><span class="lineno">  338</span>  -10.56*u.um, 153.93*u.um, 92.22*u.um,</div>
-<div class="line"><span class="lineno">  339</span>   94.54*u.um, 342.84*u.um, 168.64*u.um,</div>
-<div class="line"><span class="lineno">  340</span>   164.88*u.um, 397.75*u.um, 246.37*u.um,</div>
-<div class="line"><span class="lineno">  341</span>   185.00*u.um, 430.61*u.um, 245.85*u.um,</div>
-<div class="line"><span class="lineno">  342</span>   0.76*u.um, 175.09*u.um, 166.33*u.um,</div>
-<div class="line"><span class="lineno">  343</span>   0.00*u.um, 274.57*u.um, 185.82*u.um,</div>
-<div class="line"><span class="lineno">  344</span>   50.00*u.um, 249.06*u.um, 175.30*u.um,</div>
-<div class="line"><span class="lineno">  345</span>   313.78*u.um, 526.78*u.um, 361.02*u.um,</div>
-<div class="line"><span class="lineno">  346</span>  -267.73*u.um, 339.17*u.um, 37.59*u.um,</div>
-<div class="line"><span class="lineno">  347</span>   0.00*u.mrad, -0.61*u.mrad, 0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  348</span>   0.00*u.mrad, 0.34*u.mrad, 0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  349</span>   0.00*u.mrad, 0.00*u.mrad, 0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  350</span>   0.00*u.mrad, 0.20*u.mrad, 0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  351</span>   0.00*u.mrad, -0.55*u.mrad, 0.00*u.mrad]</div>
-<div class="line"><span class="lineno">  352</span>         alignment[<span class="stringliteral">&#39;t_8318&#39;</span>]=[       <span class="comment"># 2024 emuslsion run 9</span></div>
-<div class="line"><span class="lineno">  353</span>   469.66*u.um, 611.18*u.um, 693.42*u.um,</div>
-<div class="line"><span class="lineno">  354</span>   201.35*u.um, 229.61*u.um, 103.33*u.um,</div>
-<div class="line"><span class="lineno">  355</span>   60.22*u.um, 322.78*u.um, 264.75*u.um,</div>
-<div class="line"><span class="lineno">  356</span>   496.09*u.um, 643.18*u.um, 472.68*u.um,</div>
-<div class="line"><span class="lineno">  357</span>   234.71*u.um, 585.04*u.um, 382.37*u.um,</div>
-<div class="line"><span class="lineno">  358</span>   529.26*u.um, 650.01*u.um, 614.34*u.um,</div>
-<div class="line"><span class="lineno">  359</span>   431.02*u.um, 905.43*u.um, 748.38*u.um,</div>
-<div class="line"><span class="lineno">  360</span>   116.27*u.um, 335.47*u.um, 201.41*u.um,</div>
-<div class="line"><span class="lineno">  361</span>   100.54*u.um, 600.22*u.um, 269.97*u.um,</div>
-<div class="line"><span class="lineno">  362</span>   550.18*u.um, 1248.48*u.um, 931.66*u.um,</div>
-<div class="line"><span class="lineno">  363</span>   0.00*u.mrad, -3.02*u.mrad, 0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  364</span>   0.00*u.mrad, -0.95*u.mrad, 0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  365</span>   0.00*u.mrad, 0.12*u.mrad, 0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  366</span>   0.00*u.mrad, -1.55*u.mrad, 0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  367</span>   0.00*u.mrad, 2.31*u.mrad, 0.00*u.mrad]</div>
-<div class="line"><span class="lineno">  368</span>         alignment[<span class="stringliteral">&#39;t_8583&#39;</span>]=[       <span class="comment"># 2024 emuslsion run 10</span></div>
-<div class="line"><span class="lineno">  369</span>   611.7976*u.um, 889.86*u.um, 879.801*u.um,</div>
-<div class="line"><span class="lineno">  370</span>   413.6267*u.um, 363.6332*u.um, 105.825*u.um,</div>
-<div class="line"><span class="lineno">  371</span>   127.2448*u.um, 487.3149*u.um, 364.0717*u.um,</div>
-<div class="line"><span class="lineno">  372</span>   707.2705*u.um, 849.2645*u.um, 589.3346*u.um,</div>
-<div class="line"><span class="lineno">  373</span>   271.2779*u.um, 655.8296*u.um, 414.7906*u.um,</div>
-<div class="line"><span class="lineno">  374</span>   686.1134*u.um, 851.719*u.um, 798.134*u.um,</div>
-<div class="line"><span class="lineno">  375</span>   135.175*u.um, 614.5551*u.um, 442.9096*u.um,</div>
-<div class="line"><span class="lineno">  376</span>   821.2312*u.um, 1189.1332*u.um, 1063.688*u.um,</div>
-<div class="line"><span class="lineno">  377</span>   255.8865*u.um, 731.2859*u.um, 392.1363*u.um,</div>
-<div class="line"><span class="lineno">  378</span>   507.8946*u.um, 1421.0582*u.um, 1139.182*u.um,</div>
-<div class="line"><span class="lineno">  379</span>   0.00*u.mrad, -3.49*u.mrad, 0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  380</span>   0.00*u.mrad, -1.13*u.mrad, 0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  381</span>   0.00*u.mrad, 0.10*u.mrad, 0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  382</span>   0.00*u.mrad, 1.44*u.mrad, 0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  383</span>   0.00*u.mrad, 2.09*u.mrad, 0.00*u.mrad]</div>
-<div class="line"><span class="lineno">  384</span>         alignment[<span class="stringliteral">&#39;t_8942&#39;</span>]=[       <span class="comment"># 2024 emuslsion run 11 /run_244</span></div>
-<div class="line"><span class="lineno">  385</span>   271.8762*u.um,  484.1729*u.um,  471.3382*u.um,</div>
-<div class="line"><span class="lineno">  386</span>   -21.0674*u.um,  -20.9474*u.um,  138.0984*u.um,</div>
-<div class="line"><span class="lineno">  387</span>   -170.1168*u.um,  59.8273*u.um,  -23.7979*u.um,</div>
-<div class="line"><span class="lineno">  388</span>   112.0014*u.um,  223.498*u.um,  271.4252*u.um,</div>
-<div class="line"><span class="lineno">  389</span>   55.2461*u.um,  218.475*u.um,  111.7626*u.um,</div>
-<div class="line"><span class="lineno">  390</span>   36.3226*u.um,  24.3772*u.um,  180.5263*u.um,</div>
-<div class="line"><span class="lineno">  391</span>   268.446*u.um,  481.7177*u.um,  524.9105*u.um,</div>
-<div class="line"><span class="lineno">  392</span>   -558.5981*u.um,  -483.5918*u.um,  -466.269*u.um,</div>
-<div class="line"><span class="lineno">  393</span>   -27.5701*u.um,  42.2078*u.um,  12.4327*u.um,</div>
-<div class="line"><span class="lineno">  394</span>   -245.3691*u.um,  211.5792*u.um,  79.8376*u.um,</div>
-<div class="line"><span class="lineno">  395</span>   0.00*u.mrad, -0.94*u.mrad, 0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  396</span>   0.00*u.mrad, -0.08*u.mrad, 0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  397</span>   0.00*u.mrad, 0.007*u.mrad, 0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  398</span>   0.00*u.mrad, -2.88*u.mrad, 0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  399</span>   0.00*u.mrad, -0.19*u.mrad, 0.00*u.mrad]</div>
-<div class="line"><span class="lineno">  400</span>         alignment[<span class="stringliteral">&#39;t_9156&#39;</span>]=[       <span class="comment"># 2024 emuslsion run 12 run_245</span></div>
-<div class="line"><span class="lineno">  401</span>   532.3955*u.um, 869.4047*u.um, 920.2407*u.um,</div>
-<div class="line"><span class="lineno">  402</span>   493.1367*u.um, 403.4604*u.um, 199.4534*u.um,</div>
-<div class="line"><span class="lineno">  403</span>   174.5682*u.um, 580.0227*u.um, 463.4915*u.um,</div>
-<div class="line"><span class="lineno">  404</span>   722.9943*u.um, 883.906*u.um, 626.2292*u.um,</div>
-<div class="line"><span class="lineno">  405</span>   295.8365*u.um, 745.0445*u.um, 545.9911*u.um,</div>
-<div class="line"><span class="lineno">  406</span>   810.2135*u.um, 996.7849*u.um, 935.6661*u.um,</div>
-<div class="line"><span class="lineno">  407</span>   175.6937*u.um, 651.9452*u.um, 477.7067*u.um,</div>
-<div class="line"><span class="lineno">  408</span>   928.1277*u.um, 1299.978*u.um, 1095.5873*u.um,</div>
-<div class="line"><span class="lineno">  409</span>   565.4501*u.um, 1045.2995*u.um, 697.4744*u.um,</div>
-<div class="line"><span class="lineno">  410</span>   528.7539*u.um, 1441.5199*u.um, 1156.4334*u.um,</div>
-<div class="line"><span class="lineno">  411</span>   0.00*u.mrad, -3.35*u.mrad, 0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  412</span>   0.00*u.mrad, -1.14*u.mrad, 0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  413</span>   0.00*u.mrad, 0.23*u.mrad, 0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  414</span>   0.00*u.mrad, 1.51*u.mrad, 0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  415</span>   0.00*u.mrad, 1.74*u.mrad, 0.00*u.mrad]</div>
-<div class="line"><span class="lineno">  416</span>         alignment[<span class="stringliteral">&#39;t_9286&#39;</span>]=[       <span class="comment"># 2024 emuslsion run 13 run_246</span></div>
-<div class="line"><span class="lineno">  417</span>   398.3652*u.um, 498.1913*u.um, 1052.9471*u.um,</div>
-<div class="line"><span class="lineno">  418</span>   717.8144*u.um, 21.1253*u.um, -522.9914*u.um,</div>
-<div class="line"><span class="lineno">  419</span>   9.1061*u.um, 183.2849*u.um, 427.2521*u.um,</div>
-<div class="line"><span class="lineno">  420</span>   1162.4342*u.um, 781.295*u.um, 401.2053*u.um,</div>
-<div class="line"><span class="lineno">  421</span>   195.8365*u.um, 417.0663*u.um, 345.222*u.um,</div>
-<div class="line"><span class="lineno">  422</span>   1250.2135*u.um, 1056.8695*u.um, 1098.8891*u.um,</div>
-<div class="line"><span class="lineno">  423</span>   444.8639*u.um, 760.7313*u.um, 558.8336*u.um,</div>
-<div class="line"><span class="lineno">  424</span>   1004.3348*u.um, 1031.0018*u.um, 1162.118*u.um,</div>
-<div class="line"><span class="lineno">  425</span>   -5.4501*u.um, 361.4927*u.um, -126.8281*u.um,</div>
-<div class="line"><span class="lineno">  426</span>   1628.7539*u.um, 2287.8624*u.um, 2539.903*u.um,</div>
-<div class="line"><span class="lineno">  427</span>   0.00*u.mrad, -2.98*u.mrad, 0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  428</span>   0.00*u.mrad, -0.84*u.mrad, 0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  429</span>   0.00*u.mrad, 0.30*u.mrad, 0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  430</span>   0.00*u.mrad, -1.79*u.mrad, 0.00*u.mrad,</div>
-<div class="line"><span class="lineno">  431</span>   0.00*u.mrad, 2.00*u.mrad, 0.00*u.mrad]</div>
-<div class="line"><span class="lineno">  432</span>         alignment[<span class="stringliteral">&#39;t_9379&#39;</span>]=[     <span class="comment">#2024 emulsion run 14 run_247</span></div>
-<div class="line"><span class="lineno">  433</span>   821.8997*u.um, 45.1136*u.um, 898.2948*u.um,</div>
-<div class="line"><span class="lineno">  434</span>   731.0633*u.um, -217.7475*u.um, -283.1271*u.um,</div>
-<div class="line"><span class="lineno">  435</span>   402.9881*u.um, 26.3005*u.um, 541.7564*u.um,</div>
-<div class="line"><span class="lineno">  436</span>   1274.5977*u.um, 738.074*u.um, 622.0383*u.um,</div>
-<div class="line"><span class="lineno">  437</span>   334.8523*u.um, 348.9386*u.um, 575.9559*u.um,</div>
-<div class="line"><span class="lineno">  438</span>   1474.6536*u.um, 1197.1878*u.um, 1265.0079*u.um,</div>
-<div class="line"><span class="lineno">  439</span>   47.4766*u.um, 433.1232*u.um, 522.9466*u.um,</div>
-<div class="line"><span class="lineno">  440</span>   1772.6823*u.um, 1918.6852*u.um, 1922.3606*u.um,</div>
-<div class="line"><span class="lineno">  441</span>   182.9563*u.um, 884.8378*u.um, 662.6338*u.um,</div>
-<div class="line"><span class="lineno">  442</span>   1847.6459*u.um, 2728.9236*u.um, 2585.8895*u.um,</div>
-<div class="line"><span class="lineno">  443</span>   0*u.mrad, -3.4087*u.mrad, 0*u.mrad,</div>
-<div class="line"><span class="lineno">  444</span>   0*u.mrad, -0.9179*u.mrad, 0*u.mrad,</div>
-<div class="line"><span class="lineno">  445</span>   0*u.mrad, 0.2597*u.mrad, 0*u.mrad,</div>
-<div class="line"><span class="lineno">  446</span>   0*u.mrad, 1.2555*u.mrad, 0*u.mrad,</div>
-<div class="line"><span class="lineno">  447</span>   0*u.mrad, 2.154*u.mrad, 0*u.mrad]</div>
-<div class="line"><span class="lineno">  448</span>         alignment[<span class="stringliteral">&#39;t_9462&#39;</span>]=[     <span class="comment">#2024 emulsion run 15 run_248</span></div>
-<div class="line"><span class="lineno">  449</span>  -109.6284*u.um,  504.3064*u.um,  497.1011*u.um,</div>
-<div class="line"><span class="lineno">  450</span>  -92.6082*u.um,  -92.2919*u.um,  103.0728*u.um,</div>
-<div class="line"><span class="lineno">  451</span>  -343.0579*u.um,  166.6301*u.um,  100.8155*u.um,</div>
-<div class="line"><span class="lineno">  452</span>  186.9365*u.um,  256.6612*u.um,  327.2862*u.um,</div>
-<div class="line"><span class="lineno">  453</span>  59.6357*u.um,  335.2558*u.um,  265.7486*u.um,</div>
-<div class="line"><span class="lineno">  454</span>  251.3367*u.um,  330.8842*u.um,  524.498*u.um,</div>
-<div class="line"><span class="lineno">  455</span>  465.5392*u.um,  609.7781*u.um,  665.8652*u.um,</div>
-<div class="line"><span class="lineno">  456</span>  -76.2475*u.um,  44.82*u.um,  115.7253*u.um,</div>
-<div class="line"><span class="lineno">  457</span>  186.6246*u.um,  151.7738*u.um,  129.1633*u.um,</div>
-<div class="line"><span class="lineno">  458</span>  368.1697*u.um,  974.7627*u.um,  815.4692*u.um,</div>
-<div class="line"><span class="lineno">  459</span>   0*u.mrad, 0.92*u.mrad, 0*u.mrad,</div>
-<div class="line"><span class="lineno">  460</span>   0*u.mrad, 1.38*u.mrad, 0*u.mrad,</div>
-<div class="line"><span class="lineno">  461</span>   0*u.mrad, 1.32*u.mrad, 0*u.mrad,</div>
-<div class="line"><span class="lineno">  462</span>   0*u.mrad, -1.36*u.mrad, 0*u.mrad,</div>
-<div class="line"><span class="lineno">  463</span>   0*u.mrad, 1.03*u.mrad, 0*u.mrad]</div>
-<div class="line"><span class="lineno">  464</span>         alignment[<span class="stringliteral">&#39;t_9613&#39;</span>]=[     <span class="comment">#2024 emulsion run 16 run_249</span></div>
-<div class="line"><span class="lineno">  465</span>   347.9798*u.um,  485.1001*u.um,  602.751*u.um,</div>
-<div class="line"><span class="lineno">  466</span>   47.9842*u.um,  144.8884*u.um,  205.1283*u.um,</div>
-<div class="line"><span class="lineno">  467</span>   -0.6367*u.um,  318.2765*u.um,  263.1438*u.um,</div>
-<div class="line"><span class="lineno">  468</span>   199.9615*u.um,  328.6094*u.um,  332.6156*u.um,</div>
-<div class="line"><span class="lineno">  469</span>   26.9864*u.um,  479.7656*u.um,  295.4821*u.um,</div>
-<div class="line"><span class="lineno">  470</span>   133.731*u.um,  142.5613*u.um,  256.4955*u.um,</div>
-<div class="line"><span class="lineno">  471</span>   -471.9127*u.um,  218.7257*u.um,  81.9869*u.um,</div>
-<div class="line"><span class="lineno">  472</span>   348.1659*u.um,  342.6864*u.um,  335.9995*u.um,</div>
-<div class="line"><span class="lineno">  473</span>   334.7361*u.um,  1092.6102*u.um,  830.6452*u.um,</div>
-<div class="line"><span class="lineno">  474</span>   18.9796*u.um,  287.9467*u.um,  99.387*u.um,</div>
-<div class="line"><span class="lineno">  475</span>   0*u.mrad, 0.33*u.mrad, 0*u.mrad,</div>
-<div class="line"><span class="lineno">  476</span>   0*u.mrad, 0.80*u.mrad, 0*u.mrad,</div>
-<div class="line"><span class="lineno">  477</span>   0*u.mrad, 0.46*u.mrad, 0*u.mrad,</div>
-<div class="line"><span class="lineno">  478</span>   0*u.mrad, 1.06*u.mrad, 0*u.mrad,</div>
-<div class="line"><span class="lineno">  479</span>   0*u.mrad, -0.06*u.mrad, 0*u.mrad]</div>
-<div class="line"><span class="lineno">  480</span>         alignment[<span class="stringliteral">&#39;t_9692&#39;</span>]=[     <span class="comment">#2024 emulsion run 17 run_2410 scifi 3v mat 3 is out</span></div>
-<div class="line"><span class="lineno">  481</span>   486.3728*u.um,  745.5552*u.um,  696.4828*u.um,</div>
-<div class="line"><span class="lineno">  482</span>   -84.1458*u.um,  129.8207*u.um,  212.3914*u.um,</div>
-<div class="line"><span class="lineno">  483</span>   -144.0245*u.um,  166.041*u.um,  55.5924*u.um,</div>
-<div class="line"><span class="lineno">  484</span>   221.8425*u.um,  441.3659*u.um,  494.7093*u.um,</div>
-<div class="line"><span class="lineno">  485</span>   147.4787*u.um,  385.928*u.um,  193.8871*u.um,</div>
-<div class="line"><span class="lineno">  486</span>   137.3001*u.um,  0*u.um,  303.9645*u.um,</div>
-<div class="line"><span class="lineno">  487</span>   400.0489*u.um,  652.7457*u.um,  561.0253*u.um,</div>
-<div class="line"><span class="lineno">  488</span>   -530.4546*u.um,  -507.6861*u.um,  -442.2345*u.um,</div>
-<div class="line"><span class="lineno">  489</span>   -6.311*u.um,  162.2659*u.um,  39.5458*u.um,</div>
-<div class="line"><span class="lineno">  490</span>   -143.7007*u.um,  203.3489*u.um,  80.8827*u.um,</div>
-<div class="line"><span class="lineno">  491</span>   0*u.mrad, -1.73*u.mrad, 0*u.mrad,</div>
-<div class="line"><span class="lineno">  492</span>   0*u.mrad, -0.06*u.mrad, 0*u.mrad,</div>
-<div class="line"><span class="lineno">  493</span>   0*u.mrad, -0.23*u.mrad, 0*u.mrad,</div>
-<div class="line"><span class="lineno">  494</span>   0*u.mrad, -3.51*u.mrad, 0*u.mrad,</div>
-<div class="line"><span class="lineno">  495</span>   0*u.mrad, -0.43*u.mrad, 0*u.mrad]   </div>
-<div class="line"><span class="lineno">  496</span>         alignment[<span class="stringliteral">&#39;t_9882&#39;</span>]=[     <span class="comment">#2024 emulsion run 18 run_2411</span></div>
-<div class="line"><span class="lineno">  497</span>   271.3933*u.um,  511.5475*u.um,  553.8936*u.um,</div>
-<div class="line"><span class="lineno">  498</span>   -203.5896*u.um,  -4.3931*u.um,  36.043*u.um,</div>
-<div class="line"><span class="lineno">  499</span>   -141.547*u.um,  117.3645*u.um,  98.1091*u.um,</div>
-<div class="line"><span class="lineno">  500</span>   70.3879*u.um,  275.8537*u.um,  242.826*u.um,</div>
-<div class="line"><span class="lineno">  501</span>   25.8141*u.um,  230.3344*u.um,  133.4803*u.um,</div>
-<div class="line"><span class="lineno">  502</span>   -2.9758*u.um,  96.0786*u.um,  207.7275*u.um,</div>
-<div class="line"><span class="lineno">  503</span>   -50.0191*u.um,  147.4224*u.um,  131.0377*u.um,</div>
-<div class="line"><span class="lineno">  504</span>   51.2951*u.um,  127.0692*u.um,  144.5879*u.um,</div>
-<div class="line"><span class="lineno">  505</span>   209.5979*u.um,  329.4775*u.um,  186.2796*u.um,</div>
-<div class="line"><span class="lineno">  506</span>   -148.5866*u.um,  268.9908*u.um,  87.7598*u.um,</div>
-<div class="line"><span class="lineno">  507</span>   0*u.mrad, -0.88*u.mrad, 0*u.mrad,</div>
-<div class="line"><span class="lineno">  508</span>   0*u.mrad, 0.26*u.mrad, 0*u.mrad,</div>
-<div class="line"><span class="lineno">  509</span>   0*u.mrad, 0.10*u.mrad, 0*u.mrad,</div>
-<div class="line"><span class="lineno">  510</span>   0*u.mrad, 0.06*u.mrad, 0*u.mrad,</div>
-<div class="line"><span class="lineno">  511</span>   0*u.mrad, -0.22*u.mrad, 0*u.mrad]</div>
-<div class="line"><span class="lineno">  512</span>         alignment[<span class="stringliteral">&#39;t_10012&#39;</span>]=[     <span class="comment">#2024 ion run run_2412</span></div>
-<div class="line"><span class="lineno">  513</span>   152.0259*u.um, 447.3908*u.um, 381.2884*u.um,</div>
-<div class="line"><span class="lineno">  514</span>   -528.6398*u.um, -125.534*u.um, -93.6233*u.um,</div>
-<div class="line"><span class="lineno">  515</span>   -92.1306*u.um, 148.3639*u.um, 43.6692*u.um,</div>
-<div class="line"><span class="lineno">  516</span>   89.2736*u.um, 331.7809*u.um, 299.4775*u.um,</div>
-<div class="line"><span class="lineno">  517</span>   292.6668*u.um, 381.8102*u.um, 321.8736*u.um,</div>
-<div class="line"><span class="lineno">  518</span>   401.2095*u.um, 381.4378*u.um, 521.3132*u.um,</div>
-<div class="line"><span class="lineno">  519</span>   605.7078*u.um, 666.563*u.um, 784.4878*u.um,</div>
-<div class="line"><span class="lineno">  520</span>   252.2577*u.um, 106.9793*u.um, 149.2466*u.um,</div>
-<div class="line"><span class="lineno">  521</span>   334.8222*u.um, 235.9747*u.um, 407.865*u.um,</div>
-<div class="line"><span class="lineno">  522</span>   1055.2959*u.um, 1153.5713*u.um, 1011.9634*u.um,</div>
-<div class="line"><span class="lineno">  523</span>   0*u.mrad, -0.38*u.mrad, 0*u.mrad,</div>
-<div class="line"><span class="lineno">  524</span>   0*u.mrad, 1.03*u.mrad, 0*u.mrad,</div>
-<div class="line"><span class="lineno">  525</span>   0*u.mrad, 1.65*u.mrad, 0*u.mrad,</div>
-<div class="line"><span class="lineno">  526</span>   0*u.mrad, -0.79*u.mrad, 0*u.mrad,</div>
-<div class="line"><span class="lineno">  527</span>   0*u.mrad, 2.93*u.mrad, 0*u.mrad]</div>
-<div class="line"><span class="lineno">  528</span> </div>
-<div class="line"><span class="lineno">  529</span>         scifi_spatial_aligment_consts = {</div>
-<div class="line"><span class="lineno">  530</span>           2022: [<span class="stringliteral">&#39;t_0&#39;</span>, <span class="stringliteral">&#39;t_4361&#39;</span>,<span class="stringliteral">&#39;t_4575&#39;</span>,<span class="stringliteral">&#39;t_4855&#39;</span>,<span class="stringliteral">&#39;t_5172&#39;</span>],</div>
-<div class="line"><span class="lineno">  531</span>           2023: [<span class="stringliteral">&#39;t_0&#39;</span>, <span class="stringliteral">&#39;t_5431&#39;</span>, <span class="stringliteral">&#39;t_6443&#39;</span>, <span class="stringliteral">&#39;t_6677&#39;</span>],</div>
-<div class="line"><span class="lineno">  532</span>           2024: [<span class="stringliteral">&#39;t_0&#39;</span>, <span class="stringliteral">&#39;t_7649&#39;</span>, <span class="stringliteral">&#39;t_8318&#39;</span>, <span class="stringliteral">&#39;t_8583&#39;</span>, <span class="stringliteral">&#39;t_8942&#39;</span>, <span class="stringliteral">&#39;t_9156&#39;</span>, <span class="stringliteral">&#39;t_9286&#39;</span>,</div>
-<div class="line"><span class="lineno">  533</span>                  <span class="stringliteral">&#39;t_9379&#39;</span>, <span class="stringliteral">&#39;t_9462&#39;</span>, <span class="stringliteral">&#39;t_9613&#39;</span>, <span class="stringliteral">&#39;t_9692&#39;</span>, <span class="stringliteral">&#39;t_9882&#39;</span>, <span class="stringliteral">&#39;t_10012&#39;</span>]</div>
-<div class="line"><span class="lineno">  534</span>         }</div>
-<div class="line"><span class="lineno">  535</span>         scifi_spatial_tags = scifi_spatial_aligment_consts[year]</div>
-<div class="line"><span class="lineno">  536</span>         <span class="keywordflow">for</span> c <span class="keywordflow">in</span> scifi_spatial_tags:</div>
-<div class="line"><span class="lineno">  537</span>          k=0</div>
-<div class="line"><span class="lineno">  538</span>          <span class="keywordflow">for</span> s <span class="keywordflow">in</span> range(1,6):</div>
-<div class="line"><span class="lineno">  539</span>           <span class="keywordflow">for</span> o <span class="keywordflow">in</span> range(0,2):</div>
-<div class="line"><span class="lineno">  540</span>             <span class="keywordflow">for</span> m <span class="keywordflow">in</span> range(3):</div>
-<div class="line"><span class="lineno">  541</span>               nr = s*100+10*o+m</div>
-<div class="line"><span class="lineno">  542</span>               setattr(sGeo.Scifi,<span class="stringliteral">&#39;LocM&#39;</span>+str(nr)+c,alignment[c][k])</div>
-<div class="line"><span class="lineno">  543</span>               sGeo.Scifi[<span class="stringliteral">&#39;LocM&#39;</span>+str(nr)+c] = alignment[c][k]</div>
-<div class="line"><span class="lineno">  544</span>               k+=1</div>
-<div class="line"><span class="lineno">  545</span>          <span class="keywordflow">for</span> s <span class="keywordflow">in</span> range(1,6):</div>
-<div class="line"><span class="lineno">  546</span>           <span class="keywordflow">for</span> o <span class="keywordflow">in</span> [<span class="stringliteral">&quot;RotPhiS&quot;</span>,<span class="stringliteral">&quot;RotPsiS&quot;</span>,<span class="stringliteral">&quot;RotThetaS&quot;</span>]:</div>
-<div class="line"><span class="lineno">  547</span>               setattr(sGeo.Scifi,o+str(s)+c,alignment[c][k])</div>
-<div class="line"><span class="lineno">  548</span>               sGeo.Scifi[o+str(s)+c] = alignment[c][k]</div>
-<div class="line"><span class="lineno">  549</span>               k+=1</div>
-<div class="line"><span class="lineno">  550</span> </div>
-<div class="line"><span class="lineno">  551</span>         print(<span class="stringliteral">&#39;save&#39;</span>,geoFileName)</div>
-<div class="line"><span class="lineno">  552</span>         <a class="code hl_function" href="namespacesaveBasicParameters.html#ae19428dcf1f80c5affea43fc209bf908">saveBasicParameters.execute</a>(geoFileName,sGeo)</div>
-<div class="line"><span class="lineno">  553</span>         </div>
-<div class="line"><span class="lineno">  554</span> </div>
+<div class="line"><span class="lineno">   40</span>           2024: [-0.06, 0.04, 0.65,-0.15,-0.12,-0.26,-0.29,-0.36, 0.00, 0.35,-0.37, 0.38,-0.41, 0.30, 0.35],</div>
+<div class="line"><span class="lineno">   41</span>           2025: [-0.04, 0.05, 0.66,-0.16,-0.15,-0.31,-0.34,-0.45,-0.10, 0.39,-0.48, 0.43,-0.91,-0.36,-2.02]</div>
+<div class="line"><span class="lineno">   42</span>         }</div>
+<div class="line"><span class="lineno">   43</span>         mufi_spatial_aligment_keys = [<span class="stringliteral">&#39;Veto1ShiftY&#39;</span>,<span class="stringliteral">&#39;Veto2ShiftY&#39;</span>,<span class="stringliteral">&#39;Veto3ShiftX&#39;</span>,</div>
+<div class="line"><span class="lineno">   44</span>                                       <span class="stringliteral">&#39;US1ShiftY&#39;</span>,<span class="stringliteral">&#39;US2ShiftY&#39;</span>,<span class="stringliteral">&#39;US3ShiftY&#39;</span>,<span class="stringliteral">&#39;US4ShiftY&#39;</span>,<span class="stringliteral">&#39;US5ShiftY&#39;</span>,</div>
+<div class="line"><span class="lineno">   45</span>                                       <span class="stringliteral">&#39;DS1ShiftY&#39;</span>,<span class="stringliteral">&#39;DS1ShiftX&#39;</span>,<span class="stringliteral">&#39;DS2ShiftY&#39;</span>,<span class="stringliteral">&#39;DS2ShiftX&#39;</span>,</div>
+<div class="line"><span class="lineno">   46</span>                                       <span class="stringliteral">&#39;DS3ShiftY&#39;</span>,<span class="stringliteral">&#39;DS3ShiftX&#39;</span>,<span class="stringliteral">&#39;DS4ShiftX&#39;</span>]</div>
+<div class="line"><span class="lineno">   47</span>         <span class="keywordflow">for</span> i, key <span class="keywordflow">in</span> enumerate(mufi_spatial_aligment_keys):</div>
+<div class="line"><span class="lineno">   48</span>           <span class="keywordflow">if</span> year &lt; 2024 <span class="keywordflow">and</span> key == <span class="stringliteral">&#39;Veto3ShiftX&#39;</span>: <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">   49</span>           setattr(sGeo.MuFilter,key,mufi_spatial_aligment_consts[year][i]*u.cm)</div>
+<div class="line"><span class="lineno">   50</span>           sGeo.MuFilter[key] = mufi_spatial_aligment_consts[year][i]*u.cm</div>
+<div class="line"><span class="lineno">   51</span> </div>
+<div class="line"><span class="lineno">   52</span>         <span class="comment"># DS part</span></div>
+<div class="line"><span class="lineno">   53</span>         constants = {}</div>
+<div class="line"><span class="lineno">   54</span>         constants[<span class="stringliteral">&#39;t_0&#39;</span>] =  [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]</div>
+<div class="line"><span class="lineno">   55</span>         constants[<span class="stringliteral">&#39;t_4361&#39;</span>] =  [-5.61,-5.63,-5.90,-5.39,-5.40,-5.58,-5.99,-6.08,-6.27,-6.43,-5.94,-6.20,-5.45,-5.52,-5.75,-5.93,-5.40,-5.56,-5.46,-5.74]</div>
+<div class="line"><span class="lineno">   56</span>         constants[<span class="stringliteral">&#39;t_5117&#39;</span>] =  [-6.56,-6.53,-6.75,-6.27,-6.34,-6.46,-7.50,-7.60,-7.79,-7.94,-7.51,-7.72,-8.09,-8.15,-8.38,-8.55,-8.04,-8.14,-8.02,-8.24]</div>
+<div class="line"><span class="lineno">   57</span>         constants[<span class="stringliteral">&#39;t_5478&#39;</span>] =  [-5.28,-5.38,-5.71,-5.76,-5.28,-5.46,-4.22,-4.38,-4.55,-4.70,-4.27,-4.46,-5.31,-5.43,-5.71,-5.88,-5.34,-5.45,-5.38,-5.57]</div>
+<div class="line"><span class="lineno">   58</span>         constants[<span class="stringliteral">&#39;t_6208&#39;</span>] =  [-6.00,-5.92,-6.33,-6.22,-5.94,-6.15,-5.53,-5.49,-5.81,-5.86,-5.53,-5.77,-7.74,-7.71,-8.01,-8.04,-7.68,-7.82,-7.65,-7.87]</div>
+<div class="line"><span class="lineno">   59</span>         constants[<span class="stringliteral">&#39;t_6443&#39;</span>] =  [-6.56,-6.70,-6.78,-6.88,-6.40,-6.59,-5.97,-6.08,-6.15,-6.29,-5.93,-6.14,-8.10,-8.20,-8.41,-8.56,-8.11,-8.21,-8.20,-8.39]</div>
+<div class="line"><span class="lineno">   60</span>         constants[<span class="stringliteral">&#39;t_6677&#39;</span>] =  [-6.72,-6.80,-6.87,-6.87,-6.49,-6.67,-6.03,-6.16,-6.35,-6.49,-6.08,-6.29,-8.23,-8.36,-8.54,-8.69,-8.22,-8.38,-8.27,-8.47]</div>
+<div class="line"><span class="lineno">   61</span>         <span class="comment"># 2024 and later on</span></div>
+<div class="line"><span class="lineno">   62</span>         constants[<span class="stringliteral">&#39;t_7649&#39;</span>] =  [-6.43,-6.56,-6.76,-6.83,-6.46,-6.59,-5.97,-6.04,-6.24,-6.42,-6.04,-6.24,-8.18,-8.26,-8.44,-8.61,-8.18,-8.26,-8.15,-8.31]</div>
+<div class="line"><span class="lineno">   63</span>         constants[<span class="stringliteral">&#39;t_8318&#39;</span>] =  [-6.50,-6.66,-6.69,-6.75,-6.36,-6.53,-5.85,-5.92,-6.19,-6.34,-5.96,-6.18,-8.09,-8.23,-8.36,-8.56,-8.10,-8.16,-8.10,-8.31]</div>
+<div class="line"><span class="lineno">   64</span>         constants[<span class="stringliteral">&#39;t_8583&#39;</span>] =  [-6.61,-6.68,-6.79,-6.81,-6.45,-6.62,-6.01,-6.17,-6.23,-6.35,-6.01,-6.24,-8.16,-8.29,-8.44,-8.62,-8.21,-8.35,-8.30,-8.48]</div>
+<div class="line"><span class="lineno">   65</span>         constants[<span class="stringliteral">&#39;t_8942&#39;</span>] =  [-6.44,-6.52,-6.72,-6.81,-6.39,-6.53,-6.04,-6.06,-6.18,-6.34,-5.98,-6.17,-8.15,-8.13,-8.39,-8.57,-8.13,-8.19,-8.16,-8.29]</div>
+<div class="line"><span class="lineno">   66</span>         constants[<span class="stringliteral">&#39;t_9156&#39;</span>] =  [-6.47,-6.50,-6.85,-6.92,-6.47,-6.58,-6.07,-6.20,-6.33,-6.48,-6.07,-6.28,-8.19,-8.30,-8.53,-8.67,-8.20,-8.32,-8.21,-8.37]</div>
+<div class="line"><span class="lineno">   67</span>         constants[<span class="stringliteral">&#39;t_9286&#39;</span>] =  [-6.41,-6.48,-6.84,-6.89,-6.47,-6.62,-5.96,-6.05,-6.35,-6.47,-6.08,-6.28,-8.13,-8.20,-8.52,-8.70,-8.19,-8.31,-8.15,-8.33]</div>
+<div class="line"><span class="lineno">   68</span>         constants[<span class="stringliteral">&#39;t_9379&#39;</span>] =  [-6.42,-6.54,-6.83,-6.88,-6.41,-6.60,-5.93,-6.00,-6.37,-6.49,-6.05,-6.30,-8.11,-8.20,-8.51,-8.63,-8.14,-8.25,-8.11,-8.31]</div>
+<div class="line"><span class="lineno">   69</span>         constants[<span class="stringliteral">&#39;t_9462&#39;</span>] =  [-6.47,-6.56,-6.77,-6.86,-6.44,-6.58,-6.01,-6.04,-6.30,-6.52,-6.07,-6.29,-8.18,-8.25,-8.46,-8.65,-8.17,-8.26,-8.13,-8.24]</div>
+<div class="line"><span class="lineno">   70</span>         constants[<span class="stringliteral">&#39;t_9613&#39;</span>] =  [-6.50,-6.55,-6.78,-6.88,-6.47,-6.63,-5.98,-6.01,-6.24,-6.38,-6.03,-6.19,-8.21,-8.25,-8.43,-8.67,-8.18,-8.25,-8.13,-8.29]</div>
+<div class="line"><span class="lineno">   71</span>         constants[<span class="stringliteral">&#39;t_9692&#39;</span>] =  [-6.58,-6.67,-6.76,-6.95,-6.47,-6.53,-6.07,-6.20,-6.22,-6.39,-6.01,-6.18,-8.23,-8.26,-8.43,-8.65,-8.19,-8.27,-8.20,-8.35]</div>
+<div class="line"><span class="lineno">   72</span>         constants[<span class="stringliteral">&#39;t_9882&#39;</span>] =  [-6.22,-6.13,-6.37,-6.25,-6.02,-6.18,-5.65,-5.58,-5.76,-5.79,-5.53,-5.75,-7.81,-7.69,-8.02,-8.07,-7.74,-7.85,-7.81,-7.98]</div>
+<div class="line"><span class="lineno">   73</span>         constants[<span class="stringliteral">&#39;t_10012&#39;</span>]=  [-6.70,-6.84,-6.73,-6.86,-6.50,-6.64,-6.04,-6.19,-6.21,-6.41,-6.05,-6.24,-8.23,-8.38,-8.40,-8.64,-8.22,-8.38,-8.31,-8.52]</div>
+<div class="line"><span class="lineno">   74</span>         <span class="comment"># 2025</span></div>
+<div class="line"><span class="lineno">   75</span>         constants[<span class="stringliteral">&#39;t_10423&#39;</span>]=  [-6.61,-6.69,-6.68,-6.77,-6.44,-6.58,-5.98,-6.06,-6.11,-6.29,-5.98,-6.16,-8.16,-8.17,-8.24,-8.43,-8.13,-8.22,-8.26,-8.41]</div>
+<div class="line"><span class="lineno">   76</span>         constants[<span class="stringliteral">&#39;t_11158&#39;</span>]=  [-6.60,-6.68,-6.79,-6.86,-6.51,-6.60,-6.08,-6.13,-6.20,-6.32,-6.04,-6.20,-8.19,-8.26,-8.34,-8.49,-8.19,-8.29,-8.31,-8.44]</div>
+<div class="line"><span class="lineno">   77</span>         constants[<span class="stringliteral">&#39;t_11576&#39;</span>]=  [-6.41,-6.48,-6.72,-6.78,-6.43,-6.53,-5.94,-6.06,-6.19,-6.36,-6.00,-6.17,-8.17,-8.20,-8.30,-8.49,-8.08,-8.16,-8.11,-8.21]</div>
+<div class="line"><span class="lineno">   78</span>         constants[<span class="stringliteral">&#39;t_11676&#39;</span>]=  [-6.42,-6.47,-6.74,-6.79,-6.43,-6.53,-5.95,-6.06,-6.21,-6.35,-6.01,-6.17,-8.16,-8.22,-8.32,-8.50,-8.09,-8.17,-8.13,-8.22]</div>
+<div class="line"><span class="lineno">   79</span>         ds_time_aligment_consts = {</div>
+<div class="line"><span class="lineno">   80</span>           2022: {<span class="stringliteral">&quot;t_0&quot;</span>:0.000, <span class="stringliteral">&quot;t_4361&quot;</span>:0.082, <span class="stringliteral">&quot;t_5117&quot;</span>:0.085},</div>
+<div class="line"><span class="lineno">   81</span>           2023: {<span class="stringliteral">&quot;t_0&quot;</span>:0.000, <span class="stringliteral">&quot;t_5478&quot;</span>:0.082, <span class="stringliteral">&quot;t_6208&quot;</span>:0.086, <span class="stringliteral">&quot;t_6443&quot;</span>:0.082, <span class="stringliteral">&quot;t_6677&quot;</span>:0.084},</div>
+<div class="line"><span class="lineno">   82</span>           2024: {<span class="stringliteral">&quot;t_0&quot;</span>:0.000, <span class="stringliteral">&quot;t_7649&quot;</span>:0.081, <span class="stringliteral">&quot;t_8318&quot;</span>:0.082, <span class="stringliteral">&quot;t_8583&quot;</span>:0.081, <span class="stringliteral">&quot;t_8942&quot;</span>:0.080, </div>
+<div class="line"><span class="lineno">   83</span>                  <span class="stringliteral">&quot;t_9156&quot;</span>:0.083, <span class="stringliteral">&quot;t_9286&quot;</span>:0.082, <span class="stringliteral">&quot;t_9379&quot;</span>:0.083, <span class="stringliteral">&quot;t_9462&quot;</span>:0.083, <span class="stringliteral">&quot;t_9613&quot;</span>:0.082,</div>
+<div class="line"><span class="lineno">   84</span>                  <span class="stringliteral">&quot;t_9692&quot;</span>:0.078, <span class="stringliteral">&quot;t_9882&quot;</span>:0.084, <span class="stringliteral">&quot;t_10012&quot;</span>:0.085},</div>
+<div class="line"><span class="lineno">   85</span>           2025: {<span class="stringliteral">&quot;t_0&quot;</span>: 0.000, <span class="stringliteral">&quot;t_10423&quot;</span>:0.083, <span class="stringliteral">&quot;t_11158&quot;</span>:0.082, <span class="stringliteral">&quot;t_11576&quot;</span>:0.079, <span class="stringliteral">&quot;t_11676&quot;</span>:0.080}</div>
+<div class="line"><span class="lineno">   86</span>         }</div>
+<div class="line"><span class="lineno">   87</span>         slopes_dict = ds_time_aligment_consts[year]</div>
+<div class="line"><span class="lineno">   88</span>         <span class="comment">#time delay corrections first order, only for DS at the moment</span></div>
+<div class="line"><span class="lineno">   89</span>         <span class="keywordflow">for</span> p <span class="keywordflow">in</span> slopes_dict.keys():</div>
+<div class="line"><span class="lineno">   90</span>            setattr(sGeo.MuFilter,<span class="stringliteral">&#39;DSTcorslope&#39;</span>+p,slopes_dict[p])</div>
+<div class="line"><span class="lineno">   91</span>            sGeo.MuFilter[<span class="stringliteral">&#39;DSTcorslope&#39;</span>+p] = slopes_dict[p]</div>
+<div class="line"><span class="lineno">   92</span>            <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(len(constants[p])): </div>
+<div class="line"><span class="lineno">   93</span>               setattr(sGeo.MuFilter,<span class="stringliteral">&#39;DSTcorC&#39;</span>+str(i)+p,constants[p][i])</div>
+<div class="line"><span class="lineno">   94</span>               sGeo.MuFilter[<span class="stringliteral">&#39;DSTcorC&#39;</span>+str(i)+p] = constants[p][i]</div>
+<div class="line"><span class="lineno">   95</span> </div>
+<div class="line"><span class="lineno">   96</span>       <span class="comment"># Scifi part</span></div>
+<div class="line"><span class="lineno">   97</span>         constants={}</div>
+<div class="line"><span class="lineno">   98</span>         constants[<span class="stringliteral">&#39;t_0&#39;</span>]=[   0.000*u.ns,  0.000*u.ns,  0.000*u.ns, 0.000*u.ns, 0.000*u.ns,  0.000*u.ns, 0.000*u.ns,</div>
+<div class="line"><span class="lineno">   99</span>  0.000*u.ns,  0.000*u.ns,   0.000*u.ns, 0.000*u.ns, 0.000*u.ns,  0.000*u.ns, 0.000*u.ns,</div>
+<div class="line"><span class="lineno">  100</span>  0.000*u.ns,  0.000*u.ns,  0.000*u.ns,  0.000*u.ns,  0.000*u.ns,  0.000*u.ns,  0.000*u.ns,</div>
+<div class="line"><span class="lineno">  101</span>   0.000*u.ns,  0.000*u.ns,  0.000*u.ns,  0.000*u.ns, 0.000*u.ns,  0.000*u.ns, 0.0000*u.ns,</div>
+<div class="line"><span class="lineno">  102</span>   0.000*u.ns,  0.000*u.ns,  0.000*u.ns, 0.000*u.ns, 0.000*u.ns,  0.000*u.ns,  0.000*u.ns ]</div>
+<div class="line"><span class="lineno">  103</span>         constants[<span class="stringliteral">&#39;t_4361&#39;</span>]=[   0.000*u.ns,  0.000*u.ns,  -0.222*u.ns, -0.509*u.ns, -0.517*u.ns,  -1.156*u.ns, -0.771*u.ns,</div>
+<div class="line"><span class="lineno">  104</span>  -0.287*u.ns,  0.000*u.ns,   0.250*u.ns, -0.854*u.ns, -1.455*u.ns,  -0.812*u.ns, -1.307*u.ns,</div>
+<div class="line"><span class="lineno">  105</span>  -0.861*u.ns,  0.000*u.ns,  -0.307*u.ns,  0.289*u.ns,  0.069*u.ns,  -0.895*u.ns,  0.731*u.ns,</div>
+<div class="line"><span class="lineno">  106</span>   0.164*u.ns,  0.000*u.ns,  -1.451*u.ns,  0.196*u.ns, -2.025*u.ns,  -1.049*u.ns, -0.938*u.ns,</div>
+<div class="line"><span class="lineno">  107</span>   0.337*u.ns,  0.000*u.ns,  -1.157*u.ns, -1.060*u.ns, -0.627*u.ns,  -2.405*u.ns,  0.071*u.ns ]</div>
+<div class="line"><span class="lineno">  108</span>         constants[<span class="stringliteral">&#39;t_5117&#39;</span>]=[   0.000*u.ns,  0.000*u.ns,  -0.325*u.ns, -0.497*u.ns,  0.228*u.ns,  -0.368*u.ns,  0.076*u.ns,</div>
+<div class="line"><span class="lineno">  109</span>  -0.906*u.ns,  0.000*u.ns,   0.259*u.ns, -0.775*u.ns, -0.370*u.ns,   0.243*u.ns, -0.284*u.ns,</div>
+<div class="line"><span class="lineno">  110</span>  -0.995*u.ns,  0.000*u.ns,  -0.133*u.ns,  0.473*u.ns,  0.753*u.ns,  -0.433*u.ns,  1.106*u.ns,</div>
+<div class="line"><span class="lineno">  111</span>  -0.371*u.ns,  0.000*u.ns,  -1.331*u.ns,  0.319*u.ns, -1.979*u.ns,  -1.120*u.ns, -0.981*u.ns,</div>
+<div class="line"><span class="lineno">  112</span>  -1.276*u.ns,  0.000*u.ns,  -0.755*u.ns, -0.630*u.ns,  0.886*u.ns,  -0.873*u.ns,  1.639*u.ns ]</div>
+<div class="line"><span class="lineno">  113</span>         constants[<span class="stringliteral">&#39;t_5478&#39;</span>]=[   0.000*u.ns,  0.000*u.ns,  -0.309*u.ns,  -0.591*u.ns,  -0.502*u.ns,  -1.164*u.ns,  -0.753*u.ns, </div>
+<div class="line"><span class="lineno">  114</span>  -0.369*u.ns,  0.000*u.ns,  0.239*u.ns,  -0.815*u.ns,   -1.138*u.ns,  -0.578*u.ns,  -1.054*u.ns, </div>
+<div class="line"><span class="lineno">  115</span>  -1.011*u.ns,  0.000*u.ns,  -0.270*u.ns,  0.447*u.ns,   0.760*u.ns,  -0.512*u.ns,  0.566*u.ns, </div>
+<div class="line"><span class="lineno">  116</span>   0.024*u.ns,  0.000*u.ns,  -1.348*u.ns,  0.283*u.ns,   -1.495*u.ns,  -0.559*u.ns,  -0.545*u.ns, </div>
+<div class="line"><span class="lineno">  117</span>   0.195*u.ns,  0.000*u.ns,  -1.131*u.ns,  -0.937*u.ns,   -0.391*u.ns,  -2.102*u.ns,  0.365*u.ns ]</div>
+<div class="line"><span class="lineno">  118</span>         constants[<span class="stringliteral">&#39;t_6208&#39;</span>]=[   0.000*u.ns,  0.000*u.ns,  -0.309*u.ns,  -0.546*u.ns,   0.169*u.ns,  -0.454*u.ns,  -0.116*u.ns, </div>
+<div class="line"><span class="lineno">  119</span>  -0.920*u.ns,  0.000*u.ns,  0.238*u.ns,  -0.799*u.ns,   -0.430*u.ns,  0.186*u.ns,  -0.324*u.ns, </div>
+<div class="line"><span class="lineno">  120</span>  -1.042*u.ns,  0.000*u.ns,  -0.140*u.ns,  0.515*u.ns,   0.728*u.ns,  -0.572*u.ns,  0.673*u.ns, </div>
+<div class="line"><span class="lineno">  121</span>  -0.432*u.ns,  0.000*u.ns,  -1.366*u.ns,  0.326*u.ns,   -2.076*u.ns,  -1.152*u.ns,  -1.075*u.ns, </div>
+<div class="line"><span class="lineno">  122</span>  -1.067*u.ns,  0.000*u.ns,  -1.021*u.ns,  -0.873*u.ns,   0.623*u.ns,  -1.094*u.ns,  1.365*u.ns ]</div>
+<div class="line"><span class="lineno">  123</span>         constants[<span class="stringliteral">&#39;t_6443&#39;</span>]=[     0.000*u.ns,  0.000*u.ns,  -0.284*u.ns,  -0.469*u.ns,   0.274*u.ns,  -0.356*u.ns,  0.078*u.ns,</div>
+<div class="line"><span class="lineno">  124</span>  -0.856*u.ns,  0.000*u.ns,  0.250*u.ns,  -0.754*u.ns,   -0.393*u.ns,  0.219*u.ns,  -0.828*u.ns,</div>
+<div class="line"><span class="lineno">  125</span>  -0.939*u.ns,  0.000*u.ns,  -0.137*u.ns,  0.519*u.ns,   0.725*u.ns,  -0.480*u.ns,  1.024*u.ns,</div>
+<div class="line"><span class="lineno">  126</span>  -0.311*u.ns,  0.000*u.ns,  -1.334*u.ns,  0.314*u.ns,   -2.028*u.ns,  -1.130*u.ns,  -1.037*u.ns,</div>
+<div class="line"><span class="lineno">  127</span>  -0.979*u.ns,  0.000*u.ns,  -0.983*u.ns,  -0.862*u.ns,   0.627*u.ns,  -1.059*u.ns,  1.370*u.ns]</div>
+<div class="line"><span class="lineno">  128</span>         constants[<span class="stringliteral">&#39;t_6677&#39;</span>]=[   0.000*u.ns,  0.000*u.ns,  -0.340*u.ns,  -0.511*u.ns,   0.214*u.ns,  -0.387*u.ns,  -0.070*u.ns,</div>
+<div class="line"><span class="lineno">  129</span>  -0.893*u.ns,  0.000*u.ns,  0.234*u.ns,  -0.762*u.ns,   -0.409*u.ns,  0.230*u.ns,  -0.291*u.ns, </div>
+<div class="line"><span class="lineno">  130</span>  -1.009*u.ns,  0.000*u.ns,  -0.140*u.ns,  0.546*u.ns,   0.762*u.ns,  -0.425*u.ns,  1.033*u.ns,</div>
+<div class="line"><span class="lineno">  131</span>  -0.373*u.ns,  0.000*u.ns,  -1.356*u.ns,  0.322*u.ns,   -2.043*u.ns,  -1.122*u.ns,  -0.978*u.ns, </div>
+<div class="line"><span class="lineno">  132</span>  -1.055*u.ns,  0.000*u.ns,  -0.969*u.ns,  -0.823*u.ns,   0.644*u.ns,  -1.079*u.ns,  1.423*u.ns ]</div>
+<div class="line"><span class="lineno">  133</span><span class="comment">#2024  </span></div>
+<div class="line"><span class="lineno">  134</span>         constants[<span class="stringliteral">&#39;t_7649&#39;</span>]=[     0.000*u.ns,  0.000*u.ns,  -0.299*u.ns,  -0.510*u.ns,   0.217*u.ns,  -0.401*u.ns,  0.016*u.ns,</div>
+<div class="line"><span class="lineno">  135</span>  -1.194*u.ns,  0.000*u.ns,  0.547*u.ns,  -0.473*u.ns,   -0.080*u.ns,  0.500*u.ns,  0.002*u.ns,</div>
+<div class="line"><span class="lineno">  136</span>  -1.017*u.ns,  0.000*u.ns,  -0.129*u.ns,  0.513*u.ns,   0.736*u.ns,  -0.466*u.ns,  0.963*u.ns,</div>
+<div class="line"><span class="lineno">  137</span>  -0.359*u.ns,  0.000*u.ns,  -1.346*u.ns,  0.307*u.ns,   -2.019*u.ns,  -1.096*u.ns,  -1.012*u.ns,</div>
+<div class="line"><span class="lineno">  138</span>  -1.032*u.ns,  0.000*u.ns,  -1.002*u.ns,  -0.860*u.ns,   0.630*u.ns,  -1.134*u.ns,  1.393*u.ns ]</div>
+<div class="line"><span class="lineno">  139</span>         constants[<span class="stringliteral">&#39;t_8318&#39;</span>]=[     0.000*u.ns,  0.000*u.ns,  -0.312*u.ns,  -0.498*u.ns,   0.336*u.ns,  -0.291*u.ns,  0.153*u.ns,</div>
+<div class="line"><span class="lineno">  140</span>  -0.882*u.ns,  0.000*u.ns,  0.277*u.ns,  -0.753*u.ns,   -0.348*u.ns,  0.257*u.ns,  -0.237*u.ns,</div>
+<div class="line"><span class="lineno">  141</span>  -0.957*u.ns,  0.000*u.ns,  -0.102*u.ns,  0.507*u.ns,   0.786*u.ns,  -0.420*u.ns,  0.987*u.ns,</div>
+<div class="line"><span class="lineno">  142</span>  -0.365*u.ns,  0.000*u.ns,  -1.311*u.ns,  0.362*u.ns,   -2.152*u.ns,  -0.970*u.ns,  -0.725*u.ns,</div>
+<div class="line"><span class="lineno">  143</span>  -0.982*u.ns,  0.000*u.ns,  -0.994*u.ns,  -0.895*u.ns,   0.454*u.ns,  -1.216*u.ns,  1.361*u.ns ]</div>
+<div class="line"><span class="lineno">  144</span>         constants[<span class="stringliteral">&#39;t_8583&#39;</span>]=[      0.000*u.ns,  0.000*u.ns,  -0.327*u.ns,  -0.494*u.ns,   0.226*u.ns,  -0.377*u.ns,  0.077*u.ns,</div>
+<div class="line"><span class="lineno">  145</span>  -0.902*u.ns,  0.000*u.ns,  0.270*u.ns,  -0.751*u.ns,   -0.345*u.ns,  0.243*u.ns,  -0.259*u.ns,</div>
+<div class="line"><span class="lineno">  146</span>  -0.937*u.ns,  0.000*u.ns,  -0.172*u.ns,  0.427*u.ns,   0.696*u.ns,  -0.478*u.ns,  0.916*u.ns,</div>
+<div class="line"><span class="lineno">  147</span>  -0.355*u.ns,  0.000*u.ns,  -1.380*u.ns,  0.301*u.ns,   -1.998*u.ns,  -1.108*u.ns,  -1.020*u.ns,</div>
+<div class="line"><span class="lineno">  148</span>  -1.021*u.ns,  0.000*u.ns,  -0.994*u.ns,  -0.892*u.ns,   0.591*u.ns,  -1.051*u.ns,  1.368*u.ns ]</div>
+<div class="line"><span class="lineno">  149</span>         constants[<span class="stringliteral">&#39;t_8942&#39;</span>]=[      0.000*u.ns,  0.000*u.ns,  -0.213*u.ns,  -0.431*u.ns,   0.276*u.ns,  -0.330*u.ns,  0.155*u.ns,</div>
+<div class="line"><span class="lineno">  150</span>  -0.857*u.ns,  0.000*u.ns,  0.284*u.ns,  -0.734*u.ns,   -0.410*u.ns,  0.231*u.ns,  -0.269*u.ns,</div>
+<div class="line"><span class="lineno">  151</span>  -1.586*u.ns,  0.000*u.ns,  0.567*u.ns,  1.171*u.ns,   1.438*u.ns,  0.180*u.ns,  1.604*u.ns,</div>
+<div class="line"><span class="lineno">  152</span>  -0.269*u.ns,  0.000*u.ns,  -1.392*u.ns,  0.305*u.ns,   -2.027*u.ns,  -1.114*u.ns,  -1.019*u.ns,</div>
+<div class="line"><span class="lineno">  153</span>  -0.941*u.ns,  0.000*u.ns,  -1.004*u.ns,  -0.897*u.ns,   0.607*u.ns,  -1.056*u.ns,  1.348*u.ns ]</div>
+<div class="line"><span class="lineno">  154</span>         constants[<span class="stringliteral">&#39;t_9156&#39;</span>]=[      0.000*u.ns,  0.000*u.ns,  -0.373*u.ns,  -0.552*u.ns,   0.075*u.ns,  -0.450*u.ns,  0.117*u.ns,</div>
+<div class="line"><span class="lineno">  155</span>  -0.948*u.ns,  0.000*u.ns,  0.263*u.ns,  -0.762*u.ns,   -0.451*u.ns,  0.193*u.ns,  -0.296*u.ns,</div>
+<div class="line"><span class="lineno">  156</span>  -0.990*u.ns,  0.000*u.ns,  -0.172*u.ns,  0.438*u.ns,   0.751*u.ns,  -0.470*u.ns,  0.897*u.ns,</div>
+<div class="line"><span class="lineno">  157</span>  -0.417*u.ns,  0.000*u.ns,  -1.338*u.ns,  0.323*u.ns,   -2.035*u.ns,  -1.183*u.ns,  -0.603*u.ns,</div>
+<div class="line"><span class="lineno">  158</span>  -1.115*u.ns,  0.000*u.ns,  -0.973*u.ns,  -0.854*u.ns,   0.591*u.ns,  -1.119*u.ns,  1.384*u.ns ]</div>
+<div class="line"><span class="lineno">  159</span>         constants[<span class="stringliteral">&#39;t_9286&#39;</span>]=[      0.000*u.ns,  0.000*u.ns,  -0.366*u.ns,  -0.542*u.ns,   0.121*u.ns,  -0.410*u.ns,  0.050*u.ns,</div>
+<div class="line"><span class="lineno">  160</span>  -0.968*u.ns,  0.000*u.ns,  0.295*u.ns,  -0.730*u.ns,   -0.321*u.ns,  0.266*u.ns,  -0.245*u.ns,</div>
+<div class="line"><span class="lineno">  161</span>  -0.989*u.ns,  0.000*u.ns,  -0.154*u.ns,  0.465*u.ns,   0.728*u.ns,  -0.477*u.ns,  0.974*u.ns,</div>
+<div class="line"><span class="lineno">  162</span>  -0.399*u.ns,  0.000*u.ns,  -1.381*u.ns,  0.304*u.ns,   -1.991*u.ns,  -1.041*u.ns,  -0.609*u.ns,</div>
+<div class="line"><span class="lineno">  163</span>  -1.142*u.ns,  0.000*u.ns,  -0.939*u.ns,  -0.823*u.ns,   0.687*u.ns,  -0.993*u.ns,  1.449*u.ns ]</div>
+<div class="line"><span class="lineno">  164</span>         constants[<span class="stringliteral">&#39;t_9379&#39;</span>]=[      0.000*u.ns,  0.000*u.ns,  -0.376*u.ns,  -0.528*u.ns,   0.150*u.ns,  -0.419*u.ns,  0.056*u.ns,</div>
+<div class="line"><span class="lineno">  165</span>  -0.943*u.ns,  0.000*u.ns,  0.258*u.ns,  -0.739*u.ns,   -0.390*u.ns,  0.233*u.ns,  -0.241*u.ns,</div>
+<div class="line"><span class="lineno">  166</span>  -0.988*u.ns,  0.000*u.ns,  -0.130*u.ns,  0.499*u.ns,   0.796*u.ns,  -0.498*u.ns,  0.953*u.ns,</div>
+<div class="line"><span class="lineno">  167</span>  -0.391*u.ns,  0.000*u.ns,  -1.382*u.ns,  0.295*u.ns,   -1.967*u.ns,  -1.040*u.ns,  -0.673*u.ns,</div>
+<div class="line"><span class="lineno">  168</span>  -1.113*u.ns,  0.000*u.ns,  -0.950*u.ns,  -0.838*u.ns,   0.682*u.ns,  -1.071*u.ns,  1.423*u.ns ]</div>
+<div class="line"><span class="lineno">  169</span>         constants[<span class="stringliteral">&#39;t_9462&#39;</span>]=[      0.000*u.ns,  0.000*u.ns,  -0.370*u.ns,  -0.528*u.ns,   0.056*u.ns,  -0.427*u.ns,  0.035*u.ns,</div>
+<div class="line"><span class="lineno">  170</span>  -0.937*u.ns,  0.000*u.ns,  0.252*u.ns,  -0.752*u.ns,   -0.409*u.ns,  0.208*u.ns,  -0.295*u.ns,</div>
+<div class="line"><span class="lineno">  171</span>  -0.971*u.ns,  0.000*u.ns,  -0.147*u.ns,  -0.516*u.ns,   0.678*u.ns,  -0.588*u.ns,  0.911*u.ns,</div>
+<div class="line"><span class="lineno">  172</span>  -0.396*u.ns,  0.000*u.ns,  -1.337*u.ns,  0.302*u.ns,   -2.044*u.ns,  -1.074*u.ns,  -0.644*u.ns,</div>
+<div class="line"><span class="lineno">  173</span>  -0.799*u.ns,  0.000*u.ns,  -1.269*u.ns,  -1.154*u.ns,   0.323*u.ns,  -1.328*u.ns,  1.106*u.ns ]</div>
+<div class="line"><span class="lineno">  174</span>         constants[<span class="stringliteral">&#39;t_9613&#39;</span>]=[      0.000*u.ns,  0.000*u.ns,  -0.359*u.ns,  -0.525*u.ns,   0.030*u.ns,  -0.418*u.ns,  0.036*u.ns,</div>
+<div class="line"><span class="lineno">  175</span>  -0.957*u.ns,  0.000*u.ns,  0.278*u.ns,  -0.737*u.ns,   -0.375*u.ns,  0.236*u.ns,  -0.261*u.ns,</div>
+<div class="line"><span class="lineno">  176</span>  -0.981*u.ns,  0.000*u.ns,  -0.140*u.ns,  -0.536*u.ns,   0.731*u.ns,  -0.598*u.ns,  0.902*u.ns,</div>
+<div class="line"><span class="lineno">  177</span>  -0.387*u.ns,  0.000*u.ns,  -1.343*u.ns,  0.312*u.ns,   -2.000*u.ns,  -1.093*u.ns,  -0.768*u.ns,</div>
+<div class="line"><span class="lineno">  178</span>  -0.738*u.ns,  0.000*u.ns,  -1.317*u.ns,  -1.200*u.ns,   0.319*u.ns,  -1.310*u.ns,  1.057*u.ns ]</div>
+<div class="line"><span class="lineno">  179</span>         constants[<span class="stringliteral">&#39;t_9692&#39;</span>]=[      0.000*u.ns,  0.000*u.ns,  -0.377*u.ns,  -0.526*u.ns,   0.041*u.ns,  -0.404*u.ns,  0.158*u.ns,</div>
+<div class="line"><span class="lineno">  180</span>  -0.927*u.ns,  0.000*u.ns,  0.285*u.ns,  -0.755*u.ns,   -0.411*u.ns,  0.199*u.ns,  -0.284*u.ns,</div>
+<div class="line"><span class="lineno">  181</span>  -0.973*u.ns,  0.000*u.ns,  -0.117*u.ns,  -0.486*u.ns,   0.754*u.ns,  0.000*u.ns,  0.941*u.ns,</div>
+<div class="line"><span class="lineno">  182</span>  -0.381*u.ns,  0.000*u.ns,  -1.338*u.ns,  0.338*u.ns,   -2.007*u.ns,  -0.998*u.ns,  -0.618*u.ns,</div>
+<div class="line"><span class="lineno">  183</span>  -0.784*u.ns,  0.000*u.ns,  -1.238*u.ns,  -1.000*u.ns,   0.292*u.ns,  -1.381*u.ns,  1.070*u.ns ]</div>
+<div class="line"><span class="lineno">  184</span>         constants[<span class="stringliteral">&#39;t_9882&#39;</span>]=[      0.000*u.ns,  0.000*u.ns,  -0.386*u.ns,  -0.539*u.ns,   0.037*u.ns,  -0.491*u.ns,  -0.024*u.ns,</div>
+<div class="line"><span class="lineno">  185</span>  -1.197*u.ns,  0.000*u.ns,  0.499*u.ns,  -0.616*u.ns,   -0.273*u.ns,  0.402*u.ns,  -0.072*u.ns,</div>
+<div class="line"><span class="lineno">  186</span>  -1.135*u.ns,  0.000*u.ns,  -0.016*u.ns,  0.584*u.ns,   0.871*u.ns,  -0.408*u.ns,  1.039*u.ns,</div>
+<div class="line"><span class="lineno">  187</span>  -0.442*u.ns,  0.000*u.ns,  -1.381*u.ns,  0.339*u.ns,   -2.014*u.ns,  -1.068*u.ns,  -0.715*u.ns,</div>
+<div class="line"><span class="lineno">  188</span>  -0.803*u.ns,  0.000*u.ns,  -1.330*u.ns,  -1.034*u.ns,   0.257*u.ns,  -1.478*u.ns,  1.000*u.ns ]</div>
+<div class="line"><span class="lineno">  189</span>         constants[<span class="stringliteral">&#39;t_10012&#39;</span>]=[      0.000*u.ns,  0.000*u.ns, -0.347*u.ns,  -0.546*u.ns,   0.124*u.ns,  -0.432*u.ns,  0.051*u.ns,</div>
+<div class="line"><span class="lineno">  190</span>  -1.577*u.ns,  0.000*u.ns,  0.886*u.ns,  -0.188*u.ns,   0.229*u.ns,  0.858*u.ns,  0.286*u.ns,</div>
+<div class="line"><span class="lineno">  191</span>  -1.119*u.ns,  0.000*u.ns,  -0.005*u.ns,  0.582*u.ns,   0.875*u.ns,  -0.390*u.ns,  1.059*u.ns,</div>
+<div class="line"><span class="lineno">  192</span>  -0.406*u.ns,  0.000*u.ns,  -1.319*u.ns,  0.337*u.ns,   -2.012*u.ns,  -1.059*u.ns,  -0.618*u.ns,</div>
+<div class="line"><span class="lineno">  193</span>  -0.825*u.ns,  0.000*u.ns,  -1.205*u.ns,  -0.952*u.ns,   0.241*u.ns,  -1.363*u.ns,  1.123*u.ns ]</div>
+<div class="line"><span class="lineno">  194</span><span class="comment">#2025</span></div>
+<div class="line"><span class="lineno">  195</span>         constants[<span class="stringliteral">&#39;t_10423&#39;</span>]=[      0.000*u.ns,  0.000*u.ns,  -0.337*u.ns,  -0.509*u.ns,   0.125*u.ns,  -0.442*u.ns,  -0.049*u.ns,</div>
+<div class="line"><span class="lineno">  196</span>  -0.936*u.ns,  0.000*u.ns,  0.238*u.ns,  -0.780*u.ns,   -0.484*u.ns,  0.172*u.ns,  -0.326*u.ns,</div>
+<div class="line"><span class="lineno">  197</span>  -1.097*u.ns,  0.000*u.ns,  -0.028*u.ns,  0.543*u.ns,   0.764*u.ns,  -0.568*u.ns,  0.962*u.ns,</div>
+<div class="line"><span class="lineno">  198</span>  -0.425*u.ns,  0.000*u.ns,  -1.339*u.ns,  0.324*u.ns,   -2.087*u.ns,  -1.170*u.ns,  -0.765*u.ns,</div>
+<div class="line"><span class="lineno">  199</span>  -0.768*u.ns,  0.000*u.ns,  -1.312*u.ns,  -1.038*u.ns,   0.204*u.ns,  -1.518*u.ns,  0.960*u.ns]</div>
+<div class="line"><span class="lineno">  200</span>         constants[<span class="stringliteral">&#39;t_11158&#39;</span>]=[      0.000*u.ns,  0.000*u.ns,  -0.377*u.ns,  -0.542*u.ns,   0.115*u.ns,  -0.456*u.ns,  -0.184*u.ns,</div>
+<div class="line"><span class="lineno">  201</span>  -0.982*u.ns,  0.000*u.ns,  0.233*u.ns,  -0.827*u.ns,   -1.809*u.ns,  0.228*u.ns,  -0.281*u.ns,</div>
+<div class="line"><span class="lineno">  202</span>  -1.140*u.ns,  0.000*u.ns,  -0.020*u.ns,  0.606*u.ns,   0.813*u.ns,  -0.462*u.ns,  1.016*u.ns,</div>
+<div class="line"><span class="lineno">  203</span>  -1.687*u.ns,  0.000*u.ns,  -0.101*u.ns,  1.552*u.ns,   -0.874*u.ns,  0.028*u.ns,  0.478*u.ns,</div>
+<div class="line"><span class="lineno">  204</span>  -0.791*u.ns,  0.000*u.ns,  -1.310*u.ns,  -1.055*u.ns,   0.445*u.ns,  -1.393*u.ns,  0.794*u.ns]</div>
+<div class="line"><span class="lineno">  205</span>         constants[<span class="stringliteral">&#39;t_11576&#39;</span>]=[      0.000*u.ns,  0.000*u.ns,  -0.373*u.ns,  -0.541*u.ns,   0.143*u.ns,  -0.430*u.ns,  -0.117*u.ns,</div>
+<div class="line"><span class="lineno">  206</span>  -0.939*u.ns,  0.000*u.ns,  0.213*u.ns,  -0.861*u.ns,   -0.396*u.ns,  0.231*u.ns,  -0.286*u.ns,</div>
+<div class="line"><span class="lineno">  207</span>  -1.118*u.ns,  0.000*u.ns,  -0.005*u.ns,  0.569*u.ns,   0.823*u.ns,  -0.506*u.ns,  1.050*u.ns,</div>
+<div class="line"><span class="lineno">  208</span>  -0.455*u.ns,  0.000*u.ns,  -1.324*u.ns,  0.337*u.ns,   -2.054*u.ns,  -1.458*u.ns,  -0.756*u.ns,</div>
+<div class="line"><span class="lineno">  209</span>  -0.790*u.ns,  0.000*u.ns,  -1.279*u.ns,  -1.031*u.ns,   -0.108*u.ns,  -1.363*u.ns,  1.033*u.ns]</div>
+<div class="line"><span class="lineno">  210</span>         constants[<span class="stringliteral">&#39;t_11676&#39;</span>]=[    0.000*u.ns,  0.000*u.ns,  -0.374*u.ns,  -0.527*u.ns,   0.144*u.ns,  -0.406*u.ns,  -0.090*u.ns,</div>
+<div class="line"><span class="lineno">  211</span>  -1.324*u.ns,  0.000*u.ns,  0.618*u.ns,  -0.929*u.ns,   -0.019*u.ns,  0.613*u.ns,  0.056*u.ns,</div>
+<div class="line"><span class="lineno">  212</span>  -1.098*u.ns,  0.000*u.ns,  -0.045*u.ns,  0.584*u.ns,   0.915*u.ns,  -0.543*u.ns,  1.006*u.ns,</div>
+<div class="line"><span class="lineno">  213</span>  -0.433*u.ns,  0.000*u.ns,  -1.322*u.ns,  0.322*u.ns,   -2.106*u.ns,  -1.526*u.ns,  -0.797*u.ns,</div>
+<div class="line"><span class="lineno">  214</span>  -0.816*u.ns,  0.000*u.ns,  -1.254*u.ns,  -1.008*u.ns,   0.299*u.ns,  -1.388*u.ns,  1.048*u.ns]</div>
+<div class="line"><span class="lineno">  215</span><span class="comment">#</span></div>
+<div class="line"><span class="lineno">  216</span>         scifi_time_aligment_consts = {</div>
+<div class="line"><span class="lineno">  217</span>           2022: [<span class="stringliteral">&#39;t_0&#39;</span>, <span class="stringliteral">&#39;t_4361&#39;</span>,<span class="stringliteral">&#39;t_5117&#39;</span>],</div>
+<div class="line"><span class="lineno">  218</span>           2023: [<span class="stringliteral">&#39;t_0&#39;</span>, <span class="stringliteral">&#39;t_5478&#39;</span>, <span class="stringliteral">&#39;t_6208&#39;</span>, <span class="stringliteral">&#39;t_6443&#39;</span>, <span class="stringliteral">&#39;t_6677&#39;</span>],</div>
+<div class="line"><span class="lineno">  219</span>           2024: [<span class="stringliteral">&#39;t_0&#39;</span>, <span class="stringliteral">&#39;t_7649&#39;</span>, <span class="stringliteral">&#39;t_8318&#39;</span>, <span class="stringliteral">&#39;t_8583&#39;</span>, <span class="stringliteral">&#39;t_8942&#39;</span>, <span class="stringliteral">&#39;t_9156&#39;</span>, <span class="stringliteral">&#39;t_9286&#39;</span>,</div>
+<div class="line"><span class="lineno">  220</span>                  <span class="stringliteral">&#39;t_9379&#39;</span>, <span class="stringliteral">&#39;t_9462&#39;</span>, <span class="stringliteral">&#39;t_9613&#39;</span>, <span class="stringliteral">&#39;t_9692&#39;</span>, <span class="stringliteral">&#39;t_9882&#39;</span>, <span class="stringliteral">&#39;t_10012&#39;</span>],</div>
+<div class="line"><span class="lineno">  221</span>           2025: [<span class="stringliteral">&#39;t_0&#39;</span>, <span class="stringliteral">&#39;t_10423&#39;</span>, <span class="stringliteral">&#39;t_11158&#39;</span>, <span class="stringliteral">&#39;t_11576&#39;</span>, <span class="stringliteral">&#39;t_11676&#39;</span>]</div>
+<div class="line"><span class="lineno">  222</span>         }</div>
+<div class="line"><span class="lineno">  223</span>         scifi_time_tags = scifi_time_aligment_consts[year]</div>
+<div class="line"><span class="lineno">  224</span>         <span class="keywordflow">for</span> c <span class="keywordflow">in</span> scifi_time_tags:</div>
+<div class="line"><span class="lineno">  225</span>          k=0</div>
+<div class="line"><span class="lineno">  226</span>          <span class="keywordflow">for</span> s <span class="keywordflow">in</span> range(1,6):</div>
+<div class="line"><span class="lineno">  227</span>            setattr(sGeo.Scifi,<span class="stringliteral">&#39;station&#39;</span>+str(s)+c,constants[c][k])</div>
+<div class="line"><span class="lineno">  228</span>            sGeo.Scifi[<span class="stringliteral">&#39;station&#39;</span>+str(s)+c] = constants[c][k]</div>
+<div class="line"><span class="lineno">  229</span>            k+=1</div>
+<div class="line"><span class="lineno">  230</span>            <span class="keywordflow">for</span> p <span class="keywordflow">in</span> [<span class="stringliteral">&#39;H0&#39;</span>,<span class="stringliteral">&#39;H1&#39;</span>,<span class="stringliteral">&#39;H2&#39;</span>,<span class="stringliteral">&#39;V0&#39;</span>,<span class="stringliteral">&#39;V1&#39;</span>,<span class="stringliteral">&#39;V2&#39;</span>]:</div>
+<div class="line"><span class="lineno">  231</span>               setattr(sGeo.Scifi,<span class="stringliteral">&#39;station&#39;</span>+str(s)+p+c,constants[c][k])</div>
+<div class="line"><span class="lineno">  232</span>               sGeo.Scifi[<span class="stringliteral">&#39;station&#39;</span>+str(s)+p+c] = constants[c][k]</div>
+<div class="line"><span class="lineno">  233</span>               k+=1</div>
+<div class="line"><span class="lineno">  234</span> </div>
+<div class="line"><span class="lineno">  235</span>         alignment={}</div>
+<div class="line"><span class="lineno">  236</span>         alignment[<span class="stringliteral">&#39;t_0&#39;</span>]=[</div>
+<div class="line"><span class="lineno">  237</span>    0.00*u.um,  0.00*u.um,  0.00*u.um,</div>
+<div class="line"><span class="lineno">  238</span> 0.00*u.um, 0.00*u.um,    0.00*u.um,</div>
+<div class="line"><span class="lineno">  239</span> 0.00*u.um,  0.00*u.um,  0.00*u.um,</div>
+<div class="line"><span class="lineno">  240</span>  0.00*u.um,  0.00*u.um,  0.00*u.um,</div>
+<div class="line"><span class="lineno">  241</span>   0.00*u.um,   0.00*u.um,   0.00*u.um,</div>
+<div class="line"><span class="lineno">  242</span>    0.00*u.um, 0.00*u.um,   0.00*u.um,</div>
+<div class="line"><span class="lineno">  243</span>  0.00*u.um,   0.00*u.um,   0.00*u.um,</div>
+<div class="line"><span class="lineno">  244</span>   0.00*u.um,  0.00*u.um,   0.00*u.um,</div>
+<div class="line"><span class="lineno">  245</span>   0.00*u.um,   0.00*u.um,  0.00*u.um,</div>
+<div class="line"><span class="lineno">  246</span>  0.00*u.um,  0.00*u.um,   0.00*u.um,</div>
+<div class="line"><span class="lineno">  247</span>   0.00*u.mrad,    0.00*u.mrad,    0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  248</span>   0.00*u.mrad,    0.00*u.mrad,    0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  249</span>   0.00*u.mrad,    0.00*u.mrad,    0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  250</span>   0.00*u.mrad,    0.00*u.mrad,    0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  251</span>   0.00*u.mrad,    0.00*u.mrad,    0.00*u.mrad]</div>
+<div class="line"><span class="lineno">  252</span>         alignment[<span class="stringliteral">&#39;t_4361&#39;</span>]=[</div>
+<div class="line"><span class="lineno">  253</span>    7.30*u.um,  219.99*u.um,  247.73*u.um,</div>
+<div class="line"><span class="lineno">  254</span> -103.87*u.um, -105.64*u.um,    2.54*u.um,</div>
+<div class="line"><span class="lineno">  255</span> -286.76*u.um,  -53.99*u.um,  -85.45*u.um,</div>
+<div class="line"><span class="lineno">  256</span>  103.99*u.um,  113.92*u.um,  148.52*u.um,</div>
+<div class="line"><span class="lineno">  257</span>   -1.85*u.um,   78.98*u.um,   13.98*u.um,</div>
+<div class="line"><span class="lineno">  258</span>    0.76*u.um, -109.75*u.um,   74.54*u.um,</div>
+<div class="line"><span class="lineno">  259</span>  -16.79*u.um,   56.44*u.um,   96.94*u.um,</div>
+<div class="line"><span class="lineno">  260</span>   71.04*u.um,  -64.13*u.um,   17.25*u.um,</div>
+<div class="line"><span class="lineno">  261</span>   76.32*u.um,   51.34*u.um,  -13.33*u.um,</div>
+<div class="line"><span class="lineno">  262</span>  -78.20*u.um,  158.73*u.um,   39.76*u.um,</div>
+<div class="line"><span class="lineno">  263</span>   0.00*u.mrad,   -1.00*u.mrad,    0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  264</span>   0.00*u.mrad,    0.00*u.mrad,    0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  265</span>   0.00*u.mrad,    0.00*u.mrad,    0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  266</span>   0.00*u.mrad,    0.00*u.mrad,    0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  267</span>   0.00*u.mrad,    0.00*u.mrad,    0.00*u.mrad]</div>
+<div class="line"><span class="lineno">  268</span>         alignment[<span class="stringliteral">&#39;t_4575&#39;</span>]=[</div>
+<div class="line"><span class="lineno">  269</span>  316.44*u.um,  521.82*u.um,  518.38*u.um,</div>
+<div class="line"><span class="lineno">  270</span> -226.06*u.um, -103.68*u.um,   65.08*u.um,</div>
+<div class="line"><span class="lineno">  271</span> -157.97*u.um,   59.67*u.um,  -12.36*u.um,</div>
+<div class="line"><span class="lineno">  272</span>  -70.05*u.um,   63.72*u.um,   78.74*u.um,</div>
+<div class="line"><span class="lineno">  273</span>   -1.85*u.um,   78.98*u.um,   13.98*u.um,</div>
+<div class="line"><span class="lineno">  274</span>    0.76*u.um, -109.75*u.um,   74.54*u.um,</div>
+<div class="line"><span class="lineno">  275</span>  -16.79*u.um,   56.44*u.um,   96.94*u.um,</div>
+<div class="line"><span class="lineno">  276</span>   71.04*u.um,  -64.13*u.um,   17.25*u.um,</div>
+<div class="line"><span class="lineno">  277</span>  172.36*u.um,   79.96*u.um,   57.20*u.um,</div>
+<div class="line"><span class="lineno">  278</span> -128.66*u.um,  104.65*u.um,  -31.24*u.um,</div>
+<div class="line"><span class="lineno">  279</span> 0.00*u.mrad,   -1.17*u.mrad,    0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  280</span> 0.00*u.mrad,   -0.47*u.mrad,    0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  281</span> 0.00*u.mrad,    0.00*u.mrad,    0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  282</span> 0.00*u.mrad,   -0.28*u.mrad,    0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  283</span> 0.00*u.mrad,   -0.33*u.mrad,    0.00*u.mrad]</div>
+<div class="line"><span class="lineno">  284</span>         alignment[<span class="stringliteral">&#39;t_4855&#39;</span>]=[</div>
+<div class="line"><span class="lineno">  285</span>  513.31*u.um,  775.65*u.um,  629.35*u.um,</div>
+<div class="line"><span class="lineno">  286</span> -339.98*u.um,  133.28*u.um,   83.79*u.um,</div>
+<div class="line"><span class="lineno">  287</span>  162.48*u.um,  395.88*u.um,  297.98*u.um,</div>
+<div class="line"><span class="lineno">  288</span> -135.61*u.um,  144.02*u.um,   86.72*u.um,</div>
+<div class="line"><span class="lineno">  289</span>   -1.85*u.um,   78.98*u.um,   13.98*u.um,</div>
+<div class="line"><span class="lineno">  290</span>    0.76*u.um, -109.75*u.um,   74.54*u.um,</div>
+<div class="line"><span class="lineno">  291</span>  -16.79*u.um,   56.44*u.um,   96.94*u.um,</div>
+<div class="line"><span class="lineno">  292</span>   71.04*u.um,  -64.13*u.um,   17.25*u.um,</div>
+<div class="line"><span class="lineno">  293</span>   83.73*u.um,   14.94*u.um,   33.91*u.um,</div>
+<div class="line"><span class="lineno">  294</span> -173.09*u.um, -184.25*u.um,   -8.56*u.um,</div>
+<div class="line"><span class="lineno">  295</span>   0.00*u.mrad,   -1.68*u.mrad,    0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  296</span>   0.00*u.mrad,   -0.68*u.mrad,    0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  297</span>   0.00*u.mrad,    0.00*u.mrad,    0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  298</span>   0.00*u.mrad,    0.08*u.mrad,    0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  299</span>   0.00*u.mrad,   -0.37*u.mrad,    0.00*u.mrad]</div>
+<div class="line"><span class="lineno">  300</span>         alignment[<span class="stringliteral">&#39;t_5172&#39;</span>]=[</div>
+<div class="line"><span class="lineno">  301</span>   331.99*u.um,  560.17*u.um,  460.83*u.um,</div>
+<div class="line"><span class="lineno">  302</span>    13.37*u.um,  -57.78*u.um,  230.51*u.um,</div>
+<div class="line"><span class="lineno">  303</span>  -136.69*u.um,   63.70*u.um,  -30.45*u.um,</div>
+<div class="line"><span class="lineno">  304</span>     7.77*u.um,   -5.01*u.um,  156.92*u.um,</div>
+<div class="line"><span class="lineno">  305</span>    -1.85*u.um,   78.98*u.um,   13.98*u.um,</div>
+<div class="line"><span class="lineno">  306</span>     0.76*u.um, -109.75*u.um,   74.54*u.um,</div>
+<div class="line"><span class="lineno">  307</span>   -16.79*u.um,   56.44*u.um,   96.94*u.um,</div>
+<div class="line"><span class="lineno">  308</span>    71.04*u.um,  -64.13*u.um,   17.25*u.um,</div>
+<div class="line"><span class="lineno">  309</span>    26.80*u.um,   51.14*u.um,  -31.93*u.um,</div>
+<div class="line"><span class="lineno">  310</span>  -343.13*u.um,  -60.93*u.um, -260.49*u.um,</div>
+<div class="line"><span class="lineno">  311</span>    0.00*u.mrad,   -1.00*u.mrad,    0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  312</span>    0.00*u.mrad,   -0.59*u.mrad,    0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  313</span>    0.00*u.mrad,    0.00*u.mrad,    0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  314</span>    0.00*u.mrad,    0.35*u.mrad,    0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  315</span>    0.00*u.mrad,   -0.32*u.mrad,    0.00*u.mrad]</div>
+<div class="line"><span class="lineno">  316</span>         alignment[<span class="stringliteral">&#39;t_5431&#39;</span>]=[       <span class="comment"># 2023 emulsion run 4</span></div>
+<div class="line"><span class="lineno">  317</span>   458.16*u.um,  658.14*u.um,  569.77*u.um,</div>
+<div class="line"><span class="lineno">  318</span>  -285.21*u.um, -215.62*u.um,  -10.06*u.um,</div>
+<div class="line"><span class="lineno">  319</span>  -131.42*u.um,   61.04*u.um,   18.21*u.um,</div>
+<div class="line"><span class="lineno">  320</span>   -55.62*u.um,  -44.88*u.um,   60.99*u.um,</div>
+<div class="line"><span class="lineno">  321</span>   -1.85*u.um,   78.98*u.um,   13.98*u.um,</div>
+<div class="line"><span class="lineno">  322</span>    0.76*u.um, -109.75*u.um,   74.54*u.um,</div>
+<div class="line"><span class="lineno">  323</span>  -16.79*u.um,   56.44*u.um,   96.94*u.um,</div>
+<div class="line"><span class="lineno">  324</span>   71.04*u.um,  -64.13*u.um,   17.25*u.um,</div>
+<div class="line"><span class="lineno">  325</span>   588.09*u.um,  500.82*u.um,  306.64*u.um,</div>
+<div class="line"><span class="lineno">  326</span>  -429.88*u.um, -350.11*u.um, -408.64*u.um,</div>
+<div class="line"><span class="lineno">  327</span>   0.00*u.mrad,   -3.06*u.mrad,    0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  328</span>   0.00*u.mrad,   -1.34*u.mrad,    0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  329</span>   0.00*u.mrad,    0.00*u.mrad,    0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  330</span>   0.00*u.mrad,    0.81*u.mrad,    0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  331</span>   0.00*u.mrad,   -0.30*u.mrad,    0.00*u.mrad]</div>
+<div class="line"><span class="lineno">  332</span>         alignment[<span class="stringliteral">&#39;t_6443&#39;</span>]=[       <span class="comment"># 2023 emuslsion run 5</span></div>
+<div class="line"><span class="lineno">  333</span>   705.43*u.um,  608.93*u.um,  822.19*u.um,</div>
+<div class="line"><span class="lineno">  334</span>   697.92*u.um,  -64.00*u.um, -139.46*u.um,</div>
+<div class="line"><span class="lineno">  335</span>   37.98*u.um,   74.00*u.um,  121.46*u.um,</div>
+<div class="line"><span class="lineno">  336</span>   606.52*u.um,  137.93*u.um,   92.85*u.um,</div>
+<div class="line"><span class="lineno">  337</span>  -1.85*u.um,  180.00*u.um,   13.98*u.um,</div>
+<div class="line"><span class="lineno">  338</span>   100.76*u.um, -229.00*u.um, -104.00*u.um,</div>
+<div class="line"><span class="lineno">  339</span>  -416.79*u.um, -156.00*u.um, -396.94*u.um,</div>
+<div class="line"><span class="lineno">  340</span>   71.04*u.um,  -64.13*u.um,   17.25*u.um,</div>
+<div class="line"><span class="lineno">  341</span>  -262.36*u.um,   54.92*u.um, -472.75*u.um,</div>
+<div class="line"><span class="lineno">  342</span>  -562.60*u.um,  -45.39*u.um,  -78.87*u.um,</div>
+<div class="line"><span class="lineno">  343</span>   0.00*u.mrad,   -3.88*u.mrad,    0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  344</span>   0.00*u.mrad,   -1.00*u.mrad,    0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  345</span>   0.00*u.mrad,    0.00*u.mrad,    0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  346</span>   0.00*u.mrad,    2.27*u.mrad,    0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  347</span>   0.00*u.mrad,    2.99*u.mrad,    0.00*u.mrad]</div>
+<div class="line"><span class="lineno">  348</span>         alignment[<span class="stringliteral">&#39;t_6677&#39;</span>]=[       <span class="comment"># 2023 ion run</span></div>
+<div class="line"><span class="lineno">  349</span>   700.00*u.um, 895.00*u.um, 824.00*u.um,</div>
+<div class="line"><span class="lineno">  350</span>  -373.00*u.um, -246.00*u.um, -266.00*u.um,</div>
+<div class="line"><span class="lineno">  351</span>   161.00*u.um, 400.00*u.um, 287.00*u.um,</div>
+<div class="line"><span class="lineno">  352</span>  -190.00*u.um, -59.80*u.um, -109.00*u.um,</div>
+<div class="line"><span class="lineno">  353</span>  -2.05*u.um, 175.00*u.um,  12.00*u.um,</div>
+<div class="line"><span class="lineno">  354</span>   0.77*u.um, -100.00*u.um,  77.50*u.um,</div>
+<div class="line"><span class="lineno">  355</span>  -6.80*u.um, 134.00*u.um,  91.90*u.um,</div>
+<div class="line"><span class="lineno">  356</span>   71.00*u.um, -64.10*u.um,  18.20*u.um,</div>
+<div class="line"><span class="lineno">  357</span>   490.00*u.um, 573.00*u.um, 484.00*u.um,</div>
+<div class="line"><span class="lineno">  358</span>  -547.00*u.um, -287.00*u.um, -298.00*u.um,</div>
+<div class="line"><span class="lineno">  359</span>  0.00*u.mrad,  -4.55*u.mrad,   0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  360</span>  0.00*u.mrad,  -2.75*u.mrad,   0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  361</span>  0.00*u.mrad,   0.00*u.mrad,   0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  362</span>  0.00*u.mrad,   0.72*u.mrad,   0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  363</span>  0.00*u.mrad,  -0.10*u.mrad,   0.00*u.mrad]</div>
+<div class="line"><span class="lineno">  364</span><span class="comment"># 2024</span></div>
+<div class="line"><span class="lineno">  365</span>         alignment[<span class="stringliteral">&#39;t_7649&#39;</span>]=[       <span class="comment"># 2024 emuslsion run 8</span></div>
+<div class="line"><span class="lineno">  366</span>   509.86*u.um, 732.95*u.um, 621.19*u.um,</div>
+<div class="line"><span class="lineno">  367</span>  -10.56*u.um, 153.93*u.um, 92.22*u.um,</div>
+<div class="line"><span class="lineno">  368</span>   94.54*u.um, 342.84*u.um, 168.64*u.um,</div>
+<div class="line"><span class="lineno">  369</span>   164.88*u.um, 397.75*u.um, 246.37*u.um,</div>
+<div class="line"><span class="lineno">  370</span>   185.00*u.um, 430.61*u.um, 245.85*u.um,</div>
+<div class="line"><span class="lineno">  371</span>   0.76*u.um, 175.09*u.um, 166.33*u.um,</div>
+<div class="line"><span class="lineno">  372</span>   0.00*u.um, 274.57*u.um, 185.82*u.um,</div>
+<div class="line"><span class="lineno">  373</span>   50.00*u.um, 249.06*u.um, 175.30*u.um,</div>
+<div class="line"><span class="lineno">  374</span>   313.78*u.um, 526.78*u.um, 361.02*u.um,</div>
+<div class="line"><span class="lineno">  375</span>  -267.73*u.um, 339.17*u.um, 37.59*u.um,</div>
+<div class="line"><span class="lineno">  376</span>   0.00*u.mrad, -0.61*u.mrad, 0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  377</span>   0.00*u.mrad, 0.34*u.mrad, 0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  378</span>   0.00*u.mrad, 0.00*u.mrad, 0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  379</span>   0.00*u.mrad, 0.20*u.mrad, 0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  380</span>   0.00*u.mrad, -0.55*u.mrad, 0.00*u.mrad]</div>
+<div class="line"><span class="lineno">  381</span>         alignment[<span class="stringliteral">&#39;t_8318&#39;</span>]=[       <span class="comment"># 2024 emuslsion run 9</span></div>
+<div class="line"><span class="lineno">  382</span>   469.66*u.um, 611.18*u.um, 693.42*u.um,</div>
+<div class="line"><span class="lineno">  383</span>   201.35*u.um, 229.61*u.um, 103.33*u.um,</div>
+<div class="line"><span class="lineno">  384</span>   60.22*u.um, 322.78*u.um, 264.75*u.um,</div>
+<div class="line"><span class="lineno">  385</span>   496.09*u.um, 643.18*u.um, 472.68*u.um,</div>
+<div class="line"><span class="lineno">  386</span>   234.71*u.um, 585.04*u.um, 382.37*u.um,</div>
+<div class="line"><span class="lineno">  387</span>   529.26*u.um, 650.01*u.um, 614.34*u.um,</div>
+<div class="line"><span class="lineno">  388</span>   431.02*u.um, 905.43*u.um, 748.38*u.um,</div>
+<div class="line"><span class="lineno">  389</span>   116.27*u.um, 335.47*u.um, 201.41*u.um,</div>
+<div class="line"><span class="lineno">  390</span>   100.54*u.um, 600.22*u.um, 269.97*u.um,</div>
+<div class="line"><span class="lineno">  391</span>   550.18*u.um, 1248.48*u.um, 931.66*u.um,</div>
+<div class="line"><span class="lineno">  392</span>   0.00*u.mrad, -3.02*u.mrad, 0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  393</span>   0.00*u.mrad, -0.95*u.mrad, 0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  394</span>   0.00*u.mrad, 0.12*u.mrad, 0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  395</span>   0.00*u.mrad, -1.55*u.mrad, 0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  396</span>   0.00*u.mrad, 2.31*u.mrad, 0.00*u.mrad]</div>
+<div class="line"><span class="lineno">  397</span>         alignment[<span class="stringliteral">&#39;t_8583&#39;</span>]=[       <span class="comment"># 2024 emuslsion run 10</span></div>
+<div class="line"><span class="lineno">  398</span>   611.7976*u.um, 889.86*u.um, 879.801*u.um,</div>
+<div class="line"><span class="lineno">  399</span>   413.6267*u.um, 363.6332*u.um, 105.825*u.um,</div>
+<div class="line"><span class="lineno">  400</span>   127.2448*u.um, 487.3149*u.um, 364.0717*u.um,</div>
+<div class="line"><span class="lineno">  401</span>   707.2705*u.um, 849.2645*u.um, 589.3346*u.um,</div>
+<div class="line"><span class="lineno">  402</span>   271.2779*u.um, 655.8296*u.um, 414.7906*u.um,</div>
+<div class="line"><span class="lineno">  403</span>   686.1134*u.um, 851.719*u.um, 798.134*u.um,</div>
+<div class="line"><span class="lineno">  404</span>   135.175*u.um, 614.5551*u.um, 442.9096*u.um,</div>
+<div class="line"><span class="lineno">  405</span>   821.2312*u.um, 1189.1332*u.um, 1063.688*u.um,</div>
+<div class="line"><span class="lineno">  406</span>   255.8865*u.um, 731.2859*u.um, 392.1363*u.um,</div>
+<div class="line"><span class="lineno">  407</span>   507.8946*u.um, 1421.0582*u.um, 1139.182*u.um,</div>
+<div class="line"><span class="lineno">  408</span>   0.00*u.mrad, -3.49*u.mrad, 0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  409</span>   0.00*u.mrad, -1.13*u.mrad, 0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  410</span>   0.00*u.mrad, 0.10*u.mrad, 0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  411</span>   0.00*u.mrad, 1.44*u.mrad, 0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  412</span>   0.00*u.mrad, 2.09*u.mrad, 0.00*u.mrad]</div>
+<div class="line"><span class="lineno">  413</span>         alignment[<span class="stringliteral">&#39;t_8942&#39;</span>]=[       <span class="comment"># 2024 emuslsion run 11 /run_244</span></div>
+<div class="line"><span class="lineno">  414</span>   271.8762*u.um,  484.1729*u.um,  471.3382*u.um,</div>
+<div class="line"><span class="lineno">  415</span>   -21.0674*u.um,  -20.9474*u.um,  138.0984*u.um,</div>
+<div class="line"><span class="lineno">  416</span>   -170.1168*u.um,  59.8273*u.um,  -23.7979*u.um,</div>
+<div class="line"><span class="lineno">  417</span>   112.0014*u.um,  223.498*u.um,  271.4252*u.um,</div>
+<div class="line"><span class="lineno">  418</span>   55.2461*u.um,  218.475*u.um,  111.7626*u.um,</div>
+<div class="line"><span class="lineno">  419</span>   36.3226*u.um,  24.3772*u.um,  180.5263*u.um,</div>
+<div class="line"><span class="lineno">  420</span>   268.446*u.um,  481.7177*u.um,  524.9105*u.um,</div>
+<div class="line"><span class="lineno">  421</span>   -558.5981*u.um,  -483.5918*u.um,  -466.269*u.um,</div>
+<div class="line"><span class="lineno">  422</span>   -27.5701*u.um,  42.2078*u.um,  12.4327*u.um,</div>
+<div class="line"><span class="lineno">  423</span>   -245.3691*u.um,  211.5792*u.um,  79.8376*u.um,</div>
+<div class="line"><span class="lineno">  424</span>   0.00*u.mrad, -0.94*u.mrad, 0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  425</span>   0.00*u.mrad, -0.08*u.mrad, 0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  426</span>   0.00*u.mrad, 0.007*u.mrad, 0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  427</span>   0.00*u.mrad, -2.88*u.mrad, 0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  428</span>   0.00*u.mrad, -0.19*u.mrad, 0.00*u.mrad]</div>
+<div class="line"><span class="lineno">  429</span>         alignment[<span class="stringliteral">&#39;t_9156&#39;</span>]=[       <span class="comment"># 2024 emuslsion run 12 run_245</span></div>
+<div class="line"><span class="lineno">  430</span>   532.3955*u.um, 869.4047*u.um, 920.2407*u.um,</div>
+<div class="line"><span class="lineno">  431</span>   493.1367*u.um, 403.4604*u.um, 199.4534*u.um,</div>
+<div class="line"><span class="lineno">  432</span>   174.5682*u.um, 580.0227*u.um, 463.4915*u.um,</div>
+<div class="line"><span class="lineno">  433</span>   722.9943*u.um, 883.906*u.um, 626.2292*u.um,</div>
+<div class="line"><span class="lineno">  434</span>   295.8365*u.um, 745.0445*u.um, 545.9911*u.um,</div>
+<div class="line"><span class="lineno">  435</span>   810.2135*u.um, 996.7849*u.um, 935.6661*u.um,</div>
+<div class="line"><span class="lineno">  436</span>   175.6937*u.um, 651.9452*u.um, 477.7067*u.um,</div>
+<div class="line"><span class="lineno">  437</span>   928.1277*u.um, 1299.978*u.um, 1095.5873*u.um,</div>
+<div class="line"><span class="lineno">  438</span>   565.4501*u.um, 1045.2995*u.um, 697.4744*u.um,</div>
+<div class="line"><span class="lineno">  439</span>   528.7539*u.um, 1441.5199*u.um, 1156.4334*u.um,</div>
+<div class="line"><span class="lineno">  440</span>   0.00*u.mrad, -3.35*u.mrad, 0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  441</span>   0.00*u.mrad, -1.14*u.mrad, 0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  442</span>   0.00*u.mrad, 0.23*u.mrad, 0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  443</span>   0.00*u.mrad, 1.51*u.mrad, 0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  444</span>   0.00*u.mrad, 1.74*u.mrad, 0.00*u.mrad]</div>
+<div class="line"><span class="lineno">  445</span>         alignment[<span class="stringliteral">&#39;t_9286&#39;</span>]=[       <span class="comment"># 2024 emuslsion run 13 run_246</span></div>
+<div class="line"><span class="lineno">  446</span>   398.3652*u.um, 498.1913*u.um, 1052.9471*u.um,</div>
+<div class="line"><span class="lineno">  447</span>   717.8144*u.um, 21.1253*u.um, -522.9914*u.um,</div>
+<div class="line"><span class="lineno">  448</span>   9.1061*u.um, 183.2849*u.um, 427.2521*u.um,</div>
+<div class="line"><span class="lineno">  449</span>   1162.4342*u.um, 781.295*u.um, 401.2053*u.um,</div>
+<div class="line"><span class="lineno">  450</span>   195.8365*u.um, 417.0663*u.um, 345.222*u.um,</div>
+<div class="line"><span class="lineno">  451</span>   1250.2135*u.um, 1056.8695*u.um, 1098.8891*u.um,</div>
+<div class="line"><span class="lineno">  452</span>   444.8639*u.um, 760.7313*u.um, 558.8336*u.um,</div>
+<div class="line"><span class="lineno">  453</span>   1004.3348*u.um, 1031.0018*u.um, 1162.118*u.um,</div>
+<div class="line"><span class="lineno">  454</span>   -5.4501*u.um, 361.4927*u.um, -126.8281*u.um,</div>
+<div class="line"><span class="lineno">  455</span>   1628.7539*u.um, 2287.8624*u.um, 2539.903*u.um,</div>
+<div class="line"><span class="lineno">  456</span>   0.00*u.mrad, -2.98*u.mrad, 0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  457</span>   0.00*u.mrad, -0.84*u.mrad, 0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  458</span>   0.00*u.mrad, 0.30*u.mrad, 0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  459</span>   0.00*u.mrad, -1.79*u.mrad, 0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  460</span>   0.00*u.mrad, 2.00*u.mrad, 0.00*u.mrad]</div>
+<div class="line"><span class="lineno">  461</span>         alignment[<span class="stringliteral">&#39;t_9379&#39;</span>]=[     <span class="comment">#2024 emulsion run 14 run_247</span></div>
+<div class="line"><span class="lineno">  462</span>   821.8997*u.um, 45.1136*u.um, 898.2948*u.um,</div>
+<div class="line"><span class="lineno">  463</span>   731.0633*u.um, -217.7475*u.um, -283.1271*u.um,</div>
+<div class="line"><span class="lineno">  464</span>   402.9881*u.um, 26.3005*u.um, 541.7564*u.um,</div>
+<div class="line"><span class="lineno">  465</span>   1274.5977*u.um, 738.074*u.um, 622.0383*u.um,</div>
+<div class="line"><span class="lineno">  466</span>   334.8523*u.um, 348.9386*u.um, 575.9559*u.um,</div>
+<div class="line"><span class="lineno">  467</span>   1474.6536*u.um, 1197.1878*u.um, 1265.0079*u.um,</div>
+<div class="line"><span class="lineno">  468</span>   47.4766*u.um, 433.1232*u.um, 522.9466*u.um,</div>
+<div class="line"><span class="lineno">  469</span>   1772.6823*u.um, 1918.6852*u.um, 1922.3606*u.um,</div>
+<div class="line"><span class="lineno">  470</span>   182.9563*u.um, 884.8378*u.um, 662.6338*u.um,</div>
+<div class="line"><span class="lineno">  471</span>   1847.6459*u.um, 2728.9236*u.um, 2585.8895*u.um,</div>
+<div class="line"><span class="lineno">  472</span>   0*u.mrad, -3.4087*u.mrad, 0*u.mrad,</div>
+<div class="line"><span class="lineno">  473</span>   0*u.mrad, -0.9179*u.mrad, 0*u.mrad,</div>
+<div class="line"><span class="lineno">  474</span>   0*u.mrad, 0.2597*u.mrad, 0*u.mrad,</div>
+<div class="line"><span class="lineno">  475</span>   0*u.mrad, 1.2555*u.mrad, 0*u.mrad,</div>
+<div class="line"><span class="lineno">  476</span>   0*u.mrad, 2.154*u.mrad, 0*u.mrad]</div>
+<div class="line"><span class="lineno">  477</span>         alignment[<span class="stringliteral">&#39;t_9462&#39;</span>]=[     <span class="comment">#2024 emulsion run 15 run_248</span></div>
+<div class="line"><span class="lineno">  478</span>  -109.6284*u.um,  504.3064*u.um,  497.1011*u.um,</div>
+<div class="line"><span class="lineno">  479</span>  -92.6082*u.um,  -92.2919*u.um,  103.0728*u.um,</div>
+<div class="line"><span class="lineno">  480</span>  -343.0579*u.um,  166.6301*u.um,  100.8155*u.um,</div>
+<div class="line"><span class="lineno">  481</span>  186.9365*u.um,  256.6612*u.um,  327.2862*u.um,</div>
+<div class="line"><span class="lineno">  482</span>  59.6357*u.um,  335.2558*u.um,  265.7486*u.um,</div>
+<div class="line"><span class="lineno">  483</span>  251.3367*u.um,  330.8842*u.um,  524.498*u.um,</div>
+<div class="line"><span class="lineno">  484</span>  465.5392*u.um,  609.7781*u.um,  665.8652*u.um,</div>
+<div class="line"><span class="lineno">  485</span>  -76.2475*u.um,  44.82*u.um,  115.7253*u.um,</div>
+<div class="line"><span class="lineno">  486</span>  186.6246*u.um,  151.7738*u.um,  129.1633*u.um,</div>
+<div class="line"><span class="lineno">  487</span>  368.1697*u.um,  974.7627*u.um,  815.4692*u.um,</div>
+<div class="line"><span class="lineno">  488</span>   0*u.mrad, 0.92*u.mrad, 0*u.mrad,</div>
+<div class="line"><span class="lineno">  489</span>   0*u.mrad, 1.38*u.mrad, 0*u.mrad,</div>
+<div class="line"><span class="lineno">  490</span>   0*u.mrad, 1.32*u.mrad, 0*u.mrad,</div>
+<div class="line"><span class="lineno">  491</span>   0*u.mrad, -1.36*u.mrad, 0*u.mrad,</div>
+<div class="line"><span class="lineno">  492</span>   0*u.mrad, 1.03*u.mrad, 0*u.mrad]</div>
+<div class="line"><span class="lineno">  493</span>         alignment[<span class="stringliteral">&#39;t_9613&#39;</span>]=[     <span class="comment">#2024 emulsion run 16 run_249</span></div>
+<div class="line"><span class="lineno">  494</span>   347.9798*u.um,  485.1001*u.um,  602.751*u.um,</div>
+<div class="line"><span class="lineno">  495</span>   47.9842*u.um,  144.8884*u.um,  205.1283*u.um,</div>
+<div class="line"><span class="lineno">  496</span>   -0.6367*u.um,  318.2765*u.um,  263.1438*u.um,</div>
+<div class="line"><span class="lineno">  497</span>   199.9615*u.um,  328.6094*u.um,  332.6156*u.um,</div>
+<div class="line"><span class="lineno">  498</span>   26.9864*u.um,  479.7656*u.um,  295.4821*u.um,</div>
+<div class="line"><span class="lineno">  499</span>   133.731*u.um,  142.5613*u.um,  256.4955*u.um,</div>
+<div class="line"><span class="lineno">  500</span>   -471.9127*u.um,  218.7257*u.um,  81.9869*u.um,</div>
+<div class="line"><span class="lineno">  501</span>   348.1659*u.um,  342.6864*u.um,  335.9995*u.um,</div>
+<div class="line"><span class="lineno">  502</span>   334.7361*u.um,  1092.6102*u.um,  830.6452*u.um,</div>
+<div class="line"><span class="lineno">  503</span>   18.9796*u.um,  287.9467*u.um,  99.387*u.um,</div>
+<div class="line"><span class="lineno">  504</span>   0*u.mrad, 0.33*u.mrad, 0*u.mrad,</div>
+<div class="line"><span class="lineno">  505</span>   0*u.mrad, 0.80*u.mrad, 0*u.mrad,</div>
+<div class="line"><span class="lineno">  506</span>   0*u.mrad, 0.46*u.mrad, 0*u.mrad,</div>
+<div class="line"><span class="lineno">  507</span>   0*u.mrad, 1.06*u.mrad, 0*u.mrad,</div>
+<div class="line"><span class="lineno">  508</span>   0*u.mrad, -0.06*u.mrad, 0*u.mrad]</div>
+<div class="line"><span class="lineno">  509</span>         alignment[<span class="stringliteral">&#39;t_9692&#39;</span>]=[     <span class="comment">#2024 emulsion run 17 run_2410 scifi 3v mat 3 is out</span></div>
+<div class="line"><span class="lineno">  510</span>   486.3728*u.um,  745.5552*u.um,  696.4828*u.um,</div>
+<div class="line"><span class="lineno">  511</span>   -84.1458*u.um,  129.8207*u.um,  212.3914*u.um,</div>
+<div class="line"><span class="lineno">  512</span>   -144.0245*u.um,  166.041*u.um,  55.5924*u.um,</div>
+<div class="line"><span class="lineno">  513</span>   221.8425*u.um,  441.3659*u.um,  494.7093*u.um,</div>
+<div class="line"><span class="lineno">  514</span>   147.4787*u.um,  385.928*u.um,  193.8871*u.um,</div>
+<div class="line"><span class="lineno">  515</span>   137.3001*u.um,  0*u.um,  303.9645*u.um,</div>
+<div class="line"><span class="lineno">  516</span>   400.0489*u.um,  652.7457*u.um,  561.0253*u.um,</div>
+<div class="line"><span class="lineno">  517</span>   -530.4546*u.um,  -507.6861*u.um,  -442.2345*u.um,</div>
+<div class="line"><span class="lineno">  518</span>   -6.311*u.um,  162.2659*u.um,  39.5458*u.um,</div>
+<div class="line"><span class="lineno">  519</span>   -143.7007*u.um,  203.3489*u.um,  80.8827*u.um,</div>
+<div class="line"><span class="lineno">  520</span>   0*u.mrad, -1.73*u.mrad, 0*u.mrad,</div>
+<div class="line"><span class="lineno">  521</span>   0*u.mrad, -0.06*u.mrad, 0*u.mrad,</div>
+<div class="line"><span class="lineno">  522</span>   0*u.mrad, -0.23*u.mrad, 0*u.mrad,</div>
+<div class="line"><span class="lineno">  523</span>   0*u.mrad, -3.51*u.mrad, 0*u.mrad,</div>
+<div class="line"><span class="lineno">  524</span>   0*u.mrad, -0.43*u.mrad, 0*u.mrad]   </div>
+<div class="line"><span class="lineno">  525</span>         alignment[<span class="stringliteral">&#39;t_9882&#39;</span>]=[     <span class="comment">#2024 emulsion run 18 run_2411</span></div>
+<div class="line"><span class="lineno">  526</span>   271.3933*u.um,  511.5475*u.um,  553.8936*u.um,</div>
+<div class="line"><span class="lineno">  527</span>   -203.5896*u.um,  -4.3931*u.um,  36.043*u.um,</div>
+<div class="line"><span class="lineno">  528</span>   -141.547*u.um,  117.3645*u.um,  98.1091*u.um,</div>
+<div class="line"><span class="lineno">  529</span>   70.3879*u.um,  275.8537*u.um,  242.826*u.um,</div>
+<div class="line"><span class="lineno">  530</span>   25.8141*u.um,  230.3344*u.um,  133.4803*u.um,</div>
+<div class="line"><span class="lineno">  531</span>   -2.9758*u.um,  96.0786*u.um,  207.7275*u.um,</div>
+<div class="line"><span class="lineno">  532</span>   -50.0191*u.um,  147.4224*u.um,  131.0377*u.um,</div>
+<div class="line"><span class="lineno">  533</span>   51.2951*u.um,  127.0692*u.um,  144.5879*u.um,</div>
+<div class="line"><span class="lineno">  534</span>   209.5979*u.um,  329.4775*u.um,  186.2796*u.um,</div>
+<div class="line"><span class="lineno">  535</span>   -148.5866*u.um,  268.9908*u.um,  87.7598*u.um,</div>
+<div class="line"><span class="lineno">  536</span>   0*u.mrad, -0.88*u.mrad, 0*u.mrad,</div>
+<div class="line"><span class="lineno">  537</span>   0*u.mrad, 0.26*u.mrad, 0*u.mrad,</div>
+<div class="line"><span class="lineno">  538</span>   0*u.mrad, 0.10*u.mrad, 0*u.mrad,</div>
+<div class="line"><span class="lineno">  539</span>   0*u.mrad, 0.06*u.mrad, 0*u.mrad,</div>
+<div class="line"><span class="lineno">  540</span>   0*u.mrad, -0.22*u.mrad, 0*u.mrad]</div>
+<div class="line"><span class="lineno">  541</span>         alignment[<span class="stringliteral">&#39;t_10012&#39;</span>]=[     <span class="comment">#2024 ion run run_2412</span></div>
+<div class="line"><span class="lineno">  542</span>   152.0259*u.um, 447.3908*u.um, 381.2884*u.um,</div>
+<div class="line"><span class="lineno">  543</span>   -528.6398*u.um, -125.534*u.um, -93.6233*u.um,</div>
+<div class="line"><span class="lineno">  544</span>   -92.1306*u.um, 148.3639*u.um, 43.6692*u.um,</div>
+<div class="line"><span class="lineno">  545</span>   89.2736*u.um, 331.7809*u.um, 299.4775*u.um,</div>
+<div class="line"><span class="lineno">  546</span>   292.6668*u.um, 381.8102*u.um, 321.8736*u.um,</div>
+<div class="line"><span class="lineno">  547</span>   401.2095*u.um, 381.4378*u.um, 521.3132*u.um,</div>
+<div class="line"><span class="lineno">  548</span>   605.7078*u.um, 666.563*u.um, 784.4878*u.um,</div>
+<div class="line"><span class="lineno">  549</span>   252.2577*u.um, 106.9793*u.um, 149.2466*u.um,</div>
+<div class="line"><span class="lineno">  550</span>   334.8222*u.um, 235.9747*u.um, 407.865*u.um,</div>
+<div class="line"><span class="lineno">  551</span>   1055.2959*u.um, 1153.5713*u.um, 1011.9634*u.um,</div>
+<div class="line"><span class="lineno">  552</span>   0*u.mrad, -0.38*u.mrad, 0*u.mrad,</div>
+<div class="line"><span class="lineno">  553</span>   0*u.mrad, 1.03*u.mrad, 0*u.mrad,</div>
+<div class="line"><span class="lineno">  554</span>   0*u.mrad, 1.65*u.mrad, 0*u.mrad,</div>
+<div class="line"><span class="lineno">  555</span>   0*u.mrad, -0.79*u.mrad, 0*u.mrad,</div>
+<div class="line"><span class="lineno">  556</span>   0*u.mrad, 2.93*u.mrad, 0*u.mrad]</div>
+<div class="line"><span class="lineno">  557</span>         alignment[<span class="stringliteral">&#39;t_10423&#39;</span>]=[     <span class="comment">#2025 emulsion run 19 run_251</span></div>
+<div class="line"><span class="lineno">  558</span>   908.9748*u.um, 573.9855*u.um, 812.3022*u.um,</div>
+<div class="line"><span class="lineno">  559</span>   86.541*u.um, 123.4473*u.um, 88.648*u.um,</div>
+<div class="line"><span class="lineno">  560</span>   357.9727*u.um, 241.2571*u.um, 309.628*u.um,</div>
+<div class="line"><span class="lineno">  561</span>   18.2807*u.um, 87.3165*u.um, 94.6991*u.um,</div>
+<div class="line"><span class="lineno">  562</span>   -1.8476*u.um, 78.9774*u.um, 13.9775*u.um,</div>
+<div class="line"><span class="lineno">  563</span>   100.7577*u.um, -59.748*u.um, 174.542*u.um,</div>
+<div class="line"><span class="lineno">  564</span>   -100*u.um, 236.436*u.um, 196.9426*u.um,</div>
+<div class="line"><span class="lineno">  565</span>   -11.044*u.um, -185.1257*u.um, 17.2473*u.um,</div>
+<div class="line"><span class="lineno">  566</span>   -593.3074*u.um, -118.6736*u.um, -339.1444*u.um,</div>
+<div class="line"><span class="lineno">  567</span>  -101.3628*u.um, -25.2405*u.um, 184.0245*u.um,</div>
+<div class="line"><span class="lineno">  568</span>   0*u.mrad, -0.82*u.mrad, 0*u.mrad,</div>
+<div class="line"><span class="lineno">  569</span>   0*u.mrad, -0.73*u.mrad, 0*u.mrad,</div>
+<div class="line"><span class="lineno">  570</span>   0*u.mrad, 0*u.mrad, 0*u.mrad,</div>
+<div class="line"><span class="lineno">  571</span>   0*u.mrad, -0.43*u.mrad, 0*u.mrad,</div>
+<div class="line"><span class="lineno">  572</span>   0*u.mrad, 0.12*u.mrad, 0*u.mrad]</div>
+<div class="line"><span class="lineno">  573</span>         alignment[<span class="stringliteral">&#39;t_11158&#39;</span>]=[     <span class="comment">#2025 emulsion run 20 run_252</span></div>
+<div class="line"><span class="lineno">  574</span>   758.176*u.um, 84.0408*u.um, 221.625*u.um,</div>
+<div class="line"><span class="lineno">  575</span>   126.9696*u.um, -100.0*u.um, -542.1658*u.um,</div>
+<div class="line"><span class="lineno">  576</span>   56.0*u.um, -234.5533*u.um, -264.4273*u.um,</div>
+<div class="line"><span class="lineno">  577</span>   210.2911*u.um, 130.0*u.um, 9.9216*u.um,</div>
+<div class="line"><span class="lineno">  578</span>   -150.0*u.um, -102.0*u.um, -250.0*u.um,</div>
+<div class="line"><span class="lineno">  579</span>   100.7577*u.um, -59.748*u.um, 304.0*u.um,</div>
+<div class="line"><span class="lineno">  580</span>   -200.0*u.um, 256.0*u.um, 96.9426*u.um,</div>
+<div class="line"><span class="lineno">  581</span>   -550.0*u.um, -600.0*u.um, 50*u.um,</div>
+<div class="line"><span class="lineno">  582</span>   -892.3995*u.um, -108.0*u.um, -489.6239*u.um,</div>
+<div class="line"><span class="lineno">  583</span>   -300.0*u.um, 129.0*u.um, 911.9577*u.um,</div>
+<div class="line"><span class="lineno">  584</span>   0*u.mrad, -3.16*u.mrad, 0*u.mrad,</div>
+<div class="line"><span class="lineno">  585</span>   0*u.mrad, -1.13*u.mrad, 0*u.mrad,</div>
+<div class="line"><span class="lineno">  586</span>   0*u.mrad, 0*u.mrad, 0*u.mrad,</div>
+<div class="line"><span class="lineno">  587</span>   0*u.mrad, -2.00*u.mrad, 0*u.mrad,</div>
+<div class="line"><span class="lineno">  588</span>   0*u.mrad, 1.86*u.mrad, 0*u.mrad]</div>
+<div class="line"><span class="lineno">  589</span>         alignment[<span class="stringliteral">&#39;t_11576&#39;</span>]=[ <span class="comment">#2025 emulsion run 21 run_253</span></div>
+<div class="line"><span class="lineno">  590</span>   208.20*u.um, 125.00*u.um, 195.00*u.um,</div>
+<div class="line"><span class="lineno">  591</span>   -8.53*u.um, 44.46*u.um, 52.20*u.um,</div>
+<div class="line"><span class="lineno">  592</span>   -8.71*u.um, -30.53*u.um, -63.62*u.um,</div>
+<div class="line"><span class="lineno">  593</span>   -98.60*u.um, 10.00*u.um, -45.00*u.um,</div>
+<div class="line"><span class="lineno">  594</span>   -30.00*u.um, -8.00*u.um, -51.29*u.um,</div>
+<div class="line"><span class="lineno">  595</span>   180.00*u.um, 98.05*u.um, 228.20*u.um,</div>
+<div class="line"><span class="lineno">  596</span>   25.19*u.um, 67.28*u.um, 127.54*u.um,</div>
+<div class="line"><span class="lineno">  597</span>   7.54*u.um, -141.72*u.um, -70.68*u.um,</div>
+<div class="line"><span class="lineno">  598</span>   -5.00*u.um, 0.00*u.um, -50.29*u.um,</div>
+<div class="line"><span class="lineno">  599</span>   -64.05*u.um, 86.94*u.um, 4.89*u.um,</div>
+<div class="line"><span class="lineno">  600</span>   0.00*u.mrad, 0.01*u.mrad, -0.01*u.mrad,</div>
+<div class="line"><span class="lineno">  601</span>   -0.47*u.mrad, -0.01*u.mrad, 0.08*u.mrad,</div>
+<div class="line"><span class="lineno">  602</span>   0.90*u.mrad, 0.05*u.mrad, 0.00*u.mrad,</div>
+<div class="line"><span class="lineno">  603</span>   -0.40*u.mrad, -0.01*u.mrad, 0.08*u.mrad,</div>
+<div class="line"><span class="lineno">  604</span>   -0.23*u.mrad, 0.01*u.mrad, 0.04*u.mrad]</div>
+<div class="line"><span class="lineno">  605</span>         alignment[<span class="stringliteral">&#39;t_11676&#39;</span>]=[ <span class="comment">#2025 emulsion run 22 run_254</span></div>
+<div class="line"><span class="lineno">  606</span>   233.2526*u.um,  203.3113*u.um,  261.1019*u.um,</div>
+<div class="line"><span class="lineno">  607</span>   -248.7328*u.um, -168.8227*u.um, -98.6278*u.um,</div>
+<div class="line"><span class="lineno">  608</span>   -238.4141*u.um, -238.2084*u.um, -260.8086*u.um,</div>
+<div class="line"><span class="lineno">  609</span>   72.2430*u.um, 152.4410*u.um, 162.6312*u.um,</div>
+<div class="line"><span class="lineno">  610</span>   0.0000*u.um, -37.1101*u.um, -101.2731*u.um,</div>
+<div class="line"><span class="lineno">  611</span>   130.0000*u.um, 13.4088*u.um, 150.0951*u.um,</div>
+<div class="line"><span class="lineno">  612</span>   223.6887*u.um, 223.8778*u.um, 254.0594*u.um,</div>
+<div class="line"><span class="lineno">  613</span>   -215.8022*u.um, -413.1773*u.um, -344.0464*u.um,</div>
+<div class="line"><span class="lineno">  614</span>   -177.8921*u.um, -214.8997*u.um, -295.3263*u.um,</div>
+<div class="line"><span class="lineno">  615</span>   125.5983*u.um, 255.9729*u.um, 212.1852*u.um,</div>
+<div class="line"><span class="lineno">  616</span>   -0.4488*u.mrad, -0.3531*u.mrad, 0.3427*u.mrad,</div>
+<div class="line"><span class="lineno">  617</span>   0.5384*u.mrad, 0.0341*u.mrad, 0.1195*u.mrad,</div>
+<div class="line"><span class="lineno">  618</span>   0.7200*u.mrad, 0.2000*u.mrad, 0.0000*u.mrad,</div>
+<div class="line"><span class="lineno">  619</span>   -1.0244*u.mrad, -0.5787*u.mrad, 0.0171*u.mrad,</div>
+<div class="line"><span class="lineno">  620</span>   0.9128*u.mrad, 0.4085*u.mrad, 0.0171*u.mrad]</div>
+<div class="line"><span class="lineno">  621</span> </div>
+<div class="line"><span class="lineno">  622</span>         scifi_spatial_aligment_consts = {</div>
+<div class="line"><span class="lineno">  623</span>           2022: [<span class="stringliteral">&#39;t_0&#39;</span>, <span class="stringliteral">&#39;t_4361&#39;</span>,<span class="stringliteral">&#39;t_4575&#39;</span>,<span class="stringliteral">&#39;t_4855&#39;</span>,<span class="stringliteral">&#39;t_5172&#39;</span>],</div>
+<div class="line"><span class="lineno">  624</span>           2023: [<span class="stringliteral">&#39;t_0&#39;</span>, <span class="stringliteral">&#39;t_5431&#39;</span>, <span class="stringliteral">&#39;t_6443&#39;</span>, <span class="stringliteral">&#39;t_6677&#39;</span>],</div>
+<div class="line"><span class="lineno">  625</span>           2024: [<span class="stringliteral">&#39;t_0&#39;</span>, <span class="stringliteral">&#39;t_7649&#39;</span>, <span class="stringliteral">&#39;t_8318&#39;</span>, <span class="stringliteral">&#39;t_8583&#39;</span>, <span class="stringliteral">&#39;t_8942&#39;</span>, <span class="stringliteral">&#39;t_9156&#39;</span>, <span class="stringliteral">&#39;t_9286&#39;</span>,</div>
+<div class="line"><span class="lineno">  626</span>                  <span class="stringliteral">&#39;t_9379&#39;</span>, <span class="stringliteral">&#39;t_9462&#39;</span>, <span class="stringliteral">&#39;t_9613&#39;</span>, <span class="stringliteral">&#39;t_9692&#39;</span>, <span class="stringliteral">&#39;t_9882&#39;</span>, <span class="stringliteral">&#39;t_10012&#39;</span>],</div>
+<div class="line"><span class="lineno">  627</span>           2025: [<span class="stringliteral">&#39;t_0&#39;</span>, <span class="stringliteral">&#39;t_10423&#39;</span>, <span class="stringliteral">&#39;t_11158&#39;</span>, <span class="stringliteral">&#39;t_11576&#39;</span>, <span class="stringliteral">&#39;t_11676&#39;</span>]</div>
+<div class="line"><span class="lineno">  628</span>         }</div>
+<div class="line"><span class="lineno">  629</span>         scifi_spatial_tags = scifi_spatial_aligment_consts[year]</div>
+<div class="line"><span class="lineno">  630</span>         <span class="keywordflow">for</span> c <span class="keywordflow">in</span> scifi_spatial_tags:</div>
+<div class="line"><span class="lineno">  631</span>          k=0</div>
+<div class="line"><span class="lineno">  632</span>          <span class="keywordflow">for</span> s <span class="keywordflow">in</span> range(1,6):</div>
+<div class="line"><span class="lineno">  633</span>           <span class="keywordflow">for</span> o <span class="keywordflow">in</span> range(0,2):</div>
+<div class="line"><span class="lineno">  634</span>             <span class="keywordflow">for</span> m <span class="keywordflow">in</span> range(3):</div>
+<div class="line"><span class="lineno">  635</span>               nr = s*100+10*o+m</div>
+<div class="line"><span class="lineno">  636</span>               setattr(sGeo.Scifi,<span class="stringliteral">&#39;LocM&#39;</span>+str(nr)+c,alignment[c][k])</div>
+<div class="line"><span class="lineno">  637</span>               sGeo.Scifi[<span class="stringliteral">&#39;LocM&#39;</span>+str(nr)+c] = alignment[c][k]</div>
+<div class="line"><span class="lineno">  638</span>               k+=1</div>
+<div class="line"><span class="lineno">  639</span>          <span class="keywordflow">for</span> s <span class="keywordflow">in</span> range(1,6):</div>
+<div class="line"><span class="lineno">  640</span>           <span class="keywordflow">for</span> o <span class="keywordflow">in</span> [<span class="stringliteral">&quot;RotPhiS&quot;</span>,<span class="stringliteral">&quot;RotPsiS&quot;</span>,<span class="stringliteral">&quot;RotThetaS&quot;</span>]:</div>
+<div class="line"><span class="lineno">  641</span>               setattr(sGeo.Scifi,o+str(s)+c,alignment[c][k])</div>
+<div class="line"><span class="lineno">  642</span>               sGeo.Scifi[o+str(s)+c] = alignment[c][k]</div>
+<div class="line"><span class="lineno">  643</span>               k+=1</div>
+<div class="line"><span class="lineno">  644</span> </div>
+<div class="line"><span class="lineno">  645</span>         print(<span class="stringliteral">&#39;save&#39;</span>,geoFileName)</div>
+<div class="line"><span class="lineno">  646</span>         <a class="code hl_function" href="namespacesaveBasicParameters.html#ae19428dcf1f80c5affea43fc209bf908">saveBasicParameters.execute</a>(geoFileName,sGeo)</div>
+<div class="line"><span class="lineno">  647</span>         </div>
+<div class="line"><span class="lineno">  648</span> </div>
 <div class="ttc" id="anamespacesaveBasicParameters_html_ae19428dcf1f80c5affea43fc209bf908"><div class="ttname"><a href="namespacesaveBasicParameters.html#ae19428dcf1f80c5affea43fc209bf908">saveBasicParameters.execute</a></div><div class="ttdeci">execute(f, ox, name='ShipGeo')</div><div class="ttdef"><b>Definition</b> <a href="saveBasicParameters_8py_source.html#l00038">saveBasicParameters.py:38</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -696,7 +790,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">list modifyGeoFileDict.supported_years = [2022, 2023, 2024]</td>
+          <td class="memname">list modifyGeoFileDict.supported_years = [2022, 2023, 2024, 2025]</td>
         </tr>
       </table>
 </div><div class="memdoc">
