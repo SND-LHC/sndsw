@@ -309,6 +309,10 @@ if options.fastMuon :
      elif 'Floor' in modules: 
            modules['Floor'].SetFastMuon()
            modules['Floor'].SetZmax(options.zmax)
+           modules['Floor'].SetEmin(options.ecut)
+           if (options.ecut!=-1.):
+              print(f"Applying energy cut of {options.ecut} in full z range!\
+                    \nThe set zMax will be used for the FastMuon option only!")
            print('transport only-muons up to z=',options.zmax)
 # ------------------------------------------------------------------------
 #---Store the visualiztion info of the tracks, this make the output file very large!!

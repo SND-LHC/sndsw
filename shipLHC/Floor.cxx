@@ -109,7 +109,11 @@ void Floor::PreTrack(){
     }
     TLorentzVector  mom;
     gMC->TrackMomentum(mom);
-    if  ( (mom.E()-mom.M() )<fEmin && pos.Z()<fzPos){
+    // The preset energy cut on produced particles is applied when:
+    //    FastMuon option is OFF and pos.z < zPos
+    //    OR
+    //    FastMuon is ON. Then Ecut is valid in the whole z range.
+    if  ( (mom.E()-mom.M() )<fEmin && (fFastMuon || pos.Z()<fzPos)){
       gMC->StopTrack();
       return;
     }
