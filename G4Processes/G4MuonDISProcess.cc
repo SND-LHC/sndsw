@@ -324,7 +324,7 @@ void G4MuonDISProcess::SimulateDIS(const G4Track &track)
    // were used. 
    fCrossSection = (fXsecTables->at(pid))->Value(track.GetTotalEnergy()/GeV); // in mb
    G4cout << "Total xsec for this 1 event: " << myPythia->GetPyint5()->XSEC[2][0]
-          << ", total xsec using 1M events: " << fCrossSection <<"\n";
+          << ", total xsec using 1M events: " << fCrossSection <<" mb\n";
 
    // Kill the incoming muon after the interaction
    // One can only propose the particle state change as the track is const!
@@ -354,7 +354,11 @@ void G4MuonDISProcess::SimulateDIS(const G4Track &track)
       newTrack->SetParentID(track.GetTrackID());
       newTrack->SetTouchableHandle(track.GetTouchableHandle()); // Important for geometry context
       // weight = in_muon_weight * density along trajectory * cross_section
-      newTrack->SetWeight(w*fOutTracksWeight*fCrossSection);
+      // On top, one needs to make two adjustments:
+      // 1. normalize material density to nucleon mass to get the number of 'targets'.
+      // We use proton_mass = 1.67x1E-24 grams.
+      // 2. convert xsec from mb to cm^2: 1mb = 1E-27 cm^2
+      newTrack->SetWeight(w*fOutTracksWeight/1.67E-24*fCrossSection*1E-27);
    }
    //myPythia->Pystat(1); // extensive printout of parameters: xsec, BR, etc.
    //myPythia->Pylist(1); // list table of properties for all particles
