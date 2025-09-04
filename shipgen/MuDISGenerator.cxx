@@ -83,6 +83,7 @@ Double_t MuDISGenerator::MeanMaterialBudget(const Double_t *start, const Double_
   //
   Double_t bparam[6]; // total parameters
   Double_t lparam[6]; // local parameters
+  Double_t tiny_step = 1e-6;
 
   for (Int_t i=0;i<6;i++) bparam[i]=0;
 
@@ -150,6 +151,19 @@ Double_t MuDISGenerator::MeanMaterialBudget(const Double_t *start, const Double_
     currentnode = gGeoManager->GetCurrentNode();
     if (snext<2.*TGeoShape::Tolerance()) nzero++;
     else nzero = 0;
+    // If one is consistently stuck at some point,
+    // reset the navigator and move forward with a tiny_step
+    if (nzero>1){
+      gGeoManager->CdTop();
+      gGeoManager->FindNode(gGeoManager->GetCurrentPoint()[0] - dir[0] * tiny_step / dir[2],
+                            gGeoManager->GetCurrentPoint()[1] - dir[1] * tiny_step / dir[2],
+                            gGeoManager->GetCurrentPoint()[2] + tiny_step);
+      snext = std::max(snext, tiny_step);
+      nzero = 0;
+    }
+    /*
+    // The `if (nzero>1)` above makes sure one doesn't reach here.
+    // Keeping this for reference only.
     if (nzero>3) {
       // This means navigation has problems on one boundary
       // Try to cross by making a small step
@@ -164,6 +178,7 @@ Double_t MuDISGenerator::MeanMaterialBudget(const Double_t *start, const Double_
       mparam[1] = 1000000;        // and infinite rad length
       return bparam[0]/step;
     }
+    */
     mparam[6]+=1.;
     step += snext;
     bparam[1]    += snext/lparam[1];
