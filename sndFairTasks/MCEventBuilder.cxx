@@ -7,11 +7,14 @@
 #include <TRandom.h>               
 #include <TFile.h>
 #include <TROOT.h>
+#include <TList.h>
+#include <TFolder.h>
 #include <iostream>                
 #include <algorithm>              
 #include <vector>      
 #include <TString.h>            
 #include "FairMCEventHeader.h"
+#include "FairFileHeader.h"
 #include "MuFilter.h"
 #include "Scifi.h"
 #include "FairLink.h"              
@@ -22,6 +25,9 @@
 #include "ScifiPoint.h"
 #include "ShipMCTrack.h"
 #include "ShipUnit.h"
+
+class vetoPoint;
+class EmulsionDetPoint;
 
 namespace {
   int n_clockcycles = 4;
@@ -80,7 +86,8 @@ InitStatus MCEventBuilder::Init() {
   }
 
   // —---------- INPUT BRANCHES —-----------
-  fInHeader  = static_cast<FairMCEventHeader*>(ioman->GetObject("MCEventHeader."));
+  // Only standard ROOT way of reading branches works for the header, otherwise nullptr
+  ioman->GetInTree()->SetBranchAddress("MCEventHeader.",&fInHeader);
   fInMufiArray  = static_cast<TClonesArray*>(ioman->GetObject("MuFilterPoint"));
   fInSciFiArray = static_cast<TClonesArray*>(ioman->GetObject("ScifiPoint"));
   fInMCTrackArray  = static_cast<TClonesArray*>(ioman->GetObject("MCTrack"));
@@ -102,8 +109,7 @@ InitStatus MCEventBuilder::Init() {
   fOutTree->Branch("MuFilterPoint",  &fOutMufiArray,  32000, 1);
   fOutTree->Branch("ScifiPoint",     &fOutSciFiArray, 32000, 1);
   fOutTree->Branch("MCTrack",        &fOutMCTrackArray,  32000, 1);
-  fOutTree->Branch("MCEventHeader.", &fOutHeader,   32000, 1);
-
+  fOutTree->Branch("MCEventHeader.", &fOutHeader);
 
   // --------------Global Variables--------------------
   //Muon Filter
@@ -153,7 +159,17 @@ std::vector<int> MCEventBuilder::OrderedIds(const std::vector<double>& times,
 }
 
 void MCEventBuilder::ProcessEvent() {
-  *fOutHeader = *fInHeader;
+
+  fOutHeader->SetRunID(fInHeader->GetRunID());
+  fOutHeader->SetEventID(fInHeader->GetEventID());
+  fOutHeader->SetVertex(fInHeader->GetX(), fInHeader->GetY(), fInHeader->GetZ());
+  fOutHeader->SetTime(fInHeader->GetT());
+  fOutHeader->SetB(fInHeader->GetB());
+  fOutHeader->SetNPrim(fInHeader->GetNPrim());
+  fOutHeader->MarkSet(fInHeader->IsSet());
+  fOutHeader->SetRotX(fInHeader->GetRotX());
+  fOutHeader->SetRotY(fInHeader->GetRotY());
+  fOutHeader->SetRotZ(fInHeader->GetRotZ());
 
   //---------------------------Muon filter-------------------------------------
   std::vector<MuFilterPoint*> muFilterPoints;
@@ -301,8 +317,10 @@ void MCEventBuilder::ProcessEvent() {
     fOutMCTrackArray->Delete();  
     fOutMCTrackArray->ExpandCreate(mcTrackClones.size());
 
-    //Adding the mother track:
-    ShipMCTrack* newTrack = new ((*fOutMCTrackArray)[0]) ShipMCTrack(*mcTrackClones[0]);
+    //Adding the mother track to the first event
+    if (sliceMufi==0 && sliceScifi==0){
+      ShipMCTrack* newTrack = new ((*fOutMCTrackArray)[0]) ShipMCTrack(*mcTrackClones[0]);
+    }
 
     //MUON FILTER POINTS CHUNKING
     while (i_mufi < (int)sortedMuArrivalTimes.size() && idsMufi[i_mufi] == sliceMufi) {
@@ -562,5 +580,3 @@ void MCEventBuilder::FinishTask() {
     fOutFile = nullptr;
   }
 }
-
-
