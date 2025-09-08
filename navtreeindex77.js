@@ -1,5 +1,7 @@
 var NAVTREEINDEX77 =
 {
+"namespaceeventDisplay.html#a2c250d055db9382e26ecb81658ce9eb1":[12,0,41,71],
+"namespaceeventDisplay.html#a2f0c7a90ed9aad319801864027ea3003":[12,0,41,44],
 "namespaceeventDisplay.html#a37c858074cda5ceaa4e360389e712bc2":[12,0,41,50],
 "namespaceeventDisplay.html#a38077a53a6c60d55adb272eca5b886de":[12,0,41,30],
 "namespaceeventDisplay.html#a3dbb4c80da15b69f224426976aee39e5":[12,0,41,47],
@@ -247,7 +249,5 @@ var NAVTREEINDEX77 =
 "namespaceg4Ex__args.html#a0d72419fe5c9c393b0cc53554ae00ce0":[12,0,50,40],
 "namespaceg4Ex__args.html#a14084fae31de7028d5c391abc91fe009":[12,0,50,26],
 "namespaceg4Ex__args.html#a2390189ee31b64d9634a7b7949d988ef":[12,0,50,29],
-"namespaceg4Ex__args.html#a26993827d2582f1821be46b28af35941":[12,0,50,7],
-"namespaceg4Ex__args.html#a269d9ac8bda33cc3ce8153881c64a596":[12,0,50,44],
-"namespaceg4Ex__args.html#a2aa38719b09994b7fc4d95794640169f":[12,0,50,24]
+"namespaceg4Ex__args.html#a26993827d2582f1821be46b28af35941":[12,0,50,7]
 };

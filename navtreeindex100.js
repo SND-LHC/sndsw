@@ -1,5 +1,7 @@
 var NAVTREEINDEX100 =
 {
+"saveBasicParameters_8py.html#ae19428dcf1f80c5affea43fc209bf908":[14,0,17,36,0],
+"saveBasicParameters_8py_source.html":[14,0,17,36],
 "scifiHitMaps_8py.html":[14,0,20,0,7],
 "scifiHitMaps_8py.html#a082cc1fec6fad09ec84d6d565c4fe3c1":[14,0,20,0,7,0],
 "scifiHitMaps_8py.html#a10f83e746a89970e632457da4c563caf":[14,0,20,0,7,26],
@@ -247,7 +249,5 @@ var NAVTREEINDEX100 =
 "shipPatRec__prev_8py.html#a80562c00837f83d152464607385b2f3f":[14,0,17,48,42],
 "shipPatRec__prev_8py.html#a83cb097d1443f1f9d9b03fc0a1699eff":[14,0,17,48,45],
 "shipPatRec__prev_8py.html#a84a67cbf300e427fcbc0dd38b41c473a":[14,0,17,48,11],
-"shipPatRec__prev_8py.html#a865c93538eb8df801ff5ab7fcc3e2b20":[14,0,17,48,54],
-"shipPatRec__prev_8py.html#a8c3199206de79e2c7b68d7e72a8c5b5a":[14,0,17,48,10],
-"shipPatRec__prev_8py.html#a8d9f75f5710a8ce11d60d5dad0f07d72":[14,0,17,48,6]
+"shipPatRec__prev_8py.html#a865c93538eb8df801ff5ab7fcc3e2b20":[14,0,17,48,54]
 };
