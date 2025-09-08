@@ -98,13 +98,17 @@ InitStatus MCEventBuilder::Init() {
   }
 
   // —---------- OUTPUT FILE & TREE —----------
-  fOutFile = TFile::Open(fOutputFileName.c_str(), "RECREATE");
+  fOutFile = new TFile(fOutputFileName.c_str(), "RECREATE");
   fOutTree = new TTree("cbmsim", "RebuiltEvents");
+  fOutTree->SetTitle("/cbmroot_0");
 
   fOutHeader   = new FairMCEventHeader();
   fOutMufiArray  = new TClonesArray("MuFilterPoint");
   fOutSciFiArray = new TClonesArray("ScifiPoint");
   fOutMCTrackArray  = new TClonesArray("ShipMCTrack");
+  fOutMufiArray->SetName("MuFilterPoint"); 
+  fOutSciFiArray->SetName("ScifiPoint"); 
+  fOutMCTrackArray->SetName("ShipMCTrack"); 
   
   fOutTree->Branch("MuFilterPoint",  &fOutMufiArray,  32000, 1);
   fOutTree->Branch("ScifiPoint",     &fOutSciFiArray, 32000, 1);
@@ -308,6 +312,10 @@ void MCEventBuilder::ProcessEvent() {
   int i_mufi = 0, i_scifi = 0, sliceMufi = 0, sliceScifi = 0;
 
   while (i_mufi < (int)sortedMuArrivalTimes.size() || i_scifi < (int)sortedScifiArrivalTimes.size()) {
+    // To avoid re-copy of points or tracks from chunk N to following chunks, one needs to free the memory
+    // e.g. chunk N has points with track ids(indices) T-10, T-5, T, chunk N+1 holds points with track id T+1.
+    // If memory is not de-allocated, all tracks of smaller index than T+1 will be also written to chunk N+1.
+    // This will be incorrect since there are no points of tracks with id < T in the N+1 chunck. 
     fOutMufiArray->Clear("C");
     fOutSciFiArray->Clear("C");
     fOutMCTrackArray->Clear("C");
@@ -568,15 +576,53 @@ bool MCEventBuilder::AdvancedNoiseFilterScifi(
   }  
 
 void MCEventBuilder::FinishTask() {
-  fOutSciFiArray->Delete();
-  fOutMufiArray->Delete();
-  fOutMCTrackArray->Delete();
-  if (fOutTree) fOutTree->Write();
-  if (fOutFile) {
-    LOG(INFO) << "Writing and closing output file: " << fOutputFileName;
-    fOutFile->Write();
-    fOutFile->Close();
-    delete fOutFile;
-    fOutFile = nullptr;
+  // Make the output file structure compatible with FairTasks to facilitate
+  // runing the digitization task.
+  fOutFile->cd();
+  TFolder* folder = new TFolder("cbmroot", "Main Folder");
+  TFolder* fol_Stack = folder->AddFolder("Stack", "Stack Folder");
+  auto mcTrackArr = new TClonesArray("ShipMCTrack");
+  mcTrackArr->SetName("MCTrack"); // avoid default plural names
+  fol_Stack->Add(mcTrackArr);
+  TFolder* fol_veto = folder->AddFolder("veto", "veto Folder");
+  auto vetoArr = new TClonesArray("vetoPoint");
+  vetoArr->SetName("vetoPoint");
+  fol_veto->Add(vetoArr);  
+  TFolder* fol_EmulsionDet = folder->AddFolder("EmulsionDet", "EmulsionDetector Folder");
+  auto emuArr = new TClonesArray("EmulsionDetPoint");
+  emuArr->SetName("EmulsionDetPoint");
+  fol_EmulsionDet->Add(emuArr);
+  TFolder* fol_Scifi = folder->AddFolder("Scifi", "Scifi Folder");
+  auto scifiArr = new TClonesArray("ScifiPoint");
+  scifiArr->SetName("ScifiPoint");
+  fol_Scifi->Add(scifiArr);
+  TFolder* fol_MuFilter = folder->AddFolder("MuFilter", "MuFilter Folder");
+  auto mufArr = new TClonesArray("MuFilterPoint");
+  mufArr->SetName("MuFilterPoint");
+  fol_MuFilter->Add(mufArr);
+  TFolder* fol_Event = folder->AddFolder("Event", "Event Folder");
+  folder->Write();
+
+  fOutFile->cd();
+  TList* branch_list = new TList();
+  branch_list->SetName("BranchList");
+  branch_list->Add(new TObjString("MCTrack"));
+  branch_list->Add(new TObjString("vetoPoint"));
+  branch_list->Add(new TObjString("EmulsionDetPoint"));
+  branch_list->Add(new TObjString("ScifiPoint"));
+  branch_list->Add(new TObjString("MuFilterPoint"));
+  branch_list->Add(new TObjString("MCEventHeader."));
+  fOutFile->WriteObject(branch_list, "BranchList");
+  auto* timebased_branch_list = new TList();
+  timebased_branch_list->SetName("TimeBasedBranchList");
+  fOutFile->WriteObject(timebased_branch_list, "TimeBasedBranchList");
+  fOutFile->cd();
+  auto* fileHeader = new FairFileHeader();
+  fileHeader->SetTitle("FileHeader");
+  fileHeader->Write("FileHeader");
+  fOutFile->cd();
+  if (fOutTree) {
+     fOutTree->Write();
   }
+  LOG(INFO) << "Writing and closing output file: " << fOutputFileName;
 }
