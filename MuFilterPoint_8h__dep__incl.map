@@ -1,13 +1,15 @@
 <map id="shipLHC/MuFilterPoint.h" name="shipLHC/MuFilterPoint.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="2134,5,2311,31"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="2427,5,2605,31"/>
 <area shape="rect" id="Node000002" href="$MuFilter_8cxx.html" title=" " alt="" coords="1666,79,1825,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="2133,35,1823,81,1822,76,2132,30"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="2414,30,2152,51,1838,81,1825,83,1825,77,1837,76,2152,46,2413,24"/>
 <area shape="rect" id="Node000003" href="$MuFilterHit_8h.html" title=" " alt="" coords="1849,79,2012,104"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="2163,36,1979,81,1977,76,2162,31"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="2414,34,2013,83,2012,77,2413,29"/>
 <area shape="rect" id="Node000017" href="$DigiTaskSND_8cxx.html" title=" " alt="" coords="2355,247,2573,273"/>
-<area shape="poly" id="edge22_Node000001_Node000017" title=" " alt="" coords="2289,32,2337,48,2388,73,2435,107,2455,127,2472,151,2480,176,2481,203,2471,248,2466,246,2476,203,2475,177,2467,153,2451,131,2431,111,2385,78,2335,53,2287,37"/>
+<area shape="poly" id="edge22_Node000001_Node000017" title=" " alt="" coords="2513,45,2469,248,2464,247,2508,43"/>
 <area shape="rect" id="Node000020" href="$MuFilterPoint_8cxx.html" title=" " alt="" coords="2553,79,2745,104"/>
-<area shape="poly" id="edge21_Node000001_Node000020" title=" " alt="" coords="2305,30,2581,76,2580,81,2304,36"/>
+<area shape="poly" id="edge21_Node000001_Node000020" title=" " alt="" coords="2551,35,2629,76,2626,81,2548,39"/>
+<area shape="rect" id="Node000021" href="$MCEventBuilder_8cxx.html" title=" " alt="" coords="2770,79,3009,104"/>
+<area shape="poly" id="edge23_Node000001_Node000021" title=" " alt="" coords="2590,31,2829,76,2828,81,2589,36"/>
 <area shape="rect" id="Node000004" href="$sndAvgDSFiducialCut_8h.html" title=" " alt="" coords="127,152,353,192"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="1836,107,1611,120,1421,126,1098,127,776,129,588,138,366,155,354,156,353,151,365,149,587,132,776,124,1098,122,1421,121,1611,115,1835,101"/>
 <area shape="rect" id="Node000007" href="$sndDSActivityCut_8cxx.html" title=" " alt="" coords="377,152,580,192"/>

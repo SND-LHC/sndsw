@@ -178,6 +178,7 @@ var hierarchy =
     [ "FairTask", null, [
       [ "ConvRawData", "classConvRawData.html", null ],
       [ "DigiTaskSND", "classDigiTaskSND.html", null ],
+      [ "MCEventBuilder", "classMCEventBuilder.html", null ],
       [ "ecalAnalysisMaterial", "classecalAnalysisMaterial.html", null ],
       [ "ecalAnalysisSimple", "classecalAnalysisSimple.html", null ],
       [ "ecalClusterCalibration", "classecalClusterCalibration.html", null ],

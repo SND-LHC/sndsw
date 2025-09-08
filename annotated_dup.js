@@ -379,6 +379,7 @@ var annotated_dup =
     [ "Hpt", "classHpt.html", "classHpt" ],
     [ "HptPoint", "classHptPoint.html", "classHptPoint" ],
     [ "MagneticSpectrometer", "classMagneticSpectrometer.html", "classMagneticSpectrometer" ],
+    [ "MCEventBuilder", "classMCEventBuilder.html", "classMCEventBuilder" ],
     [ "Mille", "classMille.html", "classMille" ],
     [ "MuDISGenerator", "classMuDISGenerator.html", "classMuDISGenerator" ],
     [ "MuFilter", "classMuFilter.html", "classMuFilter" ],

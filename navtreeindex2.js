@@ -21,6 +21,10 @@ var NAVTREEINDEX2 =
 "KalmanFitter_8cc_source.html":[14,0,5,4,1,5],
 "KalmanFitter_8h.html":[14,0,5,4,0,4],
 "KalmanFitter_8h_source.html":[14,0,5,4,0,4],
+"MCEventBuilder_8cxx.html":[14,0,21,6],
+"MCEventBuilder_8cxx_source.html":[14,0,21,6],
+"MCEventBuilder_8h.html":[14,0,21,7],
+"MCEventBuilder_8h_source.html":[14,0,21,7],
 "MCStackLinkDef_8h.html":[14,0,18,2],
 "MCStackLinkDef_8h_source.html":[14,0,18,2],
 "MagneticSpectrometer_8cxx.html":[14,0,12,6],
@@ -245,9 +249,5 @@ var NAVTREEINDEX2 =
 "NuageGenerator_8h_source.html":[14,0,19,25],
 "NutaudetContFact_8cxx.html":[14,0,12,8],
 "NutaudetContFact_8cxx.html#a974b34fb43044e3c547e7d4a15694832":[14,0,12,8,0],
-"NutaudetContFact_8cxx_source.html":[14,0,12,8],
-"NutaudetContFact_8h.html":[14,0,12,9],
-"NutaudetContFact_8h_source.html":[14,0,12,9],
-"OnlineLinkDef_8h.html":[14,0,13,4],
-"OnlineLinkDef_8h_source.html":[14,0,13,4]
+"NutaudetContFact_8cxx_source.html":[14,0,12,8]
 };

@@ -91,7 +91,6 @@ $(document).ready(function(){initNavTree('classMuFilterPoint.html',''); initResi
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classMuFilterPoint-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">MuFilterPoint Class Reference</div></div>
@@ -132,9 +131,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a1b1152dbf30af8e557630f57eaa9211a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9641f163a3e7fa0e253a534763b7467e" id="r_a9641f163a3e7fa0e253a534763b7467e"><td class="memItemLeft" align="right" valign="top">Int_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMuFilterPoint.html#a9641f163a3e7fa0e253a534763b7467e">PdgCode</a> () const</td></tr>
 <tr class="separator:a9641f163a3e7fa0e253a534763b7467e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
 <tr class="memitem:aa783effed5c191dfb9c53ace738ee270" id="r_aa783effed5c191dfb9c53ace738ee270"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMuFilterPoint.html#aa783effed5c191dfb9c53ace738ee270">MuFilterPoint</a> (const <a class="el" href="classMuFilterPoint.html">MuFilterPoint</a> &amp;point)</td></tr>
 <tr class="separator:aa783effed5c191dfb9c53ace738ee270"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae926c34274c320e72e78457a26d5950b" id="r_ae926c34274c320e72e78457a26d5950b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMuFilterPoint.html">MuFilterPoint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMuFilterPoint.html#ae926c34274c320e72e78457a26d5950b">operator=</a> (const <a class="el" href="classMuFilterPoint.html">MuFilterPoint</a> &amp;point)</td></tr>
@@ -249,7 +245,7 @@ Private Attributes</h2></td></tr>
 <p class="definition">Definition at line <a class="el" href="MuFilterPoint_8cxx_source.html#l00017">17</a> of file <a class="el" href="MuFilterPoint_8cxx_source.html">MuFilterPoint.cxx</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   20</span>  : FairMCPoint(trackID, detID, pos, mom, tof, length, eLoss),<a class="code hl_variable" href="classMuFilterPoint.html#ae9835ad9dd182f3d826c2aa5427d2f17">fPdgCode</a>(pdgcode)</div>
 <div class="line"><span class="lineno">   21</span>{  }</div>
-<div class="ttc" id="aclassMuFilterPoint_html_ae9835ad9dd182f3d826c2aa5427d2f17"><div class="ttname"><a href="classMuFilterPoint.html#ae9835ad9dd182f3d826c2aa5427d2f17">MuFilterPoint::fPdgCode</a></div><div class="ttdeci">Int_t fPdgCode</div><div class="ttdef"><b>Definition</b> <a href="MuFilterPoint_8h_source.html#l00045">MuFilterPoint.h:45</a></div></div>
+<div class="ttc" id="aclassMuFilterPoint_html_ae9835ad9dd182f3d826c2aa5427d2f17"><div class="ttname"><a href="classMuFilterPoint.html#ae9835ad9dd182f3d826c2aa5427d2f17">MuFilterPoint::fPdgCode</a></div><div class="ttdeci">Int_t fPdgCode</div><div class="ttdef"><b>Definition</b> <a href="MuFilterPoint_8h_source.html#l00050">MuFilterPoint.h:50</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -287,9 +283,6 @@ Private Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">MuFilterPoint::MuFilterPoint </td>
@@ -299,11 +292,6 @@ Private Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 <p>Copy constructor </p>
 
@@ -315,9 +303,6 @@ Private Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classMuFilterPoint.html">MuFilterPoint</a> MuFilterPoint::operator= </td>
@@ -327,11 +312,6 @@ Private Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
@@ -424,7 +404,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="MuFilterPoint_8h_source.html#l00045">45</a> of file <a class="el" href="MuFilterPoint_8h_source.html">MuFilterPoint.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="MuFilterPoint_8h_source.html#l00050">50</a> of file <a class="el" href="MuFilterPoint_8h_source.html">MuFilterPoint.h</a>.</p>
 
 </div>
 </div>

@@ -1,5 +1,9 @@
 var NAVTREEINDEX5 =
 {
+"ShipMagnet_8cxx.html":[14,0,14,11],
+"ShipMagnet_8cxx_source.html":[14,0,14,11],
+"ShipMagnet_8h.html":[14,0,14,12],
+"ShipMagnet_8h_source.html":[14,0,14,12],
 "ShipMuonShield_8cxx.html":[14,0,14,13],
 "ShipMuonShield_8cxx.html#a051a74c8506be0a4072e69b52b7113a8":[14,0,14,13,4],
 "ShipMuonShield_8cxx.html#a36fc4b47251281f99efceaa80c7877f0":[14,0,14,13,0],
@@ -245,9 +249,5 @@ var NAVTREEINDEX5 =
 "Survey-MufiScifi_8py.html#ab47642db5b8c71309b6789f71a412a85":[14,0,20,1,16,61],
 "Survey-MufiScifi_8py.html#ab610b78d19cdda713d26be2c55bfba40":[14,0,20,1,16,7],
 "Survey-MufiScifi_8py.html#ab7ae1d683c2e139591c672475765651d":[14,0,20,1,16,69],
-"Survey-MufiScifi_8py.html#ab8477d41d8909b761d97841648f4d281":[14,0,20,1,16,97],
-"Survey-MufiScifi_8py.html#abaddaee71f672c984556fb67293d661f":[14,0,20,1,16,73],
-"Survey-MufiScifi_8py.html#ac04f753da9a4ba05175af670c52755dc":[14,0,20,1,16,62],
-"Survey-MufiScifi_8py.html#ac201dad99bbd2b8a04fa28f40b8de617":[14,0,20,1,16,80],
-"Survey-MufiScifi_8py.html#ac36770811662e3145ddf4d679f0232b2":[14,0,20,1,16,87]
+"Survey-MufiScifi_8py.html#ab8477d41d8909b761d97841648f4d281":[14,0,20,1,16,97]
 };
