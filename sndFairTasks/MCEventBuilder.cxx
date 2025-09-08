@@ -295,9 +295,9 @@ void MCEventBuilder::ProcessEvent() {
   double firstT = hasMCPoints ? (tMufi < 0 ? tScifi : (tScifi < 0 ? tMufi : std::min(tMufi, tScifi))): 0;
 
   if (!hasMCPoints) {
-    fOutMufiArray->Clear();
-    fOutSciFiArray->Clear();
-    fOutMCTrackArray->Clear();
+    fOutMufiArray->Delete();
+    fOutSciFiArray->Delete();
+    fOutMCTrackArray->Delete();
     fOutTree->Fill();
     return;
   }
@@ -316,13 +316,12 @@ void MCEventBuilder::ProcessEvent() {
     // e.g. chunk N has points with track ids(indices) T-10, T-5, T, chunk N+1 holds points with track id T+1.
     // If memory is not de-allocated, all tracks of smaller index than T+1 will be also written to chunk N+1.
     // This will be incorrect since there are no points of tracks with id < T in the N+1 chunck. 
-    fOutMufiArray->Clear("C");
-    fOutSciFiArray->Clear("C");
-    fOutMCTrackArray->Clear("C");
+    fOutMufiArray->Delete();
+    fOutSciFiArray->Delete();
+    fOutMCTrackArray->Delete();
 
     std::vector<MuFilterPoint*> muSlicePoints;
     std::vector<ScifiPoint*> scifiSlicePoints;
-    fOutMCTrackArray->Delete();  
     fOutMCTrackArray->ExpandCreate(mcTrackClones.size());
 
     //Adding the mother track to the first event
@@ -380,24 +379,24 @@ void MCEventBuilder::ProcessEvent() {
 
     //Noise Filters
     if (!(FastNoiseFilterScifi_Hits(fOutSciFiArray, siPMFibres) || FastNoiseFilterMu_Hits(fOutMufiArray))) {
-      fOutMufiArray->Clear("C");
-      fOutSciFiArray->Clear("C");
-      fOutMCTrackArray->Clear("C");
+      fOutMufiArray->Delete();
+      fOutSciFiArray->Delete();
+      fOutMCTrackArray->Delete();
       FirstEvent = false;
       continue;  
     }
     else if(!(FastNoiseFilterScifi_Boards(fOutSciFiArray, siPMFibres) || FastNoiseFilterMu_Boards(fOutMufiArray))){
-      fOutMufiArray->Clear("C");
-      fOutSciFiArray->Clear("C");
-      fOutMCTrackArray->Clear("C");
+      fOutMufiArray->Delete();
+      fOutSciFiArray->Delete();
+      fOutMCTrackArray->Delete();
       FirstEvent = false;
       continue;
     }
 
     if (!(AdvancedNoiseFilterScifi(fOutSciFiArray, siPMFibres) || AdvancedNoiseFilterMu(fOutMufiArray))){
-      fOutMufiArray->Clear("C");
-      fOutSciFiArray->Clear("C");
-      fOutMCTrackArray->Clear("C");
+      fOutMufiArray->Delete();
+      fOutSciFiArray->Delete();
+      fOutMCTrackArray->Delete();
       FirstEvent = false;
       continue;
     }
