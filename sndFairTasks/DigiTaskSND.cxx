@@ -62,6 +62,10 @@ InitStatus DigiTaskSND::Init()
     if ( fMCEventHeader == nullptr ) {
        fMCEventHeader = static_cast<FairMCEventHeader*>(gROOT->FindObjectAny("MCEventHeader."));
     }
+     if ( fMCEventHeader == nullptr ) {
+       ioman->GetInTree()->SetBranchAddress("MCEventHeader.", &fMCEventHeader);
+       LOG(INFO) << "MCEventHeader. branch is found";
+    }
     // Get input MC points
     fScifiPointArray = static_cast<TClonesArray*>(ioman->GetObject("ScifiPoint"));
     fvetoPointArray = static_cast<TClonesArray*>(ioman->GetObject("vetoPoint"));
