@@ -8,17 +8,13 @@
 #include "FairMCPoint.h"
 #include <Rtypes.h>
 #include <TClonesArray.h>
-#include "FairMCEventHeader.h"
-#include "MuFilter.h"
-#include "Scifi.h"
-#include "MuFilterPoint.h"
-#include "SNDLHCEventHeader.h"
 
 class TFile;
 class TTree;
 class MuFilterPoint;
 class ScifiPoint;
 class ShipMCTrack;
+class FairMCEventHeader;
 
 class MCEventBuilder : public FairTask {
 public:
