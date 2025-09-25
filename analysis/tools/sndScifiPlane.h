@@ -7,6 +7,7 @@
 #include "TClonesArray.h"
 #include "Scifi.h"
 #include "sndConfiguration.h"
+#include "sndScifiHit.h"
 
 namespace snd {
     namespace analysis_tools {
@@ -24,7 +25,7 @@ namespace snd {
             struct ScifiHit
             {
                 double qdc{};
-                double timestamp{};
+                double timestamp{}; // timestamp is in clock cycles
                 double x{};
                 double y{};
                 double z{};
@@ -32,7 +33,7 @@ namespace snd {
                 bool is_x{};
             };
 
-            ScifiPlane(TClonesArray *snd_hits, Configuration configuration, Scifi *scifi_geometry, int index_begin, int index_end, int station);
+            ScifiPlane(std::vector<sndScifiHit*> snd_hits, Configuration configuration, Scifi *scifi_geometry, int station);
 
             const int GetStation() const { return station_; };
             const std::vector<ScifiHit> GetHits() const { return hits_; };

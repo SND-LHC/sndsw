@@ -10,20 +10,15 @@
 #include "TVector3.h"
 #include "Scifi.h"
 #include "sndScifiHit.h"
+#include "ShipUnit.h"
 
-snd::analysis_tools::ScifiPlane::ScifiPlane(TClonesArray *snd_hits, snd::Configuration configuration, Scifi *scifi_geometry, int index_begin, int index_end, int station) : configuration_(configuration), centroid_(std::nan(""), std::nan(""), std::nan("")), centroid_error_(std::nan(""), std::nan(""), std::nan("")), station_(station)
+snd::analysis_tools::ScifiPlane::ScifiPlane(std::vector<sndScifiHit*> snd_hits, Configuration configuration, Scifi *scifi_geometry, int station) : station_(station), configuration_(configuration), centroid_(std::nan(""), std::nan(""), std::nan("")), centroid_error_(std::nan(""), std::nan(""), std::nan(""))
 {
-    if (index_begin > index_end)
+    for ( auto snd_hit : snd_hits)
     {
-        throw std::runtime_error{"Begin index > end index"};
-    }
-
-    for (int i{index_begin}; i < index_end; ++i)
-    {
-        auto snd_hit = static_cast<sndScifiHit *>(snd_hits->At(i));
         ScifiHit hit;
-        hit.channel_index = 512 * snd_hit->GetMat() + 64 * snd_hit->GetTofpetID(0) + 63 - snd_hit->Getchannel(0);
-        hit.timestamp = snd_hit->GetTime(0);
+        hit.channel_index = 512 * snd_hit->GetMat() + 128 * snd_hit->GetSiPM() + snd_hit->GetSiPMChan();
+        hit.timestamp = (scifi_geometry->GetCorrectedTime(snd_hit->GetDetectorID(), snd_hit->GetTime(0)*ShipUnit::snd_TDC2ns, 0) / ShipUnit::snd_TDC2ns);  // timestamp is in clock cycles
         hit.qdc = snd_hit->GetSignal(0);
         hit.is_x = snd_hit->isVertical();
 
@@ -62,16 +57,26 @@ bool snd::analysis_tools::ScifiPlane::IsShower() const
         throw std::runtime_error{"min_hits > window_width"};
     }
 
+    if (configuration_.scifi_shower_window_width > configuration_.scifi_n_channels_per_plane)
+    {
+        throw std::runtime_error{"window_width > n_channels_per_plane"};
+    }
+
     xy_pair<std::vector<int>> is_hit;
     is_hit.x.resize(configuration_.scifi_n_channels_per_plane, 0);
     is_hit.y.resize(configuration_.scifi_n_channels_per_plane, 0);
 
     for (auto &hit : hits_)
     {
+        if (hit.channel_index < 0 ||
+            hit.channel_index >= configuration_.scifi_n_channels_per_plane)
+        {
+            throw std::out_of_range{"hit.channel_index out of range"};
+        }
         (hit.is_x ? is_hit.x : is_hit.y)[hit.channel_index] = 1;
     }
 
-    auto density = [&](std::vector<int> &hit_arr)
+    auto density = [&](const std::vector<int> &hit_arr)
     {
         int count{0};
 
