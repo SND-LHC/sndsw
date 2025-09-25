@@ -10,16 +10,10 @@
 #include "MuFilter.h"
 #include "MuFilterHit.h"
 
-snd::analysis_tools::USPlane::USPlane(TClonesArray *snd_hits, snd::Configuration configuration, MuFilter *muon_filter_geometry, int index_begin, int index_end, int station) : configuration_(configuration), centroid_(std::nan(""), std::nan(""), std::nan("")), centroid_error_(std::nan(""), std::nan(""),std::nan("")), station_(station)
+snd::analysis_tools::USPlane::USPlane(std::vector<MuFilterHit*> snd_hits, Configuration configuration, MuFilter *muon_filter_geometry, int station) : configuration_(configuration), centroid_(std::nan(""), std::nan(""), std::nan("")), centroid_error_(std::nan(""), std::nan(""),std::nan("")), station_(station)
 {
-    if (index_begin > index_end)
+    for ( auto mu_hit : snd_hits)
     {
-        throw std::runtime_error{"Begin index > end index"};
-    }
-    for (int j{index_begin}; j < index_end; ++j)
-    {
-        auto mu_hit = static_cast<MuFilterHit *>(snd_hits->At(j));
-        
         for (int i{0}; i < 16; ++i)
         {
             if (mu_hit->isMasked(i) || mu_hit->GetSignal(i) < -990.) continue;

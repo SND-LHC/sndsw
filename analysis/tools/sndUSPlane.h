@@ -6,6 +6,7 @@
 #include "TVector3.h"
 #include "TClonesArray.h"
 #include "MuFilter.h"
+#include "MuFilterHit.h"
 #include "sndConfiguration.h"
 
 namespace snd {
@@ -45,7 +46,7 @@ namespace snd {
             bool is_right;
         };
 
-        USPlane(TClonesArray *snd_hits, Configuration configuration, MuFilter *muon_filter_geometry, int index_begin, int index_end, int station);
+        USPlane(std::vector<MuFilterHit*> snd_hits, Configuration configuration, MuFilter *muon_filter_geometry, int station);
 
         const sl_pair<int> GetNHits() const;
         const int GetStation() const { return station_; };
