@@ -4,7 +4,6 @@
 #include <vector>
 
 #include "TVector3.h"
-#include "TClonesArray.h"
 #include "Scifi.h"
 #include "sndConfiguration.h"
 #include "sndScifiHit.h"

@@ -6,7 +6,6 @@
 #include <numeric>
 #include <vector>
 
-#include "TClonesArray.h"
 #include "TVector3.h"
 #include "Scifi.h"
 #include "sndScifiHit.h"

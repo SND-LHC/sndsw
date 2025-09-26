@@ -5,7 +5,6 @@
 #include <algorithm>
 #include <vector>
 
-#include "TClonesArray.h"
 #include "TVector3.h"
 #include "MuFilter.h"
 #include "MuFilterHit.h"

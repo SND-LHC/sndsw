@@ -4,7 +4,6 @@
 #include <vector>
 
 #include "TVector3.h"
-#include "TClonesArray.h"
 #include "MuFilter.h"
 #include "MuFilterHit.h"
 #include "sndConfiguration.h"
