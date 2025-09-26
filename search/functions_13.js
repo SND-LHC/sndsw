@@ -18,7 +18,7 @@ var searchData=
   ['scifibasecut_15',['sciFiBaseCut',['../classsnd_1_1analysis__cuts_1_1sciFiBaseCut.html#abc9dad54c9ba5ccc5d2bbc1525e12772',1,'snd::analysis_cuts::sciFiBaseCut']]],
   ['scifichannel_5fresiduals_16',['ScifiChannel_residuals',['../namespaceSurvey-MufiScifi.html#ae2b4aee0584ea6d9e2039988d3265878',1,'Survey-MufiScifi']]],
   ['scificluster_17',['scificluster',['../classSndlhcMuonReco_1_1MuonReco.html#af9860f353ac8261c10e0dcf5962e2cc3',1,'SndlhcMuonReco.MuonReco.scifiCluster()'],['../classSndlhcTracking_1_1Tracking.html#a6aeb375e8980b2f54cdc9151c46cd284',1,'SndlhcTracking.Tracking.scifiCluster()']]],
-  ['scifiplane_18',['ScifiPlane',['../classsnd_1_1analysis__tools_1_1ScifiPlane.html#a399663c614474e49b05e5aa1c7cf1067',1,'snd::analysis_tools::ScifiPlane']]],
+  ['scifiplane_18',['ScifiPlane',['../classsnd_1_1analysis__tools_1_1ScifiPlane.html#a11a492571fe2545091543f6214a2eea6',1,'snd::analysis_tools::ScifiPlane']]],
   ['scifipoint_19',['scifipoint',['../classScifiPoint.html#a177215f3064270fdaafcfedadc3cb12b',1,'ScifiPoint::ScifiPoint(const ScifiPoint &amp;point)'],['../classScifiPoint.html#ab66d0fae856baff64d2e668c6e4fd631',1,'ScifiPoint::ScifiPoint(Int_t trackID, Int_t detID, TVector3 pos, TVector3 mom, Double_t tof, Double_t length, Double_t eLoss, Int_t pdgcode)'],['../classScifiPoint.html#a51c1eda19b3785bf6da29c7c72c7cc89',1,'ScifiPoint::ScifiPoint()']]],
   ['scifipropspeed_20',['SciFiPropSpeed',['../namespaceSurvey-MufiScifi.html#ae163f9c57fb65320c71f9d553d5aef5b',1,'Survey-MufiScifi']]],
   ['scifistationcut_21',['sciFiStationCut',['../classsnd_1_1analysis__cuts_1_1sciFiStationCut.html#a575e45f9ba1b98ec52c5a267d1cae8e6',1,'snd::analysis_cuts::sciFiStationCut']]],
