@@ -288,32 +288,32 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="MCEventBuilder_8cxx_source.html#l00477">477</a> of file <a class="el" href="MCEventBuilder_8cxx_source.html">MCEventBuilder.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  477</span>                                                                {</div>
-<div class="line"><span class="lineno">  478</span>    std::set&lt;int&gt; veto_planes, us_planes, ds_planes;</div>
-<div class="line"><span class="lineno">  479</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a> &lt; muArray-&gt;GetEntriesFast(); ++<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>) {</div>
-<div class="line"><span class="lineno">  480</span>        <span class="keyword">auto</span>* <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a> = <span class="keyword">static_cast&lt;</span><a class="code hl_class" href="classMuFilterPoint.html">MuFilterPoint</a>*<span class="keyword">&gt;</span>(muArray-&gt;At(i));</div>
-<div class="line"><span class="lineno">  481</span>        <span class="keywordtype">int</span> detID = <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a>-&gt;GetDetectorID();</div>
-<div class="line"><span class="lineno">  482</span>        <span class="keywordtype">int</span> system = detID / 10000;</div>
-<div class="line"><span class="lineno">  483</span>        <span class="keywordflow">if</span> (system == 1) {</div>
-<div class="line"><span class="lineno">  484</span>            veto_planes.insert(detID / 1000);</div>
-<div class="line"><span class="lineno">  485</span>            <span class="keywordflow">if</span> (veto_planes.size() &gt;= min_veto_planes) {</div>
-<div class="line"><span class="lineno">  486</span>                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  487</span>            }</div>
-<div class="line"><span class="lineno">  488</span>        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (system == 2) {</div>
-<div class="line"><span class="lineno">  489</span>            us_planes.insert(detID / 1000);</div>
-<div class="line"><span class="lineno">  490</span>            <span class="keywordflow">if</span> (us_planes.size() &gt;= min_us_planes) {</div>
-<div class="line"><span class="lineno">  491</span>                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  492</span>            }</div>
-<div class="line"><span class="lineno">  493</span>        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (system == 3) {</div>
-<div class="line"><span class="lineno">  494</span>            ds_planes.insert(detID / 1000);</div>
-<div class="line"><span class="lineno">  495</span>            <span class="keywordflow">if</span> (ds_planes.size() &gt;= min_ds_planes) {</div>
-<div class="line"><span class="lineno">  496</span>                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  497</span>            }</div>
-<div class="line"><span class="lineno">  498</span>        }</div>
-<div class="line"><span class="lineno">  499</span>    }</div>
-<div class="line"><span class="lineno">  500</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  501</span>}</div>
+<p class="definition">Definition at line <a class="el" href="MCEventBuilder_8cxx_source.html#l00478">478</a> of file <a class="el" href="MCEventBuilder_8cxx_source.html">MCEventBuilder.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  478</span>                                                                {</div>
+<div class="line"><span class="lineno">  479</span>    std::set&lt;int&gt; veto_planes, us_planes, ds_planes;</div>
+<div class="line"><span class="lineno">  480</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a> &lt; muArray-&gt;GetEntriesFast(); ++<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>) {</div>
+<div class="line"><span class="lineno">  481</span>        <span class="keyword">auto</span>* <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a> = <span class="keyword">static_cast&lt;</span><a class="code hl_class" href="classMuFilterPoint.html">MuFilterPoint</a>*<span class="keyword">&gt;</span>(muArray-&gt;At(i));</div>
+<div class="line"><span class="lineno">  482</span>        <span class="keywordtype">int</span> detID = <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a>-&gt;GetDetectorID();</div>
+<div class="line"><span class="lineno">  483</span>        <span class="keywordtype">int</span> system = detID / 10000;</div>
+<div class="line"><span class="lineno">  484</span>        <span class="keywordflow">if</span> (system == 1) {</div>
+<div class="line"><span class="lineno">  485</span>            veto_planes.insert(detID / 1000);</div>
+<div class="line"><span class="lineno">  486</span>            <span class="keywordflow">if</span> (veto_planes.size() &gt;= min_veto_planes) {</div>
+<div class="line"><span class="lineno">  487</span>                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  488</span>            }</div>
+<div class="line"><span class="lineno">  489</span>        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (system == 2) {</div>
+<div class="line"><span class="lineno">  490</span>            us_planes.insert(detID / 1000);</div>
+<div class="line"><span class="lineno">  491</span>            <span class="keywordflow">if</span> (us_planes.size() &gt;= min_us_planes) {</div>
+<div class="line"><span class="lineno">  492</span>                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  493</span>            }</div>
+<div class="line"><span class="lineno">  494</span>        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (system == 3) {</div>
+<div class="line"><span class="lineno">  495</span>            ds_planes.insert(detID / 1000);</div>
+<div class="line"><span class="lineno">  496</span>            <span class="keywordflow">if</span> (ds_planes.size() &gt;= min_ds_planes) {</div>
+<div class="line"><span class="lineno">  497</span>                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  498</span>            }</div>
+<div class="line"><span class="lineno">  499</span>        }</div>
+<div class="line"><span class="lineno">  500</span>    }</div>
+<div class="line"><span class="lineno">  501</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  502</span>}</div>
 <div class="ttc" id="aclassMuFilterPoint_html"><div class="ttname"><a href="classMuFilterPoint.html">MuFilterPoint</a></div><div class="ttdef"><b>Definition</b> <a href="MuFilterPoint_8h_source.html#l00010">MuFilterPoint.h:11</a></div></div>
 <div class="ttc" id="anamespaceShipAna_html_aa4bf87f4d17f9d38b1d8f4d009bb54b3"><div class="ttname"><a href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">ShipAna.i</a></div><div class="ttdeci">int i</div><div class="ttdef"><b>Definition</b> <a href="ShipAna_8py_source.html#l00086">ShipAna.py:86</a></div></div>
 <div class="ttc" id="anamespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring_html_a1c800df226d66062268fa28c3e0c7f7a"><div class="ttname"><a href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">conditionsDatabase.demo.drifttubeMonitoring.p</a></div><div class="ttdeci">str p</div><div class="ttdef"><b>Definition</b> <a href="drifttubeMonitoring_8py_source.html#l00289">drifttubeMonitoring.py:289</a></div></div>
@@ -354,26 +354,26 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="MCEventBuilder_8cxx_source.html#l00554">554</a> of file <a class="el" href="MCEventBuilder_8cxx_source.html">MCEventBuilder.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  557</span>  {</div>
-<div class="line"><span class="lineno">  558</span>    std::set&lt;int&gt; UniquePlanes;</div>
-<div class="line"><span class="lineno">  559</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a> &lt; scifiArray-&gt;GetEntriesFast(); ++<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>) {</div>
-<div class="line"><span class="lineno">  560</span>        <span class="keyword">auto</span>* <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a> = <span class="keyword">static_cast&lt;</span><a class="code hl_class" href="classScifiPoint.html">ScifiPoint</a>*<span class="keyword">&gt;</span>(scifiArray-&gt;At(i));</div>
-<div class="line"><span class="lineno">  561</span>        <span class="keywordtype">int</span> point_detID = <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a>-&gt;GetDetectorID();</div>
-<div class="line"><span class="lineno">  562</span>        <span class="keywordtype">int</span> locFibreID = point_detID % 100000;</div>
-<div class="line"><span class="lineno">  563</span>        </div>
-<div class="line"><span class="lineno">  564</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; sipmChan : siPMFibresMap.at(locFibreID)) {</div>
-<div class="line"><span class="lineno">  565</span>            <span class="keywordtype">int</span> <a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#a418eb48b7e1bdd81bf222d0f3238896e">channel</a> = sipmChan.first;</div>
-<div class="line"><span class="lineno">  566</span>            <span class="keywordtype">int</span> detID_geo = (point_detID / 100000) * 100000 + channel;</div>
-<div class="line"><span class="lineno">  567</span>            UniquePlanes.insert(detID_geo / 100000);</div>
-<div class="line"><span class="lineno">  568</span> </div>
-<div class="line"><span class="lineno">  569</span>            <span class="keywordflow">if</span> (UniquePlanes.size() &gt;= min_scifi_planes) {</div>
-<div class="line"><span class="lineno">  570</span>              <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  571</span>            }</div>
-<div class="line"><span class="lineno">  572</span>        }</div>
-<div class="line"><span class="lineno">  573</span>    }</div>
-<div class="line"><span class="lineno">  574</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  575</span>  }  </div>
+<p class="definition">Definition at line <a class="el" href="MCEventBuilder_8cxx_source.html#l00555">555</a> of file <a class="el" href="MCEventBuilder_8cxx_source.html">MCEventBuilder.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  558</span>  {</div>
+<div class="line"><span class="lineno">  559</span>    std::set&lt;int&gt; UniquePlanes;</div>
+<div class="line"><span class="lineno">  560</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a> &lt; scifiArray-&gt;GetEntriesFast(); ++<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>) {</div>
+<div class="line"><span class="lineno">  561</span>        <span class="keyword">auto</span>* <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a> = <span class="keyword">static_cast&lt;</span><a class="code hl_class" href="classScifiPoint.html">ScifiPoint</a>*<span class="keyword">&gt;</span>(scifiArray-&gt;At(i));</div>
+<div class="line"><span class="lineno">  562</span>        <span class="keywordtype">int</span> point_detID = <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a>-&gt;GetDetectorID();</div>
+<div class="line"><span class="lineno">  563</span>        <span class="keywordtype">int</span> locFibreID = point_detID % 100000;</div>
+<div class="line"><span class="lineno">  564</span>        </div>
+<div class="line"><span class="lineno">  565</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; sipmChan : siPMFibresMap.at(locFibreID)) {</div>
+<div class="line"><span class="lineno">  566</span>            <span class="keywordtype">int</span> <a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#a418eb48b7e1bdd81bf222d0f3238896e">channel</a> = sipmChan.first;</div>
+<div class="line"><span class="lineno">  567</span>            <span class="keywordtype">int</span> detID_geo = (point_detID / 100000) * 100000 + channel;</div>
+<div class="line"><span class="lineno">  568</span>            UniquePlanes.insert(detID_geo / 100000);</div>
+<div class="line"><span class="lineno">  569</span> </div>
+<div class="line"><span class="lineno">  570</span>            <span class="keywordflow">if</span> (UniquePlanes.size() &gt;= min_scifi_planes) {</div>
+<div class="line"><span class="lineno">  571</span>              <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  572</span>            }</div>
+<div class="line"><span class="lineno">  573</span>        }</div>
+<div class="line"><span class="lineno">  574</span>    }</div>
+<div class="line"><span class="lineno">  575</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  576</span>  }  </div>
 <div class="ttc" id="aclassScifiPoint_html"><div class="ttname"><a href="classScifiPoint.html">ScifiPoint</a></div><div class="ttdef"><b>Definition</b> <a href="ScifiPoint_8h_source.html#l00010">ScifiPoint.h:11</a></div></div>
 <div class="ttc" id="anamespaceconvertRawData__muTestbeam_html_a418eb48b7e1bdd81bf222d0f3238896e"><div class="ttname"><a href="namespaceconvertRawData__muTestbeam.html#a418eb48b7e1bdd81bf222d0f3238896e">convertRawData_muTestbeam.channel</a></div><div class="ttdeci">channel</div><div class="ttdef"><b>Definition</b> <a href="convertRawData__muTestbeam_8py_source.html#l00098">convertRawData_muTestbeam.py:98</a></div></div>
 </div><!-- fragment -->
@@ -435,41 +435,41 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="MCEventBuilder_8cxx_source.html#l00441">441</a> of file <a class="el" href="MCEventBuilder_8cxx_source.html">MCEventBuilder.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  441</span>                                                                   {</div>
-<div class="line"><span class="lineno">  442</span>    <span class="comment">//The digits used here to assign IDs to systems are set to match the DAQ board IDs from the 2022 board_mapping.json file</span></div>
-<div class="line"><span class="lineno">  443</span>    std::set&lt;int&gt; us, <a class="code hl_variable" href="namespacerun__simScript.html#a5e103c2d1a917fa7b5d16e021e175f37">ds</a>;</div>
-<div class="line"><span class="lineno">  444</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a> &lt; muArray-&gt;GetEntriesFast(); ++<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>) {</div>
-<div class="line"><span class="lineno">  445</span>        <span class="keyword">auto</span>* <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a> = <span class="keyword">static_cast&lt;</span><a class="code hl_class" href="classMuFilterPoint.html">MuFilterPoint</a>*<span class="keyword">&gt;</span>(muArray-&gt;At(i));</div>
-<div class="line"><span class="lineno">  446</span>        <span class="keywordtype">int</span> detID = <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a>-&gt;GetDetectorID();</div>
-<div class="line"><span class="lineno">  447</span>        <span class="keywordtype">int</span> system = detID / 10000;</div>
-<div class="line"><span class="lineno">  448</span>        <span class="keywordtype">int</span> TypeofPlane = (detID / 1000) % 10;</div>
-<div class="line"><span class="lineno">  449</span>        <span class="keywordflow">if</span> (system == 2) {</div>
-<div class="line"><span class="lineno">  450</span>            <span class="keywordflow">if</span> (TypeofPlane == 1 || TypeofPlane == 2) {</div>
-<div class="line"><span class="lineno">  451</span>                us.insert(7);</div>
-<div class="line"><span class="lineno">  452</span>            } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (TypeofPlane == 3 || TypeofPlane == 4) {</div>
-<div class="line"><span class="lineno">  453</span>                us.insert(60);</div>
-<div class="line"><span class="lineno">  454</span>            } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (TypeofPlane == 5) {</div>
-<div class="line"><span class="lineno">  455</span>                us.insert(52);</div>
-<div class="line"><span class="lineno">  456</span>            }</div>
-<div class="line"><span class="lineno">  457</span>            <span class="keywordflow">if</span> (us.size() &gt;= min_us_boards) {</div>
-<div class="line"><span class="lineno">  458</span>                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  459</span>            }</div>
-<div class="line"><span class="lineno">  460</span>        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (system == 3) {</div>
-<div class="line"><span class="lineno">  461</span>            <span class="keywordflow">if</span> (TypeofPlane == 1) {</div>
-<div class="line"><span class="lineno">  462</span>                <a class="code hl_variable" href="namespacerun__simScript.html#a5e103c2d1a917fa7b5d16e021e175f37">ds</a>.insert(41);</div>
-<div class="line"><span class="lineno">  463</span>            } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (TypeofPlane == 2) {</div>
-<div class="line"><span class="lineno">  464</span>                <a class="code hl_variable" href="namespacerun__simScript.html#a5e103c2d1a917fa7b5d16e021e175f37">ds</a>.insert(35);</div>
-<div class="line"><span class="lineno">  465</span>            } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (TypeofPlane == 3 || TypeofPlane == 4) {</div>
-<div class="line"><span class="lineno">  466</span>                <a class="code hl_variable" href="namespacerun__simScript.html#a5e103c2d1a917fa7b5d16e021e175f37">ds</a>.insert(55);</div>
-<div class="line"><span class="lineno">  467</span>            }</div>
-<div class="line"><span class="lineno">  468</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespacerun__simScript.html#a5e103c2d1a917fa7b5d16e021e175f37">ds</a>.size() &gt;= min_ds_boards) {</div>
-<div class="line"><span class="lineno">  469</span>                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  470</span>            }</div>
-<div class="line"><span class="lineno">  471</span>        }</div>
-<div class="line"><span class="lineno">  472</span>    }</div>
-<div class="line"><span class="lineno">  473</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  474</span>}</div>
+<p class="definition">Definition at line <a class="el" href="MCEventBuilder_8cxx_source.html#l00442">442</a> of file <a class="el" href="MCEventBuilder_8cxx_source.html">MCEventBuilder.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  442</span>                                                                   {</div>
+<div class="line"><span class="lineno">  443</span>    <span class="comment">//The digits used here to assign IDs to systems are set to match the DAQ board IDs from the 2022 board_mapping.json file</span></div>
+<div class="line"><span class="lineno">  444</span>    std::set&lt;int&gt; us, <a class="code hl_variable" href="namespacerun__simScript.html#a5e103c2d1a917fa7b5d16e021e175f37">ds</a>;</div>
+<div class="line"><span class="lineno">  445</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a> &lt; muArray-&gt;GetEntriesFast(); ++<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>) {</div>
+<div class="line"><span class="lineno">  446</span>        <span class="keyword">auto</span>* <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a> = <span class="keyword">static_cast&lt;</span><a class="code hl_class" href="classMuFilterPoint.html">MuFilterPoint</a>*<span class="keyword">&gt;</span>(muArray-&gt;At(i));</div>
+<div class="line"><span class="lineno">  447</span>        <span class="keywordtype">int</span> detID = <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a>-&gt;GetDetectorID();</div>
+<div class="line"><span class="lineno">  448</span>        <span class="keywordtype">int</span> system = detID / 10000;</div>
+<div class="line"><span class="lineno">  449</span>        <span class="keywordtype">int</span> TypeofPlane = (detID / 1000) % 10;</div>
+<div class="line"><span class="lineno">  450</span>        <span class="keywordflow">if</span> (system == 2) {</div>
+<div class="line"><span class="lineno">  451</span>            <span class="keywordflow">if</span> (TypeofPlane == 1 || TypeofPlane == 2) {</div>
+<div class="line"><span class="lineno">  452</span>                us.insert(7);</div>
+<div class="line"><span class="lineno">  453</span>            } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (TypeofPlane == 3 || TypeofPlane == 4) {</div>
+<div class="line"><span class="lineno">  454</span>                us.insert(60);</div>
+<div class="line"><span class="lineno">  455</span>            } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (TypeofPlane == 5) {</div>
+<div class="line"><span class="lineno">  456</span>                us.insert(52);</div>
+<div class="line"><span class="lineno">  457</span>            }</div>
+<div class="line"><span class="lineno">  458</span>            <span class="keywordflow">if</span> (us.size() &gt;= min_us_boards) {</div>
+<div class="line"><span class="lineno">  459</span>                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  460</span>            }</div>
+<div class="line"><span class="lineno">  461</span>        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (system == 3) {</div>
+<div class="line"><span class="lineno">  462</span>            <span class="keywordflow">if</span> (TypeofPlane == 1) {</div>
+<div class="line"><span class="lineno">  463</span>                <a class="code hl_variable" href="namespacerun__simScript.html#a5e103c2d1a917fa7b5d16e021e175f37">ds</a>.insert(41);</div>
+<div class="line"><span class="lineno">  464</span>            } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (TypeofPlane == 2) {</div>
+<div class="line"><span class="lineno">  465</span>                <a class="code hl_variable" href="namespacerun__simScript.html#a5e103c2d1a917fa7b5d16e021e175f37">ds</a>.insert(35);</div>
+<div class="line"><span class="lineno">  466</span>            } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (TypeofPlane == 3 || TypeofPlane == 4) {</div>
+<div class="line"><span class="lineno">  467</span>                <a class="code hl_variable" href="namespacerun__simScript.html#a5e103c2d1a917fa7b5d16e021e175f37">ds</a>.insert(55);</div>
+<div class="line"><span class="lineno">  468</span>            }</div>
+<div class="line"><span class="lineno">  469</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespacerun__simScript.html#a5e103c2d1a917fa7b5d16e021e175f37">ds</a>.size() &gt;= min_ds_boards) {</div>
+<div class="line"><span class="lineno">  470</span>                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  471</span>            }</div>
+<div class="line"><span class="lineno">  472</span>        }</div>
+<div class="line"><span class="lineno">  473</span>    }</div>
+<div class="line"><span class="lineno">  474</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  475</span>}</div>
 <div class="ttc" id="anamespacerun__simScript_html_a5e103c2d1a917fa7b5d16e021e175f37"><div class="ttname"><a href="namespacerun__simScript.html#a5e103c2d1a917fa7b5d16e021e175f37">run_simScript.ds</a></div><div class="ttdeci">ds</div><div class="ttdef"><b>Definition</b> <a href="run__simScript_8py_source.html#l00202">run_simScript.py:202</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -498,28 +498,28 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="MCEventBuilder_8cxx_source.html#l00419">419</a> of file <a class="el" href="MCEventBuilder_8cxx_source.html">MCEventBuilder.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  419</span>                                                                 {</div>
-<div class="line"><span class="lineno">  420</span>    std::set&lt;int&gt; <a class="code hl_class" href="classveto.html">veto</a>, <a class="code hl_variable" href="namespacerun__simScript.html#a5e103c2d1a917fa7b5d16e021e175f37">ds</a>;</div>
-<div class="line"><span class="lineno">  421</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a> &lt; muArray-&gt;GetEntriesFast(); ++<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>) {</div>
-<div class="line"><span class="lineno">  422</span>        <span class="keyword">auto</span>* <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a> = <span class="keyword">static_cast&lt;</span><a class="code hl_class" href="classMuFilterPoint.html">MuFilterPoint</a>*<span class="keyword">&gt;</span>(muArray-&gt;At(i));</div>
-<div class="line"><span class="lineno">  423</span>        <span class="keywordtype">int</span> detID = <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a>-&gt;GetDetectorID();</div>
-<div class="line"><span class="lineno">  424</span>        <span class="keywordtype">int</span> system = detID / 10000;</div>
-<div class="line"><span class="lineno">  425</span>        <span class="keywordflow">if</span> (system == 1) {</div>
-<div class="line"><span class="lineno">  426</span>          <a class="code hl_class" href="classveto.html">veto</a>.insert(detID);</div>
-<div class="line"><span class="lineno">  427</span>          <span class="keywordflow">if</span> (<a class="code hl_class" href="classveto.html">veto</a>.size() &gt;= min_veto_hits) {</div>
-<div class="line"><span class="lineno">  428</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  429</span>          }</div>
-<div class="line"><span class="lineno">  430</span>        }</div>
-<div class="line"><span class="lineno">  431</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (system == 3) {</div>
-<div class="line"><span class="lineno">  432</span>          <a class="code hl_variable" href="namespacerun__simScript.html#a5e103c2d1a917fa7b5d16e021e175f37">ds</a>.insert(detID);</div>
-<div class="line"><span class="lineno">  433</span>          <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespacerun__simScript.html#a5e103c2d1a917fa7b5d16e021e175f37">ds</a>.size() &gt;= min_ds_hits) {</div>
-<div class="line"><span class="lineno">  434</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  435</span>          }</div>
-<div class="line"><span class="lineno">  436</span>        }</div>
-<div class="line"><span class="lineno">  437</span>    }</div>
-<div class="line"><span class="lineno">  438</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  439</span>}</div>
+<p class="definition">Definition at line <a class="el" href="MCEventBuilder_8cxx_source.html#l00420">420</a> of file <a class="el" href="MCEventBuilder_8cxx_source.html">MCEventBuilder.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  420</span>                                                                 {</div>
+<div class="line"><span class="lineno">  421</span>    std::set&lt;int&gt; <a class="code hl_class" href="classveto.html">veto</a>, <a class="code hl_variable" href="namespacerun__simScript.html#a5e103c2d1a917fa7b5d16e021e175f37">ds</a>;</div>
+<div class="line"><span class="lineno">  422</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a> &lt; muArray-&gt;GetEntriesFast(); ++<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>) {</div>
+<div class="line"><span class="lineno">  423</span>        <span class="keyword">auto</span>* <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a> = <span class="keyword">static_cast&lt;</span><a class="code hl_class" href="classMuFilterPoint.html">MuFilterPoint</a>*<span class="keyword">&gt;</span>(muArray-&gt;At(i));</div>
+<div class="line"><span class="lineno">  424</span>        <span class="keywordtype">int</span> detID = <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a>-&gt;GetDetectorID();</div>
+<div class="line"><span class="lineno">  425</span>        <span class="keywordtype">int</span> system = detID / 10000;</div>
+<div class="line"><span class="lineno">  426</span>        <span class="keywordflow">if</span> (system == 1) {</div>
+<div class="line"><span class="lineno">  427</span>          <a class="code hl_class" href="classveto.html">veto</a>.insert(detID);</div>
+<div class="line"><span class="lineno">  428</span>          <span class="keywordflow">if</span> (<a class="code hl_class" href="classveto.html">veto</a>.size() &gt;= min_veto_hits) {</div>
+<div class="line"><span class="lineno">  429</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  430</span>          }</div>
+<div class="line"><span class="lineno">  431</span>        }</div>
+<div class="line"><span class="lineno">  432</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (system == 3) {</div>
+<div class="line"><span class="lineno">  433</span>          <a class="code hl_variable" href="namespacerun__simScript.html#a5e103c2d1a917fa7b5d16e021e175f37">ds</a>.insert(detID);</div>
+<div class="line"><span class="lineno">  434</span>          <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespacerun__simScript.html#a5e103c2d1a917fa7b5d16e021e175f37">ds</a>.size() &gt;= min_ds_hits) {</div>
+<div class="line"><span class="lineno">  435</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  436</span>          }</div>
+<div class="line"><span class="lineno">  437</span>        }</div>
+<div class="line"><span class="lineno">  438</span>    }</div>
+<div class="line"><span class="lineno">  439</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  440</span>}</div>
 <div class="ttc" id="aclassveto_html"><div class="ttname"><a href="classveto.html">veto</a></div><div class="ttdef"><b>Definition</b> <a href="veto_8h_source.html#l00015">veto.h:16</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -558,28 +558,28 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="MCEventBuilder_8cxx_source.html#l00528">528</a> of file <a class="el" href="MCEventBuilder_8cxx_source.html">MCEventBuilder.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  531</span>  {</div>
-<div class="line"><span class="lineno">  532</span>    <span class="comment">//A DAQ board reads one Scifi mat and we use the first three digits of the detID_geo, representing the unique combination of StationPlaneMat, to count boards with fired channels.</span></div>
-<div class="line"><span class="lineno">  533</span>    std::set&lt;int&gt; dividedDetIds;</div>
-<div class="line"><span class="lineno">  534</span> </div>
-<div class="line"><span class="lineno">  535</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a> &lt; scifiArray-&gt;GetEntriesFast(); ++<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>) {</div>
-<div class="line"><span class="lineno">  536</span>        <span class="keyword">auto</span>* <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a> = <span class="keyword">static_cast&lt;</span><a class="code hl_class" href="classScifiPoint.html">ScifiPoint</a>*<span class="keyword">&gt;</span>(scifiArray-&gt;At(i));</div>
-<div class="line"><span class="lineno">  537</span>        <span class="keywordtype">int</span> point_detID = <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a>-&gt;GetDetectorID();</div>
-<div class="line"><span class="lineno">  538</span>        <span class="keywordtype">int</span> locFibreID = point_detID % 100000;</div>
-<div class="line"><span class="lineno">  539</span>        </div>
-<div class="line"><span class="lineno">  540</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; sipmChan : siPMFibresMap.at(locFibreID)) {</div>
-<div class="line"><span class="lineno">  541</span>            <span class="keywordtype">int</span> <a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#a418eb48b7e1bdd81bf222d0f3238896e">channel</a> = sipmChan.first;</div>
-<div class="line"><span class="lineno">  542</span>            <span class="keywordtype">int</span> detID_geo = (point_detID / 100000) * 100000 + channel;</div>
-<div class="line"><span class="lineno">  543</span>            dividedDetIds.insert(detID_geo / 10000);</div>
-<div class="line"><span class="lineno">  544</span> </div>
-<div class="line"><span class="lineno">  545</span>            <span class="keywordflow">if</span> (dividedDetIds.size() &gt;= min_scifi_boards){</div>
-<div class="line"><span class="lineno">  546</span>                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  547</span>              }</div>
-<div class="line"><span class="lineno">  548</span>        }</div>
-<div class="line"><span class="lineno">  549</span>    }</div>
-<div class="line"><span class="lineno">  550</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  551</span>  }</div>
+<p class="definition">Definition at line <a class="el" href="MCEventBuilder_8cxx_source.html#l00529">529</a> of file <a class="el" href="MCEventBuilder_8cxx_source.html">MCEventBuilder.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  532</span>  {</div>
+<div class="line"><span class="lineno">  533</span>    <span class="comment">//A DAQ board reads one Scifi mat and we use the first three digits of the detID_geo, representing the unique combination of StationPlaneMat, to count boards with fired channels.</span></div>
+<div class="line"><span class="lineno">  534</span>    std::set&lt;int&gt; dividedDetIds;</div>
+<div class="line"><span class="lineno">  535</span> </div>
+<div class="line"><span class="lineno">  536</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a> &lt; scifiArray-&gt;GetEntriesFast(); ++<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>) {</div>
+<div class="line"><span class="lineno">  537</span>        <span class="keyword">auto</span>* <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a> = <span class="keyword">static_cast&lt;</span><a class="code hl_class" href="classScifiPoint.html">ScifiPoint</a>*<span class="keyword">&gt;</span>(scifiArray-&gt;At(i));</div>
+<div class="line"><span class="lineno">  538</span>        <span class="keywordtype">int</span> point_detID = <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a>-&gt;GetDetectorID();</div>
+<div class="line"><span class="lineno">  539</span>        <span class="keywordtype">int</span> locFibreID = point_detID % 100000;</div>
+<div class="line"><span class="lineno">  540</span>        </div>
+<div class="line"><span class="lineno">  541</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; sipmChan : siPMFibresMap.at(locFibreID)) {</div>
+<div class="line"><span class="lineno">  542</span>            <span class="keywordtype">int</span> <a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#a418eb48b7e1bdd81bf222d0f3238896e">channel</a> = sipmChan.first;</div>
+<div class="line"><span class="lineno">  543</span>            <span class="keywordtype">int</span> detID_geo = (point_detID / 100000) * 100000 + channel;</div>
+<div class="line"><span class="lineno">  544</span>            dividedDetIds.insert(detID_geo / 10000);</div>
+<div class="line"><span class="lineno">  545</span> </div>
+<div class="line"><span class="lineno">  546</span>            <span class="keywordflow">if</span> (dividedDetIds.size() &gt;= min_scifi_boards){</div>
+<div class="line"><span class="lineno">  547</span>                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  548</span>              }</div>
+<div class="line"><span class="lineno">  549</span>        }</div>
+<div class="line"><span class="lineno">  550</span>    }</div>
+<div class="line"><span class="lineno">  551</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  552</span>  }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -617,26 +617,26 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="MCEventBuilder_8cxx_source.html#l00505">505</a> of file <a class="el" href="MCEventBuilder_8cxx_source.html">MCEventBuilder.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  508</span>  {</div>
-<div class="line"><span class="lineno">  509</span>    std::set&lt;int&gt; detIDs;</div>
-<div class="line"><span class="lineno">  510</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a> &lt; scifiArray-&gt;GetEntriesFast(); ++<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>) {</div>
-<div class="line"><span class="lineno">  511</span>        <span class="keyword">auto</span>* <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a> = <span class="keyword">static_cast&lt;</span><a class="code hl_class" href="classScifiPoint.html">ScifiPoint</a>*<span class="keyword">&gt;</span>(scifiArray-&gt;At(i));</div>
-<div class="line"><span class="lineno">  512</span>        <span class="keywordtype">int</span> point_detID = <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a>-&gt;GetDetectorID();</div>
-<div class="line"><span class="lineno">  513</span>        <span class="keywordtype">int</span> locFibreID = point_detID % 100000;</div>
-<div class="line"><span class="lineno">  514</span>        </div>
-<div class="line"><span class="lineno">  515</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; sipmChan : siPMFibresMap.at(locFibreID)) {</div>
-<div class="line"><span class="lineno">  516</span>            <span class="keywordtype">int</span> <a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#a418eb48b7e1bdd81bf222d0f3238896e">channel</a> = sipmChan.first;</div>
-<div class="line"><span class="lineno">  517</span>            <span class="keywordtype">int</span> detID_geo = (point_detID / 100000) * 100000 + channel;</div>
-<div class="line"><span class="lineno">  518</span>            detIDs.insert(detID_geo);</div>
-<div class="line"><span class="lineno">  519</span> </div>
-<div class="line"><span class="lineno">  520</span>            <span class="keywordflow">if</span> (detIDs.size() &gt;= <a class="code hl_function" href="namespaceneutrinoFilterGoldenSample__stage2.html#a10d0bb8254177ee5cfa90b582fa81df0">min_scifi_hits</a>){</div>
-<div class="line"><span class="lineno">  521</span>                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  522</span>              }</div>
-<div class="line"><span class="lineno">  523</span>        }</div>
-<div class="line"><span class="lineno">  524</span>    }</div>
-<div class="line"><span class="lineno">  525</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  526</span>  }</div>
+<p class="definition">Definition at line <a class="el" href="MCEventBuilder_8cxx_source.html#l00506">506</a> of file <a class="el" href="MCEventBuilder_8cxx_source.html">MCEventBuilder.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  509</span>  {</div>
+<div class="line"><span class="lineno">  510</span>    std::set&lt;int&gt; detIDs;</div>
+<div class="line"><span class="lineno">  511</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a> &lt; scifiArray-&gt;GetEntriesFast(); ++<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>) {</div>
+<div class="line"><span class="lineno">  512</span>        <span class="keyword">auto</span>* <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a> = <span class="keyword">static_cast&lt;</span><a class="code hl_class" href="classScifiPoint.html">ScifiPoint</a>*<span class="keyword">&gt;</span>(scifiArray-&gt;At(i));</div>
+<div class="line"><span class="lineno">  513</span>        <span class="keywordtype">int</span> point_detID = <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a>-&gt;GetDetectorID();</div>
+<div class="line"><span class="lineno">  514</span>        <span class="keywordtype">int</span> locFibreID = point_detID % 100000;</div>
+<div class="line"><span class="lineno">  515</span>        </div>
+<div class="line"><span class="lineno">  516</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; sipmChan : siPMFibresMap.at(locFibreID)) {</div>
+<div class="line"><span class="lineno">  517</span>            <span class="keywordtype">int</span> <a class="code hl_variable" href="namespaceconvertRawData__muTestbeam.html#a418eb48b7e1bdd81bf222d0f3238896e">channel</a> = sipmChan.first;</div>
+<div class="line"><span class="lineno">  518</span>            <span class="keywordtype">int</span> detID_geo = (point_detID / 100000) * 100000 + channel;</div>
+<div class="line"><span class="lineno">  519</span>            detIDs.insert(detID_geo);</div>
+<div class="line"><span class="lineno">  520</span> </div>
+<div class="line"><span class="lineno">  521</span>            <span class="keywordflow">if</span> (detIDs.size() &gt;= <a class="code hl_function" href="namespaceneutrinoFilterGoldenSample__stage2.html#a10d0bb8254177ee5cfa90b582fa81df0">min_scifi_hits</a>){</div>
+<div class="line"><span class="lineno">  522</span>                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  523</span>              }</div>
+<div class="line"><span class="lineno">  524</span>        }</div>
+<div class="line"><span class="lineno">  525</span>    }</div>
+<div class="line"><span class="lineno">  526</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  527</span>  }</div>
 <div class="ttc" id="anamespaceneutrinoFilterGoldenSample__stage2_html_a10d0bb8254177ee5cfa90b582fa81df0"><div class="ttname"><a href="namespaceneutrinoFilterGoldenSample__stage2.html#a10d0bb8254177ee5cfa90b582fa81df0">neutrinoFilterGoldenSample_stage2.min_scifi_hits</a></div><div class="ttdeci">min_scifi_hits(event)</div><div class="ttdef"><b>Definition</b> <a href="neutrinoFilterGoldenSample__stage2_8py_source.html#l00286">neutrinoFilterGoldenSample_stage2.py:286</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -664,58 +664,58 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="MCEventBuilder_8cxx_source.html#l00577">577</a> of file <a class="el" href="MCEventBuilder_8cxx_source.html">MCEventBuilder.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  577</span>                                {</div>
-<div class="line"><span class="lineno">  578</span>  <span class="comment">// Make the output file structure compatible with FairTasks to facilitate</span></div>
-<div class="line"><span class="lineno">  579</span>  <span class="comment">// runing the digitization task.</span></div>
-<div class="line"><span class="lineno">  580</span>  <a class="code hl_variable" href="classMCEventBuilder.html#ae8b78273545844e63282f2c1842280ad">fOutFile</a>-&gt;cd();</div>
-<div class="line"><span class="lineno">  581</span>  TFolder* folder = <span class="keyword">new</span> TFolder(<span class="stringliteral">&quot;cbmroot&quot;</span>, <span class="stringliteral">&quot;Main Folder&quot;</span>);</div>
-<div class="line"><span class="lineno">  582</span>  TFolder* fol_Stack = folder-&gt;AddFolder(<span class="stringliteral">&quot;Stack&quot;</span>, <span class="stringliteral">&quot;Stack Folder&quot;</span>);</div>
-<div class="line"><span class="lineno">  583</span>  <span class="keyword">auto</span> mcTrackArr = <span class="keyword">new</span> TClonesArray(<span class="stringliteral">&quot;ShipMCTrack&quot;</span>);</div>
-<div class="line"><span class="lineno">  584</span>  mcTrackArr-&gt;SetName(<span class="stringliteral">&quot;MCTrack&quot;</span>); <span class="comment">// avoid default plural names</span></div>
-<div class="line"><span class="lineno">  585</span>  fol_Stack-&gt;Add(mcTrackArr);</div>
-<div class="line"><span class="lineno">  586</span>  TFolder* fol_veto = folder-&gt;AddFolder(<span class="stringliteral">&quot;veto&quot;</span>, <span class="stringliteral">&quot;veto Folder&quot;</span>);</div>
-<div class="line"><span class="lineno">  587</span>  <span class="keyword">auto</span> vetoArr = <span class="keyword">new</span> TClonesArray(<span class="stringliteral">&quot;vetoPoint&quot;</span>);</div>
-<div class="line"><span class="lineno">  588</span>  vetoArr-&gt;SetName(<span class="stringliteral">&quot;vetoPoint&quot;</span>);</div>
-<div class="line"><span class="lineno">  589</span>  fol_veto-&gt;Add(vetoArr);  </div>
-<div class="line"><span class="lineno">  590</span>  TFolder* fol_EmulsionDet = folder-&gt;AddFolder(<span class="stringliteral">&quot;EmulsionDet&quot;</span>, <span class="stringliteral">&quot;EmulsionDetector Folder&quot;</span>);</div>
-<div class="line"><span class="lineno">  591</span>  <span class="keyword">auto</span> emuArr = <span class="keyword">new</span> TClonesArray(<span class="stringliteral">&quot;EmulsionDetPoint&quot;</span>);</div>
-<div class="line"><span class="lineno">  592</span>  emuArr-&gt;SetName(<span class="stringliteral">&quot;EmulsionDetPoint&quot;</span>);</div>
-<div class="line"><span class="lineno">  593</span>  fol_EmulsionDet-&gt;Add(emuArr);</div>
-<div class="line"><span class="lineno">  594</span>  TFolder* fol_Scifi = folder-&gt;AddFolder(<span class="stringliteral">&quot;Scifi&quot;</span>, <span class="stringliteral">&quot;Scifi Folder&quot;</span>);</div>
-<div class="line"><span class="lineno">  595</span>  <span class="keyword">auto</span> scifiArr = <span class="keyword">new</span> TClonesArray(<span class="stringliteral">&quot;ScifiPoint&quot;</span>);</div>
-<div class="line"><span class="lineno">  596</span>  scifiArr-&gt;SetName(<span class="stringliteral">&quot;ScifiPoint&quot;</span>);</div>
-<div class="line"><span class="lineno">  597</span>  fol_Scifi-&gt;Add(scifiArr);</div>
-<div class="line"><span class="lineno">  598</span>  TFolder* fol_MuFilter = folder-&gt;AddFolder(<span class="stringliteral">&quot;MuFilter&quot;</span>, <span class="stringliteral">&quot;MuFilter Folder&quot;</span>);</div>
-<div class="line"><span class="lineno">  599</span>  <span class="keyword">auto</span> mufArr = <span class="keyword">new</span> TClonesArray(<span class="stringliteral">&quot;MuFilterPoint&quot;</span>);</div>
-<div class="line"><span class="lineno">  600</span>  mufArr-&gt;SetName(<span class="stringliteral">&quot;MuFilterPoint&quot;</span>);</div>
-<div class="line"><span class="lineno">  601</span>  fol_MuFilter-&gt;Add(mufArr);</div>
-<div class="line"><span class="lineno">  602</span>  TFolder* fol_Event = folder-&gt;AddFolder(<span class="stringliteral">&quot;Event&quot;</span>, <span class="stringliteral">&quot;Event Folder&quot;</span>);</div>
-<div class="line"><span class="lineno">  603</span>  folder-&gt;Write();</div>
-<div class="line"><span class="lineno">  604</span> </div>
-<div class="line"><span class="lineno">  605</span>  <a class="code hl_variable" href="classMCEventBuilder.html#ae8b78273545844e63282f2c1842280ad">fOutFile</a>-&gt;cd();</div>
-<div class="line"><span class="lineno">  606</span>  TList* <a class="code hl_variable" href="namespaceneutrinoFilterGoldenSample__stage2.html#a02036c42366697178bfc3c7e93cfbb9f">branch_list</a> = <span class="keyword">new</span> TList();</div>
-<div class="line"><span class="lineno">  607</span>  <a class="code hl_variable" href="namespaceneutrinoFilterGoldenSample__stage2.html#a02036c42366697178bfc3c7e93cfbb9f">branch_list</a>-&gt;SetName(<span class="stringliteral">&quot;BranchList&quot;</span>);</div>
-<div class="line"><span class="lineno">  608</span>  <a class="code hl_variable" href="namespaceneutrinoFilterGoldenSample__stage2.html#a02036c42366697178bfc3c7e93cfbb9f">branch_list</a>-&gt;Add(<span class="keyword">new</span> TObjString(<span class="stringliteral">&quot;MCTrack&quot;</span>));</div>
-<div class="line"><span class="lineno">  609</span>  <a class="code hl_variable" href="namespaceneutrinoFilterGoldenSample__stage2.html#a02036c42366697178bfc3c7e93cfbb9f">branch_list</a>-&gt;Add(<span class="keyword">new</span> TObjString(<span class="stringliteral">&quot;vetoPoint&quot;</span>));</div>
-<div class="line"><span class="lineno">  610</span>  <a class="code hl_variable" href="namespaceneutrinoFilterGoldenSample__stage2.html#a02036c42366697178bfc3c7e93cfbb9f">branch_list</a>-&gt;Add(<span class="keyword">new</span> TObjString(<span class="stringliteral">&quot;EmulsionDetPoint&quot;</span>));</div>
-<div class="line"><span class="lineno">  611</span>  <a class="code hl_variable" href="namespaceneutrinoFilterGoldenSample__stage2.html#a02036c42366697178bfc3c7e93cfbb9f">branch_list</a>-&gt;Add(<span class="keyword">new</span> TObjString(<span class="stringliteral">&quot;ScifiPoint&quot;</span>));</div>
-<div class="line"><span class="lineno">  612</span>  <a class="code hl_variable" href="namespaceneutrinoFilterGoldenSample__stage2.html#a02036c42366697178bfc3c7e93cfbb9f">branch_list</a>-&gt;Add(<span class="keyword">new</span> TObjString(<span class="stringliteral">&quot;MuFilterPoint&quot;</span>));</div>
-<div class="line"><span class="lineno">  613</span>  <a class="code hl_variable" href="namespaceneutrinoFilterGoldenSample__stage2.html#a02036c42366697178bfc3c7e93cfbb9f">branch_list</a>-&gt;Add(<span class="keyword">new</span> TObjString(<span class="stringliteral">&quot;MCEventHeader.&quot;</span>));</div>
-<div class="line"><span class="lineno">  614</span>  <a class="code hl_variable" href="classMCEventBuilder.html#ae8b78273545844e63282f2c1842280ad">fOutFile</a>-&gt;WriteObject(branch_list, <span class="stringliteral">&quot;BranchList&quot;</span>);</div>
-<div class="line"><span class="lineno">  615</span>  <span class="keyword">auto</span>* timebased_branch_list = <span class="keyword">new</span> TList();</div>
-<div class="line"><span class="lineno">  616</span>  timebased_branch_list-&gt;SetName(<span class="stringliteral">&quot;TimeBasedBranchList&quot;</span>);</div>
-<div class="line"><span class="lineno">  617</span>  <a class="code hl_variable" href="classMCEventBuilder.html#ae8b78273545844e63282f2c1842280ad">fOutFile</a>-&gt;WriteObject(timebased_branch_list, <span class="stringliteral">&quot;TimeBasedBranchList&quot;</span>);</div>
-<div class="line"><span class="lineno">  618</span>  <a class="code hl_variable" href="classMCEventBuilder.html#ae8b78273545844e63282f2c1842280ad">fOutFile</a>-&gt;cd();</div>
-<div class="line"><span class="lineno">  619</span>  <span class="keyword">auto</span>* fileHeader = <span class="keyword">new</span> FairFileHeader();</div>
-<div class="line"><span class="lineno">  620</span>  fileHeader-&gt;SetTitle(<span class="stringliteral">&quot;FileHeader&quot;</span>);</div>
-<div class="line"><span class="lineno">  621</span>  fileHeader-&gt;Write(<span class="stringliteral">&quot;FileHeader&quot;</span>);</div>
-<div class="line"><span class="lineno">  622</span>  <a class="code hl_variable" href="classMCEventBuilder.html#ae8b78273545844e63282f2c1842280ad">fOutFile</a>-&gt;cd();</div>
-<div class="line"><span class="lineno">  623</span>  <span class="keywordflow">if</span> (<a class="code hl_variable" href="classMCEventBuilder.html#aafe7d4f34b224de13ce71bbd11e7a568">fOutTree</a>) {</div>
-<div class="line"><span class="lineno">  624</span>     <a class="code hl_variable" href="classMCEventBuilder.html#aafe7d4f34b224de13ce71bbd11e7a568">fOutTree</a>-&gt;Write();</div>
-<div class="line"><span class="lineno">  625</span>  }</div>
-<div class="line"><span class="lineno">  626</span>  LOG(INFO) &lt;&lt; <span class="stringliteral">&quot;Writing and closing output file: &quot;</span> &lt;&lt; <a class="code hl_variable" href="classMCEventBuilder.html#ab5c7a45d0486ab2887a77688e0bd1f71">fOutputFileName</a>;</div>
-<div class="line"><span class="lineno">  627</span>}</div>
+<p class="definition">Definition at line <a class="el" href="MCEventBuilder_8cxx_source.html#l00578">578</a> of file <a class="el" href="MCEventBuilder_8cxx_source.html">MCEventBuilder.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  578</span>                                {</div>
+<div class="line"><span class="lineno">  579</span>  <span class="comment">// Make the output file structure compatible with FairTasks to facilitate</span></div>
+<div class="line"><span class="lineno">  580</span>  <span class="comment">// runing the digitization task.</span></div>
+<div class="line"><span class="lineno">  581</span>  <a class="code hl_variable" href="classMCEventBuilder.html#ae8b78273545844e63282f2c1842280ad">fOutFile</a>-&gt;cd();</div>
+<div class="line"><span class="lineno">  582</span>  TFolder* folder = <span class="keyword">new</span> TFolder(<span class="stringliteral">&quot;cbmroot&quot;</span>, <span class="stringliteral">&quot;Main Folder&quot;</span>);</div>
+<div class="line"><span class="lineno">  583</span>  TFolder* fol_Stack = folder-&gt;AddFolder(<span class="stringliteral">&quot;Stack&quot;</span>, <span class="stringliteral">&quot;Stack Folder&quot;</span>);</div>
+<div class="line"><span class="lineno">  584</span>  <span class="keyword">auto</span> mcTrackArr = <span class="keyword">new</span> TClonesArray(<span class="stringliteral">&quot;ShipMCTrack&quot;</span>);</div>
+<div class="line"><span class="lineno">  585</span>  mcTrackArr-&gt;SetName(<span class="stringliteral">&quot;MCTrack&quot;</span>); <span class="comment">// avoid default plural names</span></div>
+<div class="line"><span class="lineno">  586</span>  fol_Stack-&gt;Add(mcTrackArr);</div>
+<div class="line"><span class="lineno">  587</span>  TFolder* fol_veto = folder-&gt;AddFolder(<span class="stringliteral">&quot;veto&quot;</span>, <span class="stringliteral">&quot;veto Folder&quot;</span>);</div>
+<div class="line"><span class="lineno">  588</span>  <span class="keyword">auto</span> vetoArr = <span class="keyword">new</span> TClonesArray(<span class="stringliteral">&quot;vetoPoint&quot;</span>);</div>
+<div class="line"><span class="lineno">  589</span>  vetoArr-&gt;SetName(<span class="stringliteral">&quot;vetoPoint&quot;</span>);</div>
+<div class="line"><span class="lineno">  590</span>  fol_veto-&gt;Add(vetoArr);  </div>
+<div class="line"><span class="lineno">  591</span>  TFolder* fol_EmulsionDet = folder-&gt;AddFolder(<span class="stringliteral">&quot;EmulsionDet&quot;</span>, <span class="stringliteral">&quot;EmulsionDetector Folder&quot;</span>);</div>
+<div class="line"><span class="lineno">  592</span>  <span class="keyword">auto</span> emuArr = <span class="keyword">new</span> TClonesArray(<span class="stringliteral">&quot;EmulsionDetPoint&quot;</span>);</div>
+<div class="line"><span class="lineno">  593</span>  emuArr-&gt;SetName(<span class="stringliteral">&quot;EmulsionDetPoint&quot;</span>);</div>
+<div class="line"><span class="lineno">  594</span>  fol_EmulsionDet-&gt;Add(emuArr);</div>
+<div class="line"><span class="lineno">  595</span>  TFolder* fol_Scifi = folder-&gt;AddFolder(<span class="stringliteral">&quot;Scifi&quot;</span>, <span class="stringliteral">&quot;Scifi Folder&quot;</span>);</div>
+<div class="line"><span class="lineno">  596</span>  <span class="keyword">auto</span> scifiArr = <span class="keyword">new</span> TClonesArray(<span class="stringliteral">&quot;ScifiPoint&quot;</span>);</div>
+<div class="line"><span class="lineno">  597</span>  scifiArr-&gt;SetName(<span class="stringliteral">&quot;ScifiPoint&quot;</span>);</div>
+<div class="line"><span class="lineno">  598</span>  fol_Scifi-&gt;Add(scifiArr);</div>
+<div class="line"><span class="lineno">  599</span>  TFolder* fol_MuFilter = folder-&gt;AddFolder(<span class="stringliteral">&quot;MuFilter&quot;</span>, <span class="stringliteral">&quot;MuFilter Folder&quot;</span>);</div>
+<div class="line"><span class="lineno">  600</span>  <span class="keyword">auto</span> mufArr = <span class="keyword">new</span> TClonesArray(<span class="stringliteral">&quot;MuFilterPoint&quot;</span>);</div>
+<div class="line"><span class="lineno">  601</span>  mufArr-&gt;SetName(<span class="stringliteral">&quot;MuFilterPoint&quot;</span>);</div>
+<div class="line"><span class="lineno">  602</span>  fol_MuFilter-&gt;Add(mufArr);</div>
+<div class="line"><span class="lineno">  603</span>  TFolder* fol_Event = folder-&gt;AddFolder(<span class="stringliteral">&quot;Event&quot;</span>, <span class="stringliteral">&quot;Event Folder&quot;</span>);</div>
+<div class="line"><span class="lineno">  604</span>  folder-&gt;Write();</div>
+<div class="line"><span class="lineno">  605</span> </div>
+<div class="line"><span class="lineno">  606</span>  <a class="code hl_variable" href="classMCEventBuilder.html#ae8b78273545844e63282f2c1842280ad">fOutFile</a>-&gt;cd();</div>
+<div class="line"><span class="lineno">  607</span>  TList* <a class="code hl_variable" href="namespaceneutrinoFilterGoldenSample__stage2.html#a02036c42366697178bfc3c7e93cfbb9f">branch_list</a> = <span class="keyword">new</span> TList();</div>
+<div class="line"><span class="lineno">  608</span>  <a class="code hl_variable" href="namespaceneutrinoFilterGoldenSample__stage2.html#a02036c42366697178bfc3c7e93cfbb9f">branch_list</a>-&gt;SetName(<span class="stringliteral">&quot;BranchList&quot;</span>);</div>
+<div class="line"><span class="lineno">  609</span>  <a class="code hl_variable" href="namespaceneutrinoFilterGoldenSample__stage2.html#a02036c42366697178bfc3c7e93cfbb9f">branch_list</a>-&gt;Add(<span class="keyword">new</span> TObjString(<span class="stringliteral">&quot;MCTrack&quot;</span>));</div>
+<div class="line"><span class="lineno">  610</span>  <a class="code hl_variable" href="namespaceneutrinoFilterGoldenSample__stage2.html#a02036c42366697178bfc3c7e93cfbb9f">branch_list</a>-&gt;Add(<span class="keyword">new</span> TObjString(<span class="stringliteral">&quot;vetoPoint&quot;</span>));</div>
+<div class="line"><span class="lineno">  611</span>  <a class="code hl_variable" href="namespaceneutrinoFilterGoldenSample__stage2.html#a02036c42366697178bfc3c7e93cfbb9f">branch_list</a>-&gt;Add(<span class="keyword">new</span> TObjString(<span class="stringliteral">&quot;EmulsionDetPoint&quot;</span>));</div>
+<div class="line"><span class="lineno">  612</span>  <a class="code hl_variable" href="namespaceneutrinoFilterGoldenSample__stage2.html#a02036c42366697178bfc3c7e93cfbb9f">branch_list</a>-&gt;Add(<span class="keyword">new</span> TObjString(<span class="stringliteral">&quot;ScifiPoint&quot;</span>));</div>
+<div class="line"><span class="lineno">  613</span>  <a class="code hl_variable" href="namespaceneutrinoFilterGoldenSample__stage2.html#a02036c42366697178bfc3c7e93cfbb9f">branch_list</a>-&gt;Add(<span class="keyword">new</span> TObjString(<span class="stringliteral">&quot;MuFilterPoint&quot;</span>));</div>
+<div class="line"><span class="lineno">  614</span>  <a class="code hl_variable" href="namespaceneutrinoFilterGoldenSample__stage2.html#a02036c42366697178bfc3c7e93cfbb9f">branch_list</a>-&gt;Add(<span class="keyword">new</span> TObjString(<span class="stringliteral">&quot;MCEventHeader.&quot;</span>));</div>
+<div class="line"><span class="lineno">  615</span>  <a class="code hl_variable" href="classMCEventBuilder.html#ae8b78273545844e63282f2c1842280ad">fOutFile</a>-&gt;WriteObject(branch_list, <span class="stringliteral">&quot;BranchList&quot;</span>);</div>
+<div class="line"><span class="lineno">  616</span>  <span class="keyword">auto</span>* timebased_branch_list = <span class="keyword">new</span> TList();</div>
+<div class="line"><span class="lineno">  617</span>  timebased_branch_list-&gt;SetName(<span class="stringliteral">&quot;TimeBasedBranchList&quot;</span>);</div>
+<div class="line"><span class="lineno">  618</span>  <a class="code hl_variable" href="classMCEventBuilder.html#ae8b78273545844e63282f2c1842280ad">fOutFile</a>-&gt;WriteObject(timebased_branch_list, <span class="stringliteral">&quot;TimeBasedBranchList&quot;</span>);</div>
+<div class="line"><span class="lineno">  619</span>  <a class="code hl_variable" href="classMCEventBuilder.html#ae8b78273545844e63282f2c1842280ad">fOutFile</a>-&gt;cd();</div>
+<div class="line"><span class="lineno">  620</span>  <span class="keyword">auto</span>* fileHeader = <span class="keyword">new</span> FairFileHeader();</div>
+<div class="line"><span class="lineno">  621</span>  fileHeader-&gt;SetTitle(<span class="stringliteral">&quot;FileHeader&quot;</span>);</div>
+<div class="line"><span class="lineno">  622</span>  fileHeader-&gt;Write(<span class="stringliteral">&quot;FileHeader&quot;</span>);</div>
+<div class="line"><span class="lineno">  623</span>  <a class="code hl_variable" href="classMCEventBuilder.html#ae8b78273545844e63282f2c1842280ad">fOutFile</a>-&gt;cd();</div>
+<div class="line"><span class="lineno">  624</span>  <span class="keywordflow">if</span> (<a class="code hl_variable" href="classMCEventBuilder.html#aafe7d4f34b224de13ce71bbd11e7a568">fOutTree</a>) {</div>
+<div class="line"><span class="lineno">  625</span>     <a class="code hl_variable" href="classMCEventBuilder.html#aafe7d4f34b224de13ce71bbd11e7a568">fOutTree</a>-&gt;Write();</div>
+<div class="line"><span class="lineno">  626</span>  }</div>
+<div class="line"><span class="lineno">  627</span>  LOG(INFO) &lt;&lt; <span class="stringliteral">&quot;Writing and closing output file: &quot;</span> &lt;&lt; <a class="code hl_variable" href="classMCEventBuilder.html#ab5c7a45d0486ab2887a77688e0bd1f71">fOutputFileName</a>;</div>
+<div class="line"><span class="lineno">  628</span>}</div>
 <div class="ttc" id="anamespaceneutrinoFilterGoldenSample__stage2_html_a02036c42366697178bfc3c7e93cfbb9f"><div class="ttname"><a href="namespaceneutrinoFilterGoldenSample__stage2.html#a02036c42366697178bfc3c7e93cfbb9f">neutrinoFilterGoldenSample_stage2.branch_list</a></div><div class="ttdeci">branch_list</div><div class="ttdef"><b>Definition</b> <a href="neutrinoFilterGoldenSample__stage2_8py_source.html#l00359">neutrinoFilterGoldenSample_stage2.py:359</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -1140,21 +1140,22 @@ Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  406</span>      <span class="keywordflow">if</span> (FirstEvent) {</div>
 <div class="line"><span class="lineno">  407</span>        <a class="code hl_variable" href="classMCEventBuilder.html#aafe7d4f34b224de13ce71bbd11e7a568">fOutTree</a>-&gt;Fill();</div>
 <div class="line"><span class="lineno">  408</span>        FirstEvent = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  409</span>      }</div>
-<div class="line"><span class="lineno">  410</span>    }</div>
-<div class="line"><span class="lineno">  411</span>    <span class="comment">//-----Save all chunks mode-------</span></div>
-<div class="line"><span class="lineno">  412</span>    <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  413</span>      <a class="code hl_variable" href="classMCEventBuilder.html#aafe7d4f34b224de13ce71bbd11e7a568">fOutTree</a>-&gt;Fill();</div>
-<div class="line"><span class="lineno">  414</span>    }</div>
-<div class="line"><span class="lineno">  415</span>  }</div>
-<div class="line"><span class="lineno">  416</span>}</div>
-<div class="ttc" id="aclassMCEventBuilder_html_a1e634579733a8619412942deeb8e9e16"><div class="ttname"><a href="classMCEventBuilder.html#a1e634579733a8619412942deeb8e9e16">MCEventBuilder::FastNoiseFilterScifi_Hits</a></div><div class="ttdeci">bool FastNoiseFilterScifi_Hits(TClonesArray *scifiArray, const std::map&lt; Int_t, std::map&lt; Int_t, std::array&lt; float, 2 &gt; &gt; &gt; &amp;siPMFibres)</div><div class="ttdef"><b>Definition</b> <a href="MCEventBuilder_8cxx_source.html#l00505">MCEventBuilder.cxx:505</a></div></div>
-<div class="ttc" id="aclassMCEventBuilder_html_a2bc1bd29b055cbf4f5c0c009f21f146e"><div class="ttname"><a href="classMCEventBuilder.html#a2bc1bd29b055cbf4f5c0c009f21f146e">MCEventBuilder::FastNoiseFilterMu_Boards</a></div><div class="ttdeci">bool FastNoiseFilterMu_Boards(TClonesArray *muArray)</div><div class="ttdef"><b>Definition</b> <a href="MCEventBuilder_8cxx_source.html#l00441">MCEventBuilder.cxx:441</a></div></div>
-<div class="ttc" id="aclassMCEventBuilder_html_a3551d1eb90917533147fc2972161e480"><div class="ttname"><a href="classMCEventBuilder.html#a3551d1eb90917533147fc2972161e480">MCEventBuilder::FastNoiseFilterMu_Hits</a></div><div class="ttdeci">bool FastNoiseFilterMu_Hits(TClonesArray *muArray)</div><div class="ttdef"><b>Definition</b> <a href="MCEventBuilder_8cxx_source.html#l00419">MCEventBuilder.cxx:419</a></div></div>
+<div class="line"><span class="lineno">  409</span>    <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  410</span>      }</div>
+<div class="line"><span class="lineno">  411</span>    }</div>
+<div class="line"><span class="lineno">  412</span>    <span class="comment">//-----Save all chunks mode-------</span></div>
+<div class="line"><span class="lineno">  413</span>    <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  414</span>      <a class="code hl_variable" href="classMCEventBuilder.html#aafe7d4f34b224de13ce71bbd11e7a568">fOutTree</a>-&gt;Fill();</div>
+<div class="line"><span class="lineno">  415</span>    }</div>
+<div class="line"><span class="lineno">  416</span>  }</div>
+<div class="line"><span class="lineno">  417</span>}</div>
+<div class="ttc" id="aclassMCEventBuilder_html_a1e634579733a8619412942deeb8e9e16"><div class="ttname"><a href="classMCEventBuilder.html#a1e634579733a8619412942deeb8e9e16">MCEventBuilder::FastNoiseFilterScifi_Hits</a></div><div class="ttdeci">bool FastNoiseFilterScifi_Hits(TClonesArray *scifiArray, const std::map&lt; Int_t, std::map&lt; Int_t, std::array&lt; float, 2 &gt; &gt; &gt; &amp;siPMFibres)</div><div class="ttdef"><b>Definition</b> <a href="MCEventBuilder_8cxx_source.html#l00506">MCEventBuilder.cxx:506</a></div></div>
+<div class="ttc" id="aclassMCEventBuilder_html_a2bc1bd29b055cbf4f5c0c009f21f146e"><div class="ttname"><a href="classMCEventBuilder.html#a2bc1bd29b055cbf4f5c0c009f21f146e">MCEventBuilder::FastNoiseFilterMu_Boards</a></div><div class="ttdeci">bool FastNoiseFilterMu_Boards(TClonesArray *muArray)</div><div class="ttdef"><b>Definition</b> <a href="MCEventBuilder_8cxx_source.html#l00442">MCEventBuilder.cxx:442</a></div></div>
+<div class="ttc" id="aclassMCEventBuilder_html_a3551d1eb90917533147fc2972161e480"><div class="ttname"><a href="classMCEventBuilder.html#a3551d1eb90917533147fc2972161e480">MCEventBuilder::FastNoiseFilterMu_Hits</a></div><div class="ttdeci">bool FastNoiseFilterMu_Hits(TClonesArray *muArray)</div><div class="ttdef"><b>Definition</b> <a href="MCEventBuilder_8cxx_source.html#l00420">MCEventBuilder.cxx:420</a></div></div>
 <div class="ttc" id="aclassMCEventBuilder_html_a6187de6d0a9418fbdecfdc1b823258c9"><div class="ttname"><a href="classMCEventBuilder.html#a6187de6d0a9418fbdecfdc1b823258c9">MCEventBuilder::OrderedIds</a></div><div class="ttdeci">std::vector&lt; int &gt; OrderedIds(const std::vector&lt; double &gt; &amp;times, double firstTime) const</div><div class="ttdef"><b>Definition</b> <a href="MCEventBuilder_8cxx_source.html#l00146">MCEventBuilder.cxx:146</a></div></div>
-<div class="ttc" id="aclassMCEventBuilder_html_a70246bfe0e58f717169f8347574731e0"><div class="ttname"><a href="classMCEventBuilder.html#a70246bfe0e58f717169f8347574731e0">MCEventBuilder::AdvancedNoiseFilterScifi</a></div><div class="ttdeci">bool AdvancedNoiseFilterScifi(TClonesArray *scifiArray, const std::map&lt; Int_t, std::map&lt; Int_t, std::array&lt; float, 2 &gt; &gt; &gt; &amp;siPMFibres)</div><div class="ttdef"><b>Definition</b> <a href="MCEventBuilder_8cxx_source.html#l00554">MCEventBuilder.cxx:554</a></div></div>
-<div class="ttc" id="aclassMCEventBuilder_html_a800ffefdacbd821ec50abbb37b67cf1c"><div class="ttname"><a href="classMCEventBuilder.html#a800ffefdacbd821ec50abbb37b67cf1c">MCEventBuilder::FastNoiseFilterScifi_Boards</a></div><div class="ttdeci">bool FastNoiseFilterScifi_Boards(TClonesArray *scifiArray, const std::map&lt; Int_t, std::map&lt; Int_t, std::array&lt; float, 2 &gt; &gt; &gt; &amp;siPMFibres)</div><div class="ttdef"><b>Definition</b> <a href="MCEventBuilder_8cxx_source.html#l00528">MCEventBuilder.cxx:528</a></div></div>
-<div class="ttc" id="aclassMCEventBuilder_html_a84352cafed029351d300ba3c132b6a99"><div class="ttname"><a href="classMCEventBuilder.html#a84352cafed029351d300ba3c132b6a99">MCEventBuilder::AdvancedNoiseFilterMu</a></div><div class="ttdeci">bool AdvancedNoiseFilterMu(TClonesArray *muArray)</div><div class="ttdef"><b>Definition</b> <a href="MCEventBuilder_8cxx_source.html#l00477">MCEventBuilder.cxx:477</a></div></div>
+<div class="ttc" id="aclassMCEventBuilder_html_a70246bfe0e58f717169f8347574731e0"><div class="ttname"><a href="classMCEventBuilder.html#a70246bfe0e58f717169f8347574731e0">MCEventBuilder::AdvancedNoiseFilterScifi</a></div><div class="ttdeci">bool AdvancedNoiseFilterScifi(TClonesArray *scifiArray, const std::map&lt; Int_t, std::map&lt; Int_t, std::array&lt; float, 2 &gt; &gt; &gt; &amp;siPMFibres)</div><div class="ttdef"><b>Definition</b> <a href="MCEventBuilder_8cxx_source.html#l00555">MCEventBuilder.cxx:555</a></div></div>
+<div class="ttc" id="aclassMCEventBuilder_html_a800ffefdacbd821ec50abbb37b67cf1c"><div class="ttname"><a href="classMCEventBuilder.html#a800ffefdacbd821ec50abbb37b67cf1c">MCEventBuilder::FastNoiseFilterScifi_Boards</a></div><div class="ttdeci">bool FastNoiseFilterScifi_Boards(TClonesArray *scifiArray, const std::map&lt; Int_t, std::map&lt; Int_t, std::array&lt; float, 2 &gt; &gt; &gt; &amp;siPMFibres)</div><div class="ttdef"><b>Definition</b> <a href="MCEventBuilder_8cxx_source.html#l00529">MCEventBuilder.cxx:529</a></div></div>
+<div class="ttc" id="aclassMCEventBuilder_html_a84352cafed029351d300ba3c132b6a99"><div class="ttname"><a href="classMCEventBuilder.html#a84352cafed029351d300ba3c132b6a99">MCEventBuilder::AdvancedNoiseFilterMu</a></div><div class="ttdeci">bool AdvancedNoiseFilterMu(TClonesArray *muArray)</div><div class="ttdef"><b>Definition</b> <a href="MCEventBuilder_8cxx_source.html#l00478">MCEventBuilder.cxx:478</a></div></div>
 <div class="ttc" id="aclassMuFilterPoint_html_a9641f163a3e7fa0e253a534763b7467e"><div class="ttname"><a href="classMuFilterPoint.html#a9641f163a3e7fa0e253a534763b7467e">MuFilterPoint::PdgCode</a></div><div class="ttdeci">Int_t PdgCode() const</div><div class="ttdef"><b>Definition</b> <a href="MuFilterPoint_8h_source.html#l00040">MuFilterPoint.h:40</a></div></div>
 <div class="ttc" id="aclassScifiPoint_html_afbcb6d64c44af59638350cf873e473e0"><div class="ttname"><a href="classScifiPoint.html#afbcb6d64c44af59638350cf873e473e0">ScifiPoint::PdgCode</a></div><div class="ttdeci">Int_t PdgCode() const</div><div class="ttdef"><b>Definition</b> <a href="ScifiPoint_8h_source.html#l00039">ScifiPoint.h:39</a></div></div>
 <div class="ttc" id="aclassShipMCTrack_html"><div class="ttname"><a href="classShipMCTrack.html">ShipMCTrack</a></div><div class="ttdef"><b>Definition</b> <a href="ShipMCTrack_8h_source.html#l00026">ShipMCTrack.h:27</a></div></div>
