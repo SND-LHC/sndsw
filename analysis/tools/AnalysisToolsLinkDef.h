@@ -39,5 +39,9 @@
 #pragma link C++ function snd::analysis_tools::GetGeometry(const std::string &);
 #pragma link C++ function snd::analysis_tools::FillScifi(const snd::Configuration &, TClonesArray *, Scifi *);
 #pragma link C++ function snd::analysis_tools::FillUS(const snd::Configuration &, TClonesArray *, MuFilter *);
+#pragma link C++ function snd::analysis_tools::GetScifiShowerStart(const std::vector<snd::analysis_tools::ScifiPlane &);
+#pragma link C++ function snd::analysis_tools::GetUSShowerEnd(const std::vector<snd::analysis_tools::USPlane> &);
+#pragma link C++ function snd::analysis_tools::GetShowerInterceptAndDirection(const snd::Configuration &, const std::vector<snd::analysis_tools::ScifiPlane> &, const std::vector<snd::analysis_tools::USPlane> &);
+#pragma link C++ function snd::analysis_tools::GetShoweringPlanes(const std::vector<snd::analysis_tools::ScifiPlane> &, const std::vector<snd::analysis_tools::USPlane> &);
 
 #endif

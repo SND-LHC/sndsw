@@ -3,7 +3,7 @@
 
 #include <vector>
 
-#include "TVector3.h"
+#include "Math/Point3D.h"
 #include "MuFilter.h"
 #include "MuFilterHit.h"
 #include "sndConfiguration.h"
@@ -56,18 +56,19 @@ namespace snd {
         const rl_pair<double> GetBarQdc(int bar_to_compute) const;
         const sl_pair<int> GetBarNHits(int bar_to_compute) const;
         const std::vector<USHit> GetHits() const { return hits_; };
+        double HasShower() const { return static_cast<int>(hits_.size()) >= configuration_.us_min_n_hits_for_centroid; };
         // The centroid is the qdc-weighted mean of hit positions, considering only hits with positive qdc
         void FindCentroid();
-        const TVector3 GetCentroid() const { return centroid_; };
-        const TVector3 GetCentroidError() const { return centroid_error_; };
+        ROOT::Math::XYZPoint GetCentroid() const { return centroid_; };
+        ROOT::Math::XYZPoint GetCentroidError() const { return centroid_error_; };
 
         void TimeFilter(double min_timestamp, double max_timestamp);
 
         private:
         std::vector<USHit> hits_;
         Configuration configuration_;
-        TVector3 centroid_;
-        TVector3 centroid_error_;
+        ROOT::Math::XYZPoint centroid_;
+        ROOT::Math::XYZPoint centroid_error_;
         int station_;
         };
     }
