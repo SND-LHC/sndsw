@@ -10,8 +10,9 @@
 #include "Scifi.h"
 #include "sndScifiHit.h"
 #include "ShipUnit.h"
+#include "Math/Point3D.h"
 
-snd::analysis_tools::ScifiPlane::ScifiPlane(std::vector<sndScifiHit*> snd_hits, Configuration configuration, Scifi *scifi_geometry, int station) : station_(station), configuration_(configuration), centroid_(std::nan(""), std::nan(""), std::nan("")), centroid_error_(std::nan(""), std::nan(""), std::nan(""))
+snd::analysis_tools::ScifiPlane::ScifiPlane(std::vector<sndScifiHit*> snd_hits, Configuration configuration, Scifi *scifi_geometry, int station) : configuration_(configuration), centroid_(std::nan(""), std::nan(""), std::nan("")), centroid_error_(std::nan(""), std::nan(""), std::nan("")), station_(station)
 {
     for ( auto snd_hit : snd_hits)
     {
@@ -44,12 +45,12 @@ const snd::analysis_tools::ScifiPlane::xy_pair<int> snd::analysis_tools::ScifiPl
     xy_pair<int> counts{0, 0};
     counts.x = std::count_if(hits_.begin(), hits_.end(), [](auto &hit)
                              { return hit.is_x; });
-    counts.y = hits_.size() - counts.x;
+    counts.y = static_cast<int>(hits_.size()) - counts.x;
 
     return counts;
 }
 
-bool snd::analysis_tools::ScifiPlane::IsShower() const
+bool snd::analysis_tools::ScifiPlane::HasShower() const
 {
     if (configuration_.scifi_min_hits_in_window > configuration_.scifi_shower_window_width)
     {
@@ -102,7 +103,7 @@ bool snd::analysis_tools::ScifiPlane::IsShower() const
     return density(is_hit.x) && density(is_hit.y);
 }
 
-const TVector3 snd::analysis_tools::ScifiPlane::GetCluster(int max_gap) const
+const ROOT::Math::XYZPoint snd::analysis_tools::ScifiPlane::GetCluster(int max_gap) const
 {
     std::vector<double> pos_x(configuration_.scifi_n_channels_per_plane, std::nan(""));
     std::vector<double> pos_y(configuration_.scifi_n_channels_per_plane, std::nan(""));
@@ -124,7 +125,7 @@ const TVector3 snd::analysis_tools::ScifiPlane::GetCluster(int max_gap) const
 
     auto largest_cluster = [&](const std::vector<double> &positions)
     {
-        int n = positions.size();
+        int n = static_cast<int>(positions.size());
 
         int best_start = -1, best_end = -1, best_size = 0;
         int start = -1, gap_count = 0, size = 0;
@@ -191,9 +192,9 @@ const TVector3 snd::analysis_tools::ScifiPlane::GetCluster(int max_gap) const
     double cluster_x = largest_cluster(pos_x);
     double cluster_y = largest_cluster(pos_y);
     if (!(std::isnan(cluster_x) || std::isnan(cluster_y))) {
-        return TVector3(cluster_x, cluster_y, hits_[0].z);
+        return ROOT::Math::XYZPoint(cluster_x, cluster_y, hits_[0].z);
     }
-    return TVector3(std::nan(""), std::nan(""), std::nan(""));
+    return ROOT::Math::XYZPoint(std::nan(""), std::nan(""), std::nan(""));
 }
 
 void snd::analysis_tools::ScifiPlane::TimeFilter(double min_timestamp, double max_timestamp)
@@ -204,7 +205,7 @@ void snd::analysis_tools::ScifiPlane::TimeFilter(double min_timestamp, double ma
                 hits_.end());
 }
 
-snd::analysis_tools::ScifiPlane::xy_pair<double> snd::analysis_tools::ScifiPlane::GetPointQdc(const TVector3 &point, double radius) const
+snd::analysis_tools::ScifiPlane::xy_pair<double> snd::analysis_tools::ScifiPlane::GetPointQdc(const ROOT::Math::XYZPoint &point, double radius) const
 {
     xy_pair<double> qdc{0.0, 0.0};
     for (const auto &hit : hits_) {
@@ -231,9 +232,9 @@ void snd::analysis_tools::ScifiPlane::FindCentroid()
                        cleaned_hits.end());
     int counts_x = std::count_if(cleaned_hits.begin(), cleaned_hits.end(), [](auto &hit)
                     { return hit.is_x; });
-    int counts_y = cleaned_hits.size()-counts_x;
+    int counts_y = static_cast<int>(cleaned_hits.size())-counts_x;
     if (counts_x < configuration_.scifi_min_n_hits_for_centroid && counts_y < configuration_.scifi_min_n_hits_for_centroid ) {
-        centroid_.SetXYZ(std::nan(""), std::nan(""), std::nan(""));
+        centroid_ = ROOT::Math::XYZPoint(std::nan(""), std::nan(""), std::nan(""));
         return;
     }
 
@@ -255,8 +256,8 @@ void snd::analysis_tools::ScifiPlane::FindCentroid()
             centroid_.SetZ(centroid_.Z() + hit.z * hit.qdc);
         }
     }
-    centroid_.SetXYZ((tot_qdc_x > 0) ? centroid_.X() / tot_qdc_x : std::nan(""), (tot_qdc_y > 0) ? centroid_.Y() / tot_qdc_y : std::nan(""), (tot_qdc_x+tot_qdc_y > 0) ? centroid_.Z() / (tot_qdc_x+tot_qdc_y) : std::nan(""));
-    centroid_error_.SetXYZ(configuration_.scifi_centroid_error_x, configuration_.scifi_centroid_error_y, configuration_.scifi_centroid_error_z);
+    centroid_ = ROOT::Math::XYZPoint((tot_qdc_x > 0) ? centroid_.X() / tot_qdc_x : std::nan(""), (tot_qdc_y > 0) ? centroid_.Y() / tot_qdc_y : std::nan(""), (tot_qdc_x+tot_qdc_y > 0) ? centroid_.Z() / (tot_qdc_x+tot_qdc_y) : std::nan(""));
+    centroid_error_ = ROOT::Math::XYZPoint(configuration_.scifi_centroid_error_x, configuration_.scifi_centroid_error_y, configuration_.scifi_centroid_error_z);
 }
 
 const snd::analysis_tools::ScifiPlane::xy_pair<double> snd::analysis_tools::ScifiPlane::GetTotQdc(bool only_positive) const

@@ -38,7 +38,7 @@ snd::analysis_tools::USPlane::USPlane(std::vector<MuFilterHit*> snd_hits, Config
 void snd::analysis_tools::USPlane::FindCentroid()
 {
     // min number of hit in the plane to attempt to find a centroid
-    if (hits_.size() < configuration_.us_min_n_hits_for_centroid)
+    if (static_cast<int>(hits_.size()) < configuration_.us_min_n_hits_for_centroid)
     {
         // std::cout<<"Not enough hits in US plane " << station_ <<" to find centroid\n";
         return;
@@ -165,7 +165,7 @@ const snd::analysis_tools::USPlane::sl_pair<int> snd::analysis_tools::USPlane::G
     sl_pair<int> counts{0, 0};
     counts.large = std::count_if(hits_.begin(), hits_.end(), [](auto &hit)
                              { return hit.is_large; });
-    counts.small = hits_.size() - counts.large;
+    counts.small = static_cast<int>(hits_.size()) - counts.large;
 
     return counts;
 }

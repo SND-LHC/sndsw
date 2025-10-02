@@ -17,6 +17,7 @@ sndConfiguration.cxx
 sndScifiPlane.cxx
 sndUSPlane.cxx
 sndPlaneTools.cxx
+sndShowerTools.cxx
 )
 
 set(LINK_DIRECTORIES
@@ -33,4 +34,4 @@ Set(DEPENDENCIES shipLHC)
 
 GENERATE_LIBRARY()
 
-target_link_libraries(snd_analysis_tools -lROOTTPython)
+target_link_libraries(snd_analysis_tools -lROOTTPython -lMatrix -lMathCore -lCore)
