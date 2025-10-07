@@ -3511,7 +3511,9 @@ def Scifi_residuals(Nev=options.nEvents,NbinsRes=100,xmin=-2000.,alignPar=False,
            sortedClusters[so].append(aCl)
  
 # select events with clusters in each plane
-        if len(sortedClusters)<2*nScifi: continue
+        n_max_scifi_planes = 2*nScifi
+        #n_max_scifi_planes = 2*nScifi-1 #uncomment if a mat is out
+        if len(sortedClusters)<n_max_scifi_planes: continue
         goodEvent = True
         for s in sortedClusters:
           if len(sortedClusters[s])>1: goodEvent=False
@@ -3532,7 +3534,9 @@ def Scifi_residuals(Nev=options.nEvents,NbinsRes=100,xmin=-2000.,alignPar=False,
                   validTrack = False
                   continue
                fitStatus = theTrack.getFitStatus()
-               if not fitStatus.isFitConverged() or theTrack.getNumPointsWithMeasurement()<2*(nScifi-1):
+               n_track_points = 2*(nScifi-1)
+               #if s!=5: n_track_points=2*(nScifi-1)-1 #uncomment if a mat is out, e.g. 5v0
+               if not fitStatus.isFitConverged() or theTrack.getNumPointsWithMeasurement()<n_track_points:
                   theTrack.Delete()
                   validTrack = False
                   continue
@@ -3545,6 +3549,7 @@ def Scifi_residuals(Nev=options.nEvents,NbinsRes=100,xmin=-2000.,alignPar=False,
 # test plane
             for o in range(2):
                 testPlane = s*10+o
+                #if not testPlane in sortedClusters.keys(): continue #uncomment if a mat is out
                 z = zPos['Scifi'][testPlane]
                 rep     = ROOT.genfit.RKTrackRep(13)
                 state  = ROOT.genfit.StateOnPlane(rep)
@@ -3886,6 +3891,7 @@ def minimizeAlignScifi(first=True,level=1,migrad=False):
                    # there are rotations btw planes that are accounted for
                    if s==2 and o==0 : gMinuit.FixParameter(p)
                  else:
+                   #if s==5 and o==1 and m==0:gMinuit.FixParameter(p)#uncomment if a mat is out, e.g. 5v0
                    if s==3 or s==4 : gMinuit.FixParameter(p)
                  p+=1
       for s in range(1, nScifi+1):    
