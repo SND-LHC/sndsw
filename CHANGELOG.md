@@ -26,6 +26,12 @@ We start with the first sndsw release: v1.0.0+2025-07-updateScifi.
 Shall there be a strong will/need, one can go back and create and
 fill in the logs for previous stacks.
 
+
+### Fixed
+
+- multiple fixes due to drop of attribute pythonization for TDirectory and TClonesArray
+- Disable web-viewer when checking for geo overlaps (workaround!)
+
 ## v1.2.1+2025-09
 
 ### Added
