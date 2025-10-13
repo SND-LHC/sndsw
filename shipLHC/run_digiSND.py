@@ -84,6 +84,9 @@ scifiDet.SetConfPar("Scifi/nphe_min",options.ts)   # threshold
 scifiDet.SetConfPar("Scifi/nphe_max",options.ss) # saturation
 scifiDet.SetConfPar("Scifi/timeResol",150.*u.picosecond) # time resolution in ps
 scifiDet.SetConfPar("MuFilter/timeResol",150.*u.picosecond) # time resolution in ps, first guess
+# in MC productions generated before July 2022 Scifi signal speed is missing from the geofile
+if scifiDet.GetConfParF("Scifi/signalSpeed")==0:
+  scifiDet.SetConfPar("Scifi/signalSpeed", 15*u.cm/u.nanosecond)
 
 
 # Fair digitization task
