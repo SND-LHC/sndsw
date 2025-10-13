@@ -26,14 +26,38 @@ int snd::analysis_tools::GetScifiShowerStart(const std::vector<snd::analysis_too
   return -1;
 }
 
-int snd::analysis_tools::GetUSShowerEnd(const std::vector<snd::analysis_tools::USPlane> &us_planes)
+int snd::analysis_tools::GetScifiShowerEnd(const std::vector<snd::analysis_tools::ScifiPlane> &scifi_planes)
+{
+  // Assuming planes are ordered
+  for (auto p = scifi_planes.rbegin(); p != scifi_planes.rend(); p++) {
+    if (p->HasShower())
+    {
+      return p->GetStation();
+    }
+  }
+  return -1;
+}
+
+int snd::analysis_tools::GetUSShowerStart(const std::vector<snd::analysis_tools::USPlane> &us_planes)
 {
   // Assuming planes are ordered
   for (const auto &p : us_planes)
   {
-    if (!p.HasShower())
+    if (p.HasShower())
     {
       return p.GetStation();
+    }
+  }
+  return -1;
+}
+
+int snd::analysis_tools::GetUSShowerEnd(const std::vector<snd::analysis_tools::USPlane> &us_planes)
+{
+  // Assuming planes are ordered
+  for (auto p = us_planes.rbegin(); p != us_planes.rend(); p++) {
+    if (p->HasShower())
+    {
+      return p->GetStation();
     }
   }
   return -1;

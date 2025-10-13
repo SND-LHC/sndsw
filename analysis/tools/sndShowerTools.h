@@ -11,9 +11,13 @@
 
 namespace snd {
     namespace analysis_tools {
-        // Returns first station with shower. If no shower is found in SciFi, returns -1
+        // Returns first SciFi station with shower. If no shower is found in SciFi, returns -1
         int GetScifiShowerStart(const std::vector<ScifiPlane> &scifi_planes);
-        // Return first station without shower. If a shower is found in every station, returns -1
+        // Returns last SciFi station with shower. If no shower is found in SciFi, returns -1
+        int GetScifiShowerEnd(const std::vector<ScifiPlane> &scifi_planes);
+        // Returns first US station with shower. If no shower is found in US, returns -1
+        int GetUSShowerStart(const std::vector<USPlane> &us_planes);
+        // Returns last US station with shower. If no shower is found in US, returns -1
         int GetUSShowerEnd(const std::vector<USPlane> &us_planes);
         // Returns a 3D reference point and the normalized direction of the shower fitting centroids in SciFi and US
         std::pair<ROOT::Math::XYZPoint, ROOT::Math::XYZVector> GetShowerInterceptAndDirection(const Configuration &configuration, const std::vector<ScifiPlane> &scifi_planes, const std::vector<USPlane> &us_planes);
