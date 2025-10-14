@@ -1,5 +1,7 @@
 var NAVTREEINDEX69 =
 {
+"namespace2dEventDisplay.html#a0b985a22ebfa029c28a78d53476c23cc":[12,0,0,43],
+"namespace2dEventDisplay.html#a0dd09c8c53800c62fad39dada6513caf":[12,0,0,11],
 "namespace2dEventDisplay.html#a1a97e93e7168ad88491974661f836503":[12,0,0,51],
 "namespace2dEventDisplay.html#a1b27495d5b4ea3201b7c03f60e966fc7":[12,0,0,64],
 "namespace2dEventDisplay.html#a1b84a9991f005d31ec11b3a87e5e8d61":[12,0,0,69],
@@ -247,7 +249,5 @@ var NAVTREEINDEX69 =
 "namespaceMufluxMuonTaggerDrifttubesCombo.html#a7bd2402078acd3d204a04626d16d0146":[12,0,97,4],
 "namespaceMufluxMuonTaggerDrifttubesCombo.html#aa634a8b35cf19d1529334bb47061454a":[12,0,97,2],
 "namespaceMufluxMuonTaggerPatRec.html":[12,0,98],
-"namespaceMufluxMuonTaggerPatRec.html#a126e33e28b3e4914744b3af086addbcf":[12,0,98,9],
-"namespaceMufluxMuonTaggerPatRec.html#a455e162350e421719336e4d3a584fc32":[12,0,98,1],
-"namespaceMufluxMuonTaggerPatRec.html#a50210c236ff2f326b4c393ce881a38c7":[12,0,98,5]
+"namespaceMufluxMuonTaggerPatRec.html#a126e33e28b3e4914744b3af086addbcf":[12,0,98,9]
 };

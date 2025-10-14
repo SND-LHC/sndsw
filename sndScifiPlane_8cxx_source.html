@@ -109,309 +109,310 @@ $(document).ready(function(){initNavTree('sndScifiPlane_8cxx_source.html',''); i
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="Scifi_8h.html">Scifi.h</a>&quot;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="sndScifiHit_8h.html">sndScifiHit.h</a>&quot;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="ShipUnit_8h.html">ShipUnit.h</a>&quot;</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="foldopen" id="foldopen00014" data-start="{" data-end="}">
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a11a492571fe2545091543f6214a2eea6">   14</a></span><a class="code hl_function" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a11a492571fe2545091543f6214a2eea6">snd::analysis_tools::ScifiPlane::ScifiPlane</a>(std::vector&lt;sndScifiHit*&gt; snd_hits, <a class="code hl_struct" href="structsnd_1_1Configuration.html">Configuration</a> configuration, <a class="code hl_class" href="classScifi.html">Scifi</a> *scifi_geometry, <span class="keywordtype">int</span> station) : station_(station), configuration_(configuration), centroid_(std::nan(<span class="stringliteral">&quot;&quot;</span>), std::nan(<span class="stringliteral">&quot;&quot;</span>), std::nan(<span class="stringliteral">&quot;&quot;</span>)), centroid_error_(std::nan(<span class="stringliteral">&quot;&quot;</span>), std::nan(<span class="stringliteral">&quot;&quot;</span>), std::nan(<span class="stringliteral">&quot;&quot;</span>))</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>{</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordflow">for</span> ( <span class="keyword">auto</span> snd_hit : snd_hits)</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    {</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit.html">ScifiHit</a> hit;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit.html#aad77054f4756d328b0f090e56c838f6c">channel_index</a> = 512 * snd_hit-&gt;GetMat() + 128 * snd_hit-&gt;GetSiPM() + snd_hit-&gt;GetSiPMChan();</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit.html#a7ff6178992a108faab8ddf442f82e2ac">timestamp</a> = (scifi_geometry-&gt;<a class="code hl_function" href="classScifi.html#ad450e9024b424afc7cc0cdeafbe23552">GetCorrectedTime</a>(snd_hit-&gt;GetDetectorID(), snd_hit-&gt;GetTime(0)*ShipUnit::snd_TDC2ns, 0) / ShipUnit::snd_TDC2ns);  <span class="comment">// timestamp is in clock cycles</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit.html#a5d8bf3af31582d6536b7ba1e6ddc5e2b">qdc</a> = snd_hit-&gt;GetSignal(0);</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit.html#a84054e06bd359fae1d4c9e053104d4fa">is_x</a> = snd_hit-&gt;isVertical();</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        TVector3 A, B;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <span class="keywordtype">int</span> detectorID = snd_hit-&gt;GetDetectorID();</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        scifi_geometry-&gt;<a class="code hl_function" href="classScifi.html#a1b931ff9f46817177b0595f65c1e8f8f">GetSiPMPosition</a>(detectorID, A, B);</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit.html#aa72b14cbd5347088f19e5a8d2a583c03">z</a> = A.Z();</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <span class="keywordflow">if</span> (hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit.html#a84054e06bd359fae1d4c9e053104d4fa">is_x</a>)</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        {</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit.html#a0dde40811abb0b495d3315d91b371103">x</a> = A.X();</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit.html#a48c8cffd79f28daac301f2c80e8aa072">y</a> = std::nan(<span class="stringliteral">&quot;&quot;</span>);</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        }</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        {</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>            hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit.html#a0dde40811abb0b495d3315d91b371103">x</a> = std::nan(<span class="stringliteral">&quot;&quot;</span>);</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>            hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit.html#a48c8cffd79f28daac301f2c80e8aa072">y</a> = A.Y();</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        }</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9b79ca6732ed9148dd79942270fc2ea5">hits_</a>.push_back(hit);</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    }</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>}</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;Math/Point3D.h&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="foldopen" id="foldopen00015" data-start="{" data-end="}">
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a11a492571fe2545091543f6214a2eea6">   15</a></span><a class="code hl_function" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a11a492571fe2545091543f6214a2eea6">snd::analysis_tools::ScifiPlane::ScifiPlane</a>(std::vector&lt;sndScifiHit*&gt; snd_hits, <a class="code hl_struct" href="structsnd_1_1Configuration.html">Configuration</a> configuration, <a class="code hl_class" href="classScifi.html">Scifi</a> *scifi_geometry, <span class="keywordtype">int</span> station) : configuration_(configuration), centroid_(std::nan(<span class="stringliteral">&quot;&quot;</span>), std::nan(<span class="stringliteral">&quot;&quot;</span>), std::nan(<span class="stringliteral">&quot;&quot;</span>)), centroid_error_(std::nan(<span class="stringliteral">&quot;&quot;</span>), std::nan(<span class="stringliteral">&quot;&quot;</span>), std::nan(<span class="stringliteral">&quot;&quot;</span>)), station_(station)</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>{</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordflow">for</span> ( <span class="keyword">auto</span> snd_hit : snd_hits)</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit.html">ScifiHit</a> hit;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit.html#aad77054f4756d328b0f090e56c838f6c">channel_index</a> = 512 * snd_hit-&gt;GetMat() + 128 * snd_hit-&gt;GetSiPM() + snd_hit-&gt;GetSiPMChan();</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit.html#a7ff6178992a108faab8ddf442f82e2ac">timestamp</a> = (scifi_geometry-&gt;<a class="code hl_function" href="classScifi.html#ad450e9024b424afc7cc0cdeafbe23552">GetCorrectedTime</a>(snd_hit-&gt;GetDetectorID(), snd_hit-&gt;GetTime(0)*ShipUnit::snd_TDC2ns, 0) / ShipUnit::snd_TDC2ns);  <span class="comment">// timestamp is in clock cycles</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit.html#a5d8bf3af31582d6536b7ba1e6ddc5e2b">qdc</a> = snd_hit-&gt;GetSignal(0);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit.html#a84054e06bd359fae1d4c9e053104d4fa">is_x</a> = snd_hit-&gt;isVertical();</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        TVector3 A, B;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="keywordtype">int</span> detectorID = snd_hit-&gt;GetDetectorID();</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        scifi_geometry-&gt;<a class="code hl_function" href="classScifi.html#a1b931ff9f46817177b0595f65c1e8f8f">GetSiPMPosition</a>(detectorID, A, B);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit.html#aa72b14cbd5347088f19e5a8d2a583c03">z</a> = A.Z();</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <span class="keywordflow">if</span> (hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit.html#a84054e06bd359fae1d4c9e053104d4fa">is_x</a>)</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        {</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit.html#a0dde40811abb0b495d3315d91b371103">x</a> = A.X();</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit.html#a48c8cffd79f28daac301f2c80e8aa072">y</a> = std::nan(<span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        }</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        {</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>            hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit.html#a0dde40811abb0b495d3315d91b371103">x</a> = std::nan(<span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit.html#a48c8cffd79f28daac301f2c80e8aa072">y</a> = A.Y();</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        }</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9b79ca6732ed9148dd79942270fc2ea5">hits_</a>.push_back(hit);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    }</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>}</div>
 </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="foldopen" id="foldopen00042" data-start="{" data-end="}">
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a0ea646a1631b07396bc89fe1b9d522ea">   42</a></span><span class="keyword">const</span> <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html">snd::analysis_tools::ScifiPlane::xy_pair&lt;int&gt;</a> <a class="code hl_function" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a0ea646a1631b07396bc89fe1b9d522ea">snd::analysis_tools::ScifiPlane::GetNHits</a>()<span class="keyword"> const</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keyword"></span>{</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html">xy_pair&lt;int&gt;</a> counts{0, 0};</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    counts.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html#acaa1528e54837760ce8bc2b92bd25e4d">x</a> = std::count_if(hits_.begin(), hits_.end(), [](<span class="keyword">auto</span> &amp;hit)</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>                             { return hit.is_x; });</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    counts.y = hits_.size() - counts.x;</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordflow">return</span> counts;</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>}</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="foldopen" id="foldopen00043" data-start="{" data-end="}">
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a0ea646a1631b07396bc89fe1b9d522ea">   43</a></span><span class="keyword">const</span> <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html">snd::analysis_tools::ScifiPlane::xy_pair&lt;int&gt;</a> <a class="code hl_function" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a0ea646a1631b07396bc89fe1b9d522ea">snd::analysis_tools::ScifiPlane::GetNHits</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html">xy_pair&lt;int&gt;</a> counts{0, 0};</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    counts.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html#acaa1528e54837760ce8bc2b92bd25e4d">x</a> = std::count_if(hits_.begin(), hits_.end(), [](<span class="keyword">auto</span> &amp;hit)</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>                             { return hit.is_x; });</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    counts.y = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(hits_.size()) - counts.x;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordflow">return</span> counts;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>}</div>
 </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="foldopen" id="foldopen00052" data-start="{" data-end="}">
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#aabf9409cd23920267b67ab1f88ac1c8d">   52</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#aabf9409cd23920267b67ab1f88ac1c8d">snd::analysis_tools::ScifiPlane::IsShower</a>()<span class="keyword"> const</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keyword"></span>{</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordflow">if</span> (configuration_.scifi_min_hits_in_window &gt; configuration_.scifi_shower_window_width)</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    {</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keywordflow">throw</span> std::runtime_error{<span class="stringliteral">&quot;min_hits &gt; window_width&quot;</span>};</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    }</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordflow">if</span> (configuration_.scifi_shower_window_width &gt; configuration_.scifi_n_channels_per_plane)</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    {</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <span class="keywordflow">throw</span> std::runtime_error{<span class="stringliteral">&quot;window_width &gt; n_channels_per_plane&quot;</span>};</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    }</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html">xy_pair&lt;std::vector&lt;int&gt;</a>&gt; is_hit;</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    is_hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html#acaa1528e54837760ce8bc2b92bd25e4d">x</a>.resize(configuration_.scifi_n_channels_per_plane, 0);</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    is_hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html#a6092dc79a64903b97b6b71aba87c09db">y</a>.resize(configuration_.scifi_n_channels_per_plane, 0);</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;hit : hits_)</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    {</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <span class="keywordflow">if</span> (hit.channel_index &lt; 0 ||</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            hit.channel_index &gt;= configuration_.scifi_n_channels_per_plane)</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        {</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>            <span class="keywordflow">throw</span> std::out_of_range{<span class="stringliteral">&quot;hit.channel_index out of range&quot;</span>};</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        }</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        (hit.is_x ? is_hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html#acaa1528e54837760ce8bc2b92bd25e4d">x</a> : is_hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html#a6092dc79a64903b97b6b71aba87c09db">y</a>)[hit.channel_index] = 1;</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    }</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keyword">auto</span> density = [&amp;](<span class="keyword">const</span> std::vector&lt;int&gt; &amp;hit_arr)</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    {</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <span class="keywordtype">int</span> count{0};</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <span class="comment">// Initial count for the first window</span></div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i{0}; i &lt; configuration_.scifi_shower_window_width; ++i)</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        {</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>            count += hit_arr[i];</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        }</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <span class="keywordflow">if</span> (count &gt;= configuration_.scifi_min_hits_in_window)</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <span class="comment">// Slide the window across the array</span></div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = configuration_.scifi_shower_window_width; i &lt; configuration_.scifi_n_channels_per_plane; ++i)</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        {</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>            count += hit_arr[i] - hit_arr[i - configuration_.scifi_shower_window_width];</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>            <span class="keywordflow">if</span> (count &gt;= configuration_.scifi_min_hits_in_window)</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        }</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    };</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keywordflow">return</span> density(is_hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html#acaa1528e54837760ce8bc2b92bd25e4d">x</a>) &amp;&amp; density(is_hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html#a6092dc79a64903b97b6b71aba87c09db">y</a>);</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>}</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="foldopen" id="foldopen00053" data-start="{" data-end="}">
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a056fd4f44882b70ac25138be8cb42d99">   53</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a056fd4f44882b70ac25138be8cb42d99">snd::analysis_tools::ScifiPlane::HasShower</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordflow">if</span> (configuration_.scifi_min_hits_in_window &gt; configuration_.scifi_shower_window_width)</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    {</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keywordflow">throw</span> std::runtime_error{<span class="stringliteral">&quot;min_hits &gt; window_width&quot;</span>};</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    }</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordflow">if</span> (configuration_.scifi_shower_window_width &gt; configuration_.scifi_n_channels_per_plane)</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    {</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="keywordflow">throw</span> std::runtime_error{<span class="stringliteral">&quot;window_width &gt; n_channels_per_plane&quot;</span>};</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    }</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html">xy_pair&lt;std::vector&lt;int&gt;</a>&gt; is_hit;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    is_hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html#acaa1528e54837760ce8bc2b92bd25e4d">x</a>.resize(configuration_.scifi_n_channels_per_plane, 0);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    is_hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html#a6092dc79a64903b97b6b71aba87c09db">y</a>.resize(configuration_.scifi_n_channels_per_plane, 0);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;hit : hits_)</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    {</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="keywordflow">if</span> (hit.channel_index &lt; 0 ||</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>            hit.channel_index &gt;= configuration_.scifi_n_channels_per_plane)</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        {</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>            <span class="keywordflow">throw</span> std::out_of_range{<span class="stringliteral">&quot;hit.channel_index out of range&quot;</span>};</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        }</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        (hit.is_x ? is_hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html#acaa1528e54837760ce8bc2b92bd25e4d">x</a> : is_hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html#a6092dc79a64903b97b6b71aba87c09db">y</a>)[hit.channel_index] = 1;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    }</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keyword">auto</span> density = [&amp;](<span class="keyword">const</span> std::vector&lt;int&gt; &amp;hit_arr)</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    {</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <span class="keywordtype">int</span> count{0};</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <span class="comment">// Initial count for the first window</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i{0}; i &lt; configuration_.scifi_shower_window_width; ++i)</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        {</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            count += hit_arr[i];</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        }</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <span class="keywordflow">if</span> (count &gt;= configuration_.scifi_min_hits_in_window)</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        <span class="comment">// Slide the window across the array</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = configuration_.scifi_shower_window_width; i &lt; configuration_.scifi_n_channels_per_plane; ++i)</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        {</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>            count += hit_arr[i] - hit_arr[i - configuration_.scifi_shower_window_width];</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>            <span class="keywordflow">if</span> (count &gt;= configuration_.scifi_min_hits_in_window)</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        }</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    };</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keywordflow">return</span> density(is_hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html#acaa1528e54837760ce8bc2b92bd25e4d">x</a>) &amp;&amp; density(is_hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html#a6092dc79a64903b97b6b71aba87c09db">y</a>);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>}</div>
 </div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
-<div class="foldopen" id="foldopen00105" data-start="{" data-end="}">
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#ae9b1e84d60ef01f78e07a36e910fb44e">  105</a></span><span class="keyword">const</span> TVector3 <a class="code hl_function" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#ae9b1e84d60ef01f78e07a36e910fb44e">snd::analysis_tools::ScifiPlane::GetCluster</a>(<span class="keywordtype">int</span> max_gap)<span class="keyword"> const</span></div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="keyword"></span>{</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    std::vector&lt;double&gt; pos_x(configuration_.scifi_n_channels_per_plane, std::nan(<span class="stringliteral">&quot;&quot;</span>));</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    std::vector&lt;double&gt; pos_y(configuration_.scifi_n_channels_per_plane, std::nan(<span class="stringliteral">&quot;&quot;</span>));</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;hit : hits_)</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    {</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        <span class="keywordflow">if</span> (hit.qdc &gt; 0)</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        {</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>            <span class="keywordflow">if</span> (hit.is_x)</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>            {</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>                pos_x[hit.channel_index] = hit.x;</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>            }</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>            <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>            {</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>                pos_y[hit.channel_index] = hit.y;</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>            }</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        }</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    }</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    <span class="keyword">auto</span> largest_cluster = [&amp;](<span class="keyword">const</span> std::vector&lt;double&gt; &amp;positions)</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    {</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        <span class="keywordtype">int</span> n = positions.size();</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        <span class="keywordtype">int</span> best_start = -1, best_end = -1, best_size = 0;</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        <span class="keywordtype">int</span> start = -1, gap_count = 0, size = 0;</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        <span class="comment">// Find the largest cluster</span></div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; n; ++i)</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        {</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>            <span class="keywordflow">if</span> (!std::isnan(positions[i]))</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>            {</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>                <span class="keywordflow">if</span> (start == -1)</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>                    start = i; <span class="comment">// Start a new cluster</span></div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>                size++;</div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>                gap_count = 0; <span class="comment">// Reset consecutive gap counter</span></div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>            }</div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>            <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>            {</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>                gap_count++;</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>                <span class="keywordflow">if</span> (gap_count &gt; max_gap)</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>                { <span class="comment">// Too many consecutive gaps, finalize previous cluster</span></div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>                    <span class="keywordflow">if</span> (size &gt; best_size)</div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>                    {</div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>                        best_start = start;</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>                        best_end = i - gap_count; <span class="comment">// End before the excessive gaps</span></div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>                        best_size = size;</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>                    }</div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>                    <span class="comment">// Reset for a new potential cluster</span></div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>                    start = -1;</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>                    gap_count = 0;</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>                    size = 0;</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>                }</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>                <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>                {</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>                    size++; <span class="comment">// Gaps within max_gap still count in cluster size</span></div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>                }</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>            }</div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        }</div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>        <span class="comment">// Check last cluster</span></div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        <span class="keywordflow">if</span> (size &gt; best_size)</div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>        {</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>            best_start = start;</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>            best_end = n - 1;</div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>            best_size = size;</div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>        }</div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        <span class="comment">// Compute the average of non-gap values in the best cluster</span></div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>        <span class="keywordflow">if</span> (best_start == -1 || best_end == -1)</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>            <span class="keywordflow">return</span> std::nan(<span class="stringliteral">&quot;&quot;</span>); <span class="comment">// No valid cluster found</span></div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>        <span class="keywordtype">double</span> sum = 0.0;</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>        <span class="keywordtype">int</span> count = 0;</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = best_start; i &lt;= best_end; ++i)</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>        {</div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>            <span class="keywordflow">if</span> (!std::isnan(positions[i]))</div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>            {</div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>                sum += positions[i];</div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>                count++;</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>            }</div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>        }</div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>        <span class="keywordflow">return</span> (count &gt; 0) ? sum / count : std::nan(<span class="stringliteral">&quot;&quot;</span>);</div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    };</div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    <span class="keywordtype">double</span> cluster_x = largest_cluster(pos_x);</div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>    <span class="keywordtype">double</span> cluster_y = largest_cluster(pos_y);</div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    <span class="keywordflow">if</span> (!(std::isnan(cluster_x) || std::isnan(cluster_y))) {</div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>        <span class="keywordflow">return</span> TVector3(cluster_x, cluster_y, hits_[0].z);</div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    }</div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    <span class="keywordflow">return</span> TVector3(std::nan(<span class="stringliteral">&quot;&quot;</span>), std::nan(<span class="stringliteral">&quot;&quot;</span>), std::nan(<span class="stringliteral">&quot;&quot;</span>));</div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>}</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="foldopen" id="foldopen00106" data-start="{" data-end="}">
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a2fa4db25ffb9d74ad1afb932a23bffe4">  106</a></span><span class="keyword">const</span> ROOT::Math::XYZPoint <a class="code hl_function" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a2fa4db25ffb9d74ad1afb932a23bffe4">snd::analysis_tools::ScifiPlane::GetCluster</a>(<span class="keywordtype">int</span> max_gap)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    std::vector&lt;double&gt; pos_x(configuration_.scifi_n_channels_per_plane, std::nan(<span class="stringliteral">&quot;&quot;</span>));</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    std::vector&lt;double&gt; pos_y(configuration_.scifi_n_channels_per_plane, std::nan(<span class="stringliteral">&quot;&quot;</span>));</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;hit : hits_)</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    {</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        <span class="keywordflow">if</span> (hit.qdc &gt; 0)</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        {</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>            <span class="keywordflow">if</span> (hit.is_x)</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>            {</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>                pos_x[hit.channel_index] = hit.x;</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>            }</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>            <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>            {</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>                pos_y[hit.channel_index] = hit.y;</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>            }</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        }</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    }</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <span class="keyword">auto</span> largest_cluster = [&amp;](<span class="keyword">const</span> std::vector&lt;double&gt; &amp;positions)</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    {</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        <span class="keywordtype">int</span> n = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(positions.size());</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        <span class="keywordtype">int</span> best_start = -1, best_end = -1, best_size = 0;</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        <span class="keywordtype">int</span> start = -1, gap_count = 0, size = 0;</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        <span class="comment">// Find the largest cluster</span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; n; ++i)</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        {</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>            <span class="keywordflow">if</span> (!std::isnan(positions[i]))</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>            {</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>                <span class="keywordflow">if</span> (start == -1)</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>                    start = i; <span class="comment">// Start a new cluster</span></div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>                size++;</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>                gap_count = 0; <span class="comment">// Reset consecutive gap counter</span></div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>            }</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>            <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>            {</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>                gap_count++;</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>                <span class="keywordflow">if</span> (gap_count &gt; max_gap)</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>                { <span class="comment">// Too many consecutive gaps, finalize previous cluster</span></div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>                    <span class="keywordflow">if</span> (size &gt; best_size)</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>                    {</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>                        best_start = start;</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>                        best_end = i - gap_count; <span class="comment">// End before the excessive gaps</span></div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>                        best_size = size;</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>                    }</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>                    <span class="comment">// Reset for a new potential cluster</span></div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>                    start = -1;</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>                    gap_count = 0;</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>                    size = 0;</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>                }</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>                <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>                {</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>                    size++; <span class="comment">// Gaps within max_gap still count in cluster size</span></div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>                }</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>            }</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>        }</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        <span class="comment">// Check last cluster</span></div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>        <span class="keywordflow">if</span> (size &gt; best_size)</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>        {</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>            best_start = start;</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>            best_end = n - 1;</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>            best_size = size;</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>        }</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>        <span class="comment">// Compute the average of non-gap values in the best cluster</span></div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>        <span class="keywordflow">if</span> (best_start == -1 || best_end == -1)</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>            <span class="keywordflow">return</span> std::nan(<span class="stringliteral">&quot;&quot;</span>); <span class="comment">// No valid cluster found</span></div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>        <span class="keywordtype">double</span> sum = 0.0;</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>        <span class="keywordtype">int</span> count = 0;</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = best_start; i &lt;= best_end; ++i)</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        {</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>            <span class="keywordflow">if</span> (!std::isnan(positions[i]))</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>            {</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>                sum += positions[i];</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>                count++;</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>            }</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>        }</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>        <span class="keywordflow">return</span> (count &gt; 0) ? sum / count : std::nan(<span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    };</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>    <span class="keywordtype">double</span> cluster_x = largest_cluster(pos_x);</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    <span class="keywordtype">double</span> cluster_y = largest_cluster(pos_y);</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    <span class="keywordflow">if</span> (!(std::isnan(cluster_x) || std::isnan(cluster_y))) {</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>        <span class="keywordflow">return</span> ROOT::Math::XYZPoint(cluster_x, cluster_y, hits_[0].z);</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    }</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>    <span class="keywordflow">return</span> ROOT::Math::XYZPoint(std::nan(<span class="stringliteral">&quot;&quot;</span>), std::nan(<span class="stringliteral">&quot;&quot;</span>), std::nan(<span class="stringliteral">&quot;&quot;</span>));</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>}</div>
 </div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span> </div>
-<div class="foldopen" id="foldopen00199" data-start="{" data-end="}">
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno"><a class="line" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#aca1ffa5861214d3afc23bf51dac64308">  199</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#aca1ffa5861214d3afc23bf51dac64308">snd::analysis_tools::ScifiPlane::TimeFilter</a>(<span class="keywordtype">double</span> min_timestamp, <span class="keywordtype">double</span> max_timestamp)</div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>{</div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    hits_.erase(std::remove_if(hits_.begin(), hits_.end(),</div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>                               [&amp;](<span class="keyword">auto</span> &amp;hit)</div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>                               { return hit.timestamp &lt; min_timestamp || hit.timestamp &gt; max_timestamp; }),</div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>                hits_.end());</div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>}</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span> </div>
+<div class="foldopen" id="foldopen00200" data-start="{" data-end="}">
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno"><a class="line" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#aca1ffa5861214d3afc23bf51dac64308">  200</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#aca1ffa5861214d3afc23bf51dac64308">snd::analysis_tools::ScifiPlane::TimeFilter</a>(<span class="keywordtype">double</span> min_timestamp, <span class="keywordtype">double</span> max_timestamp)</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>{</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    hits_.erase(std::remove_if(hits_.begin(), hits_.end(),</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>                               [&amp;](<span class="keyword">auto</span> &amp;hit)</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>                               { return hit.timestamp &lt; min_timestamp || hit.timestamp &gt; max_timestamp; }),</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>                hits_.end());</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>}</div>
 </div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span> </div>
-<div class="foldopen" id="foldopen00207" data-start="{" data-end="}">
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno"><a class="line" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#ada5d6a0cad9eb7eaddd11d530aadc9b5">  207</a></span><a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html">snd::analysis_tools::ScifiPlane::xy_pair&lt;double&gt;</a> <a class="code hl_function" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#ada5d6a0cad9eb7eaddd11d530aadc9b5">snd::analysis_tools::ScifiPlane::GetPointQdc</a>(<span class="keyword">const</span> TVector3 &amp;point, <span class="keywordtype">double</span> radius)<span class="keyword"> const</span></div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span><span class="keyword"></span>{</div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>    <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html">xy_pair&lt;double&gt;</a> qdc{0.0, 0.0};</div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;hit : hits_) {</div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>        <span class="keywordflow">if</span> (hit.is_x &amp;&amp; std::abs(hit.x - point.X()) &lt;= radius) {</div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>            qdc.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html#acaa1528e54837760ce8bc2b92bd25e4d">x</a> += hit.qdc;</div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>        }</div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (!hit.is_x &amp;&amp; std::abs(hit.y - point.Y()) &lt;= radius) {</div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>            qdc.y += hit.qdc;</div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>        }</div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>    }</div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>    <span class="keywordflow">return</span> qdc;</div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>}</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span> </div>
+<div class="foldopen" id="foldopen00208" data-start="{" data-end="}">
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno"><a class="line" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#aca956df325b1dc2ced866893ea78bafa">  208</a></span><a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html">snd::analysis_tools::ScifiPlane::xy_pair&lt;double&gt;</a> <a class="code hl_function" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#aca956df325b1dc2ced866893ea78bafa">snd::analysis_tools::ScifiPlane::GetPointQdc</a>(<span class="keyword">const</span> ROOT::Math::XYZPoint &amp;point, <span class="keywordtype">double</span> radius)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>    <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html">xy_pair&lt;double&gt;</a> qdc{0.0, 0.0};</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;hit : hits_) {</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>        <span class="keywordflow">if</span> (hit.is_x &amp;&amp; std::abs(hit.x - point.X()) &lt;= radius) {</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>            qdc.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html#acaa1528e54837760ce8bc2b92bd25e4d">x</a> += hit.qdc;</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>        }</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (!hit.is_x &amp;&amp; std::abs(hit.y - point.Y()) &lt;= radius) {</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>            qdc.y += hit.qdc;</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>        }</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>    }</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>    <span class="keywordflow">return</span> qdc;</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>}</div>
 </div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span> </div>
-<div class="foldopen" id="foldopen00221" data-start="{" data-end="}">
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno"><a class="line" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9eb1d5f28f06a0ac3f8ab07ab250a5d0">  221</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9eb1d5f28f06a0ac3f8ab07ab250a5d0">snd::analysis_tools::ScifiPlane::FindCentroid</a>()</div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>{</div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    centroid_.SetXYZ(0, 0, 0);</div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    <span class="keywordtype">double</span> tot_qdc_x{0};</div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    <span class="keywordtype">double</span> tot_qdc_y{0};</div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>    std::vector&lt;ScifiHit&gt; cleaned_hits = hits_;</div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span> </div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>    cleaned_hits.erase(std::remove_if(cleaned_hits.begin(), cleaned_hits.end(),</div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>                               [&amp;](<span class="keyword">auto</span> &amp;hit)</div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>                               { return hit.qdc &lt;= 0; }),</div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>                       cleaned_hits.end());</div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>    <span class="keywordtype">int</span> counts_x = std::count_if(cleaned_hits.begin(), cleaned_hits.end(), [](<span class="keyword">auto</span> &amp;hit)</div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>                    { return hit.is_x; });</div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    <span class="keywordtype">int</span> counts_y = cleaned_hits.size()-counts_x;</div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    <span class="keywordflow">if</span> (counts_x &lt; configuration_.scifi_min_n_hits_for_centroid &amp;&amp; counts_y &lt; configuration_.scifi_min_n_hits_for_centroid ) {</div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>        centroid_.SetXYZ(std::nan(<span class="stringliteral">&quot;&quot;</span>), std::nan(<span class="stringliteral">&quot;&quot;</span>), std::nan(<span class="stringliteral">&quot;&quot;</span>));</div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>        <span class="keywordflow">return</span>;</div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    }</div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span> </div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;hit : cleaned_hits)</div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    {</div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>        <span class="keywordflow">if</span> (hit.qdc &gt; 0)</div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>        {</div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>            <span class="keywordflow">if</span> (hit.is_x)</div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>            {</div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>                centroid_.SetX(centroid_.X() + hit.x * hit.qdc);</div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>                tot_qdc_x += hit.qdc;</div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>            }</div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>            <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>            {</div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>                centroid_.SetY(centroid_.Y() + hit.y * hit.qdc);</div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>                tot_qdc_y += hit.qdc;</div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>            }</div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span> </div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>            centroid_.SetZ(centroid_.Z() + hit.z * hit.qdc);</div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>        }</div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>    }</div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>    centroid_.SetXYZ((tot_qdc_x &gt; 0) ? centroid_.X() / tot_qdc_x : std::nan(<span class="stringliteral">&quot;&quot;</span>), (tot_qdc_y &gt; 0) ? centroid_.Y() / tot_qdc_y : std::nan(<span class="stringliteral">&quot;&quot;</span>), (tot_qdc_x+tot_qdc_y &gt; 0) ? centroid_.Z() / (tot_qdc_x+tot_qdc_y) : std::nan(<span class="stringliteral">&quot;&quot;</span>));</div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>    centroid_error_.SetXYZ(configuration_.scifi_centroid_error_x, configuration_.scifi_centroid_error_y, configuration_.scifi_centroid_error_z);</div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>}</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span> </div>
+<div class="foldopen" id="foldopen00222" data-start="{" data-end="}">
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno"><a class="line" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9eb1d5f28f06a0ac3f8ab07ab250a5d0">  222</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9eb1d5f28f06a0ac3f8ab07ab250a5d0">snd::analysis_tools::ScifiPlane::FindCentroid</a>()</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>{</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    centroid_.SetXYZ(0, 0, 0);</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    <span class="keywordtype">double</span> tot_qdc_x{0};</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>    <span class="keywordtype">double</span> tot_qdc_y{0};</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>    std::vector&lt;ScifiHit&gt; cleaned_hits = hits_;</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span> </div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    cleaned_hits.erase(std::remove_if(cleaned_hits.begin(), cleaned_hits.end(),</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>                               [&amp;](<span class="keyword">auto</span> &amp;hit)</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>                               { return hit.qdc &lt;= 0; }),</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>                       cleaned_hits.end());</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    <span class="keywordtype">int</span> counts_x = std::count_if(cleaned_hits.begin(), cleaned_hits.end(), [](<span class="keyword">auto</span> &amp;hit)</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>                    { return hit.is_x; });</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    <span class="keywordtype">int</span> counts_y = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(cleaned_hits.size())-counts_x;</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>    <span class="keywordflow">if</span> (counts_x &lt; configuration_.scifi_min_n_hits_for_centroid &amp;&amp; counts_y &lt; configuration_.scifi_min_n_hits_for_centroid ) {</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>        centroid_ = ROOT::Math::XYZPoint(std::nan(<span class="stringliteral">&quot;&quot;</span>), std::nan(<span class="stringliteral">&quot;&quot;</span>), std::nan(<span class="stringliteral">&quot;&quot;</span>));</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>    }</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span> </div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;hit : cleaned_hits)</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>    {</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>        <span class="keywordflow">if</span> (hit.qdc &gt; 0)</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>        {</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>            <span class="keywordflow">if</span> (hit.is_x)</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>            {</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>                centroid_.SetX(centroid_.X() + hit.x * hit.qdc);</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>                tot_qdc_x += hit.qdc;</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>            }</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>            <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>            {</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>                centroid_.SetY(centroid_.Y() + hit.y * hit.qdc);</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>                tot_qdc_y += hit.qdc;</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>            }</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span> </div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>            centroid_.SetZ(centroid_.Z() + hit.z * hit.qdc);</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>        }</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>    }</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>    centroid_ = ROOT::Math::XYZPoint((tot_qdc_x &gt; 0) ? centroid_.X() / tot_qdc_x : std::nan(<span class="stringliteral">&quot;&quot;</span>), (tot_qdc_y &gt; 0) ? centroid_.Y() / tot_qdc_y : std::nan(<span class="stringliteral">&quot;&quot;</span>), (tot_qdc_x+tot_qdc_y &gt; 0) ? centroid_.Z() / (tot_qdc_x+tot_qdc_y) : std::nan(<span class="stringliteral">&quot;&quot;</span>));</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>    centroid_error_ = ROOT::Math::XYZPoint(configuration_.scifi_centroid_error_x, configuration_.scifi_centroid_error_y, configuration_.scifi_centroid_error_z);</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>}</div>
 </div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span> </div>
-<div class="foldopen" id="foldopen00262" data-start="{" data-end="}">
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno"><a class="line" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a5d1bc51bd6d8467298cd33cc8fef00ce">  262</a></span><span class="keyword">const</span> <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html">snd::analysis_tools::ScifiPlane::xy_pair&lt;double&gt;</a> <a class="code hl_function" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a5d1bc51bd6d8467298cd33cc8fef00ce">snd::analysis_tools::ScifiPlane::GetTotQdc</a>(<span class="keywordtype">bool</span> only_positive)<span class="keyword"> const</span></div>
-<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span><span class="keyword"></span>{</div>
-<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>    <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html">xy_pair&lt;double&gt;</a> qdc_sum{0.0, 0.0};</div>
-<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>    qdc_sum.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html#acaa1528e54837760ce8bc2b92bd25e4d">x</a> = std::accumulate(hits_.begin(), hits_.end(), 0.0, [&amp;](<span class="keywordtype">double</span> current_sum, <span class="keyword">auto</span> &amp;hit)</div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>                                { return (hit.is_x &amp;&amp; (hit.qdc &gt; 0 || !only_positive)) ? (current_sum + hit.qdc) : current_sum; });</div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>    qdc_sum.y = std::accumulate(hits_.begin(), hits_.end(), 0.0, [&amp;](<span class="keywordtype">double</span> current_sum, <span class="keyword">auto</span> &amp;hit)</div>
-<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>                                { return (!hit.is_x &amp;&amp; (hit.qdc &gt; 0 || !only_positive)) ? (current_sum + hit.qdc) : current_sum; });</div>
-<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span> </div>
-<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>    <span class="keywordflow">return</span> qdc_sum;</div>
-<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>}</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span> </div>
+<div class="foldopen" id="foldopen00263" data-start="{" data-end="}">
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno"><a class="line" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a5d1bc51bd6d8467298cd33cc8fef00ce">  263</a></span><span class="keyword">const</span> <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html">snd::analysis_tools::ScifiPlane::xy_pair&lt;double&gt;</a> <a class="code hl_function" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a5d1bc51bd6d8467298cd33cc8fef00ce">snd::analysis_tools::ScifiPlane::GetTotQdc</a>(<span class="keywordtype">bool</span> only_positive)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>    <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html">xy_pair&lt;double&gt;</a> qdc_sum{0.0, 0.0};</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>    qdc_sum.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html#acaa1528e54837760ce8bc2b92bd25e4d">x</a> = std::accumulate(hits_.begin(), hits_.end(), 0.0, [&amp;](<span class="keywordtype">double</span> current_sum, <span class="keyword">auto</span> &amp;hit)</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>                                { return (hit.is_x &amp;&amp; (hit.qdc &gt; 0 || !only_positive)) ? (current_sum + hit.qdc) : current_sum; });</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>    qdc_sum.y = std::accumulate(hits_.begin(), hits_.end(), 0.0, [&amp;](<span class="keywordtype">double</span> current_sum, <span class="keyword">auto</span> &amp;hit)</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>                                { return (!hit.is_x &amp;&amp; (hit.qdc &gt; 0 || !only_positive)) ? (current_sum + hit.qdc) : current_sum; });</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span> </div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>    <span class="keywordflow">return</span> qdc_sum;</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>}</div>
 </div>
-<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span> </div>
-<div class="foldopen" id="foldopen00273" data-start="{" data-end="}">
-<div class="line"><a id="l00273" name="l00273"></a><span class="lineno"><a class="line" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#acebd39573140651be38987f151d126e0">  273</a></span><span class="keyword">const</span> <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html">snd::analysis_tools::ScifiPlane::xy_pair&lt;double&gt;</a> <a class="code hl_function" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#acebd39573140651be38987f151d126e0">snd::analysis_tools::ScifiPlane::GetTotEnergy</a>(<span class="keywordtype">bool</span> only_positive)<span class="keyword"> const</span></div>
-<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span><span class="keyword"></span>{</div>
-<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>    <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html">xy_pair&lt;double&gt;</a> energy{0.0, 0.0};</div>
-<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>    <span class="keyword">auto</span> qdc = GetTotQdc(only_positive);</div>
-<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span> </div>
-<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>    energy.x = qdc.x * configuration_.scifi_qdc_to_gev;</div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>    energy.y = qdc.y * configuration_.scifi_qdc_to_gev;</div>
-<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span> </div>
-<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>    <span class="keywordflow">return</span> energy;</div>
-<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>}</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span> </div>
+<div class="foldopen" id="foldopen00274" data-start="{" data-end="}">
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno"><a class="line" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#acebd39573140651be38987f151d126e0">  274</a></span><span class="keyword">const</span> <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html">snd::analysis_tools::ScifiPlane::xy_pair&lt;double&gt;</a> <a class="code hl_function" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#acebd39573140651be38987f151d126e0">snd::analysis_tools::ScifiPlane::GetTotEnergy</a>(<span class="keywordtype">bool</span> only_positive)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>    <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html">xy_pair&lt;double&gt;</a> energy{0.0, 0.0};</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>    <span class="keyword">auto</span> qdc = GetTotQdc(only_positive);</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span> </div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>    energy.x = qdc.x * configuration_.scifi_qdc_to_gev;</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>    energy.y = qdc.y * configuration_.scifi_qdc_to_gev;</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span> </div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>    <span class="keywordflow">return</span> energy;</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>}</div>
 </div>
 <div class="ttc" id="aScifi_8h_html"><div class="ttname"><a href="Scifi_8h.html">Scifi.h</a></div></div>
 <div class="ttc" id="aShipUnit_8h_html"><div class="ttname"><a href="ShipUnit_8h.html">ShipUnit.h</a></div></div>
 <div class="ttc" id="aclassScifi_html"><div class="ttname"><a href="classScifi.html">Scifi</a></div><div class="ttdef"><b>Definition</b> <a href="Scifi_8h_source.html#l00019">Scifi.h:20</a></div></div>
 <div class="ttc" id="aclassScifi_html_a1b931ff9f46817177b0595f65c1e8f8f"><div class="ttname"><a href="classScifi.html#a1b931ff9f46817177b0595f65c1e8f8f">Scifi::GetSiPMPosition</a></div><div class="ttdeci">void GetSiPMPosition(Int_t SiPMChan, TVector3 &amp;A, TVector3 &amp;B)</div><div class="ttdef"><b>Definition</b> <a href="Scifi_8cxx_source.html#l00727">Scifi.cxx:727</a></div></div>
 <div class="ttc" id="aclassScifi_html_ad450e9024b424afc7cc0cdeafbe23552"><div class="ttname"><a href="classScifi.html#ad450e9024b424afc7cc0cdeafbe23552">Scifi::GetCorrectedTime</a></div><div class="ttdeci">Double_t GetCorrectedTime(Int_t fDetectorID, Double_t rawTime, Double_t L)</div><div class="ttdef"><b>Definition</b> <a href="Scifi_8cxx_source.html#l00614">Scifi.cxx:614</a></div></div>
-<div class="ttc" id="aclasssnd_1_1analysis__tools_1_1ScifiPlane_html_a0ea646a1631b07396bc89fe1b9d522ea"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a0ea646a1631b07396bc89fe1b9d522ea">snd::analysis_tools::ScifiPlane::GetNHits</a></div><div class="ttdeci">const xy_pair&lt; int &gt; GetNHits() const</div><div class="ttdef"><b>Definition</b> <a href="sndScifiPlane_8cxx_source.html#l00042">sndScifiPlane.cxx:42</a></div></div>
-<div class="ttc" id="aclasssnd_1_1analysis__tools_1_1ScifiPlane_html_a11a492571fe2545091543f6214a2eea6"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a11a492571fe2545091543f6214a2eea6">snd::analysis_tools::ScifiPlane::ScifiPlane</a></div><div class="ttdeci">ScifiPlane(std::vector&lt; sndScifiHit * &gt; snd_hits, Configuration configuration, Scifi *scifi_geometry, int station)</div><div class="ttdef"><b>Definition</b> <a href="sndScifiPlane_8cxx_source.html#l00014">sndScifiPlane.cxx:14</a></div></div>
-<div class="ttc" id="aclasssnd_1_1analysis__tools_1_1ScifiPlane_html_a5d1bc51bd6d8467298cd33cc8fef00ce"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a5d1bc51bd6d8467298cd33cc8fef00ce">snd::analysis_tools::ScifiPlane::GetTotQdc</a></div><div class="ttdeci">const xy_pair&lt; double &gt; GetTotQdc(bool only_positive=false) const</div><div class="ttdef"><b>Definition</b> <a href="sndScifiPlane_8cxx_source.html#l00262">sndScifiPlane.cxx:262</a></div></div>
+<div class="ttc" id="aclasssnd_1_1analysis__tools_1_1ScifiPlane_html_a056fd4f44882b70ac25138be8cb42d99"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a056fd4f44882b70ac25138be8cb42d99">snd::analysis_tools::ScifiPlane::HasShower</a></div><div class="ttdeci">bool HasShower() const</div><div class="ttdef"><b>Definition</b> <a href="sndScifiPlane_8cxx_source.html#l00053">sndScifiPlane.cxx:53</a></div></div>
+<div class="ttc" id="aclasssnd_1_1analysis__tools_1_1ScifiPlane_html_a0ea646a1631b07396bc89fe1b9d522ea"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a0ea646a1631b07396bc89fe1b9d522ea">snd::analysis_tools::ScifiPlane::GetNHits</a></div><div class="ttdeci">const xy_pair&lt; int &gt; GetNHits() const</div><div class="ttdef"><b>Definition</b> <a href="sndScifiPlane_8cxx_source.html#l00043">sndScifiPlane.cxx:43</a></div></div>
+<div class="ttc" id="aclasssnd_1_1analysis__tools_1_1ScifiPlane_html_a11a492571fe2545091543f6214a2eea6"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a11a492571fe2545091543f6214a2eea6">snd::analysis_tools::ScifiPlane::ScifiPlane</a></div><div class="ttdeci">ScifiPlane(std::vector&lt; sndScifiHit * &gt; snd_hits, Configuration configuration, Scifi *scifi_geometry, int station)</div><div class="ttdef"><b>Definition</b> <a href="sndScifiPlane_8cxx_source.html#l00015">sndScifiPlane.cxx:15</a></div></div>
+<div class="ttc" id="aclasssnd_1_1analysis__tools_1_1ScifiPlane_html_a2fa4db25ffb9d74ad1afb932a23bffe4"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a2fa4db25ffb9d74ad1afb932a23bffe4">snd::analysis_tools::ScifiPlane::GetCluster</a></div><div class="ttdeci">const ROOT::Math::XYZPoint GetCluster(int max_gap) const</div><div class="ttdef"><b>Definition</b> <a href="sndScifiPlane_8cxx_source.html#l00106">sndScifiPlane.cxx:106</a></div></div>
+<div class="ttc" id="aclasssnd_1_1analysis__tools_1_1ScifiPlane_html_a5d1bc51bd6d8467298cd33cc8fef00ce"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a5d1bc51bd6d8467298cd33cc8fef00ce">snd::analysis_tools::ScifiPlane::GetTotQdc</a></div><div class="ttdeci">const xy_pair&lt; double &gt; GetTotQdc(bool only_positive=false) const</div><div class="ttdef"><b>Definition</b> <a href="sndScifiPlane_8cxx_source.html#l00263">sndScifiPlane.cxx:263</a></div></div>
 <div class="ttc" id="aclasssnd_1_1analysis__tools_1_1ScifiPlane_html_a9b79ca6732ed9148dd79942270fc2ea5"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9b79ca6732ed9148dd79942270fc2ea5">snd::analysis_tools::ScifiPlane::hits_</a></div><div class="ttdeci">std::vector&lt; ScifiHit &gt; hits_</div><div class="ttdef"><b>Definition</b> <a href="sndScifiPlane_8h_source.html#l00054">sndScifiPlane.h:54</a></div></div>
-<div class="ttc" id="aclasssnd_1_1analysis__tools_1_1ScifiPlane_html_a9eb1d5f28f06a0ac3f8ab07ab250a5d0"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9eb1d5f28f06a0ac3f8ab07ab250a5d0">snd::analysis_tools::ScifiPlane::FindCentroid</a></div><div class="ttdeci">void FindCentroid()</div><div class="ttdef"><b>Definition</b> <a href="sndScifiPlane_8cxx_source.html#l00221">sndScifiPlane.cxx:221</a></div></div>
-<div class="ttc" id="aclasssnd_1_1analysis__tools_1_1ScifiPlane_html_aabf9409cd23920267b67ab1f88ac1c8d"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#aabf9409cd23920267b67ab1f88ac1c8d">snd::analysis_tools::ScifiPlane::IsShower</a></div><div class="ttdeci">bool IsShower() const</div><div class="ttdef"><b>Definition</b> <a href="sndScifiPlane_8cxx_source.html#l00052">sndScifiPlane.cxx:52</a></div></div>
-<div class="ttc" id="aclasssnd_1_1analysis__tools_1_1ScifiPlane_html_aca1ffa5861214d3afc23bf51dac64308"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#aca1ffa5861214d3afc23bf51dac64308">snd::analysis_tools::ScifiPlane::TimeFilter</a></div><div class="ttdeci">void TimeFilter(double min_timestamp, double max_timestamp)</div><div class="ttdef"><b>Definition</b> <a href="sndScifiPlane_8cxx_source.html#l00199">sndScifiPlane.cxx:199</a></div></div>
-<div class="ttc" id="aclasssnd_1_1analysis__tools_1_1ScifiPlane_html_acebd39573140651be38987f151d126e0"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#acebd39573140651be38987f151d126e0">snd::analysis_tools::ScifiPlane::GetTotEnergy</a></div><div class="ttdeci">const xy_pair&lt; double &gt; GetTotEnergy(bool only_positive=false) const</div><div class="ttdef"><b>Definition</b> <a href="sndScifiPlane_8cxx_source.html#l00273">sndScifiPlane.cxx:273</a></div></div>
-<div class="ttc" id="aclasssnd_1_1analysis__tools_1_1ScifiPlane_html_ada5d6a0cad9eb7eaddd11d530aadc9b5"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#ada5d6a0cad9eb7eaddd11d530aadc9b5">snd::analysis_tools::ScifiPlane::GetPointQdc</a></div><div class="ttdeci">xy_pair&lt; double &gt; GetPointQdc(const TVector3 &amp;point, double radius) const</div><div class="ttdef"><b>Definition</b> <a href="sndScifiPlane_8cxx_source.html#l00207">sndScifiPlane.cxx:207</a></div></div>
-<div class="ttc" id="aclasssnd_1_1analysis__tools_1_1ScifiPlane_html_ae9b1e84d60ef01f78e07a36e910fb44e"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#ae9b1e84d60ef01f78e07a36e910fb44e">snd::analysis_tools::ScifiPlane::GetCluster</a></div><div class="ttdeci">const TVector3 GetCluster(int max_gap) const</div><div class="ttdef"><b>Definition</b> <a href="sndScifiPlane_8cxx_source.html#l00105">sndScifiPlane.cxx:105</a></div></div>
+<div class="ttc" id="aclasssnd_1_1analysis__tools_1_1ScifiPlane_html_a9eb1d5f28f06a0ac3f8ab07ab250a5d0"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9eb1d5f28f06a0ac3f8ab07ab250a5d0">snd::analysis_tools::ScifiPlane::FindCentroid</a></div><div class="ttdeci">void FindCentroid()</div><div class="ttdef"><b>Definition</b> <a href="sndScifiPlane_8cxx_source.html#l00222">sndScifiPlane.cxx:222</a></div></div>
+<div class="ttc" id="aclasssnd_1_1analysis__tools_1_1ScifiPlane_html_aca1ffa5861214d3afc23bf51dac64308"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#aca1ffa5861214d3afc23bf51dac64308">snd::analysis_tools::ScifiPlane::TimeFilter</a></div><div class="ttdeci">void TimeFilter(double min_timestamp, double max_timestamp)</div><div class="ttdef"><b>Definition</b> <a href="sndScifiPlane_8cxx_source.html#l00200">sndScifiPlane.cxx:200</a></div></div>
+<div class="ttc" id="aclasssnd_1_1analysis__tools_1_1ScifiPlane_html_aca956df325b1dc2ced866893ea78bafa"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#aca956df325b1dc2ced866893ea78bafa">snd::analysis_tools::ScifiPlane::GetPointQdc</a></div><div class="ttdeci">xy_pair&lt; double &gt; GetPointQdc(const ROOT::Math::XYZPoint &amp;point, double radius) const</div><div class="ttdef"><b>Definition</b> <a href="sndScifiPlane_8cxx_source.html#l00208">sndScifiPlane.cxx:208</a></div></div>
+<div class="ttc" id="aclasssnd_1_1analysis__tools_1_1ScifiPlane_html_acebd39573140651be38987f151d126e0"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#acebd39573140651be38987f151d126e0">snd::analysis_tools::ScifiPlane::GetTotEnergy</a></div><div class="ttdeci">const xy_pair&lt; double &gt; GetTotEnergy(bool only_positive=false) const</div><div class="ttdef"><b>Definition</b> <a href="sndScifiPlane_8cxx_source.html#l00274">sndScifiPlane.cxx:274</a></div></div>
 <div class="ttc" id="asndScifiHit_8h_html"><div class="ttname"><a href="sndScifiHit_8h.html">sndScifiHit.h</a></div></div>
 <div class="ttc" id="asndScifiPlane_8h_html"><div class="ttname"><a href="sndScifiPlane_8h.html">sndScifiPlane.h</a></div></div>
 <div class="ttc" id="astructsnd_1_1Configuration_html"><div class="ttname"><a href="structsnd_1_1Configuration.html">snd::Configuration</a></div><div class="ttdef"><b>Definition</b> <a href="sndConfiguration_8h_source.html#l00008">sndConfiguration.h:9</a></div></div>

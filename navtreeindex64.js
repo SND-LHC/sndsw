@@ -1,5 +1,7 @@
 var NAVTREEINDEX64 =
 {
+"hepunit_8py.html#a6c0c7e015a5399caf7f8391c4c3fd019":[14,0,17,16,108],
+"hepunit_8py.html#a6d85da789f103b3ac9650a33a38c7188":[14,0,17,16,73],
 "hepunit_8py.html#a70ca570f5ce0e451c01bc51d00f314ab":[14,0,17,16,36],
 "hepunit_8py.html#a72568a58527d52c09283be17ea87a8a7":[14,0,17,16,23],
 "hepunit_8py.html#a74bfcad5494a8c766019e12bfde649f7":[14,0,17,16,63],
@@ -247,7 +249,5 @@ var NAVTREEINDEX64 =
 "macro_2eventDisplay_8py.html#a829e0e25dc7caafcf9c1457f3d1c5e28":[14,0,8,8,42],
 "macro_2eventDisplay_8py.html#a88c4c2bf7054fb2e6bd34b7db6b6886b":[14,0,8,8,61],
 "macro_2eventDisplay_8py.html#a90f6f709f9a2e3553cddc17c5ffe8449":[14,0,8,8,65],
-"macro_2eventDisplay_8py.html#a9789b0abc463cc5892d137bb61a4f60b":[14,0,8,8,27],
-"macro_2eventDisplay_8py.html#aa30eab6bb000aa1f7e96992071e00e97":[14,0,8,8,37],
-"macro_2eventDisplay_8py.html#aa3b325492b890fc1d7c96ea366d745f8":[14,0,8,8,72]
+"macro_2eventDisplay_8py.html#a9789b0abc463cc5892d137bb61a4f60b":[14,0,8,8,27]
 };
