@@ -1,5 +1,6 @@
 var NAVTREEINDEX97 =
 {
+"runMufluxDigi_8py.html#a58d89ff0b58402da2689343a4eedb05a":[14,0,8,24,16],
 "runMufluxDigi_8py.html#a7daa3609372e3b47e9599d48e662c504":[14,0,8,24,5],
 "runMufluxDigi_8py.html#a8a4d0fdbb524059b30705204c7d82659":[14,0,8,24,18],
 "runMufluxDigi_8py.html#a9d817b57b2044fa2ebaacefc6ca47464":[14,0,8,24,19],
@@ -146,14 +147,15 @@ var NAVTREEINDEX97 =
 "run__Calibration-rawTimestamp_8py.html#afd375b43749e86628fdea6f51f6b33c4":[14,0,20,1,10,8],
 "run__Calibration-rawTimestamp_8py_source.html":[14,0,20,1,10],
 "run__MCEventBuilder_8py.html":[14,0,20,25],
-"run__MCEventBuilder_8py.html#a02ce02adc44ff5bb4b70af52a675d125":[14,0,20,25,17],
+"run__MCEventBuilder_8py.html#a02ce02adc44ff5bb4b70af52a675d125":[14,0,20,25,18],
 "run__MCEventBuilder_8py.html#a060d78105b58785ff52b5afbc68972bb":[14,0,20,25,11],
 "run__MCEventBuilder_8py.html#a1d77cf783dfdbed786d11d459471454c":[14,0,20,25,13],
-"run__MCEventBuilder_8py.html#a23bf664c9f567697aece7b90708b70be":[14,0,20,25,19],
-"run__MCEventBuilder_8py.html#a27fdcf5f1a6957f3f0dd7e8c6a54875c":[14,0,20,25,16],
-"run__MCEventBuilder_8py.html#a3cd403459e17060effdefe15f324db03":[14,0,20,25,14],
-"run__MCEventBuilder_8py.html#a4e2046e7e1023c1f8529199f18ffa8b4":[14,0,20,25,20],
-"run__MCEventBuilder_8py.html#a67707bb3739cbe92271edac306a75b27":[14,0,20,25,15],
+"run__MCEventBuilder_8py.html#a23bf664c9f567697aece7b90708b70be":[14,0,20,25,20],
+"run__MCEventBuilder_8py.html#a27fdcf5f1a6957f3f0dd7e8c6a54875c":[14,0,20,25,17],
+"run__MCEventBuilder_8py.html#a3cd403459e17060effdefe15f324db03":[14,0,20,25,15],
+"run__MCEventBuilder_8py.html#a4e2046e7e1023c1f8529199f18ffa8b4":[14,0,20,25,21],
+"run__MCEventBuilder_8py.html#a5596f28bea145217f14f4a44094acde7":[14,0,20,25,14],
+"run__MCEventBuilder_8py.html#a67707bb3739cbe92271edac306a75b27":[14,0,20,25,16],
 "run__MCEventBuilder_8py.html#a6aba5508fe87d8e56e37100dbdb6bbac":[14,0,20,25,4],
 "run__MCEventBuilder_8py.html#a6ac2a0de6285c64fb3faa7dc6082ff83":[14,0,20,25,10],
 "run__MCEventBuilder_8py.html#a6fc2dcf49d2d305a5c2ac2c92166bdf8":[14,0,20,25,3],
@@ -163,7 +165,7 @@ var NAVTREEINDEX97 =
 "run__MCEventBuilder_8py.html#a7fe2dace15a58009f61d45f78da34e0e":[14,0,20,25,0],
 "run__MCEventBuilder_8py.html#aba6fc077c888c3be14b4989d81fc014d":[14,0,20,25,1],
 "run__MCEventBuilder_8py.html#ac33e221e979aa111557f0385ae7332a2":[14,0,20,25,2],
-"run__MCEventBuilder_8py.html#ae2c1a5418daa9e7fec3413015dfb5a7f":[14,0,20,25,18],
+"run__MCEventBuilder_8py.html#ae2c1a5418daa9e7fec3413015dfb5a7f":[14,0,20,25,19],
 "run__MCEventBuilder_8py.html#aebaa4eb57443de2ad555b764c3a88e58":[14,0,20,25,5],
 "run__MCEventBuilder_8py.html#af25223690f322a96b005a6f62f1ba487":[14,0,20,25,6],
 "run__MCEventBuilder_8py.html#af922a4842d2ef880a0b31b521fab9142":[14,0,20,25,12],
@@ -247,7 +249,5 @@ var NAVTREEINDEX97 =
 "run__MufluxfixedTarget_8py.html#a3d80e862299a215b41dace6c09a98c22":[14,0,11,18,31],
 "run__MufluxfixedTarget_8py.html#a3dc542dbed26e2e7967cdd55a568354c":[14,0,11,18,40],
 "run__MufluxfixedTarget_8py.html#a3ddd5442fa20e7f4ec485477412dfcef":[14,0,11,18,56],
-"run__MufluxfixedTarget_8py.html#a3fddc1f9619e9c498630420159e124eb":[14,0,11,18,29],
-"run__MufluxfixedTarget_8py.html#a409569afbec93724f85d005f632e2fa0":[14,0,11,18,39],
-"run__MufluxfixedTarget_8py.html#a4c60f129db614770ae6c66bb3dc8f75d":[14,0,11,18,24]
+"run__MufluxfixedTarget_8py.html#a3fddc1f9619e9c498630420159e124eb":[14,0,11,18,29]
 };

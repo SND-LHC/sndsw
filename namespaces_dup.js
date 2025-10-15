@@ -2848,6 +2848,7 @@ var namespaces_dup =
       [ "options", "namespacerun__MCEventBuilder.html#a060d78105b58785ff52b5afbc68972bb", null ],
       [ "outFile", "namespacerun__MCEventBuilder.html#af922a4842d2ef880a0b31b521fab9142", null ],
       [ "parser", "namespacerun__MCEventBuilder.html#a1d77cf783dfdbed786d11d459471454c", null ],
+      [ "required", "namespacerun__MCEventBuilder.html#a5596f28bea145217f14f4a44094acde7", null ],
       [ "run", "namespacerun__MCEventBuilder.html#a3cd403459e17060effdefe15f324db03", null ],
       [ "scifiDet", "namespacerun__MCEventBuilder.html#a67707bb3739cbe92271edac306a75b27", null ],
       [ "sink", "namespacerun__MCEventBuilder.html#a27fdcf5f1a6957f3f0dd7e8c6a54875c", null ],

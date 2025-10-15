@@ -14,6 +14,7 @@ var run__MCEventBuilder_8py =
     [ "options", "run__MCEventBuilder_8py.html#a060d78105b58785ff52b5afbc68972bb", null ],
     [ "outFile", "run__MCEventBuilder_8py.html#af922a4842d2ef880a0b31b521fab9142", null ],
     [ "parser", "run__MCEventBuilder_8py.html#a1d77cf783dfdbed786d11d459471454c", null ],
+    [ "required", "run__MCEventBuilder_8py.html#a5596f28bea145217f14f4a44094acde7", null ],
     [ "run", "run__MCEventBuilder_8py.html#a3cd403459e17060effdefe15f324db03", null ],
     [ "scifiDet", "run__MCEventBuilder_8py.html#a67707bb3739cbe92271edac306a75b27", null ],
     [ "sink", "run__MCEventBuilder_8py.html#a27fdcf5f1a6957f3f0dd7e8c6a54875c", null ],
