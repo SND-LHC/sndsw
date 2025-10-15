@@ -37,10 +37,10 @@ snd::Configuration::Configuration(Option option, Scifi *scifi_geometry, MuFilter
     ds_ver_spatial_resolution_z = muon_filter_geometry->GetConfParF("MuFilter/DownstreamBarZ_ver") / std::sqrt(12);
 
     // Common parameters not present in geometry
-    scifi_min_timestamp = -0.5;
-    scifi_max_timestamp = 0.5;
-    us_min_timestamp = -0.5;
-    us_max_timestamp = 3.0;
+    scifi_min_timestamp = std::nan("");
+    scifi_max_timestamp = std::nan("");
+    us_min_timestamp = std::nan("");
+    us_max_timestamp = std::nan("");
     us_min_n_hits_for_centroid = 15;
     us_qdc_to_gev = 0.0151;
     us_min_hit_on_bar = 5;
@@ -68,6 +68,9 @@ snd::Configuration::Configuration(Option option, Scifi *scifi_geometry, MuFilter
         us_z_max = 480.0;
 
         centroid_min_valid_station = 2;
+
+        scifi_min_timestamp = -0.5;
+        scifi_max_timestamp = 1.2;
     }
     
     else if (option == Option::ti18_2022_2023)
@@ -82,8 +85,6 @@ snd::Configuration::Configuration(Option option, Scifi *scifi_geometry, MuFilter
         scifi_y_max = 60.0;
         scifi_z_min = 280.0;
         scifi_z_max = 360.0;
-        scifi_min_timestamp = -0.5;
-        scifi_max_timestamp = 0.5;
 
         us_x_min = -80.0;
         us_x_max = 0.0;
@@ -93,6 +94,9 @@ snd::Configuration::Configuration(Option option, Scifi *scifi_geometry, MuFilter
         us_z_max = 480.0;
 
         centroid_min_valid_station = 2;
+
+        scifi_min_timestamp = -0.5;
+        scifi_max_timestamp = 1.2;
     }
     
     else if (option == Option::test_beam_2023)
@@ -108,13 +112,17 @@ snd::Configuration::Configuration(Option option, Scifi *scifi_geometry, MuFilter
         scifi_y_max = 55.0;
         scifi_z_min = 310.0;
         scifi_z_max = 360.0;
-
+        scifi_min_timestamp = -0.5;
+        scifi_max_timestamp = 0.5;
+    
         us_x_min = -80.0;
         us_x_max = 5.0;
         us_y_min = 10.0;
         us_y_max = 80.0;
         us_z_min = 370.0;
         us_z_max = 480.0;
+        us_min_timestamp = -0.5;
+        us_max_timestamp = 3.0;
 
         centroid_min_valid_station = 0;
     }
