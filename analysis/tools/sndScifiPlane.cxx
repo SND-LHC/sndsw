@@ -12,7 +12,7 @@
 #include "ShipUnit.h"
 #include "Math/Point3D.h"
 
-snd::analysis_tools::ScifiPlane::ScifiPlane(std::vector<sndScifiHit*> snd_hits, Configuration configuration, Scifi *scifi_geometry, int station) : configuration_(configuration), centroid_(std::nan(""), std::nan(""), std::nan("")), centroid_error_(std::nan(""), std::nan(""), std::nan("")), station_(station)
+snd::analysis_tools::ScifiPlane::ScifiPlane(std::vector<sndScifiHit*> snd_hits, const Configuration &configuration, Scifi *scifi_geometry, int station) : configuration_(configuration), centroid_(std::nan(""), std::nan(""), std::nan("")), centroid_error_(std::nan(""), std::nan(""), std::nan("")), station_(station)
 {
     for ( auto snd_hit : snd_hits)
     {

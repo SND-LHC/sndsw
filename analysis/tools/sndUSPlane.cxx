@@ -9,7 +9,7 @@
 #include "MuFilter.h"
 #include "MuFilterHit.h"
 
-snd::analysis_tools::USPlane::USPlane(std::vector<MuFilterHit*> snd_hits, Configuration configuration, MuFilter *muon_filter_geometry, int station) : configuration_(configuration), centroid_(std::nan(""), std::nan(""), std::nan("")), centroid_error_(std::nan(""), std::nan(""),std::nan("")), station_(station)
+snd::analysis_tools::USPlane::USPlane(std::vector<MuFilterHit*> snd_hits, const Configuration &configuration, MuFilter *muon_filter_geometry, int station) : configuration_(configuration), centroid_(std::nan(""), std::nan(""), std::nan("")), centroid_error_(std::nan(""), std::nan(""),std::nan("")), station_(station)
 {
     for ( auto mu_hit : snd_hits)
     {
