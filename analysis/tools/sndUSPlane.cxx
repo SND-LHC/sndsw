@@ -169,3 +169,12 @@ const snd::analysis_tools::USPlane::sl_pair<int> snd::analysis_tools::USPlane::G
 
     return counts;
 }
+
+
+const int snd::analysis_tools::USPlane::GetHitBars() const{
+    int count{0};
+    for (int bar{0}; bar < configuration_.us_bar_per_station; ++bar) {
+        if (GetBarNHits(bar).large > 5) count++;
+    }
+    return count;
+}
