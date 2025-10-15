@@ -8,9 +8,11 @@
 
 namespace snd {
     namespace analysis_tools {
-        std::unique_ptr<TChain> GetTChain(const std::string& csv_file_path, int run_number, int n_files = -1);  
+        // With n_files == -1 all run partitions are added to the chain. 
+        // With empty csv_file_path, it gets the official one from the sndsw installation
+        std::unique_ptr<TChain> GetTChain(int run_number, int n_files = -1, const std::string& csv_file_path = "");  
         std::unique_ptr<TChain> GetTChain(const std::string& file_name);
-        std::string GetDataBasePath(const std::string& csv_file_path, int run_number); 
+        std::string GetDataBasePath(int run_number, std::string csv_file_path = ""); 
     }
 }
 

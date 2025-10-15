@@ -3,6 +3,7 @@
 #include <string>
 #include <utility>
 #include <stdexcept>
+#include <cstdlib>
 
 #include "Scifi.h"
 #include "MuFilter.h"
@@ -11,8 +12,11 @@
 
 // Get geometry full path, works with test beam too
 // 2022 constants are included in the 2023 geofile
-std::string snd::analysis_tools::GetGeoPath(const std::string& csv_file_path, int run_number)
+std::string snd::analysis_tools::GetGeoPath(int run_number, std::string csv_file_path)
 {
+    if (csv_file_path.empty()) {
+        csv_file_path = std::string(getenv("SNDSW_ROOT")) + "/analysis/tools/geo_paths.csv";
+    }
     std::ifstream file(csv_file_path);
     if (!file.is_open()) {
         throw std::runtime_error("Could not open CSV file: " + csv_file_path);
@@ -59,9 +63,9 @@ std::pair<Scifi *, MuFilter *> snd::analysis_tools::GetGeometry(const std::strin
 }
 
 // Get SciFi and MuFilter geometries directly from run number
-std::pair<Scifi *, MuFilter *> snd::analysis_tools::GetGeometry(const std::string& csv_file_path, int run_number)
+std::pair<Scifi *, MuFilter *> snd::analysis_tools::GetGeometry(int run_number, const std::string& csv_file_path)
 {
-    std::string geometry_path = GetGeoPath(csv_file_path, run_number);
+    std::string geometry_path = GetGeoPath(run_number, csv_file_path);
 
     return GetGeometry(geometry_path);
 }
