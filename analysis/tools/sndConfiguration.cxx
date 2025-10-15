@@ -38,9 +38,9 @@ snd::Configuration::Configuration(Option option, Scifi *scifi_geometry, MuFilter
 
     // Common parameters not present in geometry
     scifi_min_timestamp = -0.5;
-    scifi_max_timestamp = 0.5;
-    us_min_timestamp = -0.5;
-    us_max_timestamp = 3.0;
+    scifi_max_timestamp = 1;
+    us_min_timestamp = -1.2;
+    us_max_timestamp = 1.0;
     us_min_n_hits_for_centroid = 15;
     us_qdc_to_gev = 0.0151;
 
@@ -81,8 +81,6 @@ snd::Configuration::Configuration(Option option, Scifi *scifi_geometry, MuFilter
         scifi_y_max = 60.0;
         scifi_z_min = 280.0;
         scifi_z_max = 360.0;
-        scifi_min_timestamp = -0.5;
-        scifi_max_timestamp = 0.5;
 
         us_x_min = -80.0;
         us_x_max = 0.0;
