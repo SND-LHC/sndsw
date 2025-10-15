@@ -43,6 +43,7 @@ snd::Configuration::Configuration(Option option, Scifi *scifi_geometry, MuFilter
     us_max_timestamp = 3.0;
     us_min_n_hits_for_centroid = 15;
     us_qdc_to_gev = 0.0151;
+    us_min_hit_on_bar = 5;
 
     // Ad hoc parameters not present in geometry
     if (option == Option::ti18_2024_2025)
