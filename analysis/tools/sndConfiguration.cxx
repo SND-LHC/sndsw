@@ -37,10 +37,10 @@ snd::Configuration::Configuration(Option option, Scifi *scifi_geometry, MuFilter
     ds_ver_spatial_resolution_z = muon_filter_geometry->GetConfParF("MuFilter/DownstreamBarZ_ver") / std::sqrt(12);
 
     // Common parameters not present in geometry
-    scifi_min_timestamp = -0.5;
-    scifi_max_timestamp = 1;
-    us_min_timestamp = -1.2;
-    us_max_timestamp = 1.0;
+    scifi_min_timestamp = std::nan("");
+    scifi_max_timestamp = std::nan("");
+    us_min_timestamp = std::nan("");
+    us_max_timestamp = std::nan("");
     us_min_n_hits_for_centroid = 15;
     us_qdc_to_gev = 0.0151;
     us_min_hit_on_bar = 5;
@@ -68,6 +68,9 @@ snd::Configuration::Configuration(Option option, Scifi *scifi_geometry, MuFilter
         us_z_max = 480.0;
 
         centroid_min_valid_station = 2;
+
+        scifi_min_timestamp = -0.5;
+        scifi_max_timestamp = 1.2;
     }
     
     else if (option == Option::ti18_2022_2023)
@@ -91,6 +94,9 @@ snd::Configuration::Configuration(Option option, Scifi *scifi_geometry, MuFilter
         us_z_max = 480.0;
 
         centroid_min_valid_station = 2;
+
+        scifi_min_timestamp = -0.5;
+        scifi_max_timestamp = 1.2;
     }
     
     else if (option == Option::test_beam_2023)
