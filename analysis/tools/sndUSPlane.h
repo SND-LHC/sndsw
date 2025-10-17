@@ -61,7 +61,7 @@ namespace snd {
         void FindCentroid();
         ROOT::Math::XYZPoint GetCentroid() const { return centroid_; };
         ROOT::Math::XYZPoint GetCentroidError() const { return centroid_error_; };
-        const int GetHitBars() const;
+        const int GetNHitBars() const;
 
 
         void TimeFilter(double min_timestamp, double max_timestamp);
