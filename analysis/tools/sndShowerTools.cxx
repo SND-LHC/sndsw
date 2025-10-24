@@ -124,7 +124,7 @@ std::pair<ROOT::Math::XYZPoint, ROOT::Math::XYZVector> snd::analysis_tools::GetS
   ROOT::Math::XYZPoint shower_intercept(intercept_x, intercept_y, 0.0);
   ROOT::Math::XYZVector shower_direction(slope_x, slope_y, 1.0);
   
-  return std::make_pair(shower_intercept, shower_direction.Unit());
+  return std::make_pair(shower_intercept, shower_direction);
 }
 
 std::pair<std::vector<snd::analysis_tools::ScifiPlane>, std::vector<snd::analysis_tools::USPlane>> snd::analysis_tools::GetShoweringPlanes(const std::vector<snd::analysis_tools::ScifiPlane> &scifi_planes, const std::vector<snd::analysis_tools::USPlane> &us_planes)
