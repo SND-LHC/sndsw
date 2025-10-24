@@ -8,26 +8,32 @@
 #include "TVector3.h"
 #include "MuFilter.h"
 #include "MuFilterHit.h"
+#include "ShipUnit.h"
 
-snd::analysis_tools::USPlane::USPlane(std::vector<MuFilterHit*> snd_hits, const Configuration &configuration, MuFilter *muon_filter_geometry, int station) : configuration_(configuration), centroid_(std::nan(""), std::nan(""), std::nan("")), centroid_error_(std::nan(""), std::nan(""),std::nan("")), station_(station)
+snd::analysis_tools::USPlane::USPlane(std::vector<MuFilterHit*> snd_hits, const Configuration &configuration, MuFilter *muon_filter_geometry, int station, bool isMC) : configuration_(configuration), centroid_(std::nan(""), std::nan(""), std::nan("")), centroid_error_(std::nan(""), std::nan(""),std::nan("")), station_(station)
 {
     for ( auto mu_hit : snd_hits)
     {
+        TVector3 A, B;
+        int detectorID = mu_hit->GetDetectorID();
+        muon_filter_geometry->GetPosition(detectorID, A, B);
         for (int i{0}; i < 16; ++i)
         {
             if (mu_hit->isMasked(i) || mu_hit->GetSignal(i) < -990.) continue;
             USHit hit;
-            hit.bar = static_cast<int>(mu_hit->GetDetectorID() % 1000);
+            hit.bar = static_cast<int>(detectorID % 1000);
             hit.channel_index = 16 * hit.bar + i;
             hit.timestamp = mu_hit->GetTime(i);
             hit.qdc = mu_hit->GetSignal(i);
             hit.is_large = !mu_hit->isShort(i);
-        
-            TVector3 A, B;
-            int detectorID = mu_hit->GetDetectorID();
-            muon_filter_geometry->GetPosition(detectorID, A, B);
             hit.is_right = i > 7 ? true : false;
-            hit.x = hit.is_right ? B.X() : A.X();
+        
+            // use the left and right measurements to calculate the x coordinate along the bar
+            float timeConversion = 1.;
+            if (!isMC) {
+              timeConversion = ShipUnit::snd_TDC2ns;
+             }
+            hit.x = A.X() - 0.5*(mu_hit->GetDeltaT()*timeConversion*configuration_.us_signal_speed+configuration_.us_bar_length);
             hit.y = A.Y();
             hit.z = A.Z();
             hits_.push_back(hit);

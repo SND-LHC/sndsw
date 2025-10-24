@@ -67,6 +67,9 @@ namespace snd {
     int us_min_n_hits_for_centroid;
     int us_min_hit_on_bar;
 
+    double us_bar_length;
+    double us_signal_speed;
+
     int centroid_min_valid_station;
 
     int ds_n_stations;
