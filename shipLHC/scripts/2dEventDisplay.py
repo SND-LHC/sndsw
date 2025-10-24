@@ -50,6 +50,8 @@ parser.add_argument("--collision_axis", dest="drawCollAxis", help="Draw collisio
 parser.add_argument("-par", "--parFile", dest="parFile", help="parameter file", default=os.environ['SNDSW_ROOT']+"/python/TrackingParams.xml")
 parser.add_argument("-hf", "--HoughSpaceFormat", dest="HspaceFormat", help="Hough space representation. Should match the 'Hough_space_format' name in parFile, use quotes", default='linearSlopeIntercept')
 
+parser.add_argument("--shower_dir", dest="drawShowerDir", help="Draw shower direction if a shower is found", action="store_true")
+
 options = parser.parse_args()
 
 resolution_factor = 1
@@ -444,6 +446,7 @@ def loopEvents(
 
     digis = []
     if event.FindBranch("Digi_ScifiHits"):
+       scifi_digis = event.Digi_ScifiHits
        method = 0
        if FilterScifiHits!=None and FilterScifiHits!="default":
           filter_parameters = {k: FilterScifiHits[k] for k in important_keys if k in FilterScifiHits}
@@ -461,11 +464,23 @@ def loopEvents(
           selection_parameters["max_x"] = float(filter_parameters["max_x"])
           selection_parameters["time_lower_range"] = float(filter_parameters["time_lower_range"])
           selection_parameters["time_upper_range"] = float(filter_parameters["time_upper_range"])
-          digis.append(ROOT.snd.analysis_tools.filterScifiHits(event.Digi_ScifiHits,selection_parameters,method,setup,mc))
+          scifi_digis = ROOT.snd.analysis_tools.filterScifiHits(event.Digi_ScifiHits,selection_parameters,method,setup,mc)
        else:
           if FilterScifiHits:
              logging.warning(Setup+" is not supported for the time-filtering of SciFi hits, using all hits instead.")
-          digis.append(event.Digi_ScifiHits)
+    digis.append(scifi_digis)
+    run_conf = ROOT.snd.Configuration.Option.ti18_2022_2023
+    if Setup=='TI18' or Setup=="H6":
+      run_conf = ROOT.snd.Configuration.Option.ti18_2022_2023
+    elif Setup == "H8":
+      ROOT.snd.Configuration.Option.test_beam_2023
+    elif Setup == "H4":
+      ROOT.snd.Configuration.Option.test_beam_2024
+    else:
+      print("Going for default setup TI18")
+    configuration = ROOT.snd.Configuration(run_conf, geo.modules['Scifi'], geo.modules['MuFilter'])
+    scifi_planes = ROOT.snd.analysis_tools.FillScifi(configuration, scifi_digis, geo.modules['Scifi'])
+    us_planes = ROOT.snd.analysis_tools.FillUS(configuration, event.Digi_MuFilterHits, geo.modules['MuFilter'], mc)
     if event.FindBranch("Digi_MuFilterHits"): digis.append(event.Digi_MuFilterHits)
     if event.FindBranch("Digi_MuFilterHit"): digis.append(event.Digi_MuFilterHit)
     empty = True
@@ -533,10 +548,16 @@ def loopEvents(
                  nav.MasterToLocal(globA, locA)
              Z = X[2]
              if digi.isVertical():
+                   # only using hits with positive qdc for centroids, so only show such
+                   if options.drawShowerDir and system==0 and digi.GetSignal(0)<0:
+                     continue
                    collection = 'hitCollectionX'
                    Y = locA[0]
                    sY = detSize[system][0]
              else:
+                   # only using hits with positive qdc for centroids, so only show such
+                   if options.drawShowerDir and system==0 and digi.GetSignal(0)<0:
+                     continue
                    collection = 'hitCollectionY'
                    Y = locA[1]
                    sY = detSize[system][1]
@@ -630,6 +651,31 @@ def loopEvents(
     h['simpleDisplay'].Update()
     if withTiming: timingOfEvent()
     addTrack(OT)
+
+    # try finding shower direction and intercept
+    if options.drawShowerDir:
+       sh_scifi_planes, sh_us_planes = ROOT.snd.analysis_tools.GetShoweringPlanes(scifi_planes, us_planes)
+       ref_point, shower_direction = ROOT.snd.analysis_tools.GetShowerInterceptAndDirection(configuration, sh_scifi_planes, sh_us_planes)
+       is_nan = np.isnan([ref_point.X(), ref_point.Y(), ref_point.Z(), shower_direction.X(), shower_direction.Y(), shower_direction.Z()]).any()
+       if is_nan:
+          print("Found shower direction and/or intercept contain NaN value")
+       # try finding the shower origin
+       else:
+          shower_start = 10*ROOT.snd.analysis_tools.GetScifiShowerStart(scifi_planes)
+          if shower_start<0:
+             print("Could not find shower start in SciFi, going for US")
+             shower_start = 100*ROOT.snd.analysis_tools.GetUSShowerStart(us_planes)
+          if shower_start<0:
+             print("Could not find shower start in SciFi or in US")
+          else:
+             for k in proj:
+                 if k==1:
+                    drawShowerAxis(h['simpleDisplay'], k, shower_start, ref_point.X(),
+                                                       shower_direction.X()/shower_direction.Z())
+                 else:
+                    drawShowerAxis(h['simpleDisplay'], k, shower_start, ref_point.Y(),
+                                                       shower_direction.Y()/shower_direction.Z())
+    h['simpleDisplay'].Update()
 
     if option == "2tracks": 
           rc = twoTrackEvent(sMin=10,dClMin=7,minDistance=0.5,sepDistance=0.5)
@@ -861,6 +907,17 @@ def drawDetectors():
             for C in P:
                M[C] = array('d',[0,0,0])
                nav.LocalToMaster(P[C],M[C])
+            if "volVetoPlane_0" in node:
+               h['veto0_z'] = M['LeftBottom'][2]
+            if "ScifiVolume" in node:
+               for st in range(1,si.nscifi+1):
+                  if f"{st}_{st}000000" in node:
+                     h[f"scifi{st}_z"] = M['LeftBottom'][2]
+            if "volMuUpstreamDet" in node:
+               for st in range(mi.NUpstreamPlanes):
+                  if f"{st}_{st+mi.NVetoPlanes}" in node:
+                     h[f"us{st+1}_z"] = M['LeftBottom'][2]
+
             h[node+p] = ROOT.TPolyLine()
             X = h[node+p]
             c = proj[p]
@@ -1221,5 +1278,18 @@ def drawCollisionAxis(pad, k):
    h[line_name].Draw()
    h[text_name].Draw()
 
-   
-       
+def drawShowerAxis(pad, k, shower_start, ref_point, shower_direction):
+   line_name= "shower_dir_" + str(k)
+   if shower_start<100:
+      zpos_name='scifi'+str(shower_start//10)
+   else:
+      zpos_name='us'+str(shower_start//100)
+   h[line_name] = ROOT.TLine(h[zpos_name+'_z'],
+                             ref_point+shower_direction*h[zpos_name+'_z'],
+                             h['zmax'],
+                             ref_point+shower_direction*h['zmax'])
+   h[line_name].SetLineColor(ROOT.kPink-6)
+   h[line_name].SetLineStyle(3)
+   h[line_name].SetLineWidth(5)
+   pad.cd(k)
+   h[line_name].Draw()
