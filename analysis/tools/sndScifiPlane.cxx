@@ -222,8 +222,8 @@ snd::analysis_tools::ScifiPlane::xy_pair<double> snd::analysis_tools::ScifiPlane
 void snd::analysis_tools::ScifiPlane::FindCentroid()
 {
     centroid_.SetXYZ(0, 0, 0);
-    double tot_qdc_x{0};
-    double tot_qdc_y{0};
+    double tot_qdc_x{0}, sum_qdc2_x{0.0};
+    double tot_qdc_y{0}, sum_qdc2_y{0.0};
     std::vector<ScifiHit> cleaned_hits = hits_;
 
     cleaned_hits.erase(std::remove_if(cleaned_hits.begin(), cleaned_hits.end(),
@@ -246,18 +246,25 @@ void snd::analysis_tools::ScifiPlane::FindCentroid()
             {
                 centroid_.SetX(centroid_.X() + hit.x * hit.qdc);
                 tot_qdc_x += hit.qdc;
+                sum_qdc2_x += hit.qdc*hit.qdc;
             }
             else
             {
                 centroid_.SetY(centroid_.Y() + hit.y * hit.qdc);
                 tot_qdc_y += hit.qdc;
+                sum_qdc2_y += hit.qdc*hit.qdc;
             }
 
             centroid_.SetZ(centroid_.Z() + hit.z * hit.qdc);
         }
     }
     centroid_ = ROOT::Math::XYZPoint((tot_qdc_x > 0) ? centroid_.X() / tot_qdc_x : std::nan(""), (tot_qdc_y > 0) ? centroid_.Y() / tot_qdc_y : std::nan(""), (tot_qdc_x+tot_qdc_y > 0) ? centroid_.Z() / (tot_qdc_x+tot_qdc_y) : std::nan(""));
-    centroid_error_ = ROOT::Math::XYZPoint(configuration_.scifi_centroid_error_x, configuration_.scifi_centroid_error_y, configuration_.scifi_centroid_error_z);
+    auto qdc_x_error_scaler = sqrt(sum_qdc2_x)/tot_qdc_x;
+    auto qdc_y_error_scaler = sqrt(sum_qdc2_y)/tot_qdc_y;
+    auto qdc_z_error_scaler = sqrt(sum_qdc2_x+sum_qdc2_y)/(tot_qdc_x+tot_qdc_y);
+    centroid_error_ = ROOT::Math::XYZPoint(configuration_.scifi_centroid_error_x*qdc_x_error_scaler,
+                                           configuration_.scifi_centroid_error_y*qdc_y_error_scaler,
+                                           configuration_.scifi_centroid_error_z*qdc_z_error_scaler);
 }
 
 const snd::analysis_tools::ScifiPlane::xy_pair<double> snd::analysis_tools::ScifiPlane::GetTotQdc(bool only_positive) const
