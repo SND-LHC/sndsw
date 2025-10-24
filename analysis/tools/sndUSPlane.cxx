@@ -45,14 +45,14 @@ void snd::analysis_tools::USPlane::FindCentroid()
     }
     
     double total_qdc = GetTotQdc().large;
+    // weigthed sum calculated per plane
+    double  weighted_sum_x{0.0}, weighted_sum_y{0.0}, weighted_sum_z{0.0};
+    double total_qdc_positive{0.0};
     if (total_qdc > 0.0)
     {
+        // loop over hits in the plane
         for (const auto &hit : hits_)
         {
-            // weigthed sum
-            double  weighted_sum_x{0.0}, weighted_sum_y{0.0}, weighted_sum_z{0.0};
-            double total_qdc_positive{0.0};
-
             if (hit.qdc > 0.0)
             {
                 weighted_sum_x += hit.x * hit.qdc;
@@ -60,12 +60,11 @@ void snd::analysis_tools::USPlane::FindCentroid()
                 weighted_sum_z += hit.z * hit.qdc;
                 total_qdc_positive += hit.qdc;
             }
-
-            double x = weighted_sum_x / total_qdc_positive;
-            double y = weighted_sum_y / total_qdc_positive;
-            double z = weighted_sum_z / total_qdc_positive;
-            centroid_.SetXYZ(x, y, z);
         }
+        weighted_sum_x /= total_qdc_positive;
+        weighted_sum_y /= total_qdc_positive;
+        weighted_sum_z /= total_qdc_positive;
+        centroid_.SetXYZ(weighted_sum_x, weighted_sum_y, weighted_sum_z);
     }
     centroid_error_.SetXYZ(configuration_.us_centroid_error_x, configuration_.us_centroid_error_y, configuration_.us_centroid_error_z);
 }
