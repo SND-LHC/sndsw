@@ -37,36 +37,36 @@ snd::analysis_tools::USPlane::USPlane(std::vector<MuFilterHit*> snd_hits, const 
 
 void snd::analysis_tools::USPlane::FindCentroid()
 {
+    // select large SiPM channels with positive qdc
+    std::vector<USHit> cleaned_hits = hits_;
+
+    cleaned_hits.erase(std::remove_if(cleaned_hits.begin(), cleaned_hits.end(),
+                               [&](auto &hit)
+                               { return (hit.qdc <= 0 || hit.is_large == false); }),
+                       cleaned_hits.end());
+
     // min number of hit in the plane to attempt to find a centroid
-    if (static_cast<int>(hits_.size()) < configuration_.us_min_n_hits_for_centroid)
+    if (static_cast<int>(cleaned_hits.size()) < configuration_.us_min_n_hits_for_centroid)
     {
         // std::cout<<"Not enough hits in US plane " << station_ <<" to find centroid\n";
         return;
     }
-    
-    double total_qdc = GetTotQdc().large;
-    if (total_qdc > 0.0)
+
+    // weigthed sum calculated per plane
+    double  weighted_sum_x{0.0}, weighted_sum_y{0.0}, weighted_sum_z{0.0};
+    double total_qdc_positive{0.0};
+    // loop over hits in the plane
+    for (const auto &hit : cleaned_hits)
     {
-        for (const auto &hit : hits_)
-        {
-            // weigthed sum
-            double  weighted_sum_x{0.0}, weighted_sum_y{0.0}, weighted_sum_z{0.0};
-            double total_qdc_positive{0.0};
-
-            if (hit.qdc > 0.0)
-            {
-                weighted_sum_x += hit.x * hit.qdc;
-                weighted_sum_y += hit.y * hit.qdc;
-                weighted_sum_z += hit.z * hit.qdc;
-                total_qdc_positive += hit.qdc;
-            }
-
-            double x = weighted_sum_x / total_qdc_positive;
-            double y = weighted_sum_y / total_qdc_positive;
-            double z = weighted_sum_z / total_qdc_positive;
-            centroid_.SetXYZ(x, y, z);
-        }
+        weighted_sum_x += hit.x * hit.qdc;
+        weighted_sum_y += hit.y * hit.qdc;
+        weighted_sum_z += hit.z * hit.qdc;
+        total_qdc_positive += hit.qdc;
     }
+    weighted_sum_x /= total_qdc_positive;
+    weighted_sum_y /= total_qdc_positive;
+    weighted_sum_z /= total_qdc_positive;
+    centroid_.SetXYZ(weighted_sum_x, weighted_sum_y, weighted_sum_z);
     centroid_error_.SetXYZ(configuration_.us_centroid_error_x, configuration_.us_centroid_error_y, configuration_.us_centroid_error_z);
 }
 
@@ -170,7 +170,6 @@ const snd::analysis_tools::USPlane::sl_pair<int> snd::analysis_tools::USPlane::G
     return counts;
 }
 
-
 const int snd::analysis_tools::USPlane::GetNHitBars() const{
     int count{0};
     for (int bar{0}; bar < configuration_.us_bar_per_station; ++bar) {
@@ -178,3 +177,4 @@ const int snd::analysis_tools::USPlane::GetNHitBars() const{
     }
     return count;
 }
+
