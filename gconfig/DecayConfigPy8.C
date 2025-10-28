@@ -1,40 +1,59 @@
-void DecayConfig() {
-     
-	// This script uses the external decayer TPythia8Decayer in place of the
-	// concrete Monte Carlo native decay mechanisms only for the
-	// specific types of decays defined below.
-	
-	// Access the external decayer singleton and initialize it  
-	TVirtualMCDecayer* decayer = new TPythia8Decayer();
-	decayer->Init();
-	
-	// Tell the concrete monte carlo to use the external decayer.  The
-	// external decayer will be used for:
-	// i)particle decays not defined in concrete monte carlo, or
-	//ii)particles for which the concrete monte carlo is told
-	//   to use the external decayer for its type via:
-	//     gMC->SetUserDecay(pdgId);
-	//   If this is invoked, the external decayer will be used for particles 
-	//   of type pdgId even if the concrete monte carlo has a decay mode 
-	//   already defined for that particle type.
-	gMC->SetExternalDecayer(decayer);
-        // to get the rare muon decays, HOWEVER does not work with Geant4 logic
-        //gMC->SetUserDecay(221); // eta
-        //gMC->SetUserDecay(223); // omega
-        //gMC->SetUserDecay(113); // rho0
-        //gMC->SetUserDecay(331); // eta_prime
-        //gMC->SetUserDecay(333); // phi
-        gMC->SetUserDecay(411);
-        gMC->SetUserDecay(-411);
-        gMC->SetUserDecay(421);
-        gMC->SetUserDecay(-421);
-        gMC->SetUserDecay(4122);
-        gMC->SetUserDecay(-4122);
-        gMC->SetUserDecay(431);
-        gMC->SetUserDecay(-431);
-        gMC->SetUserDecay(15);
-        gMC->SetUserDecay(-15);
-        cout<< "External decayer DecayConfigPy8 initialized"<<endl;
+void DecayConfigPythia8(){
+
+  // Decay heavy hadrons and taus with Pythia8
+  
+  TDatabasePDG *db= TDatabasePDG::Instance();
+
+  // Create a new external decayer instance
+  TPythia8Decayer* decayer = new TPythia8Decayer();
+  decayer->Init(); // Currently does nothing, but leave it in case it gets implemented.
+  
+  TVirtualMC::GetMC()->SetExternalDecayer(decayer);
+
+  // Set list of particles to decay with external decayer via geant4 command
+  std::string g4cmd = "/mcPhysics/setExtDecayerSelection";
+
+  std::cout << "DecayConfigPy8 macro: setting heavy flavour decays via Pythia8" << std::endl;
+  // First loop through all particles in database and add heavy flavour
+  for (TObject * obj : *(db->ParticleList())) {
+    TParticlePDG * p = dynamic_cast<TParticlePDG*>(obj);
+
+    if (!p) {
+      std::cout << "DecayConfigPy8 WARNING: got object other than TParticlePDG from particle list" << std::endl;
+      continue;
+    }
+    
+    bool isCharm = (strcmp("CharmedMeson", p->ParticleClass()) == 0) or
+      (strcmp("CharmedBaryon", p->ParticleClass()) == 0) or
+      p->Charm(); // p->Charm() doesn't work. Leave here for future compat.
+    bool isBeauty = (strcmp("B-Meson", p->ParticleClass()) == 0) or
+      (strcmp("B-Baryon", p->ParticleClass()) == 0) or
+      p->Beauty(); // p->Beauty() doesn't work. Leave here for future compat.
+
+    if (isCharm or isBeauty){
+      g4cmd += " ";
+      g4cmd += p->GetName();
+    }
+  }
+  
+  std::cout << "DecayConfigPy8 macro: setting other decays (short-lived and tau) via Pythia8" << std::endl;
+  std::vector<int> pdgs_to_decay_with_pythia8 = {
+    // Short-lived resonances, for rare decays.
+    221, // eta
+    //    223, // omega CRASHES
+    //    113, // rho CRASHES
+    331, // eta_prime
+    //    333, // phi CRASHES
+    // Tau
+    15, // tau
+    -15 // tau bar
+  };
+
+  for (int pdg : pdgs_to_decay_with_pythia8){
+    g4cmd += " ";
+    g4cmd += db->GetParticle(pdg)->GetName();
+  }
+  dynamic_cast<TGeant4*>(TVirtualMC::GetMC())->ProcessGeantCommand(g4cmd.c_str());
 }
 
-
+void DecayConfig() { DecayConfigPythia8(); }
