@@ -724,7 +724,8 @@ def addTrack(OT,scifi=False):
       for p in [0,1]:
           h['aLine'+str(nTrack*10+p)] = ROOT.TGraph()
 
-      zEx = xax.GetBinCenter(1)
+      # draw the track line starting from the most upstream Veto plane
+      zEx = h['veto0_z']
       mom    = aTrack.getFittedState().getMom()
       pos      = aTrack.getFittedState().getPos()
       lam      = (zEx-pos.z())/mom.z()
