@@ -32,7 +32,7 @@ namespace snd {
                 bool is_x{};
             };
 
-            ScifiPlane(std::vector<sndScifiHit*> snd_hits, Configuration configuration, Scifi *scifi_geometry, int station);
+            ScifiPlane(std::vector<sndScifiHit*> snd_hits, const Configuration &configuration, Scifi *scifi_geometry, int station);
 
             const int GetStation() const { return station_; };
             const std::vector<ScifiHit> GetHits() const { return hits_; };

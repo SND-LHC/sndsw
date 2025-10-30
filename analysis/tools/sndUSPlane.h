@@ -45,7 +45,7 @@ namespace snd {
             bool is_right;
         };
 
-        USPlane(std::vector<MuFilterHit*> snd_hits, Configuration configuration, MuFilter *muon_filter_geometry, int station);
+        USPlane(std::vector<MuFilterHit*> snd_hits, const Configuration &configuration, MuFilter *muon_filter_geometry, int station);
 
         const sl_pair<int> GetNHits() const;
         const int GetStation() const { return station_; };
@@ -56,7 +56,7 @@ namespace snd {
         const rl_pair<double> GetBarQdc(int bar_to_compute) const;
         const sl_pair<int> GetBarNHits(int bar_to_compute) const;
         const std::vector<USHit> GetHits() const { return hits_; };
-        double HasShower() const { return static_cast<int>(hits_.size()) >= configuration_.us_min_n_hits_for_centroid; };
+        double HasShower() const { return GetNHits().large >= configuration_.us_min_n_hits_for_centroid; };
         // The centroid is the qdc-weighted mean of hit positions, considering only hits with positive qdc
         void FindCentroid();
         ROOT::Math::XYZPoint GetCentroid() const { return centroid_; };
