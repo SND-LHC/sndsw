@@ -225,7 +225,6 @@ void snd::analysis_tools::ScifiPlane::FindCentroid()
     double tot_qdc_x{0};
     double tot_qdc_y{0};
     std::vector<ScifiHit> cleaned_hits = hits_;
-
     cleaned_hits.erase(std::remove_if(cleaned_hits.begin(), cleaned_hits.end(),
                                [&](auto &hit)
                                { return hit.qdc <= 0; }),
@@ -257,7 +256,10 @@ void snd::analysis_tools::ScifiPlane::FindCentroid()
         }
     }
     centroid_ = ROOT::Math::XYZPoint((tot_qdc_x > 0) ? centroid_.X() / tot_qdc_x : std::nan(""), (tot_qdc_y > 0) ? centroid_.Y() / tot_qdc_y : std::nan(""), (tot_qdc_x+tot_qdc_y > 0) ? centroid_.Z() / (tot_qdc_x+tot_qdc_y) : std::nan(""));
-    centroid_error_ = ROOT::Math::XYZPoint(configuration_.scifi_centroid_error_x, configuration_.scifi_centroid_error_y, configuration_.scifi_centroid_error_z);
+    centroid_error_ = ROOT::Math::XYZPoint(
+        (tot_qdc_x > 0)             ? std::sqrt(1/tot_qdc_x)             : std::nan(""), 
+        (tot_qdc_y > 0)             ? std::sqrt(1/tot_qdc_y)             : std::nan(""), 
+        (tot_qdc_x + tot_qdc_y > 0) ? std::sqrt(1/(tot_qdc_x+tot_qdc_y)) : std::nan(""));
 }
 
 const snd::analysis_tools::ScifiPlane::xy_pair<double> snd::analysis_tools::ScifiPlane::GetTotQdc(bool only_positive) const
