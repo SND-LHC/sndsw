@@ -65,6 +65,7 @@ namespace snd {
     int us_n_channels_per_station;
     int us_n_sipm_per_bar;
     int us_min_n_hits_for_centroid;
+    int us_min_hit_on_bar;
 
     int centroid_min_valid_station;
 
