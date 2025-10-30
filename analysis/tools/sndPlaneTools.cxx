@@ -36,7 +36,7 @@ std::vector<snd::analysis_tools::ScifiPlane> snd::analysis_tools::FillScifi(cons
 }
 
 
-std::vector<snd::analysis_tools::USPlane> snd::analysis_tools::FillUS(const snd::Configuration &configuration, TClonesArray *mufi_hits, MuFilter *mufilter_geometry)
+std::vector<snd::analysis_tools::USPlane> snd::analysis_tools::FillUS(const snd::Configuration &configuration, TClonesArray *mufi_hits, MuFilter *mufilter_geometry, bool isMC)
 {
 
   std::vector<snd::analysis_tools::USPlane> us_planes;
@@ -55,7 +55,7 @@ std::vector<snd::analysis_tools::USPlane> snd::analysis_tools::FillUS(const snd:
       else throw std::runtime_error{"Invalid US plane"};
   }
   for (int st{0}; st < n_station; ++st) {
-          us_planes.emplace_back(snd::analysis_tools::USPlane(plane_hits[st], configuration, mufilter_geometry, st+1));
+          us_planes.emplace_back(snd::analysis_tools::USPlane(plane_hits[st], configuration, mufilter_geometry, st+1, isMC));
   }
   return us_planes;
 }

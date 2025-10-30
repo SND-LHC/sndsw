@@ -66,6 +66,9 @@ namespace snd {
     int us_n_sipm_per_bar;
     int us_min_n_hits_for_centroid;
 
+    double us_bar_length;
+    double us_signal_speed;
+
     int centroid_min_valid_station;
 
     int ds_n_stations;

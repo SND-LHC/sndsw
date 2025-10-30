@@ -24,7 +24,9 @@ snd::Configuration::Configuration(Option option, Scifi *scifi_geometry, MuFilter
     us_bar_per_station = muon_filter_geometry->GetConfParI("MuFilter/NUpstreamBars");
     us_n_sipm_per_bar = muon_filter_geometry->GetConfParI("MuFilter/UpstreamnSiPMs") * muon_filter_geometry->GetConfParI("MuFilter/UpstreamnSides");
     us_n_channels_per_station = us_bar_per_station * us_n_sipm_per_bar;
-    us_centroid_error_x = muon_filter_geometry->GetConfParF("MuFilter/UpstreamBarX") / std::sqrt(12);
+    us_bar_length = muon_filter_geometry->GetConfParF("MuFilter/UpstreamBarX");
+    us_signal_speed = muon_filter_geometry->GetConfParF("MuFilter/VandUpPropSpeed");
+    us_centroid_error_x = 3.;//estimate based on PMU data, no time calibration
     us_centroid_error_y = muon_filter_geometry->GetConfParF("MuFilter/UpstreamBarY") / std::sqrt(12);
     us_centroid_error_z = muon_filter_geometry->GetConfParF("MuFilter/UpstreamBarZ");
 
