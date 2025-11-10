@@ -10,6 +10,7 @@ var classsnd_1_1analysis__tools_1_1USPlane =
     [ "GetCentroid", "classsnd_1_1analysis__tools_1_1USPlane.html#af77f8a91ccc7819717214db5ef384210", null ],
     [ "GetCentroidError", "classsnd_1_1analysis__tools_1_1USPlane.html#a89374b8bdd664a85caf6d221431cf46e", null ],
     [ "GetHits", "classsnd_1_1analysis__tools_1_1USPlane.html#acb310b96889cd4023eaabe121f763d3c", null ],
+    [ "GetNHitBars", "classsnd_1_1analysis__tools_1_1USPlane.html#a9db976226238ae4f4e6973714f96cb12", null ],
     [ "GetNHits", "classsnd_1_1analysis__tools_1_1USPlane.html#a57d56452c6ba46503dcf5af5c4736acd", null ],
     [ "GetSideQdc", "classsnd_1_1analysis__tools_1_1USPlane.html#a4a724eefe52a9d98da920bdc1518e090", null ],
     [ "GetStation", "classsnd_1_1analysis__tools_1_1USPlane.html#ac1802f44bcf65e8b7399f04791012bd3", null ],

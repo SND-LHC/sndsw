@@ -1,5 +1,7 @@
 var NAVTREEINDEX89 =
 {
+"namespacescifiHitMaps.html#ac8e22800853b6f4195d74ccd034f51ea":[12,0,143,21],
+"namespacescifiHitMaps.html#ad3971ba895d06406118bd4f7775c386b":[12,0,143,13],
 "namespacescifiHitMaps.html#adb9ae0bc1ae2fca4597f19be231d5914":[12,0,143,8],
 "namespacescifiHitMaps.html#ae4ebdff8a0ffbcd66483d01437ac45a7":[12,0,143,15],
 "namespacescifiHitMaps.html#ae8b4aed52ad04a321a43b786ed769ba7":[12,0,143,6],
@@ -247,7 +249,5 @@ var NAVTREEINDEX89 =
 "namespaceshipStrawTracking__prev.html#a64494ffb0bf618763d25f70299d5d586":[12,0,162,1],
 "namespaceshipStrawTracking__prev.html#a65cfc5c744981e02fb57fca425a09995":[12,0,162,6],
 "namespaceshipStrawTracking__prev.html#a74a6a5acd8e42f7507a9761a29eda256":[12,0,162,2],
-"namespaceshipStrawTracking__prev.html#a7ec09bc5d9638cd7bda53e06220b67e1":[12,0,162,28],
-"namespaceshipStrawTracking__prev.html#a828b8ae4c87495281ab365b1e3ad5e77":[12,0,162,12],
-"namespaceshipStrawTracking__prev.html#a82b7c025af9b079120aaf033005037fe":[12,0,162,15]
+"namespaceshipStrawTracking__prev.html#a7ec09bc5d9638cd7bda53e06220b67e1":[12,0,162,28]
 };

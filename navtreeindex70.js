@@ -1,5 +1,7 @@
 var NAVTREEINDEX70 =
 {
+"namespaceMufluxMuonTaggerPatRec.html":[12,0,98],
+"namespaceMufluxMuonTaggerPatRec.html#a126e33e28b3e4914744b3af086addbcf":[12,0,98,9],
 "namespaceMufluxMuonTaggerPatRec.html#a455e162350e421719336e4d3a584fc32":[12,0,98,1],
 "namespaceMufluxMuonTaggerPatRec.html#a50210c236ff2f326b4c393ce881a38c7":[12,0,98,5],
 "namespaceMufluxMuonTaggerPatRec.html#a5c7aa98b4243ad641318dfefc98fd301":[12,0,98,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX70 =
 "namespaceShipAna.html#a8da5d6cec7b9b69133cd1375a54ed3b5":[12,0,148,61],
 "namespaceShipAna.html#a8eb0bad67edad00619ca48f55ef7f73a":[12,0,148,29],
 "namespaceShipAna.html#a8f00be5629373de462b8a283f845c3d0":[12,0,148,38],
-"namespaceShipAna.html#a932a71fdb10c84b7b01791effee75667":[12,0,148,26],
-"namespaceShipAna.html#a96b413e3241fcb3bbe7ceb262423570e":[12,0,148,36],
-"namespaceShipAna.html#a96c5027870721bf07ee185ffd2187b82":[12,0,148,22]
+"namespaceShipAna.html#a932a71fdb10c84b7b01791effee75667":[12,0,148,26]
 };

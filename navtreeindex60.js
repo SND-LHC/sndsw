@@ -1,5 +1,7 @@
 var NAVTREEINDEX60 =
 {
+"factory_8py.html":[14,0,1,4],
+"factory_8py_source.html":[14,0,1,4],
 "fieldsLinkDef_8h.html":[14,0,5,2,1,3],
 "fieldsLinkDef_8h_source.html":[14,0,5,2,1,3],
 "fields_2include_2BellField_8h.html":[14,0,5,2,0,0],
@@ -76,8 +78,8 @@ var NAVTREEINDEX60 =
 "functions_type.html":[13,3,3],
 "functions_u.html":[13,3,0,21],
 "functions_v.html":[13,3,0,22],
-"functions_vars.html":[13,3,2],
 "functions_vars.html":[13,3,2,0],
+"functions_vars.html":[13,3,2],
 "functions_vars_a.html":[13,3,2,1],
 "functions_vars_b.html":[13,3,2,2],
 "functions_vars_c.html":[13,3,2,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX60 =
 "g4Ex__gap__mergeFiles_8py.html#a17163553c78ce5cf82e52b199e45c06b":[14,0,11,9,21],
 "g4Ex__gap__mergeFiles_8py.html#a196fb8f6a4ff597dc8d4c5d23673e253":[14,0,11,9,17],
 "g4Ex__gap__mergeFiles_8py.html#a200741f599f0bb0893f52498a9617a0a":[14,0,11,9,16],
-"g4Ex__gap__mergeFiles_8py.html#a2ac25789017dd56603137f3da74453fb":[14,0,11,9,10],
-"g4Ex__gap__mergeFiles_8py.html#a2bd0162f169ff3e31dba248ae0ea4ea3":[14,0,11,9,14],
-"g4Ex__gap__mergeFiles_8py.html#a38872d62a0c9857719cd41adda923f49":[14,0,11,9,6]
+"g4Ex__gap__mergeFiles_8py.html#a2ac25789017dd56603137f3da74453fb":[14,0,11,9,10]
 };

@@ -39,6 +39,7 @@ var structsnd_1_1Configuration =
     [ "us_centroid_error_y", "structsnd_1_1Configuration.html#a9df6032d2562dc844d5df268d4a14094", null ],
     [ "us_centroid_error_z", "structsnd_1_1Configuration.html#a0165be7dfca2b33db15d17b89c7bd427", null ],
     [ "us_max_timestamp", "structsnd_1_1Configuration.html#a870dfe72cd8267f42aec9b7cac05e862", null ],
+    [ "us_min_hit_on_bar", "structsnd_1_1Configuration.html#a109590883ca97b310c9683e504f3893c", null ],
     [ "us_min_n_hits_for_centroid", "structsnd_1_1Configuration.html#aa777dd536239beca40cd68215030b15b", null ],
     [ "us_min_timestamp", "structsnd_1_1Configuration.html#afdf30063f4a468a1740b735dc202e6a4", null ],
     [ "us_n_channels_per_station", "structsnd_1_1Configuration.html#add2ac3a646d834e340be1ed92b11fce6", null ],
