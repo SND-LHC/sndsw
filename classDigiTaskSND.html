@@ -523,7 +523,7 @@ Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  155</span>        <span class="keywordtype">float</span> weight{};</div>
 <div class="line"><span class="lineno">  156</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> sipmChan : <a class="code hl_variable" href="classDigiTaskSND.html#a092aff4355b66a18b3856ec676138926">siPMFibres</a>[locFibreID])</div>
 <div class="line"><span class="lineno">  157</span>        {</div>
-<div class="line"><span class="lineno">  158</span>            globsipmChan = <a class="code hl_variable" href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">int</a>(detID/100000)*100000+sipmChan.first;</div>
+<div class="line"><span class="lineno">  158</span>            globsipmChan = <a class="code hl_variable" href="namespacemakeRunListDB.html#a1871ab24b92549e3c377b1d947b295ef">int</a>(detID/100000)*100000+sipmChan.first;</div>
 <div class="line"><span class="lineno">  159</span>            weight = sipmChan.second[0];</div>
 <div class="line"><span class="lineno">  160</span>            hitContainer[globsipmChan].first.push_back(point);</div>
 <div class="line"><span class="lineno">  161</span>            hitContainer[globsipmChan].second.push_back(weight);</div>
@@ -545,7 +545,7 @@ Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  177</span>}</div>
 <div class="ttc" id="aclassDigiTaskSND_html_a092aff4355b66a18b3856ec676138926"><div class="ttname"><a href="classDigiTaskSND.html#a092aff4355b66a18b3856ec676138926">DigiTaskSND::siPMFibres</a></div><div class="ttdeci">std::map&lt; Int_t, std::map&lt; Int_t, std::array&lt; float, 2 &gt; &gt; &gt; siPMFibres</div><div class="ttdef"><b>Definition</b> <a href="DigiTaskSND_8h_source.html#l00044">DigiTaskSND.h:44</a></div></div>
 <div class="ttc" id="aclassScifiPoint_html"><div class="ttname"><a href="classScifiPoint.html">ScifiPoint</a></div><div class="ttdef"><b>Definition</b> <a href="ScifiPoint_8h_source.html#l00010">ScifiPoint.h:11</a></div></div>
-<div class="ttc" id="anamespaceadd__noise__to__field_html_a4aa6f75233f1922a97b2d4c15285c18e"><div class="ttname"><a href="namespaceadd__noise__to__field.html#a4aa6f75233f1922a97b2d4c15285c18e">add_noise_to_field.int</a></div><div class="ttdeci">int</div><div class="ttdef"><b>Definition</b> <a href="add__noise__to__field_8py_source.html#l00057">add_noise_to_field.py:57</a></div></div>
+<div class="ttc" id="anamespacemakeRunListDB_html_a1871ab24b92549e3c377b1d947b295ef"><div class="ttname"><a href="namespacemakeRunListDB.html#a1871ab24b92549e3c377b1d947b295ef">makeRunListDB.int</a></div><div class="ttdeci">int</div><div class="ttdef"><b>Definition</b> <a href="makeRunListDB_8py_source.html#l00012">makeRunListDB.py:12</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>

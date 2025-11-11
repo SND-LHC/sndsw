@@ -339,15 +339,15 @@ Additional Inherited Members</h2></td></tr>
 <div class="line"><span class="lineno">  223</span>  chi2OndfHisto = <span class="keyword">new</span> TH1F(<span class="stringliteral">&quot;chi2_ndf&quot;</span>, <span class="stringliteral">&quot;Track Chi2/NDF&quot;</span>, 100, 0., 10.);</div>
 <div class="line"><span class="lineno">  224</span>  pValueHisto = <span class="keyword">new</span> TH1F(<span class="stringliteral">&quot;p_value&quot;</span>, <span class="stringliteral">&quot;Track P-value&quot;</span>, 100, 0., 1.);</div>
 <div class="line"><span class="lineno">  225</span> </div>
-<div class="line"><span class="lineno">  226</span>  <a class="code hl_variable" href="namespaceg4Ex__gap__mergeFiles.html#a90d63457e06ce862b83379f7aa671c8c">stats</a> = <span class="keyword">new</span> TH1I(<span class="stringliteral">&quot;stats&quot;</span>, <span class="stringliteral">&quot;0: NDF&gt;0 | 1: fTel&amp;VXD | 2: all | 3: VXD | 4: SVD | 5: all - PXD | 6: fTel&amp;SVD | 7: bTel&quot;</span>, 10, 0, 10);</div>
+<div class="line"><span class="lineno">  226</span>  <a class="code hl_variable" href="namespacemakeRunListDB.html#a9abff29aa3d32e7ccb6f2fb55addb252">stats</a> = <span class="keyword">new</span> TH1I(<span class="stringliteral">&quot;stats&quot;</span>, <span class="stringliteral">&quot;0: NDF&gt;0 | 1: fTel&amp;VXD | 2: all | 3: VXD | 4: SVD | 5: all - PXD | 6: fTel&amp;SVD | 7: bTel&quot;</span>, 10, 0, 10);</div>
 <div class="line"><span class="lineno">  227</span> </div>
 <div class="line"><span class="lineno">  228</span><span class="preprocessor">  #endif</span></div>
 <div class="line"><span class="lineno">  229</span>}</div>
 <div class="ttc" id="aGFGbl_8cc_html_a38578d7ceca467463ab43e367bfbe534"><div class="ttname"><a href="GFGbl_8cc.html#a38578d7ceca467463ab43e367bfbe534">milleFile</a></div><div class="ttdeci">gbl::MilleBinary * milleFile</div><div class="ttdef"><b>Definition</b> <a href="GFGbl_8cc_source.html#l00166">GFGbl.cc:166</a></div></div>
 <div class="ttc" id="aclassgbl_1_1MilleBinary_html"><div class="ttname"><a href="classgbl_1_1MilleBinary.html">gbl::MilleBinary</a></div><div class="ttdoc">Millepede-II (binary) record.</div><div class="ttdef"><b>Definition</b> <a href="MilleBinary_8h_source.html#l00046">MilleBinary.h:46</a></div></div>
 <div class="ttc" id="anamespaceShipAna_html_aa4bf87f4d17f9d38b1d8f4d009bb54b3"><div class="ttname"><a href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">ShipAna.i</a></div><div class="ttdeci">int i</div><div class="ttdef"><b>Definition</b> <a href="ShipAna_8py_source.html#l00086">ShipAna.py:86</a></div></div>
-<div class="ttc" id="anamespaceg4Ex__gap__mergeFiles_html_a90d63457e06ce862b83379f7aa671c8c"><div class="ttname"><a href="namespaceg4Ex__gap__mergeFiles.html#a90d63457e06ce862b83379f7aa671c8c">g4Ex_gap_mergeFiles.stats</a></div><div class="ttdeci">dict stats</div><div class="ttdef"><b>Definition</b> <a href="g4Ex__gap__mergeFiles_8py_source.html#l00022">g4Ex_gap_mergeFiles.py:22</a></div></div>
 <div class="ttc" id="anamespacemakeCascade_html_add259298592a80ac35262a17847aee2d"><div class="ttname"><a href="namespacemakeCascade.html#add259298592a80ac35262a17847aee2d">makeCascade.name</a></div><div class="ttdeci">name</div><div class="ttdef"><b>Definition</b> <a href="makeCascade_8py_source.html#l00195">makeCascade.py:195</a></div></div>
+<div class="ttc" id="anamespacemakeRunListDB_html_a9abff29aa3d32e7ccb6f2fb55addb252"><div class="ttname"><a href="namespacemakeRunListDB.html#a9abff29aa3d32e7ccb6f2fb55addb252">makeRunListDB.stats</a></div><div class="ttdeci">stats</div><div class="ttdef"><b>Definition</b> <a href="makeRunListDB_8py_source.html#l00143">makeRunListDB.py:143</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1099,7 +1099,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="line"><span class="lineno">  972</span>      chi2OndfHisto-&gt;Fill(Chi2 / Ndf);</div>
 <div class="line"><span class="lineno">  973</span>      pValueHisto-&gt;Fill(TMath::Prob(Chi2, Ndf));</div>
 <div class="line"><span class="lineno">  974</span>      <span class="comment">// track counting</span></div>
-<div class="line"><span class="lineno">  975</span>      <a class="code hl_variable" href="namespaceg4Ex__gap__mergeFiles.html#a90d63457e06ce862b83379f7aa671c8c">stats</a>-&gt;Fill(0);</div>
+<div class="line"><span class="lineno">  975</span>      <a class="code hl_variable" href="namespacemakeRunListDB.html#a9abff29aa3d32e7ccb6f2fb55addb252">stats</a>-&gt;Fill(0);</div>
 <div class="line"><span class="lineno">  976</span>      <span class="comment">// hitted sensors statistics</span></div>
 <div class="line"><span class="lineno">  977</span>      <span class="keywordflow">if</span> (</div>
 <div class="line"><span class="lineno">  978</span>        hittedLayers[0] &amp;&amp;</div>
@@ -1113,7 +1113,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="line"><span class="lineno">  986</span>        hittedLayers[8]</div>
 <div class="line"><span class="lineno">  987</span>      ) {</div>
 <div class="line"><span class="lineno">  988</span>        <span class="comment">// front tel + pxd + svd</span></div>
-<div class="line"><span class="lineno">  989</span>        <a class="code hl_variable" href="namespaceg4Ex__gap__mergeFiles.html#a90d63457e06ce862b83379f7aa671c8c">stats</a>-&gt;Fill(1);</div>
+<div class="line"><span class="lineno">  989</span>        <a class="code hl_variable" href="namespacemakeRunListDB.html#a9abff29aa3d32e7ccb6f2fb55addb252">stats</a>-&gt;Fill(1);</div>
 <div class="line"><span class="lineno">  990</span>      }</div>
 <div class="line"><span class="lineno">  991</span> </div>
 <div class="line"><span class="lineno">  992</span>      <span class="keywordflow">if</span> (</div>
@@ -1131,7 +1131,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="line"><span class="lineno"> 1004</span>        hittedLayers[11]</div>
 <div class="line"><span class="lineno"> 1005</span>      ) {</div>
 <div class="line"><span class="lineno"> 1006</span>        <span class="comment">// all layers</span></div>
-<div class="line"><span class="lineno"> 1007</span>        <a class="code hl_variable" href="namespaceg4Ex__gap__mergeFiles.html#a90d63457e06ce862b83379f7aa671c8c">stats</a>-&gt;Fill(2);</div>
+<div class="line"><span class="lineno"> 1007</span>        <a class="code hl_variable" href="namespacemakeRunListDB.html#a9abff29aa3d32e7ccb6f2fb55addb252">stats</a>-&gt;Fill(2);</div>
 <div class="line"><span class="lineno"> 1008</span>      }</div>
 <div class="line"><span class="lineno"> 1009</span>      <span class="keywordflow">if</span> (</div>
 <div class="line"><span class="lineno"> 1010</span>        hittedLayers[3] &amp;&amp;</div>
@@ -1142,7 +1142,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="line"><span class="lineno"> 1015</span>        hittedLayers[8]</div>
 <div class="line"><span class="lineno"> 1016</span>      ) {</div>
 <div class="line"><span class="lineno"> 1017</span>        <span class="comment">// vxd</span></div>
-<div class="line"><span class="lineno"> 1018</span>        <a class="code hl_variable" href="namespaceg4Ex__gap__mergeFiles.html#a90d63457e06ce862b83379f7aa671c8c">stats</a>-&gt;Fill(3);</div>
+<div class="line"><span class="lineno"> 1018</span>        <a class="code hl_variable" href="namespacemakeRunListDB.html#a9abff29aa3d32e7ccb6f2fb55addb252">stats</a>-&gt;Fill(3);</div>
 <div class="line"><span class="lineno"> 1019</span>      }</div>
 <div class="line"><span class="lineno"> 1020</span>      <span class="keywordflow">if</span> (</div>
 <div class="line"><span class="lineno"> 1021</span>        hittedLayers[5] &amp;&amp;</div>
@@ -1151,7 +1151,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="line"><span class="lineno"> 1024</span>        hittedLayers[8]</div>
 <div class="line"><span class="lineno"> 1025</span>      ) {</div>
 <div class="line"><span class="lineno"> 1026</span>        <span class="comment">// svd</span></div>
-<div class="line"><span class="lineno"> 1027</span>        <a class="code hl_variable" href="namespaceg4Ex__gap__mergeFiles.html#a90d63457e06ce862b83379f7aa671c8c">stats</a>-&gt;Fill(4);</div>
+<div class="line"><span class="lineno"> 1027</span>        <a class="code hl_variable" href="namespacemakeRunListDB.html#a9abff29aa3d32e7ccb6f2fb55addb252">stats</a>-&gt;Fill(4);</div>
 <div class="line"><span class="lineno"> 1028</span>      }</div>
 <div class="line"><span class="lineno"> 1029</span>      <span class="keywordflow">if</span> (</div>
 <div class="line"><span class="lineno"> 1030</span>        hittedLayers[0] &amp;&amp;</div>
@@ -1167,7 +1167,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="line"><span class="lineno"> 1040</span>        hittedLayers[11]</div>
 <div class="line"><span class="lineno"> 1041</span>      ) {</div>
 <div class="line"><span class="lineno"> 1042</span>        <span class="comment">// all except pxd</span></div>
-<div class="line"><span class="lineno"> 1043</span>        <a class="code hl_variable" href="namespaceg4Ex__gap__mergeFiles.html#a90d63457e06ce862b83379f7aa671c8c">stats</a>-&gt;Fill(5);</div>
+<div class="line"><span class="lineno"> 1043</span>        <a class="code hl_variable" href="namespacemakeRunListDB.html#a9abff29aa3d32e7ccb6f2fb55addb252">stats</a>-&gt;Fill(5);</div>
 <div class="line"><span class="lineno"> 1044</span>      }</div>
 <div class="line"><span class="lineno"> 1045</span>      <span class="keywordflow">if</span> (</div>
 <div class="line"><span class="lineno"> 1046</span>        hittedLayers[0] &amp;&amp;</div>
@@ -1180,7 +1180,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="line"><span class="lineno"> 1053</span>        hittedLayers[8]</div>
 <div class="line"><span class="lineno"> 1054</span>      ) {</div>
 <div class="line"><span class="lineno"> 1055</span>        <span class="comment">// front tel + svd</span></div>
-<div class="line"><span class="lineno"> 1056</span>        <a class="code hl_variable" href="namespaceg4Ex__gap__mergeFiles.html#a90d63457e06ce862b83379f7aa671c8c">stats</a>-&gt;Fill(6);</div>
+<div class="line"><span class="lineno"> 1056</span>        <a class="code hl_variable" href="namespacemakeRunListDB.html#a9abff29aa3d32e7ccb6f2fb55addb252">stats</a>-&gt;Fill(6);</div>
 <div class="line"><span class="lineno"> 1057</span>      }</div>
 <div class="line"><span class="lineno"> 1058</span>      <span class="keywordflow">if</span> (</div>
 <div class="line"><span class="lineno"> 1059</span>        hittedLayers[9] &amp;&amp;</div>
@@ -1188,7 +1188,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="line"><span class="lineno"> 1061</span>        hittedLayers[11]</div>
 <div class="line"><span class="lineno"> 1062</span>      ) {</div>
 <div class="line"><span class="lineno"> 1063</span>        <span class="comment">// backward tel</span></div>
-<div class="line"><span class="lineno"> 1064</span>        <a class="code hl_variable" href="namespaceg4Ex__gap__mergeFiles.html#a90d63457e06ce862b83379f7aa671c8c">stats</a>-&gt;Fill(7);</div>
+<div class="line"><span class="lineno"> 1064</span>        <a class="code hl_variable" href="namespacemakeRunListDB.html#a9abff29aa3d32e7ccb6f2fb55addb252">stats</a>-&gt;Fill(7);</div>
 <div class="line"><span class="lineno"> 1065</span>      }</div>
 <div class="line"><span class="lineno"> 1066</span><span class="preprocessor">      #endif</span></div>
 <div class="line"><span class="lineno"> 1067</span>    }</div>

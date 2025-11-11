@@ -2434,11 +2434,11 @@ John Back <a href="#" onclick="location.href='mai'+'lto:'+'J.J'+'.B'+'ack'+'@w'+
 <div class="line"><span class="lineno"> 1207</span>    SFMap::const_iterator iter;</div>
 <div class="line"><span class="lineno"> 1208</span>    <span class="keywordflow">for</span> (iter = <a class="code hl_variable" href="classShipFieldMaker.html#a40345310eef6cda554678945e52a7be6">theFields_</a>.begin(); iter != <a class="code hl_variable" href="classShipFieldMaker.html#a40345310eef6cda554678945e52a7be6">theFields_</a>.end(); ++iter) {</div>
 <div class="line"><span class="lineno"> 1209</span>   </div>
-<div class="line"><span class="lineno"> 1210</span>    TString <a class="code hl_variable" href="namespaceextractNeutrinosAndUpdateWeight.html#a47804d77c17d9de386802c99c350d7a8">key</a> = iter-&gt;first;</div>
+<div class="line"><span class="lineno"> 1210</span>    TString <a class="code hl_variable" href="namespacemakeRunListDB.html#a9afbc3ebc96e01a1893fcd204039d23b">key</a> = iter-&gt;first;</div>
 <div class="line"><span class="lineno"> 1211</span>    TVirtualMagField* BField = iter-&gt;second;</div>
 <div class="line"><span class="lineno"> 1212</span> </div>
 <div class="line"><span class="lineno"> 1213</span>    <span class="comment">// Check that we have the key already stored</span></div>
-<div class="line"><span class="lineno"> 1214</span>    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="namespaceextractNeutrinosAndUpdateWeight.html#a47804d77c17d9de386802c99c350d7a8">key</a>.CompareTo(name, TString::kExact)) {</div>
+<div class="line"><span class="lineno"> 1214</span>    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="namespacemakeRunListDB.html#a9afbc3ebc96e01a1893fcd204039d23b">key</a>.CompareTo(name, TString::kExact)) {</div>
 <div class="line"><span class="lineno"> 1215</span>        theField = BField;</div>
 <div class="line"><span class="lineno"> 1216</span>        <span class="keywordflow">break</span>;</div>
 <div class="line"><span class="lineno"> 1217</span>    }</div>
@@ -2448,7 +2448,7 @@ John Back <a href="#" onclick="location.href='mai'+'lto:'+'J.J'+'.B'+'ack'+'@w'+
 <div class="line"><span class="lineno"> 1221</span>    <span class="keywordflow">return</span> theField;</div>
 <div class="line"><span class="lineno"> 1222</span> </div>
 <div class="line"><span class="lineno"> 1223</span>}</div>
-<div class="ttc" id="anamespaceextractNeutrinosAndUpdateWeight_html_a47804d77c17d9de386802c99c350d7a8"><div class="ttname"><a href="namespaceextractNeutrinosAndUpdateWeight.html#a47804d77c17d9de386802c99c350d7a8">extractNeutrinosAndUpdateWeight.key</a></div><div class="ttdeci">int key</div><div class="ttdef"><b>Definition</b> <a href="extractNeutrinosAndUpdateWeight_8py_source.html#l00039">extractNeutrinosAndUpdateWeight.py:39</a></div></div>
+<div class="ttc" id="anamespacemakeRunListDB_html_a9afbc3ebc96e01a1893fcd204039d23b"><div class="ttname"><a href="namespacemakeRunListDB.html#a9afbc3ebc96e01a1893fcd204039d23b">makeRunListDB.key</a></div><div class="ttdeci">key</div><div class="ttdef"><b>Definition</b> <a href="makeRunListDB_8py_source.html#l00104">makeRunListDB.py:104</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2658,27 +2658,27 @@ John Back <a href="#" onclick="location.href='mai'+'lto:'+'J.J'+'.B'+'ack'+'@w'+
 <p class="definition">Definition at line <a class="el" href="ShipFieldMaker_8cxx_source.html#l01177">1177</a> of file <a class="el" href="ShipFieldMaker_8cxx_source.html">ShipFieldMaker.cxx</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno"> 1178</span>{</div>
 <div class="line"><span class="lineno"> 1179</span> </div>
-<div class="line"><span class="lineno"> 1180</span>    Bool_t <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1example__api__usage.html#a1a5ffa42c18ce4cef9676cbffef6705c">result</a>(kFALSE);</div>
+<div class="line"><span class="lineno"> 1180</span>    Bool_t <a class="code hl_variable" href="namespacemakeRunListDB.html#a4b0365e75769328af0e818f32aa2d2fd">result</a>(kFALSE);</div>
 <div class="line"><span class="lineno"> 1181</span> </div>
 <div class="line"><span class="lineno"> 1182</span>    <span class="comment">// Iterate over the internal map and see if we have a match </span></div>
 <div class="line"><span class="lineno"> 1183</span>    SFMap::const_iterator iter;</div>
 <div class="line"><span class="lineno"> 1184</span>    <span class="keywordflow">for</span> (iter = <a class="code hl_variable" href="classShipFieldMaker.html#a40345310eef6cda554678945e52a7be6">theFields_</a>.begin(); iter != <a class="code hl_variable" href="classShipFieldMaker.html#a40345310eef6cda554678945e52a7be6">theFields_</a>.end(); ++iter) {</div>
 <div class="line"><span class="lineno"> 1185</span>   </div>
-<div class="line"><span class="lineno"> 1186</span>    TString <a class="code hl_variable" href="namespaceextractNeutrinosAndUpdateWeight.html#a47804d77c17d9de386802c99c350d7a8">key</a> = iter-&gt;first;</div>
+<div class="line"><span class="lineno"> 1186</span>    TString <a class="code hl_variable" href="namespacemakeRunListDB.html#a9afbc3ebc96e01a1893fcd204039d23b">key</a> = iter-&gt;first;</div>
 <div class="line"><span class="lineno"> 1187</span>    TVirtualMagField* theField = iter-&gt;second;</div>
 <div class="line"><span class="lineno"> 1188</span> </div>
 <div class="line"><span class="lineno"> 1189</span>    <span class="comment">// Check that we have the key already stored and the pointer is not null</span></div>
-<div class="line"><span class="lineno"> 1190</span>    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="namespaceextractNeutrinosAndUpdateWeight.html#a47804d77c17d9de386802c99c350d7a8">key</a>.CompareTo(name, TString::kExact) &amp;&amp; theField) {</div>
-<div class="line"><span class="lineno"> 1191</span>        <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1example__api__usage.html#a1a5ffa42c18ce4cef9676cbffef6705c">result</a> = kTRUE;</div>
+<div class="line"><span class="lineno"> 1190</span>    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="namespacemakeRunListDB.html#a9afbc3ebc96e01a1893fcd204039d23b">key</a>.CompareTo(name, TString::kExact) &amp;&amp; theField) {</div>
+<div class="line"><span class="lineno"> 1191</span>        <a class="code hl_variable" href="namespacemakeRunListDB.html#a4b0365e75769328af0e818f32aa2d2fd">result</a> = kTRUE;</div>
 <div class="line"><span class="lineno"> 1192</span>        <span class="keywordflow">break</span>;</div>
 <div class="line"><span class="lineno"> 1193</span>    }</div>
 <div class="line"><span class="lineno"> 1194</span> </div>
 <div class="line"><span class="lineno"> 1195</span>    }</div>
 <div class="line"><span class="lineno"> 1196</span> </div>
-<div class="line"><span class="lineno"> 1197</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1example__api__usage.html#a1a5ffa42c18ce4cef9676cbffef6705c">result</a>;</div>
+<div class="line"><span class="lineno"> 1197</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="namespacemakeRunListDB.html#a4b0365e75769328af0e818f32aa2d2fd">result</a>;</div>
 <div class="line"><span class="lineno"> 1198</span> </div>
 <div class="line"><span class="lineno"> 1199</span>}</div>
-<div class="ttc" id="anamespaceconditionsDatabase_1_1demo_1_1example__api__usage_html_a1a5ffa42c18ce4cef9676cbffef6705c"><div class="ttname"><a href="namespaceconditionsDatabase_1_1demo_1_1example__api__usage.html#a1a5ffa42c18ce4cef9676cbffef6705c">conditionsDatabase.demo.example_api_usage.result</a></div><div class="ttdeci">result</div><div class="ttdef"><b>Definition</b> <a href="example__api__usage_8py_source.html#l00024">example_api_usage.py:24</a></div></div>
+<div class="ttc" id="anamespacemakeRunListDB_html_a4b0365e75769328af0e818f32aa2d2fd"><div class="ttname"><a href="namespacemakeRunListDB.html#a4b0365e75769328af0e818f32aa2d2fd">makeRunListDB.result</a></div><div class="ttdeci">result</div><div class="ttdef"><b>Definition</b> <a href="makeRunListDB_8py_source.html#l00093">makeRunListDB.py:93</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2734,7 +2734,7 @@ John Back <a href="#" onclick="location.href='mai'+'lto:'+'J.J'+'.B'+'ack'+'@w'+
 <p class="definition">Definition at line <a class="el" href="ShipFieldMaker_8cxx_source.html#l01243">1243</a> of file <a class="el" href="ShipFieldMaker_8cxx_source.html">ShipFieldMaker.cxx</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno"> 1245</span>{</div>
 <div class="line"><span class="lineno"> 1246</span> </div>
-<div class="line"><span class="lineno"> 1247</span>    std::cout&lt;&lt;<span class="stringliteral">&quot;ShipFieldMaker plotField &quot;</span>&lt;&lt;plotFile&lt;&lt;<span class="stringliteral">&quot;: type = &quot;</span>&lt;&lt;<a class="code hl_variable" href="namespaceadd__noise__to__field.html#aa1214d0959ccc6208cc336ba72961a17">type</a>&lt;&lt;std::endl;</div>
+<div class="line"><span class="lineno"> 1247</span>    std::cout&lt;&lt;<span class="stringliteral">&quot;ShipFieldMaker plotField &quot;</span>&lt;&lt;plotFile&lt;&lt;<span class="stringliteral">&quot;: type = &quot;</span>&lt;&lt;<a class="code hl_variable" href="namespacemakeRunListDB.html#a83237c0e930f59f7bbefccec93eff5d7">type</a>&lt;&lt;std::endl;</div>
 <div class="line"><span class="lineno"> 1248</span> </div>
 <div class="line"><span class="lineno"> 1249</span>    Double_t xMin = xAxis(0);</div>
 <div class="line"><span class="lineno"> 1250</span>    Double_t <a class="code hl_variable" href="namespacegeometry__config.html#a437302764acd932304dabd2a65070edf">xMax</a> = xAxis(1);</div>
@@ -2755,7 +2755,7 @@ John Back <a href="#" onclick="location.href='mai'+'lto:'+'J.J'+'.B'+'ack'+'@w'+
 <div class="line"><span class="lineno"> 1265</span>    TH2D theHist[nhistograms]; </div>
 <div class="line"><span class="lineno"> 1266</span>    std::string titles[nhistograms] = {<span class="stringliteral">&quot;Bx (T)&quot;</span>,<span class="stringliteral">&quot;By (T)&quot;</span>,<span class="stringliteral">&quot;Bz (T)&quot;</span>,<span class="stringliteral">&quot;B (T)&quot;</span>};</div>
 <div class="line"><span class="lineno"> 1267</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> icomponent = 0; icomponent&lt; nhistograms; icomponent++){</div>
-<div class="line"><span class="lineno"> 1268</span>      theHist[icomponent] = TH2D(Form(<span class="stringliteral">&quot;theHist[%i]&quot;</span>,icomponent), titles[icomponent].<a class="code hl_variable" href="namespaceSurvey-MufiScifi.html#a2c83c119ba95a8359876fd3fef2237eb">data</a>(), Nx, xMin, xMax, Ny, yMin, yMax);</div>
+<div class="line"><span class="lineno"> 1268</span>      theHist[icomponent] = TH2D(Form(<span class="stringliteral">&quot;theHist[%i]&quot;</span>,icomponent), titles[icomponent].<a class="code hl_variable" href="namespacemakeRunListDB.html#af62ad42a887d17937f18669fe9423d07">data</a>(), Nx, xMin, xMax, Ny, yMin, yMax);</div>
 <div class="line"><span class="lineno"> 1269</span>      theHist[icomponent].SetDirectory(0);</div>
 <div class="line"><span class="lineno"> 1270</span>      <span class="keywordflow">if</span> (type == 0) {</div>
 <div class="line"><span class="lineno"> 1271</span>    <span class="comment">// x-y</span></div>
@@ -2869,10 +2869,10 @@ John Back <a href="#" onclick="location.href='mai'+'lto:'+'J.J'+'.B'+'ack'+'@w'+
 <div class="line"><span class="lineno"> 1379</span>    <span class="keywordflow">if</span> (wasBatch == kFALSE) {gROOT-&gt;SetBatch(kFALSE);}</div>
 <div class="line"><span class="lineno"> 1380</span> </div>
 <div class="line"><span class="lineno"> 1381</span>}</div>
-<div class="ttc" id="anamespaceSurvey-MufiScifi_html_a2c83c119ba95a8359876fd3fef2237eb"><div class="ttname"><a href="namespaceSurvey-MufiScifi.html#a2c83c119ba95a8359876fd3fef2237eb">Survey-MufiScifi.data</a></div><div class="ttdeci">str data</div><div class="ttdef"><b>Definition</b> <a href="Survey-MufiScifi_8py_source.html#l00109">Survey-MufiScifi.py:109</a></div></div>
-<div class="ttc" id="anamespaceadd__noise__to__field_html_aa1214d0959ccc6208cc336ba72961a17"><div class="ttname"><a href="namespaceadd__noise__to__field.html#aa1214d0959ccc6208cc336ba72961a17">add_noise_to_field.type</a></div><div class="ttdeci">type</div><div class="ttdef"><b>Definition</b> <a href="add__noise__to__field_8py_source.html#l00053">add_noise_to_field.py:53</a></div></div>
 <div class="ttc" id="anamespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring_html_a75b9542bd6e928eeca5c80195476f914"><div class="ttname"><a href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a75b9542bd6e928eeca5c80195476f914">conditionsDatabase.demo.drifttubeMonitoring.dy</a></div><div class="ttdeci">dy</div><div class="ttdef"><b>Definition</b> <a href="drifttubeMonitoring_8py_source.html#l01050">drifttubeMonitoring.py:1050</a></div></div>
 <div class="ttc" id="anamespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring_html_ac1ba8c265e14509f1ff33d5852c8bc70"><div class="ttname"><a href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#ac1ba8c265e14509f1ff33d5852c8bc70">conditionsDatabase.demo.drifttubeMonitoring.dx</a></div><div class="ttdeci">dx</div><div class="ttdef"><b>Definition</b> <a href="drifttubeMonitoring_8py_source.html#l01049">drifttubeMonitoring.py:1049</a></div></div>
+<div class="ttc" id="anamespacemakeRunListDB_html_a83237c0e930f59f7bbefccec93eff5d7"><div class="ttname"><a href="namespacemakeRunListDB.html#a83237c0e930f59f7bbefccec93eff5d7">makeRunListDB.type</a></div><div class="ttdeci">type</div><div class="ttdef"><b>Definition</b> <a href="makeRunListDB_8py_source.html#l00011">makeRunListDB.py:11</a></div></div>
+<div class="ttc" id="anamespacemakeRunListDB_html_af62ad42a887d17937f18669fe9423d07"><div class="ttname"><a href="namespacemakeRunListDB.html#af62ad42a887d17937f18669fe9423d07">makeRunListDB.data</a></div><div class="ttdeci">data</div><div class="ttdef"><b>Definition</b> <a href="makeRunListDB_8py_source.html#l00131">makeRunListDB.py:131</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -3404,7 +3404,7 @@ John Back <a href="#" onclick="location.href='mai'+'lto:'+'J.J'+'.B'+'ack'+'@w'+
 <div class="fragment"><div class="line"><span class="lineno"> 1424</span>                                                          {</div>
 <div class="line"><span class="lineno"> 1425</span> </div>
 <div class="line"><span class="lineno"> 1426</span>    <span class="comment">// Code from STLplus</span></div>
-<div class="line"><span class="lineno"> 1427</span>    <a class="code hl_typedef" href="classShipFieldMaker.html#a6704172970d0c5a787ca4dc5a44aaf13">stringVect</a> <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1example__api__usage.html#a1a5ffa42c18ce4cef9676cbffef6705c">result</a>;</div>
+<div class="line"><span class="lineno"> 1427</span>    <a class="code hl_typedef" href="classShipFieldMaker.html#a6704172970d0c5a787ca4dc5a44aaf13">stringVect</a> <a class="code hl_variable" href="namespacemakeRunListDB.html#a4b0365e75769328af0e818f32aa2d2fd">result</a>;</div>
 <div class="line"><span class="lineno"> 1428</span> </div>
 <div class="line"><span class="lineno"> 1429</span>    <span class="keywordflow">if</span> (!theString.empty() &amp;&amp; !splitter.empty()) {</div>
 <div class="line"><span class="lineno"> 1430</span> </div>
@@ -3414,17 +3414,17 @@ John Back <a href="#" onclick="location.href='mai'+'lto:'+'J.J'+'.B'+'ack'+'@w'+
 <div class="line"><span class="lineno"> 1434</span> </div>
 <div class="line"><span class="lineno"> 1435</span>        <span class="keywordflow">if</span> (found != std::string::npos) {</div>
 <div class="line"><span class="lineno"> 1436</span>        std::string tmpString = theString.substr(offset, found-offset);</div>
-<div class="line"><span class="lineno"> 1437</span>        <span class="keywordflow">if</span> (tmpString.size() &gt; 0) {<a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1example__api__usage.html#a1a5ffa42c18ce4cef9676cbffef6705c">result</a>.push_back(tmpString);}</div>
+<div class="line"><span class="lineno"> 1437</span>        <span class="keywordflow">if</span> (tmpString.size() &gt; 0) {<a class="code hl_variable" href="namespacemakeRunListDB.html#a4b0365e75769328af0e818f32aa2d2fd">result</a>.push_back(tmpString);}</div>
 <div class="line"><span class="lineno"> 1438</span>        <a class="code hl_variable" href="namespacegeometry__config.html#a096864e8788dec1116bcc1ee523df8d1">offset</a> = found + splitter.size();</div>
 <div class="line"><span class="lineno"> 1439</span>        } <span class="keywordflow">else</span> {</div>
 <div class="line"><span class="lineno"> 1440</span>        std::string tmpString = theString.substr(offset, theString.size()-offset);</div>
-<div class="line"><span class="lineno"> 1441</span>        <span class="keywordflow">if</span> (tmpString.size() &gt; 0) {<a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1example__api__usage.html#a1a5ffa42c18ce4cef9676cbffef6705c">result</a>.push_back(tmpString);}</div>
+<div class="line"><span class="lineno"> 1441</span>        <span class="keywordflow">if</span> (tmpString.size() &gt; 0) {<a class="code hl_variable" href="namespacemakeRunListDB.html#a4b0365e75769328af0e818f32aa2d2fd">result</a>.push_back(tmpString);}</div>
 <div class="line"><span class="lineno"> 1442</span>        <span class="keywordflow">break</span>;</div>
 <div class="line"><span class="lineno"> 1443</span>        }</div>
 <div class="line"><span class="lineno"> 1444</span>    }</div>
 <div class="line"><span class="lineno"> 1445</span>    }</div>
 <div class="line"><span class="lineno"> 1446</span>    </div>
-<div class="line"><span class="lineno"> 1447</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1example__api__usage.html#a1a5ffa42c18ce4cef9676cbffef6705c">result</a>;</div>
+<div class="line"><span class="lineno"> 1447</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="namespacemakeRunListDB.html#a4b0365e75769328af0e818f32aa2d2fd">result</a>;</div>
 <div class="line"><span class="lineno"> 1448</span> </div>
 <div class="line"><span class="lineno"> 1449</span>}</div>
 <div class="ttc" id="aclassShipFieldMaker_html_a6704172970d0c5a787ca4dc5a44aaf13"><div class="ttname"><a href="classShipFieldMaker.html#a6704172970d0c5a787ca4dc5a44aaf13">ShipFieldMaker::stringVect</a></div><div class="ttdeci">std::vector&lt; std::string &gt; stringVect</div><div class="ttdoc">Typedef of a vector of strings.</div><div class="ttdef"><b>Definition</b> <a href="ShipFieldMaker_8h_source.html#l00050">ShipFieldMaker.h:50</a></div></div>
