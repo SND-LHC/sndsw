@@ -121,8 +121,8 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a144fdab3363e826f4a2416d4cfba9db1" id="r_a144fdab3363e826f4a2416d4cfba9db1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsnd_1_1analysis__tools_1_1USPlane.html#a144fdab3363e826f4a2416d4cfba9db1">USPlane</a> (std::vector&lt; <a class="el" href="classMuFilterHit.html">MuFilterHit</a> * &gt; snd_hits, <a class="el" href="structsnd_1_1Configuration.html">Configuration</a> configuration, <a class="el" href="classMuFilter.html">MuFilter</a> *muon_filter_geometry, int station)</td></tr>
-<tr class="separator:a144fdab3363e826f4a2416d4cfba9db1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f0ed7df7b443e68e91aa8b9d715634a" id="r_a4f0ed7df7b443e68e91aa8b9d715634a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsnd_1_1analysis__tools_1_1USPlane.html#a4f0ed7df7b443e68e91aa8b9d715634a">USPlane</a> (std::vector&lt; <a class="el" href="classMuFilterHit.html">MuFilterHit</a> * &gt; snd_hits, const <a class="el" href="structsnd_1_1Configuration.html">Configuration</a> &amp;configuration, <a class="el" href="classMuFilter.html">MuFilter</a> *muon_filter_geometry, int station)</td></tr>
+<tr class="separator:a4f0ed7df7b443e68e91aa8b9d715634a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a57d56452c6ba46503dcf5af5c4736acd" id="r_a57d56452c6ba46503dcf5af5c4736acd"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structsnd_1_1analysis__tools_1_1USPlane_1_1sl__pair.html">sl_pair</a>&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsnd_1_1analysis__tools_1_1USPlane.html#a57d56452c6ba46503dcf5af5c4736acd">GetNHits</a> () const</td></tr>
 <tr class="separator:a57d56452c6ba46503dcf5af5c4736acd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac1802f44bcf65e8b7399f04791012bd3" id="r_ac1802f44bcf65e8b7399f04791012bd3"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsnd_1_1analysis__tools_1_1USPlane.html#ac1802f44bcf65e8b7399f04791012bd3">GetStation</a> () const</td></tr>
@@ -169,8 +169,8 @@ Private Attributes</h2></td></tr>
 <div class="textblock">
 <p class="definition">Definition at line <a class="el" href="sndUSPlane_8h_source.html#l00013">13</a> of file <a class="el" href="sndUSPlane_8h_source.html">sndUSPlane.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a144fdab3363e826f4a2416d4cfba9db1" name="a144fdab3363e826f4a2416d4cfba9db1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a144fdab3363e826f4a2416d4cfba9db1">&#9670;&#160;</a></span>USPlane()</h2>
+<a id="a4f0ed7df7b443e68e91aa8b9d715634a" name="a4f0ed7df7b443e68e91aa8b9d715634a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f0ed7df7b443e68e91aa8b9d715634a">&#9670;&#160;</a></span>USPlane()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -184,7 +184,7 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structsnd_1_1Configuration.html">Configuration</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="structsnd_1_1Configuration.html">Configuration</a> &amp;&#160;</td>
           <td class="paramname"><em>configuration</em>, </td>
         </tr>
         <tr>
@@ -208,7 +208,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="sndUSPlane_8cxx_source.html#l00012">12</a> of file <a class="el" href="sndUSPlane_8cxx_source.html">sndUSPlane.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   12</span>                                                                                                                                            : <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1USPlane.html#a69bfb38c7a4ffb651a1045fe35a59ddd">configuration_</a>(configuration), <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1USPlane.html#a0742fdf83e8a82696e6ac07b45d75946">centroid_</a>(std::nan(<span class="stringliteral">&quot;&quot;</span>), std::nan(<span class="stringliteral">&quot;&quot;</span>), std::nan(<span class="stringliteral">&quot;&quot;</span>)), <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1USPlane.html#abed16c44bdae3ba895bd5ccc3c5d5eef">centroid_error_</a>(std::nan(<span class="stringliteral">&quot;&quot;</span>), std::nan(<span class="stringliteral">&quot;&quot;</span>),std::nan(<span class="stringliteral">&quot;&quot;</span>)), <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1USPlane.html#a73aad6f822422dd8116a5aaeec3d5ce8">station_</a>(station)</div>
+<div class="fragment"><div class="line"><span class="lineno">   12</span>                                                                                                                                                   : <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1USPlane.html#a69bfb38c7a4ffb651a1045fe35a59ddd">configuration_</a>(configuration), <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1USPlane.html#a0742fdf83e8a82696e6ac07b45d75946">centroid_</a>(std::nan(<span class="stringliteral">&quot;&quot;</span>), std::nan(<span class="stringliteral">&quot;&quot;</span>), std::nan(<span class="stringliteral">&quot;&quot;</span>)), <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1USPlane.html#abed16c44bdae3ba895bd5ccc3c5d5eef">centroid_error_</a>(std::nan(<span class="stringliteral">&quot;&quot;</span>), std::nan(<span class="stringliteral">&quot;&quot;</span>),std::nan(<span class="stringliteral">&quot;&quot;</span>)), <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1USPlane.html#a73aad6f822422dd8116a5aaeec3d5ce8">station_</a>(station)</div>
 <div class="line"><span class="lineno">   13</span>{</div>
 <div class="line"><span class="lineno">   14</span>    <span class="keywordflow">for</span> ( <span class="keyword">auto</span> mu_hit : snd_hits)</div>
 <div class="line"><span class="lineno">   15</span>    {</div>
@@ -669,7 +669,8 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="sndUSPlane_8h_source.html#l00059">59</a> of file <a class="el" href="sndUSPlane_8h_source.html">sndUSPlane.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   59</span>{ <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1USPlane.html#aa54de2d50c4ac01b30ab6b054a83e02e">hits_</a>.size()) &gt;= <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1USPlane.html#a69bfb38c7a4ffb651a1045fe35a59ddd">configuration_</a>.<a class="code hl_variable" href="structsnd_1_1Configuration.html#aa777dd536239beca40cd68215030b15b">us_min_n_hits_for_centroid</a>; };</div>
+<div class="fragment"><div class="line"><span class="lineno">   59</span>{ <span class="keywordflow">return</span> <a class="code hl_function" href="classsnd_1_1analysis__tools_1_1USPlane.html#a57d56452c6ba46503dcf5af5c4736acd">GetNHits</a>().large &gt;= <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1USPlane.html#a69bfb38c7a4ffb651a1045fe35a59ddd">configuration_</a>.<a class="code hl_variable" href="structsnd_1_1Configuration.html#aa777dd536239beca40cd68215030b15b">us_min_n_hits_for_centroid</a>; };</div>
+<div class="ttc" id="aclasssnd_1_1analysis__tools_1_1USPlane_html_a57d56452c6ba46503dcf5af5c4736acd"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1USPlane.html#a57d56452c6ba46503dcf5af5c4736acd">snd::analysis_tools::USPlane::GetNHits</a></div><div class="ttdeci">const sl_pair&lt; int &gt; GetNHits() const</div><div class="ttdef"><b>Definition</b> <a href="sndUSPlane_8cxx_source.html#l00163">sndUSPlane.cxx:163</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>

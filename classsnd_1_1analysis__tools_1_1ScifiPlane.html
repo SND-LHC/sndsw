@@ -119,8 +119,8 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a11a492571fe2545091543f6214a2eea6" id="r_a11a492571fe2545091543f6214a2eea6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a11a492571fe2545091543f6214a2eea6">ScifiPlane</a> (std::vector&lt; <a class="el" href="classsndScifiHit.html">sndScifiHit</a> * &gt; snd_hits, <a class="el" href="structsnd_1_1Configuration.html">Configuration</a> configuration, <a class="el" href="classScifi.html">Scifi</a> *scifi_geometry, int station)</td></tr>
-<tr class="separator:a11a492571fe2545091543f6214a2eea6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a557185478b2f239f681a544a3b3045c0" id="r_a557185478b2f239f681a544a3b3045c0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a557185478b2f239f681a544a3b3045c0">ScifiPlane</a> (std::vector&lt; <a class="el" href="classsndScifiHit.html">sndScifiHit</a> * &gt; snd_hits, const <a class="el" href="structsnd_1_1Configuration.html">Configuration</a> &amp;configuration, <a class="el" href="classScifi.html">Scifi</a> *scifi_geometry, int station)</td></tr>
+<tr class="separator:a557185478b2f239f681a544a3b3045c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a42143d09bb3e56cceded21692fcd0f" id="r_a6a42143d09bb3e56cceded21692fcd0f"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a6a42143d09bb3e56cceded21692fcd0f">GetStation</a> () const</td></tr>
 <tr class="separator:a6a42143d09bb3e56cceded21692fcd0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa87eaed4c90abcd03ad34b58adac1708" id="r_aa87eaed4c90abcd03ad34b58adac1708"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit.html">ScifiHit</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#aa87eaed4c90abcd03ad34b58adac1708">GetHits</a> () const</td></tr>
@@ -163,8 +163,8 @@ Private Attributes</h2></td></tr>
 <div class="textblock">
 <p class="definition">Definition at line <a class="el" href="sndScifiPlane_8h_source.html#l00013">13</a> of file <a class="el" href="sndScifiPlane_8h_source.html">sndScifiPlane.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a11a492571fe2545091543f6214a2eea6" name="a11a492571fe2545091543f6214a2eea6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a11a492571fe2545091543f6214a2eea6">&#9670;&#160;</a></span>ScifiPlane()</h2>
+<a id="a557185478b2f239f681a544a3b3045c0" name="a557185478b2f239f681a544a3b3045c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a557185478b2f239f681a544a3b3045c0">&#9670;&#160;</a></span>ScifiPlane()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -178,7 +178,7 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structsnd_1_1Configuration.html">Configuration</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="structsnd_1_1Configuration.html">Configuration</a> &amp;&#160;</td>
           <td class="paramname"><em>configuration</em>, </td>
         </tr>
         <tr>
@@ -202,7 +202,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="sndScifiPlane_8cxx_source.html#l00015">15</a> of file <a class="el" href="sndScifiPlane_8cxx_source.html">sndScifiPlane.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   15</span>                                                                                                                                         : <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a480874a8d19c257c265c9d81ec6dd675">configuration_</a>(configuration), <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#abc94bf7ac37f59a3cf43052a3370a771">centroid_</a>(std::nan(<span class="stringliteral">&quot;&quot;</span>), std::nan(<span class="stringliteral">&quot;&quot;</span>), std::nan(<span class="stringliteral">&quot;&quot;</span>)), <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a0d48a584b922ddb2afaea5f82f171ecc">centroid_error_</a>(std::nan(<span class="stringliteral">&quot;&quot;</span>), std::nan(<span class="stringliteral">&quot;&quot;</span>), std::nan(<span class="stringliteral">&quot;&quot;</span>)), <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a5011bea4fa55f1126fc241807f8db89d">station_</a>(station)</div>
+<div class="fragment"><div class="line"><span class="lineno">   15</span>                                                                                                                                                : <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a480874a8d19c257c265c9d81ec6dd675">configuration_</a>(configuration), <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#abc94bf7ac37f59a3cf43052a3370a771">centroid_</a>(std::nan(<span class="stringliteral">&quot;&quot;</span>), std::nan(<span class="stringliteral">&quot;&quot;</span>), std::nan(<span class="stringliteral">&quot;&quot;</span>)), <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a0d48a584b922ddb2afaea5f82f171ecc">centroid_error_</a>(std::nan(<span class="stringliteral">&quot;&quot;</span>), std::nan(<span class="stringliteral">&quot;&quot;</span>), std::nan(<span class="stringliteral">&quot;&quot;</span>)), <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a5011bea4fa55f1126fc241807f8db89d">station_</a>(station)</div>
 <div class="line"><span class="lineno">   16</span>{</div>
 <div class="line"><span class="lineno">   17</span>    <span class="keywordflow">for</span> ( <span class="keyword">auto</span> snd_hit : snd_hits)</div>
 <div class="line"><span class="lineno">   18</span>    {</div>
