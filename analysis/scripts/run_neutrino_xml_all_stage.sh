@@ -1,22 +1,11 @@
 #!/bin/bash
-
-xml=$1
-output=$2
-cutset=$3
+set -o errexit -o pipefail -o noclobber
+source $4/config.sh "$@"
+set -o nounset
 
 # Iterate through every <run> automatically
 echo "Reading the XML file: $xml"
 for run in $(xmllint --xpath 'count(/runlist/runs/run)' "${xml}"); do :; done  # pre-check count
-
-if [ -z ${SNDSW_ROOT+x} ]
-then
-    echo "Setting up SNDSW" 
-    export ALIBUILD_WORK_DIR=/afs/cern.ch/user/s/schuetha/work/public/data_work_flow/sw
-    source /cvmfs/sndlhc.cern.ch/SNDLHC-2025/Jan30/setUp.sh  # recommended latest version
-    eval `alienv -a slc9_x86-64 load --no-refresh sndsw/master-local1`
-    echo "Finished setting up SNDSW env"
-    export EOSSHIP=root://eosuser.cern.ch
-fi
 
 n=$(xmllint --xpath 'count(/runlist/runs/run)' "${xml}")
 for i in $(seq 1 $n) 
@@ -29,12 +18,8 @@ do
     n_files=$(xmllint --xpath "string(/runlist/runs/run[$i]/n_files)" "${xml}")
     n_files=$((n_files-1))  # to make the seq 0 based
     path=$(xmllint --xpath "string(/runlist/runs/run[$i]/path)" "${xml}")
-
-    if [[ "$year" == "2022" || "$year" == "2023" ]]; then
-        geo_file="/eos/experiment/sndlhc/legacy_geofiles/2023/geofile_sndlhc_TI18_V4_2023.root"
-    else
-        echo "May need other Geofile year than 2023 Legacy. Exitting."
-    fi 
+    geo_file=$( root -l -b -q -e '.L sndGeometryGetter.cxx+' -e "std::string csv=std::string(gSystem->Getenv(\"SNDSW_ROOT\"))+\"/analysis/tools/geo_paths.csv\"; \
+                std::cout << snd::analysis_tools::GetGeoPath(csv, ${run_number}) << std::endl;" | tail -n 1 )
 
     for j in $(seq 0 "$n_files")
     do
