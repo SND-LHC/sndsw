@@ -1,5 +1,7 @@
 var NAVTREEINDEX77 =
 {
+"namespaceevd__addParticleFollower.html#a1412b4683b4c39c3c1e5cd0123faa1d3":[12,0,35,3],
+"namespaceevd__addParticleFollower.html#a1b614355606c00cfae17a1786f406122":[12,0,35,0],
 "namespaceevd__addParticleFollower.html#a4572941be3b61e8753046d8af048af0d":[12,0,35,2],
 "namespaceevd__addParticleFollower.html#a74bc49df6761180efe3be10310fca94c":[12,0,35,4],
 "namespaceevd__addParticleFollower.html#a75e4d088426bf0926bdfc45d1439654b":[12,0,35,7],
@@ -247,7 +249,5 @@ var NAVTREEINDEX77 =
 "namespaceextract__interacting__neutrinos.html#ac5106530c07a983089463db301f75233":[12,0,44,8],
 "namespaceextract__interacting__neutrinos.html#ace582f62235b649fd42332d5f172bd97":[12,0,44,12],
 "namespaceextract__interacting__neutrinos.html#af22d34688f17c65b330c898ed5ee9d90":[12,0,44,4],
-"namespaceflux__map.html":[12,0,48],
-"namespaceflux__map.html#a0a534466aad410c85e90044a42a9fa87":[12,0,48,1],
-"namespaceflux__map.html#a1e7a8c61a88a7cbb36c21af7285ca627":[12,0,48,2]
+"namespaceflux__map.html":[12,0,48]
 };

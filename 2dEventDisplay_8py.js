@@ -9,6 +9,7 @@ var 2dEventDisplay_8py =
     [ "drawInfo", "2dEventDisplay_8py.html#a29d1ef70263c63fce259a57d96f4bbe3", null ],
     [ "drawLegend", "2dEventDisplay_8py.html#a42893f8d81846fee3d8048a8df62e8b3", null ],
     [ "drawSciFiHits", "2dEventDisplay_8py.html#aec0f51c0c4cbc1f82517064abf250be9", null ],
+    [ "drawShowerAxis", "2dEventDisplay_8py.html#ac7a7d476973c2ebe946ee70ab1ea3afd", null ],
     [ "dumpChannels", "2dEventDisplay_8py.html#ae9a097c9167e19fa63812efd393b2322", null ],
     [ "dumpVeto", "2dEventDisplay_8py.html#a9e96a5159ba9d29fa8050152dd281dcd", null ],
     [ "fillNode", "2dEventDisplay_8py.html#a0dd09c8c53800c62fad39dada6513caf", null ],

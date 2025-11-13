@@ -334,8 +334,8 @@ $(document).ready(function(){initNavTree('sndScifiPlane_8cxx_source.html',''); i
 <div class="line"><a id="l00222" name="l00222"></a><span class="lineno"><a class="line" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9eb1d5f28f06a0ac3f8ab07ab250a5d0">  222</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9eb1d5f28f06a0ac3f8ab07ab250a5d0">snd::analysis_tools::ScifiPlane::FindCentroid</a>()</div>
 <div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>{</div>
 <div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    centroid_.SetXYZ(0, 0, 0);</div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    <span class="keywordtype">double</span> tot_qdc_x{0};</div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>    <span class="keywordtype">double</span> tot_qdc_y{0};</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    <span class="keywordtype">double</span> tot_qdc_x{0}, sum_qdc2_x{0.0};</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>    <span class="keywordtype">double</span> tot_qdc_y{0}, sum_qdc2_y{0.0};</div>
 <div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>    std::vector&lt;ScifiHit&gt; cleaned_hits = hits_;</div>
 <div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span> </div>
 <div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    cleaned_hits.erase(std::remove_if(cleaned_hits.begin(), cleaned_hits.end(),</div>
@@ -358,45 +358,52 @@ $(document).ready(function(){initNavTree('sndScifiPlane_8cxx_source.html',''); i
 <div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>            {</div>
 <div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>                centroid_.SetX(centroid_.X() + hit.x * hit.qdc);</div>
 <div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>                tot_qdc_x += hit.qdc;</div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>            }</div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>            <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>            {</div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>                centroid_.SetY(centroid_.Y() + hit.y * hit.qdc);</div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>                tot_qdc_y += hit.qdc;</div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>            }</div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span> </div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>            centroid_.SetZ(centroid_.Z() + hit.z * hit.qdc);</div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>        }</div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>    }</div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>    centroid_ = ROOT::Math::XYZPoint((tot_qdc_x &gt; 0) ? centroid_.X() / tot_qdc_x : std::nan(<span class="stringliteral">&quot;&quot;</span>), (tot_qdc_y &gt; 0) ? centroid_.Y() / tot_qdc_y : std::nan(<span class="stringliteral">&quot;&quot;</span>), (tot_qdc_x+tot_qdc_y &gt; 0) ? centroid_.Z() / (tot_qdc_x+tot_qdc_y) : std::nan(<span class="stringliteral">&quot;&quot;</span>));</div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>    centroid_error_ = ROOT::Math::XYZPoint(configuration_.scifi_centroid_error_x, configuration_.scifi_centroid_error_y, configuration_.scifi_centroid_error_z);</div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>}</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>                sum_qdc2_x += hit.qdc*hit.qdc;</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>            }</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>            <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>            {</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>                centroid_.SetY(centroid_.Y() + hit.y * hit.qdc);</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>                tot_qdc_y += hit.qdc;</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>                sum_qdc2_y += hit.qdc*hit.qdc;</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>            }</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span> </div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>            centroid_.SetZ(centroid_.Z() + hit.z * hit.qdc);</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>        }</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>    }</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>    centroid_ = ROOT::Math::XYZPoint((tot_qdc_x &gt; 0) ? centroid_.X() / tot_qdc_x : std::nan(<span class="stringliteral">&quot;&quot;</span>), (tot_qdc_y &gt; 0) ? centroid_.Y() / tot_qdc_y : std::nan(<span class="stringliteral">&quot;&quot;</span>), (tot_qdc_x+tot_qdc_y &gt; 0) ? centroid_.Z() / (tot_qdc_x+tot_qdc_y) : std::nan(<span class="stringliteral">&quot;&quot;</span>));</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>    <span class="keyword">auto</span> qdc_x_error_scaler = sqrt(sum_qdc2_x)/tot_qdc_x;</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>    <span class="keyword">auto</span> qdc_y_error_scaler = sqrt(sum_qdc2_y)/tot_qdc_y;</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>    <span class="keyword">auto</span> qdc_z_error_scaler = sqrt(sum_qdc2_x+sum_qdc2_y)/(tot_qdc_x+tot_qdc_y);</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>    centroid_error_ = ROOT::Math::XYZPoint(configuration_.scifi_centroid_error_x*qdc_x_error_scaler,</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>                                           configuration_.scifi_centroid_error_y*qdc_y_error_scaler,</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>                                           configuration_.scifi_centroid_error_z*qdc_z_error_scaler);</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>}</div>
 </div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span> </div>
-<div class="foldopen" id="foldopen00263" data-start="{" data-end="}">
-<div class="line"><a id="l00263" name="l00263"></a><span class="lineno"><a class="line" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a5d1bc51bd6d8467298cd33cc8fef00ce">  263</a></span><span class="keyword">const</span> <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html">snd::analysis_tools::ScifiPlane::xy_pair&lt;double&gt;</a> <a class="code hl_function" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a5d1bc51bd6d8467298cd33cc8fef00ce">snd::analysis_tools::ScifiPlane::GetTotQdc</a>(<span class="keywordtype">bool</span> only_positive)<span class="keyword"> const</span></div>
-<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span><span class="keyword"></span>{</div>
-<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>    <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html">xy_pair&lt;double&gt;</a> qdc_sum{0.0, 0.0};</div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>    qdc_sum.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html#acaa1528e54837760ce8bc2b92bd25e4d">x</a> = std::accumulate(hits_.begin(), hits_.end(), 0.0, [&amp;](<span class="keywordtype">double</span> current_sum, <span class="keyword">auto</span> &amp;hit)</div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>                                { return (hit.is_x &amp;&amp; (hit.qdc &gt; 0 || !only_positive)) ? (current_sum + hit.qdc) : current_sum; });</div>
-<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>    qdc_sum.y = std::accumulate(hits_.begin(), hits_.end(), 0.0, [&amp;](<span class="keywordtype">double</span> current_sum, <span class="keyword">auto</span> &amp;hit)</div>
-<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>                                { return (!hit.is_x &amp;&amp; (hit.qdc &gt; 0 || !only_positive)) ? (current_sum + hit.qdc) : current_sum; });</div>
-<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span> </div>
-<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>    <span class="keywordflow">return</span> qdc_sum;</div>
-<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>}</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span> </div>
+<div class="foldopen" id="foldopen00270" data-start="{" data-end="}">
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno"><a class="line" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a5d1bc51bd6d8467298cd33cc8fef00ce">  270</a></span><span class="keyword">const</span> <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html">snd::analysis_tools::ScifiPlane::xy_pair&lt;double&gt;</a> <a class="code hl_function" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a5d1bc51bd6d8467298cd33cc8fef00ce">snd::analysis_tools::ScifiPlane::GetTotQdc</a>(<span class="keywordtype">bool</span> only_positive)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>    <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html">xy_pair&lt;double&gt;</a> qdc_sum{0.0, 0.0};</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>    qdc_sum.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html#acaa1528e54837760ce8bc2b92bd25e4d">x</a> = std::accumulate(hits_.begin(), hits_.end(), 0.0, [&amp;](<span class="keywordtype">double</span> current_sum, <span class="keyword">auto</span> &amp;hit)</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>                                { return (hit.is_x &amp;&amp; (hit.qdc &gt; 0 || !only_positive)) ? (current_sum + hit.qdc) : current_sum; });</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>    qdc_sum.y = std::accumulate(hits_.begin(), hits_.end(), 0.0, [&amp;](<span class="keywordtype">double</span> current_sum, <span class="keyword">auto</span> &amp;hit)</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>                                { return (!hit.is_x &amp;&amp; (hit.qdc &gt; 0 || !only_positive)) ? (current_sum + hit.qdc) : current_sum; });</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span> </div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>    <span class="keywordflow">return</span> qdc_sum;</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>}</div>
 </div>
-<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span> </div>
-<div class="foldopen" id="foldopen00274" data-start="{" data-end="}">
-<div class="line"><a id="l00274" name="l00274"></a><span class="lineno"><a class="line" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#acebd39573140651be38987f151d126e0">  274</a></span><span class="keyword">const</span> <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html">snd::analysis_tools::ScifiPlane::xy_pair&lt;double&gt;</a> <a class="code hl_function" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#acebd39573140651be38987f151d126e0">snd::analysis_tools::ScifiPlane::GetTotEnergy</a>(<span class="keywordtype">bool</span> only_positive)<span class="keyword"> const</span></div>
-<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span><span class="keyword"></span>{</div>
-<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>    <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html">xy_pair&lt;double&gt;</a> energy{0.0, 0.0};</div>
-<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>    <span class="keyword">auto</span> qdc = GetTotQdc(only_positive);</div>
-<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span> </div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>    energy.x = qdc.x * configuration_.scifi_qdc_to_gev;</div>
-<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>    energy.y = qdc.y * configuration_.scifi_qdc_to_gev;</div>
-<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span> </div>
-<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>    <span class="keywordflow">return</span> energy;</div>
-<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>}</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span> </div>
+<div class="foldopen" id="foldopen00281" data-start="{" data-end="}">
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno"><a class="line" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#acebd39573140651be38987f151d126e0">  281</a></span><span class="keyword">const</span> <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html">snd::analysis_tools::ScifiPlane::xy_pair&lt;double&gt;</a> <a class="code hl_function" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#acebd39573140651be38987f151d126e0">snd::analysis_tools::ScifiPlane::GetTotEnergy</a>(<span class="keywordtype">bool</span> only_positive)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>    <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html">xy_pair&lt;double&gt;</a> energy{0.0, 0.0};</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>    <span class="keyword">auto</span> qdc = GetTotQdc(only_positive);</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span> </div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>    energy.x = qdc.x * configuration_.scifi_qdc_to_gev;</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>    energy.y = qdc.y * configuration_.scifi_qdc_to_gev;</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span> </div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>    <span class="keywordflow">return</span> energy;</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>}</div>
 </div>
 <div class="ttc" id="aScifi_8h_html"><div class="ttname"><a href="Scifi_8h.html">Scifi.h</a></div></div>
 <div class="ttc" id="aShipUnit_8h_html"><div class="ttname"><a href="ShipUnit_8h.html">ShipUnit.h</a></div></div>
@@ -407,12 +414,12 @@ $(document).ready(function(){initNavTree('sndScifiPlane_8cxx_source.html',''); i
 <div class="ttc" id="aclasssnd_1_1analysis__tools_1_1ScifiPlane_html_a0ea646a1631b07396bc89fe1b9d522ea"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a0ea646a1631b07396bc89fe1b9d522ea">snd::analysis_tools::ScifiPlane::GetNHits</a></div><div class="ttdeci">const xy_pair&lt; int &gt; GetNHits() const</div><div class="ttdef"><b>Definition</b> <a href="sndScifiPlane_8cxx_source.html#l00043">sndScifiPlane.cxx:43</a></div></div>
 <div class="ttc" id="aclasssnd_1_1analysis__tools_1_1ScifiPlane_html_a2fa4db25ffb9d74ad1afb932a23bffe4"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a2fa4db25ffb9d74ad1afb932a23bffe4">snd::analysis_tools::ScifiPlane::GetCluster</a></div><div class="ttdeci">const ROOT::Math::XYZPoint GetCluster(int max_gap) const</div><div class="ttdef"><b>Definition</b> <a href="sndScifiPlane_8cxx_source.html#l00106">sndScifiPlane.cxx:106</a></div></div>
 <div class="ttc" id="aclasssnd_1_1analysis__tools_1_1ScifiPlane_html_a557185478b2f239f681a544a3b3045c0"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a557185478b2f239f681a544a3b3045c0">snd::analysis_tools::ScifiPlane::ScifiPlane</a></div><div class="ttdeci">ScifiPlane(std::vector&lt; sndScifiHit * &gt; snd_hits, const Configuration &amp;configuration, Scifi *scifi_geometry, int station)</div><div class="ttdef"><b>Definition</b> <a href="sndScifiPlane_8cxx_source.html#l00015">sndScifiPlane.cxx:15</a></div></div>
-<div class="ttc" id="aclasssnd_1_1analysis__tools_1_1ScifiPlane_html_a5d1bc51bd6d8467298cd33cc8fef00ce"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a5d1bc51bd6d8467298cd33cc8fef00ce">snd::analysis_tools::ScifiPlane::GetTotQdc</a></div><div class="ttdeci">const xy_pair&lt; double &gt; GetTotQdc(bool only_positive=false) const</div><div class="ttdef"><b>Definition</b> <a href="sndScifiPlane_8cxx_source.html#l00263">sndScifiPlane.cxx:263</a></div></div>
+<div class="ttc" id="aclasssnd_1_1analysis__tools_1_1ScifiPlane_html_a5d1bc51bd6d8467298cd33cc8fef00ce"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a5d1bc51bd6d8467298cd33cc8fef00ce">snd::analysis_tools::ScifiPlane::GetTotQdc</a></div><div class="ttdeci">const xy_pair&lt; double &gt; GetTotQdc(bool only_positive=false) const</div><div class="ttdef"><b>Definition</b> <a href="sndScifiPlane_8cxx_source.html#l00270">sndScifiPlane.cxx:270</a></div></div>
 <div class="ttc" id="aclasssnd_1_1analysis__tools_1_1ScifiPlane_html_a9b79ca6732ed9148dd79942270fc2ea5"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9b79ca6732ed9148dd79942270fc2ea5">snd::analysis_tools::ScifiPlane::hits_</a></div><div class="ttdeci">std::vector&lt; ScifiHit &gt; hits_</div><div class="ttdef"><b>Definition</b> <a href="sndScifiPlane_8h_source.html#l00054">sndScifiPlane.h:54</a></div></div>
 <div class="ttc" id="aclasssnd_1_1analysis__tools_1_1ScifiPlane_html_a9eb1d5f28f06a0ac3f8ab07ab250a5d0"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9eb1d5f28f06a0ac3f8ab07ab250a5d0">snd::analysis_tools::ScifiPlane::FindCentroid</a></div><div class="ttdeci">void FindCentroid()</div><div class="ttdef"><b>Definition</b> <a href="sndScifiPlane_8cxx_source.html#l00222">sndScifiPlane.cxx:222</a></div></div>
 <div class="ttc" id="aclasssnd_1_1analysis__tools_1_1ScifiPlane_html_aca1ffa5861214d3afc23bf51dac64308"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#aca1ffa5861214d3afc23bf51dac64308">snd::analysis_tools::ScifiPlane::TimeFilter</a></div><div class="ttdeci">void TimeFilter(double min_timestamp, double max_timestamp)</div><div class="ttdef"><b>Definition</b> <a href="sndScifiPlane_8cxx_source.html#l00200">sndScifiPlane.cxx:200</a></div></div>
 <div class="ttc" id="aclasssnd_1_1analysis__tools_1_1ScifiPlane_html_aca956df325b1dc2ced866893ea78bafa"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#aca956df325b1dc2ced866893ea78bafa">snd::analysis_tools::ScifiPlane::GetPointQdc</a></div><div class="ttdeci">xy_pair&lt; double &gt; GetPointQdc(const ROOT::Math::XYZPoint &amp;point, double radius) const</div><div class="ttdef"><b>Definition</b> <a href="sndScifiPlane_8cxx_source.html#l00208">sndScifiPlane.cxx:208</a></div></div>
-<div class="ttc" id="aclasssnd_1_1analysis__tools_1_1ScifiPlane_html_acebd39573140651be38987f151d126e0"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#acebd39573140651be38987f151d126e0">snd::analysis_tools::ScifiPlane::GetTotEnergy</a></div><div class="ttdeci">const xy_pair&lt; double &gt; GetTotEnergy(bool only_positive=false) const</div><div class="ttdef"><b>Definition</b> <a href="sndScifiPlane_8cxx_source.html#l00274">sndScifiPlane.cxx:274</a></div></div>
+<div class="ttc" id="aclasssnd_1_1analysis__tools_1_1ScifiPlane_html_acebd39573140651be38987f151d126e0"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#acebd39573140651be38987f151d126e0">snd::analysis_tools::ScifiPlane::GetTotEnergy</a></div><div class="ttdeci">const xy_pair&lt; double &gt; GetTotEnergy(bool only_positive=false) const</div><div class="ttdef"><b>Definition</b> <a href="sndScifiPlane_8cxx_source.html#l00281">sndScifiPlane.cxx:281</a></div></div>
 <div class="ttc" id="asndScifiHit_8h_html"><div class="ttname"><a href="sndScifiHit_8h.html">sndScifiHit.h</a></div></div>
 <div class="ttc" id="asndScifiPlane_8h_html"><div class="ttname"><a href="sndScifiPlane_8h.html">sndScifiPlane.h</a></div></div>
 <div class="ttc" id="astructsnd_1_1Configuration_html"><div class="ttname"><a href="structsnd_1_1Configuration.html">snd::Configuration</a></div><div class="ttdef"><b>Definition</b> <a href="sndConfiguration_8h_source.html#l00008">sndConfiguration.h:9</a></div></div>

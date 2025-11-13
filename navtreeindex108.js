@@ -1,5 +1,11 @@
 var NAVTREEINDEX108 =
 {
+"structsnd_1_1analysis__tools_1_1USPlane_1_1USHit.html#aadb4c07e88bcadbbfa08eedf3dc4e2df":[12,0,170,1,1,2,6],
+"structsnd_1_1analysis__tools_1_1USPlane_1_1USHit.html#ad9ceb28a51adf8e8208320933a87e5f2":[12,0,170,1,1,2,8],
+"structsnd_1_1analysis__tools_1_1USPlane_1_1USHit.html#ad9ceb28a51adf8e8208320933a87e5f2":[13,0,38,1,1,2,8],
+"structsnd_1_1analysis__tools_1_1USPlane_1_1USHit.html#ade0a1ffb2ce326c3ab0d859d8283f722":[13,0,38,1,1,2,7],
+"structsnd_1_1analysis__tools_1_1USPlane_1_1USHit.html#ade0a1ffb2ce326c3ab0d859d8283f722":[12,0,170,1,1,2,7],
+"structsnd_1_1analysis__tools_1_1USPlane_1_1USHit.html#ae9c105c66a38e1ed668a2f4b5e0e78a1":[12,0,170,1,1,2,1],
 "structsnd_1_1analysis__tools_1_1USPlane_1_1USHit.html#ae9c105c66a38e1ed668a2f4b5e0e78a1":[13,0,38,1,1,2,1],
 "structsnd_1_1analysis__tools_1_1USPlane_1_1rl__pair.html":[12,0,170,1,1,0],
 "structsnd_1_1analysis__tools_1_1USPlane_1_1rl__pair.html":[13,0,38,1,1,0],
@@ -243,11 +249,5 @@ var NAVTREEINDEX108 =
 "tests_2test__mongodb_2____init_____8py.html":[14,0,1,2,0,0],
 "tests_2test__mongodb_2____init_____8py_source.html":[14,0,1,2,0,0],
 "thermalNeutrons_8py.html":[14,0,20,42],
-"thermalNeutrons_8py.html#a00195e9cf5dee28caa7e81c234daff81":[14,0,20,42,15],
-"thermalNeutrons_8py.html#a00950d14096ed5fc842ecffd433d53f0":[14,0,20,42,35],
-"thermalNeutrons_8py.html#a1320436afbe92b08f13b96e3d14c2f46":[14,0,20,42,13],
-"thermalNeutrons_8py.html#a13d6941ad8d9e66f53f5241f822fd791":[14,0,20,42,16],
-"thermalNeutrons_8py.html#a25c67365e6474be3be27fd27b7a98b55":[14,0,20,42,29],
-"thermalNeutrons_8py.html#a29b33afacefec9b2709953dafb46ac80":[14,0,20,42,28],
-"thermalNeutrons_8py.html#a3157c816fcef2876c8109501213fd1db":[14,0,20,42,42]
+"thermalNeutrons_8py.html#a00195e9cf5dee28caa7e81c234daff81":[14,0,20,42,15]
 };

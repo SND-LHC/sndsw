@@ -1,5 +1,7 @@
 var NAVTREEINDEX95 =
 {
+"namespacestudy__muMSC.html#a8dcb68ab9180cce86b019ad764f32ff2":[12,0,181,41],
+"namespacestudy__muMSC.html#a8ec04a002fcb4efffbe30733b7f7b27e":[12,0,181,31],
 "namespacestudy__muMSC.html#a902fd1cf37a073443e93d7840443af1a":[12,0,181,5],
 "namespacestudy__muMSC.html#a93640fe98dd03ad62a0c26f04a9b0d21":[12,0,181,6],
 "namespacestudy__muMSC.html#aab2ba86175905624f247b64deb3c9426":[12,0,181,46],
@@ -247,7 +249,5 @@ var NAVTREEINDEX95 =
 "option_page.html#cmd-method":[0,1,1,25],
 "option_page.html#cmd-monpull":[0,1,1,27],
 "option_page.html#cmd-monres":[0,1,1,26],
-"option_page.html#cmd-mresmode":[0,1,1,28],
-"option_page.html#cmd-mrestol":[0,1,1,30],
-"option_page.html#cmd-mrestranscond":[0,1,1,29]
+"option_page.html#cmd-mresmode":[0,1,1,28]
 };

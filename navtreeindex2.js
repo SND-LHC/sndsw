@@ -1,5 +1,6 @@
 var NAVTREEINDEX2 =
 {
+"HptPoint_8h.html":[14,0,12,5],
 "HptPoint_8h_source.html":[14,0,12,5],
 "KalmanFitStatus_8cc.html":[14,0,5,4,1,3],
 "KalmanFitStatus_8cc_source.html":[14,0,5,4,1,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX2 =
 "NuageGenerator_8h.html":[14,0,19,25],
 "NuageGenerator_8h_source.html":[14,0,19,25],
 "NutaudetContFact_8cxx.html":[14,0,12,8],
-"NutaudetContFact_8cxx.html#a974b34fb43044e3c547e7d4a15694832":[14,0,12,8,0],
-"NutaudetContFact_8cxx_source.html":[14,0,12,8]
+"NutaudetContFact_8cxx.html#a974b34fb43044e3c547e7d4a15694832":[14,0,12,8,0]
 };

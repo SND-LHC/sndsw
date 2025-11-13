@@ -1,5 +1,6 @@
 var NAVTREEINDEX4 =
 {
+"ScifiCluster_8py.html#abd42b2bf02011eaff543736b0f7fd8ef":[14,0,17,37,6],
 "ScifiCluster_8py.html#abd50a2698e7687a2c27b840c6cecefc2":[14,0,17,37,40],
 "ScifiCluster_8py.html#abe22a788c406a5dad769ff7134188f16":[14,0,17,37,46],
 "ScifiCluster_8py.html#ac14c019cb254a11a132e5fda6a40a4ae":[14,0,17,37,68],
@@ -248,6 +249,5 @@ var NAVTREEINDEX4 =
 "ShipHit_8h_source.html":[14,0,18,6],
 "ShipMCTrack_8cxx.html":[14,0,18,7],
 "ShipMCTrack_8cxx_source.html":[14,0,18,7],
-"ShipMCTrack_8h.html":[14,0,18,8],
-"ShipMCTrack_8h_source.html":[14,0,18,8]
+"ShipMCTrack_8h.html":[14,0,18,8]
 };

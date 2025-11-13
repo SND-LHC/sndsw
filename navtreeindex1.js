@@ -1,5 +1,6 @@
 var NAVTREEINDEX1 =
 {
+"DriftTubeUnpack_8cxx_source.html":[14,0,13,0],
 "DriftTubeUnpack_8h.html":[14,0,13,1],
 "DriftTubeUnpack_8h_source.html":[14,0,13,1],
 "DummyUnpack_8cxx.html":[14,0,13,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX1 =
 "Hit2MCPoints_8h.html":[14,0,18,1],
 "Hit2MCPoints_8h_source.html":[14,0,18,1],
 "HptPoint_8cxx.html":[14,0,12,4],
-"HptPoint_8cxx_source.html":[14,0,12,4],
-"HptPoint_8h.html":[14,0,12,5]
+"HptPoint_8cxx_source.html":[14,0,12,4]
 };

@@ -1,5 +1,7 @@
 var NAVTREEINDEX96 =
 {
+"option_page.html#cmd-mrestol":[0,1,1,30],
+"option_page.html#cmd-mrestranscond":[0,1,1,29],
 "option_page.html#cmd-nofeasiblestart":[0,1,1,31],
 "option_page.html#cmd-outlierdownweighting":[0,1,1,32],
 "option_page.html#cmd-pairentries":[0,1,1,33],
@@ -247,7 +249,5 @@ var NAVTREEINDEX96 =
 "readc_8c.html#a674fc8617257341284bf5115211a403c":[14,0,9,24,0],
 "readc_8c.html#a99c0fa4c8eb990c922bda0dc0aeb478a":[14,0,9,24,3],
 "readc_8c.html#a9be10db3ef7c58fc053e33e144f4c2d4":[14,0,9,24,1],
-"readc_8c.html#aa27b196ffc22de7914169fd3f9882acc":[14,0,9,24,2],
-"readc_8c.html#aa833f0e75889c96d4cc0a4c6c4d78f88":[14,0,9,24,6],
-"readc_8c.html#acf406f151f2a7abf1d47a322adfa880a":[14,0,9,24,7]
+"readc_8c.html#aa27b196ffc22de7914169fd3f9882acc":[14,0,9,24,2]
 };

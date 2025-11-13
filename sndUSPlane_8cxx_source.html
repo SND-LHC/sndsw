@@ -107,213 +107,227 @@ $(document).ready(function(){initNavTree('sndUSPlane_8cxx_source.html',''); init
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;TVector3.h&quot;</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="MuFilter_8h.html">MuFilter.h</a>&quot;</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="MuFilterHit_8h.html">MuFilterHit.h</a>&quot;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="foldopen" id="foldopen00012" data-start="{" data-end="}">
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="classsnd_1_1analysis__tools_1_1USPlane.html#a4f0ed7df7b443e68e91aa8b9d715634a">   12</a></span><a class="code hl_function" href="classsnd_1_1analysis__tools_1_1USPlane.html#a4f0ed7df7b443e68e91aa8b9d715634a">snd::analysis_tools::USPlane::USPlane</a>(std::vector&lt;MuFilterHit*&gt; snd_hits, <span class="keyword">const</span> <a class="code hl_struct" href="structsnd_1_1Configuration.html">Configuration</a> &amp;configuration, <a class="code hl_class" href="classMuFilter.html">MuFilter</a> *muon_filter_geometry, <span class="keywordtype">int</span> station) : configuration_(configuration), centroid_(std::nan(<span class="stringliteral">&quot;&quot;</span>), std::nan(<span class="stringliteral">&quot;&quot;</span>), std::nan(<span class="stringliteral">&quot;&quot;</span>)), centroid_error_(std::nan(<span class="stringliteral">&quot;&quot;</span>), std::nan(<span class="stringliteral">&quot;&quot;</span>),std::nan(<span class="stringliteral">&quot;&quot;</span>)), station_(station)</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>{</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordflow">for</span> ( <span class="keyword">auto</span> mu_hit : snd_hits)</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    {</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i{0}; i &lt; 16; ++i)</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        {</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>            <span class="keywordflow">if</span> (mu_hit-&gt;isMasked(i) || mu_hit-&gt;GetSignal(i) &lt; -990.) <span class="keywordflow">continue</span>;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>            <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1USPlane_1_1USHit.html">USHit</a> hit;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>            hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1USPlane_1_1USHit.html#a72577e5307211a0edc0366d924e7ca05">bar</a> = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(mu_hit-&gt;GetDetectorID() % 1000);</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>            hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1USPlane_1_1USHit.html#ae9c105c66a38e1ed668a2f4b5e0e78a1">channel_index</a> = 16 * hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1USPlane_1_1USHit.html#a72577e5307211a0edc0366d924e7ca05">bar</a> + i;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>            hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1USPlane_1_1USHit.html#a8a42509a5996fda3c2823364cf45b5eb">timestamp</a> = mu_hit-&gt;GetTime(i);</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>            hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1USPlane_1_1USHit.html#a461bd51d3f53d476645072054718347c">qdc</a> = mu_hit-&gt;GetSignal(i);</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>            hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1USPlane_1_1USHit.html#a1419c07d5a0b60a523c1d078b5b3c129">is_large</a> = !mu_hit-&gt;isShort(i);</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>            TVector3 A, B;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>            <span class="keywordtype">int</span> detectorID = mu_hit-&gt;GetDetectorID();</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            muon_filter_geometry-&gt;<a class="code hl_function" href="classMuFilter.html#a2525ccc41592f3cc117c18424e8dc7ac">GetPosition</a>(detectorID, A, B);</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="ShipUnit_8h.html">ShipUnit.h</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="foldopen" id="foldopen00013" data-start="{" data-end="}">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="classsnd_1_1analysis__tools_1_1USPlane.html#a3352a841729056aefdff8145ef153204">   13</a></span><a class="code hl_function" href="classsnd_1_1analysis__tools_1_1USPlane.html#a3352a841729056aefdff8145ef153204">snd::analysis_tools::USPlane::USPlane</a>(std::vector&lt;MuFilterHit*&gt; snd_hits, <span class="keyword">const</span> <a class="code hl_struct" href="structsnd_1_1Configuration.html">Configuration</a> &amp;configuration, <a class="code hl_class" href="classMuFilter.html">MuFilter</a> *muon_filter_geometry, <span class="keywordtype">int</span> station, <span class="keywordtype">bool</span> isMC) : configuration_(configuration), centroid_(std::nan(<span class="stringliteral">&quot;&quot;</span>), std::nan(<span class="stringliteral">&quot;&quot;</span>), std::nan(<span class="stringliteral">&quot;&quot;</span>)), centroid_error_(std::nan(<span class="stringliteral">&quot;&quot;</span>), std::nan(<span class="stringliteral">&quot;&quot;</span>),std::nan(<span class="stringliteral">&quot;&quot;</span>)), station_(station)</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordflow">for</span> ( <span class="keyword">auto</span> mu_hit : snd_hits)</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    {</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        TVector3 A, B;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        <span class="keywordtype">int</span> detectorID = mu_hit-&gt;GetDetectorID();</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        muon_filter_geometry-&gt;<a class="code hl_function" href="classMuFilter.html#a2525ccc41592f3cc117c18424e8dc7ac">GetPosition</a>(detectorID, A, B);</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i{0}; i &lt; 16; ++i)</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        {</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>            <span class="keywordflow">if</span> (mu_hit-&gt;isMasked(i) || mu_hit-&gt;GetSignal(i) &lt; -990.) <span class="keywordflow">continue</span>;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>            <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1USPlane_1_1USHit.html">USHit</a> hit;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>            hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1USPlane_1_1USHit.html#a72577e5307211a0edc0366d924e7ca05">bar</a> = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(detectorID % 1000);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>            hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1USPlane_1_1USHit.html#ae9c105c66a38e1ed668a2f4b5e0e78a1">channel_index</a> = 16 * hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1USPlane_1_1USHit.html#a72577e5307211a0edc0366d924e7ca05">bar</a> + i;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>            hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1USPlane_1_1USHit.html#a8a42509a5996fda3c2823364cf45b5eb">timestamp</a> = mu_hit-&gt;GetTime(i);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>            hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1USPlane_1_1USHit.html#a461bd51d3f53d476645072054718347c">qdc</a> = mu_hit-&gt;GetSignal(i);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1USPlane_1_1USHit.html#a1419c07d5a0b60a523c1d078b5b3c129">is_large</a> = !mu_hit-&gt;isShort(i);</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>            hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1USPlane_1_1USHit.html#aa6b49d8205a70c9e6598d6fbb2289884">is_right</a> = i &gt; 7 ? true : <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1USPlane_1_1USHit.html#aadb4c07e88bcadbbfa08eedf3dc4e2df">x</a> = hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1USPlane_1_1USHit.html#aa6b49d8205a70c9e6598d6fbb2289884">is_right</a> ? B.X() : A.X();</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1USPlane_1_1USHit.html#ade0a1ffb2ce326c3ab0d859d8283f722">y</a> = A.Y();</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1USPlane_1_1USHit.html#ad9ceb28a51adf8e8208320933a87e5f2">z</a> = A.Z();</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1USPlane.html#aa54de2d50c4ac01b30ab6b054a83e02e">hits_</a>.push_back(hit);</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        }</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    }</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>}</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            <span class="comment">// use the left and right measurements to calculate the x coordinate along the bar</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            <span class="keywordtype">float</span> timeConversion = 1.;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            <span class="keywordflow">if</span> (!isMC) {</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>              timeConversion = ShipUnit::snd_TDC2ns;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>             }</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>            hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1USPlane_1_1USHit.html#aadb4c07e88bcadbbfa08eedf3dc4e2df">x</a> = A.X() - 0.5*(mu_hit-&gt;GetDeltaT()*timeConversion*<a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1USPlane.html#a69bfb38c7a4ffb651a1045fe35a59ddd">configuration_</a>.<a class="code hl_variable" href="structsnd_1_1Configuration.html#a7f589b69ce27d469ce0ca78ba0c4e154">us_signal_speed</a>+<a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1USPlane.html#a69bfb38c7a4ffb651a1045fe35a59ddd">configuration_</a>.<a class="code hl_variable" href="structsnd_1_1Configuration.html#a4de804785961b906ac350091e602654c">us_bar_length</a>);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1USPlane_1_1USHit.html#ade0a1ffb2ce326c3ab0d859d8283f722">y</a> = A.Y();</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1USPlane_1_1USHit.html#ad9ceb28a51adf8e8208320933a87e5f2">z</a> = A.Z();</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1USPlane.html#aa54de2d50c4ac01b30ab6b054a83e02e">hits_</a>.push_back(hit);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        }</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    }</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>}</div>
 </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="foldopen" id="foldopen00038" data-start="{" data-end="}">
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classsnd_1_1analysis__tools_1_1USPlane.html#a3e588f3136b0ab28bb6ae32ae414ced9">   38</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classsnd_1_1analysis__tools_1_1USPlane.html#a3e588f3136b0ab28bb6ae32ae414ced9">snd::analysis_tools::USPlane::FindCentroid</a>()</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>{</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="comment">// min number of hit in the plane to attempt to find a centroid</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordflow">if</span> (<span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(hits_.size()) &lt; configuration_.us_min_n_hits_for_centroid)</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    {</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="comment">// std::cout&lt;&lt;&quot;Not enough hits in US plane &quot; &lt;&lt; station_ &lt;&lt;&quot; to find centroid\n&quot;;</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="keywordflow">return</span>;</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    }</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">double</span> total_qdc = GetTotQdc().large;</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordflow">if</span> (total_qdc &gt; 0.0)</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    {</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;hit : hits_)</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        {</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>            <span class="comment">// weigthed sum</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            <span class="keywordtype">double</span>  weighted_sum_x{0.0}, weighted_sum_y{0.0}, weighted_sum_z{0.0};</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            <span class="keywordtype">double</span> total_qdc_positive{0.0};</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            <span class="keywordflow">if</span> (hit.qdc &gt; 0.0)</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            {</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>                weighted_sum_x += hit.x * hit.qdc;</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>                weighted_sum_y += hit.y * hit.qdc;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>                weighted_sum_z += hit.z * hit.qdc;</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>                total_qdc_positive += hit.qdc;</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            }</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            <span class="keywordtype">double</span> x = weighted_sum_x / total_qdc_positive;</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>            <span class="keywordtype">double</span> y = weighted_sum_y / total_qdc_positive;</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>            <span class="keywordtype">double</span> z = weighted_sum_z / total_qdc_positive;</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            centroid_.SetXYZ(x, y, z);</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        }</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    }</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    centroid_error_.SetXYZ(configuration_.us_centroid_error_x, configuration_.us_centroid_error_y, configuration_.us_centroid_error_z);</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>}</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="foldopen" id="foldopen00044" data-start="{" data-end="}">
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classsnd_1_1analysis__tools_1_1USPlane.html#a3e588f3136b0ab28bb6ae32ae414ced9">   44</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classsnd_1_1analysis__tools_1_1USPlane.html#a3e588f3136b0ab28bb6ae32ae414ced9">snd::analysis_tools::USPlane::FindCentroid</a>()</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>{</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="comment">// select large SiPM channels with positive qdc</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    std::vector&lt;USHit&gt; cleaned_hits = hits_;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    cleaned_hits.erase(std::remove_if(cleaned_hits.begin(), cleaned_hits.end(),</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>                               [&amp;](<span class="keyword">auto</span> &amp;hit)</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>                               { return (hit.qdc &lt;= 0 || hit.is_large == false); }),</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                       cleaned_hits.end());</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="comment">// min number of hit in the plane to attempt to find a centroid</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordflow">if</span> (<span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(cleaned_hits.size()) &lt; configuration_.us_min_n_hits_for_centroid)</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    {</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="comment">// std::cout&lt;&lt;&quot;Not enough hits in US plane &quot; &lt;&lt; station_ &lt;&lt;&quot; to find centroid\n&quot;;</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    }</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="comment">// weigthed sum calculated per plane</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordtype">double</span>  weighted_sum_x{0.0}, weighted_sum_y{0.0}, weighted_sum_z{0.0};</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordtype">double</span> total_qdc_positive{0.0}, sum_qdc2_positive{0.0};</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="comment">// loop over hits in the plane</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;hit : cleaned_hits)</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    {</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        weighted_sum_x += hit.x * hit.qdc;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        weighted_sum_y += hit.y * hit.qdc;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        weighted_sum_z += hit.z * hit.qdc;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        total_qdc_positive += hit.qdc;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        sum_qdc2_positive += hit.qdc*hit.qdc;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    }</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    weighted_sum_x /= total_qdc_positive;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    weighted_sum_y /= total_qdc_positive;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    weighted_sum_z /= total_qdc_positive;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    centroid_.SetXYZ(weighted_sum_x, weighted_sum_y, weighted_sum_z);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keyword">auto</span> qdc_error_scaler = sqrt(sum_qdc2_positive)/total_qdc_positive;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    centroid_error_.SetXYZ(configuration_.us_centroid_error_x*qdc_error_scaler,</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>                           configuration_.us_centroid_error_y*qdc_error_scaler,</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>                           configuration_.us_centroid_error_z*qdc_error_scaler);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>}</div>
 </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="foldopen" id="foldopen00073" data-start="{" data-end="}">
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="classsnd_1_1analysis__tools_1_1USPlane.html#ab36c847f95995555fef74a8f88cdea53">   73</a></span><span class="keyword">const</span> <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1USPlane_1_1sl__pair.html">snd::analysis_tools::USPlane::sl_pair&lt;double&gt;</a> <a class="code hl_function" href="classsnd_1_1analysis__tools_1_1USPlane.html#ab36c847f95995555fef74a8f88cdea53">snd::analysis_tools::USPlane::GetTotQdc</a>()<span class="keyword"> const</span></div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="keyword"></span>{</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1USPlane_1_1sl__pair.html">sl_pair&lt;double&gt;</a> totQdc{0.0, 0.0};</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;hit : hits_)</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    {</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <span class="keywordflow">if</span> (hit.is_large)</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>            totQdc.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1USPlane_1_1sl__pair.html#aa71c35a905c2f39516f99fc59039b1d7">large</a> += hit.qdc;</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            totQdc.small += hit.qdc;</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    }</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keywordflow">return</span> totQdc;</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>}</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="foldopen" id="foldopen00083" data-start="{" data-end="}">
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="classsnd_1_1analysis__tools_1_1USPlane.html#ab36c847f95995555fef74a8f88cdea53">   83</a></span><span class="keyword">const</span> <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1USPlane_1_1sl__pair.html">snd::analysis_tools::USPlane::sl_pair&lt;double&gt;</a> <a class="code hl_function" href="classsnd_1_1analysis__tools_1_1USPlane.html#ab36c847f95995555fef74a8f88cdea53">snd::analysis_tools::USPlane::GetTotQdc</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1USPlane_1_1sl__pair.html">sl_pair&lt;double&gt;</a> totQdc{0.0, 0.0};</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;hit : hits_)</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    {</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <span class="keywordflow">if</span> (hit.is_large)</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            totQdc.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1USPlane_1_1sl__pair.html#aa71c35a905c2f39516f99fc59039b1d7">large</a> += hit.qdc;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            totQdc.small += hit.qdc;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    }</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keywordflow">return</span> totQdc;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>}</div>
 </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-<div class="foldopen" id="foldopen00086" data-start="{" data-end="}">
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="classsnd_1_1analysis__tools_1_1USPlane.html#ac20174b957a5b23b232157d91e746b40">   86</a></span><span class="keyword">const</span> <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1USPlane_1_1sl__pair.html">snd::analysis_tools::USPlane::sl_pair&lt;double&gt;</a> <a class="code hl_function" href="classsnd_1_1analysis__tools_1_1USPlane.html#ac20174b957a5b23b232157d91e746b40">snd::analysis_tools::USPlane::GetTotEnergy</a>()<span class="keyword"> const</span></div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="keyword"></span>{</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1USPlane_1_1sl__pair.html">sl_pair&lt;double&gt;</a> tot_energy{0.0, 0.0};</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1USPlane_1_1sl__pair.html">sl_pair&lt;double&gt;</a> tot_qdc = GetTotQdc();</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    tot_energy.large = tot_qdc.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1USPlane_1_1sl__pair.html#aa71c35a905c2f39516f99fc59039b1d7">large</a> *configuration_.us_qdc_to_gev; </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    tot_energy.small = tot_qdc.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1USPlane_1_1sl__pair.html#a1236ade61c281ad89f3f495c72606397">small</a> *configuration_.us_qdc_to_gev;</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordflow">return</span> tot_energy;</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>}</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="foldopen" id="foldopen00096" data-start="{" data-end="}">
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="classsnd_1_1analysis__tools_1_1USPlane.html#ac20174b957a5b23b232157d91e746b40">   96</a></span><span class="keyword">const</span> <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1USPlane_1_1sl__pair.html">snd::analysis_tools::USPlane::sl_pair&lt;double&gt;</a> <a class="code hl_function" href="classsnd_1_1analysis__tools_1_1USPlane.html#ac20174b957a5b23b232157d91e746b40">snd::analysis_tools::USPlane::GetTotEnergy</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1USPlane_1_1sl__pair.html">sl_pair&lt;double&gt;</a> tot_energy{0.0, 0.0};</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1USPlane_1_1sl__pair.html">sl_pair&lt;double&gt;</a> tot_qdc = GetTotQdc();</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    tot_energy.large = tot_qdc.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1USPlane_1_1sl__pair.html#aa71c35a905c2f39516f99fc59039b1d7">large</a> *configuration_.us_qdc_to_gev; </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    tot_energy.small = tot_qdc.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1USPlane_1_1sl__pair.html#a1236ade61c281ad89f3f495c72606397">small</a> *configuration_.us_qdc_to_gev;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keywordflow">return</span> tot_energy;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>}</div>
 </div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
-<div class="foldopen" id="foldopen00098" data-start="{" data-end="}">
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="classsnd_1_1analysis__tools_1_1USPlane.html#a4a724eefe52a9d98da920bdc1518e090">   98</a></span><span class="keyword">const</span> <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1USPlane_1_1rl__pair.html">snd::analysis_tools::USPlane::rl_pair&lt;double&gt;</a> <a class="code hl_function" href="classsnd_1_1analysis__tools_1_1USPlane.html#a4a724eefe52a9d98da920bdc1518e090">snd::analysis_tools::USPlane::GetSideQdc</a>()<span class="keyword"> const</span></div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="keyword"></span>{</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1USPlane_1_1rl__pair.html">rl_pair&lt;double&gt;</a> side_qdc{0.0, 0.0};</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;hit : hits_)</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    {</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        <span class="keywordflow">if</span> (hit.is_large)</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        {</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            <span class="keywordflow">if</span> (hit.is_right)</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>                side_qdc.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1USPlane_1_1rl__pair.html#a8b21a7c57b63c459e557b578ac9c937f">right</a> += hit.qdc;</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>            <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>                side_qdc.left += hit.qdc;</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        }</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    }</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keywordflow">return</span> side_qdc;</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>}</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="foldopen" id="foldopen00108" data-start="{" data-end="}">
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="classsnd_1_1analysis__tools_1_1USPlane.html#a4a724eefe52a9d98da920bdc1518e090">  108</a></span><span class="keyword">const</span> <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1USPlane_1_1rl__pair.html">snd::analysis_tools::USPlane::rl_pair&lt;double&gt;</a> <a class="code hl_function" href="classsnd_1_1analysis__tools_1_1USPlane.html#a4a724eefe52a9d98da920bdc1518e090">snd::analysis_tools::USPlane::GetSideQdc</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1USPlane_1_1rl__pair.html">rl_pair&lt;double&gt;</a> side_qdc{0.0, 0.0};</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;hit : hits_)</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    {</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        <span class="keywordflow">if</span> (hit.is_large)</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        {</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>            <span class="keywordflow">if</span> (hit.is_right)</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>                side_qdc.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1USPlane_1_1rl__pair.html#a8b21a7c57b63c459e557b578ac9c937f">right</a> += hit.qdc;</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>            <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>                side_qdc.left += hit.qdc;</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        }</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    }</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    <span class="keywordflow">return</span> side_qdc;</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>}</div>
 </div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
-<div class="foldopen" id="foldopen00114" data-start="{" data-end="}">
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="classsnd_1_1analysis__tools_1_1USPlane.html#a0cb0048d3ffd1ff33e70aadaa3c3aaa2">  114</a></span><span class="keyword">const</span> <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1USPlane_1_1rl__pair.html">snd::analysis_tools::USPlane::rl_pair&lt;double&gt;</a> <a class="code hl_function" href="classsnd_1_1analysis__tools_1_1USPlane.html#a0cb0048d3ffd1ff33e70aadaa3c3aaa2">snd::analysis_tools::USPlane::GetBarQdc</a>(<span class="keywordtype">int</span> bar_to_compute)<span class="keyword"> const</span></div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="keyword"></span>{</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1USPlane_1_1rl__pair.html">rl_pair&lt;double&gt;</a> bar_qdc{0.0, 0.0};</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;hit : hits_)</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    {</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        <span class="keywordflow">if</span> (hit.bar != bar_to_compute)</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>            <span class="keywordflow">continue</span>;</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        {</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>            <span class="keywordflow">if</span> (hit.is_large)</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>            {</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>                <span class="keywordflow">if</span> (hit.is_right)</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>                    bar_qdc.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1USPlane_1_1rl__pair.html#a8b21a7c57b63c459e557b578ac9c937f">right</a> += hit.qdc;</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>                <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>                    bar_qdc.left += hit.qdc;</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>            }</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        }</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    }</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    <span class="keywordflow">return</span> bar_qdc;</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>}</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="foldopen" id="foldopen00124" data-start="{" data-end="}">
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno"><a class="line" href="classsnd_1_1analysis__tools_1_1USPlane.html#a0cb0048d3ffd1ff33e70aadaa3c3aaa2">  124</a></span><span class="keyword">const</span> <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1USPlane_1_1rl__pair.html">snd::analysis_tools::USPlane::rl_pair&lt;double&gt;</a> <a class="code hl_function" href="classsnd_1_1analysis__tools_1_1USPlane.html#a0cb0048d3ffd1ff33e70aadaa3c3aaa2">snd::analysis_tools::USPlane::GetBarQdc</a>(<span class="keywordtype">int</span> bar_to_compute)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1USPlane_1_1rl__pair.html">rl_pair&lt;double&gt;</a> bar_qdc{0.0, 0.0};</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;hit : hits_)</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    {</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        <span class="keywordflow">if</span> (hit.bar != bar_to_compute)</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>            <span class="keywordflow">continue</span>;</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        {</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>            <span class="keywordflow">if</span> (hit.is_large)</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>            {</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>                <span class="keywordflow">if</span> (hit.is_right)</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>                    bar_qdc.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1USPlane_1_1rl__pair.html#a8b21a7c57b63c459e557b578ac9c937f">right</a> += hit.qdc;</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>                <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>                    bar_qdc.left += hit.qdc;</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>            }</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>        }</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    }</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    <span class="keywordflow">return</span> bar_qdc;</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>}</div>
 </div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
-<div class="foldopen" id="foldopen00135" data-start="{" data-end="}">
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno"><a class="line" href="classsnd_1_1analysis__tools_1_1USPlane.html#a2b06ed54ed1317654eee7887c19e9946">  135</a></span><span class="keyword">const</span> <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1USPlane_1_1sl__pair.html">snd::analysis_tools::USPlane::sl_pair&lt;int&gt;</a> <a class="code hl_function" href="classsnd_1_1analysis__tools_1_1USPlane.html#a2b06ed54ed1317654eee7887c19e9946">snd::analysis_tools::USPlane::GetBarNHits</a>(<span class="keywordtype">int</span> bar_to_compute)<span class="keyword"> const</span></div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="keyword"></span>{</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1USPlane_1_1sl__pair.html">sl_pair&lt;int&gt;</a> bar_hit{0, 0};</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;hit : hits_)</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    {</div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>        <span class="keywordflow">if</span> (hit.bar != bar_to_compute)</div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>            <span class="keywordflow">continue</span>;</div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>        <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>        {</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>            <span class="keywordflow">if</span> (hit.is_large)</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>            </div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>                    bar_hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1USPlane_1_1sl__pair.html#aa71c35a905c2f39516f99fc59039b1d7">large</a>++;</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>            <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>                    bar_hit.small++;</div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>            </div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        }</div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    }</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    <span class="keywordflow">return</span> bar_hit;</div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>}</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
+<div class="foldopen" id="foldopen00145" data-start="{" data-end="}">
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno"><a class="line" href="classsnd_1_1analysis__tools_1_1USPlane.html#a2b06ed54ed1317654eee7887c19e9946">  145</a></span><span class="keyword">const</span> <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1USPlane_1_1sl__pair.html">snd::analysis_tools::USPlane::sl_pair&lt;int&gt;</a> <a class="code hl_function" href="classsnd_1_1analysis__tools_1_1USPlane.html#a2b06ed54ed1317654eee7887c19e9946">snd::analysis_tools::USPlane::GetBarNHits</a>(<span class="keywordtype">int</span> bar_to_compute)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1USPlane_1_1sl__pair.html">sl_pair&lt;int&gt;</a> bar_hit{0, 0};</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;hit : hits_)</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    {</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        <span class="keywordflow">if</span> (hit.bar != bar_to_compute)</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>            <span class="keywordflow">continue</span>;</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        {</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>            <span class="keywordflow">if</span> (hit.is_large)</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>            </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>                    bar_hit.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1USPlane_1_1sl__pair.html#aa71c35a905c2f39516f99fc59039b1d7">large</a>++;</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>            <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>                    bar_hit.small++;</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>            </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        }</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    }</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    <span class="keywordflow">return</span> bar_hit;</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>}</div>
 </div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
-<div class="foldopen" id="foldopen00155" data-start="{" data-end="}">
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno"><a class="line" href="classsnd_1_1analysis__tools_1_1USPlane.html#afa228d34d0b9af954e1b7134a9e5a885">  155</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classsnd_1_1analysis__tools_1_1USPlane.html#afa228d34d0b9af954e1b7134a9e5a885">snd::analysis_tools::USPlane::TimeFilter</a>(<span class="keywordtype">double</span> min_timestamp, <span class="keywordtype">double</span> max_timestamp)</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>{</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    hits_.erase(std::remove_if(hits_.begin(), hits_.end(),</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>                               [&amp;](<span class="keyword">auto</span> &amp;hit)</div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>                               { return hit.timestamp &lt; min_timestamp || hit.timestamp &gt; max_timestamp; }),</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>                hits_.end());</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>}</div>
-</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
-<div class="foldopen" id="foldopen00163" data-start="{" data-end="}">
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno"><a class="line" href="classsnd_1_1analysis__tools_1_1USPlane.html#a57d56452c6ba46503dcf5af5c4736acd">  163</a></span><span class="keyword">const</span> <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1USPlane_1_1sl__pair.html">snd::analysis_tools::USPlane::sl_pair&lt;int&gt;</a> <a class="code hl_function" href="classsnd_1_1analysis__tools_1_1USPlane.html#a57d56452c6ba46503dcf5af5c4736acd">snd::analysis_tools::USPlane::GetNHits</a>()<span class="keyword"> const</span></div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span><span class="keyword"></span>{</div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1USPlane_1_1sl__pair.html">sl_pair&lt;int&gt;</a> counts{0, 0};</div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    counts.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1USPlane_1_1sl__pair.html#aa71c35a905c2f39516f99fc59039b1d7">large</a> = std::count_if(hits_.begin(), hits_.end(), [](<span class="keyword">auto</span> &amp;hit)</div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>                             { return hit.is_large; });</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    counts.small = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(hits_.size()) - counts.large;</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    <span class="keywordflow">return</span> counts;</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
+<div class="foldopen" id="foldopen00165" data-start="{" data-end="}">
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno"><a class="line" href="classsnd_1_1analysis__tools_1_1USPlane.html#afa228d34d0b9af954e1b7134a9e5a885">  165</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classsnd_1_1analysis__tools_1_1USPlane.html#afa228d34d0b9af954e1b7134a9e5a885">snd::analysis_tools::USPlane::TimeFilter</a>(<span class="keywordtype">double</span> min_timestamp, <span class="keywordtype">double</span> max_timestamp)</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>{</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    hits_.erase(std::remove_if(hits_.begin(), hits_.end(),</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>                               [&amp;](<span class="keyword">auto</span> &amp;hit)</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>                               { return hit.timestamp &lt; min_timestamp || hit.timestamp &gt; max_timestamp; }),</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>                hits_.end());</div>
 <div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>}</div>
 </div>
 <div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
-<div class="foldopen" id="foldopen00174" data-start="{" data-end="}">
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno"><a class="line" href="classsnd_1_1analysis__tools_1_1USPlane.html#a9db976226238ae4f4e6973714f96cb12">  174</a></span><span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classsnd_1_1analysis__tools_1_1USPlane.html#a9db976226238ae4f4e6973714f96cb12">snd::analysis_tools::USPlane::GetNHitBars</a>()<span class="keyword"> const</span>{</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    <span class="keywordtype">int</span> count{0};</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> bar{0}; bar &lt; configuration_.us_bar_per_station; ++bar) {</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>        <span class="keywordflow">if</span> (GetBarNHits(bar).large &gt; configuration_.us_min_hit_on_bar) count++;</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    }</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    <span class="keywordflow">return</span> count;</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>}</div>
+<div class="foldopen" id="foldopen00173" data-start="{" data-end="}">
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno"><a class="line" href="classsnd_1_1analysis__tools_1_1USPlane.html#a57d56452c6ba46503dcf5af5c4736acd">  173</a></span><span class="keyword">const</span> <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1USPlane_1_1sl__pair.html">snd::analysis_tools::USPlane::sl_pair&lt;int&gt;</a> <a class="code hl_function" href="classsnd_1_1analysis__tools_1_1USPlane.html#a57d56452c6ba46503dcf5af5c4736acd">snd::analysis_tools::USPlane::GetNHits</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    <a class="code hl_struct" href="structsnd_1_1analysis__tools_1_1USPlane_1_1sl__pair.html">sl_pair&lt;int&gt;</a> counts{0, 0};</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    counts.<a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1USPlane_1_1sl__pair.html#aa71c35a905c2f39516f99fc59039b1d7">large</a> = std::count_if(hits_.begin(), hits_.end(), [](<span class="keyword">auto</span> &amp;hit)</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>                             { return hit.is_large; });</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    counts.small = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(hits_.size()) - counts.large;</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    <span class="keywordflow">return</span> counts;</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>}</div>
 </div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
+<div class="foldopen" id="foldopen00183" data-start="{" data-end="}">
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno"><a class="line" href="classsnd_1_1analysis__tools_1_1USPlane.html#a9db976226238ae4f4e6973714f96cb12">  183</a></span><span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classsnd_1_1analysis__tools_1_1USPlane.html#a9db976226238ae4f4e6973714f96cb12">snd::analysis_tools::USPlane::GetNHitBars</a>()<span class="keyword"> const</span>{</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    <span class="keywordtype">int</span> count{0};</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> bar{0}; bar &lt; configuration_.us_bar_per_station; ++bar) {</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>        <span class="keywordflow">if</span> (GetBarNHits(bar).large &gt; configuration_.us_min_hit_on_bar) count++;</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    }</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    <span class="keywordflow">return</span> count;</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>}</div>
+</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
 <div class="ttc" id="aMuFilterHit_8h_html"><div class="ttname"><a href="MuFilterHit_8h.html">MuFilterHit.h</a></div></div>
 <div class="ttc" id="aMuFilter_8h_html"><div class="ttname"><a href="MuFilter_8h.html">MuFilter.h</a></div></div>
+<div class="ttc" id="aShipUnit_8h_html"><div class="ttname"><a href="ShipUnit_8h.html">ShipUnit.h</a></div></div>
 <div class="ttc" id="aclassMuFilter_html"><div class="ttname"><a href="classMuFilter.html">MuFilter</a></div><div class="ttdef"><b>Definition</b> <a href="MuFilter_8h_source.html#l00025">MuFilter.h:26</a></div></div>
 <div class="ttc" id="aclassMuFilter_html_a2525ccc41592f3cc117c18424e8dc7ac"><div class="ttname"><a href="classMuFilter.html#a2525ccc41592f3cc117c18424e8dc7ac">MuFilter::GetPosition</a></div><div class="ttdeci">void GetPosition(Int_t id, TVector3 &amp;vLeft, TVector3 &amp;vRight)</div><div class="ttdef"><b>Definition</b> <a href="MuFilter_8cxx_source.html#l00639">MuFilter.cxx:639</a></div></div>
-<div class="ttc" id="aclasssnd_1_1analysis__tools_1_1USPlane_html_a0cb0048d3ffd1ff33e70aadaa3c3aaa2"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1USPlane.html#a0cb0048d3ffd1ff33e70aadaa3c3aaa2">snd::analysis_tools::USPlane::GetBarQdc</a></div><div class="ttdeci">const rl_pair&lt; double &gt; GetBarQdc(int bar_to_compute) const</div><div class="ttdef"><b>Definition</b> <a href="sndUSPlane_8cxx_source.html#l00114">sndUSPlane.cxx:114</a></div></div>
-<div class="ttc" id="aclasssnd_1_1analysis__tools_1_1USPlane_html_a2b06ed54ed1317654eee7887c19e9946"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1USPlane.html#a2b06ed54ed1317654eee7887c19e9946">snd::analysis_tools::USPlane::GetBarNHits</a></div><div class="ttdeci">const sl_pair&lt; int &gt; GetBarNHits(int bar_to_compute) const</div><div class="ttdef"><b>Definition</b> <a href="sndUSPlane_8cxx_source.html#l00135">sndUSPlane.cxx:135</a></div></div>
-<div class="ttc" id="aclasssnd_1_1analysis__tools_1_1USPlane_html_a3e588f3136b0ab28bb6ae32ae414ced9"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1USPlane.html#a3e588f3136b0ab28bb6ae32ae414ced9">snd::analysis_tools::USPlane::FindCentroid</a></div><div class="ttdeci">void FindCentroid()</div><div class="ttdef"><b>Definition</b> <a href="sndUSPlane_8cxx_source.html#l00038">sndUSPlane.cxx:38</a></div></div>
-<div class="ttc" id="aclasssnd_1_1analysis__tools_1_1USPlane_html_a4a724eefe52a9d98da920bdc1518e090"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1USPlane.html#a4a724eefe52a9d98da920bdc1518e090">snd::analysis_tools::USPlane::GetSideQdc</a></div><div class="ttdeci">const rl_pair&lt; double &gt; GetSideQdc() const</div><div class="ttdef"><b>Definition</b> <a href="sndUSPlane_8cxx_source.html#l00098">sndUSPlane.cxx:98</a></div></div>
-<div class="ttc" id="aclasssnd_1_1analysis__tools_1_1USPlane_html_a4f0ed7df7b443e68e91aa8b9d715634a"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1USPlane.html#a4f0ed7df7b443e68e91aa8b9d715634a">snd::analysis_tools::USPlane::USPlane</a></div><div class="ttdeci">USPlane(std::vector&lt; MuFilterHit * &gt; snd_hits, const Configuration &amp;configuration, MuFilter *muon_filter_geometry, int station)</div><div class="ttdef"><b>Definition</b> <a href="sndUSPlane_8cxx_source.html#l00012">sndUSPlane.cxx:12</a></div></div>
-<div class="ttc" id="aclasssnd_1_1analysis__tools_1_1USPlane_html_a57d56452c6ba46503dcf5af5c4736acd"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1USPlane.html#a57d56452c6ba46503dcf5af5c4736acd">snd::analysis_tools::USPlane::GetNHits</a></div><div class="ttdeci">const sl_pair&lt; int &gt; GetNHits() const</div><div class="ttdef"><b>Definition</b> <a href="sndUSPlane_8cxx_source.html#l00163">sndUSPlane.cxx:163</a></div></div>
-<div class="ttc" id="aclasssnd_1_1analysis__tools_1_1USPlane_html_a9db976226238ae4f4e6973714f96cb12"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1USPlane.html#a9db976226238ae4f4e6973714f96cb12">snd::analysis_tools::USPlane::GetNHitBars</a></div><div class="ttdeci">const int GetNHitBars() const</div><div class="ttdef"><b>Definition</b> <a href="sndUSPlane_8cxx_source.html#l00174">sndUSPlane.cxx:174</a></div></div>
+<div class="ttc" id="aclasssnd_1_1analysis__tools_1_1USPlane_html_a0cb0048d3ffd1ff33e70aadaa3c3aaa2"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1USPlane.html#a0cb0048d3ffd1ff33e70aadaa3c3aaa2">snd::analysis_tools::USPlane::GetBarQdc</a></div><div class="ttdeci">const rl_pair&lt; double &gt; GetBarQdc(int bar_to_compute) const</div><div class="ttdef"><b>Definition</b> <a href="sndUSPlane_8cxx_source.html#l00124">sndUSPlane.cxx:124</a></div></div>
+<div class="ttc" id="aclasssnd_1_1analysis__tools_1_1USPlane_html_a2b06ed54ed1317654eee7887c19e9946"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1USPlane.html#a2b06ed54ed1317654eee7887c19e9946">snd::analysis_tools::USPlane::GetBarNHits</a></div><div class="ttdeci">const sl_pair&lt; int &gt; GetBarNHits(int bar_to_compute) const</div><div class="ttdef"><b>Definition</b> <a href="sndUSPlane_8cxx_source.html#l00145">sndUSPlane.cxx:145</a></div></div>
+<div class="ttc" id="aclasssnd_1_1analysis__tools_1_1USPlane_html_a3352a841729056aefdff8145ef153204"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1USPlane.html#a3352a841729056aefdff8145ef153204">snd::analysis_tools::USPlane::USPlane</a></div><div class="ttdeci">USPlane(std::vector&lt; MuFilterHit * &gt; snd_hits, const Configuration &amp;configuration, MuFilter *muon_filter_geometry, int station, bool isMC=false)</div><div class="ttdef"><b>Definition</b> <a href="sndUSPlane_8cxx_source.html#l00013">sndUSPlane.cxx:13</a></div></div>
+<div class="ttc" id="aclasssnd_1_1analysis__tools_1_1USPlane_html_a3e588f3136b0ab28bb6ae32ae414ced9"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1USPlane.html#a3e588f3136b0ab28bb6ae32ae414ced9">snd::analysis_tools::USPlane::FindCentroid</a></div><div class="ttdeci">void FindCentroid()</div><div class="ttdef"><b>Definition</b> <a href="sndUSPlane_8cxx_source.html#l00044">sndUSPlane.cxx:44</a></div></div>
+<div class="ttc" id="aclasssnd_1_1analysis__tools_1_1USPlane_html_a4a724eefe52a9d98da920bdc1518e090"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1USPlane.html#a4a724eefe52a9d98da920bdc1518e090">snd::analysis_tools::USPlane::GetSideQdc</a></div><div class="ttdeci">const rl_pair&lt; double &gt; GetSideQdc() const</div><div class="ttdef"><b>Definition</b> <a href="sndUSPlane_8cxx_source.html#l00108">sndUSPlane.cxx:108</a></div></div>
+<div class="ttc" id="aclasssnd_1_1analysis__tools_1_1USPlane_html_a57d56452c6ba46503dcf5af5c4736acd"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1USPlane.html#a57d56452c6ba46503dcf5af5c4736acd">snd::analysis_tools::USPlane::GetNHits</a></div><div class="ttdeci">const sl_pair&lt; int &gt; GetNHits() const</div><div class="ttdef"><b>Definition</b> <a href="sndUSPlane_8cxx_source.html#l00173">sndUSPlane.cxx:173</a></div></div>
+<div class="ttc" id="aclasssnd_1_1analysis__tools_1_1USPlane_html_a69bfb38c7a4ffb651a1045fe35a59ddd"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1USPlane.html#a69bfb38c7a4ffb651a1045fe35a59ddd">snd::analysis_tools::USPlane::configuration_</a></div><div class="ttdeci">Configuration configuration_</div><div class="ttdef"><b>Definition</b> <a href="sndUSPlane_8h_source.html#l00071">sndUSPlane.h:71</a></div></div>
+<div class="ttc" id="aclasssnd_1_1analysis__tools_1_1USPlane_html_a9db976226238ae4f4e6973714f96cb12"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1USPlane.html#a9db976226238ae4f4e6973714f96cb12">snd::analysis_tools::USPlane::GetNHitBars</a></div><div class="ttdeci">const int GetNHitBars() const</div><div class="ttdef"><b>Definition</b> <a href="sndUSPlane_8cxx_source.html#l00183">sndUSPlane.cxx:183</a></div></div>
 <div class="ttc" id="aclasssnd_1_1analysis__tools_1_1USPlane_html_aa54de2d50c4ac01b30ab6b054a83e02e"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1USPlane.html#aa54de2d50c4ac01b30ab6b054a83e02e">snd::analysis_tools::USPlane::hits_</a></div><div class="ttdeci">std::vector&lt; USHit &gt; hits_</div><div class="ttdef"><b>Definition</b> <a href="sndUSPlane_8h_source.html#l00070">sndUSPlane.h:70</a></div></div>
-<div class="ttc" id="aclasssnd_1_1analysis__tools_1_1USPlane_html_ab36c847f95995555fef74a8f88cdea53"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1USPlane.html#ab36c847f95995555fef74a8f88cdea53">snd::analysis_tools::USPlane::GetTotQdc</a></div><div class="ttdeci">const sl_pair&lt; double &gt; GetTotQdc() const</div><div class="ttdef"><b>Definition</b> <a href="sndUSPlane_8cxx_source.html#l00073">sndUSPlane.cxx:73</a></div></div>
-<div class="ttc" id="aclasssnd_1_1analysis__tools_1_1USPlane_html_ac20174b957a5b23b232157d91e746b40"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1USPlane.html#ac20174b957a5b23b232157d91e746b40">snd::analysis_tools::USPlane::GetTotEnergy</a></div><div class="ttdeci">const sl_pair&lt; double &gt; GetTotEnergy() const</div><div class="ttdef"><b>Definition</b> <a href="sndUSPlane_8cxx_source.html#l00086">sndUSPlane.cxx:86</a></div></div>
-<div class="ttc" id="aclasssnd_1_1analysis__tools_1_1USPlane_html_afa228d34d0b9af954e1b7134a9e5a885"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1USPlane.html#afa228d34d0b9af954e1b7134a9e5a885">snd::analysis_tools::USPlane::TimeFilter</a></div><div class="ttdeci">void TimeFilter(double min_timestamp, double max_timestamp)</div><div class="ttdef"><b>Definition</b> <a href="sndUSPlane_8cxx_source.html#l00155">sndUSPlane.cxx:155</a></div></div>
+<div class="ttc" id="aclasssnd_1_1analysis__tools_1_1USPlane_html_ab36c847f95995555fef74a8f88cdea53"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1USPlane.html#ab36c847f95995555fef74a8f88cdea53">snd::analysis_tools::USPlane::GetTotQdc</a></div><div class="ttdeci">const sl_pair&lt; double &gt; GetTotQdc() const</div><div class="ttdef"><b>Definition</b> <a href="sndUSPlane_8cxx_source.html#l00083">sndUSPlane.cxx:83</a></div></div>
+<div class="ttc" id="aclasssnd_1_1analysis__tools_1_1USPlane_html_ac20174b957a5b23b232157d91e746b40"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1USPlane.html#ac20174b957a5b23b232157d91e746b40">snd::analysis_tools::USPlane::GetTotEnergy</a></div><div class="ttdeci">const sl_pair&lt; double &gt; GetTotEnergy() const</div><div class="ttdef"><b>Definition</b> <a href="sndUSPlane_8cxx_source.html#l00096">sndUSPlane.cxx:96</a></div></div>
+<div class="ttc" id="aclasssnd_1_1analysis__tools_1_1USPlane_html_afa228d34d0b9af954e1b7134a9e5a885"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1USPlane.html#afa228d34d0b9af954e1b7134a9e5a885">snd::analysis_tools::USPlane::TimeFilter</a></div><div class="ttdeci">void TimeFilter(double min_timestamp, double max_timestamp)</div><div class="ttdef"><b>Definition</b> <a href="sndUSPlane_8cxx_source.html#l00165">sndUSPlane.cxx:165</a></div></div>
 <div class="ttc" id="asndUSPlane_8h_html"><div class="ttname"><a href="sndUSPlane_8h.html">sndUSPlane.h</a></div></div>
 <div class="ttc" id="astructsnd_1_1Configuration_html"><div class="ttname"><a href="structsnd_1_1Configuration.html">snd::Configuration</a></div><div class="ttdef"><b>Definition</b> <a href="sndConfiguration_8h_source.html#l00008">sndConfiguration.h:9</a></div></div>
+<div class="ttc" id="astructsnd_1_1Configuration_html_a4de804785961b906ac350091e602654c"><div class="ttname"><a href="structsnd_1_1Configuration.html#a4de804785961b906ac350091e602654c">snd::Configuration::us_bar_length</a></div><div class="ttdeci">double us_bar_length</div><div class="ttdef"><b>Definition</b> <a href="sndConfiguration_8h_source.html#l00070">sndConfiguration.h:70</a></div></div>
+<div class="ttc" id="astructsnd_1_1Configuration_html_a7f589b69ce27d469ce0ca78ba0c4e154"><div class="ttname"><a href="structsnd_1_1Configuration.html#a7f589b69ce27d469ce0ca78ba0c4e154">snd::Configuration::us_signal_speed</a></div><div class="ttdeci">double us_signal_speed</div><div class="ttdef"><b>Definition</b> <a href="sndConfiguration_8h_source.html#l00071">sndConfiguration.h:71</a></div></div>
 <div class="ttc" id="astructsnd_1_1analysis__tools_1_1USPlane_1_1USHit_html"><div class="ttname"><a href="structsnd_1_1analysis__tools_1_1USPlane_1_1USHit.html">snd::analysis_tools::USPlane::USHit</a></div><div class="ttdef"><b>Definition</b> <a href="sndUSPlane_8h_source.html#l00033">sndUSPlane.h:34</a></div></div>
 <div class="ttc" id="astructsnd_1_1analysis__tools_1_1USPlane_1_1USHit_html_a1419c07d5a0b60a523c1d078b5b3c129"><div class="ttname"><a href="structsnd_1_1analysis__tools_1_1USPlane_1_1USHit.html#a1419c07d5a0b60a523c1d078b5b3c129">snd::analysis_tools::USPlane::USHit::is_large</a></div><div class="ttdeci">bool is_large</div><div class="ttdef"><b>Definition</b> <a href="sndUSPlane_8h_source.html#l00044">sndUSPlane.h:44</a></div></div>
 <div class="ttc" id="astructsnd_1_1analysis__tools_1_1USPlane_1_1USHit_html_a461bd51d3f53d476645072054718347c"><div class="ttname"><a href="structsnd_1_1analysis__tools_1_1USPlane_1_1USHit.html#a461bd51d3f53d476645072054718347c">snd::analysis_tools::USPlane::USHit::qdc</a></div><div class="ttdeci">double qdc</div><div class="ttdef"><b>Definition</b> <a href="sndUSPlane_8h_source.html#l00038">sndUSPlane.h:38</a></div></div>

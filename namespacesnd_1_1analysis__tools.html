@@ -113,8 +113,8 @@ Functions</h2></td></tr>
 <tr class="separator:a1a4add1c392f5d11860e730d3cb1356d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b8d5076a98f5ad030ea9e19de318532" id="r_a1b8d5076a98f5ad030ea9e19de318532"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html">ScifiPlane</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesnd_1_1analysis__tools.html#a1b8d5076a98f5ad030ea9e19de318532">FillScifi</a> (const <a class="el" href="structsnd_1_1Configuration.html">Configuration</a> &amp;configuration, TClonesArray *sf_hits, <a class="el" href="classScifi.html">Scifi</a> *scifi_geometry)</td></tr>
 <tr class="separator:a1b8d5076a98f5ad030ea9e19de318532"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39d6b49491d4a739d88c1e370492e2cf" id="r_a39d6b49491d4a739d88c1e370492e2cf"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classsnd_1_1analysis__tools_1_1USPlane.html">USPlane</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesnd_1_1analysis__tools.html#a39d6b49491d4a739d88c1e370492e2cf">FillUS</a> (const <a class="el" href="structsnd_1_1Configuration.html">Configuration</a> &amp;configuration, TClonesArray *mufi_hits, <a class="el" href="classMuFilter.html">MuFilter</a> *mufilter_geometry)</td></tr>
-<tr class="separator:a39d6b49491d4a739d88c1e370492e2cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21c38fb41ff24d5917791399d322ed22" id="r_a21c38fb41ff24d5917791399d322ed22"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classsnd_1_1analysis__tools_1_1USPlane.html">USPlane</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesnd_1_1analysis__tools.html#a21c38fb41ff24d5917791399d322ed22">FillUS</a> (const <a class="el" href="structsnd_1_1Configuration.html">Configuration</a> &amp;configuration, TClonesArray *mufi_hits, <a class="el" href="classMuFilter.html">MuFilter</a> *mufilter_geometry, bool isMC=false)</td></tr>
+<tr class="separator:a21c38fb41ff24d5917791399d322ed22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4366cddb81edce8fb50a4dedd3875e84" id="r_a4366cddb81edce8fb50a4dedd3875e84"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesnd_1_1analysis__tools.html#a4366cddb81edce8fb50a4dedd3875e84">getSciFiHitsPerStation</a> (const TClonesArray *digiHits, std::vector&lt; int &gt; &amp;horizontal_hits, std::vector&lt; int &gt; &amp;vertical_hits)</td></tr>
 <tr class="separator:a4366cddb81edce8fb50a4dedd3875e84"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add38a36ae42dce4c3e48621c2c4d0b23" id="r_add38a36ae42dce4c3e48621c2c4d0b23"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesnd_1_1analysis__tools.html#add38a36ae42dce4c3e48621c2c4d0b23">getTotalSciFiHits</a> (std::vector&lt; int &gt; &amp;horizontal_hits, std::vector&lt; int &gt; &amp;vertical_hits)</td></tr>
@@ -459,8 +459,8 @@ Functions</h2></td></tr>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a39d6b49491d4a739d88c1e370492e2cf" name="a39d6b49491d4a739d88c1e370492e2cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a39d6b49491d4a739d88c1e370492e2cf">&#9670;&#160;</a></span>FillUS()</h2>
+<a id="a21c38fb41ff24d5917791399d322ed22" name="a21c38fb41ff24d5917791399d322ed22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21c38fb41ff24d5917791399d322ed22">&#9670;&#160;</a></span>FillUS()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -481,7 +481,13 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="classMuFilter.html">MuFilter</a> *&#160;</td>
-          <td class="paramname"><em>mufilter_geometry</em>&#160;</td>
+          <td class="paramname"><em>mufilter_geometry</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>isMC</em> = <code>false</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -510,7 +516,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   55</span>      <span class="keywordflow">else</span> <span class="keywordflow">throw</span> std::runtime_error{<span class="stringliteral">&quot;Invalid US plane&quot;</span>};</div>
 <div class="line"><span class="lineno">   56</span>  }</div>
 <div class="line"><span class="lineno">   57</span>  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> st{0}; st &lt; n_station; ++st) {</div>
-<div class="line"><span class="lineno">   58</span>          us_planes.emplace_back(<a class="code hl_class" href="classsnd_1_1analysis__tools_1_1USPlane.html">snd::analysis_tools::USPlane</a>(plane_hits[st], configuration, mufilter_geometry, st+1));</div>
+<div class="line"><span class="lineno">   58</span>          us_planes.emplace_back(<a class="code hl_class" href="classsnd_1_1analysis__tools_1_1USPlane.html">snd::analysis_tools::USPlane</a>(plane_hits[st], configuration, mufilter_geometry, st+1, isMC));</div>
 <div class="line"><span class="lineno">   59</span>  }</div>
 <div class="line"><span class="lineno">   60</span>  <span class="keywordflow">return</span> us_planes;</div>
 <div class="line"><span class="lineno">   61</span>}</div>
