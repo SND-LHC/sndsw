@@ -342,7 +342,7 @@ def loopEvents(
        logging.warning("Ignoring provided keys other than "+str(all_keys))
 
  if 'simpleDisplay' not in h: 
-    ut.bookCanvas(h,key='simpleDisplay',title='simple event display',nx=1200,ny=1600,cx=1,cy=2)
+    ut.bookCanvas(h,key='simpleDisplay',title='simple event display',nx=1200,ny=1016,cx=1,cy=2)
 
  h['simpleDisplay'].cd(1)
  # TI18 coordinate system
