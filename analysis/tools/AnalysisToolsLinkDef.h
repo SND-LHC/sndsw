@@ -46,5 +46,7 @@
 #pragma link C++ function snd::analysis_tools::GetUSShowerEnd(const std::vector<snd::analysis_tools::USPlane> &);
 #pragma link C++ function snd::analysis_tools::GetShowerInterceptAndDirection(const snd::Configuration &, const std::vector<snd::analysis_tools::ScifiPlane> &, const std::vector<snd::analysis_tools::USPlane> &);
 #pragma link C++ function snd::analysis_tools::GetShoweringPlanes(const std::vector<snd::analysis_tools::ScifiPlane> &, const std::vector<snd::analysis_tools::USPlane> &);
+#pragma link C++ function snd::analysis_tools::GetSciFiSpatialAnisotropy(const std::vector<ScifiPlane> &, bool);
+#pragma link C++ function snd::analysis_tools::GetUSSpatialAnisotropy(const std::vector<USPlane> &, bool);
 
 #endif

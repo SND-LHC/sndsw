@@ -23,6 +23,10 @@ namespace snd {
         std::pair<ROOT::Math::XYZPoint, ROOT::Math::XYZVector> GetShowerInterceptAndDirection(const Configuration &configuration, const std::vector<ScifiPlane> &scifi_planes, const std::vector<USPlane> &us_planes);
         // Filters out non showering planes
         std::pair<std::vector<ScifiPlane>, std::vector<USPlane>> GetShoweringPlanes(const std::vector<ScifiPlane> &scifi_planes, const std::vector<USPlane> &us_planes);
+        // Returns the SciFi spatial anisotropy(track-likeness) per projection
+        std::pair<double, double> GetSciFiSpatialAnisotropy(const std::vector<ScifiPlane> &scifi_planes, bool use_all_centroids = false);
+        // Returns the US spatial anisotropy
+        double GetUSSpatialAnisotropy(const std::vector<USPlane> &us_planes, bool use_all_centroids = false);
     }
 }
 

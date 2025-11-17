@@ -8,6 +8,8 @@
 #include "sndScifiPlane.h"
 #include "sndUSPlane.h"
 #include "TMatrixD.h"
+#include "TMatrixDSym.h"
+#include "TMatrixDSymEigen.h"
 #include "TVectorD.h"
 #include "TDecompChol.h"
 #include "Math/Vector3D.h"
@@ -147,3 +149,132 @@ std::pair<std::vector<snd::analysis_tools::ScifiPlane>, std::vector<snd::analysi
   return std::make_pair(sh_scifi_planes, sh_us_planes);
 }
 
+std::pair<double, double>PCA(const std::vector<double>& u, const std::vector<double>& z)
+{
+  // Need at least 3 measurements
+  assert(u.size() == z.size() && u.size() >= 2);
+  const size_t n_samples = u.size();
+  const int n_variables = 2;
+
+  // Find the mean values
+  double mean_u = 0.0, mean_z = 0.0;
+  for (size_t i = 0; i < n_samples; ++i)
+  {
+    mean_u += u[i];
+    mean_z += z[i];
+  }
+  mean_u /= n_samples;
+  mean_z /= n_samples;
+
+  // Find the covariance components
+  double cov_uu = 0.0, cov_zz = 0.0, cov_uz = 0.0;
+  for (size_t i = 0; i < n_samples; ++i)
+  {
+    double du = u[i] - mean_u;
+    double dz = z[i] - mean_z;
+    cov_uu += du * du;
+    cov_zz += dz * dz;
+    cov_uz += du * dz;
+  }
+
+  const double denom = (n_samples > 1) ? (n_samples - 1.0) : 1.0;
+  cov_uu /= denom;
+  cov_zz /= denom;
+  cov_uz /= denom;
+
+  // Fill the covariance matrix
+  TMatrixDSym cov_matrix(n_variables);
+  cov_matrix[0][0] = cov_uu;
+  cov_matrix[0][1] = cov_uz;
+  cov_matrix[1][0] = cov_uz;
+  cov_matrix[1][1] = cov_zz;
+
+  // Find the eigenvalues and eigenvectors. For now we only need the former.
+  // Perhaps the eigenvectors could be used in the future, so left that part in comments.
+  TMatrixDSymEigen eig_decomp(cov_matrix);
+  TVectorD evals = eig_decomp.GetEigenValues();
+  //TMatrixD evecs = eig_decomp.GetEigenVectors();
+
+  // Make sure the order is descending, swap if needed
+  if (evals[0] < evals[1])
+  {
+    std::swap(evals[0], evals[1]);
+    //evecs[0] = eig_decomp.GetEigenVectors()[1];
+    //evecs[1] = eig_decomp.GetEigenVectors()[0];
+  }
+
+  return {evals[0], evals[1]};
+}
+
+std::pair<double, double> snd::analysis_tools::GetSciFiSpatialAnisotropy(const std::vector<ScifiPlane> &scifi_planes, bool use_all_centroids)
+{
+  std::vector<double> x, y, zx, zy;
+  for (auto &p : scifi_planes) {
+    // Add measurements per projection and in the respective coordinate vectors
+    if (use_all_centroids == false) {
+      for (auto &hit : p.GetHits()) {
+        if (hit.is_x) {
+          x.push_back(hit.x);
+          zx.push_back(hit.z);
+        } else {
+          y.push_back(hit.y);
+          zy.push_back(hit.z);
+        }
+      }
+    } else {
+      auto centroid = p.GetCentroid();
+      // Check that centroid is valid
+      if (!std::isnan(centroid.Z())) {
+         if (!std::isnan(centroid.X())) {
+            x.push_back(centroid.X());
+            zx.push_back(centroid.Z());
+         }
+         if (!std::isnan(centroid.Y())) {
+            y.push_back(centroid.Y());
+            zy.push_back(centroid.Z());
+         }
+      }
+    }
+  }
+
+  // Need at least 3 measurements
+  if (x.size() < 2 || y.size() < 2 || zx.size() < 2 || zy.size() < 2) {
+    return {1., 1.};
+  }
+  double lambda1, lambda2;
+  std::tie(lambda1, lambda2) = PCA(x, zx);
+  double anisotropy_xz = (lambda1 > 0) ? 1.0 - lambda2 / lambda1 : 0.0;
+  auto pca_result_yz = PCA(y, zy);
+  std::tie(lambda1, lambda2) = PCA(y, zy);
+  double anisotropy_yz = (lambda1 > 0) ? 1.0 - lambda2 / lambda1 : 0.0;
+  return {anisotropy_xz, anisotropy_yz};
+}
+
+double snd::analysis_tools::GetUSSpatialAnisotropy(const std::vector<USPlane> &us_planes, bool use_all_centroids)
+{
+  std::vector<double> y, zy;
+  for (auto &p : us_planes) {
+    // Add measurements per projection and in the respective coordinate vectors
+    if (use_all_centroids == false) {
+      for (auto &hit : p.GetHits()) {
+        y.push_back(hit.y);
+        zy.push_back(hit.z);
+      }
+    } else {
+      auto centroid = p.GetCentroid();
+      // Check that centroid is valid
+      if (!(std::isnan(centroid.Z()) || std::isnan(centroid.Y()))) {
+         y.push_back(centroid.Y());
+         zy.push_back(centroid.Z());
+      }
+    }
+  }
+
+  // Need at least 3 measurements
+  if (y.size() < 2 || zy.size() < 2) {
+    return 1.;
+  }
+  double lambda1, lambda2;
+  std::tie(lambda1, lambda2) = PCA(y, zy);
+  return (lambda1 > 0) ? 1.0 - lambda2 / lambda1 : 0.0;
+}
