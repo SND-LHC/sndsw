@@ -237,12 +237,12 @@ Float_t MuFilterHit::GetImpactT(Bool_t mask)
           Float_t dT = -999.;
           Float_t dL;
           MuFilter* MuFilterDet = dynamic_cast<MuFilter*> (gROOT->GetListOfGlobals()->FindObject("MuFilter"));
-          if (floor(fDetectorID/10000==3)) { 
-             dL = MuFilterDet->GetConfParF("MuFilterDet/DownstreamBarX") / MuFilterDet->GetConfParF("MuFilter/DsPropSpeed");}
-          else if (floor(fDetectorID/10000==2)) { 
-             dL = MuFilterDet->GetConfParF("MuFilterDet/UpstreamBarX") / MuFilterDet->GetConfParF("MuFilter/VandUpPropSpeed");}
+          if (floor(fDetectorID/10000)==3) { 
+             dL = MuFilterDet->GetConfParF("MuFilter/DownstreamBarX") / MuFilterDet->GetConfParF("MuFilter/DsPropSpeed");}
+          else if (floor(fDetectorID/10000)==2) { 
+             dL = MuFilterDet->GetConfParF("MuFilter/UpstreamBarX") / MuFilterDet->GetConfParF("MuFilter/VandUpPropSpeed");}
           else { 
-             dL = MuFilterDet->GetConfParF("MuFilterDet/VetoBarX") / MuFilterDet->GetConfParF("MuFilter/VandUpPropSpeed");}
+             dL = MuFilterDet->GetConfParF("MuFilter/VetoBarX") / MuFilterDet->GetConfParF("MuFilter/VandUpPropSpeed");}
 
           for (unsigned int s=0; s<nSides; ++s){
               for (unsigned int j=0; j<nSiPMs; ++j){
