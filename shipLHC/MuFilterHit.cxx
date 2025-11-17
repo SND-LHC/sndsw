@@ -1,5 +1,6 @@
 #include "MuFilterHit.h"
 #include "MuFilter.h"
+#include "ShipUnit.h"
 #include "TROOT.h"
 #include "FairRunSim.h"
 #include "TGeoNavigator.h"
@@ -256,9 +257,38 @@ Float_t MuFilterHit::GetImpactT(Bool_t mask)
               }
           }
           if (count[0]>0 && count[1]>0) {
-                dT = (mean[0]/count[0] + mean[1]/count[1])/2.*6.25 -  dL/2.; // TDC to ns = 6.25
+                dT = (mean[0]/count[0] + mean[1]/count[1])/2.*ShipUnit::snd_TDC2ns -  dL/2.; // TDC to ns = 6.25
           }
           return dT;
+}
+
+// -----   Public method Get position of impact point along the bar  -----------------
+Float_t MuFilterHit::GetImpactXpos(Bool_t mask, Bool_t isMC)
+{
+          if ( nSides!=2 ){
+             return -999.;
+          }
+          Float_t dT = GetDeltaT(mask);
+          if (dT==-999.){
+             return -999.;
+          }
+
+          MuFilter* MuFilterDet = dynamic_cast<MuFilter*> (gROOT->GetListOfGlobals()->FindObject("MuFilter"));
+          Float_t bar_length = MuFilterDet->GetConfParF("MuFilter/UpstreamBarX");
+          Float_t signal_speed = MuFilterDet->GetConfParF("MuFilter/VandUpPropSpeed");
+          if (floor(fDetectorID/10000)==3) {
+             signal_speed = MuFilterDet->GetConfParF("MuFilter/DsPropSpeed");
+             bar_length = MuFilterDet->GetConfParF("MuFilter/DownstreamBarX");
+          }
+          else if (floor(fDetectorID/10000)==2) {
+             bar_length = MuFilterDet->GetConfParF("MuFilter/UpstreamBarX");
+          }
+          else {
+             bar_length = MuFilterDet->GetConfParF("MuFilter/VetoBarX");
+          }
+          double timeConversion = 1.;
+          if (!isMC) timeConversion = ShipUnit::snd_TDC2ns;
+          return 0.5*(bar_length + dT*timeConversion*signal_speed);
 }
 
 std::map<TString,Float_t> MuFilterHit::SumOfSignals(Bool_t mask)

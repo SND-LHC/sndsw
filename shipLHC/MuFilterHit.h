@@ -35,6 +35,7 @@ class MuFilterHit : public SndlhcHit
     Float_t  GetDeltaT(Bool_t mask=kTRUE);
     Float_t  GetFastDeltaT(Bool_t mask=kTRUE);
     Float_t  GetImpactT(Bool_t mask=kTRUE);
+    Float_t  GetImpactXpos(Bool_t mask=kTRUE, Bool_t isMC=kFALSE);
     bool isValid() const {return flag;}
     bool isMasked(Int_t i) const {return fMasked[i];}
     void SetMasked(Int_t i) {fMasked[i]=kTRUE;}
