@@ -16,14 +16,15 @@ snd::analysis_tools::ScifiPlane::ScifiPlane(std::vector<sndScifiHit*> snd_hits, 
 {
     for ( auto snd_hit : snd_hits)
     {
+        if (!snd_hit->isValid()) continue;
         ScifiHit hit;
         hit.channel_index = 512 * snd_hit->GetMat() + 128 * snd_hit->GetSiPM() + snd_hit->GetSiPMChan();
-        hit.timestamp = (scifi_geometry->GetCorrectedTime(snd_hit->GetDetectorID(), snd_hit->GetTime(0)*ShipUnit::snd_TDC2ns, 0) / ShipUnit::snd_TDC2ns);  // timestamp is in clock cycles
+        int detectorID = snd_hit->GetDetectorID();
+        hit.timestamp = (scifi_geometry->GetCorrectedTime(detectorID, snd_hit->GetTime(0)*ShipUnit::snd_TDC2ns, 0) / ShipUnit::snd_TDC2ns);  // timestamp is in clock cycles
         hit.qdc = snd_hit->GetSignal(0);
         hit.is_x = snd_hit->isVertical();
 
         TVector3 A, B;
-        int detectorID = snd_hit->GetDetectorID();
         scifi_geometry->GetSiPMPosition(detectorID, A, B);
         hit.z = A.Z();
         if (hit.is_x)
