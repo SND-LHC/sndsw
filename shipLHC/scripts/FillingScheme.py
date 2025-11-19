@@ -117,6 +117,7 @@ class fillingScheme():
         Y = "2022"
         if fillnr > 8500 : Y = "2023"
         if fillnr >= 9323 : Y="2024"
+        if fillnr >= 10406 : Y="2025"
         if not self.lpcFillingscheme:
              with urlopen('https://lpc.web.cern.ch/cgi-bin/fillTable.py?year='+Y) as webpage:
                self.lpcFillingscheme = webpage.read().decode()
@@ -177,6 +178,7 @@ class fillingScheme():
      Y = "2022"
      if fillnr>8500: Y = "2023"
      if fillnr>=9323: Y="2024"
+     if fillnr>=10406 : Y="2025"
      if not fromnxcals and not fromAtlas:
        try:
           with urlopen('https://lpc.web.cern.ch/cgi-bin/fillAnalysis.py?year='+Y+'&action=fillData&exp=ATLAS&fillnr='+str(fillnr)) as webpage:
@@ -440,12 +442,12 @@ class fillingScheme():
         print('Name of filling scheme: ',fs_name_table)
         if fs_name_table==0: 
           return -1
-        # since 2024 new there is new storage of FS in json files, no csv
+        # since 2024 there is new storage of FS in json files, no csv
         fs_url="https://gitlab.cern.ch/lhc-injection-scheme/injection-schemes/-/raw/master/"+\
                  fs_name_table+".json"
         F = ROOT.TFile(self.path+'fillingScheme-'+fillNr+'.root','recreate')
         nt = ROOT.TNtuple('fill'+fillNr,'b1 IP1 IP2','B1:IP1:IP2:IsB2')
-        # Get the 2024 data
+        # Get the data for year>=2024
         # 9323 is first fillNr for 2024
         if int(fillNr) >= 9323: 
           # Get the JSON file content from the web
@@ -2062,6 +2064,12 @@ if __name__ == '__main__':
        em_run = options.rawData[options.rawData.find("run_"):]
        options.convpath = "/eos/experiment/sndlhc/convertedData/physics/2024/"+em_run
        options.rmin = 7649-1
+       offline =www+"offline.html"
+    elif options.rawData.find('2025')>0:
+       # extract the em target run from the rawData path
+       em_run = options.rawData[options.rawData.find("run_"):]
+       options.convpath = "/eos/experiment/sndlhc/convertedData/physics/2025/"+em_run
+       options.rmin = 10919-1 #10587 fillN
        offline =www+"offline.html"
     FS = fillingScheme()
     FS.Init(options)
