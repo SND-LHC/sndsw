@@ -138,8 +138,8 @@ Float_t MuFilterHit::GetEnergy()
 }
 
 bool MuFilterHit::isVertical(){
-  if  ( (floor(fDetectorID/10000)==3&&fDetectorID%1000>59) ||
-         (floor(fDetectorID/10000)==1&&int(fDetectorID/1000)%10==2) ) {  
+  if  ( (GetSystem()==3&&fDetectorID%1000>59) ||
+         (GetSystem()==1&&GetPlane()==2) ) {  
       return kTRUE;
   }
   else{return kFALSE;}
@@ -238,9 +238,9 @@ Float_t MuFilterHit::GetImpactT(Bool_t mask)
           Float_t dT = -999.;
           Float_t dL;
           MuFilter* MuFilterDet = dynamic_cast<MuFilter*> (gROOT->GetListOfGlobals()->FindObject("MuFilter"));
-          if (floor(fDetectorID/10000)==3) { 
+          if (GetSystem()==3) { 
              dL = MuFilterDet->GetConfParF("MuFilter/DownstreamBarX") / MuFilterDet->GetConfParF("MuFilter/DsPropSpeed");}
-          else if (floor(fDetectorID/10000)==2) { 
+          else if (GetSystem()==2) { 
              dL = MuFilterDet->GetConfParF("MuFilter/UpstreamBarX") / MuFilterDet->GetConfParF("MuFilter/VandUpPropSpeed");}
           else { 
              dL = MuFilterDet->GetConfParF("MuFilter/VetoBarX") / MuFilterDet->GetConfParF("MuFilter/VandUpPropSpeed");}
@@ -276,11 +276,11 @@ Float_t MuFilterHit::GetImpactXpos(Bool_t mask, Bool_t isMC)
           MuFilter* MuFilterDet = dynamic_cast<MuFilter*> (gROOT->GetListOfGlobals()->FindObject("MuFilter"));
           Float_t bar_length = MuFilterDet->GetConfParF("MuFilter/UpstreamBarX");
           Float_t signal_speed = MuFilterDet->GetConfParF("MuFilter/VandUpPropSpeed");
-          if (floor(fDetectorID/10000)==3) {
+          if (GetSystem()==3) {
              signal_speed = MuFilterDet->GetConfParF("MuFilter/DsPropSpeed");
              bar_length = MuFilterDet->GetConfParF("MuFilter/DownstreamBarX");
           }
-          else if (floor(fDetectorID/10000)==2) {
+          else if (GetSystem()==2) {
              bar_length = MuFilterDet->GetConfParF("MuFilter/UpstreamBarX");
           }
           else {
