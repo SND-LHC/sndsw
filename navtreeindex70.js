@@ -1,5 +1,6 @@
 var NAVTREEINDEX70 =
 {
+"namespaceMufiCTR.html#a6191bec6583a1f2063fe11717e6ae4e2":[12,0,94,11],
 "namespaceMufiCTR.html#a8d8fc8f6199dd35f68d8711ba4019ce2":[12,0,94,9],
 "namespaceMufiCTR.html#a8eb2d5fb83b0a6099cc03a90c1ff5270":[12,0,94,7],
 "namespaceMufiCTR.html#a99753077d0b5db863c1c6aef6611bbbf":[12,0,94,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX70 =
 "namespaceShipAna.html#a199566e2c0d9990d581ac26bbb87cbad":[12,0,149,15],
 "namespaceShipAna.html#a19975047cb356ee78d4f7ec5fcb369ff":[12,0,149,32],
 "namespaceShipAna.html#a19ec2f67100e3cfab60114be476e4834":[12,0,149,34],
-"namespaceShipAna.html#a19f60a61e3504e0143aad95ff168121b":[12,0,149,0],
-"namespaceShipAna.html#a1f85359f38d72674b0a60c4e12683bfe":[12,0,149,17]
+"namespaceShipAna.html#a19f60a61e3504e0143aad95ff168121b":[12,0,149,0]
 };

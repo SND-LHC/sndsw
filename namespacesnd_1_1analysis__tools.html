@@ -169,6 +169,10 @@ Functions</h2></td></tr>
 <tr class="separator:aaebced75b431652d18bc8ab0616b6cd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0037b9fb2903ba8fb849714fdcd09659" id="r_a0037b9fb2903ba8fb849714fdcd09659"><td class="memItemLeft" align="right" valign="top">std::pair&lt; std::vector&lt; <a class="el" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html">ScifiPlane</a> &gt;, std::vector&lt; <a class="el" href="classsnd_1_1analysis__tools_1_1USPlane.html">USPlane</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesnd_1_1analysis__tools.html#a0037b9fb2903ba8fb849714fdcd09659">GetShoweringPlanes</a> (const std::vector&lt; <a class="el" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html">ScifiPlane</a> &gt; &amp;scifi_planes, const std::vector&lt; <a class="el" href="classsnd_1_1analysis__tools_1_1USPlane.html">USPlane</a> &gt; &amp;us_planes)</td></tr>
 <tr class="separator:a0037b9fb2903ba8fb849714fdcd09659"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6676532b37acf574db511438e3c5665" id="r_ae6676532b37acf574db511438e3c5665"><td class="memItemLeft" align="right" valign="top">std::pair&lt; double, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesnd_1_1analysis__tools.html#ae6676532b37acf574db511438e3c5665">GetSciFiSpatialAnisotropy</a> (const std::vector&lt; <a class="el" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html">ScifiPlane</a> &gt; &amp;scifi_planes, bool use_all_centroids=false)</td></tr>
+<tr class="separator:ae6676532b37acf574db511438e3c5665"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3027705487e854d49dbe307d7086b94f" id="r_a3027705487e854d49dbe307d7086b94f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesnd_1_1analysis__tools.html#a3027705487e854d49dbe307d7086b94f">GetUSSpatialAnisotropy</a> (const std::vector&lt; <a class="el" href="classsnd_1_1analysis__tools_1_1USPlane.html">USPlane</a> &gt; &amp;us_planes, bool use_all_centroids=false)</td></tr>
+<tr class="separator:a3027705487e854d49dbe307d7086b94f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a81977e87cf19ee8a40d96a216cd5fd19" id="r_a81977e87cf19ee8a40d96a216cd5fd19"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; TChain &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesnd_1_1analysis__tools.html#a81977e87cf19ee8a40d96a216cd5fd19">GetTChain</a> (int run_number, int n_files=-1, const std::string &amp;csv_file_path=&quot;&quot;)</td></tr>
 <tr class="separator:a81977e87cf19ee8a40d96a216cd5fd19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a21a31e32cb4f2195e6e382be703080f9" id="r_a21a31e32cb4f2195e6e382be703080f9"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; TChain &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesnd_1_1analysis__tools.html#a21a31e32cb4f2195e6e382be703080f9">GetTChain</a> (const std::string &amp;file_name)</td></tr>
@@ -521,7 +525,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   60</span>  <span class="keywordflow">return</span> us_planes;</div>
 <div class="line"><span class="lineno">   61</span>}</div>
 <div class="ttc" id="aclassMuFilterHit_html"><div class="ttname"><a href="classMuFilterHit.html">MuFilterHit</a></div><div class="ttdef"><b>Definition</b> <a href="MuFilterHit_8h_source.html#l00010">MuFilterHit.h:11</a></div></div>
-<div class="ttc" id="aclassMuFilterHit_html_a92eeef7d192027351ec7994f74b009e1"><div class="ttname"><a href="classMuFilterHit.html#a92eeef7d192027351ec7994f74b009e1">MuFilterHit::GetPlane</a></div><div class="ttdeci">int GetPlane()</div><div class="ttdef"><b>Definition</b> <a href="MuFilterHit_8h_source.html#l00042">MuFilterHit.h:42</a></div></div>
+<div class="ttc" id="aclassMuFilterHit_html_a92eeef7d192027351ec7994f74b009e1"><div class="ttname"><a href="classMuFilterHit.html#a92eeef7d192027351ec7994f74b009e1">MuFilterHit::GetPlane</a></div><div class="ttdeci">int GetPlane()</div><div class="ttdef"><b>Definition</b> <a href="MuFilterHit_8h_source.html#l00043">MuFilterHit.h:43</a></div></div>
 <div class="ttc" id="aclasssnd_1_1analysis__tools_1_1USPlane_html"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1USPlane.html">snd::analysis_tools::USPlane</a></div><div class="ttdef"><b>Definition</b> <a href="sndUSPlane_8h_source.html#l00013">sndUSPlane.h:14</a></div></div>
 <div class="ttc" id="astructsnd_1_1Configuration_html_a84f6db4454772f74bb7b15ee8b9c1819"><div class="ttname"><a href="structsnd_1_1Configuration.html#a84f6db4454772f74bb7b15ee8b9c1819">snd::Configuration::us_n_stations</a></div><div class="ttdeci">int us_n_stations</div><div class="ttdef"><b>Definition</b> <a href="sndConfiguration_8h_source.html#l00063">sndConfiguration.h:63</a></div></div>
 </div><!-- fragment -->
@@ -1240,6 +1244,81 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ae6676532b37acf574db511438e3c5665" name="ae6676532b37acf574db511438e3c5665"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6676532b37acf574db511438e3c5665">&#9670;&#160;</a></span>GetSciFiSpatialAnisotropy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::pair&lt; double, double &gt; snd::analysis_tools::GetSciFiSpatialAnisotropy </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html">ScifiPlane</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>scifi_planes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>use_all_centroids</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="sndShowerTools_8cxx_source.html#l00209">209</a> of file <a class="el" href="sndShowerTools_8cxx_source.html">sndShowerTools.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  210</span>{</div>
+<div class="line"><span class="lineno">  211</span>  std::vector&lt;double&gt; x, y, zx, zy;</div>
+<div class="line"><span class="lineno">  212</span>  <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;p : scifi_planes) {</div>
+<div class="line"><span class="lineno">  213</span>    <span class="comment">// Add measurements per projection and in the respective coordinate vectors</span></div>
+<div class="line"><span class="lineno">  214</span>    <span class="keywordflow">if</span> (use_all_centroids == <span class="keyword">false</span>) {</div>
+<div class="line"><span class="lineno">  215</span>      <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;hit : p.GetHits()) {</div>
+<div class="line"><span class="lineno">  216</span>        <span class="keywordflow">if</span> (hit.is_x) {</div>
+<div class="line"><span class="lineno">  217</span>          x.push_back(hit.x);</div>
+<div class="line"><span class="lineno">  218</span>          zx.push_back(hit.z);</div>
+<div class="line"><span class="lineno">  219</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  220</span>          y.push_back(hit.y);</div>
+<div class="line"><span class="lineno">  221</span>          zy.push_back(hit.z);</div>
+<div class="line"><span class="lineno">  222</span>        }</div>
+<div class="line"><span class="lineno">  223</span>      }</div>
+<div class="line"><span class="lineno">  224</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  225</span>      <span class="keyword">auto</span> centroid = <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a1c800df226d66062268fa28c3e0c7f7a">p</a>.GetCentroid();</div>
+<div class="line"><span class="lineno">  226</span>      <span class="comment">// Check that centroid is valid</span></div>
+<div class="line"><span class="lineno">  227</span>      <span class="keywordflow">if</span> (!std::isnan(centroid.Z())) {</div>
+<div class="line"><span class="lineno">  228</span>         <span class="keywordflow">if</span> (!std::isnan(centroid.X())) {</div>
+<div class="line"><span class="lineno">  229</span>            <a class="code hl_variable" href="namespacegeometry__config.html#a1286b5c01494c311eb3a950d1ac8857c">x</a>.push_back(centroid.X());</div>
+<div class="line"><span class="lineno">  230</span>            zx.push_back(centroid.Z());</div>
+<div class="line"><span class="lineno">  231</span>         }</div>
+<div class="line"><span class="lineno">  232</span>         <span class="keywordflow">if</span> (!std::isnan(centroid.Y())) {</div>
+<div class="line"><span class="lineno">  233</span>            <a class="code hl_variable" href="namespacegeometry__config.html#aa7c54d6eeebcc821b55222c6926f6740">y</a>.push_back(centroid.Y());</div>
+<div class="line"><span class="lineno">  234</span>            zy.push_back(centroid.Z());</div>
+<div class="line"><span class="lineno">  235</span>         }</div>
+<div class="line"><span class="lineno">  236</span>      }</div>
+<div class="line"><span class="lineno">  237</span>    }</div>
+<div class="line"><span class="lineno">  238</span>  }</div>
+<div class="line"><span class="lineno">  239</span> </div>
+<div class="line"><span class="lineno">  240</span>  <span class="comment">// Need at least 3 measurements</span></div>
+<div class="line"><span class="lineno">  241</span>  <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespacegeometry__config.html#a1286b5c01494c311eb3a950d1ac8857c">x</a>.size() &lt; 2 || <a class="code hl_variable" href="namespacegeometry__config.html#aa7c54d6eeebcc821b55222c6926f6740">y</a>.size() &lt; 2 || zx.size() &lt; 2 || zy.size() &lt; 2) {</div>
+<div class="line"><span class="lineno">  242</span>    <span class="keywordflow">return</span> {1., 1.};</div>
+<div class="line"><span class="lineno">  243</span>  }</div>
+<div class="line"><span class="lineno">  244</span>  <span class="keywordtype">double</span> lambda1, lambda2;</div>
+<div class="line"><span class="lineno">  245</span>  std::tie(lambda1, lambda2) = <a class="code hl_function" href="sndShowerTools_8cxx.html#abb52a18fc714ecf62e97408ab0d5e102">PCA</a>(x, zx);</div>
+<div class="line"><span class="lineno">  246</span>  <span class="keywordtype">double</span> anisotropy_xz = (lambda1 &gt; 0) ? 1.0 - lambda2 / lambda1 : 0.0;</div>
+<div class="line"><span class="lineno">  247</span>  <span class="keyword">auto</span> pca_result_yz = <a class="code hl_function" href="sndShowerTools_8cxx.html#abb52a18fc714ecf62e97408ab0d5e102">PCA</a>(y, zy);</div>
+<div class="line"><span class="lineno">  248</span>  std::tie(lambda1, lambda2) = <a class="code hl_function" href="sndShowerTools_8cxx.html#abb52a18fc714ecf62e97408ab0d5e102">PCA</a>(y, zy);</div>
+<div class="line"><span class="lineno">  249</span>  <span class="keywordtype">double</span> anisotropy_yz = (lambda1 &gt; 0) ? 1.0 - lambda2 / lambda1 : 0.0;</div>
+<div class="line"><span class="lineno">  250</span>  <span class="keywordflow">return</span> {anisotropy_xz, anisotropy_yz};</div>
+<div class="line"><span class="lineno">  251</span>}</div>
+<div class="ttc" id="anamespacegeometry__config_html_a1286b5c01494c311eb3a950d1ac8857c"><div class="ttname"><a href="namespacegeometry__config.html#a1286b5c01494c311eb3a950d1ac8857c">geometry_config.x</a></div><div class="ttdeci">x</div><div class="ttdef"><b>Definition</b> <a href="geometry__config_8py_source.html#l00180">geometry_config.py:180</a></div></div>
+<div class="ttc" id="anamespacegeometry__config_html_aa7c54d6eeebcc821b55222c6926f6740"><div class="ttname"><a href="namespacegeometry__config.html#aa7c54d6eeebcc821b55222c6926f6740">geometry_config.y</a></div><div class="ttdeci">y</div><div class="ttdef"><b>Definition</b> <a href="geometry__config_8py_source.html#l00179">geometry_config.py:179</a></div></div>
+<div class="ttc" id="asndShowerTools_8cxx_html_abb52a18fc714ecf62e97408ab0d5e102"><div class="ttname"><a href="sndShowerTools_8cxx.html#abb52a18fc714ecf62e97408ab0d5e102">PCA</a></div><div class="ttdeci">std::pair&lt; double, double &gt; PCA(const std::vector&lt; double &gt; &amp;u, const std::vector&lt; double &gt; &amp;z)</div><div class="ttdef"><b>Definition</b> <a href="sndShowerTools_8cxx_source.html#l00152">sndShowerTools.cxx:152</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="a0037b9fb2903ba8fb849714fdcd09659" name="a0037b9fb2903ba8fb849714fdcd09659"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0037b9fb2903ba8fb849714fdcd09659">&#9670;&#160;</a></span>GetShoweringPlanes()</h2>
 
@@ -1474,6 +1553,63 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+</div>
+</div>
+<a id="a3027705487e854d49dbe307d7086b94f" name="a3027705487e854d49dbe307d7086b94f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3027705487e854d49dbe307d7086b94f">&#9670;&#160;</a></span>GetUSSpatialAnisotropy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double snd::analysis_tools::GetUSSpatialAnisotropy </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="classsnd_1_1analysis__tools_1_1USPlane.html">USPlane</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>us_planes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>use_all_centroids</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="sndShowerTools_8cxx_source.html#l00253">253</a> of file <a class="el" href="sndShowerTools_8cxx_source.html">sndShowerTools.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  254</span>{</div>
+<div class="line"><span class="lineno">  255</span>  std::vector&lt;double&gt; y, zy;</div>
+<div class="line"><span class="lineno">  256</span>  <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;p : us_planes) {</div>
+<div class="line"><span class="lineno">  257</span>    <span class="comment">// Add measurements per projection and in the respective coordinate vectors</span></div>
+<div class="line"><span class="lineno">  258</span>    <span class="keywordflow">if</span> (use_all_centroids == <span class="keyword">false</span>) {</div>
+<div class="line"><span class="lineno">  259</span>      <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;hit : p.GetHits()) {</div>
+<div class="line"><span class="lineno">  260</span>        y.push_back(hit.y);</div>
+<div class="line"><span class="lineno">  261</span>        zy.push_back(hit.z);</div>
+<div class="line"><span class="lineno">  262</span>      }</div>
+<div class="line"><span class="lineno">  263</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  264</span>      <span class="keyword">auto</span> centroid = p.GetCentroid();</div>
+<div class="line"><span class="lineno">  265</span>      <span class="comment">// Check that centroid is valid</span></div>
+<div class="line"><span class="lineno">  266</span>      <span class="keywordflow">if</span> (!(std::isnan(centroid.Z()) || std::isnan(centroid.Y()))) {</div>
+<div class="line"><span class="lineno">  267</span>         y.push_back(centroid.Y());</div>
+<div class="line"><span class="lineno">  268</span>         zy.push_back(centroid.Z());</div>
+<div class="line"><span class="lineno">  269</span>      }</div>
+<div class="line"><span class="lineno">  270</span>    }</div>
+<div class="line"><span class="lineno">  271</span>  }</div>
+<div class="line"><span class="lineno">  272</span> </div>
+<div class="line"><span class="lineno">  273</span>  <span class="comment">// Need at least 3 measurements</span></div>
+<div class="line"><span class="lineno">  274</span>  <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespacegeometry__config.html#aa7c54d6eeebcc821b55222c6926f6740">y</a>.size() &lt; 2 || zy.size() &lt; 2) {</div>
+<div class="line"><span class="lineno">  275</span>    <span class="keywordflow">return</span> 1.;</div>
+<div class="line"><span class="lineno">  276</span>  }</div>
+<div class="line"><span class="lineno">  277</span>  <span class="keywordtype">double</span> lambda1, lambda2;</div>
+<div class="line"><span class="lineno">  278</span>  std::tie(lambda1, lambda2) = <a class="code hl_function" href="sndShowerTools_8cxx.html#abb52a18fc714ecf62e97408ab0d5e102">PCA</a>(y, zy);</div>
+<div class="line"><span class="lineno">  279</span>  <span class="keywordflow">return</span> (lambda1 &gt; 0) ? 1.0 - lambda2 / lambda1 : 0.0;</div>
+<div class="line"><span class="lineno">  280</span>}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="adbacfdc9078e23b4b863ca20be5a2dd0" name="adbacfdc9078e23b4b863ca20be5a2dd0"></a>

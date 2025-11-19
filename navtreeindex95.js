@@ -1,5 +1,8 @@
 var NAVTREEINDEX95 =
 {
+"namespacestudy__muMSC.html#a77cbcf86b14e327d2a99157a38e82781":[12,0,181,38],
+"namespacestudy__muMSC.html#a83610238e23df3d8a538408c1c7c5b48":[12,0,181,17],
+"namespacestudy__muMSC.html#a8646d6a9906c5a607f70d3f3a31261ea":[12,0,181,35],
 "namespacestudy__muMSC.html#a8dcb68ab9180cce86b019ad764f32ff2":[12,0,181,41],
 "namespacestudy__muMSC.html#a8ec04a002fcb4efffbe30733b7f7b27e":[12,0,181,31],
 "namespacestudy__muMSC.html#a902fd1cf37a073443e93d7840443af1a":[12,0,181,5],
@@ -246,8 +249,5 @@ var NAVTREEINDEX95 =
 "option_page.html#cmd-maxrecord":[0,1,1,22],
 "option_page.html#cmd-measurement":[0,1,1,23],
 "option_page.html#cmd-memorydebug":[0,1,1,24],
-"option_page.html#cmd-method":[0,1,1,25],
-"option_page.html#cmd-monpull":[0,1,1,27],
-"option_page.html#cmd-monres":[0,1,1,26],
-"option_page.html#cmd-mresmode":[0,1,1,28]
+"option_page.html#cmd-method":[0,1,1,25]
 };

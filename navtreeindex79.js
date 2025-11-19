@@ -1,5 +1,6 @@
 var NAVTREEINDEX79 =
 {
+"namespacegenfit_1_1tools.html#abb8ddf6bbcd1a5c6389977e4efd9d623":[12,0,54,1,1],
 "namespacegenfit_1_1tools.html#ac274865dfcc40aab153c2b5211ebaeef":[12,0,54,1,3],
 "namespacegenfit_1_1tools.html#ad01f5f3f93d60193d1460088a53d91f0":[12,0,54,1,4],
 "namespacegenie__interface.html":[12,0,55],
@@ -248,6 +249,5 @@ var NAVTREEINDEX79 =
 "namespacegeometry__config.html#a914eae18555cd42987239ef3b074623e":[12,0,56,141],
 "namespacegeometry__config.html#a9164d5e672549769cf1f858fb3ca37dd":[12,0,56,377],
 "namespacegeometry__config.html#a9172304af8562888aa50a7f04b3d46fb":[12,0,56,325],
-"namespacegeometry__config.html#a92b3d33b9dff053b5f23d117298f676d":[12,0,56,64],
-"namespacegeometry__config.html#a92f966ec6182c2831143d032f3408208":[12,0,56,1]
+"namespacegeometry__config.html#a92b3d33b9dff053b5f23d117298f676d":[12,0,56,64]
 };
