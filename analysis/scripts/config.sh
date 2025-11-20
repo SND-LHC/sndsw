@@ -1,7 +1,9 @@
 xml=$1
 output=$2
-cutset=$3
-mode=$5
+start=$4
+end=$5
+cutset=$6
+mode=$7
 
 export ALIBUILD_WORK_DIR=/afs/cern.ch/user/s/schuetha/work/public/data_work_flow/sw
 source /cvmfs/sndlhc.cern.ch/SNDLHC-2025/Jan30/setUp.sh

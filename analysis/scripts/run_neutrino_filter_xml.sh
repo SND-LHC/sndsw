@@ -1,6 +1,6 @@
 #!/bin/bash
 set -o errexit -o pipefail -o noclobber
-source $4/config.sh "$@"
+source $3/config.sh "$@"
 set -o nounset
 
 # Iterate through every <run> automatically
@@ -16,8 +16,7 @@ then
     exit
 fi
 
-n=$(xmllint --xpath 'count(/runlist/runs/run)' "${xml}")
-for i in $(seq 1 $n) 
+for i in $(seq $start $end) 
 do
     run_number=$(xmllint --xpath "string(/runlist/runs/run[$i]/run_number)" "${xml}")
     start_year=$(xmllint --xpath "string(/runlist/runs/run[$i]/start)" "${xml}")
