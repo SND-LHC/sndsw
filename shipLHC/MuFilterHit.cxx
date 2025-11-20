@@ -105,7 +105,7 @@ MuFilterHit::MuFilterHit(Int_t detID, std::vector<MuFilterPoint*> V)
      // In the SndlhcHit class the 'signals' array starts from 0.
      for (unsigned int j=0; j<nSiPMs; ++j){
         if ( floor(detID/10000)==2 && (j==2 or j==5)){                 // only US has small SiPMs
-           signals[j] = signalLeft/float(nSiPMs) * siPMcalibrationS;   // most simplest model, divide signal individually. Small SiPMS special
+           signals[j] = signalLeft/float(nSiPMs) * siPMcalibrationS;   // most simplest model, divide signal individually. Small SiPMS special: set signal to zero
            times[j] = gRandom->Gaus(earliestToAL, timeResol);
         }else{
            signals[j] = signalLeft/float(nSiPMs) * siPMcalibration;   // most simplest model, divide signal individually. 
@@ -126,11 +126,12 @@ MuFilterHit::~MuFilterHit() { }
 // -------------------------------------------------------------------------
 
 // -----   Public method GetEnergy   -------------------------------------------
-Float_t MuFilterHit::GetEnergy()
+Float_t MuFilterHit::GetEnergy(Bool_t use_small_sipms)
 {
   // to be calculated from digis and calibration constants, missing!
   Float_t E = 0;
   for (unsigned int j=0; j<nSiPMs; ++j){
+        if (!use_small_sipms && isShort(j)) continue; // remove small SiPMs
         E+=signals[j];
         if (nSides>1){ E+=signals[j+nSiPMs];}
   }
@@ -151,7 +152,7 @@ bool MuFilterHit::isShort(Int_t i){
 }
 
 // -----   Public method Get List of signals   -------------------------------------------
-std::map<Int_t,Float_t> MuFilterHit::GetAllSignals(Bool_t mask,Bool_t positive)
+std::map<Int_t,Float_t> MuFilterHit::GetAllSignals(Bool_t mask,Bool_t positive,Bool_t use_small_sipms)
 {
           std::map<Int_t,Float_t> allSignals;
           for (unsigned int s=0; s<nSides; ++s){
@@ -160,8 +161,10 @@ std::map<Int_t,Float_t> MuFilterHit::GetAllSignals(Bool_t mask,Bool_t positive)
                if (signals[channel]<-900){continue;}
                if (signals[channel]> 0 || !positive){
                  if (!fMasked[channel] || !mask){
+                   if (!isShort(channel) || use_small_sipms){
                     allSignals[channel] = signals[channel];
                     }
+                 }
                 }
               }
           }
@@ -169,7 +172,7 @@ std::map<Int_t,Float_t> MuFilterHit::GetAllSignals(Bool_t mask,Bool_t positive)
 }
 
 // -----   Public method Get List of time measurements   -------------------------------------------
-std::map<Int_t,Float_t> MuFilterHit::GetAllTimes(Bool_t mask,Bool_t positive)
+std::map<Int_t,Float_t> MuFilterHit::GetAllTimes(Bool_t mask,Bool_t positive,Bool_t use_small_sipms)
 {
           std::map<Int_t,Float_t> allTimes;
           for (unsigned int s=0; s<nSides; ++s){
@@ -177,8 +180,10 @@ std::map<Int_t,Float_t> MuFilterHit::GetAllTimes(Bool_t mask,Bool_t positive)
                unsigned int channel = j+s*nSiPMs;
                if (signals[channel]> 0 || !positive){
                  if (!fMasked[channel] || !mask){
+                   if (!isShort(channel) || use_small_sipms){
                     allTimes[channel] = times[channel];
                     }
+                 }
                 }
               }
           }
@@ -186,7 +191,7 @@ std::map<Int_t,Float_t> MuFilterHit::GetAllTimes(Bool_t mask,Bool_t positive)
 }
 
 // -----   Public method Get time difference mean Left - mean Right   -----------------
-Float_t MuFilterHit::GetDeltaT(Bool_t mask,Bool_t positive)
+Float_t MuFilterHit::GetDeltaT(Bool_t mask,Bool_t positive,Bool_t use_small_sipms)
 // based on mean TDC measured on Left and Right
 {
           Float_t mean[] = {0,0}; 
@@ -197,9 +202,11 @@ Float_t MuFilterHit::GetDeltaT(Bool_t mask,Bool_t positive)
                unsigned int channel = j+s*nSiPMs;
                if (signals[channel]> 0 || !positive){
                  if (!fMasked[channel] || !mask){
+                   if (!isShort(channel) || use_small_sipms){
                     mean[s] += times[channel];
                     count[s] += 1;
                     }
+                 }
                 }
               }
           }
@@ -208,7 +215,7 @@ Float_t MuFilterHit::GetDeltaT(Bool_t mask,Bool_t positive)
           }
           return dT;
 }
-Float_t MuFilterHit::GetFastDeltaT(Bool_t mask,Bool_t positive)
+Float_t MuFilterHit::GetFastDeltaT(Bool_t mask,Bool_t positive,Bool_t use_small_sipms)
 // based on fastest (earliest) TDC measured on Left and Right
 {
           Float_t first[] = {1E20,1E20}; 
@@ -218,8 +225,10 @@ Float_t MuFilterHit::GetFastDeltaT(Bool_t mask,Bool_t positive)
                unsigned int channel = j+s*nSiPMs;
                if (signals[channel]> 0 || !positive){
                  if (!fMasked[channel] || !mask){
-                    if  (times[channel]<first[s]) {first[s] = times[channel];}
-                    }
+                   if (!isShort(channel) || use_small_sipms){
+                      if  (times[channel]<first[s]) {first[s] = times[channel];}
+                   }
+                 }
                 }
               }
           }
@@ -231,7 +240,7 @@ Float_t MuFilterHit::GetFastDeltaT(Bool_t mask,Bool_t positive)
 
 
 // -----   Public method Get mean time  -----------------
-Float_t MuFilterHit::GetImpactT(Bool_t mask,Bool_t positive)
+Float_t MuFilterHit::GetImpactT(Bool_t mask,Bool_t positive,Bool_t use_small_sipms)
 {
           Float_t mean[] = {0,0}; 
           Int_t count[] = {0,0}; 
@@ -250,9 +259,11 @@ Float_t MuFilterHit::GetImpactT(Bool_t mask,Bool_t positive)
                unsigned int channel = j+s*nSiPMs;
                if (signals[channel]> 0 || !positive){
                  if (!fMasked[channel] || !mask){
-                    mean[s] += times[channel];
-                    count[s] += 1;
-                    }
+                   if (!isShort(channel) || use_small_sipms){
+                      mean[s] += times[channel];
+                      count[s] += 1;
+                   }
+                 }
                 }
               }
           }
@@ -263,12 +274,12 @@ Float_t MuFilterHit::GetImpactT(Bool_t mask,Bool_t positive)
 }
 
 // -----   Public method Get position of impact point along the bar  -----------------
-Float_t MuFilterHit::GetImpactXpos(Bool_t mask,Bool_t positive,Bool_t isMC)
+Float_t MuFilterHit::GetImpactXpos(Bool_t mask,Bool_t positive,Bool_t use_small_sipms,Bool_t isMC)
 {
           if ( nSides!=2 ){
              return -999.;
           }
-          Float_t dT = GetDeltaT(mask,positive);
+          Float_t dT = GetDeltaT(mask,positive,use_small_sipms);
           if (dT==-999.){
              return -999.;
           }
