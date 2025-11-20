@@ -9,7 +9,6 @@
 #include <TRandom.h>
 #include <iomanip> 
 
-Double_t speedOfLight = TMath::C() *100./1000000000.0 ; // from m/sec to cm/ns
 // -----   Default constructor   -------------------------------------------
 MuFilterHit::MuFilterHit()
   : SndlhcHit()
