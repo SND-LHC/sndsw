@@ -31,11 +31,11 @@ class MuFilterHit : public SndlhcHit
     Float_t SumOfSignals(char* opt,Bool_t mask=kTRUE);
     std::map<TString,Float_t> SumOfSignals(Bool_t mask=kTRUE);
     std::map<Int_t,Float_t> GetAllSignals(Bool_t mask=kTRUE,Bool_t positive=kTRUE);
-    std::map<Int_t,Float_t> GetAllTimes(Bool_t mask=kTRUE);
-    Float_t  GetDeltaT(Bool_t mask=kTRUE);
-    Float_t  GetFastDeltaT(Bool_t mask=kTRUE);
-    Float_t  GetImpactT(Bool_t mask=kTRUE);
-    Float_t  GetImpactXpos(Bool_t mask=kTRUE, Bool_t isMC=kFALSE);
+    std::map<Int_t,Float_t> GetAllTimes(Bool_t mask=kTRUE,Bool_t positive=kTRUE);
+    Float_t  GetDeltaT(Bool_t mask=kTRUE,Bool_t positive=kTRUE);
+    Float_t  GetFastDeltaT(Bool_t mask=kTRUE,Bool_t positive=kTRUE);
+    Float_t  GetImpactT(Bool_t mask=kTRUE,Bool_t positive=kTRUE);
+    Float_t  GetImpactXpos(Bool_t mask=kTRUE,Bool_t positive=kTRUE,Bool_t isMC=kFALSE);
     bool isValid() const {return flag;}
     bool isMasked(Int_t i) const {return fMasked[i];}
     void SetMasked(Int_t i) {fMasked[i]=kTRUE;}
