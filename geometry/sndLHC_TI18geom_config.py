@@ -320,8 +320,8 @@ with ConfigRegistry.register_config("basic") as c:
         c.MuFilter.DsAttenuationLength   =  350 * u.cm                #  values between 300 cm and 400cm observed for H6 testbeam
         c.MuFilter.DsTAttenuationLength =  700 * u.cm                # top readout with mirror on bottom
         c.MuFilter.VandUpAttenuationLength = 999 * u.cm        # no significante attenuation observed for H6 testbeam
-        c.MuFilter.VandUpSiPMcalibrationL    = 25.*1000.       # 1.65 MeV = 41 qcd 
-        c.MuFilter.VandUpSiPMcalibrationS    = 25.*1000.
+        c.MuFilter.VandUpSiPMcalibrationL    = 50.*1000.       # 1.65 MeV = 41 qcd over 6 Large SiPMs(one side)
+        c.MuFilter.VandUpSiPMcalibrationS    = 0.              # no MIP signal for small SiPMs, delayed and compromised response in general
         c.MuFilter.DsSiPMcalibration             = 25.*1000.
         c.MuFilter.timeResol = 150.*u.picosecond
         c.MuFilter.VandUpPropSpeed    = 12.5*u.cm/u.nanosecond
