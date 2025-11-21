@@ -337,7 +337,7 @@ Variables</h2></td></tr>
 <tr class="separator:acd3b74009edf7034331bd5acb8a5169e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f7dff7f9fc3ae10d13c16ababb31879" id="r_a2f7dff7f9fc3ae10d13c16ababb31879"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerun__simScript.html#a2f7dff7f9fc3ae10d13c16ababb31879">nm</a> = ff.GetName().split('/')</td></tr>
 <tr class="separator:a2f7dff7f9fc3ae10d13c16ababb31879"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7438ba4e0f241567d8e58065969d5ab5" id="r_a7438ba4e0f241567d8e58065969d5ab5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerun__simScript.html#a7438ba4e0f241567d8e58065969d5ab5">t</a> = fin.cbmsim</td></tr>
+<tr class="memitem:a7438ba4e0f241567d8e58065969d5ab5" id="r_a7438ba4e0f241567d8e58065969d5ab5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerun__simScript.html#a7438ba4e0f241567d8e58065969d5ab5">t</a> = fin.Get(&quot;cbmsim&quot;)</td></tr>
 <tr class="separator:a7438ba4e0f241567d8e58065969d5ab5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a220cc43c43bf49500c5fdd5a4e9b8e44" id="r_a220cc43c43bf49500c5fdd5a4e9b8e44"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerun__simScript.html#a220cc43c43bf49500c5fdd5a4e9b8e44">fout</a> = ROOT.TFile(<a class="el" href="namespacerun__simScript.html#a150102ed78b5fdc0a1a9efe0f7f9f796">tmpFile</a>,'recreate')</td></tr>
 <tr class="separator:a220cc43c43bf49500c5fdd5a4e9b8e44"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -372,13 +372,13 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simScript_8py_source.html#l00736">736</a> of file <a class="el" href="run__simScript_8py_source.html">run_simScript.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  736</span><span class="keyword">def </span>checkOverlapsWithGeant4():</div>
-<div class="line"><span class="lineno">  737</span> <span class="comment"># after /run/initialize, but prints warning messages, problems with TGeo volume</span></div>
-<div class="line"><span class="lineno">  738</span> mygMC = ROOT.TGeant4.GetMC()</div>
-<div class="line"><span class="lineno">  739</span> mygMC.ProcessGeantCommand(<span class="stringliteral">&quot;/geometry/test/recursion_start 0&quot;</span>)</div>
-<div class="line"><span class="lineno">  740</span> mygMC.ProcessGeantCommand(<span class="stringliteral">&quot;/geometry/test/recursion_depth 2&quot;</span>)</div>
-<div class="line"><span class="lineno">  741</span> mygMC.ProcessGeantCommand(<span class="stringliteral">&quot;/geometry/test/run&quot;</span>)</div>
+<p class="definition">Definition at line <a class="el" href="run__simScript_8py_source.html#l00737">737</a> of file <a class="el" href="run__simScript_8py_source.html">run_simScript.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  737</span><span class="keyword">def </span>checkOverlapsWithGeant4():</div>
+<div class="line"><span class="lineno">  738</span> <span class="comment"># after /run/initialize, but prints warning messages, problems with TGeo volume</span></div>
+<div class="line"><span class="lineno">  739</span> mygMC = ROOT.TGeant4.GetMC()</div>
+<div class="line"><span class="lineno">  740</span> mygMC.ProcessGeantCommand(<span class="stringliteral">&quot;/geometry/test/recursion_start 0&quot;</span>)</div>
+<div class="line"><span class="lineno">  741</span> mygMC.ProcessGeantCommand(<span class="stringliteral">&quot;/geometry/test/recursion_depth 2&quot;</span>)</div>
+<div class="line"><span class="lineno">  742</span> mygMC.ProcessGeantCommand(<span class="stringliteral">&quot;/geometry/test/run&quot;</span>)</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -397,9 +397,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simScript_8py_source.html#l00734">734</a> of file <a class="el" href="run__simScript_8py_source.html">run_simScript.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  734</span><span class="keyword">def </span>visualizeMagFields():</div>
-<div class="line"><span class="lineno">  735</span> <a class="code hl_function" href="namespacecheckMagFields.html#a65e69e17f1b05eb283a8bb6d5d695249">checkMagFields.run</a>()</div>
+<p class="definition">Definition at line <a class="el" href="run__simScript_8py_source.html#l00735">735</a> of file <a class="el" href="run__simScript_8py_source.html">run_simScript.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  735</span><span class="keyword">def </span>visualizeMagFields():</div>
+<div class="line"><span class="lineno">  736</span> <a class="code hl_function" href="namespacecheckMagFields.html#a65e69e17f1b05eb283a8bb6d5d695249">checkMagFields.run</a>()</div>
 <div class="ttc" id="anamespacecheckMagFields_html_a65e69e17f1b05eb283a8bb6d5d695249"><div class="ttname"><a href="namespacecheckMagFields.html#a65e69e17f1b05eb283a8bb6d5d695249">checkMagFields.run</a></div><div class="ttdeci">run()</div><div class="ttdef"><b>Definition</b> <a href="checkMagFields_8py_source.html#l00006">checkMagFields.py:6</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -481,7 +481,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simScript_8py_source.html#l00704">704</a> of file <a class="el" href="run__simScript_8py_source.html">run_simScript.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simScript_8py_source.html#l00705">705</a> of file <a class="el" href="run__simScript_8py_source.html">run_simScript.py</a>.</p>
 
 </div>
 </div>
@@ -529,7 +529,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simScript_8py_source.html#l00687">687</a> of file <a class="el" href="run__simScript_8py_source.html">run_simScript.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simScript_8py_source.html#l00688">688</a> of file <a class="el" href="run__simScript_8py_source.html">run_simScript.py</a>.</p>
 
 </div>
 </div>
@@ -689,7 +689,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simScript_8py_source.html#l00720">720</a> of file <a class="el" href="run__simScript_8py_source.html">run_simScript.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simScript_8py_source.html#l00721">721</a> of file <a class="el" href="run__simScript_8py_source.html">run_simScript.py</a>.</p>
 
 </div>
 </div>
@@ -817,7 +817,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simScript_8py_source.html#l00676">676</a> of file <a class="el" href="run__simScript_8py_source.html">run_simScript.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simScript_8py_source.html#l00677">677</a> of file <a class="el" href="run__simScript_8py_source.html">run_simScript.py</a>.</p>
 
 </div>
 </div>
@@ -865,7 +865,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simScript_8py_source.html#l00705">705</a> of file <a class="el" href="run__simScript_8py_source.html">run_simScript.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simScript_8py_source.html#l00706">706</a> of file <a class="el" href="run__simScript_8py_source.html">run_simScript.py</a>.</p>
 
 </div>
 </div>
@@ -897,7 +897,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simScript_8py_source.html#l00711">711</a> of file <a class="el" href="run__simScript_8py_source.html">run_simScript.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simScript_8py_source.html#l00712">712</a> of file <a class="el" href="run__simScript_8py_source.html">run_simScript.py</a>.</p>
 
 </div>
 </div>
@@ -1443,7 +1443,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simScript_8py_source.html#l00716">716</a> of file <a class="el" href="run__simScript_8py_source.html">run_simScript.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simScript_8py_source.html#l00717">717</a> of file <a class="el" href="run__simScript_8py_source.html">run_simScript.py</a>.</p>
 
 </div>
 </div>
@@ -1475,7 +1475,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simScript_8py_source.html#l00707">707</a> of file <a class="el" href="run__simScript_8py_source.html">run_simScript.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simScript_8py_source.html#l00708">708</a> of file <a class="el" href="run__simScript_8py_source.html">run_simScript.py</a>.</p>
 
 </div>
 </div>
@@ -1811,7 +1811,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simScript_8py_source.html#l00714">714</a> of file <a class="el" href="run__simScript_8py_source.html">run_simScript.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simScript_8py_source.html#l00715">715</a> of file <a class="el" href="run__simScript_8py_source.html">run_simScript.py</a>.</p>
 
 </div>
 </div>
@@ -1875,7 +1875,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simScript_8py_source.html#l00719">719</a> of file <a class="el" href="run__simScript_8py_source.html">run_simScript.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simScript_8py_source.html#l00720">720</a> of file <a class="el" href="run__simScript_8py_source.html">run_simScript.py</a>.</p>
 
 </div>
 </div>
@@ -1891,7 +1891,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simScript_8py_source.html#l00729">729</a> of file <a class="el" href="run__simScript_8py_source.html">run_simScript.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simScript_8py_source.html#l00730">730</a> of file <a class="el" href="run__simScript_8py_source.html">run_simScript.py</a>.</p>
 
 </div>
 </div>
@@ -1907,7 +1907,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simScript_8py_source.html#l00730">730</a> of file <a class="el" href="run__simScript_8py_source.html">run_simScript.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simScript_8py_source.html#l00731">731</a> of file <a class="el" href="run__simScript_8py_source.html">run_simScript.py</a>.</p>
 
 </div>
 </div>
@@ -1955,7 +1955,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simScript_8py_source.html#l00686">686</a> of file <a class="el" href="run__simScript_8py_source.html">run_simScript.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simScript_8py_source.html#l00687">687</a> of file <a class="el" href="run__simScript_8py_source.html">run_simScript.py</a>.</p>
 
 </div>
 </div>
@@ -2115,7 +2115,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simScript_8py_source.html#l00712">712</a> of file <a class="el" href="run__simScript_8py_source.html">run_simScript.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simScript_8py_source.html#l00713">713</a> of file <a class="el" href="run__simScript_8py_source.html">run_simScript.py</a>.</p>
 
 </div>
 </div>
@@ -2126,12 +2126,12 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool run_simScript.t = fin.cbmsim</td>
+          <td class="memname">bool run_simScript.t = fin.Get(&quot;cbmsim&quot;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simScript_8py_source.html#l00710">710</a> of file <a class="el" href="run__simScript_8py_source.html">run_simScript.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simScript_8py_source.html#l00711">711</a> of file <a class="el" href="run__simScript_8py_source.html">run_simScript.py</a>.</p>
 
 </div>
 </div>
@@ -2339,7 +2339,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simScript_8py_source.html#l00702">702</a> of file <a class="el" href="run__simScript_8py_source.html">run_simScript.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simScript_8py_source.html#l00703">703</a> of file <a class="el" href="run__simScript_8py_source.html">run_simScript.py</a>.</p>
 
 </div>
 </div>
@@ -2387,7 +2387,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simScript_8py_source.html#l00703">703</a> of file <a class="el" href="run__simScript_8py_source.html">run_simScript.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="run__simScript_8py_source.html#l00704">704</a> of file <a class="el" href="run__simScript_8py_source.html">run_simScript.py</a>.</p>
 
 </div>
 </div>

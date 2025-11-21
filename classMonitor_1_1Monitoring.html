@@ -409,7 +409,7 @@ Static Public Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  160</span>                f=ROOT.TFile.Open(options.fname)</div>
 <div class="line"><span class="lineno">  161</span>                eventChain = f.Get(<span class="stringliteral">&#39;rawConv&#39;</span>)</div>
 <div class="line"><span class="lineno">  162</span>                <span class="keywordflow">if</span> <span class="keywordflow">not</span> eventChain:   </div>
-<div class="line"><span class="lineno">  163</span>                    eventChain = f.cbmsim</div>
+<div class="line"><span class="lineno">  163</span>                    eventChain = f.Get(<span class="stringliteral">&quot;cbmsim&quot;</span>)</div>
 <div class="line"><span class="lineno">  164</span>                    <span class="keywordflow">if</span> eventChain.GetBranch(<span class="stringliteral">&#39;MCTrack&#39;</span>): self.MonteCarlo = <span class="keyword">True</span></div>
 <div class="line"><span class="lineno">  165</span>                partitions = []</div>
 <div class="line"><span class="lineno">  166</span>            <span class="keywordflow">else</span>:</div>
@@ -877,7 +877,7 @@ Static Public Attributes</h2></td></tr>
 <div class="fragment"><div class="line"><span class="lineno">  268</span>   <span class="keyword">def </span>GetEntries(self):</div>
 <div class="line"><span class="lineno">  269</span>       <span class="keywordflow">if</span>  self.options.online:</div>
 <div class="line"><span class="lineno">  270</span>         <span class="keywordflow">if</span>  self.converter.newFormat:  <span class="keywordflow">return</span> self.converter.fiN.Get(<span class="stringliteral">&#39;data&#39;</span>).GetEntries()</div>
-<div class="line"><span class="lineno">  271</span>         <span class="keywordflow">else</span>:                                   <span class="keywordflow">return</span> self.converter.fiN.event.GetEntries()</div>
+<div class="line"><span class="lineno">  271</span>         <span class="keywordflow">else</span>:                                   <span class="keywordflow">return</span> self.converter.fiN.Get(<span class="stringliteral">&quot;event&quot;</span>).GetEntries()</div>
 <div class="line"><span class="lineno">  272</span>       <span class="keywordflow">else</span>:</div>
 <div class="line"><span class="lineno">  273</span>           <span class="keywordflow">return</span> self.eventTree.GetEntries()</div>
 <div class="line"><span class="lineno">  274</span> </div>

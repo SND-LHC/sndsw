@@ -229,48 +229,48 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SndlhcTracking_8py_source.html#l00382">382</a> of file <a class="el" href="SndlhcTracking_8py_source.html">SndlhcTracking.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  382</span> <span class="keyword">def </span>dsCluster(self):</div>
-<div class="line"><span class="lineno">  383</span>       clusters = []</div>
-<div class="line"><span class="lineno">  384</span>       hitDict = {}</div>
-<div class="line"><span class="lineno">  385</span>       <span class="keywordflow">for</span> k <span class="keywordflow">in</span> range(self.event.Digi_MuFilterHits.GetEntries()):</div>
-<div class="line"><span class="lineno">  386</span>            d = self.event.Digi_MuFilterHits[k]</div>
-<div class="line"><span class="lineno">  387</span>            <span class="keywordflow">if</span> (d.GetDetectorID()//10000)&lt;3 <span class="keywordflow">or</span> (<span class="keywordflow">not</span> d.isValid()): <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  388</span>            hitDict[d.GetDetectorID()] = k</div>
-<div class="line"><span class="lineno">  389</span>       hitList = list(hitDict.keys())</div>
-<div class="line"><span class="lineno">  390</span>       <span class="keywordflow">if</span> len(hitList)&gt;0:</div>
-<div class="line"><span class="lineno">  391</span>              hitList.sort()</div>
-<div class="line"><span class="lineno">  392</span>              tmp = [ hitList[0] ]</div>
-<div class="line"><span class="lineno">  393</span>              cprev = hitList[0]</div>
-<div class="line"><span class="lineno">  394</span>              ncl = 0</div>
-<div class="line"><span class="lineno">  395</span>              last = len(hitList)-1</div>
-<div class="line"><span class="lineno">  396</span>              hitvector = ROOT.std.vector(<span class="stringliteral">&quot;MuFilterHit*&quot;</span>)()</div>
-<div class="line"><span class="lineno">  397</span>              <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(len(hitList)):</div>
-<div class="line"><span class="lineno">  398</span>                   <span class="keywordflow">if</span> i==0 <span class="keywordflow">and</span> len(hitList)&gt;1: <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  399</span>                   c=hitList[i]</div>
-<div class="line"><span class="lineno">  400</span>                   neighbour = <span class="keyword">False</span></div>
-<div class="line"><span class="lineno">  401</span>                   <span class="keywordflow">if</span> (c-cprev)==1 <span class="keywordflow">or</span> (c-cprev)==2:    <span class="comment"># allow for one missing channel</span></div>
-<div class="line"><span class="lineno">  402</span>                        neighbour = <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">  403</span>                        tmp.append(c)</div>
-<div class="line"><span class="lineno">  404</span>                   <span class="keywordflow">if</span> <span class="keywordflow">not</span> neighbour  <span class="keywordflow">or</span> c==hitList[last] <span class="keywordflow">or</span> c%1000==59:</div>
-<div class="line"><span class="lineno">  405</span>                        first = tmp[0]</div>
-<div class="line"><span class="lineno">  406</span>                        N = len(tmp)</div>
-<div class="line"><span class="lineno">  407</span>                        hitvector.clear()</div>
-<div class="line"><span class="lineno">  408</span>                        <span class="keywordflow">for</span> aHit <span class="keywordflow">in</span> tmp: hitvector.push_back( self.event.Digi_MuFilterHits[hitDict[aHit]])</div>
-<div class="line"><span class="lineno">  409</span>                        aCluster = ROOT.sndCluster(first,N,hitvector,self.mufiDet,<span class="keyword">False</span>)</div>
-<div class="line"><span class="lineno">  410</span>                        clusters.append(aCluster)</div>
-<div class="line"><span class="lineno">  411</span>                        <span class="keywordflow">if</span> c!=hitList[last]:</div>
-<div class="line"><span class="lineno">  412</span>                             ncl+=1</div>
-<div class="line"><span class="lineno">  413</span>                             tmp = [c]</div>
-<div class="line"><span class="lineno">  414</span>                        <span class="keywordflow">elif</span> <span class="keywordflow">not</span> neighbour :   <span class="comment"># save last channel</span></div>
-<div class="line"><span class="lineno">  415</span>                            hitvector.clear()</div>
-<div class="line"><span class="lineno">  416</span>                            hitvector.push_back( self.event.Digi_MuFilterHits[hitDict[c]])</div>
-<div class="line"><span class="lineno">  417</span>                            aCluster = ROOT.sndCluster(c,1,hitvector,self.mufiDet,<span class="keyword">False</span>)</div>
-<div class="line"><span class="lineno">  418</span>                            clusters.append(aCluster)</div>
-<div class="line"><span class="lineno">  419</span>                   cprev = c</div>
-<div class="line"><span class="lineno">  420</span>       self.clusMufi.Delete()</div>
-<div class="line"><span class="lineno">  421</span>       <span class="keywordflow">for</span> c <span class="keywordflow">in</span> clusters:  self.clusMufi.Add(c)</div>
-<div class="line"><span class="lineno">  422</span> </div>
+<p class="definition">Definition at line <a class="el" href="SndlhcTracking_8py_source.html#l00383">383</a> of file <a class="el" href="SndlhcTracking_8py_source.html">SndlhcTracking.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  383</span> <span class="keyword">def </span>dsCluster(self):</div>
+<div class="line"><span class="lineno">  384</span>       clusters = []</div>
+<div class="line"><span class="lineno">  385</span>       hitDict = {}</div>
+<div class="line"><span class="lineno">  386</span>       <span class="keywordflow">for</span> k <span class="keywordflow">in</span> range(self.event.Digi_MuFilterHits.GetEntries()):</div>
+<div class="line"><span class="lineno">  387</span>            d = self.event.Digi_MuFilterHits[k]</div>
+<div class="line"><span class="lineno">  388</span>            <span class="keywordflow">if</span> (d.GetDetectorID()//10000)&lt;3 <span class="keywordflow">or</span> (<span class="keywordflow">not</span> d.isValid()): <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  389</span>            hitDict[d.GetDetectorID()] = k</div>
+<div class="line"><span class="lineno">  390</span>       hitList = list(hitDict.keys())</div>
+<div class="line"><span class="lineno">  391</span>       <span class="keywordflow">if</span> len(hitList)&gt;0:</div>
+<div class="line"><span class="lineno">  392</span>              hitList.sort()</div>
+<div class="line"><span class="lineno">  393</span>              tmp = [ hitList[0] ]</div>
+<div class="line"><span class="lineno">  394</span>              cprev = hitList[0]</div>
+<div class="line"><span class="lineno">  395</span>              ncl = 0</div>
+<div class="line"><span class="lineno">  396</span>              last = len(hitList)-1</div>
+<div class="line"><span class="lineno">  397</span>              hitvector = ROOT.std.vector(<span class="stringliteral">&quot;MuFilterHit*&quot;</span>)()</div>
+<div class="line"><span class="lineno">  398</span>              <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(len(hitList)):</div>
+<div class="line"><span class="lineno">  399</span>                   <span class="keywordflow">if</span> i==0 <span class="keywordflow">and</span> len(hitList)&gt;1: <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  400</span>                   c=hitList[i]</div>
+<div class="line"><span class="lineno">  401</span>                   neighbour = <span class="keyword">False</span></div>
+<div class="line"><span class="lineno">  402</span>                   <span class="keywordflow">if</span> (c-cprev)==1 <span class="keywordflow">or</span> (c-cprev)==2:    <span class="comment"># allow for one missing channel</span></div>
+<div class="line"><span class="lineno">  403</span>                        neighbour = <span class="keyword">True</span></div>
+<div class="line"><span class="lineno">  404</span>                        tmp.append(c)</div>
+<div class="line"><span class="lineno">  405</span>                   <span class="keywordflow">if</span> <span class="keywordflow">not</span> neighbour  <span class="keywordflow">or</span> c==hitList[last] <span class="keywordflow">or</span> c%1000==59:</div>
+<div class="line"><span class="lineno">  406</span>                        first = tmp[0]</div>
+<div class="line"><span class="lineno">  407</span>                        N = len(tmp)</div>
+<div class="line"><span class="lineno">  408</span>                        hitvector.clear()</div>
+<div class="line"><span class="lineno">  409</span>                        <span class="keywordflow">for</span> aHit <span class="keywordflow">in</span> tmp: hitvector.push_back( self.event.Digi_MuFilterHits[hitDict[aHit]])</div>
+<div class="line"><span class="lineno">  410</span>                        aCluster = ROOT.sndCluster(first,N,hitvector,self.mufiDet,<span class="keyword">False</span>)</div>
+<div class="line"><span class="lineno">  411</span>                        clusters.append(aCluster)</div>
+<div class="line"><span class="lineno">  412</span>                        <span class="keywordflow">if</span> c!=hitList[last]:</div>
+<div class="line"><span class="lineno">  413</span>                             ncl+=1</div>
+<div class="line"><span class="lineno">  414</span>                             tmp = [c]</div>
+<div class="line"><span class="lineno">  415</span>                        <span class="keywordflow">elif</span> <span class="keywordflow">not</span> neighbour :   <span class="comment"># save last channel</span></div>
+<div class="line"><span class="lineno">  416</span>                            hitvector.clear()</div>
+<div class="line"><span class="lineno">  417</span>                            hitvector.push_back( self.event.Digi_MuFilterHits[hitDict[c]])</div>
+<div class="line"><span class="lineno">  418</span>                            aCluster = ROOT.sndCluster(c,1,hitvector,self.mufiDet,<span class="keyword">False</span>)</div>
+<div class="line"><span class="lineno">  419</span>                            clusters.append(aCluster)</div>
+<div class="line"><span class="lineno">  420</span>                   cprev = c</div>
+<div class="line"><span class="lineno">  421</span>       self.clusMufi.Delete()</div>
+<div class="line"><span class="lineno">  422</span>       <span class="keywordflow">for</span> c <span class="keywordflow">in</span> clusters:  self.clusMufi.Add(c)</div>
+<div class="line"><span class="lineno">  423</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -290,129 +290,129 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SndlhcTracking_8py_source.html#l00138">138</a> of file <a class="el" href="SndlhcTracking_8py_source.html">SndlhcTracking.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  138</span> <span class="keyword">def </span>DStrack(self):</div>
-<div class="line"><span class="lineno">  139</span>    event = self.event</div>
-<div class="line"><span class="lineno">  140</span>    trackCandidates = []</div>
-<div class="line"><span class="lineno">  141</span>    clusters = self.clusMufi</div>
-<div class="line"><span class="lineno">  142</span> </div>
-<div class="line"><span class="lineno">  143</span>    stations = {}</div>
-<div class="line"><span class="lineno">  144</span>    clusPerStation = {}</div>
-<div class="line"><span class="lineno">  145</span>    planesPerProjection = {0:0,1:0}</div>
-<div class="line"><span class="lineno">  146</span>    s = 3</div>
-<div class="line"><span class="lineno">  147</span>    <span class="keywordflow">for</span> p <span class="keywordflow">in</span> range(self.systemAndPlanes[s]+1): </div>
-<div class="line"><span class="lineno">  148</span>          stations[s*10+p] = {}</div>
-<div class="line"><span class="lineno">  149</span>          clusPerStation[s*10+p] = 0</div>
-<div class="line"><span class="lineno">  150</span>    k=-1</div>
-<div class="line"><span class="lineno">  151</span>    <span class="keywordflow">for</span> aCl <span class="keywordflow">in</span> clusters:</div>
-<div class="line"><span class="lineno">  152</span>         k+=1</div>
-<div class="line"><span class="lineno">  153</span>         detID = aCl.GetFirst()</div>
-<div class="line"><span class="lineno">  154</span>         <span class="keywordflow">if</span> detID//10000 &lt; 3: <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  155</span>         p = (detID//1000)%10</div>
-<div class="line"><span class="lineno">  156</span>         bar = detID%1000</div>
-<div class="line"><span class="lineno">  157</span>         plane = s*10+p</div>
-<div class="line"><span class="lineno">  158</span>         <span class="keywordflow">if</span> bar&lt;60: </div>
-<div class="line"><span class="lineno">  159</span>           plane = s*10+2*p  <span class="comment"># even numbers horizontal planes, odd numbers vertical planes</span></div>
-<div class="line"><span class="lineno">  160</span>         <span class="keywordflow">else</span>:  </div>
-<div class="line"><span class="lineno">  161</span>           plane = s*10+2*p+1</div>
-<div class="line"><span class="lineno">  162</span>         stations[plane][k] = aCl</div>
-<div class="line"><span class="lineno">  163</span>         clusPerStation[plane] +=1</div>
-<div class="line"><span class="lineno">  164</span>    <span class="keywordflow">for</span> p <span class="keywordflow">in</span> clusPerStation:</div>
-<div class="line"><span class="lineno">  165</span>       <span class="keywordflow">if</span> clusPerStation[p]&gt;0:</div>
-<div class="line"><span class="lineno">  166</span>          planesPerProjection[p%2]+=1</div>
-<div class="line"><span class="lineno">  167</span> </div>
-<div class="line"><span class="lineno">  168</span>    failed = <span class="keyword">False</span></div>
-<div class="line"><span class="lineno">  169</span>    <span class="keywordflow">if</span> planesPerProjection[1]&lt;self.DSnPlanes <span class="keywordflow">or</span> planesPerProjection[0]&lt;self.DSnPlanes: <span class="keywordflow">return</span> trackCandidates</div>
-<div class="line"><span class="lineno">  170</span>    <span class="keywordflow">if</span> self.DSnPlanes==2 <span class="keywordflow">and</span> (planesPerProjection[1]==2 <span class="keywordflow">or</span> planesPerProjection[0]==2):</div>
-<div class="line"><span class="lineno">  171</span>    <span class="comment"># require max 1 cluster per plane if only 2 planes hit per projection</span></div>
-<div class="line"><span class="lineno">  172</span>       <span class="keywordflow">for</span> p <span class="keywordflow">in</span> clusPerStation:</div>
-<div class="line"><span class="lineno">  173</span>         <span class="keywordflow">if</span> clusPerStation[p]&gt;1:</div>
-<div class="line"><span class="lineno">  174</span>            failed = <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">  175</span>            <span class="keywordflow">break</span></div>
-<div class="line"><span class="lineno">  176</span>       <span class="keywordflow">if</span> failed: <span class="keywordflow">return</span> trackCandidates</div>
-<div class="line"><span class="lineno">  177</span>       hitlist = {}</div>
-<div class="line"><span class="lineno">  178</span>       <span class="keywordflow">for</span> p <span class="keywordflow">in</span> stations:</div>
-<div class="line"><span class="lineno">  179</span>         <span class="keywordflow">for</span> k <span class="keywordflow">in</span> stations[p]:  hitlist[k] = stations[p][k]</div>
-<div class="line"><span class="lineno">  180</span>       trackCandidates.append(hitlist)</div>
-<div class="line"><span class="lineno">  181</span>       <span class="keywordflow">return</span> trackCandidates</div>
-<div class="line"><span class="lineno">  182</span> </div>
-<div class="line"><span class="lineno">  183</span>    <span class="keywordflow">for</span> p <span class="keywordflow">in</span> clusPerStation:</div>
-<div class="line"><span class="lineno">  184</span>         <span class="keywordflow">if</span> clusPerStation[p]&gt;self.DSnHits: <span class="keywordflow">return</span> trackCandidates</div>
-<div class="line"><span class="lineno">  185</span> </div>
-<div class="line"><span class="lineno">  186</span><span class="comment"># require one plane with 1 cluster as seed</span></div>
-<div class="line"><span class="lineno">  187</span> </div>
-<div class="line"><span class="lineno">  188</span><span class="comment"># proj = 0, horizontal, max 3 planes</span></div>
-<div class="line"><span class="lineno">  189</span><span class="comment"># proj = 1, vertex,     max 4 planes</span></div>
-<div class="line"><span class="lineno">  190</span>    seed = -1</div>
-<div class="line"><span class="lineno">  191</span>    combinations = {}</div>
-<div class="line"><span class="lineno">  192</span>    hitlist = {}</div>
-<div class="line"><span class="lineno">  193</span>    <span class="keywordflow">for</span> proj <span class="keywordflow">in</span> range(2):</div>
-<div class="line"><span class="lineno">  194</span>      <span class="keywordflow">for</span> plane <span class="keywordflow">in</span> range(self.systemAndPlanes[s]+1):</div>
-<div class="line"><span class="lineno">  195</span>          <span class="keywordflow">if</span> <span class="keywordflow">not</span> plane%2==proj: <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  196</span>          <span class="keywordflow">if</span> clusPerStation[s*10+plane]==1:</div>
-<div class="line"><span class="lineno">  197</span>             seed = s*10+plane</div>
-<div class="line"><span class="lineno">  198</span>             <span class="keywordflow">break</span></div>
-<div class="line"><span class="lineno">  199</span>      <span class="keywordflow">if</span> seed &lt; 0: <span class="keywordflow">return</span> trackCandidates</div>
-<div class="line"><span class="lineno">  200</span>      combinations[proj] = {}</div>
-<div class="line"><span class="lineno">  201</span>      <span class="keywordflow">for</span> kA <span class="keywordflow">in</span> stations[seed]:</div>
-<div class="line"><span class="lineno">  202</span>         clA = stations[seed][kA]</div>
-<div class="line"><span class="lineno">  203</span>         clA.GetPosition(A,B)</div>
-<div class="line"><span class="lineno">  204</span>         posA = (A+B)/2.</div>
-<div class="line"><span class="lineno">  205</span>         clInPlane = {}</div>
-<div class="line"><span class="lineno">  206</span>         <span class="keywordflow">for</span> p2 <span class="keywordflow">in</span> range(self.systemAndPlanes[s]+1):</div>
-<div class="line"><span class="lineno">  207</span>            <span class="keywordflow">if</span> <span class="keywordflow">not</span> p2%2==proj: <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  208</span>            planeB = s*10+p2</div>
-<div class="line"><span class="lineno">  209</span>            <span class="keywordflow">if</span> planeB == seed: <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  210</span>            l = len(stations[planeB])</div>
-<div class="line"><span class="lineno">  211</span>            <span class="keywordflow">if</span> l&gt;0: clInPlane[planeB] = l</div>
-<div class="line"><span class="lineno">  212</span>         srt = sorted(clInPlane)</div>
-<div class="line"><span class="lineno">  213</span>         <span class="keywordflow">if</span> len(stations[srt[0]])+len(stations[srt[1]]) &gt; self.DSnHits+1: <span class="keywordflow">return</span> trackCandidates</div>
-<div class="line"><span class="lineno">  214</span>         planeB = srt[0]</div>
-<div class="line"><span class="lineno">  215</span>         <span class="keywordflow">for</span> kB <span class="keywordflow">in</span> stations[planeB]:</div>
-<div class="line"><span class="lineno">  216</span>                clB = stations[planeB][kB]</div>
-<div class="line"><span class="lineno">  217</span>                clB.GetPosition(A,B)</div>
-<div class="line"><span class="lineno">  218</span>                posB = (A+B)/2.</div>
-<div class="line"><span class="lineno">  219</span>                delBA = posB-posA</div>
-<div class="line"><span class="lineno">  220</span>                <span class="keywordflow">if</span> proj==0: </div>
-<div class="line"><span class="lineno">  221</span>                   lam = delBA[1]/delBA[2]</div>
-<div class="line"><span class="lineno">  222</span>                   b = posA[1]-lam*posA[2]</div>
-<div class="line"><span class="lineno">  223</span>                <span class="keywordflow">else</span>: </div>
-<div class="line"><span class="lineno">  224</span>                   lam = delBA[0]/delBA[2]</div>
-<div class="line"><span class="lineno">  225</span>                   b = posA[0]-lam*posA[2]</div>
-<div class="line"><span class="lineno">  226</span>                <span class="keywordflow">for</span> p3 <span class="keywordflow">in</span> range(self.systemAndPlanes[s]+1):</div>
-<div class="line"><span class="lineno">  227</span>                   <span class="keywordflow">if</span> <span class="keywordflow">not</span> p3%2==proj: <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  228</span>                   planeC = s*10+p3</div>
-<div class="line"><span class="lineno">  229</span>                   <span class="keywordflow">if</span> planeC == seed <span class="keywordflow">or</span> planeC == planeB: <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  230</span>                   <span class="keywordflow">for</span> kC <span class="keywordflow">in</span> stations[planeC]:</div>
-<div class="line"><span class="lineno">  231</span>                      clC = stations[planeC][kC]</div>
-<div class="line"><span class="lineno">  232</span>                      clC.GetPosition(A,B)</div>
-<div class="line"><span class="lineno">  233</span>                      posC = (A+B)/2.</div>
-<div class="line"><span class="lineno">  234</span>                      eX = posC[2]*lam+b</div>
-<div class="line"><span class="lineno">  235</span>                      <span class="keywordflow">if</span> proj==0: res = abs(eX-posC[1])</div>
-<div class="line"><span class="lineno">  236</span>                      <span class="keywordflow">else</span>:       res = abs(eX-posC[0])</div>
-<div class="line"><span class="lineno">  237</span>                      <span class="keywordflow">if</span> proj==0: combinations[proj][res] = [[seed,kA],[planeB,kB],[planeC,kC]]</div>
-<div class="line"><span class="lineno">  238</span>                      <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  239</span>                         <span class="keywordflow">for</span> p4 <span class="keywordflow">in</span> range(self.systemAndPlanes[s]+1):</div>
-<div class="line"><span class="lineno">  240</span>                           <span class="keywordflow">if</span> <span class="keywordflow">not</span> p4%2==proj: <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  241</span>                           planeD = s*10+p4</div>
-<div class="line"><span class="lineno">  242</span>                           <span class="keywordflow">if</span> planeD == seed <span class="keywordflow">or</span> planeD == planeB <span class="keywordflow">or</span> planeD == planeC: <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  243</span>                           <span class="keywordflow">if</span> len(stations[planeD])==0:</div>
-<div class="line"><span class="lineno">  244</span>                               combinations[proj][res] = [[seed,kA],[planeB,kB],[planeC,kC]]</div>
-<div class="line"><span class="lineno">  245</span>                           <span class="keywordflow">for</span> kD <span class="keywordflow">in</span> stations[planeD]:</div>
-<div class="line"><span class="lineno">  246</span>                             clD = stations[planeD][kD]</div>
-<div class="line"><span class="lineno">  247</span>                             clD.GetPosition(A,B)</div>
-<div class="line"><span class="lineno">  248</span>                             posD = (A+B)/2.</div>
-<div class="line"><span class="lineno">  249</span>                             eX = posD[2]*lam+b</div>
-<div class="line"><span class="lineno">  250</span>                             <span class="keywordflow">if</span> proj==0: res+= abs(eX-posD[1])</div>
-<div class="line"><span class="lineno">  251</span>                             <span class="keywordflow">else</span>:       res+= abs(eX-posD[0])</div>
-<div class="line"><span class="lineno">  252</span>                             combinations[proj][res] = [[seed,kA],[planeB,kB],[planeC,kC],[planeD,kD]]</div>
-<div class="line"><span class="lineno">  253</span>      <span class="comment"># find combination with smallest residual</span></div>
-<div class="line"><span class="lineno">  254</span>      srt = sorted(combinations[proj])[0]</div>
-<div class="line"><span class="lineno">  255</span>      <span class="keywordflow">for</span> x <span class="keywordflow">in</span> combinations[proj][srt]:</div>
-<div class="line"><span class="lineno">  256</span>         hitlist[x[1]] = stations[x[0]][x[1]]</div>
-<div class="line"><span class="lineno">  257</span>    trackCandidates.append(hitlist)</div>
-<div class="line"><span class="lineno">  258</span>    <span class="keywordflow">return</span> trackCandidates</div>
-<div class="line"><span class="lineno">  259</span> </div>
+<p class="definition">Definition at line <a class="el" href="SndlhcTracking_8py_source.html#l00139">139</a> of file <a class="el" href="SndlhcTracking_8py_source.html">SndlhcTracking.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  139</span> <span class="keyword">def </span>DStrack(self):</div>
+<div class="line"><span class="lineno">  140</span>    event = self.event</div>
+<div class="line"><span class="lineno">  141</span>    trackCandidates = []</div>
+<div class="line"><span class="lineno">  142</span>    clusters = self.clusMufi</div>
+<div class="line"><span class="lineno">  143</span> </div>
+<div class="line"><span class="lineno">  144</span>    stations = {}</div>
+<div class="line"><span class="lineno">  145</span>    clusPerStation = {}</div>
+<div class="line"><span class="lineno">  146</span>    planesPerProjection = {0:0,1:0}</div>
+<div class="line"><span class="lineno">  147</span>    s = 3</div>
+<div class="line"><span class="lineno">  148</span>    <span class="keywordflow">for</span> p <span class="keywordflow">in</span> range(self.systemAndPlanes[s]+1): </div>
+<div class="line"><span class="lineno">  149</span>          stations[s*10+p] = {}</div>
+<div class="line"><span class="lineno">  150</span>          clusPerStation[s*10+p] = 0</div>
+<div class="line"><span class="lineno">  151</span>    k=-1</div>
+<div class="line"><span class="lineno">  152</span>    <span class="keywordflow">for</span> aCl <span class="keywordflow">in</span> clusters:</div>
+<div class="line"><span class="lineno">  153</span>         k+=1</div>
+<div class="line"><span class="lineno">  154</span>         detID = aCl.GetFirst()</div>
+<div class="line"><span class="lineno">  155</span>         <span class="keywordflow">if</span> detID//10000 &lt; 3: <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  156</span>         p = (detID//1000)%10</div>
+<div class="line"><span class="lineno">  157</span>         bar = detID%1000</div>
+<div class="line"><span class="lineno">  158</span>         plane = s*10+p</div>
+<div class="line"><span class="lineno">  159</span>         <span class="keywordflow">if</span> bar&lt;60: </div>
+<div class="line"><span class="lineno">  160</span>           plane = s*10+2*p  <span class="comment"># even numbers horizontal planes, odd numbers vertical planes</span></div>
+<div class="line"><span class="lineno">  161</span>         <span class="keywordflow">else</span>:  </div>
+<div class="line"><span class="lineno">  162</span>           plane = s*10+2*p+1</div>
+<div class="line"><span class="lineno">  163</span>         stations[plane][k] = aCl</div>
+<div class="line"><span class="lineno">  164</span>         clusPerStation[plane] +=1</div>
+<div class="line"><span class="lineno">  165</span>    <span class="keywordflow">for</span> p <span class="keywordflow">in</span> clusPerStation:</div>
+<div class="line"><span class="lineno">  166</span>       <span class="keywordflow">if</span> clusPerStation[p]&gt;0:</div>
+<div class="line"><span class="lineno">  167</span>          planesPerProjection[p%2]+=1</div>
+<div class="line"><span class="lineno">  168</span> </div>
+<div class="line"><span class="lineno">  169</span>    failed = <span class="keyword">False</span></div>
+<div class="line"><span class="lineno">  170</span>    <span class="keywordflow">if</span> planesPerProjection[1]&lt;self.DSnPlanes <span class="keywordflow">or</span> planesPerProjection[0]&lt;self.DSnPlanes: <span class="keywordflow">return</span> trackCandidates</div>
+<div class="line"><span class="lineno">  171</span>    <span class="keywordflow">if</span> self.DSnPlanes==2 <span class="keywordflow">and</span> (planesPerProjection[1]==2 <span class="keywordflow">or</span> planesPerProjection[0]==2):</div>
+<div class="line"><span class="lineno">  172</span>    <span class="comment"># require max 1 cluster per plane if only 2 planes hit per projection</span></div>
+<div class="line"><span class="lineno">  173</span>       <span class="keywordflow">for</span> p <span class="keywordflow">in</span> clusPerStation:</div>
+<div class="line"><span class="lineno">  174</span>         <span class="keywordflow">if</span> clusPerStation[p]&gt;1:</div>
+<div class="line"><span class="lineno">  175</span>            failed = <span class="keyword">True</span></div>
+<div class="line"><span class="lineno">  176</span>            <span class="keywordflow">break</span></div>
+<div class="line"><span class="lineno">  177</span>       <span class="keywordflow">if</span> failed: <span class="keywordflow">return</span> trackCandidates</div>
+<div class="line"><span class="lineno">  178</span>       hitlist = {}</div>
+<div class="line"><span class="lineno">  179</span>       <span class="keywordflow">for</span> p <span class="keywordflow">in</span> stations:</div>
+<div class="line"><span class="lineno">  180</span>         <span class="keywordflow">for</span> k <span class="keywordflow">in</span> stations[p]:  hitlist[k] = stations[p][k]</div>
+<div class="line"><span class="lineno">  181</span>       trackCandidates.append(hitlist)</div>
+<div class="line"><span class="lineno">  182</span>       <span class="keywordflow">return</span> trackCandidates</div>
+<div class="line"><span class="lineno">  183</span> </div>
+<div class="line"><span class="lineno">  184</span>    <span class="keywordflow">for</span> p <span class="keywordflow">in</span> clusPerStation:</div>
+<div class="line"><span class="lineno">  185</span>         <span class="keywordflow">if</span> clusPerStation[p]&gt;self.DSnHits: <span class="keywordflow">return</span> trackCandidates</div>
+<div class="line"><span class="lineno">  186</span> </div>
+<div class="line"><span class="lineno">  187</span><span class="comment"># require one plane with 1 cluster as seed</span></div>
+<div class="line"><span class="lineno">  188</span> </div>
+<div class="line"><span class="lineno">  189</span><span class="comment"># proj = 0, horizontal, max 3 planes</span></div>
+<div class="line"><span class="lineno">  190</span><span class="comment"># proj = 1, vertex,     max 4 planes</span></div>
+<div class="line"><span class="lineno">  191</span>    seed = -1</div>
+<div class="line"><span class="lineno">  192</span>    combinations = {}</div>
+<div class="line"><span class="lineno">  193</span>    hitlist = {}</div>
+<div class="line"><span class="lineno">  194</span>    <span class="keywordflow">for</span> proj <span class="keywordflow">in</span> range(2):</div>
+<div class="line"><span class="lineno">  195</span>      <span class="keywordflow">for</span> plane <span class="keywordflow">in</span> range(self.systemAndPlanes[s]+1):</div>
+<div class="line"><span class="lineno">  196</span>          <span class="keywordflow">if</span> <span class="keywordflow">not</span> plane%2==proj: <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  197</span>          <span class="keywordflow">if</span> clusPerStation[s*10+plane]==1:</div>
+<div class="line"><span class="lineno">  198</span>             seed = s*10+plane</div>
+<div class="line"><span class="lineno">  199</span>             <span class="keywordflow">break</span></div>
+<div class="line"><span class="lineno">  200</span>      <span class="keywordflow">if</span> seed &lt; 0: <span class="keywordflow">return</span> trackCandidates</div>
+<div class="line"><span class="lineno">  201</span>      combinations[proj] = {}</div>
+<div class="line"><span class="lineno">  202</span>      <span class="keywordflow">for</span> kA <span class="keywordflow">in</span> stations[seed]:</div>
+<div class="line"><span class="lineno">  203</span>         clA = stations[seed][kA]</div>
+<div class="line"><span class="lineno">  204</span>         clA.GetPosition(A,B)</div>
+<div class="line"><span class="lineno">  205</span>         posA = (A+B)/2.</div>
+<div class="line"><span class="lineno">  206</span>         clInPlane = {}</div>
+<div class="line"><span class="lineno">  207</span>         <span class="keywordflow">for</span> p2 <span class="keywordflow">in</span> range(self.systemAndPlanes[s]+1):</div>
+<div class="line"><span class="lineno">  208</span>            <span class="keywordflow">if</span> <span class="keywordflow">not</span> p2%2==proj: <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  209</span>            planeB = s*10+p2</div>
+<div class="line"><span class="lineno">  210</span>            <span class="keywordflow">if</span> planeB == seed: <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  211</span>            l = len(stations[planeB])</div>
+<div class="line"><span class="lineno">  212</span>            <span class="keywordflow">if</span> l&gt;0: clInPlane[planeB] = l</div>
+<div class="line"><span class="lineno">  213</span>         srt = sorted(clInPlane)</div>
+<div class="line"><span class="lineno">  214</span>         <span class="keywordflow">if</span> len(stations[srt[0]])+len(stations[srt[1]]) &gt; self.DSnHits+1: <span class="keywordflow">return</span> trackCandidates</div>
+<div class="line"><span class="lineno">  215</span>         planeB = srt[0]</div>
+<div class="line"><span class="lineno">  216</span>         <span class="keywordflow">for</span> kB <span class="keywordflow">in</span> stations[planeB]:</div>
+<div class="line"><span class="lineno">  217</span>                clB = stations[planeB][kB]</div>
+<div class="line"><span class="lineno">  218</span>                clB.GetPosition(A,B)</div>
+<div class="line"><span class="lineno">  219</span>                posB = (A+B)/2.</div>
+<div class="line"><span class="lineno">  220</span>                delBA = posB-posA</div>
+<div class="line"><span class="lineno">  221</span>                <span class="keywordflow">if</span> proj==0: </div>
+<div class="line"><span class="lineno">  222</span>                   lam = delBA[1]/delBA[2]</div>
+<div class="line"><span class="lineno">  223</span>                   b = posA[1]-lam*posA[2]</div>
+<div class="line"><span class="lineno">  224</span>                <span class="keywordflow">else</span>: </div>
+<div class="line"><span class="lineno">  225</span>                   lam = delBA[0]/delBA[2]</div>
+<div class="line"><span class="lineno">  226</span>                   b = posA[0]-lam*posA[2]</div>
+<div class="line"><span class="lineno">  227</span>                <span class="keywordflow">for</span> p3 <span class="keywordflow">in</span> range(self.systemAndPlanes[s]+1):</div>
+<div class="line"><span class="lineno">  228</span>                   <span class="keywordflow">if</span> <span class="keywordflow">not</span> p3%2==proj: <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  229</span>                   planeC = s*10+p3</div>
+<div class="line"><span class="lineno">  230</span>                   <span class="keywordflow">if</span> planeC == seed <span class="keywordflow">or</span> planeC == planeB: <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  231</span>                   <span class="keywordflow">for</span> kC <span class="keywordflow">in</span> stations[planeC]:</div>
+<div class="line"><span class="lineno">  232</span>                      clC = stations[planeC][kC]</div>
+<div class="line"><span class="lineno">  233</span>                      clC.GetPosition(A,B)</div>
+<div class="line"><span class="lineno">  234</span>                      posC = (A+B)/2.</div>
+<div class="line"><span class="lineno">  235</span>                      eX = posC[2]*lam+b</div>
+<div class="line"><span class="lineno">  236</span>                      <span class="keywordflow">if</span> proj==0: res = abs(eX-posC[1])</div>
+<div class="line"><span class="lineno">  237</span>                      <span class="keywordflow">else</span>:       res = abs(eX-posC[0])</div>
+<div class="line"><span class="lineno">  238</span>                      <span class="keywordflow">if</span> proj==0: combinations[proj][res] = [[seed,kA],[planeB,kB],[planeC,kC]]</div>
+<div class="line"><span class="lineno">  239</span>                      <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  240</span>                         <span class="keywordflow">for</span> p4 <span class="keywordflow">in</span> range(self.systemAndPlanes[s]+1):</div>
+<div class="line"><span class="lineno">  241</span>                           <span class="keywordflow">if</span> <span class="keywordflow">not</span> p4%2==proj: <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  242</span>                           planeD = s*10+p4</div>
+<div class="line"><span class="lineno">  243</span>                           <span class="keywordflow">if</span> planeD == seed <span class="keywordflow">or</span> planeD == planeB <span class="keywordflow">or</span> planeD == planeC: <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  244</span>                           <span class="keywordflow">if</span> len(stations[planeD])==0:</div>
+<div class="line"><span class="lineno">  245</span>                               combinations[proj][res] = [[seed,kA],[planeB,kB],[planeC,kC]]</div>
+<div class="line"><span class="lineno">  246</span>                           <span class="keywordflow">for</span> kD <span class="keywordflow">in</span> stations[planeD]:</div>
+<div class="line"><span class="lineno">  247</span>                             clD = stations[planeD][kD]</div>
+<div class="line"><span class="lineno">  248</span>                             clD.GetPosition(A,B)</div>
+<div class="line"><span class="lineno">  249</span>                             posD = (A+B)/2.</div>
+<div class="line"><span class="lineno">  250</span>                             eX = posD[2]*lam+b</div>
+<div class="line"><span class="lineno">  251</span>                             <span class="keywordflow">if</span> proj==0: res+= abs(eX-posD[1])</div>
+<div class="line"><span class="lineno">  252</span>                             <span class="keywordflow">else</span>:       res+= abs(eX-posD[0])</div>
+<div class="line"><span class="lineno">  253</span>                             combinations[proj][res] = [[seed,kA],[planeB,kB],[planeC,kC],[planeD,kD]]</div>
+<div class="line"><span class="lineno">  254</span>      <span class="comment"># find combination with smallest residual</span></div>
+<div class="line"><span class="lineno">  255</span>      srt = sorted(combinations[proj])[0]</div>
+<div class="line"><span class="lineno">  256</span>      <span class="keywordflow">for</span> x <span class="keywordflow">in</span> combinations[proj][srt]:</div>
+<div class="line"><span class="lineno">  257</span>         hitlist[x[1]] = stations[x[0]][x[1]]</div>
+<div class="line"><span class="lineno">  258</span>    trackCandidates.append(hitlist)</div>
+<div class="line"><span class="lineno">  259</span>    <span class="keywordflow">return</span> trackCandidates</div>
+<div class="line"><span class="lineno">  260</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -484,9 +484,10 @@ Public Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  132</span>                    this_track.setRawMeasTimes(pointTimes)</div>
 <div class="line"><span class="lineno">  133</span>                    this_track.setTrackType(rc.GetUniqueID())</div>
 <div class="line"><span class="lineno">  134</span>                    <span class="comment"># Store the track in sndRecoTrack format</span></div>
-<div class="line"><span class="lineno">  135</span>                    self.fittedTracks[i_muon] = this_track</div>
-<div class="line"><span class="lineno">  136</span>            </div>
-<div class="line"><span class="lineno">  137</span> </div>
+<div class="line"><span class="lineno">  135</span>                    this_track_TCA = self.fittedTracks.ConstructedAt(i_muon)</div>
+<div class="line"><span class="lineno">  136</span>                    ROOT.std.swap(this_track, this_track_TCA)</div>
+<div class="line"><span class="lineno">  137</span>            </div>
+<div class="line"><span class="lineno">  138</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -539,107 +540,107 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SndlhcTracking_8py_source.html#l00453">453</a> of file <a class="el" href="SndlhcTracking_8py_source.html">SndlhcTracking.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  453</span> <span class="keyword">def </span>fitTrack(self,hitlist):</div>
-<div class="line"><span class="lineno">  454</span><span class="comment"># hitlist:  clusterID: [A,B] endpoints of scifiCluster</span></div>
-<div class="line"><span class="lineno">  455</span>    hitPosLists={}</div>
-<div class="line"><span class="lineno">  456</span>    trID = 0</div>
-<div class="line"><span class="lineno">  457</span> </div>
-<div class="line"><span class="lineno">  458</span>    posM    = ROOT.TVector3(0, 0, 0.)</div>
-<div class="line"><span class="lineno">  459</span>    momM = ROOT.TVector3(0,0,100.)  <span class="comment"># default track with high momentum</span></div>
-<div class="line"><span class="lineno">  460</span> </div>
-<div class="line"><span class="lineno">  461</span><span class="comment"># approximate covariance</span></div>
-<div class="line"><span class="lineno">  462</span>    covM = ROOT.TMatrixDSym(6)</div>
-<div class="line"><span class="lineno">  463</span>    <span class="keywordflow">for</span> k <span class="keywordflow">in</span> hitlist:</div>
-<div class="line"><span class="lineno">  464</span>      aCl = hitlist[k]</div>
-<div class="line"><span class="lineno">  465</span>      <span class="keywordflow">if</span> hasattr(aCl,<span class="stringliteral">&quot;GetFirst&quot;</span>):</div>
-<div class="line"><span class="lineno">  466</span>        detID = aCl.GetFirst()</div>
-<div class="line"><span class="lineno">  467</span>      <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  468</span>        detID = aCl.GetDetectorID()</div>
-<div class="line"><span class="lineno">  469</span>      <span class="keywordflow">if</span> detID&lt;40000: res = self.sigmaMufiDS_spatial</div>
-<div class="line"><span class="lineno">  470</span>      <span class="keywordflow">else</span>:  res = self.sigmaScifi_spatial</div>
-<div class="line"><span class="lineno">  471</span>      <span class="keywordflow">break</span></div>
-<div class="line"><span class="lineno">  472</span> </div>
-<div class="line"><span class="lineno">  473</span>    <span class="keywordflow">for</span>  i <span class="keywordflow">in</span> range(3):   covM[i][i] = res*res</div>
-<div class="line"><span class="lineno">  474</span>    <span class="keywordflow">for</span>  i <span class="keywordflow">in</span> range(3,6): covM[i][i] = ROOT.TMath.Power(res / (4.*2.) / ROOT.TMath.Sqrt(3), 2)</div>
-<div class="line"><span class="lineno">  475</span>    rep = ROOT.genfit.RKTrackRep(13)</div>
-<div class="line"><span class="lineno">  476</span> </div>
-<div class="line"><span class="lineno">  477</span><span class="comment"># start state</span></div>
-<div class="line"><span class="lineno">  478</span>    state = ROOT.genfit.MeasuredStateOnPlane(rep)</div>
-<div class="line"><span class="lineno">  479</span>    rep.setPosMomCov(state, posM, momM, covM)</div>
-<div class="line"><span class="lineno">  480</span> </div>
-<div class="line"><span class="lineno">  481</span><span class="comment"># create track</span></div>
-<div class="line"><span class="lineno">  482</span>    seedState = ROOT.TVectorD(6)</div>
-<div class="line"><span class="lineno">  483</span>    seedCov   = ROOT.TMatrixDSym(6)</div>
-<div class="line"><span class="lineno">  484</span>    rep.get6DStateCov(state, seedState, seedCov)</div>
-<div class="line"><span class="lineno">  485</span>    theTrack = ROOT.genfit.Track(rep, seedState, seedCov)</div>
-<div class="line"><span class="lineno">  486</span> </div>
-<div class="line"><span class="lineno">  487</span><span class="comment"># make measurements sorted in z</span></div>
-<div class="line"><span class="lineno">  488</span>    unSortedList = {}</div>
-<div class="line"><span class="lineno">  489</span>    tmpList = {}</div>
-<div class="line"><span class="lineno">  490</span>    A,B = ROOT.TVector3(),ROOT.TVector3()</div>
-<div class="line"><span class="lineno">  491</span>    <span class="keywordflow">for</span> k <span class="keywordflow">in</span> hitlist:</div>
-<div class="line"><span class="lineno">  492</span>        aCl = hitlist[k]</div>
-<div class="line"><span class="lineno">  493</span>        <span class="keywordflow">if</span> hasattr(aCl,<span class="stringliteral">&quot;GetFirst&quot;</span>):</div>
-<div class="line"><span class="lineno">  494</span>            detID = aCl.GetFirst()</div>
-<div class="line"><span class="lineno">  495</span>            aCl.GetPosition(A,B)</div>
-<div class="line"><span class="lineno">  496</span>            detSys  = 1</div>
-<div class="line"><span class="lineno">  497</span>            <span class="keywordflow">if</span> detID&lt;40000: detSys=3</div>
-<div class="line"><span class="lineno">  498</span>        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  499</span>            detID = aCl.GetDetectorID()</div>
-<div class="line"><span class="lineno">  500</span>            detSys  = 1</div>
-<div class="line"><span class="lineno">  501</span>            <span class="keywordflow">if</span> detID&lt;40000: detSys=3</div>
-<div class="line"><span class="lineno">  502</span>            <span class="keywordflow">if</span> detSys==3: self.mufiDet.GetPosition(detID,A,B)</div>
-<div class="line"><span class="lineno">  503</span>            <span class="keywordflow">if</span> detSys==1: self.scifiDet.GetSiPMPosition(detID,A,B)</div>
-<div class="line"><span class="lineno">  504</span>        distance = 0</div>
-<div class="line"><span class="lineno">  505</span>        tmp = array(<span class="stringliteral">&#39;d&#39;</span>,[A[0],A[1],A[2],B[0],B[1],B[2],distance])</div>
-<div class="line"><span class="lineno">  506</span>        unSortedList[A[2]] = [ROOT.TVectorD(7,tmp),detID,k,detSys]</div>
-<div class="line"><span class="lineno">  507</span>    sorted_z=list(unSortedList.keys())</div>
-<div class="line"><span class="lineno">  508</span>    sorted_z.sort()</div>
-<div class="line"><span class="lineno">  509</span>    <span class="keywordflow">for</span> z <span class="keywordflow">in</span> sorted_z:</div>
-<div class="line"><span class="lineno">  510</span>        tp = ROOT.genfit.TrackPoint() <span class="comment"># note how the point is told which track it belongs to</span></div>
-<div class="line"><span class="lineno">  511</span>        hitCov = ROOT.TMatrixDSym(7)</div>
-<div class="line"><span class="lineno">  512</span>        detSys = unSortedList[z][3]</div>
-<div class="line"><span class="lineno">  513</span>        <span class="keywordflow">if</span> detSys==3:      </div>
-<div class="line"><span class="lineno">  514</span>              res = self.sigmaMufiDS_spatial</div>
-<div class="line"><span class="lineno">  515</span>              maxDis = 1.0</div>
-<div class="line"><span class="lineno">  516</span>        <span class="keywordflow">elif</span> detSys==2:  </div>
-<div class="line"><span class="lineno">  517</span>              res = self.sigmaMufiUS_spatial</div>
-<div class="line"><span class="lineno">  518</span>              maxDis = 5.0</div>
-<div class="line"><span class="lineno">  519</span>        <span class="keywordflow">else</span>:         </div>
-<div class="line"><span class="lineno">  520</span>              res = self.sigmaScifi_spatial</div>
-<div class="line"><span class="lineno">  521</span>              maxDis = 0.1</div>
-<div class="line"><span class="lineno">  522</span>        hitCov[6][6] = res*res</div>
-<div class="line"><span class="lineno">  523</span>        measurement = ROOT.genfit.WireMeasurement(unSortedList[z][0],hitCov,1,6,tp) <span class="comment"># the measurement is told which trackpoint it belongs to</span></div>
-<div class="line"><span class="lineno">  524</span>        measurement.setMaxDistance(maxDis)</div>
-<div class="line"><span class="lineno">  525</span>        measurement.setDetId(unSortedList[z][1])</div>
-<div class="line"><span class="lineno">  526</span>        measurement.setHitId(unSortedList[z][2])</div>
-<div class="line"><span class="lineno">  527</span>        tp.addRawMeasurement(measurement) <span class="comment"># package measurement in the TrackPoint                                          </span></div>
-<div class="line"><span class="lineno">  528</span>        theTrack.insertPoint(tp)  <span class="comment"># add point to Track</span></div>
-<div class="line"><span class="lineno">  529</span>    <span class="keywordflow">if</span> <span class="keywordflow">not</span> theTrack.checkConsistency():</div>
-<div class="line"><span class="lineno">  530</span>        print(<span class="stringliteral">&quot;track not consistent&quot;</span>)</div>
-<div class="line"><span class="lineno">  531</span>        theTrack.Delete()</div>
-<div class="line"><span class="lineno">  532</span>        <span class="keywordflow">return</span> -2</div>
-<div class="line"><span class="lineno">  533</span><span class="comment"># do the fit</span></div>
-<div class="line"><span class="lineno">  534</span>    self.fitter.processTrack(theTrack) <span class="comment"># processTrackWithRep(theTrack,rep,True)</span></div>
-<div class="line"><span class="lineno">  535</span>    fitStatus   = theTrack.getFitStatus()</div>
-<div class="line"><span class="lineno">  536</span>    <span class="keywordflow">if</span> self.Debug: print(<span class="stringliteral">&quot;Fit result: converged chi2 Ndf&quot;</span>,fitStatus.isFitConverged(),fitStatus.getChi2(),fitStatus.getNdf())</div>
-<div class="line"><span class="lineno">  537</span>    <span class="keywordflow">if</span> <span class="keywordflow">not</span> fitStatus.isFitConverged() <span class="keywordflow">and</span> 0&gt;1:</div>
-<div class="line"><span class="lineno">  538</span>        theTrack.Delete()</div>
-<div class="line"><span class="lineno">  539</span>        <span class="keywordflow">return</span> -1</div>
-<div class="line"><span class="lineno">  540</span>    <span class="keywordflow">if</span> self.Debug: </div>
-<div class="line"><span class="lineno">  541</span>        chi2 = fitStatus.getChi2()/(fitStatus.getNdf()+1E-15)</div>
-<div class="line"><span class="lineno">  542</span>        fittedState = theTrack.getFittedState()</div>
-<div class="line"><span class="lineno">  543</span>        P = fittedState.getMomMag()</div>
-<div class="line"><span class="lineno">  544</span>        print(<span class="stringliteral">&quot;track fitted Ndf #Meas P&quot;</span>,fitStatus.getNdf(), theTrack.getNumPointsWithMeasurement(),P)</div>
-<div class="line"><span class="lineno">  545</span>        <span class="keywordflow">for</span> p <span class="keywordflow">in</span> theTrack.getPointsWithMeasurement():</div>
-<div class="line"><span class="lineno">  546</span>            rawM = p.getRawMeasurement()</div>
-<div class="line"><span class="lineno">  547</span>            info = p.getFitterInfo()</div>
-<div class="line"><span class="lineno">  548</span>            <span class="keywordflow">if</span> <span class="keywordflow">not</span> info: <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  549</span>            detID = rawM.getDetId()</div>
-<div class="line"><span class="lineno">  550</span>            print(detID,<span class="stringliteral">&quot;weights&quot;</span>,info.getWeights()[0],info.getWeights()[1],fitStatus.getNdf())</div>
-<div class="line"><span class="lineno">  551</span>    <span class="keywordflow">return</span> theTrack</div>
-<div class="line"><span class="lineno">  552</span> </div>
+<p class="definition">Definition at line <a class="el" href="SndlhcTracking_8py_source.html#l00454">454</a> of file <a class="el" href="SndlhcTracking_8py_source.html">SndlhcTracking.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  454</span> <span class="keyword">def </span>fitTrack(self,hitlist):</div>
+<div class="line"><span class="lineno">  455</span><span class="comment"># hitlist:  clusterID: [A,B] endpoints of scifiCluster</span></div>
+<div class="line"><span class="lineno">  456</span>    hitPosLists={}</div>
+<div class="line"><span class="lineno">  457</span>    trID = 0</div>
+<div class="line"><span class="lineno">  458</span> </div>
+<div class="line"><span class="lineno">  459</span>    posM    = ROOT.TVector3(0, 0, 0.)</div>
+<div class="line"><span class="lineno">  460</span>    momM = ROOT.TVector3(0,0,100.)  <span class="comment"># default track with high momentum</span></div>
+<div class="line"><span class="lineno">  461</span> </div>
+<div class="line"><span class="lineno">  462</span><span class="comment"># approximate covariance</span></div>
+<div class="line"><span class="lineno">  463</span>    covM = ROOT.TMatrixDSym(6)</div>
+<div class="line"><span class="lineno">  464</span>    <span class="keywordflow">for</span> k <span class="keywordflow">in</span> hitlist:</div>
+<div class="line"><span class="lineno">  465</span>      aCl = hitlist[k]</div>
+<div class="line"><span class="lineno">  466</span>      <span class="keywordflow">if</span> hasattr(aCl,<span class="stringliteral">&quot;GetFirst&quot;</span>):</div>
+<div class="line"><span class="lineno">  467</span>        detID = aCl.GetFirst()</div>
+<div class="line"><span class="lineno">  468</span>      <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  469</span>        detID = aCl.GetDetectorID()</div>
+<div class="line"><span class="lineno">  470</span>      <span class="keywordflow">if</span> detID&lt;40000: res = self.sigmaMufiDS_spatial</div>
+<div class="line"><span class="lineno">  471</span>      <span class="keywordflow">else</span>:  res = self.sigmaScifi_spatial</div>
+<div class="line"><span class="lineno">  472</span>      <span class="keywordflow">break</span></div>
+<div class="line"><span class="lineno">  473</span> </div>
+<div class="line"><span class="lineno">  474</span>    <span class="keywordflow">for</span>  i <span class="keywordflow">in</span> range(3):   covM[i][i] = res*res</div>
+<div class="line"><span class="lineno">  475</span>    <span class="keywordflow">for</span>  i <span class="keywordflow">in</span> range(3,6): covM[i][i] = ROOT.TMath.Power(res / (4.*2.) / ROOT.TMath.Sqrt(3), 2)</div>
+<div class="line"><span class="lineno">  476</span>    rep = ROOT.genfit.RKTrackRep(13)</div>
+<div class="line"><span class="lineno">  477</span> </div>
+<div class="line"><span class="lineno">  478</span><span class="comment"># start state</span></div>
+<div class="line"><span class="lineno">  479</span>    state = ROOT.genfit.MeasuredStateOnPlane(rep)</div>
+<div class="line"><span class="lineno">  480</span>    rep.setPosMomCov(state, posM, momM, covM)</div>
+<div class="line"><span class="lineno">  481</span> </div>
+<div class="line"><span class="lineno">  482</span><span class="comment"># create track</span></div>
+<div class="line"><span class="lineno">  483</span>    seedState = ROOT.TVectorD(6)</div>
+<div class="line"><span class="lineno">  484</span>    seedCov   = ROOT.TMatrixDSym(6)</div>
+<div class="line"><span class="lineno">  485</span>    rep.get6DStateCov(state, seedState, seedCov)</div>
+<div class="line"><span class="lineno">  486</span>    theTrack = ROOT.genfit.Track(rep, seedState, seedCov)</div>
+<div class="line"><span class="lineno">  487</span> </div>
+<div class="line"><span class="lineno">  488</span><span class="comment"># make measurements sorted in z</span></div>
+<div class="line"><span class="lineno">  489</span>    unSortedList = {}</div>
+<div class="line"><span class="lineno">  490</span>    tmpList = {}</div>
+<div class="line"><span class="lineno">  491</span>    A,B = ROOT.TVector3(),ROOT.TVector3()</div>
+<div class="line"><span class="lineno">  492</span>    <span class="keywordflow">for</span> k <span class="keywordflow">in</span> hitlist:</div>
+<div class="line"><span class="lineno">  493</span>        aCl = hitlist[k]</div>
+<div class="line"><span class="lineno">  494</span>        <span class="keywordflow">if</span> hasattr(aCl,<span class="stringliteral">&quot;GetFirst&quot;</span>):</div>
+<div class="line"><span class="lineno">  495</span>            detID = aCl.GetFirst()</div>
+<div class="line"><span class="lineno">  496</span>            aCl.GetPosition(A,B)</div>
+<div class="line"><span class="lineno">  497</span>            detSys  = 1</div>
+<div class="line"><span class="lineno">  498</span>            <span class="keywordflow">if</span> detID&lt;40000: detSys=3</div>
+<div class="line"><span class="lineno">  499</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  500</span>            detID = aCl.GetDetectorID()</div>
+<div class="line"><span class="lineno">  501</span>            detSys  = 1</div>
+<div class="line"><span class="lineno">  502</span>            <span class="keywordflow">if</span> detID&lt;40000: detSys=3</div>
+<div class="line"><span class="lineno">  503</span>            <span class="keywordflow">if</span> detSys==3: self.mufiDet.GetPosition(detID,A,B)</div>
+<div class="line"><span class="lineno">  504</span>            <span class="keywordflow">if</span> detSys==1: self.scifiDet.GetSiPMPosition(detID,A,B)</div>
+<div class="line"><span class="lineno">  505</span>        distance = 0</div>
+<div class="line"><span class="lineno">  506</span>        tmp = array(<span class="stringliteral">&#39;d&#39;</span>,[A[0],A[1],A[2],B[0],B[1],B[2],distance])</div>
+<div class="line"><span class="lineno">  507</span>        unSortedList[A[2]] = [ROOT.TVectorD(7,tmp),detID,k,detSys]</div>
+<div class="line"><span class="lineno">  508</span>    sorted_z=list(unSortedList.keys())</div>
+<div class="line"><span class="lineno">  509</span>    sorted_z.sort()</div>
+<div class="line"><span class="lineno">  510</span>    <span class="keywordflow">for</span> z <span class="keywordflow">in</span> sorted_z:</div>
+<div class="line"><span class="lineno">  511</span>        tp = ROOT.genfit.TrackPoint() <span class="comment"># note how the point is told which track it belongs to</span></div>
+<div class="line"><span class="lineno">  512</span>        hitCov = ROOT.TMatrixDSym(7)</div>
+<div class="line"><span class="lineno">  513</span>        detSys = unSortedList[z][3]</div>
+<div class="line"><span class="lineno">  514</span>        <span class="keywordflow">if</span> detSys==3:      </div>
+<div class="line"><span class="lineno">  515</span>              res = self.sigmaMufiDS_spatial</div>
+<div class="line"><span class="lineno">  516</span>              maxDis = 1.0</div>
+<div class="line"><span class="lineno">  517</span>        <span class="keywordflow">elif</span> detSys==2:  </div>
+<div class="line"><span class="lineno">  518</span>              res = self.sigmaMufiUS_spatial</div>
+<div class="line"><span class="lineno">  519</span>              maxDis = 5.0</div>
+<div class="line"><span class="lineno">  520</span>        <span class="keywordflow">else</span>:         </div>
+<div class="line"><span class="lineno">  521</span>              res = self.sigmaScifi_spatial</div>
+<div class="line"><span class="lineno">  522</span>              maxDis = 0.1</div>
+<div class="line"><span class="lineno">  523</span>        hitCov[6][6] = res*res</div>
+<div class="line"><span class="lineno">  524</span>        measurement = ROOT.genfit.WireMeasurement(unSortedList[z][0],hitCov,1,6,tp) <span class="comment"># the measurement is told which trackpoint it belongs to</span></div>
+<div class="line"><span class="lineno">  525</span>        measurement.setMaxDistance(maxDis)</div>
+<div class="line"><span class="lineno">  526</span>        measurement.setDetId(unSortedList[z][1])</div>
+<div class="line"><span class="lineno">  527</span>        measurement.setHitId(unSortedList[z][2])</div>
+<div class="line"><span class="lineno">  528</span>        tp.addRawMeasurement(measurement) <span class="comment"># package measurement in the TrackPoint                                          </span></div>
+<div class="line"><span class="lineno">  529</span>        theTrack.insertPoint(tp)  <span class="comment"># add point to Track</span></div>
+<div class="line"><span class="lineno">  530</span>    <span class="keywordflow">if</span> <span class="keywordflow">not</span> theTrack.checkConsistency():</div>
+<div class="line"><span class="lineno">  531</span>        print(<span class="stringliteral">&quot;track not consistent&quot;</span>)</div>
+<div class="line"><span class="lineno">  532</span>        theTrack.Delete()</div>
+<div class="line"><span class="lineno">  533</span>        <span class="keywordflow">return</span> -2</div>
+<div class="line"><span class="lineno">  534</span><span class="comment"># do the fit</span></div>
+<div class="line"><span class="lineno">  535</span>    self.fitter.processTrack(theTrack) <span class="comment"># processTrackWithRep(theTrack,rep,True)</span></div>
+<div class="line"><span class="lineno">  536</span>    fitStatus   = theTrack.getFitStatus()</div>
+<div class="line"><span class="lineno">  537</span>    <span class="keywordflow">if</span> self.Debug: print(<span class="stringliteral">&quot;Fit result: converged chi2 Ndf&quot;</span>,fitStatus.isFitConverged(),fitStatus.getChi2(),fitStatus.getNdf())</div>
+<div class="line"><span class="lineno">  538</span>    <span class="keywordflow">if</span> <span class="keywordflow">not</span> fitStatus.isFitConverged() <span class="keywordflow">and</span> 0&gt;1:</div>
+<div class="line"><span class="lineno">  539</span>        theTrack.Delete()</div>
+<div class="line"><span class="lineno">  540</span>        <span class="keywordflow">return</span> -1</div>
+<div class="line"><span class="lineno">  541</span>    <span class="keywordflow">if</span> self.Debug: </div>
+<div class="line"><span class="lineno">  542</span>        chi2 = fitStatus.getChi2()/(fitStatus.getNdf()+1E-15)</div>
+<div class="line"><span class="lineno">  543</span>        fittedState = theTrack.getFittedState()</div>
+<div class="line"><span class="lineno">  544</span>        P = fittedState.getMomMag()</div>
+<div class="line"><span class="lineno">  545</span>        print(<span class="stringliteral">&quot;track fitted Ndf #Meas P&quot;</span>,fitStatus.getNdf(), theTrack.getNumPointsWithMeasurement(),P)</div>
+<div class="line"><span class="lineno">  546</span>        <span class="keywordflow">for</span> p <span class="keywordflow">in</span> theTrack.getPointsWithMeasurement():</div>
+<div class="line"><span class="lineno">  547</span>            rawM = p.getRawMeasurement()</div>
+<div class="line"><span class="lineno">  548</span>            info = p.getFitterInfo()</div>
+<div class="line"><span class="lineno">  549</span>            <span class="keywordflow">if</span> <span class="keywordflow">not</span> info: <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  550</span>            detID = rawM.getDetId()</div>
+<div class="line"><span class="lineno">  551</span>            print(detID,<span class="stringliteral">&quot;weights&quot;</span>,info.getWeights()[0],info.getWeights()[1],fitStatus.getNdf())</div>
+<div class="line"><span class="lineno">  552</span>    <span class="keywordflow">return</span> theTrack</div>
+<div class="line"><span class="lineno">  553</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -803,198 +804,198 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SndlhcTracking_8py_source.html#l00590">590</a> of file <a class="el" href="SndlhcTracking_8py_source.html">SndlhcTracking.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  590</span> <span class="keyword">def </span>multipleTrackCandidates(self,planesWithClusters=10,nMaxCl=8,dGap=0.2,dMax=0.8,dMax3=0.8,ovMax = 1,doublet=True,debug=False):</div>
-<div class="line"><span class="lineno">  591</span>       A,B = ROOT.TVector3(),ROOT.TVector3()</div>
-<div class="line"><span class="lineno">  592</span>       h = self.multipleTrackStore</div>
-<div class="line"><span class="lineno">  593</span>       h[<span class="stringliteral">&#39;trackCand&#39;</span>] = {0:{},1:{}}</div>
-<div class="line"><span class="lineno">  594</span>       h[<span class="stringliteral">&#39;sortedClusters&#39;</span>] = {}</div>
-<div class="line"><span class="lineno">  595</span>       sortedClusters = h[<span class="stringliteral">&#39;sortedClusters&#39;</span>]</div>
-<div class="line"><span class="lineno">  596</span>       self.scifiCluster()</div>
-<div class="line"><span class="lineno">  597</span>       clusters = self.clusScifi</div>
-<div class="line"><span class="lineno">  598</span>       <span class="keywordflow">for</span> aCl <span class="keywordflow">in</span> clusters:</div>
-<div class="line"><span class="lineno">  599</span>           so = aCl.GetFirst()//100000</div>
-<div class="line"><span class="lineno">  600</span>           <span class="keywordflow">if</span> <span class="keywordflow">not</span> so <span class="keywordflow">in</span> sortedClusters: </div>
-<div class="line"><span class="lineno">  601</span>              sortedClusters[so]=[]</div>
-<div class="line"><span class="lineno">  602</span>           aCl.GetPosition(A,B)</div>
-<div class="line"><span class="lineno">  603</span>           <span class="keywordflow">if</span> aCl.GetFirst()//100000%10 == 0: pos = A[1]</div>
-<div class="line"><span class="lineno">  604</span>           <span class="keywordflow">else</span>:                              pos = A[0]</div>
-<div class="line"><span class="lineno">  605</span>           sortedClusters[so].append([pos,A[2],aCl])</div>
-<div class="line"><span class="lineno">  606</span><span class="comment"># select events with clusters in each plane</span></div>
-<div class="line"><span class="lineno">  607</span>       <span class="keywordflow">if</span> len(sortedClusters)&lt;planesWithClusters: <span class="keywordflow">return</span></div>
-<div class="line"><span class="lineno">  608</span><span class="comment">#</span></div>
-<div class="line"><span class="lineno">  609</span>       h[<span class="stringliteral">&#39;mergedClusters&#39;</span>] = {}</div>
-<div class="line"><span class="lineno">  610</span>       mergedClusters = h[<span class="stringliteral">&#39;mergedClusters&#39;</span>]</div>
-<div class="line"><span class="lineno">  611</span>       <span class="keywordflow">for</span> so <span class="keywordflow">in</span> sortedClusters:</div>
-<div class="line"><span class="lineno">  612</span>          pos={}</div>
-<div class="line"><span class="lineno">  613</span>          mergedClusters[so]=[]</div>
-<div class="line"><span class="lineno">  614</span>          <span class="keywordflow">for</span> k <span class="keywordflow">in</span> range(len(sortedClusters[so])):</div>
-<div class="line"><span class="lineno">  615</span>             pos[k] = sortedClusters[so][k][0]</div>
-<div class="line"><span class="lineno">  616</span>          sorted_pos = sorted(pos.items(), key=<span class="keyword">lambda</span> x: x[1])</div>
-<div class="line"><span class="lineno">  617</span>          merged = -1</div>
-<div class="line"><span class="lineno">  618</span>          <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(len(sorted_pos)):</div>
-<div class="line"><span class="lineno">  619</span>              x = sorted_pos[i]</div>
-<div class="line"><span class="lineno">  620</span>              aClobj = sortedClusters[so][x[0]]</div>
-<div class="line"><span class="lineno">  621</span>              <span class="keywordflow">if</span> merged &lt; 0:</div>
-<div class="line"><span class="lineno">  622</span>                 merged+=1</div>
-<div class="line"><span class="lineno">  623</span>                 mergedClusters[so].append( [aClobj[0],aClobj[1],[aClobj[2]]] )</div>
-<div class="line"><span class="lineno">  624</span>              <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  625</span>                 prevPos = mergedClusters[so][merged][0]</div>
-<div class="line"><span class="lineno">  626</span>                 pos     = aClobj[0]</div>
-<div class="line"><span class="lineno">  627</span>                 <span class="keywordflow">if</span> pos-prevPos &gt; dGap: </div>
-<div class="line"><span class="lineno">  628</span>                   merged+=1</div>
-<div class="line"><span class="lineno">  629</span>                   mergedClusters[so].append( [aClobj[0],aClobj[1],[aClobj[2]]] )</div>
-<div class="line"><span class="lineno">  630</span>                 <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  631</span>                   N = len(mergedClusters[so][merged][2])</div>
-<div class="line"><span class="lineno">  632</span>                   newPos = (prevPos*N+pos)/(N+1)</div>
-<div class="line"><span class="lineno">  633</span>                   mergedClusters[so][merged][0]=newPos</div>
-<div class="line"><span class="lineno">  634</span>                   mergedClusters[so][merged][2].append(aClobj[2])</div>
-<div class="line"><span class="lineno">  635</span><span class="comment"># not more than nMaxCl in a plane and at least 2</span></div>
-<div class="line"><span class="lineno">  636</span>       <span class="keywordflow">for</span> so <span class="keywordflow">in</span> mergedClusters:</div>
-<div class="line"><span class="lineno">  637</span>          <span class="keywordflow">if</span> len(mergedClusters[so]) &gt; nMaxCl: <span class="keywordflow">return</span></div>
-<div class="line"><span class="lineno">  638</span>          <span class="keywordflow">if</span> len(mergedClusters[so]) &lt; 2: <span class="keywordflow">return</span></div>
-<div class="line"><span class="lineno">  639</span>       <span class="keywordflow">for</span> p <span class="keywordflow">in</span> range(2):</div>
-<div class="line"><span class="lineno">  640</span>         <span class="keywordflow">if</span> debug: print(<span class="stringliteral">&#39;-------- p=&#39;</span>,p)</div>
-<div class="line"><span class="lineno">  641</span>         <span class="keywordflow">if</span> doublet:</div>
-<div class="line"><span class="lineno">  642</span><span class="comment"># method using doublets</span></div>
-<div class="line"><span class="lineno">  643</span>          h[<span class="stringliteral">&#39;doublet&#39;</span>] = {}</div>
-<div class="line"><span class="lineno">  644</span>          <span class="keywordflow">for</span> j1 <span class="keywordflow">in</span> range(1,5):</div>
-<div class="line"><span class="lineno">  645</span>             h[<span class="stringliteral">&#39;doublet&#39;</span>][j1] = {}</div>
-<div class="line"><span class="lineno">  646</span>             <span class="keywordflow">for</span> k1 <span class="keywordflow">in</span> range(len(mergedClusters[j1*10+p])):</div>
-<div class="line"><span class="lineno">  647</span>                aCl1 = mergedClusters[j1*10+p][k1]</div>
-<div class="line"><span class="lineno">  648</span>                h[<span class="stringliteral">&#39;doublet&#39;</span>][j1][k1] = []</div>
-<div class="line"><span class="lineno">  649</span>                j2 = j1+1</div>
-<div class="line"><span class="lineno">  650</span>                <span class="keywordflow">for</span> k2 <span class="keywordflow">in</span> range(len(mergedClusters[j2*10+p])):</div>
-<div class="line"><span class="lineno">  651</span>                    aCl2 = mergedClusters[j2*10+p][k2]</div>
-<div class="line"><span class="lineno">  652</span>                    D = aCl2[0]-aCl1[0]</div>
-<div class="line"><span class="lineno">  653</span>                    <span class="keywordflow">if</span> debug: print(j1,j2,<span class="stringliteral">&#39;x1&#39;</span>,aCl1[0],<span class="stringliteral">&#39;x2&#39;</span>,aCl2[0],<span class="stringliteral">&#39;D&#39;</span>,D)</div>
-<div class="line"><span class="lineno">  654</span>                    <span class="keywordflow">if</span> abs(D ) &gt; dMax: <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  655</span>                    h[<span class="stringliteral">&#39;doublet&#39;</span>][j1][k1].append(10*j2+k2)</div>
-<div class="line"><span class="lineno">  656</span>                <span class="keywordflow">if</span> len(h[<span class="stringliteral">&#39;doublet&#39;</span>][j1][k1]) == 0 <span class="keywordflow">and</span> j2&lt;5:   <span class="comment"># allow one missing plane</span></div>
-<div class="line"><span class="lineno">  657</span>                   j2 = j1+2</div>
-<div class="line"><span class="lineno">  658</span>                   <span class="keywordflow">for</span> k2 <span class="keywordflow">in</span> range(len(mergedClusters[j2*10+p])):</div>
-<div class="line"><span class="lineno">  659</span>                     aCl2 = mergedClusters[j2*10+p][k2]</div>
-<div class="line"><span class="lineno">  660</span>                     D = aCl2[0]-aCl1[0]</div>
-<div class="line"><span class="lineno">  661</span>                     <span class="keywordflow">if</span> debug: print(j1,j2,<span class="stringliteral">&#39;x1&#39;</span>,aCl1[0],<span class="stringliteral">&#39;x2&#39;</span>,aCl2[0],<span class="stringliteral">&#39;D&#39;</span>,D)</div>
-<div class="line"><span class="lineno">  662</span>                     <span class="keywordflow">if</span> abs(D ) &gt; dMax: <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  663</span>                     h[<span class="stringliteral">&#39;doublet&#39;</span>][j1][k1].append(10*j2+k2)</div>
-<div class="line"><span class="lineno">  664</span>          h[<span class="stringliteral">&#39;trackCand&#39;</span>][p] = {}</div>
-<div class="line"><span class="lineno">  665</span>          <span class="keywordflow">for</span> j1 <span class="keywordflow">in</span> [1,2]:</div>
-<div class="line"><span class="lineno">  666</span>           <span class="keywordflow">for</span> k1 <span class="keywordflow">in</span> h[<span class="stringliteral">&#39;doublet&#39;</span>][j1]:</div>
-<div class="line"><span class="lineno">  667</span>            <span class="keywordflow">if</span> j1==2:</div>
-<div class="line"><span class="lineno">  668</span>               alreadyUsed = <span class="keyword">False</span></div>
-<div class="line"><span class="lineno">  669</span>               <span class="keywordflow">for</span> k0 <span class="keywordflow">in</span> h[<span class="stringliteral">&#39;doublet&#39;</span>][1]:</div>
-<div class="line"><span class="lineno">  670</span>                 <span class="keywordflow">for</span> sk0 <span class="keywordflow">in</span> h[<span class="stringliteral">&#39;doublet&#39;</span>][1][k0]:</div>
-<div class="line"><span class="lineno">  671</span>                    <span class="keywordflow">if</span> k1== (sk0%10) :</div>
-<div class="line"><span class="lineno">  672</span>                       alreadyUsed = <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">  673</span>                       <span class="keywordflow">break</span></div>
-<div class="line"><span class="lineno">  674</span>               <span class="keywordflow">if</span> alreadyUsed: <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  675</span>            trackId = (k1+1)*10**(j1-1)</div>
-<div class="line"><span class="lineno">  676</span>            <span class="keywordflow">if</span> debug: print(j1,k1,trackId)</div>
-<div class="line"><span class="lineno">  677</span>            <span class="keywordflow">for</span> sk2 <span class="keywordflow">in</span> h[<span class="stringliteral">&#39;doublet&#39;</span>][j1][k1]:</div>
-<div class="line"><span class="lineno">  678</span>              j2 = sk2//10</div>
-<div class="line"><span class="lineno">  679</span>              k2 = sk2%10</div>
-<div class="line"><span class="lineno">  680</span>              trackId = (k1+1)*10**(j1-1) + (k2+1)*10**(j2-1)</div>
-<div class="line"><span class="lineno">  681</span>              <span class="keywordflow">if</span> debug: print(j2,k2,trackId)</div>
-<div class="line"><span class="lineno">  682</span>              <span class="keywordflow">for</span> sk3 <span class="keywordflow">in</span> h[<span class="stringliteral">&#39;doublet&#39;</span>][j2][k2]:</div>
-<div class="line"><span class="lineno">  683</span>               j3 = sk3//10</div>
-<div class="line"><span class="lineno">  684</span>               k3 = sk3%10</div>
-<div class="line"><span class="lineno">  685</span>               <span class="keywordflow">if</span> j3&gt;4: <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  686</span>               trackId = (k1+1)*10**(j1-1) + (k2+1)*10**(j2-1) + (k3+1)*10**(j3-1)</div>
-<div class="line"><span class="lineno">  687</span>               <span class="keywordflow">if</span> debug: print(j3,k3,trackId)</div>
-<div class="line"><span class="lineno">  688</span>               <span class="keywordflow">for</span> sk4 <span class="keywordflow">in</span> h[<span class="stringliteral">&#39;doublet&#39;</span>][j3][k3]:</div>
-<div class="line"><span class="lineno">  689</span>                 j4 = sk4//10</div>
-<div class="line"><span class="lineno">  690</span>                 k4 = sk4%10</div>
-<div class="line"><span class="lineno">  691</span>                 trackId = (k1+1)*10**(j1-1) + (k2+1)*10**(j2-1) + (k3+1)*10**(j3-1) + (k4+1)*10**(j4-1)</div>
-<div class="line"><span class="lineno">  692</span>                 <span class="keywordflow">if</span> debug: print(j4,k4,trackId)</div>
-<div class="line"><span class="lineno">  693</span>                 found = <span class="keyword">False</span></div>
-<div class="line"><span class="lineno">  694</span>                 <span class="keywordflow">if</span> j4&lt;5:</div>
-<div class="line"><span class="lineno">  695</span>                    <span class="keywordflow">for</span> sk5 <span class="keywordflow">in</span> h[<span class="stringliteral">&#39;doublet&#39;</span>][j4][k4]:</div>
-<div class="line"><span class="lineno">  696</span>                       found = <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">  697</span>                       j5 = sk5//10</div>
-<div class="line"><span class="lineno">  698</span>                       k5 = sk5%10</div>
-<div class="line"><span class="lineno">  699</span>                       trackId = (k1+1)*10**(j1-1) + (k2+1)*10**(j2-1) + (k3+1)*10**(j3-1) + (k4+1)*10**(j4-1) + (k5+1)*10**(j5-1)</div>
-<div class="line"><span class="lineno">  700</span>                       h[<span class="stringliteral">&#39;trackCand&#39;</span>][p][trackId] = ROOT.TGraph()</div>
-<div class="line"><span class="lineno">  701</span>                 <span class="keywordflow">if</span> <span class="keywordflow">not</span> found:</div>
-<div class="line"><span class="lineno">  702</span>                    h[<span class="stringliteral">&#39;trackCand&#39;</span>][p][trackId] = ROOT.TGraph()</div>
-<div class="line"><span class="lineno">  703</span>          <span class="keywordflow">for</span> trackId <span class="keywordflow">in</span> h[<span class="stringliteral">&#39;trackCand&#39;</span>][p]:</div>
-<div class="line"><span class="lineno">  704</span>              N = -1</div>
-<div class="line"><span class="lineno">  705</span>              <span class="keywordflow">for</span> s <span class="keywordflow">in</span> range(1,6):</div>
-<div class="line"><span class="lineno">  706</span>                k = (trackId//10**(s-1))%10-1</div>
-<div class="line"><span class="lineno">  707</span>                <span class="keywordflow">if</span> <span class="keywordflow">not</span> k&lt;0:</div>
-<div class="line"><span class="lineno">  708</span>                   N+=1</div>
-<div class="line"><span class="lineno">  709</span>                   aCl = mergedClusters[s*10+p][k]</div>
-<div class="line"><span class="lineno">  710</span>                   h[<span class="stringliteral">&#39;trackCand&#39;</span>][p][trackId].SetPoint(N,aCl[1],aCl[0])</div>
-<div class="line"><span class="lineno">  711</span><span class="comment"># 5 plane combinatoric</span></div>
-<div class="line"><span class="lineno">  712</span>         <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  713</span>          <span class="keywordflow">for</span> k1 <span class="keywordflow">in</span> range(len(mergedClusters[10+p])):</div>
-<div class="line"><span class="lineno">  714</span>            aCl1 = mergedClusters[10+p][k1]</div>
-<div class="line"><span class="lineno">  715</span>            <span class="keywordflow">for</span> k2 <span class="keywordflow">in</span> range(len(mergedClusters[20+p])):</div>
-<div class="line"><span class="lineno">  716</span>               aCl2 = mergedClusters[20+p][k2]</div>
-<div class="line"><span class="lineno">  717</span>               D = aCl2[0]-aCl1[0]</div>
-<div class="line"><span class="lineno">  718</span>               <span class="keywordflow">if</span> debug: print(2,<span class="stringliteral">&#39;x1&#39;</span>,aCl1[0],<span class="stringliteral">&#39;x2&#39;</span>,aCl2[0],<span class="stringliteral">&#39;D&#39;</span>,D)</div>
-<div class="line"><span class="lineno">  719</span>               <span class="keywordflow">if</span> abs(D) &gt; dMax: <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  720</span>               <span class="keywordflow">for</span> k3 <span class="keywordflow">in</span> range(len(mergedClusters[30+p])):</div>
-<div class="line"><span class="lineno">  721</span>                  aCl3 = mergedClusters[30+p][k3]</div>
-<div class="line"><span class="lineno">  722</span>                  D3 = 2*D+aCl1[0]-aCl3[0]</div>
-<div class="line"><span class="lineno">  723</span>                  <span class="keywordflow">if</span> debug: print(3,<span class="stringliteral">&#39;x1&#39;</span>,aCl1[0],<span class="stringliteral">&#39;x2&#39;</span>,aCl2[0],<span class="stringliteral">&#39;x3&#39;</span>,aCl3[0],<span class="stringliteral">&#39;D&#39;</span>,D,<span class="stringliteral">&#39;D3&#39;</span>,D3)</div>
-<div class="line"><span class="lineno">  724</span>                  <span class="keywordflow">if</span> abs(D3) &gt; dMax3: <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  725</span>                  trackId = 1000+100*k3+10*k2+k1</div>
-<div class="line"><span class="lineno">  726</span>                  trackId3 = trackId</div>
-<div class="line"><span class="lineno">  727</span>                  h[<span class="stringliteral">&#39;trackCand&#39;</span>][p][trackId]=ROOT.TGraph()</div>
-<div class="line"><span class="lineno">  728</span>                  h[<span class="stringliteral">&#39;trackCand&#39;</span>][p][trackId].SetPoint(0,aCl1[1],aCl1[0])</div>
-<div class="line"><span class="lineno">  729</span>                  h[<span class="stringliteral">&#39;trackCand&#39;</span>][p][trackId].SetPoint(1,aCl2[1],aCl2[0])</div>
-<div class="line"><span class="lineno">  730</span>                  h[<span class="stringliteral">&#39;trackCand&#39;</span>][p][trackId].SetPoint(2,aCl3[1],aCl3[0])</div>
-<div class="line"><span class="lineno">  731</span>                  extr4 = h[<span class="stringliteral">&#39;trackCand&#39;</span>][p][trackId].Eval(aCl3[1]+self.dZ)</div>
-<div class="line"><span class="lineno">  732</span>                  <span class="keywordflow">for</span> k4 <span class="keywordflow">in</span> range(len(mergedClusters[40+p])):</div>
-<div class="line"><span class="lineno">  733</span>                    aCl4 = mergedClusters[40+p][k4]</div>
-<div class="line"><span class="lineno">  734</span>                    D4 = aCl4[0]-extr4</div>
-<div class="line"><span class="lineno">  735</span>                    <span class="keywordflow">if</span> debug: print(4,<span class="stringliteral">&#39;D4&#39;</span>,D4,<span class="stringliteral">&#39;x4&#39;</span>,aCl4[0],<span class="stringliteral">&#39;extr&#39;</span>,extr4)</div>
-<div class="line"><span class="lineno">  736</span>                    <span class="keywordflow">if</span> abs(D4) &gt; dMax3: <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  737</span>                    trackId = 10000+1000*k4+100*k3+10*k2+k1</div>
-<div class="line"><span class="lineno">  738</span>                    trackId4 = trackId</div>
-<div class="line"><span class="lineno">  739</span>                    <span class="keywordflow">if</span> debug: print(4,trackId)</div>
-<div class="line"><span class="lineno">  740</span>                    h[<span class="stringliteral">&#39;trackCand&#39;</span>][p][trackId] = h[<span class="stringliteral">&#39;trackCand&#39;</span>][p][trackId3].Clone()</div>
-<div class="line"><span class="lineno">  741</span>                    h[<span class="stringliteral">&#39;trackCand&#39;</span>][p][trackId].SetPoint(3,aCl4[1],aCl4[0])</div>
-<div class="line"><span class="lineno">  742</span>                    extr5 = h[<span class="stringliteral">&#39;trackCand&#39;</span>][p][trackId].Eval(aCl4[1]+self.dZ)</div>
-<div class="line"><span class="lineno">  743</span>                    <span class="keywordflow">for</span> k5 <span class="keywordflow">in</span> range(len(mergedClusters[50+p])):</div>
-<div class="line"><span class="lineno">  744</span>                       aCl5 = mergedClusters[50+p][k5]</div>
-<div class="line"><span class="lineno">  745</span>                       D5 = aCl5[0]-extr5</div>
-<div class="line"><span class="lineno">  746</span>                       <span class="keywordflow">if</span> debug: print(5,<span class="stringliteral">&#39;D5&#39;</span>,D5,<span class="stringliteral">&#39;x5&#39;</span>,aCl5[0],<span class="stringliteral">&#39;extr&#39;</span>,extr5)</div>
-<div class="line"><span class="lineno">  747</span>                       <span class="keywordflow">if</span> abs(D5) &gt; dMax3: <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  748</span>                       trackId = 100000+10000*k5+1000*k4+100*k3+10*k2+k1</div>
-<div class="line"><span class="lineno">  749</span>                       h[<span class="stringliteral">&#39;trackCand&#39;</span>][p][trackId] = h[<span class="stringliteral">&#39;trackCand&#39;</span>][p][trackId4].Clone()</div>
-<div class="line"><span class="lineno">  750</span>                       h[<span class="stringliteral">&#39;trackCand&#39;</span>][p][trackId].SetPoint(4,aCl5[1],aCl5[0])</div>
-<div class="line"><span class="lineno">  751</span>                       <span class="keywordflow">if</span> debug: print(<span class="stringliteral">&#39;final&#39;</span>,trackId)</div>
-<div class="line"><span class="lineno">  752</span>       <span class="stringliteral">&#39;&#39;&#39;</span></div>
-<div class="line"><span class="lineno">  753</span><span class="stringliteral">clonekiller</span></div>
-<div class="line"><span class="lineno">  754</span><span class="stringliteral">if more than 2 clusters are shared by a track, take the track with better chi2</span></div>
-<div class="line"><span class="lineno">  755</span><span class="stringliteral">       &#39;&#39;&#39;</span></div>
-<div class="line"><span class="lineno">  756</span>       h[<span class="stringliteral">&#39;cloneCand&#39;</span>] = {0:[],1:[]}</div>
-<div class="line"><span class="lineno">  757</span>       discarded = h[<span class="stringliteral">&#39;cloneCand&#39;</span>]</div>
-<div class="line"><span class="lineno">  758</span>       <span class="keywordflow">for</span> p <span class="keywordflow">in</span> range(2):</div>
-<div class="line"><span class="lineno">  759</span>         keys = list(h[<span class="stringliteral">&#39;trackCand&#39;</span>][p])</div>
-<div class="line"><span class="lineno">  760</span>         <span class="keywordflow">for</span> k1 <span class="keywordflow">in</span> range( len(keys)-1):</div>
-<div class="line"><span class="lineno">  761</span>            <span class="keywordflow">if</span> keys[k1] &lt; 100000 <span class="keywordflow">and</span> <span class="keywordflow">not</span> doublet: <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  762</span>            <span class="keywordflow">if</span> keys[k1] <span class="keywordflow">in</span> discarded[p]: <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  763</span>            <span class="keywordflow">if</span> doublet: test1 = str(keys[k1]).zfill(5)</div>
-<div class="line"><span class="lineno">  764</span>            <span class="keywordflow">else</span>:       test1 = str(keys[k1]%100000).zfill(5)</div>
-<div class="line"><span class="lineno">  765</span>            <span class="keywordflow">for</span> k2 <span class="keywordflow">in</span> range(k1+1,len(keys) ):</div>
-<div class="line"><span class="lineno">  766</span>               <span class="keywordflow">if</span> keys[k2] &lt; 100000 <span class="keywordflow">and</span> <span class="keywordflow">not</span> doublet: <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  767</span>               <span class="keywordflow">if</span> keys[k2] <span class="keywordflow">in</span> discarded[p]: <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  768</span>               <span class="keywordflow">if</span> doublet: test2 = str(keys[k2]).zfill(5)</div>
-<div class="line"><span class="lineno">  769</span>               <span class="keywordflow">else</span>:       test2 = str(keys[k2]%100000).zfill(5)</div>
-<div class="line"><span class="lineno">  770</span>               ov = 0</div>
-<div class="line"><span class="lineno">  771</span>               <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(5): </div>
-<div class="line"><span class="lineno">  772</span>                 <span class="keywordflow">if</span> test1[i]==test2[i]: ov+=1</div>
-<div class="line"><span class="lineno">  773</span>               <span class="keywordflow">if</span> ov&gt;ovMax:</div>
-<div class="line"><span class="lineno">  774</span>                 <span class="keywordflow">if</span> doublet <span class="keywordflow">and</span> test1.find(<span class="stringliteral">&#39;0&#39;</span>)&lt;0 <span class="keywordflow">and</span> <span class="keywordflow">not</span> test2.find(<span class="stringliteral">&#39;0&#39;</span>)&lt;0: discarded[p].append(keys[k2])</div>
-<div class="line"><span class="lineno">  775</span>                 <span class="keywordflow">elif</span> doublet <span class="keywordflow">and</span> test2.find(<span class="stringliteral">&#39;0&#39;</span>)&lt;0 <span class="keywordflow">and</span> <span class="keywordflow">not</span> test1.find(<span class="stringliteral">&#39;0&#39;</span>)&lt;0: discarded[p].append(keys[k1])</div>
-<div class="line"><span class="lineno">  776</span>                 <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  777</span>                    rc1 = h[<span class="stringliteral">&#39;trackCand&#39;</span>][p][keys[k1]].Fit(<span class="stringliteral">&#39;pol1&#39;</span>,<span class="stringliteral">&#39;QS&#39;</span>)</div>
-<div class="line"><span class="lineno">  778</span>                    rc2 = h[<span class="stringliteral">&#39;trackCand&#39;</span>][p][keys[k2]].Fit(<span class="stringliteral">&#39;pol1&#39;</span>,<span class="stringliteral">&#39;QS&#39;</span>)</div>
-<div class="line"><span class="lineno">  779</span>                    <span class="keywordflow">if</span> rc1.Get().Chi2() &lt;  rc2.Get().Chi2(): discarded[p].append(keys[k2])</div>
-<div class="line"><span class="lineno">  780</span>                    <span class="keywordflow">else</span>:                                    discarded[p].append(keys[k1])</div>
+<p class="definition">Definition at line <a class="el" href="SndlhcTracking_8py_source.html#l00591">591</a> of file <a class="el" href="SndlhcTracking_8py_source.html">SndlhcTracking.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  591</span> <span class="keyword">def </span>multipleTrackCandidates(self,planesWithClusters=10,nMaxCl=8,dGap=0.2,dMax=0.8,dMax3=0.8,ovMax = 1,doublet=True,debug=False):</div>
+<div class="line"><span class="lineno">  592</span>       A,B = ROOT.TVector3(),ROOT.TVector3()</div>
+<div class="line"><span class="lineno">  593</span>       h = self.multipleTrackStore</div>
+<div class="line"><span class="lineno">  594</span>       h[<span class="stringliteral">&#39;trackCand&#39;</span>] = {0:{},1:{}}</div>
+<div class="line"><span class="lineno">  595</span>       h[<span class="stringliteral">&#39;sortedClusters&#39;</span>] = {}</div>
+<div class="line"><span class="lineno">  596</span>       sortedClusters = h[<span class="stringliteral">&#39;sortedClusters&#39;</span>]</div>
+<div class="line"><span class="lineno">  597</span>       self.scifiCluster()</div>
+<div class="line"><span class="lineno">  598</span>       clusters = self.clusScifi</div>
+<div class="line"><span class="lineno">  599</span>       <span class="keywordflow">for</span> aCl <span class="keywordflow">in</span> clusters:</div>
+<div class="line"><span class="lineno">  600</span>           so = aCl.GetFirst()//100000</div>
+<div class="line"><span class="lineno">  601</span>           <span class="keywordflow">if</span> <span class="keywordflow">not</span> so <span class="keywordflow">in</span> sortedClusters: </div>
+<div class="line"><span class="lineno">  602</span>              sortedClusters[so]=[]</div>
+<div class="line"><span class="lineno">  603</span>           aCl.GetPosition(A,B)</div>
+<div class="line"><span class="lineno">  604</span>           <span class="keywordflow">if</span> aCl.GetFirst()//100000%10 == 0: pos = A[1]</div>
+<div class="line"><span class="lineno">  605</span>           <span class="keywordflow">else</span>:                              pos = A[0]</div>
+<div class="line"><span class="lineno">  606</span>           sortedClusters[so].append([pos,A[2],aCl])</div>
+<div class="line"><span class="lineno">  607</span><span class="comment"># select events with clusters in each plane</span></div>
+<div class="line"><span class="lineno">  608</span>       <span class="keywordflow">if</span> len(sortedClusters)&lt;planesWithClusters: <span class="keywordflow">return</span></div>
+<div class="line"><span class="lineno">  609</span><span class="comment">#</span></div>
+<div class="line"><span class="lineno">  610</span>       h[<span class="stringliteral">&#39;mergedClusters&#39;</span>] = {}</div>
+<div class="line"><span class="lineno">  611</span>       mergedClusters = h[<span class="stringliteral">&#39;mergedClusters&#39;</span>]</div>
+<div class="line"><span class="lineno">  612</span>       <span class="keywordflow">for</span> so <span class="keywordflow">in</span> sortedClusters:</div>
+<div class="line"><span class="lineno">  613</span>          pos={}</div>
+<div class="line"><span class="lineno">  614</span>          mergedClusters[so]=[]</div>
+<div class="line"><span class="lineno">  615</span>          <span class="keywordflow">for</span> k <span class="keywordflow">in</span> range(len(sortedClusters[so])):</div>
+<div class="line"><span class="lineno">  616</span>             pos[k] = sortedClusters[so][k][0]</div>
+<div class="line"><span class="lineno">  617</span>          sorted_pos = sorted(pos.items(), key=<span class="keyword">lambda</span> x: x[1])</div>
+<div class="line"><span class="lineno">  618</span>          merged = -1</div>
+<div class="line"><span class="lineno">  619</span>          <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(len(sorted_pos)):</div>
+<div class="line"><span class="lineno">  620</span>              x = sorted_pos[i]</div>
+<div class="line"><span class="lineno">  621</span>              aClobj = sortedClusters[so][x[0]]</div>
+<div class="line"><span class="lineno">  622</span>              <span class="keywordflow">if</span> merged &lt; 0:</div>
+<div class="line"><span class="lineno">  623</span>                 merged+=1</div>
+<div class="line"><span class="lineno">  624</span>                 mergedClusters[so].append( [aClobj[0],aClobj[1],[aClobj[2]]] )</div>
+<div class="line"><span class="lineno">  625</span>              <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  626</span>                 prevPos = mergedClusters[so][merged][0]</div>
+<div class="line"><span class="lineno">  627</span>                 pos     = aClobj[0]</div>
+<div class="line"><span class="lineno">  628</span>                 <span class="keywordflow">if</span> pos-prevPos &gt; dGap: </div>
+<div class="line"><span class="lineno">  629</span>                   merged+=1</div>
+<div class="line"><span class="lineno">  630</span>                   mergedClusters[so].append( [aClobj[0],aClobj[1],[aClobj[2]]] )</div>
+<div class="line"><span class="lineno">  631</span>                 <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  632</span>                   N = len(mergedClusters[so][merged][2])</div>
+<div class="line"><span class="lineno">  633</span>                   newPos = (prevPos*N+pos)/(N+1)</div>
+<div class="line"><span class="lineno">  634</span>                   mergedClusters[so][merged][0]=newPos</div>
+<div class="line"><span class="lineno">  635</span>                   mergedClusters[so][merged][2].append(aClobj[2])</div>
+<div class="line"><span class="lineno">  636</span><span class="comment"># not more than nMaxCl in a plane and at least 2</span></div>
+<div class="line"><span class="lineno">  637</span>       <span class="keywordflow">for</span> so <span class="keywordflow">in</span> mergedClusters:</div>
+<div class="line"><span class="lineno">  638</span>          <span class="keywordflow">if</span> len(mergedClusters[so]) &gt; nMaxCl: <span class="keywordflow">return</span></div>
+<div class="line"><span class="lineno">  639</span>          <span class="keywordflow">if</span> len(mergedClusters[so]) &lt; 2: <span class="keywordflow">return</span></div>
+<div class="line"><span class="lineno">  640</span>       <span class="keywordflow">for</span> p <span class="keywordflow">in</span> range(2):</div>
+<div class="line"><span class="lineno">  641</span>         <span class="keywordflow">if</span> debug: print(<span class="stringliteral">&#39;-------- p=&#39;</span>,p)</div>
+<div class="line"><span class="lineno">  642</span>         <span class="keywordflow">if</span> doublet:</div>
+<div class="line"><span class="lineno">  643</span><span class="comment"># method using doublets</span></div>
+<div class="line"><span class="lineno">  644</span>          h[<span class="stringliteral">&#39;doublet&#39;</span>] = {}</div>
+<div class="line"><span class="lineno">  645</span>          <span class="keywordflow">for</span> j1 <span class="keywordflow">in</span> range(1,5):</div>
+<div class="line"><span class="lineno">  646</span>             h[<span class="stringliteral">&#39;doublet&#39;</span>][j1] = {}</div>
+<div class="line"><span class="lineno">  647</span>             <span class="keywordflow">for</span> k1 <span class="keywordflow">in</span> range(len(mergedClusters[j1*10+p])):</div>
+<div class="line"><span class="lineno">  648</span>                aCl1 = mergedClusters[j1*10+p][k1]</div>
+<div class="line"><span class="lineno">  649</span>                h[<span class="stringliteral">&#39;doublet&#39;</span>][j1][k1] = []</div>
+<div class="line"><span class="lineno">  650</span>                j2 = j1+1</div>
+<div class="line"><span class="lineno">  651</span>                <span class="keywordflow">for</span> k2 <span class="keywordflow">in</span> range(len(mergedClusters[j2*10+p])):</div>
+<div class="line"><span class="lineno">  652</span>                    aCl2 = mergedClusters[j2*10+p][k2]</div>
+<div class="line"><span class="lineno">  653</span>                    D = aCl2[0]-aCl1[0]</div>
+<div class="line"><span class="lineno">  654</span>                    <span class="keywordflow">if</span> debug: print(j1,j2,<span class="stringliteral">&#39;x1&#39;</span>,aCl1[0],<span class="stringliteral">&#39;x2&#39;</span>,aCl2[0],<span class="stringliteral">&#39;D&#39;</span>,D)</div>
+<div class="line"><span class="lineno">  655</span>                    <span class="keywordflow">if</span> abs(D ) &gt; dMax: <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  656</span>                    h[<span class="stringliteral">&#39;doublet&#39;</span>][j1][k1].append(10*j2+k2)</div>
+<div class="line"><span class="lineno">  657</span>                <span class="keywordflow">if</span> len(h[<span class="stringliteral">&#39;doublet&#39;</span>][j1][k1]) == 0 <span class="keywordflow">and</span> j2&lt;5:   <span class="comment"># allow one missing plane</span></div>
+<div class="line"><span class="lineno">  658</span>                   j2 = j1+2</div>
+<div class="line"><span class="lineno">  659</span>                   <span class="keywordflow">for</span> k2 <span class="keywordflow">in</span> range(len(mergedClusters[j2*10+p])):</div>
+<div class="line"><span class="lineno">  660</span>                     aCl2 = mergedClusters[j2*10+p][k2]</div>
+<div class="line"><span class="lineno">  661</span>                     D = aCl2[0]-aCl1[0]</div>
+<div class="line"><span class="lineno">  662</span>                     <span class="keywordflow">if</span> debug: print(j1,j2,<span class="stringliteral">&#39;x1&#39;</span>,aCl1[0],<span class="stringliteral">&#39;x2&#39;</span>,aCl2[0],<span class="stringliteral">&#39;D&#39;</span>,D)</div>
+<div class="line"><span class="lineno">  663</span>                     <span class="keywordflow">if</span> abs(D ) &gt; dMax: <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  664</span>                     h[<span class="stringliteral">&#39;doublet&#39;</span>][j1][k1].append(10*j2+k2)</div>
+<div class="line"><span class="lineno">  665</span>          h[<span class="stringliteral">&#39;trackCand&#39;</span>][p] = {}</div>
+<div class="line"><span class="lineno">  666</span>          <span class="keywordflow">for</span> j1 <span class="keywordflow">in</span> [1,2]:</div>
+<div class="line"><span class="lineno">  667</span>           <span class="keywordflow">for</span> k1 <span class="keywordflow">in</span> h[<span class="stringliteral">&#39;doublet&#39;</span>][j1]:</div>
+<div class="line"><span class="lineno">  668</span>            <span class="keywordflow">if</span> j1==2:</div>
+<div class="line"><span class="lineno">  669</span>               alreadyUsed = <span class="keyword">False</span></div>
+<div class="line"><span class="lineno">  670</span>               <span class="keywordflow">for</span> k0 <span class="keywordflow">in</span> h[<span class="stringliteral">&#39;doublet&#39;</span>][1]:</div>
+<div class="line"><span class="lineno">  671</span>                 <span class="keywordflow">for</span> sk0 <span class="keywordflow">in</span> h[<span class="stringliteral">&#39;doublet&#39;</span>][1][k0]:</div>
+<div class="line"><span class="lineno">  672</span>                    <span class="keywordflow">if</span> k1== (sk0%10) :</div>
+<div class="line"><span class="lineno">  673</span>                       alreadyUsed = <span class="keyword">True</span></div>
+<div class="line"><span class="lineno">  674</span>                       <span class="keywordflow">break</span></div>
+<div class="line"><span class="lineno">  675</span>               <span class="keywordflow">if</span> alreadyUsed: <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  676</span>            trackId = (k1+1)*10**(j1-1)</div>
+<div class="line"><span class="lineno">  677</span>            <span class="keywordflow">if</span> debug: print(j1,k1,trackId)</div>
+<div class="line"><span class="lineno">  678</span>            <span class="keywordflow">for</span> sk2 <span class="keywordflow">in</span> h[<span class="stringliteral">&#39;doublet&#39;</span>][j1][k1]:</div>
+<div class="line"><span class="lineno">  679</span>              j2 = sk2//10</div>
+<div class="line"><span class="lineno">  680</span>              k2 = sk2%10</div>
+<div class="line"><span class="lineno">  681</span>              trackId = (k1+1)*10**(j1-1) + (k2+1)*10**(j2-1)</div>
+<div class="line"><span class="lineno">  682</span>              <span class="keywordflow">if</span> debug: print(j2,k2,trackId)</div>
+<div class="line"><span class="lineno">  683</span>              <span class="keywordflow">for</span> sk3 <span class="keywordflow">in</span> h[<span class="stringliteral">&#39;doublet&#39;</span>][j2][k2]:</div>
+<div class="line"><span class="lineno">  684</span>               j3 = sk3//10</div>
+<div class="line"><span class="lineno">  685</span>               k3 = sk3%10</div>
+<div class="line"><span class="lineno">  686</span>               <span class="keywordflow">if</span> j3&gt;4: <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  687</span>               trackId = (k1+1)*10**(j1-1) + (k2+1)*10**(j2-1) + (k3+1)*10**(j3-1)</div>
+<div class="line"><span class="lineno">  688</span>               <span class="keywordflow">if</span> debug: print(j3,k3,trackId)</div>
+<div class="line"><span class="lineno">  689</span>               <span class="keywordflow">for</span> sk4 <span class="keywordflow">in</span> h[<span class="stringliteral">&#39;doublet&#39;</span>][j3][k3]:</div>
+<div class="line"><span class="lineno">  690</span>                 j4 = sk4//10</div>
+<div class="line"><span class="lineno">  691</span>                 k4 = sk4%10</div>
+<div class="line"><span class="lineno">  692</span>                 trackId = (k1+1)*10**(j1-1) + (k2+1)*10**(j2-1) + (k3+1)*10**(j3-1) + (k4+1)*10**(j4-1)</div>
+<div class="line"><span class="lineno">  693</span>                 <span class="keywordflow">if</span> debug: print(j4,k4,trackId)</div>
+<div class="line"><span class="lineno">  694</span>                 found = <span class="keyword">False</span></div>
+<div class="line"><span class="lineno">  695</span>                 <span class="keywordflow">if</span> j4&lt;5:</div>
+<div class="line"><span class="lineno">  696</span>                    <span class="keywordflow">for</span> sk5 <span class="keywordflow">in</span> h[<span class="stringliteral">&#39;doublet&#39;</span>][j4][k4]:</div>
+<div class="line"><span class="lineno">  697</span>                       found = <span class="keyword">True</span></div>
+<div class="line"><span class="lineno">  698</span>                       j5 = sk5//10</div>
+<div class="line"><span class="lineno">  699</span>                       k5 = sk5%10</div>
+<div class="line"><span class="lineno">  700</span>                       trackId = (k1+1)*10**(j1-1) + (k2+1)*10**(j2-1) + (k3+1)*10**(j3-1) + (k4+1)*10**(j4-1) + (k5+1)*10**(j5-1)</div>
+<div class="line"><span class="lineno">  701</span>                       h[<span class="stringliteral">&#39;trackCand&#39;</span>][p][trackId] = ROOT.TGraph()</div>
+<div class="line"><span class="lineno">  702</span>                 <span class="keywordflow">if</span> <span class="keywordflow">not</span> found:</div>
+<div class="line"><span class="lineno">  703</span>                    h[<span class="stringliteral">&#39;trackCand&#39;</span>][p][trackId] = ROOT.TGraph()</div>
+<div class="line"><span class="lineno">  704</span>          <span class="keywordflow">for</span> trackId <span class="keywordflow">in</span> h[<span class="stringliteral">&#39;trackCand&#39;</span>][p]:</div>
+<div class="line"><span class="lineno">  705</span>              N = -1</div>
+<div class="line"><span class="lineno">  706</span>              <span class="keywordflow">for</span> s <span class="keywordflow">in</span> range(1,6):</div>
+<div class="line"><span class="lineno">  707</span>                k = (trackId//10**(s-1))%10-1</div>
+<div class="line"><span class="lineno">  708</span>                <span class="keywordflow">if</span> <span class="keywordflow">not</span> k&lt;0:</div>
+<div class="line"><span class="lineno">  709</span>                   N+=1</div>
+<div class="line"><span class="lineno">  710</span>                   aCl = mergedClusters[s*10+p][k]</div>
+<div class="line"><span class="lineno">  711</span>                   h[<span class="stringliteral">&#39;trackCand&#39;</span>][p][trackId].SetPoint(N,aCl[1],aCl[0])</div>
+<div class="line"><span class="lineno">  712</span><span class="comment"># 5 plane combinatoric</span></div>
+<div class="line"><span class="lineno">  713</span>         <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  714</span>          <span class="keywordflow">for</span> k1 <span class="keywordflow">in</span> range(len(mergedClusters[10+p])):</div>
+<div class="line"><span class="lineno">  715</span>            aCl1 = mergedClusters[10+p][k1]</div>
+<div class="line"><span class="lineno">  716</span>            <span class="keywordflow">for</span> k2 <span class="keywordflow">in</span> range(len(mergedClusters[20+p])):</div>
+<div class="line"><span class="lineno">  717</span>               aCl2 = mergedClusters[20+p][k2]</div>
+<div class="line"><span class="lineno">  718</span>               D = aCl2[0]-aCl1[0]</div>
+<div class="line"><span class="lineno">  719</span>               <span class="keywordflow">if</span> debug: print(2,<span class="stringliteral">&#39;x1&#39;</span>,aCl1[0],<span class="stringliteral">&#39;x2&#39;</span>,aCl2[0],<span class="stringliteral">&#39;D&#39;</span>,D)</div>
+<div class="line"><span class="lineno">  720</span>               <span class="keywordflow">if</span> abs(D) &gt; dMax: <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  721</span>               <span class="keywordflow">for</span> k3 <span class="keywordflow">in</span> range(len(mergedClusters[30+p])):</div>
+<div class="line"><span class="lineno">  722</span>                  aCl3 = mergedClusters[30+p][k3]</div>
+<div class="line"><span class="lineno">  723</span>                  D3 = 2*D+aCl1[0]-aCl3[0]</div>
+<div class="line"><span class="lineno">  724</span>                  <span class="keywordflow">if</span> debug: print(3,<span class="stringliteral">&#39;x1&#39;</span>,aCl1[0],<span class="stringliteral">&#39;x2&#39;</span>,aCl2[0],<span class="stringliteral">&#39;x3&#39;</span>,aCl3[0],<span class="stringliteral">&#39;D&#39;</span>,D,<span class="stringliteral">&#39;D3&#39;</span>,D3)</div>
+<div class="line"><span class="lineno">  725</span>                  <span class="keywordflow">if</span> abs(D3) &gt; dMax3: <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  726</span>                  trackId = 1000+100*k3+10*k2+k1</div>
+<div class="line"><span class="lineno">  727</span>                  trackId3 = trackId</div>
+<div class="line"><span class="lineno">  728</span>                  h[<span class="stringliteral">&#39;trackCand&#39;</span>][p][trackId]=ROOT.TGraph()</div>
+<div class="line"><span class="lineno">  729</span>                  h[<span class="stringliteral">&#39;trackCand&#39;</span>][p][trackId].SetPoint(0,aCl1[1],aCl1[0])</div>
+<div class="line"><span class="lineno">  730</span>                  h[<span class="stringliteral">&#39;trackCand&#39;</span>][p][trackId].SetPoint(1,aCl2[1],aCl2[0])</div>
+<div class="line"><span class="lineno">  731</span>                  h[<span class="stringliteral">&#39;trackCand&#39;</span>][p][trackId].SetPoint(2,aCl3[1],aCl3[0])</div>
+<div class="line"><span class="lineno">  732</span>                  extr4 = h[<span class="stringliteral">&#39;trackCand&#39;</span>][p][trackId].Eval(aCl3[1]+self.dZ)</div>
+<div class="line"><span class="lineno">  733</span>                  <span class="keywordflow">for</span> k4 <span class="keywordflow">in</span> range(len(mergedClusters[40+p])):</div>
+<div class="line"><span class="lineno">  734</span>                    aCl4 = mergedClusters[40+p][k4]</div>
+<div class="line"><span class="lineno">  735</span>                    D4 = aCl4[0]-extr4</div>
+<div class="line"><span class="lineno">  736</span>                    <span class="keywordflow">if</span> debug: print(4,<span class="stringliteral">&#39;D4&#39;</span>,D4,<span class="stringliteral">&#39;x4&#39;</span>,aCl4[0],<span class="stringliteral">&#39;extr&#39;</span>,extr4)</div>
+<div class="line"><span class="lineno">  737</span>                    <span class="keywordflow">if</span> abs(D4) &gt; dMax3: <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  738</span>                    trackId = 10000+1000*k4+100*k3+10*k2+k1</div>
+<div class="line"><span class="lineno">  739</span>                    trackId4 = trackId</div>
+<div class="line"><span class="lineno">  740</span>                    <span class="keywordflow">if</span> debug: print(4,trackId)</div>
+<div class="line"><span class="lineno">  741</span>                    h[<span class="stringliteral">&#39;trackCand&#39;</span>][p][trackId] = h[<span class="stringliteral">&#39;trackCand&#39;</span>][p][trackId3].Clone()</div>
+<div class="line"><span class="lineno">  742</span>                    h[<span class="stringliteral">&#39;trackCand&#39;</span>][p][trackId].SetPoint(3,aCl4[1],aCl4[0])</div>
+<div class="line"><span class="lineno">  743</span>                    extr5 = h[<span class="stringliteral">&#39;trackCand&#39;</span>][p][trackId].Eval(aCl4[1]+self.dZ)</div>
+<div class="line"><span class="lineno">  744</span>                    <span class="keywordflow">for</span> k5 <span class="keywordflow">in</span> range(len(mergedClusters[50+p])):</div>
+<div class="line"><span class="lineno">  745</span>                       aCl5 = mergedClusters[50+p][k5]</div>
+<div class="line"><span class="lineno">  746</span>                       D5 = aCl5[0]-extr5</div>
+<div class="line"><span class="lineno">  747</span>                       <span class="keywordflow">if</span> debug: print(5,<span class="stringliteral">&#39;D5&#39;</span>,D5,<span class="stringliteral">&#39;x5&#39;</span>,aCl5[0],<span class="stringliteral">&#39;extr&#39;</span>,extr5)</div>
+<div class="line"><span class="lineno">  748</span>                       <span class="keywordflow">if</span> abs(D5) &gt; dMax3: <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  749</span>                       trackId = 100000+10000*k5+1000*k4+100*k3+10*k2+k1</div>
+<div class="line"><span class="lineno">  750</span>                       h[<span class="stringliteral">&#39;trackCand&#39;</span>][p][trackId] = h[<span class="stringliteral">&#39;trackCand&#39;</span>][p][trackId4].Clone()</div>
+<div class="line"><span class="lineno">  751</span>                       h[<span class="stringliteral">&#39;trackCand&#39;</span>][p][trackId].SetPoint(4,aCl5[1],aCl5[0])</div>
+<div class="line"><span class="lineno">  752</span>                       <span class="keywordflow">if</span> debug: print(<span class="stringliteral">&#39;final&#39;</span>,trackId)</div>
+<div class="line"><span class="lineno">  753</span>       <span class="stringliteral">&#39;&#39;&#39;</span></div>
+<div class="line"><span class="lineno">  754</span><span class="stringliteral">clonekiller</span></div>
+<div class="line"><span class="lineno">  755</span><span class="stringliteral">if more than 2 clusters are shared by a track, take the track with better chi2</span></div>
+<div class="line"><span class="lineno">  756</span><span class="stringliteral">       &#39;&#39;&#39;</span></div>
+<div class="line"><span class="lineno">  757</span>       h[<span class="stringliteral">&#39;cloneCand&#39;</span>] = {0:[],1:[]}</div>
+<div class="line"><span class="lineno">  758</span>       discarded = h[<span class="stringliteral">&#39;cloneCand&#39;</span>]</div>
+<div class="line"><span class="lineno">  759</span>       <span class="keywordflow">for</span> p <span class="keywordflow">in</span> range(2):</div>
+<div class="line"><span class="lineno">  760</span>         keys = list(h[<span class="stringliteral">&#39;trackCand&#39;</span>][p])</div>
+<div class="line"><span class="lineno">  761</span>         <span class="keywordflow">for</span> k1 <span class="keywordflow">in</span> range( len(keys)-1):</div>
+<div class="line"><span class="lineno">  762</span>            <span class="keywordflow">if</span> keys[k1] &lt; 100000 <span class="keywordflow">and</span> <span class="keywordflow">not</span> doublet: <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  763</span>            <span class="keywordflow">if</span> keys[k1] <span class="keywordflow">in</span> discarded[p]: <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  764</span>            <span class="keywordflow">if</span> doublet: test1 = str(keys[k1]).zfill(5)</div>
+<div class="line"><span class="lineno">  765</span>            <span class="keywordflow">else</span>:       test1 = str(keys[k1]%100000).zfill(5)</div>
+<div class="line"><span class="lineno">  766</span>            <span class="keywordflow">for</span> k2 <span class="keywordflow">in</span> range(k1+1,len(keys) ):</div>
+<div class="line"><span class="lineno">  767</span>               <span class="keywordflow">if</span> keys[k2] &lt; 100000 <span class="keywordflow">and</span> <span class="keywordflow">not</span> doublet: <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  768</span>               <span class="keywordflow">if</span> keys[k2] <span class="keywordflow">in</span> discarded[p]: <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  769</span>               <span class="keywordflow">if</span> doublet: test2 = str(keys[k2]).zfill(5)</div>
+<div class="line"><span class="lineno">  770</span>               <span class="keywordflow">else</span>:       test2 = str(keys[k2]%100000).zfill(5)</div>
+<div class="line"><span class="lineno">  771</span>               ov = 0</div>
+<div class="line"><span class="lineno">  772</span>               <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(5): </div>
+<div class="line"><span class="lineno">  773</span>                 <span class="keywordflow">if</span> test1[i]==test2[i]: ov+=1</div>
+<div class="line"><span class="lineno">  774</span>               <span class="keywordflow">if</span> ov&gt;ovMax:</div>
+<div class="line"><span class="lineno">  775</span>                 <span class="keywordflow">if</span> doublet <span class="keywordflow">and</span> test1.find(<span class="stringliteral">&#39;0&#39;</span>)&lt;0 <span class="keywordflow">and</span> <span class="keywordflow">not</span> test2.find(<span class="stringliteral">&#39;0&#39;</span>)&lt;0: discarded[p].append(keys[k2])</div>
+<div class="line"><span class="lineno">  776</span>                 <span class="keywordflow">elif</span> doublet <span class="keywordflow">and</span> test2.find(<span class="stringliteral">&#39;0&#39;</span>)&lt;0 <span class="keywordflow">and</span> <span class="keywordflow">not</span> test1.find(<span class="stringliteral">&#39;0&#39;</span>)&lt;0: discarded[p].append(keys[k1])</div>
+<div class="line"><span class="lineno">  777</span>                 <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  778</span>                    rc1 = h[<span class="stringliteral">&#39;trackCand&#39;</span>][p][keys[k1]].Fit(<span class="stringliteral">&#39;pol1&#39;</span>,<span class="stringliteral">&#39;QS&#39;</span>)</div>
+<div class="line"><span class="lineno">  779</span>                    rc2 = h[<span class="stringliteral">&#39;trackCand&#39;</span>][p][keys[k2]].Fit(<span class="stringliteral">&#39;pol1&#39;</span>,<span class="stringliteral">&#39;QS&#39;</span>)</div>
+<div class="line"><span class="lineno">  780</span>                    <span class="keywordflow">if</span> rc1.Get().Chi2() &lt;  rc2.Get().Chi2(): discarded[p].append(keys[k2])</div>
+<div class="line"><span class="lineno">  781</span>                    <span class="keywordflow">else</span>:                                    discarded[p].append(keys[k1])</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1014,37 +1015,37 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SndlhcTracking_8py_source.html#l00423">423</a> of file <a class="el" href="SndlhcTracking_8py_source.html">SndlhcTracking.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  423</span> <span class="keyword">def </span>patternReco(self):</div>
-<div class="line"><span class="lineno">  424</span><span class="comment"># very simple for the moment, take all scifi clusters</span></div>
-<div class="line"><span class="lineno">  425</span>    trackCandidates = []</div>
-<div class="line"><span class="lineno">  426</span>    hitlist = {}</div>
-<div class="line"><span class="lineno">  427</span>    ScifiStations = {}</div>
-<div class="line"><span class="lineno">  428</span>    <span class="keywordflow">for</span> k <span class="keywordflow">in</span> range(len(self.event.Cluster_Scifi)):</div>
-<div class="line"><span class="lineno">  429</span>           hitlist[k] = self.event.Cluster_Scifi[k]</div>
-<div class="line"><span class="lineno">  430</span>           ScifiStations[hitlist[k].GetFirst()//1000000] = 1</div>
-<div class="line"><span class="lineno">  431</span><span class="comment"># take fired muonFilter bars if more than 2 SiPMs have fired</span></div>
-<div class="line"><span class="lineno">  432</span>    nMin = 1</div>
-<div class="line"><span class="lineno">  433</span>    MuFiPlanes = {}</div>
-<div class="line"><span class="lineno">  434</span>    <span class="keywordflow">for</span> k <span class="keywordflow">in</span> range(self.event.Digi_MuFilterHits.GetEntries()):</div>
-<div class="line"><span class="lineno">  435</span>         aHit = self.event.Digi_MuFilterHits[k]</div>
-<div class="line"><span class="lineno">  436</span>         <span class="keywordflow">if</span> <span class="keywordflow">not</span> aHit.isValid(): <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  437</span>         detID = aHit.GetDetectorID()</div>
-<div class="line"><span class="lineno">  438</span>         sy    = detID//10000</div>
-<div class="line"><span class="lineno">  439</span>         l       = (detID%10000)//1000  <span class="comment"># plane number</span></div>
-<div class="line"><span class="lineno">  440</span>         bar = (detID%1000)</div>
-<div class="line"><span class="lineno">  441</span>         nSiPMs = aHit.GetnSiPMs()</div>
-<div class="line"><span class="lineno">  442</span>         nSides  = aHit.GetnSides()</div>
-<div class="line"><span class="lineno">  443</span>         nFired = 0</div>
-<div class="line"><span class="lineno">  444</span>         <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(nSides*nSiPMs):</div>
-<div class="line"><span class="lineno">  445</span>              <span class="keywordflow">if</span> aHit.GetSignal(i) &gt; 0: nFired+=1</div>
-<div class="line"><span class="lineno">  446</span>         <span class="keywordflow">if</span> nMin &gt; nFired: <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  447</span>         hitlist[k*1000] = self.event.Digi_MuFilterHits[k]</div>
-<div class="line"><span class="lineno">  448</span>         MuFiPlanes[sy*100+l] = 1</div>
-<div class="line"><span class="lineno">  449</span>    <span class="keywordflow">if</span> (len(ScifiStations) == 5 <span class="keywordflow">or</span> len(MuFiPlanes)&gt;4) <span class="keywordflow">and</span> len(hitlist)&lt;20:</div>
-<div class="line"><span class="lineno">  450</span>           trackCandidates.append(hitlist)</div>
-<div class="line"><span class="lineno">  451</span>    <span class="keywordflow">return</span> trackCandidates</div>
-<div class="line"><span class="lineno">  452</span> </div>
+<p class="definition">Definition at line <a class="el" href="SndlhcTracking_8py_source.html#l00424">424</a> of file <a class="el" href="SndlhcTracking_8py_source.html">SndlhcTracking.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  424</span> <span class="keyword">def </span>patternReco(self):</div>
+<div class="line"><span class="lineno">  425</span><span class="comment"># very simple for the moment, take all scifi clusters</span></div>
+<div class="line"><span class="lineno">  426</span>    trackCandidates = []</div>
+<div class="line"><span class="lineno">  427</span>    hitlist = {}</div>
+<div class="line"><span class="lineno">  428</span>    ScifiStations = {}</div>
+<div class="line"><span class="lineno">  429</span>    <span class="keywordflow">for</span> k <span class="keywordflow">in</span> range(len(self.event.Cluster_Scifi)):</div>
+<div class="line"><span class="lineno">  430</span>           hitlist[k] = self.event.Cluster_Scifi[k]</div>
+<div class="line"><span class="lineno">  431</span>           ScifiStations[hitlist[k].GetFirst()//1000000] = 1</div>
+<div class="line"><span class="lineno">  432</span><span class="comment"># take fired muonFilter bars if more than 2 SiPMs have fired</span></div>
+<div class="line"><span class="lineno">  433</span>    nMin = 1</div>
+<div class="line"><span class="lineno">  434</span>    MuFiPlanes = {}</div>
+<div class="line"><span class="lineno">  435</span>    <span class="keywordflow">for</span> k <span class="keywordflow">in</span> range(self.event.Digi_MuFilterHits.GetEntries()):</div>
+<div class="line"><span class="lineno">  436</span>         aHit = self.event.Digi_MuFilterHits[k]</div>
+<div class="line"><span class="lineno">  437</span>         <span class="keywordflow">if</span> <span class="keywordflow">not</span> aHit.isValid(): <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  438</span>         detID = aHit.GetDetectorID()</div>
+<div class="line"><span class="lineno">  439</span>         sy    = detID//10000</div>
+<div class="line"><span class="lineno">  440</span>         l       = (detID%10000)//1000  <span class="comment"># plane number</span></div>
+<div class="line"><span class="lineno">  441</span>         bar = (detID%1000)</div>
+<div class="line"><span class="lineno">  442</span>         nSiPMs = aHit.GetnSiPMs()</div>
+<div class="line"><span class="lineno">  443</span>         nSides  = aHit.GetnSides()</div>
+<div class="line"><span class="lineno">  444</span>         nFired = 0</div>
+<div class="line"><span class="lineno">  445</span>         <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(nSides*nSiPMs):</div>
+<div class="line"><span class="lineno">  446</span>              <span class="keywordflow">if</span> aHit.GetSignal(i) &gt; 0: nFired+=1</div>
+<div class="line"><span class="lineno">  447</span>         <span class="keywordflow">if</span> nMin &gt; nFired: <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  448</span>         hitlist[k*1000] = self.event.Digi_MuFilterHits[k]</div>
+<div class="line"><span class="lineno">  449</span>         MuFiPlanes[sy*100+l] = 1</div>
+<div class="line"><span class="lineno">  450</span>    <span class="keywordflow">if</span> (len(ScifiStations) == 5 <span class="keywordflow">or</span> len(MuFiPlanes)&gt;4) <span class="keywordflow">and</span> len(hitlist)&lt;20:</div>
+<div class="line"><span class="lineno">  451</span>           trackCandidates.append(hitlist)</div>
+<div class="line"><span class="lineno">  452</span>    <span class="keywordflow">return</span> trackCandidates</div>
+<div class="line"><span class="lineno">  453</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1064,82 +1065,82 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SndlhcTracking_8py_source.html#l00260">260</a> of file <a class="el" href="SndlhcTracking_8py_source.html">SndlhcTracking.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  260</span> <span class="keyword">def </span>Scifi_track(self):</div>
-<div class="line"><span class="lineno">  261</span><span class="comment"># check for low occupancy and enough hits in Scifi</span></div>
-<div class="line"><span class="lineno">  262</span>        event = self.event</div>
-<div class="line"><span class="lineno">  263</span>        trackCandidates = []</div>
-<div class="line"><span class="lineno">  264</span>        clusters = self.clusScifi</div>
-<div class="line"><span class="lineno">  265</span>        stations = {}</div>
-<div class="line"><span class="lineno">  266</span>        projClusters = {0:{},1:{}}</div>
-<div class="line"><span class="lineno">  267</span>        <span class="keywordflow">for</span> s <span class="keywordflow">in</span> range(1,6):</div>
-<div class="line"><span class="lineno">  268</span>           <span class="keywordflow">for</span> o <span class="keywordflow">in</span> range(2):</div>
-<div class="line"><span class="lineno">  269</span>              stations[s*10+o] = []</div>
-<div class="line"><span class="lineno">  270</span>        k=0      </div>
-<div class="line"><span class="lineno">  271</span>        <span class="keywordflow">for</span> cl <span class="keywordflow">in</span> clusters:</div>
-<div class="line"><span class="lineno">  272</span>            detID = cl.GetFirst()</div>
-<div class="line"><span class="lineno">  273</span>            s  = detID//1000000</div>
-<div class="line"><span class="lineno">  274</span>            o = (detID//100000)%10</div>
-<div class="line"><span class="lineno">  275</span>            <span class="keywordflow">if</span> self.maskPlane != s:</div>
-<div class="line"><span class="lineno">  276</span>                stations[s*10+o].append(detID)</div>
-<div class="line"><span class="lineno">  277</span>                projClusters[o][detID] = [cl,k]</div>
-<div class="line"><span class="lineno">  278</span>                k+=1</div>
-<div class="line"><span class="lineno">  279</span>        nclusters = 0</div>
-<div class="line"><span class="lineno">  280</span>        check = {}</div>
-<div class="line"><span class="lineno">  281</span>        ignore = []</div>
-<div class="line"><span class="lineno">  282</span>        <span class="keywordflow">for</span> o <span class="keywordflow">in</span> range(2):</div>
-<div class="line"><span class="lineno">  283</span>            check[o]={}</div>
-<div class="line"><span class="lineno">  284</span>            <span class="keywordflow">for</span> s <span class="keywordflow">in</span> range(1,6):</div>
-<div class="line"><span class="lineno">  285</span>                <span class="keywordflow">if</span> len(stations[s*10+o]) &gt; self.nClusters: </div>
-<div class="line"><span class="lineno">  286</span>                  ignore.append(s*10+o)</div>
-<div class="line"><span class="lineno">  287</span>                <span class="keywordflow">elif</span> len(stations[s*10+o]) &gt; 0 : </div>
-<div class="line"><span class="lineno">  288</span>                  check[o][s] = 1</div>
-<div class="line"><span class="lineno">  289</span>                  nclusters+=len(stations[s*10+o])</div>
-<div class="line"><span class="lineno">  290</span>        </div>
-<div class="line"><span class="lineno">  291</span>        <span class="keywordflow">if</span> len(check[0])&lt;self.nPlanes <span class="keywordflow">or</span> len(check[1])&lt;self.nPlanes: <span class="keywordflow">return</span> trackCandidates</div>
-<div class="line"><span class="lineno">  292</span><span class="comment"># build trackCandidate</span></div>
-<div class="line"><span class="lineno">  293</span><span class="comment"># PR logic, fit straight line in x/y projection, remove outliers. Ignore tilt.</span></div>
-<div class="line"><span class="lineno">  294</span>        hitlist = {}</div>
-<div class="line"><span class="lineno">  295</span>        sortedClusters = {}</div>
-<div class="line"><span class="lineno">  296</span>        check[0]=0</div>
-<div class="line"><span class="lineno">  297</span>        check[1]=0</div>
-<div class="line"><span class="lineno">  298</span>        <span class="keywordflow">for</span> o <span class="keywordflow">in</span> range(2):</div>
-<div class="line"><span class="lineno">  299</span>           sortedClusters[o]=sorted(projClusters[o])</div>
-<div class="line"><span class="lineno">  300</span>           g = ROOT.TGraph()</div>
-<div class="line"><span class="lineno">  301</span>           n = 0</div>
-<div class="line"><span class="lineno">  302</span>           mean = {}</div>
-<div class="line"><span class="lineno">  303</span>           points = {}</div>
-<div class="line"><span class="lineno">  304</span>           <span class="keywordflow">for</span> detID <span class="keywordflow">in</span> sortedClusters[o]:</div>
-<div class="line"><span class="lineno">  305</span>               s  = detID//1000000</div>
-<div class="line"><span class="lineno">  306</span>               <span class="keywordflow">if</span>  (s*10+o) <span class="keywordflow">in</span> ignore: <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  307</span>               <span class="keywordflow">if</span> <span class="keywordflow">not</span> s <span class="keywordflow">in</span> mean: </div>
-<div class="line"><span class="lineno">  308</span>                  mean[s]=[0,0,0]</div>
-<div class="line"><span class="lineno">  309</span>               projClusters[o][detID][0].GetPosition(A,B)</div>
-<div class="line"><span class="lineno">  310</span>               z = (A[2]+B[2])/2.</div>
-<div class="line"><span class="lineno">  311</span>               <span class="keywordflow">if</span> o==0: y = (A[1]+B[1])/2.</div>
-<div class="line"><span class="lineno">  312</span>               <span class="keywordflow">else</span>: y = (A[0]+B[0])/2.</div>
-<div class="line"><span class="lineno">  313</span>               points[detID] = [z,y]</div>
-<div class="line"><span class="lineno">  314</span>               mean[s][0]+=z</div>
-<div class="line"><span class="lineno">  315</span>               mean[s][1]+=y</div>
-<div class="line"><span class="lineno">  316</span>               mean[s][2]+=1</div>
-<div class="line"><span class="lineno">  317</span>           <span class="keywordflow">for</span> s <span class="keywordflow">in</span> mean:</div>
-<div class="line"><span class="lineno">  318</span>              <span class="keywordflow">for</span> n <span class="keywordflow">in</span> range(2):</div>
-<div class="line"><span class="lineno">  319</span>                 mean[s][n]=mean[s][n]/mean[s][2]</div>
-<div class="line"><span class="lineno">  320</span>              g.AddPoint(mean[s][0],mean[s][1])</div>
-<div class="line"><span class="lineno">  321</span>           rc = g.Fit(<span class="stringliteral">&#39;pol1&#39;</span>,<span class="stringliteral">&#39;SQ&#39;</span>)</div>
-<div class="line"><span class="lineno">  322</span>           fun = g.GetFunction(<span class="stringliteral">&#39;pol1&#39;</span>)</div>
-<div class="line"><span class="lineno">  323</span>           <span class="keywordflow">for</span> detID <span class="keywordflow">in</span> points:</div>
-<div class="line"><span class="lineno">  324</span>               z = points[detID][0]</div>
-<div class="line"><span class="lineno">  325</span>               y = points[detID][1]</div>
-<div class="line"><span class="lineno">  326</span>               res = abs(y-fun.Eval(z))/self.sigma</div>
-<div class="line"><span class="lineno">  327</span>               <span class="keywordflow">if</span> res &lt; self.maxRes:</div>
-<div class="line"><span class="lineno">  328</span>                 k = projClusters[o][detID][1]</div>
-<div class="line"><span class="lineno">  329</span>                 hitlist[k] = projClusters[o][detID][0]</div>
-<div class="line"><span class="lineno">  330</span>                 check[o]+=1</div>
-<div class="line"><span class="lineno">  331</span>        <span class="keywordflow">if</span> check[0]&gt;2 <span class="keywordflow">and</span> check[1]&gt;2:</div>
-<div class="line"><span class="lineno">  332</span>              trackCandidates.append(hitlist)</div>
-<div class="line"><span class="lineno">  333</span>        <span class="keywordflow">return</span> trackCandidates</div>
-<div class="line"><span class="lineno">  334</span> </div>
+<p class="definition">Definition at line <a class="el" href="SndlhcTracking_8py_source.html#l00261">261</a> of file <a class="el" href="SndlhcTracking_8py_source.html">SndlhcTracking.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  261</span> <span class="keyword">def </span>Scifi_track(self):</div>
+<div class="line"><span class="lineno">  262</span><span class="comment"># check for low occupancy and enough hits in Scifi</span></div>
+<div class="line"><span class="lineno">  263</span>        event = self.event</div>
+<div class="line"><span class="lineno">  264</span>        trackCandidates = []</div>
+<div class="line"><span class="lineno">  265</span>        clusters = self.clusScifi</div>
+<div class="line"><span class="lineno">  266</span>        stations = {}</div>
+<div class="line"><span class="lineno">  267</span>        projClusters = {0:{},1:{}}</div>
+<div class="line"><span class="lineno">  268</span>        <span class="keywordflow">for</span> s <span class="keywordflow">in</span> range(1,6):</div>
+<div class="line"><span class="lineno">  269</span>           <span class="keywordflow">for</span> o <span class="keywordflow">in</span> range(2):</div>
+<div class="line"><span class="lineno">  270</span>              stations[s*10+o] = []</div>
+<div class="line"><span class="lineno">  271</span>        k=0      </div>
+<div class="line"><span class="lineno">  272</span>        <span class="keywordflow">for</span> cl <span class="keywordflow">in</span> clusters:</div>
+<div class="line"><span class="lineno">  273</span>            detID = cl.GetFirst()</div>
+<div class="line"><span class="lineno">  274</span>            s  = detID//1000000</div>
+<div class="line"><span class="lineno">  275</span>            o = (detID//100000)%10</div>
+<div class="line"><span class="lineno">  276</span>            <span class="keywordflow">if</span> self.maskPlane != s:</div>
+<div class="line"><span class="lineno">  277</span>                stations[s*10+o].append(detID)</div>
+<div class="line"><span class="lineno">  278</span>                projClusters[o][detID] = [cl,k]</div>
+<div class="line"><span class="lineno">  279</span>                k+=1</div>
+<div class="line"><span class="lineno">  280</span>        nclusters = 0</div>
+<div class="line"><span class="lineno">  281</span>        check = {}</div>
+<div class="line"><span class="lineno">  282</span>        ignore = []</div>
+<div class="line"><span class="lineno">  283</span>        <span class="keywordflow">for</span> o <span class="keywordflow">in</span> range(2):</div>
+<div class="line"><span class="lineno">  284</span>            check[o]={}</div>
+<div class="line"><span class="lineno">  285</span>            <span class="keywordflow">for</span> s <span class="keywordflow">in</span> range(1,6):</div>
+<div class="line"><span class="lineno">  286</span>                <span class="keywordflow">if</span> len(stations[s*10+o]) &gt; self.nClusters: </div>
+<div class="line"><span class="lineno">  287</span>                  ignore.append(s*10+o)</div>
+<div class="line"><span class="lineno">  288</span>                <span class="keywordflow">elif</span> len(stations[s*10+o]) &gt; 0 : </div>
+<div class="line"><span class="lineno">  289</span>                  check[o][s] = 1</div>
+<div class="line"><span class="lineno">  290</span>                  nclusters+=len(stations[s*10+o])</div>
+<div class="line"><span class="lineno">  291</span>        </div>
+<div class="line"><span class="lineno">  292</span>        <span class="keywordflow">if</span> len(check[0])&lt;self.nPlanes <span class="keywordflow">or</span> len(check[1])&lt;self.nPlanes: <span class="keywordflow">return</span> trackCandidates</div>
+<div class="line"><span class="lineno">  293</span><span class="comment"># build trackCandidate</span></div>
+<div class="line"><span class="lineno">  294</span><span class="comment"># PR logic, fit straight line in x/y projection, remove outliers. Ignore tilt.</span></div>
+<div class="line"><span class="lineno">  295</span>        hitlist = {}</div>
+<div class="line"><span class="lineno">  296</span>        sortedClusters = {}</div>
+<div class="line"><span class="lineno">  297</span>        check[0]=0</div>
+<div class="line"><span class="lineno">  298</span>        check[1]=0</div>
+<div class="line"><span class="lineno">  299</span>        <span class="keywordflow">for</span> o <span class="keywordflow">in</span> range(2):</div>
+<div class="line"><span class="lineno">  300</span>           sortedClusters[o]=sorted(projClusters[o])</div>
+<div class="line"><span class="lineno">  301</span>           g = ROOT.TGraph()</div>
+<div class="line"><span class="lineno">  302</span>           n = 0</div>
+<div class="line"><span class="lineno">  303</span>           mean = {}</div>
+<div class="line"><span class="lineno">  304</span>           points = {}</div>
+<div class="line"><span class="lineno">  305</span>           <span class="keywordflow">for</span> detID <span class="keywordflow">in</span> sortedClusters[o]:</div>
+<div class="line"><span class="lineno">  306</span>               s  = detID//1000000</div>
+<div class="line"><span class="lineno">  307</span>               <span class="keywordflow">if</span>  (s*10+o) <span class="keywordflow">in</span> ignore: <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  308</span>               <span class="keywordflow">if</span> <span class="keywordflow">not</span> s <span class="keywordflow">in</span> mean: </div>
+<div class="line"><span class="lineno">  309</span>                  mean[s]=[0,0,0]</div>
+<div class="line"><span class="lineno">  310</span>               projClusters[o][detID][0].GetPosition(A,B)</div>
+<div class="line"><span class="lineno">  311</span>               z = (A[2]+B[2])/2.</div>
+<div class="line"><span class="lineno">  312</span>               <span class="keywordflow">if</span> o==0: y = (A[1]+B[1])/2.</div>
+<div class="line"><span class="lineno">  313</span>               <span class="keywordflow">else</span>: y = (A[0]+B[0])/2.</div>
+<div class="line"><span class="lineno">  314</span>               points[detID] = [z,y]</div>
+<div class="line"><span class="lineno">  315</span>               mean[s][0]+=z</div>
+<div class="line"><span class="lineno">  316</span>               mean[s][1]+=y</div>
+<div class="line"><span class="lineno">  317</span>               mean[s][2]+=1</div>
+<div class="line"><span class="lineno">  318</span>           <span class="keywordflow">for</span> s <span class="keywordflow">in</span> mean:</div>
+<div class="line"><span class="lineno">  319</span>              <span class="keywordflow">for</span> n <span class="keywordflow">in</span> range(2):</div>
+<div class="line"><span class="lineno">  320</span>                 mean[s][n]=mean[s][n]/mean[s][2]</div>
+<div class="line"><span class="lineno">  321</span>              g.AddPoint(mean[s][0],mean[s][1])</div>
+<div class="line"><span class="lineno">  322</span>           rc = g.Fit(<span class="stringliteral">&#39;pol1&#39;</span>,<span class="stringliteral">&#39;SQ&#39;</span>)</div>
+<div class="line"><span class="lineno">  323</span>           fun = g.GetFunction(<span class="stringliteral">&#39;pol1&#39;</span>)</div>
+<div class="line"><span class="lineno">  324</span>           <span class="keywordflow">for</span> detID <span class="keywordflow">in</span> points:</div>
+<div class="line"><span class="lineno">  325</span>               z = points[detID][0]</div>
+<div class="line"><span class="lineno">  326</span>               y = points[detID][1]</div>
+<div class="line"><span class="lineno">  327</span>               res = abs(y-fun.Eval(z))/self.sigma</div>
+<div class="line"><span class="lineno">  328</span>               <span class="keywordflow">if</span> res &lt; self.maxRes:</div>
+<div class="line"><span class="lineno">  329</span>                 k = projClusters[o][detID][1]</div>
+<div class="line"><span class="lineno">  330</span>                 hitlist[k] = projClusters[o][detID][0]</div>
+<div class="line"><span class="lineno">  331</span>                 check[o]+=1</div>
+<div class="line"><span class="lineno">  332</span>        <span class="keywordflow">if</span> check[0]&gt;2 <span class="keywordflow">and</span> check[1]&gt;2:</div>
+<div class="line"><span class="lineno">  333</span>              trackCandidates.append(hitlist)</div>
+<div class="line"><span class="lineno">  334</span>        <span class="keywordflow">return</span> trackCandidates</div>
+<div class="line"><span class="lineno">  335</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1159,54 +1160,54 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SndlhcTracking_8py_source.html#l00335">335</a> of file <a class="el" href="SndlhcTracking_8py_source.html">SndlhcTracking.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  335</span> <span class="keyword">def </span>scifiCluster(self):</div>
-<div class="line"><span class="lineno">  336</span>       clusters = []</div>
-<div class="line"><span class="lineno">  337</span>       self.DetID2Key.clear()</div>
-<div class="line"><span class="lineno">  338</span>       hitDict = {}</div>
-<div class="line"><span class="lineno">  339</span>       <span class="keywordflow">for</span> k <span class="keywordflow">in</span> range(self.event.Digi_ScifiHits.GetEntries()):</div>
-<div class="line"><span class="lineno">  340</span>            d = self.event.Digi_ScifiHits[k]</div>
-<div class="line"><span class="lineno">  341</span>            <span class="keywordflow">if</span> <span class="keywordflow">not</span> d.isValid(): <span class="keywordflow">continue</span> </div>
-<div class="line"><span class="lineno">  342</span>            hitDict[d.GetDetectorID()] = k</div>
-<div class="line"><span class="lineno">  343</span>       hitList = list(hitDict.keys())</div>
-<div class="line"><span class="lineno">  344</span>       <span class="keywordflow">if</span> len(hitList)&gt;0:</div>
-<div class="line"><span class="lineno">  345</span>              hitList.sort()</div>
-<div class="line"><span class="lineno">  346</span>              tmp = [ hitList[0] ]</div>
-<div class="line"><span class="lineno">  347</span>              cprev = hitList[0]</div>
-<div class="line"><span class="lineno">  348</span>              ncl = 0</div>
-<div class="line"><span class="lineno">  349</span>              last = len(hitList)-1</div>
-<div class="line"><span class="lineno">  350</span>              hitvector = ROOT.std.vector(<span class="stringliteral">&quot;sndScifiHit*&quot;</span>)()</div>
-<div class="line"><span class="lineno">  351</span>              <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(len(hitList)):</div>
-<div class="line"><span class="lineno">  352</span>                   <span class="keywordflow">if</span> i==0 <span class="keywordflow">and</span> len(hitList)&gt;1: <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  353</span>                   c=hitList[i]</div>
-<div class="line"><span class="lineno">  354</span>                   neighbour = <span class="keyword">False</span></div>
-<div class="line"><span class="lineno">  355</span>                   <span class="keywordflow">if</span> (c-cprev)==1:    <span class="comment"># does not account for neighbours across sipms</span></div>
-<div class="line"><span class="lineno">  356</span>                        neighbour = <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">  357</span>                        tmp.append(c)</div>
-<div class="line"><span class="lineno">  358</span>                   <span class="keywordflow">if</span> <span class="keywordflow">not</span> neighbour  <span class="keywordflow">or</span> c==hitList[last]:</div>
-<div class="line"><span class="lineno">  359</span>                        first = tmp[0]</div>
-<div class="line"><span class="lineno">  360</span>                        N = len(tmp)</div>
-<div class="line"><span class="lineno">  361</span>                        hitvector.clear()</div>
-<div class="line"><span class="lineno">  362</span>                        <span class="keywordflow">for</span> aHit <span class="keywordflow">in</span> tmp: hitvector.push_back( self.event.Digi_ScifiHits[hitDict[aHit]])</div>
-<div class="line"><span class="lineno">  363</span>                        aCluster = ROOT.sndCluster(first,N,hitvector,self.scifiDet,<span class="keyword">False</span>)</div>
-<div class="line"><span class="lineno">  364</span>                        clusters.append(aCluster)</div>
-<div class="line"><span class="lineno">  365</span>                        <span class="keywordflow">if</span> c!=hitList[last]:</div>
-<div class="line"><span class="lineno">  366</span>                             ncl+=1</div>
-<div class="line"><span class="lineno">  367</span>                             tmp = [c]</div>
-<div class="line"><span class="lineno">  368</span>                        <span class="keywordflow">elif</span> <span class="keywordflow">not</span> neighbour :   <span class="comment"># save last channel</span></div>
-<div class="line"><span class="lineno">  369</span>                            hitvector.clear()</div>
-<div class="line"><span class="lineno">  370</span>                            hitvector.push_back( self.event.Digi_ScifiHits[hitDict[c]])</div>
-<div class="line"><span class="lineno">  371</span>                            aCluster = ROOT.sndCluster(c,1,hitvector,self.scifiDet,<span class="keyword">False</span>)</div>
-<div class="line"><span class="lineno">  372</span>                            clusters.append(aCluster)</div>
-<div class="line"><span class="lineno">  373</span>                   cprev = c</div>
-<div class="line"><span class="lineno">  374</span>       self.clusScifi.Delete()            </div>
-<div class="line"><span class="lineno">  375</span>       <span class="keywordflow">for</span> c <span class="keywordflow">in</span> clusters:  </div>
-<div class="line"><span class="lineno">  376</span>            self.clusScifi.Add(c)</div>
-<div class="line"><span class="lineno">  377</span><span class="comment"># map clusters to hit keys</span></div>
-<div class="line"><span class="lineno">  378</span>            <span class="keywordflow">for</span> nHit <span class="keywordflow">in</span> range(self.event.Digi_ScifiHits.GetEntries()):</div>
-<div class="line"><span class="lineno">  379</span>              <span class="keywordflow">if</span> self.event.Digi_ScifiHits[nHit].GetDetectorID()==c.GetFirst():</div>
-<div class="line"><span class="lineno">  380</span>                 self.DetID2Key[c.GetFirst()] = nHit</div>
-<div class="line"><span class="lineno">  381</span> </div>
+<p class="definition">Definition at line <a class="el" href="SndlhcTracking_8py_source.html#l00336">336</a> of file <a class="el" href="SndlhcTracking_8py_source.html">SndlhcTracking.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  336</span> <span class="keyword">def </span>scifiCluster(self):</div>
+<div class="line"><span class="lineno">  337</span>       clusters = []</div>
+<div class="line"><span class="lineno">  338</span>       self.DetID2Key.clear()</div>
+<div class="line"><span class="lineno">  339</span>       hitDict = {}</div>
+<div class="line"><span class="lineno">  340</span>       <span class="keywordflow">for</span> k <span class="keywordflow">in</span> range(self.event.Digi_ScifiHits.GetEntries()):</div>
+<div class="line"><span class="lineno">  341</span>            d = self.event.Digi_ScifiHits[k]</div>
+<div class="line"><span class="lineno">  342</span>            <span class="keywordflow">if</span> <span class="keywordflow">not</span> d.isValid(): <span class="keywordflow">continue</span> </div>
+<div class="line"><span class="lineno">  343</span>            hitDict[d.GetDetectorID()] = k</div>
+<div class="line"><span class="lineno">  344</span>       hitList = list(hitDict.keys())</div>
+<div class="line"><span class="lineno">  345</span>       <span class="keywordflow">if</span> len(hitList)&gt;0:</div>
+<div class="line"><span class="lineno">  346</span>              hitList.sort()</div>
+<div class="line"><span class="lineno">  347</span>              tmp = [ hitList[0] ]</div>
+<div class="line"><span class="lineno">  348</span>              cprev = hitList[0]</div>
+<div class="line"><span class="lineno">  349</span>              ncl = 0</div>
+<div class="line"><span class="lineno">  350</span>              last = len(hitList)-1</div>
+<div class="line"><span class="lineno">  351</span>              hitvector = ROOT.std.vector(<span class="stringliteral">&quot;sndScifiHit*&quot;</span>)()</div>
+<div class="line"><span class="lineno">  352</span>              <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(len(hitList)):</div>
+<div class="line"><span class="lineno">  353</span>                   <span class="keywordflow">if</span> i==0 <span class="keywordflow">and</span> len(hitList)&gt;1: <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  354</span>                   c=hitList[i]</div>
+<div class="line"><span class="lineno">  355</span>                   neighbour = <span class="keyword">False</span></div>
+<div class="line"><span class="lineno">  356</span>                   <span class="keywordflow">if</span> (c-cprev)==1:    <span class="comment"># does not account for neighbours across sipms</span></div>
+<div class="line"><span class="lineno">  357</span>                        neighbour = <span class="keyword">True</span></div>
+<div class="line"><span class="lineno">  358</span>                        tmp.append(c)</div>
+<div class="line"><span class="lineno">  359</span>                   <span class="keywordflow">if</span> <span class="keywordflow">not</span> neighbour  <span class="keywordflow">or</span> c==hitList[last]:</div>
+<div class="line"><span class="lineno">  360</span>                        first = tmp[0]</div>
+<div class="line"><span class="lineno">  361</span>                        N = len(tmp)</div>
+<div class="line"><span class="lineno">  362</span>                        hitvector.clear()</div>
+<div class="line"><span class="lineno">  363</span>                        <span class="keywordflow">for</span> aHit <span class="keywordflow">in</span> tmp: hitvector.push_back( self.event.Digi_ScifiHits[hitDict[aHit]])</div>
+<div class="line"><span class="lineno">  364</span>                        aCluster = ROOT.sndCluster(first,N,hitvector,self.scifiDet,<span class="keyword">False</span>)</div>
+<div class="line"><span class="lineno">  365</span>                        clusters.append(aCluster)</div>
+<div class="line"><span class="lineno">  366</span>                        <span class="keywordflow">if</span> c!=hitList[last]:</div>
+<div class="line"><span class="lineno">  367</span>                             ncl+=1</div>
+<div class="line"><span class="lineno">  368</span>                             tmp = [c]</div>
+<div class="line"><span class="lineno">  369</span>                        <span class="keywordflow">elif</span> <span class="keywordflow">not</span> neighbour :   <span class="comment"># save last channel</span></div>
+<div class="line"><span class="lineno">  370</span>                            hitvector.clear()</div>
+<div class="line"><span class="lineno">  371</span>                            hitvector.push_back( self.event.Digi_ScifiHits[hitDict[c]])</div>
+<div class="line"><span class="lineno">  372</span>                            aCluster = ROOT.sndCluster(c,1,hitvector,self.scifiDet,<span class="keyword">False</span>)</div>
+<div class="line"><span class="lineno">  373</span>                            clusters.append(aCluster)</div>
+<div class="line"><span class="lineno">  374</span>                   cprev = c</div>
+<div class="line"><span class="lineno">  375</span>       self.clusScifi.Delete()            </div>
+<div class="line"><span class="lineno">  376</span>       <span class="keywordflow">for</span> c <span class="keywordflow">in</span> clusters:  </div>
+<div class="line"><span class="lineno">  377</span>            self.clusScifi.Add(c)</div>
+<div class="line"><span class="lineno">  378</span><span class="comment"># map clusters to hit keys</span></div>
+<div class="line"><span class="lineno">  379</span>            <span class="keywordflow">for</span> nHit <span class="keywordflow">in</span> range(self.event.Digi_ScifiHits.GetEntries()):</div>
+<div class="line"><span class="lineno">  380</span>              <span class="keywordflow">if</span> self.event.Digi_ScifiHits[nHit].GetDetectorID()==c.GetFirst():</div>
+<div class="line"><span class="lineno">  381</span>                 self.DetID2Key[c.GetFirst()] = nHit</div>
+<div class="line"><span class="lineno">  382</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1269,44 +1270,44 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SndlhcTracking_8py_source.html#l00553">553</a> of file <a class="el" href="SndlhcTracking_8py_source.html">SndlhcTracking.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  553</span> <span class="keyword">def </span>trackDir(self,theTrack):</div>
-<div class="line"><span class="lineno">  554</span>      <span class="keywordflow">if</span> theTrack.GetUniqueID()&gt;1: <span class="keywordflow">return</span> <span class="keyword">False</span> <span class="comment"># for the moment, only the scifi is time calibrated</span></div>
-<div class="line"><span class="lineno">  555</span>      fitStatus   = theTrack.getFitStatus()</div>
-<div class="line"><span class="lineno">  556</span>      <span class="keywordflow">if</span> <span class="keywordflow">not</span> fitStatus.isFitConverged() : <span class="keywordflow">return</span> [100,-100]</div>
-<div class="line"><span class="lineno">  557</span>      state = ROOT.getFittedState(theTrack,0)</div>
-<div class="line"><span class="lineno">  558</span>      pos = state.getPos()</div>
-<div class="line"><span class="lineno">  559</span>      mom = state.getMom()</div>
-<div class="line"><span class="lineno">  560</span>      lam = (self.firstScifi_z-pos.z())/mom.z()</div>
-<div class="line"><span class="lineno">  561</span>      <span class="comment"># nominal first position</span></div>
-<div class="line"><span class="lineno">  562</span>      pos1 = ROOT.TVector3(pos.x()+lam*mom.x(),pos.y()+lam*mom.y(),self.firstScifi_z)</div>
-<div class="line"><span class="lineno">  563</span> </div>
-<div class="line"><span class="lineno">  564</span>      self.Tline = ROOT.TGraph()</div>
-<div class="line"><span class="lineno">  565</span>      meanT = 0</div>
-<div class="line"><span class="lineno">  566</span>      <span class="keywordflow">for</span> nM <span class="keywordflow">in</span> range(theTrack.getNumPointsWithMeasurement()):</div>
-<div class="line"><span class="lineno">  567</span>            state = ROOT.getFittedState(theTrack,nM)</div>
-<div class="line"><span class="lineno">  568</span>            <span class="keywordflow">if</span> <span class="keywordflow">not</span> state: <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  569</span>            posM   = state.getPos()</div>
-<div class="line"><span class="lineno">  570</span>            M = theTrack.getPointWithMeasurement(nM)</div>
-<div class="line"><span class="lineno">  571</span>            W = M.getRawMeasurement()</div>
-<div class="line"><span class="lineno">  572</span>            detID = W.getDetId()</div>
-<div class="line"><span class="lineno">  573</span>            clkey = W.getHitId()</div>
-<div class="line"><span class="lineno">  574</span>            aCl = self.clusScifi[clkey]</div>
-<div class="line"><span class="lineno">  575</span>            aHit = self.event.Digi_ScifiHits[ self.DetID2Key[detID] ]</div>
-<div class="line"><span class="lineno">  576</span>            self.scifiDet.GetSiPMPosition(detID,A,B)</div>
-<div class="line"><span class="lineno">  577</span>            <span class="keywordflow">if</span> aHit.isVertical(): X = B-posM</div>
-<div class="line"><span class="lineno">  578</span>            <span class="keywordflow">else</span>: X = A-posM</div>
-<div class="line"><span class="lineno">  579</span>            L = X.Mag()/self.scifi_vsignal</div>
-<div class="line"><span class="lineno">  580</span>         <span class="comment"># need to correct for signal propagation along fibre</span></div>
-<div class="line"><span class="lineno">  581</span>            corTime = self.scifiDet.GetCorrectedTime(detID, aCl.GetTime(), 0)</div>
-<div class="line"><span class="lineno">  582</span>            trajLength = (posM-pos1).Mag()</div>
-<div class="line"><span class="lineno">  583</span>            T = corTime - L - trajLength/u.speedOfLight</div>
-<div class="line"><span class="lineno">  584</span>            self.Tline.AddPoint(trajLength,T)</div>
-<div class="line"><span class="lineno">  585</span>      rc = self.Tline.Fit(<span class="stringliteral">&#39;pol1&#39;</span>,<span class="stringliteral">&#39;SQ&#39;</span>)</div>
-<div class="line"><span class="lineno">  586</span>      fitResult =  rc.Get()</div>
-<div class="line"><span class="lineno">  587</span>      slope = fitResult.Parameter(1)</div>
-<div class="line"><span class="lineno">  588</span>      <span class="keywordflow">return</span> [slope,slope/(fitResult.ParError(1)+1E-13),fitResult.Parameter(0)]</div>
-<div class="line"><span class="lineno">  589</span>      </div>
+<p class="definition">Definition at line <a class="el" href="SndlhcTracking_8py_source.html#l00554">554</a> of file <a class="el" href="SndlhcTracking_8py_source.html">SndlhcTracking.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  554</span> <span class="keyword">def </span>trackDir(self,theTrack):</div>
+<div class="line"><span class="lineno">  555</span>      <span class="keywordflow">if</span> theTrack.GetUniqueID()&gt;1: <span class="keywordflow">return</span> <span class="keyword">False</span> <span class="comment"># for the moment, only the scifi is time calibrated</span></div>
+<div class="line"><span class="lineno">  556</span>      fitStatus   = theTrack.getFitStatus()</div>
+<div class="line"><span class="lineno">  557</span>      <span class="keywordflow">if</span> <span class="keywordflow">not</span> fitStatus.isFitConverged() : <span class="keywordflow">return</span> [100,-100]</div>
+<div class="line"><span class="lineno">  558</span>      state = ROOT.getFittedState(theTrack,0)</div>
+<div class="line"><span class="lineno">  559</span>      pos = state.getPos()</div>
+<div class="line"><span class="lineno">  560</span>      mom = state.getMom()</div>
+<div class="line"><span class="lineno">  561</span>      lam = (self.firstScifi_z-pos.z())/mom.z()</div>
+<div class="line"><span class="lineno">  562</span>      <span class="comment"># nominal first position</span></div>
+<div class="line"><span class="lineno">  563</span>      pos1 = ROOT.TVector3(pos.x()+lam*mom.x(),pos.y()+lam*mom.y(),self.firstScifi_z)</div>
+<div class="line"><span class="lineno">  564</span> </div>
+<div class="line"><span class="lineno">  565</span>      self.Tline = ROOT.TGraph()</div>
+<div class="line"><span class="lineno">  566</span>      meanT = 0</div>
+<div class="line"><span class="lineno">  567</span>      <span class="keywordflow">for</span> nM <span class="keywordflow">in</span> range(theTrack.getNumPointsWithMeasurement()):</div>
+<div class="line"><span class="lineno">  568</span>            state = ROOT.getFittedState(theTrack,nM)</div>
+<div class="line"><span class="lineno">  569</span>            <span class="keywordflow">if</span> <span class="keywordflow">not</span> state: <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  570</span>            posM   = state.getPos()</div>
+<div class="line"><span class="lineno">  571</span>            M = theTrack.getPointWithMeasurement(nM)</div>
+<div class="line"><span class="lineno">  572</span>            W = M.getRawMeasurement()</div>
+<div class="line"><span class="lineno">  573</span>            detID = W.getDetId()</div>
+<div class="line"><span class="lineno">  574</span>            clkey = W.getHitId()</div>
+<div class="line"><span class="lineno">  575</span>            aCl = self.clusScifi[clkey]</div>
+<div class="line"><span class="lineno">  576</span>            aHit = self.event.Digi_ScifiHits[ self.DetID2Key[detID] ]</div>
+<div class="line"><span class="lineno">  577</span>            self.scifiDet.GetSiPMPosition(detID,A,B)</div>
+<div class="line"><span class="lineno">  578</span>            <span class="keywordflow">if</span> aHit.isVertical(): X = B-posM</div>
+<div class="line"><span class="lineno">  579</span>            <span class="keywordflow">else</span>: X = A-posM</div>
+<div class="line"><span class="lineno">  580</span>            L = X.Mag()/self.scifi_vsignal</div>
+<div class="line"><span class="lineno">  581</span>         <span class="comment"># need to correct for signal propagation along fibre</span></div>
+<div class="line"><span class="lineno">  582</span>            corTime = self.scifiDet.GetCorrectedTime(detID, aCl.GetTime(), 0)</div>
+<div class="line"><span class="lineno">  583</span>            trajLength = (posM-pos1).Mag()</div>
+<div class="line"><span class="lineno">  584</span>            T = corTime - L - trajLength/u.speedOfLight</div>
+<div class="line"><span class="lineno">  585</span>            self.Tline.AddPoint(trajLength,T)</div>
+<div class="line"><span class="lineno">  586</span>      rc = self.Tline.Fit(<span class="stringliteral">&#39;pol1&#39;</span>,<span class="stringliteral">&#39;SQ&#39;</span>)</div>
+<div class="line"><span class="lineno">  587</span>      fitResult =  rc.Get()</div>
+<div class="line"><span class="lineno">  588</span>      slope = fitResult.Parameter(1)</div>
+<div class="line"><span class="lineno">  589</span>      <span class="keywordflow">return</span> [slope,slope/(fitResult.ParError(1)+1E-13),fitResult.Parameter(0)]</div>
+<div class="line"><span class="lineno">  590</span>      </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1787,7 +1788,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SndlhcTracking_8py_source.html#l00564">564</a> of file <a class="el" href="SndlhcTracking_8py_source.html">SndlhcTracking.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SndlhcTracking_8py_source.html#l00565">565</a> of file <a class="el" href="SndlhcTracking_8py_source.html">SndlhcTracking.py</a>.</p>
 
 </div>
 </div>

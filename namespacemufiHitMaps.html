@@ -165,7 +165,7 @@ Variables</h2></td></tr>
 <tr class="separator:aa4df94e58f60540a2959170ee7ae6857"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a569c47d2bcc7faae41c2146a86043224" id="r_a569c47d2bcc7faae41c2146a86043224"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemufiHitMaps.html#a569c47d2bcc7faae41c2146a86043224">f</a> = ROOT.TFile.Open(<a class="el" href="namespacemufiHitMaps.html#a654b14d10018d7ab7a6dea77a5f2fb54">path</a>+'sndsw_raw_'+<a class="el" href="namespacemufiHitMaps.html#a1513dcccb04c5adc06d44e0b1f52cded">str</a>(options.runNumber).zfill(6)+'.root')</td></tr>
 <tr class="separator:a569c47d2bcc7faae41c2146a86043224"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a044807a37bdf0c72d08ef3bae1ccd3d4" id="r_a044807a37bdf0c72d08ef3bae1ccd3d4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemufiHitMaps.html#a044807a37bdf0c72d08ef3bae1ccd3d4">eventTree</a> = f.rawConv</td></tr>
+<tr class="memitem:a044807a37bdf0c72d08ef3bae1ccd3d4" id="r_a044807a37bdf0c72d08ef3bae1ccd3d4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemufiHitMaps.html#a044807a37bdf0c72d08ef3bae1ccd3d4">eventTree</a> = f.Get(&quot;rawConv&quot;)</td></tr>
 <tr class="separator:a044807a37bdf0c72d08ef3bae1ccd3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44406d132a911dbc782bdcbcaba52630" id="r_a44406d132a911dbc782bdcbcaba52630"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemufiHitMaps.html#a44406d132a911dbc782bdcbcaba52630">Digi_MuFilterHits</a></td></tr>
 <tr class="separator:a44406d132a911dbc782bdcbcaba52630"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1021,7 +1021,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">mufiHitMaps.eventTree = f.rawConv</td>
+          <td class="memname">mufiHitMaps.eventTree = f.Get(&quot;rawConv&quot;)</td>
         </tr>
       </table>
 </div><div class="memdoc">

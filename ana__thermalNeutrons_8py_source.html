@@ -130,7 +130,7 @@ $(document).ready(function(){initNavTree('ana__thermalNeutrons_8py_source.html',
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>   ut.bookHist(h,<span class="stringliteral">&#39;xyz&#39;</span>,<span class="stringliteral">&#39;&#39;</span>,   100,-0.1,0.1,100,-0.1,0.1,200,-1.,1.)</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>   ut.bookHist(h,<span class="stringliteral">&#39;dxyz&#39;</span>,<span class="stringliteral">&#39;&#39;</span>,100,-0.1,0.1,100,-0.1,0.1,200,-1.,1.)</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>   Npassed = 0</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>   <span class="keywordflow">for</span> sTree <span class="keywordflow">in</span> f.cbmsim:</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>   <span class="keywordflow">for</span> sTree <span class="keywordflow">in</span> f.Get(<span class="stringliteral">&quot;cbmsim&quot;</span>):</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>       N = sTree.MCTrack[0]</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>       Ekin = N.GetP()**2/(2*N.GetMass())*1000.</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>       logEkin = ROOT.TMath.Log10(Ekin)</div>
@@ -258,7 +258,7 @@ $(document).ready(function(){initNavTree('ana__thermalNeutrons_8py_source.html',
 <div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>     <a class="code hl_function" href="namespaceana__thermalNeutrons.html#a2c5f41b49f94068fab92cfa0dd82770b">myPrint</a>(h[<span class="stringliteral">&#39;T&#39;</span>+X],<span class="stringliteral">&#39;fracEveWith&#39;</span>+X)</div>
 <div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="comment">#</span></div>
 <div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    fntuple = ROOT.TFile.Open(<span class="stringliteral">&#39;neutronsTI18.root&#39;</span>)</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    nt=fntuple.nt</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    nt=fntuple.Get(<span class="stringliteral">&quot;nt&quot;</span>)</div>
 <div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    ROOT.gROOT.cd()</div>
 <div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    tcanv = <span class="stringliteral">&#39;TFig12&#39;</span></div>
 <div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    <span class="keywordflow">if</span> tcanv <span class="keywordflow">in</span> h: h.pop(tcanv)</div>
@@ -307,7 +307,7 @@ $(document).ready(function(){initNavTree('ana__thermalNeutrons_8py_source.html',
 <div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    n = 0</div>
 <div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    RateIntegrated = 0</div>
 <div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    RateIntegratedW = 0</div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    <span class="keywordflow">for</span> nt <span class="keywordflow">in</span> fntuple.nt:</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    <span class="keywordflow">for</span> nt <span class="keywordflow">in</span> fntuple.Get(<span class="stringliteral">&quot;nt&quot;</span>):</div>
 <div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>           E = (nt.Eleft+nt.Eright)/2.</div>
 <div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>           dE = nt.Eright - nt.Eleft</div>
 <div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>           h[<span class="stringliteral">&#39;Fig12&#39;</span>].SetPoint(n,ROOT.TMath.Log10(E),ROOT.TMath.Log10(nt.N*E))</div>
@@ -422,7 +422,7 @@ $(document).ready(function(){initNavTree('ana__thermalNeutrons_8py_source.html',
 <div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>   ut.bookHist(h,<span class="stringliteral">&#39;E&#39;</span>,<span class="stringliteral">&#39;;log10(Ekin [MeV])&#39;</span>,1000,-12.,4.)</div>
 <div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>   stats = {}</div>
 <div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>   n=-1</div>
-<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>   <span class="keywordflow">for</span> sTree <span class="keywordflow">in</span> f.cbmsim:</div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>   <span class="keywordflow">for</span> sTree <span class="keywordflow">in</span> f.Get(<span class="stringliteral">&quot;cbmsim&quot;</span>):</div>
 <div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>        n+=1</div>
 <div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>        daughters = []</div>
 <div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>        <span class="keywordflow">for</span> m <span class="keywordflow">in</span> sTree.MCTrack:</div>
@@ -511,7 +511,7 @@ $(document).ready(function(){initNavTree('ana__thermalNeutrons_8py_source.html',
 <div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span>   h[<span class="stringliteral">&#39;neutronRate&#39;</span>] = ROOT.TGraph()</div>
 <div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span>   h[<span class="stringliteral">&#39;N&#39;</span>] = ROOT.TGraph()</div>
 <div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span>   n = 0</div>
-<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span>   <span class="keywordflow">for</span> nt <span class="keywordflow">in</span> fntuple.nt:</div>
+<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span>   <span class="keywordflow">for</span> nt <span class="keywordflow">in</span> fntuple.Get(<span class="stringliteral">&quot;nt&quot;</span>):</div>
 <div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span>   <span class="comment"># nt.N  = [cm/MeV]</span></div>
 <div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span>           E    = (nt.Eleft+nt.Eright)/2.</div>
 <div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span>           dE = nt.Eright - nt.Eleft</div>
@@ -632,8 +632,8 @@ $(document).ready(function(){initNavTree('ana__thermalNeutrons_8py_source.html',
 <div class="line"><a id="l00516" name="l00516"></a><span class="lineno">  516</span>   ut.bookHist(h,<span class="stringliteral">&#39;multN&#39;</span>,<span class="stringliteral">&#39;mult neutrons&#39;</span>,100,-0.5,99.5)</div>
 <div class="line"><a id="l00517" name="l00517"></a><span class="lineno">  517</span> </div>
 <div class="line"><a id="l00518" name="l00518"></a><span class="lineno">  518</span>   <a class="code hl_function" href="namespaceana__thermalNeutrons.html#a8656fb16223ad51be4a6e58e6b3c7ac7">flukaRateIntegrated</a>()</div>
-<div class="line"><a id="l00519" name="l00519"></a><span class="lineno">  519</span>   Nsim = f.cbmsim.GetEntries()</div>
-<div class="line"><a id="l00520" name="l00520"></a><span class="lineno">  520</span>   <span class="keywordflow">for</span> sTree <span class="keywordflow">in</span> f.cbmsim:</div>
+<div class="line"><a id="l00519" name="l00519"></a><span class="lineno">  519</span>   Nsim = f.Get(<span class="stringliteral">&quot;cbmsim&quot;</span>).GetEntries()</div>
+<div class="line"><a id="l00520" name="l00520"></a><span class="lineno">  520</span>   <span class="keywordflow">for</span> sTree <span class="keywordflow">in</span> f.Get(<span class="stringliteral">&quot;cbmsim&quot;</span>):</div>
 <div class="line"><a id="l00521" name="l00521"></a><span class="lineno">  521</span>       rc=h[<span class="stringliteral">&#39;multN&#39;</span>].Fill(sTree.MCTrack.GetEntries())</div>
 <div class="line"><a id="l00522" name="l00522"></a><span class="lineno">  522</span>       neutron = sTree.MCTrack[0]</div>
 <div class="line"><a id="l00523" name="l00523"></a><span class="lineno">  523</span>       start = ROOT.TVector3(neutron.GetStartX(),neutron.GetStartY(),neutron.GetStartZ())</div>

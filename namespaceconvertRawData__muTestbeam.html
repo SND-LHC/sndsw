@@ -275,62 +275,62 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="convertRawData__muTestbeam_8py_source.html#l00541">541</a> of file <a class="el" href="convertRawData__muTestbeam_8py_source.html">convertRawData_muTestbeam.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  541</span><span class="keyword">def </span>asynInfo(run):</div>
-<div class="line"><span class="lineno">  542</span>    server = os.environ[<span class="stringliteral">&#39;EOSSHIP&#39;</span>]</div>
-<div class="line"><span class="lineno">  543</span>    <span class="keyword">with</span> client.File() <span class="keyword">as</span> f:</div>
-<div class="line"><span class="lineno">  544</span>      location = <span class="stringliteral">&quot;/eos/experiment/sndlhc/raw_data/commissioning/TB_H8_october/run_logs/log_&quot;</span>+str(run)+<span class="stringliteral">&quot;.txt&quot;</span></div>
-<div class="line"><span class="lineno">  545</span>      f.open(server+location)</div>
-<div class="line"><span class="lineno">  546</span>      status, L = f.read()</div>
-<div class="line"><span class="lineno">  547</span>      A = L.decode().split(<span class="stringliteral">&#39;\n&#39;</span>)</div>
-<div class="line"><span class="lineno">  548</span>      f.close()</div>
-<div class="line"><span class="lineno">  549</span>    info = {}</div>
-<div class="line"><span class="lineno">  550</span>    <span class="keywordflow">for</span> x <span class="keywordflow">in</span> A:</div>
-<div class="line"><span class="lineno">  551</span>      X = x.replace(<span class="stringliteral">&#39;\n&#39;</span>,<span class="stringliteral">&#39;&#39;</span>)</div>
-<div class="line"><span class="lineno">  552</span>      <span class="keywordflow">if</span> X==<span class="stringliteral">&#39;&#39;</span>:<span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  553</span>      <span class="keywordflow">if</span> X.find(<span class="stringliteral">&#39;2021&#39;</span>)==0:</div>
-<div class="line"><span class="lineno">  554</span>          tag = X</div>
-<div class="line"><span class="lineno">  555</span>          info[tag]={}</div>
-<div class="line"><span class="lineno">  556</span>      <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  557</span>          <span class="keywordflow">if</span> X.find(<span class="stringliteral">&#39;disc&#39;</span>)&gt;0: info[tag][<span class="stringliteral">&#39;summary&#39;</span>] = eval(X)</div>
-<div class="line"><span class="lineno">  558</span>          <span class="keywordflow">else</span>: info[tag][<span class="stringliteral">&#39;detail&#39;</span>] = eval(X)</div>
-<div class="line"><span class="lineno">  559</span><span class="comment"># correction procedure</span></div>
-<div class="line"><span class="lineno">  560</span>    A = {41:{},43:{},59:{},60:{}}</div>
-<div class="line"><span class="lineno">  561</span>    C = {}</div>
-<div class="line"><span class="lineno">  562</span>    prev = {41:<span class="keywordtype">None</span>,43:<span class="keywordtype">None</span>,59:<span class="keywordtype">None</span>,60:<span class="keywordtype">None</span>}</div>
-<div class="line"><span class="lineno">  563</span>    errorCounter = 0</div>
-<div class="line"><span class="lineno">  564</span>    T = list(info.keys())</div>
-<div class="line"><span class="lineno">  565</span>    T.sort()</div>
-<div class="line"><span class="lineno">  566</span>    <span class="keywordflow">for</span> tag <span class="keywordflow">in</span> T:</div>
-<div class="line"><span class="lineno">  567</span>          test = info[tag][<span class="stringliteral">&#39;summary&#39;</span>]</div>
-<div class="line"><span class="lineno">  568</span>          lastT = test[<span class="stringliteral">&#39;last_timestamp&#39;</span>]</div>
-<div class="line"><span class="lineno">  569</span>          <span class="keywordflow">if</span> <span class="keywordflow">not</span> <span class="stringliteral">&#39;desync_info&#39;</span> <span class="keywordflow">in</span> test: <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  570</span>          C[tag] = {41:{},43:{},59:{},60:{}}</div>
-<div class="line"><span class="lineno">  571</span>          <span class="keywordflow">for</span> L <span class="keywordflow">in</span> test[<span class="stringliteral">&#39;desync_info&#39;</span>]:</div>
-<div class="line"><span class="lineno">  572</span>             board = L[0]</div>
-<div class="line"><span class="lineno">  573</span>             t = L[1][0]</div>
-<div class="line"><span class="lineno">  574</span>             c = L[1][1]</div>
-<div class="line"><span class="lineno">  575</span>             C[tag][board][c]=t</div>
-<div class="line"><span class="lineno">  576</span>    <span class="comment"># check that desync is constant over the complete run</span></div>
-<div class="line"><span class="lineno">  577</span>          <span class="keywordflow">for</span> c <span class="keywordflow">in</span> C[tag][41]:</div>
-<div class="line"><span class="lineno">  578</span>              tref = C[tag][41][c]</div>
-<div class="line"><span class="lineno">  579</span>              <span class="keywordflow">break</span></div>
-<div class="line"><span class="lineno">  580</span>          <span class="keywordflow">for</span> board <span class="keywordflow">in</span> C[tag]:</div>
-<div class="line"><span class="lineno">  581</span>              <span class="keywordflow">if</span> <span class="keywordflow">not</span> c <span class="keywordflow">in</span> C[tag][board]:</div>
-<div class="line"><span class="lineno">  582</span>                  <span class="comment">#print(&#39;different trigger counts, problematic&#39;,tag,C[tag])</span></div>
-<div class="line"><span class="lineno">  583</span>                  errorCounter+=1</div>
-<div class="line"><span class="lineno">  584</span>              <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  585</span>                  <span class="keywordflow">if</span> <span class="keywordflow">not</span> prev[board] == <span class="keywordtype">None</span>:</div>
-<div class="line"><span class="lineno">  586</span>                         <span class="keywordflow">if</span> <span class="keywordflow">not</span> C[tag][board][c]-tref == prev[board]:</div>
-<div class="line"><span class="lineno">  587</span>                              print(<span class="stringliteral">&#39;desync changed, problematic&#39;</span>,tag,prev,C[tag])</div>
-<div class="line"><span class="lineno">  588</span>                  prev[board] = C[tag][board][c]-tref</div>
-<div class="line"><span class="lineno">  589</span>    </div>
-<div class="line"><span class="lineno">  590</span>    T = list(C.keys())</div>
-<div class="line"><span class="lineno">  591</span>    <span class="keywordflow">for</span> b <span class="keywordflow">in</span> C[T[0]]:</div>
-<div class="line"><span class="lineno">  592</span>        <span class="keywordflow">for</span> c <span class="keywordflow">in</span> C[T[0]][b]:</div>
-<div class="line"><span class="lineno">  593</span>            A[b]= C[T[0]][b][c]</div>
-<div class="line"><span class="lineno">  594</span>    <span class="keywordflow">return</span> A</div>
-<div class="line"><span class="lineno">  595</span> </div>
+<p class="definition">Definition at line <a class="el" href="convertRawData__muTestbeam_8py_source.html#l00546">546</a> of file <a class="el" href="convertRawData__muTestbeam_8py_source.html">convertRawData_muTestbeam.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  546</span><span class="keyword">def </span>asynInfo(run):</div>
+<div class="line"><span class="lineno">  547</span>    server = os.environ[<span class="stringliteral">&#39;EOSSHIP&#39;</span>]</div>
+<div class="line"><span class="lineno">  548</span>    <span class="keyword">with</span> client.File() <span class="keyword">as</span> f:</div>
+<div class="line"><span class="lineno">  549</span>      location = <span class="stringliteral">&quot;/eos/experiment/sndlhc/raw_data/commissioning/TB_H8_october/run_logs/log_&quot;</span>+str(run)+<span class="stringliteral">&quot;.txt&quot;</span></div>
+<div class="line"><span class="lineno">  550</span>      f.open(server+location)</div>
+<div class="line"><span class="lineno">  551</span>      status, L = f.read()</div>
+<div class="line"><span class="lineno">  552</span>      A = L.decode().split(<span class="stringliteral">&#39;\n&#39;</span>)</div>
+<div class="line"><span class="lineno">  553</span>      f.close()</div>
+<div class="line"><span class="lineno">  554</span>    info = {}</div>
+<div class="line"><span class="lineno">  555</span>    <span class="keywordflow">for</span> x <span class="keywordflow">in</span> A:</div>
+<div class="line"><span class="lineno">  556</span>      X = x.replace(<span class="stringliteral">&#39;\n&#39;</span>,<span class="stringliteral">&#39;&#39;</span>)</div>
+<div class="line"><span class="lineno">  557</span>      <span class="keywordflow">if</span> X==<span class="stringliteral">&#39;&#39;</span>:<span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  558</span>      <span class="keywordflow">if</span> X.find(<span class="stringliteral">&#39;2021&#39;</span>)==0:</div>
+<div class="line"><span class="lineno">  559</span>          tag = X</div>
+<div class="line"><span class="lineno">  560</span>          info[tag]={}</div>
+<div class="line"><span class="lineno">  561</span>      <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  562</span>          <span class="keywordflow">if</span> X.find(<span class="stringliteral">&#39;disc&#39;</span>)&gt;0: info[tag][<span class="stringliteral">&#39;summary&#39;</span>] = eval(X)</div>
+<div class="line"><span class="lineno">  563</span>          <span class="keywordflow">else</span>: info[tag][<span class="stringliteral">&#39;detail&#39;</span>] = eval(X)</div>
+<div class="line"><span class="lineno">  564</span><span class="comment"># correction procedure</span></div>
+<div class="line"><span class="lineno">  565</span>    A = {41:{},43:{},59:{},60:{}}</div>
+<div class="line"><span class="lineno">  566</span>    C = {}</div>
+<div class="line"><span class="lineno">  567</span>    prev = {41:<span class="keywordtype">None</span>,43:<span class="keywordtype">None</span>,59:<span class="keywordtype">None</span>,60:<span class="keywordtype">None</span>}</div>
+<div class="line"><span class="lineno">  568</span>    errorCounter = 0</div>
+<div class="line"><span class="lineno">  569</span>    T = list(info.keys())</div>
+<div class="line"><span class="lineno">  570</span>    T.sort()</div>
+<div class="line"><span class="lineno">  571</span>    <span class="keywordflow">for</span> tag <span class="keywordflow">in</span> T:</div>
+<div class="line"><span class="lineno">  572</span>          test = info[tag][<span class="stringliteral">&#39;summary&#39;</span>]</div>
+<div class="line"><span class="lineno">  573</span>          lastT = test[<span class="stringliteral">&#39;last_timestamp&#39;</span>]</div>
+<div class="line"><span class="lineno">  574</span>          <span class="keywordflow">if</span> <span class="keywordflow">not</span> <span class="stringliteral">&#39;desync_info&#39;</span> <span class="keywordflow">in</span> test: <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  575</span>          C[tag] = {41:{},43:{},59:{},60:{}}</div>
+<div class="line"><span class="lineno">  576</span>          <span class="keywordflow">for</span> L <span class="keywordflow">in</span> test[<span class="stringliteral">&#39;desync_info&#39;</span>]:</div>
+<div class="line"><span class="lineno">  577</span>             board = L[0]</div>
+<div class="line"><span class="lineno">  578</span>             t = L[1][0]</div>
+<div class="line"><span class="lineno">  579</span>             c = L[1][1]</div>
+<div class="line"><span class="lineno">  580</span>             C[tag][board][c]=t</div>
+<div class="line"><span class="lineno">  581</span>    <span class="comment"># check that desync is constant over the complete run</span></div>
+<div class="line"><span class="lineno">  582</span>          <span class="keywordflow">for</span> c <span class="keywordflow">in</span> C[tag][41]:</div>
+<div class="line"><span class="lineno">  583</span>              tref = C[tag][41][c]</div>
+<div class="line"><span class="lineno">  584</span>              <span class="keywordflow">break</span></div>
+<div class="line"><span class="lineno">  585</span>          <span class="keywordflow">for</span> board <span class="keywordflow">in</span> C[tag]:</div>
+<div class="line"><span class="lineno">  586</span>              <span class="keywordflow">if</span> <span class="keywordflow">not</span> c <span class="keywordflow">in</span> C[tag][board]:</div>
+<div class="line"><span class="lineno">  587</span>                  <span class="comment">#print(&#39;different trigger counts, problematic&#39;,tag,C[tag])</span></div>
+<div class="line"><span class="lineno">  588</span>                  errorCounter+=1</div>
+<div class="line"><span class="lineno">  589</span>              <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  590</span>                  <span class="keywordflow">if</span> <span class="keywordflow">not</span> prev[board] == <span class="keywordtype">None</span>:</div>
+<div class="line"><span class="lineno">  591</span>                         <span class="keywordflow">if</span> <span class="keywordflow">not</span> C[tag][board][c]-tref == prev[board]:</div>
+<div class="line"><span class="lineno">  592</span>                              print(<span class="stringliteral">&#39;desync changed, problematic&#39;</span>,tag,prev,C[tag])</div>
+<div class="line"><span class="lineno">  593</span>                  prev[board] = C[tag][board][c]-tref</div>
+<div class="line"><span class="lineno">  594</span>    </div>
+<div class="line"><span class="lineno">  595</span>    T = list(C.keys())</div>
+<div class="line"><span class="lineno">  596</span>    <span class="keywordflow">for</span> b <span class="keywordflow">in</span> C[T[0]]:</div>
+<div class="line"><span class="lineno">  597</span>        <span class="keywordflow">for</span> c <span class="keywordflow">in</span> C[T[0]][b]:</div>
+<div class="line"><span class="lineno">  598</span>            A[b]= C[T[0]][b][c]</div>
+<div class="line"><span class="lineno">  599</span>    <span class="keywordflow">return</span> A</div>
+<div class="line"><span class="lineno">  600</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -522,11 +522,11 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="convertRawData__muTestbeam_8py_source.html#l00597">597</a> of file <a class="el" href="convertRawData__muTestbeam_8py_source.html">convertRawData_muTestbeam.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  597</span><span class="keyword">def </span>dumpMap():</div>
-<div class="line"><span class="lineno">  598</span> fout = open(<span class="stringliteral">&#39;map&#39;</span>+str(options.runNumber)+<span class="stringliteral">&#39;.pkl&#39;</span>,<span class="stringliteral">&#39;wb&#39;</span>)</div>
-<div class="line"><span class="lineno">  599</span> pickle.dump(theMap,fout)</div>
-<div class="line"><span class="lineno">  600</span> </div>
+<p class="definition">Definition at line <a class="el" href="convertRawData__muTestbeam_8py_source.html#l00602">602</a> of file <a class="el" href="convertRawData__muTestbeam_8py_source.html">convertRawData_muTestbeam.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  602</span><span class="keyword">def </span>dumpMap():</div>
+<div class="line"><span class="lineno">  603</span> fout = open(<span class="stringliteral">&#39;map&#39;</span>+str(options.runNumber)+<span class="stringliteral">&#39;.pkl&#39;</span>,<span class="stringliteral">&#39;wb&#39;</span>)</div>
+<div class="line"><span class="lineno">  604</span> pickle.dump(theMap,fout)</div>
+<div class="line"><span class="lineno">  605</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -545,14 +545,14 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="convertRawData__muTestbeam_8py_source.html#l00534">534</a> of file <a class="el" href="convertRawData__muTestbeam_8py_source.html">convertRawData_muTestbeam.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  534</span><span class="keyword">def </span>getMapEvent2Time():</div>
-<div class="line"><span class="lineno">  535</span>     k = 0</div>
-<div class="line"><span class="lineno">  536</span>     <span class="keywordflow">for</span> event <span class="keywordflow">in</span> f0.event:  </div>
-<div class="line"><span class="lineno">  537</span>          theMap[event.timestamp]=k</div>
-<div class="line"><span class="lineno">  538</span>          k+=1</div>
-<div class="line"><span class="lineno">  539</span>          <span class="keywordflow">if</span> k%10000000==0: print(<span class="stringliteral">&#39;key time map: now at &#39;</span>,k)</div>
-<div class="line"><span class="lineno">  540</span> </div>
+<p class="definition">Definition at line <a class="el" href="convertRawData__muTestbeam_8py_source.html#l00539">539</a> of file <a class="el" href="convertRawData__muTestbeam_8py_source.html">convertRawData_muTestbeam.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  539</span><span class="keyword">def </span>getMapEvent2Time():</div>
+<div class="line"><span class="lineno">  540</span>     k = 0</div>
+<div class="line"><span class="lineno">  541</span>     <span class="keywordflow">for</span> event <span class="keywordflow">in</span> f0.Get(<span class="stringliteral">&quot;event&quot;</span>):  </div>
+<div class="line"><span class="lineno">  542</span>          theMap[event.timestamp]=k</div>
+<div class="line"><span class="lineno">  543</span>          k+=1</div>
+<div class="line"><span class="lineno">  544</span>          <span class="keywordflow">if</span> k%10000000==0: print(<span class="stringliteral">&#39;key time map: now at &#39;</span>,k)</div>
+<div class="line"><span class="lineno">  545</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -747,7 +747,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="convertRawData__muTestbeam_8py_source.html#l00305">305</a> of file <a class="el" href="convertRawData__muTestbeam_8py_source.html">convertRawData_muTestbeam.py</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  305</span><span class="keyword">def </span>run(nEvent):</div>
-<div class="line"><span class="lineno">  306</span> event = f0.event</div>
+<div class="line"><span class="lineno">  306</span> event = f0.Get(<span class="stringliteral">&quot;event&quot;</span>)</div>
 <div class="line"><span class="lineno">  307</span> <span class="keywordflow">for</span> eventNumber <span class="keywordflow">in</span> range(options.nStart,nEvent):</div>
 <div class="line"><span class="lineno">  308</span>   ncreated = 0</div>
 <div class="line"><span class="lineno">  309</span>   rc = event.GetEvent(eventNumber)</div>
@@ -915,65 +915,70 @@ Variables</h2></td></tr>
 <div class="line"><span class="lineno">  471</span> </div>
 <div class="line"><span class="lineno">  472</span>   <span class="keywordflow">for</span> sipmID <span class="keywordflow">in</span> digiSciFiStore:</div>
 <div class="line"><span class="lineno">  473</span>             <span class="keywordflow">if</span> digiSciFi.GetSize() == indexSciFi: digiSciFi.Expand(indexSciFi+100)</div>
-<div class="line"><span class="lineno">  474</span>             digiSciFi[indexSciFi]=digiSciFiStore[sipmID]</div>
-<div class="line"><span class="lineno">  475</span>             indexSciFi+=1</div>
-<div class="line"><span class="lineno">  476</span>   <span class="keywordflow">for</span> detID <span class="keywordflow">in</span> digiMuFilterStore:</div>
-<div class="line"><span class="lineno">  477</span>             <span class="keywordflow">if</span> digiMuFilter.GetSize() == indexMuFilter: digiMuFilter.Expand(indexMuFilter+100)</div>
-<div class="line"><span class="lineno">  478</span>             digiMuFilter[indexMuFilter]=digiMuFilterStore[detID]</div>
-<div class="line"><span class="lineno">  479</span>             indexMuFilter+=1</div>
-<div class="line"><span class="lineno">  480</span><span class="comment"># make simple clustering for scifi, only works with geometry file. Don&#39;t think it is a good idea at the moment</span></div>
-<div class="line"><span class="lineno">  481</span>   <span class="keywordflow">if</span> withGeoFile:</div>
-<div class="line"><span class="lineno">  482</span>    index = 0</div>
-<div class="line"><span class="lineno">  483</span>    hitDict = {}</div>
-<div class="line"><span class="lineno">  484</span>    <span class="keywordflow">for</span> k <span class="keywordflow">in</span> range(digiSciFi.GetEntries()):</div>
-<div class="line"><span class="lineno">  485</span>        d = digiSciFi[k]</div>
-<div class="line"><span class="lineno">  486</span>        <span class="keywordflow">if</span> <span class="keywordflow">not</span> d.isValid(): <span class="keywordflow">continue</span> </div>
-<div class="line"><span class="lineno">  487</span>        hitDict[d.GetDetectorID()] = k</div>
-<div class="line"><span class="lineno">  488</span>        hitList = list(hitDict.keys())</div>
-<div class="line"><span class="lineno">  489</span>        <span class="keywordflow">if</span> len(hitList)&gt;0:</div>
-<div class="line"><span class="lineno">  490</span>              hitList.sort()</div>
-<div class="line"><span class="lineno">  491</span>              tmp = [ hitList[0] ]</div>
-<div class="line"><span class="lineno">  492</span>              cprev = hitList[0]</div>
-<div class="line"><span class="lineno">  493</span>              ncl = 0</div>
-<div class="line"><span class="lineno">  494</span>              last = len(hitList)-1</div>
-<div class="line"><span class="lineno">  495</span>              hitlist = ROOT.std.vector(<span class="stringliteral">&quot;sndScifiHit*&quot;</span>)()</div>
-<div class="line"><span class="lineno">  496</span>              <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(len(hitList)):</div>
-<div class="line"><span class="lineno">  497</span>                   <span class="keywordflow">if</span> i==0 <span class="keywordflow">and</span> len(hitList)&gt;1: <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  498</span>                   c=hitList[i]</div>
-<div class="line"><span class="lineno">  499</span>                   <span class="keywordflow">if</span> (c-cprev)==1: </div>
-<div class="line"><span class="lineno">  500</span>                        tmp.append(c)</div>
-<div class="line"><span class="lineno">  501</span>                   <span class="keywordflow">if</span> (c-cprev)!=1 <span class="keywordflow">or</span> c==hitList[last]:</div>
-<div class="line"><span class="lineno">  502</span>                        first = tmp[0]</div>
-<div class="line"><span class="lineno">  503</span>                        N = len(tmp)</div>
-<div class="line"><span class="lineno">  504</span>                        hitlist.clear()</div>
-<div class="line"><span class="lineno">  505</span>                        <span class="keywordflow">for</span> aHit <span class="keywordflow">in</span> tmp: </div>
-<div class="line"><span class="lineno">  506</span>                                hitlist.push_back( digiSciFi[hitDict[aHit]])</div>
-<div class="line"><span class="lineno">  507</span>                                print(aHit,hitDict[aHit],digiSciFi[hitDict[aHit]].GetDetectorID())</div>
-<div class="line"><span class="lineno">  508</span>                        print(hitlist.size())</div>
-<div class="line"><span class="lineno">  509</span>                        aCluster = ROOT.sndCluster(first,N,hitlist,scifiDet)</div>
-<div class="line"><span class="lineno">  510</span>                        print(<span class="stringliteral">&quot;cluster created&quot;</span>)</div>
-<div class="line"><span class="lineno">  511</span>                        <span class="keywordflow">if</span>  clusScifi.GetSize() == index: clusScifi.Expand(index+10)</div>
-<div class="line"><span class="lineno">  512</span>                        clusScifi[index]=aCluster</div>
-<div class="line"><span class="lineno">  513</span>                        index+=1</div>
-<div class="line"><span class="lineno">  514</span>                        <span class="keywordflow">if</span> c!=hitList[last]:</div>
-<div class="line"><span class="lineno">  515</span>                             ncl+=1</div>
-<div class="line"><span class="lineno">  516</span>                             tmp = [c]</div>
-<div class="line"><span class="lineno">  517</span>                   cprev = c</div>
-<div class="line"><span class="lineno">  518</span><span class="comment"># fill TTree</span></div>
-<div class="line"><span class="lineno">  519</span>   sTree.Fill()</div>
-<div class="line"><span class="lineno">  520</span>   <span class="keywordflow">if</span> options.debug: </div>
-<div class="line"><span class="lineno">  521</span>        print(<span class="stringliteral">&#39;====&gt; number of created hits&#39;</span>,ncreated)</div>
-<div class="line"><span class="lineno">  522</span> <span class="keywordflow">if</span> options.debug:</div>
-<div class="line"><span class="lineno">  523</span>     print(<span class="stringliteral">&#39;number of events processed&#39;</span>,sTree.GetEntries(),f0.event.GetEntries())</div>
-<div class="line"><span class="lineno">  524</span> sTree.Write()</div>
-<div class="line"><span class="lineno">  525</span> </div>
-<div class="line"><span class="lineno">  526</span><span class="comment"># https://gitlab.cern.ch/snd-scifi/software/-/wikis/Raw-data-format </span></div>
-<div class="line"><span class="lineno">  527</span><span class="comment"># tac: 0-3, identifies the Time-To-Analogue converter used for this hit (each channel has four of them and they require separate calibration).</span></div>
-<div class="line"><span class="lineno">  528</span><span class="comment"># t_coarse: Coarse timestamp of the hit, running on a 4 times the LHC clock</span></div>
-<div class="line"><span class="lineno">  529</span><span class="comment"># t_fine: 0-1023, fine timestamp of the hit. It contains the raw value of the charge digitized by the TDC and requires calibration.</span></div>
-<div class="line"><span class="lineno">  530</span><span class="comment"># v_coarse: 0-1023, QDC mode: it represents the number of clock cycles the charge integration lasted.</span></div>
-<div class="line"><span class="lineno">  531</span><span class="comment"># v_fine = 0-1023, QDC mode: represents the charge measured. Requires calibration.</span></div>
-<div class="line"><span class="lineno">  532</span> </div>
+<div class="line"><span class="lineno">  474</span>             aHit = digiSciFiStore[sipmID]</div>
+<div class="line"><span class="lineno">  475</span>             aHit_TCA = digiSciFi.ConstructedAt(indexSciFi)</div>
+<div class="line"><span class="lineno">  476</span>             ROOT.std.swap(aHit, aHit_TCA)</div>
+<div class="line"><span class="lineno">  477</span>             indexSciFi+=1</div>
+<div class="line"><span class="lineno">  478</span>   <span class="keywordflow">for</span> detID <span class="keywordflow">in</span> digiMuFilterStore:</div>
+<div class="line"><span class="lineno">  479</span>             <span class="keywordflow">if</span> digiMuFilter.GetSize() == indexMuFilter: digiMuFilter.Expand(indexMuFilter+100)</div>
+<div class="line"><span class="lineno">  480</span>             aHit = digiMuFilterStore[detID]</div>
+<div class="line"><span class="lineno">  481</span>             aHit_TCA = digiMuFilter.ConstructedAt(indexMuFilter)</div>
+<div class="line"><span class="lineno">  482</span>             ROOT.std.swap(aHit, aHit_TCA)</div>
+<div class="line"><span class="lineno">  483</span>             indexMuFilter+=1</div>
+<div class="line"><span class="lineno">  484</span><span class="comment"># make simple clustering for scifi, only works with geometry file. Don&#39;t think it is a good idea at the moment</span></div>
+<div class="line"><span class="lineno">  485</span>   <span class="keywordflow">if</span> withGeoFile:</div>
+<div class="line"><span class="lineno">  486</span>    index = 0</div>
+<div class="line"><span class="lineno">  487</span>    hitDict = {}</div>
+<div class="line"><span class="lineno">  488</span>    <span class="keywordflow">for</span> k <span class="keywordflow">in</span> range(digiSciFi.GetEntries()):</div>
+<div class="line"><span class="lineno">  489</span>        d = digiSciFi[k]</div>
+<div class="line"><span class="lineno">  490</span>        <span class="keywordflow">if</span> <span class="keywordflow">not</span> d.isValid(): <span class="keywordflow">continue</span> </div>
+<div class="line"><span class="lineno">  491</span>        hitDict[d.GetDetectorID()] = k</div>
+<div class="line"><span class="lineno">  492</span>        hitList = list(hitDict.keys())</div>
+<div class="line"><span class="lineno">  493</span>        <span class="keywordflow">if</span> len(hitList)&gt;0:</div>
+<div class="line"><span class="lineno">  494</span>              hitList.sort()</div>
+<div class="line"><span class="lineno">  495</span>              tmp = [ hitList[0] ]</div>
+<div class="line"><span class="lineno">  496</span>              cprev = hitList[0]</div>
+<div class="line"><span class="lineno">  497</span>              ncl = 0</div>
+<div class="line"><span class="lineno">  498</span>              last = len(hitList)-1</div>
+<div class="line"><span class="lineno">  499</span>              hitlist = ROOT.std.vector(<span class="stringliteral">&quot;sndScifiHit*&quot;</span>)()</div>
+<div class="line"><span class="lineno">  500</span>              <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(len(hitList)):</div>
+<div class="line"><span class="lineno">  501</span>                   <span class="keywordflow">if</span> i==0 <span class="keywordflow">and</span> len(hitList)&gt;1: <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  502</span>                   c=hitList[i]</div>
+<div class="line"><span class="lineno">  503</span>                   <span class="keywordflow">if</span> (c-cprev)==1: </div>
+<div class="line"><span class="lineno">  504</span>                        tmp.append(c)</div>
+<div class="line"><span class="lineno">  505</span>                   <span class="keywordflow">if</span> (c-cprev)!=1 <span class="keywordflow">or</span> c==hitList[last]:</div>
+<div class="line"><span class="lineno">  506</span>                        first = tmp[0]</div>
+<div class="line"><span class="lineno">  507</span>                        N = len(tmp)</div>
+<div class="line"><span class="lineno">  508</span>                        hitlist.clear()</div>
+<div class="line"><span class="lineno">  509</span>                        <span class="keywordflow">for</span> aHit <span class="keywordflow">in</span> tmp: </div>
+<div class="line"><span class="lineno">  510</span>                                hitlist.push_back( digiSciFi[hitDict[aHit]])</div>
+<div class="line"><span class="lineno">  511</span>                                print(aHit,hitDict[aHit],digiSciFi[hitDict[aHit]].GetDetectorID())</div>
+<div class="line"><span class="lineno">  512</span>                        print(hitlist.size())</div>
+<div class="line"><span class="lineno">  513</span>                        aCluster = ROOT.sndCluster(first,N,hitlist,scifiDet)</div>
+<div class="line"><span class="lineno">  514</span>                        print(<span class="stringliteral">&quot;cluster created&quot;</span>)</div>
+<div class="line"><span class="lineno">  515</span>                        <span class="keywordflow">if</span>  clusScifi.GetSize() == index: clusScifi.Expand(index+10)</div>
+<div class="line"><span class="lineno">  516</span>                        aCluster_TCA = clusScifi.ConstructedAt(index)</div>
+<div class="line"><span class="lineno">  517</span>                        ROOT.std.swap(aCluster, aCluster_TCA)</div>
+<div class="line"><span class="lineno">  518</span>                        index+=1</div>
+<div class="line"><span class="lineno">  519</span>                        <span class="keywordflow">if</span> c!=hitList[last]:</div>
+<div class="line"><span class="lineno">  520</span>                             ncl+=1</div>
+<div class="line"><span class="lineno">  521</span>                             tmp = [c]</div>
+<div class="line"><span class="lineno">  522</span>                   cprev = c</div>
+<div class="line"><span class="lineno">  523</span><span class="comment"># fill TTree</span></div>
+<div class="line"><span class="lineno">  524</span>   sTree.Fill()</div>
+<div class="line"><span class="lineno">  525</span>   <span class="keywordflow">if</span> options.debug: </div>
+<div class="line"><span class="lineno">  526</span>        print(<span class="stringliteral">&#39;====&gt; number of created hits&#39;</span>,ncreated)</div>
+<div class="line"><span class="lineno">  527</span> <span class="keywordflow">if</span> options.debug:</div>
+<div class="line"><span class="lineno">  528</span>     print(<span class="stringliteral">&#39;number of events processed&#39;</span>,sTree.GetEntries(),f0.Get(<span class="stringliteral">&quot;event&quot;</span>).GetEntries())</div>
+<div class="line"><span class="lineno">  529</span> sTree.Write()</div>
+<div class="line"><span class="lineno">  530</span> </div>
+<div class="line"><span class="lineno">  531</span><span class="comment"># https://gitlab.cern.ch/snd-scifi/software/-/wikis/Raw-data-format </span></div>
+<div class="line"><span class="lineno">  532</span><span class="comment"># tac: 0-3, identifies the Time-To-Analogue converter used for this hit (each channel has four of them and they require separate calibration).</span></div>
+<div class="line"><span class="lineno">  533</span><span class="comment"># t_coarse: Coarse timestamp of the hit, running on a 4 times the LHC clock</span></div>
+<div class="line"><span class="lineno">  534</span><span class="comment"># t_fine: 0-1023, fine timestamp of the hit. It contains the raw value of the charge digitized by the TDC and requires calibration.</span></div>
+<div class="line"><span class="lineno">  535</span><span class="comment"># v_coarse: 0-1023, QDC mode: it represents the number of clock cycles the charge integration lasted.</span></div>
+<div class="line"><span class="lineno">  536</span><span class="comment"># v_fine = 0-1023, QDC mode: represents the charge measured. Requires calibration.</span></div>
+<div class="line"><span class="lineno">  537</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1057,7 +1062,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="convertRawData__muTestbeam_8py_source.html#l00614">614</a> of file <a class="el" href="convertRawData__muTestbeam_8py_source.html">convertRawData_muTestbeam.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="convertRawData__muTestbeam_8py_source.html#l00619">619</a> of file <a class="el" href="convertRawData__muTestbeam_8py_source.html">convertRawData_muTestbeam.py</a>.</p>
 
 </div>
 </div>
@@ -1393,7 +1398,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="convertRawData__muTestbeam_8py_source.html#l00608">608</a> of file <a class="el" href="convertRawData__muTestbeam_8py_source.html">convertRawData_muTestbeam.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="convertRawData__muTestbeam_8py_source.html#l00613">613</a> of file <a class="el" href="convertRawData__muTestbeam_8py_source.html">convertRawData_muTestbeam.py</a>.</p>
 
 </div>
 </div>
@@ -2017,7 +2022,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="convertRawData__muTestbeam_8py_source.html#l00605">605</a> of file <a class="el" href="convertRawData__muTestbeam_8py_source.html">convertRawData_muTestbeam.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="convertRawData__muTestbeam_8py_source.html#l00610">610</a> of file <a class="el" href="convertRawData__muTestbeam_8py_source.html">convertRawData_muTestbeam.py</a>.</p>
 
 </div>
 </div>
@@ -2033,7 +2038,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="convertRawData__muTestbeam_8py_source.html#l00533">533</a> of file <a class="el" href="convertRawData__muTestbeam_8py_source.html">convertRawData_muTestbeam.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="convertRawData__muTestbeam_8py_source.html#l00538">538</a> of file <a class="el" href="convertRawData__muTestbeam_8py_source.html">convertRawData_muTestbeam.py</a>.</p>
 
 </div>
 </div>

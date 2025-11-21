@@ -133,10 +133,10 @@ $(document).ready(function(){initNavTree('scifiHitMaps_8py_source.html',''); ini
 </div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keywordflow">if</span> options.runNumber&gt;0: </div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="namespacescifiHitMaps.html#a6fd85939e2c8f3316c8719c499ff6b77">   34</a></span>              f=ROOT.TFile.Open(options.path+<span class="stringliteral">&#39;sndsw_raw_&#39;</span>+<a class="code hl_variable" href="namespacescifiHitMaps.html#a95c022356ed88680aecf1d92133a5312">str</a>(options.runNumber).zfill(6)+<span class="stringliteral">&#39;.root&#39;</span>)</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="namespacescifiHitMaps.html#aae47f74f7b0f57589a2b85c99dd6d7c2">   35</a></span>              eventTree = f.rawConv</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="namespacescifiHitMaps.html#aae47f74f7b0f57589a2b85c99dd6d7c2">   35</a></span>              eventTree = f.Get(<span class="stringliteral">&quot;rawConv&quot;</span>)</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keywordflow">else</span>:</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>              f=ROOT.TFile.Open(options.fname)</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>              eventTree = f.cbmsim</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>              eventTree = f.Get(<span class="stringliteral">&quot;cbmsim&quot;</span>)</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
 <div class="foldopen" id="foldopen00040" data-start="" data-end="">
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="namespacescifiHitMaps.html#af01b93dfa49dc3bfd6de6c2aa54f7fa5">   40</a></span><span class="keyword">def </span><a class="code hl_function" href="namespacescifiHitMaps.html#af01b93dfa49dc3bfd6de6c2aa54f7fa5">slopes</a>(Nev=-1):</div>

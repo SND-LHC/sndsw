@@ -198,7 +198,7 @@ $(document).ready(function(){initNavTree('MufluxReco_8py_source.html',''); initR
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment"># check if simulation or raw data</span></div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="namespaceMufluxReco.html#a83b647cd00dccb6fb33455d293470e62">   99</a></span>f=ROOT.TFile.Open(outFile)</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="namespaceMufluxReco.html#a582d2a0f30d73813562a1dbef717ab01">  100</a></span><span class="keywordflow">if</span> f.cbmsim.FindBranch(<span class="stringliteral">&#39;MCTrack&#39;</span>): simulation = <span class="keyword">True</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="namespaceMufluxReco.html#a582d2a0f30d73813562a1dbef717ab01">  100</a></span><span class="keywordflow">if</span> f.Get(<span class="stringliteral">&quot;cbmsim&quot;</span>).FindBranch(<span class="stringliteral">&#39;MCTrack&#39;</span>): simulation = <span class="keyword">True</span></div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="keywordflow">else</span>: simulation = <span class="keyword">False</span></div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>f.Close()</div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>

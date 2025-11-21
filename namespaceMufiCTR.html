@@ -389,11 +389,11 @@ Variables</h2></td></tr>
 <div class="line"><span class="lineno">   22</span>   <span class="keywordflow">if</span> d!=<span class="stringliteral">&#39;&#39;</span>: dd = d+<span class="stringliteral">&#39;/&#39;</span></div>
 <div class="line"><span class="lineno">   23</span>   <span class="comment"># safety net if B2noB1 and B1Only plots don&#39;t exist</span></div>
 <div class="line"><span class="lineno">   24</span>   <span class="keywordflow">try</span>:</div>
-<div class="line"><span class="lineno">   25</span>     h[<span class="stringliteral">&#39;mufi-&#39;</span>+x+d] = f.mufilter.Get(dd+<span class="stringliteral">&#39;mufi-&#39;</span>+x+d).Clone(<span class="stringliteral">&#39;mufi-&#39;</span>+x+d)</div>
+<div class="line"><span class="lineno">   25</span>     h[<span class="stringliteral">&#39;mufi-&#39;</span>+x+d] = f.Get(<span class="stringliteral">&quot;mufilter&quot;</span>).Get(dd+<span class="stringliteral">&#39;mufi-&#39;</span>+x+d).Clone(<span class="stringliteral">&#39;mufi-&#39;</span>+x+d)</div>
 <div class="line"><span class="lineno">   26</span>   <span class="keywordflow">except</span>:</div>
 <div class="line"><span class="lineno">   27</span>       <span class="keywordflow">try</span>:</div>
 <div class="line"><span class="lineno">   28</span>         <span class="comment">#2024: changed structure of offline monitoring file with shifter and expert subdirs</span></div>
-<div class="line"><span class="lineno">   29</span>         h[<span class="stringliteral">&#39;mufi-&#39;</span>+x+d] = f.mufilter.Get(<span class="stringliteral">&#39;expert/&#39;</span>+dd+<span class="stringliteral">&#39;mufi-&#39;</span>+x+d).Clone(<span class="stringliteral">&#39;mufi-&#39;</span>+x+d)</div>
+<div class="line"><span class="lineno">   29</span>         h[<span class="stringliteral">&#39;mufi-&#39;</span>+x+d] = f.Get(<span class="stringliteral">&quot;mufilter&quot;</span>).Get(<span class="stringliteral">&#39;expert/&#39;</span>+dd+<span class="stringliteral">&#39;mufi-&#39;</span>+x+d).Clone(<span class="stringliteral">&#39;mufi-&#39;</span>+x+d)</div>
 <div class="line"><span class="lineno">   30</span>       <span class="keywordflow">except</span>:</div>
 <div class="line"><span class="lineno">   31</span>         <span class="keywordflow">continue</span></div>
 <div class="line"><span class="lineno">   32</span>   h[<span class="stringliteral">&#39;mufi-&#39;</span>+x+d].Draw()</div>

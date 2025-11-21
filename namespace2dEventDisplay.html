@@ -223,7 +223,7 @@ Variables</h2></td></tr>
 <tr class="separator:ac73d95ab75aef8b2dc4d9756fd213ac5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a32b4f47e025aac2d77e395e1dbce6d44" id="r_a32b4f47e025aac2d77e395e1dbce6d44"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace2dEventDisplay.html#a32b4f47e025aac2d77e395e1dbce6d44">f</a> = ROOT.TFile.Open(options.path+'sndsw_raw_'+str(options.runNumber).zfill(6)+'.root')</td></tr>
 <tr class="separator:a32b4f47e025aac2d77e395e1dbce6d44"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a34577e634a3900172ecbb7ad92e5a1" id="r_a8a34577e634a3900172ecbb7ad92e5a1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace2dEventDisplay.html#a8a34577e634a3900172ecbb7ad92e5a1">eventTree</a> = f.cbmsim</td></tr>
+<tr class="memitem:a8a34577e634a3900172ecbb7ad92e5a1" id="r_a8a34577e634a3900172ecbb7ad92e5a1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace2dEventDisplay.html#a8a34577e634a3900172ecbb7ad92e5a1">eventTree</a> = f.Get(&quot;cbmsim&quot;)</td></tr>
 <tr class="separator:a8a34577e634a3900172ecbb7ad92e5a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a929aadcd544ddb1e8238b3c3b4f8c87e" id="r_a929aadcd544ddb1e8238b3c3b4f8c87e"><td class="memItemLeft" align="right" valign="top">str&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace2dEventDisplay.html#a929aadcd544ddb1e8238b3c3b4f8c87e">runId</a> = 'sim'</td></tr>
 <tr class="separator:a929aadcd544ddb1e8238b3c3b4f8c87e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -2303,7 +2303,7 @@ return True
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">2dEventDisplay.eventTree = f.cbmsim</td>
+          <td class="memname">2dEventDisplay.eventTree = f.Get(&quot;cbmsim&quot;)</td>
         </tr>
       </table>
 </div><div class="memdoc">

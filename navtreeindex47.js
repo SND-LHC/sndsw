@@ -2,8 +2,8 @@ var NAVTREEINDEX47 =
 {
 "classgenfit_1_1mySpacepointMeasurement.html#a620a5e895175258e6346348e7e5797dc":[12,0,54,51,0],
 "classgenfit_1_1mySpacepointMeasurement.html#a620a5e895175258e6346348e7e5797dc":[13,0,13,49,0],
-"classgenfit_1_1mySpacepointMeasurement.html#afc12364373fa28d955463e9bde3cb175":[13,0,13,49,1],
 "classgenfit_1_1mySpacepointMeasurement.html#afc12364373fa28d955463e9bde3cb175":[12,0,54,51,1],
+"classgenfit_1_1mySpacepointMeasurement.html#afc12364373fa28d955463e9bde3cb175":[13,0,13,49,1],
 "classhcal.html":[13,0,95],
 "classhcal.html#a06bb47f5aae0410b16c3724a87e57c95":[13,0,95,82],
 "classhcal.html#a1093bcd0f92a3e76906255a302af3ee7":[13,0,95,35],

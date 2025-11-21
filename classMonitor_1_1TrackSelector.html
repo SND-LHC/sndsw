@@ -330,37 +330,39 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00853">853</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  853</span>   <span class="keyword">def </span>Execute(self):</div>
-<div class="line"><span class="lineno">  854</span>      <span class="keywordflow">for</span> n <span class="keywordflow">in</span> range(self.options.nStart,self.options.nStart+self.options.nEvents):</div>
-<div class="line"><span class="lineno">  855</span> </div>
-<div class="line"><span class="lineno">  856</span>          <span class="keywordflow">if</span> self.options.scaleFactor &gt; 1:</div>
-<div class="line"><span class="lineno">  857</span>             <span class="keywordflow">if</span> ROOT.gRandom.Rndm() &gt; 1.0/self.options.scaleFactor: <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  858</span> </div>
-<div class="line"><span class="lineno">  859</span>          self.eventTree.GetEvent(n)</div>
-<div class="line"><span class="lineno">  860</span>          <span class="comment"># delete track containers</span></div>
-<div class="line"><span class="lineno">  861</span>          self.fittedTracks.Delete()</div>
-<div class="line"><span class="lineno">  862</span>          </div>
-<div class="line"><span class="lineno">  863</span>          self.ExecuteEvent(self.eventTree)</div>
-<div class="line"><span class="lineno">  864</span>          <span class="keywordflow">if</span> <span class="keywordflow">not</span> self.MonteCarlo <span class="keywordflow">and</span> self.fittedTracks.GetEntries() == 0: <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  865</span>          <span class="keywordflow">if</span> self.options.simpleTracking <span class="keywordflow">and</span> <span class="keywordflow">not</span> self.options.trackType.find(<span class="stringliteral">&#39;Scifi&#39;</span>)&lt;0:</div>
-<div class="line"><span class="lineno">  866</span>             <span class="keywordflow">if</span> <span class="keywordflow">not</span> self.eventTree.GetBranch(<span class="stringliteral">&quot;Cluster_Scifi&quot;</span>):</div>
-<div class="line"><span class="lineno">  867</span>                self.clusScifi.Delete()</div>
-<div class="line"><span class="lineno">  868</span>                self.clusScifi.Expand(len(self.trackTask.clusScifi))</div>
-<div class="line"><span class="lineno">  869</span>                <span class="keywordflow">for</span> index, aCl <span class="keywordflow">in</span> enumerate(self.trackTask.clusScifi):</div>
-<div class="line"><span class="lineno">  870</span>                     self.clusScifi[index] = aCl</div>
-<div class="line"><span class="lineno">  871</span>          <span class="keywordflow">if</span> self.options.simpleTracking <span class="keywordflow">and</span> <span class="keywordflow">not</span> self.options.trackType.find(<span class="stringliteral">&#39;DS&#39;</span>)&lt;0:</div>
-<div class="line"><span class="lineno">  872</span>             <span class="keywordflow">if</span> <span class="keywordflow">not</span> self.eventTree.GetBranch(<span class="stringliteral">&quot;Cluster_Mufi&quot;</span>):</div>
-<div class="line"><span class="lineno">  873</span>                self.clusMufi.Delete()</div>
-<div class="line"><span class="lineno">  874</span>                self.clusMufi.Expand(len(self.trackTask.clusMufi))</div>
-<div class="line"><span class="lineno">  875</span>                <span class="keywordflow">for</span> index, aCl <span class="keywordflow">in</span> enumerate(self.trackTask.clusMufi):</div>
-<div class="line"><span class="lineno">  876</span>                     self.clusMufi[index] = aCl</div>
-<div class="line"><span class="lineno">  877</span> </div>
-<div class="line"><span class="lineno">  878</span>          <span class="comment"># if using FairEventHeader, i.e. before sndlhc header was introduced</span></div>
-<div class="line"><span class="lineno">  879</span>          <span class="keywordflow">if</span> hasattr(self.OT.EventHeader, <span class="stringliteral">&quot;SetMCEntryNumber&quot;</span>):</div>
-<div class="line"><span class="lineno">  880</span>              self.OT.EventHeader.SetMCEntryNumber(n)</div>
-<div class="line"><span class="lineno">  881</span>          self.fSink.Fill()</div>
-<div class="line"><span class="lineno">  882</span> </div>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00854">854</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  854</span>   <span class="keyword">def </span>Execute(self):</div>
+<div class="line"><span class="lineno">  855</span>      <span class="keywordflow">for</span> n <span class="keywordflow">in</span> range(self.options.nStart,self.options.nStart+self.options.nEvents):</div>
+<div class="line"><span class="lineno">  856</span> </div>
+<div class="line"><span class="lineno">  857</span>          <span class="keywordflow">if</span> self.options.scaleFactor &gt; 1:</div>
+<div class="line"><span class="lineno">  858</span>             <span class="keywordflow">if</span> ROOT.gRandom.Rndm() &gt; 1.0/self.options.scaleFactor: <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  859</span> </div>
+<div class="line"><span class="lineno">  860</span>          self.eventTree.GetEvent(n)</div>
+<div class="line"><span class="lineno">  861</span>          <span class="comment"># delete track containers</span></div>
+<div class="line"><span class="lineno">  862</span>          self.fittedTracks.Delete()</div>
+<div class="line"><span class="lineno">  863</span>          </div>
+<div class="line"><span class="lineno">  864</span>          self.ExecuteEvent(self.eventTree)</div>
+<div class="line"><span class="lineno">  865</span>          <span class="keywordflow">if</span> <span class="keywordflow">not</span> self.MonteCarlo <span class="keywordflow">and</span> self.fittedTracks.GetEntries() == 0: <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  866</span>          <span class="keywordflow">if</span> self.options.simpleTracking <span class="keywordflow">and</span> <span class="keywordflow">not</span> self.options.trackType.find(<span class="stringliteral">&#39;Scifi&#39;</span>)&lt;0:</div>
+<div class="line"><span class="lineno">  867</span>             <span class="keywordflow">if</span> <span class="keywordflow">not</span> self.eventTree.GetBranch(<span class="stringliteral">&quot;Cluster_Scifi&quot;</span>):</div>
+<div class="line"><span class="lineno">  868</span>                self.clusScifi.Delete()</div>
+<div class="line"><span class="lineno">  869</span>                self.clusScifi.Expand(len(self.trackTask.clusScifi))</div>
+<div class="line"><span class="lineno">  870</span>                <span class="keywordflow">for</span> index, aCl <span class="keywordflow">in</span> enumerate(self.trackTask.clusScifi):</div>
+<div class="line"><span class="lineno">  871</span>                     aCl_TCA = self.clusScifi.ConstructedAt(index)</div>
+<div class="line"><span class="lineno">  872</span>                     ROOT.std.swap(aCl, aCl_TCA)</div>
+<div class="line"><span class="lineno">  873</span>          <span class="keywordflow">if</span> self.options.simpleTracking <span class="keywordflow">and</span> <span class="keywordflow">not</span> self.options.trackType.find(<span class="stringliteral">&#39;DS&#39;</span>)&lt;0:</div>
+<div class="line"><span class="lineno">  874</span>             <span class="keywordflow">if</span> <span class="keywordflow">not</span> self.eventTree.GetBranch(<span class="stringliteral">&quot;Cluster_Mufi&quot;</span>):</div>
+<div class="line"><span class="lineno">  875</span>                self.clusMufi.Delete()</div>
+<div class="line"><span class="lineno">  876</span>                self.clusMufi.Expand(len(self.trackTask.clusMufi))</div>
+<div class="line"><span class="lineno">  877</span>                <span class="keywordflow">for</span> index, aCl <span class="keywordflow">in</span> enumerate(self.trackTask.clusMufi):</div>
+<div class="line"><span class="lineno">  878</span>                     aCl_TCA = self.clusMufi.ConstructedAt(index)</div>
+<div class="line"><span class="lineno">  879</span>                     ROOT.std.swap(aCl, aCl_TCA)</div>
+<div class="line"><span class="lineno">  880</span> </div>
+<div class="line"><span class="lineno">  881</span>          <span class="comment"># if using FairEventHeader, i.e. before sndlhc header was introduced</span></div>
+<div class="line"><span class="lineno">  882</span>          <span class="keywordflow">if</span> hasattr(self.OT.EventHeader, <span class="stringliteral">&quot;SetMCEntryNumber&quot;</span>):</div>
+<div class="line"><span class="lineno">  883</span>              self.OT.EventHeader.SetMCEntryNumber(n)</div>
+<div class="line"><span class="lineno">  884</span>          self.fSink.Fill()</div>
+<div class="line"><span class="lineno">  885</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -426,8 +428,9 @@ Public Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  848</span>           <span class="keywordflow">for</span> item <span class="keywordflow">in</span> track_container_list:</div>
 <div class="line"><span class="lineno">  849</span>               <span class="keywordflow">for</span> aTrack <span class="keywordflow">in</span> item:</div>
 <div class="line"><span class="lineno">  850</span>                   i_muon += 1</div>
-<div class="line"><span class="lineno">  851</span>                   self.fittedTracks[i_muon] = aTrack</div>
-<div class="line"><span class="lineno">  852</span> </div>
+<div class="line"><span class="lineno">  851</span>                   aTrack_TCA = self.fittedTracks.ConstructedAt(i_muon)</div>
+<div class="line"><span class="lineno">  852</span>                   ROOT.std.swap(aTrack, aTrack_TCA) </div>
+<div class="line"><span class="lineno">  853</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -447,10 +450,10 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00883">883</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  883</span>   <span class="keyword">def </span>Finalize(self):</div>
-<div class="line"><span class="lineno">  884</span>         self.fSink.Write()</div>
-<div class="line"><span class="lineno">  885</span>         self.outFile.Close()</div>
+<p class="definition">Definition at line <a class="el" href="Monitor_8py_source.html#l00886">886</a> of file <a class="el" href="Monitor_8py_source.html">Monitor.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  886</span>   <span class="keyword">def </span>Finalize(self):</div>
+<div class="line"><span class="lineno">  887</span>         self.fSink.Write()</div>
+<div class="line"><span class="lineno">  888</span>         self.outFile.Close()</div>
 </div><!-- fragment -->
 </div>
 </div>

@@ -174,7 +174,7 @@ $(document).ready(function(){initNavTree('run__muonRecoSND_8py_source.html','');
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="namespacerun__muonRecoSND.html#a5bd3c04aa1ae427c17bf4ca274da37ee">   76</a></span>treename = <span class="keywordtype">None</span></div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="keywordflow">for</span> test_treename <span class="keywordflow">in</span> [<span class="stringliteral">&quot;rawConv&quot;</span>, <span class="stringliteral">&quot;cbmsim&quot;</span>] :</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>     <span class="keywordflow">if</span> hasattr(F, test_treename) :</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>     <span class="keywordflow">if</span> F.Get(test_treename):</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>          treename = test_treename</div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>          <span class="keywordflow">break</span></div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>

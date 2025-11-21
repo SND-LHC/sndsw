@@ -209,11 +209,11 @@ $(document).ready(function(){initNavTree('2dEventDisplay_8py_source.html',''); i
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>  f=ROOT.TFile.Open(options.path+options.inputFile)</div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="keywordflow">if</span> f.FindKey(<span class="stringliteral">&#39;cbmsim&#39;</span>):</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="namespace2dEventDisplay.html#a8a34577e634a3900172ecbb7ad92e5a1">  111</a></span>        eventTree = f.cbmsim</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="namespace2dEventDisplay.html#a8a34577e634a3900172ecbb7ad92e5a1">  111</a></span>        eventTree = f.Get(<span class="stringliteral">&quot;cbmsim&quot;</span>)</div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="namespace2dEventDisplay.html#a929aadcd544ddb1e8238b3c3b4f8c87e">  112</a></span>        runId = <span class="stringliteral">&#39;sim&#39;</span></div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        <span class="keywordflow">if</span> eventTree.GetBranch(<span class="stringliteral">&#39;ScifiPoint&#39;</span>): mc = <span class="keyword">True</span></div>
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="keywordflow">else</span>:   </div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        eventTree = f.rawConv</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        eventTree = f.Get(<span class="stringliteral">&quot;rawConv&quot;</span>)</div>
 <div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        ioman.SetTreeName(<span class="stringliteral">&#39;rawConv&#39;</span>)</div>
 <div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
 <div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="namespace2dEventDisplay.html#affbbc5d16f5a321f2adc48c8424e3718">  118</a></span>outFile = ROOT.TMemFile(<span class="stringliteral">&#39;dummy&#39;</span>,<span class="stringliteral">&#39;CREATE&#39;</span>)</div>

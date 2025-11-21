@@ -1,5 +1,6 @@
 var NAVTREEINDEX96 =
 {
+"option_page.html#cmd-method":[0,1,1,25],
 "option_page.html#cmd-monpull":[0,1,1,27],
 "option_page.html#cmd-monres":[0,1,1,26],
 "option_page.html#cmd-mresmode":[0,1,1,28],
@@ -248,6 +249,5 @@ var NAVTREEINDEX96 =
 "read_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4":[14,0,5,9,5,1,0],
 "read_8cc_source.html":[14,0,5,9,5,1],
 "readc_8c.html":[14,0,9,24],
-"readc_8c.html#a25dcb0f8b9f06c18381572e0518cc9b4":[14,0,9,24,4],
-"readc_8c.html#a674fc8617257341284bf5115211a403c":[14,0,9,24,0]
+"readc_8c.html#a25dcb0f8b9f06c18381572e0518cc9b4":[14,0,9,24,4]
 };

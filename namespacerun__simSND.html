@@ -265,22 +265,23 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00438">438</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  438</span><span class="keyword">def </span>checkOverlaps(removeScifi=False):</div>
-<div class="line"><span class="lineno">  439</span> sGeo = ROOT.gGeoManager</div>
-<div class="line"><span class="lineno">  440</span> <span class="keywordflow">if</span> removeScifi:</div>
-<div class="line"><span class="lineno">  441</span>    <span class="keywordflow">for</span> n <span class="keywordflow">in</span> range(1,6):</div>
-<div class="line"><span class="lineno">  442</span>       Hscifi = sGeo.FindVolumeFast(<span class="stringliteral">&#39;ScifiVolume&#39;</span>+str(n))</div>
-<div class="line"><span class="lineno">  443</span>       removalList = []</div>
-<div class="line"><span class="lineno">  444</span>       <span class="keywordflow">for</span> x <span class="keywordflow">in</span> Hscifi.GetNodes():</div>
-<div class="line"><span class="lineno">  445</span>             <span class="keywordflow">if</span> x.GetName().find(<span class="stringliteral">&#39;Scifi&#39;</span>)==0: removalList.append(x)</div>
-<div class="line"><span class="lineno">  446</span>       <span class="keywordflow">for</span> x <span class="keywordflow">in</span> removalList: Hscifi.RemoveNode(x)</div>
-<div class="line"><span class="lineno">  447</span> sGeo.SetNmeshPoints(10000)</div>
-<div class="line"><span class="lineno">  448</span> sGeo.CheckOverlaps(0.1)  <span class="comment"># 1 micron takes 5minutes</span></div>
-<div class="line"><span class="lineno">  449</span> sGeo.PrintOverlaps()</div>
-<div class="line"><span class="lineno">  450</span><span class="comment"># check subsystems in more detail</span></div>
-<div class="line"><span class="lineno">  451</span> <span class="keywordflow">for</span> x <span class="keywordflow">in</span> sGeo.GetTopNode().GetNodes(): </div>
-<div class="line"><span class="lineno">  452</span>   x.CheckOverlaps(0.0001)</div>
-<div class="line"><span class="lineno">  453</span>   sGeo.PrintOverlaps()</div>
-<div class="line"><span class="lineno">  454</span> </div>
+<div class="line"><span class="lineno">  439</span> ROOT.gROOT.SetWebDisplay(<span class="stringliteral">&quot;off&quot;</span>) <span class="comment"># Workaround for https://github.com/root-project/root/issues/18881</span></div>
+<div class="line"><span class="lineno">  440</span> sGeo = ROOT.gGeoManager</div>
+<div class="line"><span class="lineno">  441</span> <span class="keywordflow">if</span> removeScifi:</div>
+<div class="line"><span class="lineno">  442</span>    <span class="keywordflow">for</span> n <span class="keywordflow">in</span> range(1,6):</div>
+<div class="line"><span class="lineno">  443</span>       Hscifi = sGeo.FindVolumeFast(<span class="stringliteral">&#39;ScifiVolume&#39;</span>+str(n))</div>
+<div class="line"><span class="lineno">  444</span>       removalList = []</div>
+<div class="line"><span class="lineno">  445</span>       <span class="keywordflow">for</span> x <span class="keywordflow">in</span> Hscifi.GetNodes():</div>
+<div class="line"><span class="lineno">  446</span>             <span class="keywordflow">if</span> x.GetName().find(<span class="stringliteral">&#39;Scifi&#39;</span>)==0: removalList.append(x)</div>
+<div class="line"><span class="lineno">  447</span>       <span class="keywordflow">for</span> x <span class="keywordflow">in</span> removalList: Hscifi.RemoveNode(x)</div>
+<div class="line"><span class="lineno">  448</span> sGeo.SetNmeshPoints(10000)</div>
+<div class="line"><span class="lineno">  449</span> sGeo.CheckOverlaps(0.1)  <span class="comment"># 1 micron takes 5minutes</span></div>
+<div class="line"><span class="lineno">  450</span> sGeo.PrintOverlaps()</div>
+<div class="line"><span class="lineno">  451</span><span class="comment"># check subsystems in more detail</span></div>
+<div class="line"><span class="lineno">  452</span> <span class="keywordflow">for</span> x <span class="keywordflow">in</span> sGeo.GetTopNode().GetNodes(): </div>
+<div class="line"><span class="lineno">  453</span>   x.CheckOverlaps(0.0001)</div>
+<div class="line"><span class="lineno">  454</span>   sGeo.PrintOverlaps()</div>
+<div class="line"><span class="lineno">  455</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -299,15 +300,15 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00455">455</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  455</span><span class="keyword">def </span>checkOverlapsWithGeant4():</div>
-<div class="line"><span class="lineno">  456</span> <span class="comment"># after /run/initialize, but prints warning messages, problems with TGeo volume</span></div>
-<div class="line"><span class="lineno">  457</span> mygMC = ROOT.TGeant4.GetMC()</div>
-<div class="line"><span class="lineno">  458</span> mygMC.ProcessGeantCommand(<span class="stringliteral">&quot;/geometry/test/recursion_start 0&quot;</span>)</div>
-<div class="line"><span class="lineno">  459</span> mygMC.ProcessGeantCommand(<span class="stringliteral">&quot;/geometry/test/recursion_depth 2&quot;</span>)</div>
-<div class="line"><span class="lineno">  460</span> mygMC.ProcessGeantCommand(<span class="stringliteral">&quot;/geometry/test/run&quot;</span>)</div>
-<div class="line"><span class="lineno">  461</span> </div>
-<div class="line"><span class="lineno">  462</span><span class="comment"># checking for overlaps</span></div>
+<p class="definition">Definition at line <a class="el" href="run__simSND_8py_source.html#l00456">456</a> of file <a class="el" href="run__simSND_8py_source.html">run_simSND.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  456</span><span class="keyword">def </span>checkOverlapsWithGeant4():</div>
+<div class="line"><span class="lineno">  457</span> <span class="comment"># after /run/initialize, but prints warning messages, problems with TGeo volume</span></div>
+<div class="line"><span class="lineno">  458</span> mygMC = ROOT.TGeant4.GetMC()</div>
+<div class="line"><span class="lineno">  459</span> mygMC.ProcessGeantCommand(<span class="stringliteral">&quot;/geometry/test/recursion_start 0&quot;</span>)</div>
+<div class="line"><span class="lineno">  460</span> mygMC.ProcessGeantCommand(<span class="stringliteral">&quot;/geometry/test/recursion_depth 2&quot;</span>)</div>
+<div class="line"><span class="lineno">  461</span> mygMC.ProcessGeantCommand(<span class="stringliteral">&quot;/geometry/test/run&quot;</span>)</div>
+<div class="line"><span class="lineno">  462</span> </div>
+<div class="line"><span class="lineno">  463</span><span class="comment"># checking for overlaps</span></div>
 </div><!-- fragment -->
 </div>
 </div>

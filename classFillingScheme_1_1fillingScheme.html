@@ -758,7 +758,7 @@ Public Attributes</h2></td></tr>
 <div class="fragment"><div class="line"><span class="lineno">  259</span>   <span class="keyword">def </span>drawLumi(self,runNumber):</div>
 <div class="line"><span class="lineno">  260</span>       R = ROOT.TFile.Open(www+<span class="stringliteral">&quot;offline/run&quot;</span>+str(runNumber).zfill(6)+<span class="stringliteral">&quot;.root&quot;</span>)</div>
 <div class="line"><span class="lineno">  261</span>       ROOT.gROOT.cd()</div>
-<div class="line"><span class="lineno">  262</span>       bCanvas = R.daq.Get(<span class="stringliteral">&#39;T&#39;</span>)</div>
+<div class="line"><span class="lineno">  262</span>       bCanvas = R.Get(<span class="stringliteral">&quot;daq&quot;</span>).Get(<span class="stringliteral">&#39;T&#39;</span>)</div>
 <div class="line"><span class="lineno">  263</span>       Xt = {<span class="stringliteral">&#39;time&#39;</span>:<span class="keywordtype">None</span>,<span class="stringliteral">&#39;timeWtDS&#39;</span>:<span class="keywordtype">None</span>,<span class="stringliteral">&#39;timeWt&#39;</span>:<span class="keywordtype">None</span>}</div>
 <div class="line"><span class="lineno">  264</span>       <span class="keywordflow">for</span> x <span class="keywordflow">in</span> Xt:</div>
 <div class="line"><span class="lineno">  265</span>            Xt[x] = bCanvas.FindObject(x)</div>
@@ -1137,9 +1137,9 @@ Public Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  582</span>           R = ROOT.TFile.Open(www+<span class="stringliteral">&quot;offline/run&quot;</span>+str(runNumber).zfill(6)+<span class="stringliteral">&quot;.root&quot;</span>)</div>
 <div class="line"><span class="lineno">  583</span>           ROOT.gROOT.cd()</div>
 <div class="line"><span class="lineno">  584</span>           <span class="keywordflow">try</span>:</div>
-<div class="line"><span class="lineno">  585</span>             self.h[<span class="stringliteral">&#39;bnr&#39;</span>] = R.daq.Get(<span class="stringliteral">&#39;bunchNumber&#39;</span>).FindObject(<span class="stringliteral">&#39;bnr&#39;</span>).Clone(<span class="stringliteral">&#39;bnr&#39;</span>)</div>
+<div class="line"><span class="lineno">  585</span>             self.h[<span class="stringliteral">&#39;bnr&#39;</span>] = R.Get(<span class="stringliteral">&quot;daq&quot;</span>).Get(<span class="stringliteral">&#39;bunchNumber&#39;</span>).FindObject(<span class="stringliteral">&#39;bnr&#39;</span>).Clone(<span class="stringliteral">&#39;bnr&#39;</span>)</div>
 <div class="line"><span class="lineno">  586</span>           <span class="keywordflow">except</span>:</div>
-<div class="line"><span class="lineno">  587</span>             self.h[<span class="stringliteral">&#39;bnr&#39;</span>] = R.daq.Get(<span class="stringliteral">&#39;shifter/bunchNumber&#39;</span>).FindObject(<span class="stringliteral">&#39;bnr&#39;</span>).Clone(<span class="stringliteral">&#39;bnr&#39;</span>)         </div>
+<div class="line"><span class="lineno">  587</span>             self.h[<span class="stringliteral">&#39;bnr&#39;</span>] = R.Get(<span class="stringliteral">&quot;daq&quot;</span>).Get(<span class="stringliteral">&#39;shifter/bunchNumber&#39;</span>).FindObject(<span class="stringliteral">&#39;bnr&#39;</span>).Clone(<span class="stringliteral">&#39;bnr&#39;</span>)         </div>
 <div class="line"><span class="lineno">  588</span>           R.Close()</div>
 <div class="line"><span class="lineno">  589</span>         <span class="comment"># create the bunch number plot if offline monitoring file is missing</span></div>
 <div class="line"><span class="lineno">  590</span>         <span class="keywordflow">except</span>:</div>
@@ -1325,7 +1325,7 @@ Public Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  980</span>       xing = {<span class="stringliteral">&#39;all&#39;</span>:<span class="keyword">False</span>,<span class="stringliteral">&#39;B1only&#39;</span>:<span class="keyword">False</span>,<span class="stringliteral">&#39;B2noB1&#39;</span>:<span class="keyword">False</span>,<span class="stringliteral">&#39;noBeam&#39;</span>:<span class="keyword">False</span>}</div>
 <div class="line"><span class="lineno">  981</span>                </div>
 <div class="line"><span class="lineno">  982</span>       <span class="keywordflow">for</span> T <span class="keywordflow">in</span> [<span class="stringliteral">&#39;Txing&#39;</span>,<span class="stringliteral">&#39;TD&#39;</span>,<span class="stringliteral">&#39;T&#39;</span>]:</div>
-<div class="line"><span class="lineno">  983</span>          h[T] = self.F.daq.Get(T).Clone(T)</div>
+<div class="line"><span class="lineno">  983</span>          h[T] = self.F.Get(<span class="stringliteral">&quot;daq&quot;</span>).Get(T).Clone(T)</div>
 <div class="line"><span class="lineno">  984</span>       <span class="keywordflow">for</span> X <span class="keywordflow">in</span> [<span class="stringliteral">&#39;time&#39;</span>,<span class="stringliteral">&#39;timeWt&#39;</span>,<span class="stringliteral">&#39;timeWtDS&#39;</span>]:</div>
 <div class="line"><span class="lineno">  985</span>            h[X] = h[<span class="stringliteral">&#39;T&#39;</span>].FindObject(X).Clone(X)</div>
 <div class="line"><span class="lineno">  986</span>       <span class="keywordflow">for</span> t <span class="keywordflow">in</span> [<span class="stringliteral">&#39;time&#39;</span>,<span class="stringliteral">&#39;timeWt&#39;</span>,<span class="stringliteral">&#39;timeWtDS&#39;</span>,<span class="stringliteral">&#39;bnr&#39;</span>]:</div>
@@ -1503,9 +1503,9 @@ Public Attributes</h2></td></tr>
 <div class="line"><span class="lineno"> 1158</span>       <span class="keywordflow">for</span> B <span class="keywordflow">in</span> [<span class="stringliteral">&#39;B2noB1&#39;</span>,<span class="stringliteral">&#39;B1only&#39;</span>,<span class="stringliteral">&#39;noBeam&#39;</span>]:</div>
 <div class="line"><span class="lineno"> 1159</span>         <span class="keywordflow">for</span> x <span class="keywordflow">in</span> [<span class="stringliteral">&#39;scifi-trackDir&#39;</span>,<span class="stringliteral">&#39;scifi-TtrackPos&#39;</span>]:</div>
 <div class="line"><span class="lineno"> 1160</span>           T = x+B</div>
-<div class="line"><span class="lineno"> 1161</span>           tmp = self.F.scifi.Get(T)</div>
+<div class="line"><span class="lineno"> 1161</span>           tmp = self.F.Get(<span class="stringliteral">&quot;scifi&quot;</span>).Get(T)</div>
 <div class="line"><span class="lineno"> 1162</span>           <span class="keywordflow">if</span> <span class="keywordflow">not</span> tmp:</div>
-<div class="line"><span class="lineno"> 1163</span>              tmp = self.F.scifi.Get(B+<span class="stringliteral">&#39;/&#39;</span>+T)</div>
+<div class="line"><span class="lineno"> 1163</span>              tmp = self.F.Get(<span class="stringliteral">&quot;scifi&quot;</span>).Get(B+<span class="stringliteral">&#39;/&#39;</span>+T)</div>
 <div class="line"><span class="lineno"> 1164</span>           h[T] = tmp.Clone(T)</div>
 <div class="line"><span class="lineno"> 1165</span>           <span class="keywordflow">if</span> x.find(<span class="stringliteral">&#39;Dir&#39;</span>)&gt;0:</div>
 <div class="line"><span class="lineno"> 1166</span>            <span class="keywordflow">for</span> y <span class="keywordflow">in</span> [<span class="stringliteral">&#39;scifi-trackSlopesXL&#39;</span>,<span class="stringliteral">&#39;slopeXL&#39;</span>,<span class="stringliteral">&#39;slopeYL&#39;</span>]:</div>
@@ -1534,9 +1534,9 @@ Public Attributes</h2></td></tr>
 <div class="line"><span class="lineno"> 1189</span> </div>
 <div class="line"><span class="lineno"> 1190</span>         <span class="keywordflow">for</span> x <span class="keywordflow">in</span> [<span class="stringliteral">&#39;muonDSTracks&#39;</span>,<span class="stringliteral">&#39;mufi-TtrackPos&#39;</span>]:</div>
 <div class="line"><span class="lineno"> 1191</span>           T = x+B</div>
-<div class="line"><span class="lineno"> 1192</span>           tmp = self.F.mufilter.Get(T)</div>
+<div class="line"><span class="lineno"> 1192</span>           tmp = self.F.Get(<span class="stringliteral">&quot;mufilter&quot;</span>).Get(T)</div>
 <div class="line"><span class="lineno"> 1193</span>           <span class="keywordflow">if</span> <span class="keywordflow">not</span> tmp:</div>
-<div class="line"><span class="lineno"> 1194</span>              tmp = self.F.mufilter.Get(B+<span class="stringliteral">&#39;/&#39;</span>+T)</div>
+<div class="line"><span class="lineno"> 1194</span>              tmp = self.F.Get(<span class="stringliteral">&quot;mufilter&quot;</span>).Get(B+<span class="stringliteral">&#39;/&#39;</span>+T)</div>
 <div class="line"><span class="lineno"> 1195</span>           h[T] = tmp.Clone(T)</div>
 <div class="line"><span class="lineno"> 1196</span>           <span class="keywordflow">if</span> x.find(<span class="stringliteral">&#39;DSTrack&#39;</span>)&gt;0:</div>
 <div class="line"><span class="lineno"> 1197</span>            <span class="keywordflow">for</span> y <span class="keywordflow">in</span> [<span class="stringliteral">&#39;mufi-slopes&#39;</span>,<span class="stringliteral">&#39;slopeX&#39;</span>,<span class="stringliteral">&#39;slopeY&#39;</span>]:</div>
@@ -1691,10 +1691,10 @@ Public Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  159</span>       options.rawData+<span class="stringliteral">&quot;/run_&quot;</span>+str(runNumber).zfill(6)+<span class="stringliteral">&quot;/data_0000.root&quot;</span>)</div>
 <div class="line"><span class="lineno">  160</span>       <span class="keywordflow">try</span>:</div>
 <div class="line"><span class="lineno">  161</span>         <span class="keywordflow">if</span> R.Get(<span class="stringliteral">&#39;event&#39;</span>):</div>
-<div class="line"><span class="lineno">  162</span>            rc = R.event.GetEvent(R.event.GetEntries()-1)</div>
-<div class="line"><span class="lineno">  163</span>            flags = R.event.flags</div>
+<div class="line"><span class="lineno">  162</span>            rc = R.Get(<span class="stringliteral">&quot;event&quot;</span>).GetEvent(R.Get(<span class="stringliteral">&quot;event&quot;</span>).GetEntries()-1)</div>
+<div class="line"><span class="lineno">  163</span>            flags = R.Get(<span class="stringliteral">&quot;event&quot;</span>).flags</div>
 <div class="line"><span class="lineno">  164</span>         <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  165</span>            event = R.data</div>
+<div class="line"><span class="lineno">  165</span>            event = R.Get(<span class="stringliteral">&quot;data&quot;</span>)</div>
 <div class="line"><span class="lineno">  166</span>            event.GetEvent(0)</div>
 <div class="line"><span class="lineno">  167</span>            flags = event.evt_flags</div>
 <div class="line"><span class="lineno">  168</span>         fillNumber = numpy.bitwise_and(FILL_NUMBER_MASK,flags)</div>
@@ -2022,9 +2022,9 @@ Public Attributes</h2></td></tr>
 <div class="line"><span class="lineno"> 1902</span>       R = ROOT.TFile.Open(www+<span class="stringliteral">&quot;offline/run&quot;</span>+str(runNumber).zfill(6)+<span class="stringliteral">&quot;.root&quot;</span>)</div>
 <div class="line"><span class="lineno"> 1903</span>       ROOT.gROOT.cd()</div>
 <div class="line"><span class="lineno"> 1904</span>       <span class="keywordflow">for</span> hitmaps <span class="keywordflow">in</span> [<span class="stringliteral">&#39;mufi-barmapsVeto&#39;</span>,<span class="stringliteral">&#39;mufi-barmapsUS&#39;</span>,<span class="stringliteral">&#39;mufi-barmapsDS&#39;</span>]:</div>
-<div class="line"><span class="lineno"> 1905</span>           h[hitmaps] = R.mufilter.Get(hitmaps).Clone(hitmaps)</div>
+<div class="line"><span class="lineno"> 1905</span>           h[hitmaps] = R.Get(<span class="stringliteral">&quot;mufilter&quot;</span>).Get(hitmaps).Clone(hitmaps)</div>
 <div class="line"><span class="lineno"> 1906</span>           <span class="keywordflow">for</span> B <span class="keywordflow">in</span> marker:</div>
-<div class="line"><span class="lineno"> 1907</span>               tc = R.mufilter.Get(B+<span class="stringliteral">&#39;/&#39;</span>+hitmaps+B).Clone(hitmaps+B)</div>
+<div class="line"><span class="lineno"> 1907</span>               tc = R.Get(<span class="stringliteral">&quot;mufilter&quot;</span>).Get(B+<span class="stringliteral">&#39;/&#39;</span>+hitmaps+B).Clone(hitmaps+B)</div>
 <div class="line"><span class="lineno"> 1908</span>               <span class="keywordflow">for</span> pad <span class="keywordflow">in</span> tc.GetListOfPrimitives():</div>
 <div class="line"><span class="lineno"> 1909</span>                <span class="keywordflow">for</span> plane <span class="keywordflow">in</span> pad.GetListOfPrimitives():</div>
 <div class="line"><span class="lineno"> 1910</span>                   <span class="keywordflow">if</span> plane.ClassName().find(<span class="stringliteral">&#39;TH&#39;</span>)==0:</div>
@@ -2053,9 +2053,9 @@ Public Attributes</h2></td></tr>
 <div class="line"><span class="lineno"> 1933</span>                          h[hname+B].Draw(<span class="stringliteral">&#39;same&#39;</span>)</div>
 <div class="line"><span class="lineno"> 1934</span>           self.myPrint(hitmaps,hitmaps+<span class="stringliteral">&#39;-&#39;</span>+str(runNumber).zfill(6))</div>
 <div class="line"><span class="lineno"> 1935</span>       hitmaps = <span class="stringliteral">&#39;scifi-hitmaps&#39;</span></div>
-<div class="line"><span class="lineno"> 1936</span>       h[hitmaps] = R.scifi.Get(hitmaps).Clone(hitmaps)</div>
+<div class="line"><span class="lineno"> 1936</span>       h[hitmaps] = R.Get(<span class="stringliteral">&quot;scifi&quot;</span>).Get(hitmaps).Clone(hitmaps)</div>
 <div class="line"><span class="lineno"> 1937</span>       <span class="keywordflow">for</span> B <span class="keywordflow">in</span> marker:</div>
-<div class="line"><span class="lineno"> 1938</span>           tc = R.scifi.Get(B+<span class="stringliteral">&#39;/&#39;</span>+hitmaps+B).Clone(hitmaps+B)</div>
+<div class="line"><span class="lineno"> 1938</span>           tc = R.Get(<span class="stringliteral">&quot;scifi&quot;</span>).Get(B+<span class="stringliteral">&#39;/&#39;</span>+hitmaps+B).Clone(hitmaps+B)</div>
 <div class="line"><span class="lineno"> 1939</span>           <span class="keywordflow">for</span> pad <span class="keywordflow">in</span> tc.GetListOfPrimitives():</div>
 <div class="line"><span class="lineno"> 1940</span>              <span class="keywordflow">for</span> plane <span class="keywordflow">in</span> pad.GetListOfPrimitives():</div>
 <div class="line"><span class="lineno"> 1941</span>                 <span class="keywordflow">if</span> plane.ClassName().find(<span class="stringliteral">&#39;TH&#39;</span>)==0:</div>
@@ -2087,7 +2087,7 @@ Public Attributes</h2></td></tr>
 <div class="line"><span class="lineno"> 1967</span>           fmc = ROOT.TFile(Q12MC)</div>
 <div class="line"><span class="lineno"> 1968</span>           ROOT.gROOT.cd()</div>
 <div class="line"><span class="lineno"> 1969</span>           <span class="keywordflow">for</span> hitmaps <span class="keywordflow">in</span> [<span class="stringliteral">&#39;mufi-barmapsVeto&#39;</span>,<span class="stringliteral">&#39;mufi-barmapsUS&#39;</span>,<span class="stringliteral">&#39;mufi-barmapsDS&#39;</span>]:</div>
-<div class="line"><span class="lineno"> 1970</span>              tc = fmc.mufilter.Get(hitmaps).Clone(hitmaps+<span class="stringliteral">&#39;MC&#39;</span>)</div>
+<div class="line"><span class="lineno"> 1970</span>              tc = fmc.Get(<span class="stringliteral">&quot;mufilter&quot;</span>).Get(hitmaps).Clone(hitmaps+<span class="stringliteral">&#39;MC&#39;</span>)</div>
 <div class="line"><span class="lineno"> 1971</span>              <span class="keywordflow">for</span> pad <span class="keywordflow">in</span> tc.GetListOfPrimitives():</div>
 <div class="line"><span class="lineno"> 1972</span>                <span class="keywordflow">for</span> plane <span class="keywordflow">in</span> pad.GetListOfPrimitives():</div>
 <div class="line"><span class="lineno"> 1973</span>                   <span class="keywordflow">if</span> plane.ClassName().find(<span class="stringliteral">&#39;TH&#39;</span>)==0:</div>
@@ -2674,9 +2674,9 @@ Public Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  684</span>         <span class="keywordflow">try</span>:</div>
 <div class="line"><span class="lineno">  685</span>           R = ROOT.TFile.Open(www+<span class="stringliteral">&quot;offline/run&quot;</span>+str(runNumber).zfill(6)+<span class="stringliteral">&quot;.root&quot;</span>)</div>
 <div class="line"><span class="lineno">  686</span>           ROOT.gROOT.cd()</div>
-<div class="line"><span class="lineno">  687</span>           bCanvas = R.daq.Get(<span class="stringliteral">&#39;bunchNumber&#39;</span>)</div>
+<div class="line"><span class="lineno">  687</span>           bCanvas = R.Get(<span class="stringliteral">&quot;daq&quot;</span>).Get(<span class="stringliteral">&#39;bunchNumber&#39;</span>)</div>
 <div class="line"><span class="lineno">  688</span>           <span class="keywordflow">if</span> <span class="keywordflow">not</span> bCanvas:</div>
-<div class="line"><span class="lineno">  689</span>             bCanvas = R.daq.shifter.Get(<span class="stringliteral">&#39;bunchNumber&#39;</span>)</div>
+<div class="line"><span class="lineno">  689</span>             bCanvas = R.Get(<span class="stringliteral">&quot;daq&quot;</span>).Get(<span class="stringliteral">&quot;shifter&quot;</span>).Get(<span class="stringliteral">&#39;bunchNumber&#39;</span>)</div>
 <div class="line"><span class="lineno">  690</span>           h[<span class="stringliteral">&#39;bnr&#39;</span>]= bCanvas.FindObject(<span class="stringliteral">&#39;bnr&#39;</span>).Clone(<span class="stringliteral">&#39;bnr&#39;</span>)           </div>
 <div class="line"><span class="lineno">  691</span>         <span class="comment"># create the bunch number plot if offline monitoring file is missing</span></div>
 <div class="line"><span class="lineno">  692</span>         <span class="keywordflow">except</span>:</div>
@@ -2857,7 +2857,7 @@ Public Attributes</h2></td></tr>
 <div class="line"><span class="lineno"> 1643</span>                runNumber = int(x[ir+4:ir+4+k+1])</div>
 <div class="line"><span class="lineno"> 1644</span>                <span class="keywordflow">if</span> runNumber&lt;options.rmin: <span class="keywordflow">continue</span></div>
 <div class="line"><span class="lineno"> 1645</span>                R = ROOT.TFile.Open(www+<span class="stringliteral">&quot;offline/run&quot;</span>+str(runNumber).zfill(6)+<span class="stringliteral">&quot;.root&quot;</span>)</div>
-<div class="line"><span class="lineno"> 1646</span>                bCanvas = R.daq.Get(<span class="stringliteral">&#39;T&#39;</span>)</div>
+<div class="line"><span class="lineno"> 1646</span>                bCanvas = R.Get(<span class="stringliteral">&quot;daq&quot;</span>).Get(<span class="stringliteral">&#39;T&#39;</span>)</div>
 <div class="line"><span class="lineno"> 1647</span>                <span class="keywordflow">if</span> <span class="keywordflow">not</span> bCanvas:</div>
 <div class="line"><span class="lineno"> 1648</span>                       print(<span class="stringliteral">&#39;Error with root file&#39;</span>,runNumber)</div>
 <div class="line"><span class="lineno"> 1649</span>                       <span class="keywordflow">continue</span></div>
@@ -3080,7 +3080,7 @@ Public Attributes</h2></td></tr>
 <div class="line"><span class="lineno"> 1704</span>             <span class="keywordflow">for</span> x <span class="keywordflow">in</span> [<span class="stringliteral">&quot;timeWtDS&quot;</span>,<span class="stringliteral">&quot;timeWt&quot;</span>]:</div>
 <div class="line"><span class="lineno"> 1705</span>               hx = nm+x+<span class="stringliteral">&#39;100&#39;</span></div>
 <div class="line"><span class="lineno"> 1706</span>               <span class="keywordflow">if</span> aRun:</div>
-<div class="line"><span class="lineno"> 1707</span>                 h[hx] = Frun.daq.T.FindObject(x).Clone(hx)</div>
+<div class="line"><span class="lineno"> 1707</span>                 h[hx] = Frun.Get(<span class="stringliteral">&quot;daq&quot;</span>).T.FindObject(x).Clone(hx)</div>
 <div class="line"><span class="lineno"> 1708</span>                 h[hx].Rebin(100)</div>
 <div class="line"><span class="lineno"> 1709</span>                 h[hx].Scale(0.01)</div>
 <div class="line"><span class="lineno"> 1710</span>               <span class="keywordflow">else</span>:</div>
@@ -3154,12 +3154,12 @@ Public Attributes</h2></td></tr>
 <div class="line"><span class="lineno"> 1778</span>             h[<span class="stringliteral">&#39;c1&#39;</span>].Print(nm+<span class="stringliteral">&#39;Lumi-tracks.pdf&#39;</span>)</div>
 <div class="line"><span class="lineno"> 1779</span><span class="comment"># integral of tracks per cm2</span></div>
 <div class="line"><span class="lineno"> 1780</span>             self.R = ROOT.TFile.Open(www+<span class="stringliteral">&quot;offline/run&quot;</span>+str(runNumber).zfill(6)+<span class="stringliteral">&quot;.root&quot;</span>)</div>
-<div class="line"><span class="lineno"> 1781</span>             Nevts = self.R.daq.Get(<span class="stringliteral">&#39;T&#39;</span>).FindObject(<span class="stringliteral">&#39;time&#39;</span>).GetEntries()</div>
+<div class="line"><span class="lineno"> 1781</span>             Nevts = self.R.Get(<span class="stringliteral">&quot;daq&quot;</span>).Get(<span class="stringliteral">&#39;T&#39;</span>).FindObject(<span class="stringliteral">&#39;time&#39;</span>).GetEntries()</div>
 <div class="line"><span class="lineno"> 1782</span>             postScale = self.runInfo[runNumber][<span class="stringliteral">&#39;Entries&#39;</span>]/Nevts</div>
 <div class="line"><span class="lineno"> 1783</span>             T = <span class="stringliteral">&#39;scifi-TtrackPos&#39;</span></div>
-<div class="line"><span class="lineno"> 1784</span>             h[T] = self.R.scifi.Get(T).FindObject(<span class="stringliteral">&#39;scifi-trackPosBeam&#39;</span>).Clone(T)</div>
+<div class="line"><span class="lineno"> 1784</span>             h[T] = self.R.Get(<span class="stringliteral">&quot;scifi&quot;</span>).Get(T).FindObject(<span class="stringliteral">&#39;scifi-trackPosBeam&#39;</span>).Clone(T)</div>
 <div class="line"><span class="lineno"> 1785</span>             T = <span class="stringliteral">&#39;mufi-TtrackPos&#39;</span></div>
-<div class="line"><span class="lineno"> 1786</span>             h[T] = self.R.mufilter.Get(T).FindObject(<span class="stringliteral">&#39;mufi-trackPosBeam&#39;</span>).Clone(T)</div>
+<div class="line"><span class="lineno"> 1786</span>             h[T] = self.R.Get(<span class="stringliteral">&quot;mufilter&quot;</span>).Get(T).FindObject(<span class="stringliteral">&#39;mufi-trackPosBeam&#39;</span>).Clone(T)</div>
 <div class="line"><span class="lineno"> 1787</span>             ROOT.gROOT.cd()</div>
 <div class="line"><span class="lineno"> 1788</span>             rList = list(emulsionReplacements.keys())</div>
 <div class="line"><span class="lineno"> 1789</span>             rList.sort(reverse=<span class="keyword">True</span>)</div>
@@ -3280,7 +3280,7 @@ Public Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  765</span>         h[<span class="stringliteral">&#39;XIP2z&#39;</span>].SetStats(0)</div>
 <div class="line"><span class="lineno">  766</span>         R = ROOT.TFile.Open(www+<span class="stringliteral">&quot;offline/run&quot;</span>+str(runNumber).zfill(6)+<span class="stringliteral">&quot;.root&quot;</span>)</div>
 <div class="line"><span class="lineno">  767</span>         ROOT.gROOT.cd()</div>
-<div class="line"><span class="lineno">  768</span>         bCanvas = R.daq.Get(<span class="stringliteral">&#39;sndclock&#39;</span>)</div>
+<div class="line"><span class="lineno">  768</span>         bCanvas = R.Get(<span class="stringliteral">&quot;daq&quot;</span>).Get(<span class="stringliteral">&#39;sndclock&#39;</span>)</div>
 <div class="line"><span class="lineno">  769</span>         h[<span class="stringliteral">&#39;Xbnr&#39;</span>]= bCanvas.FindObject(<span class="stringliteral">&#39;Xbnr&#39;</span>).Clone(<span class="stringliteral">&#39;Xbnr&#39;</span>)</div>
 <div class="line"><span class="lineno">  770</span>         ROOT.gROOT.cd()</div>
 <div class="line"><span class="lineno">  771</span>         h[<span class="stringliteral">&#39;c1&#39;</span>].cd()</div>

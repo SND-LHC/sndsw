@@ -1,5 +1,6 @@
 var NAVTREEINDEX80 =
 {
+"namespacegeometry__config.html#a92b3d33b9dff053b5f23d117298f676d":[12,0,56,64],
 "namespacegeometry__config.html#a92f966ec6182c2831143d032f3408208":[12,0,56,1],
 "namespacegeometry__config.html#a93156db742dbfa69b739fd6bf2752018":[12,0,56,206],
 "namespacegeometry__config.html#a93e2ff83691a9e8c998fb77105bef2e4":[12,0,56,55],
@@ -248,6 +249,5 @@ var NAVTREEINDEX80 =
 "namespacehepunit.html#a13be64ae31292dfc8edc199465f59edf":[12,0,61,118],
 "namespacehepunit.html#a15f123038d2b7d5aa5b8bafeec5e0bde":[12,0,61,125],
 "namespacehepunit.html#a17e4ed3521ea603ec4ac15295aa3b8fb":[12,0,61,117],
-"namespacehepunit.html#a1a2cdaa70a7eba9e31ec1425fbb7eff0":[12,0,61,130],
-"namespacehepunit.html#a1a9001d114b5b08df0e29661a876999f":[12,0,61,83]
+"namespacehepunit.html#a1a2cdaa70a7eba9e31ec1425fbb7eff0":[12,0,61,130]
 };

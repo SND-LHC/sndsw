@@ -1,5 +1,6 @@
 var NAVTREEINDEX95 =
 {
+"namespacestudy__muMSC.html#a76a53729f50552341270317708029111":[12,0,181,49],
 "namespacestudy__muMSC.html#a77cbcf86b14e327d2a99157a38e82781":[12,0,181,38],
 "namespacestudy__muMSC.html#a83610238e23df3d8a538408c1c7c5b48":[12,0,181,17],
 "namespacestudy__muMSC.html#a8646d6a9906c5a607f70d3f3a31261ea":[12,0,181,35],
@@ -248,6 +249,5 @@ var NAVTREEINDEX95 =
 "option_page.html#cmd-matmoni":[0,1,1,21],
 "option_page.html#cmd-maxrecord":[0,1,1,22],
 "option_page.html#cmd-measurement":[0,1,1,23],
-"option_page.html#cmd-memorydebug":[0,1,1,24],
-"option_page.html#cmd-method":[0,1,1,25]
+"option_page.html#cmd-memorydebug":[0,1,1,24]
 };

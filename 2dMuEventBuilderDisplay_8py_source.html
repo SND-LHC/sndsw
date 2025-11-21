@@ -132,13 +132,13 @@ $(document).ready(function(){initNavTree('2dMuEventBuilderDisplay_8py_source.htm
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="namespace2dMuEventBuilderDisplay.html#a41085adc533788f8d4640a05e28df0ca">   33</a></span>mc = <span class="keyword">False</span></div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keywordflow">if</span> options.inputFile==<span class="stringliteral">&quot;&quot;</span>:</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="namespace2dMuEventBuilderDisplay.html#a8feda1c8756310712c89a6c64be95c32">   35</a></span>  f=ROOT.TFile(<span class="stringliteral">&#39;sndsw_raw_&#39;</span>+str(options.runNumber).zfill(6)+<span class="stringliteral">&#39;.root&#39;</span>)</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="namespace2dMuEventBuilderDisplay.html#abba0fe3847e24c288c0f83791f19f09f">   36</a></span>  eventTree = f.rawConv</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="namespace2dMuEventBuilderDisplay.html#abba0fe3847e24c288c0f83791f19f09f">   36</a></span>  eventTree = f.Get(<span class="stringliteral">&quot;rawConv&quot;</span>)</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keywordflow">else</span>:</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>  f=ROOT.TFile.Open(options.inputFile)</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>  <span class="keywordflow">if</span> f.FindKey(<span class="stringliteral">&#39;cbmsim&#39;</span>):</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        eventTree = f.cbmsim</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        eventTree = f.Get(<span class="stringliteral">&quot;cbmsim&quot;</span>)</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        mc = <span class="keyword">True</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>  <span class="keywordflow">else</span>:   eventTree = f.rawConv</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>  <span class="keywordflow">else</span>:   eventTree = f.Get(<span class="stringliteral">&quot;rawConv&quot;</span>)</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="namespace2dMuEventBuilderDisplay.html#abe092c3f2b890457453bab5c2df567dc">   44</a></span>nav = ROOT.gGeoManager.GetCurrentNavigator()</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="keywordflow">for</span> p <span class="keywordflow">in</span> [0,1]:</div>

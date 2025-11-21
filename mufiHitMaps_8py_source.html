@@ -146,10 +146,10 @@ $(document).ready(function(){initNavTree('mufiHitMaps_8py_source.html',''); init
 </div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keywordflow">if</span> options.runNumber&gt;0:</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="namespacemufiHitMaps.html#a569c47d2bcc7faae41c2146a86043224">   47</a></span>              f=ROOT.TFile.Open(path+<span class="stringliteral">&#39;sndsw_raw_&#39;</span>+<a class="code hl_variable" href="namespacemufiHitMaps.html#a1513dcccb04c5adc06d44e0b1f52cded">str</a>(options.runNumber).zfill(6)+<span class="stringliteral">&#39;.root&#39;</span>)</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="namespacemufiHitMaps.html#a044807a37bdf0c72d08ef3bae1ccd3d4">   48</a></span>              eventTree = f.rawConv</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="namespacemufiHitMaps.html#a044807a37bdf0c72d08ef3bae1ccd3d4">   48</a></span>              eventTree = f.Get(<span class="stringliteral">&quot;rawConv&quot;</span>)</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keywordflow">else</span>:</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>              f=ROOT.TFile.Open(options.fname)</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>              eventTree = f.cbmsim</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>              eventTree = f.Get(<span class="stringliteral">&quot;cbmsim&quot;</span>)</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment"># backward compatbility for early converted events</span></div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>eventTree.GetEvent(0)</div>

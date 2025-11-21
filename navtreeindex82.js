@@ -1,5 +1,6 @@
 var NAVTREEINDEX82 =
 {
+"namespacemakeDecay.html#a8718f33cd01d5a873aede1561940be4b":[12,0,68,37],
 "namespacemakeDecay.html#a8ae49156f9341ca95732cc2c31159dda":[12,0,68,38],
 "namespacemakeDecay.html#a91f378399593c38f355c60a387985f2e":[12,0,68,2],
 "namespacemakeDecay.html#a97147c649e3e1cfd894b38f64fd37533":[12,0,68,11],
@@ -204,8 +205,8 @@ var NAVTREEINDEX82 =
 "namespacemembers_enum.html":[12,1,4],
 "namespacemembers_eval.html":[12,1,5],
 "namespacemembers_f.html":[12,1,0,6],
-"namespacemembers_func.html":[12,1,1],
 "namespacemembers_func.html":[12,1,1,0],
+"namespacemembers_func.html":[12,1,1],
 "namespacemembers_func_a.html":[12,1,1,1],
 "namespacemembers_func_b.html":[12,1,1,2],
 "namespacemembers_func_c.html":[12,1,1,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX82 =
 "namespacemembers_t.html":[12,1,0,20],
 "namespacemembers_type.html":[12,1,3],
 "namespacemembers_u.html":[12,1,0,21],
-"namespacemembers_v.html":[12,1,0,22],
-"namespacemembers_vars.html":[12,1,2]
+"namespacemembers_v.html":[12,1,0,22]
 };

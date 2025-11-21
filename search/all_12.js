@@ -79,7 +79,7 @@ var searchData=
   ['ncpus_76',['ncpus',['../namespacerunProd.html#ae1cfe608e0a180a7953bba0c2f7172ca',1,'runProd.ncpus'],['../namespacemuonDis.html#ab2d1753cd8942140e1dba98e151a7fb0',1,'muonDis.ncpus'],['../namespacerunCharmHadProd.html#a73723768be756b5d2011a4324d357eeb',1,'runCharmHadProd.ncpus']]],
   ['ncrate_77',['ncrate',['../structRawHit.html#ad9eab68a8ef634c771f1130104ffa753',1,'RawHit']]],
   ['ndbits_78',['ndbits',['../mpbits_8f90.html#afc3196af7a116ae0050f96c940c03ba3',1,'mpbits.f90']]],
-  ['ndecaywidth_79',['ndecaywidth',['../classrpvsusy_1_1RPVSUSYbranchings.html#a19df3958d4a6e134b77bd25df0991c15',1,'rpvsusy.RPVSUSYbranchings.NdecayWidth()'],['../classhnl_1_1HNLbranchings.html#a16eb7b8877b111b5d25d5a770390cc8d',1,'hnl.HNLbranchings.NDecayWidth()']]],
+  ['ndecaywidth_79',['ndecaywidth',['../classhnl_1_1HNLbranchings.html#a16eb7b8877b111b5d25d5a770390cc8d',1,'hnl.HNLbranchings.NDecayWidth()'],['../classrpvsusy_1_1RPVSUSYbranchings.html#a19df3958d4a6e134b77bd25df0991c15',1,'rpvsusy.RPVSUSYbranchings.NdecayWidth()']]],
   ['ndefec_80',['ndefec',['../namespacempmod.html#a934ba105d1133de87b31daaa20415cee',1,'mpmod']]],
   ['ndf_81',['Ndf',['../classsndRecoTrack.html#aa2425473b4b56500e6eb817118189c66',1,'sndRecoTrack']]],
   ['ndf_5f_82',['ndf_',['../classgenfit_1_1FitStatus.html#a55f84cd0f1bf4204a4f7fb25d5138238',1,'genfit::FitStatus::ndf_'],['../classgenfit_1_1KalmanFittedStateOnPlane.html#a664b4f9ef830745ade00412301df366f',1,'genfit::KalmanFittedStateOnPlane::ndf_'],['../classgenfit_1_1GFRaveVertex.html#a05d9e6c5be0a476f526c39e934f28fad',1,'genfit::GFRaveVertex::ndf_']]],

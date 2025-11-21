@@ -27,26 +27,27 @@ var NAVTREE =
   [ "SND@LHC Software", "index.html", [
     [ "SNDSW Class Reference", "index.html", "index" ],
     [ "Changelog", "md_CHANGELOG.html", [
-      [ "v1.2.1+2025-09", "md_CHANGELOG.html#autotoc_md1", [
-        [ "Added", "md_CHANGELOG.html#autotoc_md2", null ],
-        [ "Changed", "md_CHANGELOG.html#autotoc_md3", null ],
-        [ "Fixed", "md_CHANGELOG.html#autotoc_md4", null ]
+      [ "v1.2.1+2025-09", "md_CHANGELOG.html#autotoc_md2", [
+        [ "Fixed", "md_CHANGELOG.html#autotoc_md1", null ],
+        [ "Added", "md_CHANGELOG.html#autotoc_md3", null ],
+        [ "Changed", "md_CHANGELOG.html#autotoc_md4", null ],
+        [ "Fixed", "md_CHANGELOG.html#autotoc_md5", null ]
       ] ],
-      [ "v1.2.0+2025-09-MCEventBuilder", "md_CHANGELOG.html#autotoc_md5", [
-        [ "Added", "md_CHANGELOG.html#autotoc_md6", null ]
+      [ "v1.2.0+2025-09-MCEventBuilder", "md_CHANGELOG.html#autotoc_md6", [
+        [ "Added", "md_CHANGELOG.html#autotoc_md7", null ]
       ] ],
-      [ "v1.1.0+2025-08-BolognaTools", "md_CHANGELOG.html#autotoc_md7", [
-        [ "Added", "md_CHANGELOG.html#autotoc_md8", null ]
+      [ "v1.1.0+2025-08-BolognaTools", "md_CHANGELOG.html#autotoc_md8", [
+        [ "Added", "md_CHANGELOG.html#autotoc_md9", null ]
       ] ],
-      [ "v1.0.1+2025-07-fixTB24Wtarget", "md_CHANGELOG.html#autotoc_md9", [
-        [ "Fixed", "md_CHANGELOG.html#autotoc_md10", null ],
-        [ "Added", "md_CHANGELOG.html#autotoc_md11", null ]
+      [ "v1.0.1+2025-07-fixTB24Wtarget", "md_CHANGELOG.html#autotoc_md10", [
+        [ "Fixed", "md_CHANGELOG.html#autotoc_md11", null ],
+        [ "Added", "md_CHANGELOG.html#autotoc_md12", null ]
       ] ],
-      [ "v1.0.0+2025-07-updateScifi", "md_CHANGELOG.html#autotoc_md12", [
-        [ "Added", "md_CHANGELOG.html#autotoc_md13", null ],
-        [ "Changed", "md_CHANGELOG.html#autotoc_md14", null ],
-        [ "Fixed", "md_CHANGELOG.html#autotoc_md15", null ],
-        [ "Removed", "md_CHANGELOG.html#autotoc_md16", null ]
+      [ "v1.0.0+2025-07-updateScifi", "md_CHANGELOG.html#autotoc_md13", [
+        [ "Added", "md_CHANGELOG.html#autotoc_md14", null ],
+        [ "Changed", "md_CHANGELOG.html#autotoc_md15", null ],
+        [ "Fixed", "md_CHANGELOG.html#autotoc_md16", null ],
+        [ "Removed", "md_CHANGELOG.html#autotoc_md17", null ]
       ] ]
     ] ],
     [ "README", "md_conditionsDatabase_2databases_2mongodb_2models_2README.html", null ],
@@ -54,45 +55,45 @@ var NAVTREE =
     [ "README", "md_conditionsDatabase_2databases_2README.html", null ],
     [ "README", "md_conditionsDatabase_2demo_2README.html", null ],
     [ "conditionsDB package", "md_conditionsDatabase_2README.html", [
-      [ "Introduction", "md_conditionsDatabase_2README.html#autotoc_md22", [
-        [ "Supported storage back-ends", "md_conditionsDatabase_2README.html#autotoc_md23", null ]
+      [ "Introduction", "md_conditionsDatabase_2README.html#autotoc_md23", [
+        [ "Supported storage back-ends", "md_conditionsDatabase_2README.html#autotoc_md24", null ]
       ] ],
-      [ "Package structure", "md_conditionsDatabase_2README.html#autotoc_md24", null ],
-      [ "Package dependencies", "md_conditionsDatabase_2README.html#autotoc_md25", [
-        [ "Python", "md_conditionsDatabase_2README.html#autotoc_md26", null ],
-        [ "Storage back-ends", "md_conditionsDatabase_2README.html#autotoc_md27", null ],
-        [ "aliBuild integration", "md_conditionsDatabase_2README.html#autotoc_md28", null ]
+      [ "Package structure", "md_conditionsDatabase_2README.html#autotoc_md25", null ],
+      [ "Package dependencies", "md_conditionsDatabase_2README.html#autotoc_md26", [
+        [ "Python", "md_conditionsDatabase_2README.html#autotoc_md27", null ],
+        [ "Storage back-ends", "md_conditionsDatabase_2README.html#autotoc_md28", null ],
+        [ "aliBuild integration", "md_conditionsDatabase_2README.html#autotoc_md29", null ]
       ] ],
-      [ "Documentation generation", "md_conditionsDatabase_2README.html#autotoc_md29", null ],
-      [ "Supported Python version", "md_conditionsDatabase_2README.html#autotoc_md30", null ]
+      [ "Documentation generation", "md_conditionsDatabase_2README.html#autotoc_md30", null ],
+      [ "Supported Python version", "md_conditionsDatabase_2README.html#autotoc_md31", null ]
     ] ],
     [ "README", "md_conditionsDatabase_2tests_2README.html", [
-      [ "Directory structure", "md_conditionsDatabase_2tests_2README.html#autotoc_md32", null ]
+      [ "Directory structure", "md_conditionsDatabase_2tests_2README.html#autotoc_md33", null ]
     ] ],
     [ "Unit Test", "md_conditionsDatabase_2tests_2test__mongodb_2README.html", null ],
     [ "README", "md_field_2README.html", null ],
     [ "sndsw", "md_README.html", [
-      [ "Introduction", "md_README.html#autotoc_md38", [
-        [ "Contact and communication", "md_README.html#autotoc_md39", null ],
-        [ "Branches", "md_README.html#autotoc_md40", null ]
+      [ "Introduction", "md_README.html#autotoc_md39", [
+        [ "Contact and communication", "md_README.html#autotoc_md40", null ],
+        [ "Branches", "md_README.html#autotoc_md41", null ]
       ] ],
-      [ "Build instructions", "md_README.html#autotoc_md41", [
-        [ "Introduction to <tt>aliBuild</tt>", "md_README.html#autotoc_md42", null ],
-        [ "On lxplus or systems with CVMFS", "md_README.html#autotoc_md43", null ],
-        [ "On systems without access to CVMFS", "md_README.html#autotoc_md44", null ]
+      [ "Build instructions", "md_README.html#autotoc_md42", [
+        [ "Introduction to <tt>aliBuild</tt>", "md_README.html#autotoc_md43", null ],
+        [ "On lxplus or systems with CVMFS", "md_README.html#autotoc_md44", null ],
+        [ "On systems without access to CVMFS", "md_README.html#autotoc_md45", null ]
       ] ],
-      [ "Run instructions", "md_README.html#autotoc_md45", [
-        [ "Use cases covered by <tt>run_simSND.py</tt>", "md_README.html#autotoc_md46", null ],
-        [ "Digitization of MC data", "md_README.html#autotoc_md47", null ],
-        [ "Converting raw data to sndsw format", "md_README.html#autotoc_md48", null ],
-        [ "Example scripts for accessing the raw data and making histograms", "md_README.html#autotoc_md49", null ],
-        [ "simple 2d event display with Scifi tracking", "md_README.html#autotoc_md50", null ]
+      [ "Run instructions", "md_README.html#autotoc_md46", [
+        [ "Use cases covered by <tt>run_simSND.py</tt>", "md_README.html#autotoc_md47", null ],
+        [ "Digitization of MC data", "md_README.html#autotoc_md48", null ],
+        [ "Converting raw data to sndsw format", "md_README.html#autotoc_md49", null ],
+        [ "Example scripts for accessing the raw data and making histograms", "md_README.html#autotoc_md50", null ],
+        [ "simple 2d event display with Scifi tracking", "md_README.html#autotoc_md51", null ]
       ] ],
-      [ "Development", "md_README.html#autotoc_md51", [
-        [ "How to keep branches up to date", "md_README.html#autotoc_md52", null ],
-        [ "How to contribute code", "md_README.html#autotoc_md53", null ]
+      [ "Development", "md_README.html#autotoc_md52", [
+        [ "How to keep branches up to date", "md_README.html#autotoc_md53", null ],
+        [ "How to contribute code", "md_README.html#autotoc_md54", null ]
       ] ],
-      [ "Docker Instructions", "md_README.html#autotoc_md54", null ]
+      [ "Docker Instructions", "md_README.html#autotoc_md55", null ]
     ] ],
     [ "Topics", "topics.html", "topics" ],
     [ "Namespaces", "namespaces.html", [
@@ -204,49 +205,49 @@ var NAVTREEINDEX =
 "hepunit_8py.html#a63b50e182a1ecbcbdfcc2fd6f141de9b",
 "macro_2eventDisplay_8py.html#a829e0e25dc7caafcf9c1457f3d1c5e28",
 "makeMuonEM_8py.html#a60d6f22c97137e52694045555ca0b5e9",
-"mpdalc_8f90.html#a794137cf67c8a8a73727496c6c4c10fa",
-"mpmod_8f90.html#ae44d9ec64cc3d6783bf91e63e9f61435",
-"muonDis_8py.html#ad6926fb694d3918d6e1bfb23d7754f2c",
-"namespaceMufiCTR.html#a6191bec6583a1f2063fe11717e6ae4e2",
-"namespaceShipAna.html#a1f85359f38d72674b0a60c4e12683bfe",
-"namespaceSurvey-MufiScifi.html#ab8477d41d8909b761d97841648f4d281",
-"namespaceana__thermalNeutrons.html#ad73050effecbc1b9e8f54d6b37af0659",
-"namespacecharm-geometry__config.html#ad6151ca223532f833daced029abf5298",
-"namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a6bd18bfd360a7f7a560d14349e6ea985",
-"namespaceconditionsDatabase_1_1tests_1_1benchmark__api.html#a3317423f1100ebe8fe2c5b02ff21d7f6",
-"namespaceevd__addParticleFollower.html",
-"namespaceflux__map.html",
-"namespacegenfit_1_1tools.html#abb8ddf6bbcd1a5c6389977e4efd9d623",
-"namespacegeometry__config.html#a92f966ec6182c2831143d032f3408208",
-"namespacehepunit.html#a1b81a64bd9560e6035698ead3ff1453c",
-"namespacemakeDecay.html#a8ae49156f9341ca95732cc2c31159dda",
+"mpdalc_8f90.html#a73653b2f63ead6d7031fa72c882eb2de",
+"mpmod_8f90.html#ae3b172f60491ca00efdcfd53f982e9c7",
+"muonDis_8py.html#ad6923d5925a2aa4c57ee8c617d3acd8a",
+"namespaceMufiCTR.html#a54fd61b5888021ce3a6d8be02fca100a",
+"namespaceShipAna.html#a19f60a61e3504e0143aad95ff168121b",
+"namespaceSurvey-MufiScifi.html#ab7ae1d683c2e139591c672475765651d",
+"namespaceana__thermalNeutrons.html#ac59e7e7841312ea2740f33276494c252",
+"namespacecharm-geometry__config.html#ad49ce537aa889f8b50ed5ff0caa957c0",
+"namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a6bb8690890114281d3ec431ddf1f4a08",
+"namespaceconditionsDatabase_1_1tests_1_1benchmark__api.html#a28af6de659382d2e9aad1d8c3b558afb",
+"namespacedumpEvent.html#ad71b02eaa8d859f755182513a7527183",
+"namespaceextract__interacting__neutrinos.html#af22d34688f17c65b330c898ed5ee9d90",
+"namespacegenfit_1_1tools.html#a99071af64076652ebc806de12fac3127",
+"namespacegeometry__config.html#a92b3d33b9dff053b5f23d117298f676d",
+"namespacehepunit.html#a1a9001d114b5b08df0e29661a876999f",
+"namespacemakeDecay.html#a8718f33cd01d5a873aede1561940be4b",
 "namespacemembers_vars.html",
-"namespacempmod.html#a6b38b041e17c62cce3f1514687414691",
-"namespacemuonDis.html#a458fbc43edd5b76733faa783a2720b32",
-"namespacerootUtils.html#a9f415e9791b8ccfc0538014dc386844f",
-"namespacerun__Monitoring.html#a775c37016b12d698dd2bac8ede6a71df",
-"namespacerun__muonRecoSND.html#a5bd3c04aa1ae427c17bf4ca274da37ee",
-"namespacerun__simScript.html#aa268966c32f0dddfe8d0115cd51b73a9",
-"namespaceshipPatRec__prev.html#a84a67cbf300e427fcbc0dd38b41c473a",
-"namespaceshipunit.html#afe396cc2d29cee6c307fea8600bf2db5",
-"namespacesndLHC__H6geom__config.html#a0e9d0614b952561f95a8f59fae56d246",
-"namespacesndLHC__HXgeom__config.html#a5ff4fe533da112862cf5d7f20834a98c",
-"namespacesndLHC__TI18geom__config.html#a6f5580d867955ff1deb0f384e4c08bd8",
-"namespacestudy__muMSC.html#a77cbcf86b14e327d2a99157a38e82781",
-"option_page.html#cmd-monpull",
-"readc_8c.html#a99c0fa4c8eb990c922bda0dc0aeb478a",
-"run__Monitoring_8py.html#a0689f82d0846971eeeb0f9017923632f",
-"run__fixedTarget_8py.html#aa5bc42f75f97f070ce6f0d119cb72d8a",
-"run__simScript_8py.html#a4f8da5efa4a13194e798677a5f3bac6e",
-"shipLHC_2scripts_2eventDisplay_8py.html#a2120898c255997ecce4d10f839dec808",
-"shipunit_8py.html#a5ccbe8b476b8cb65420f14580915976a",
-"sndLHC__H4geom__config_8py.html#a697d5711e388f5d89fdddaaa20daa3d0",
-"sndLHC__H6geom__config_8py.html#aaa82fa327a999fadc86ed193b0841e5a",
-"sndLHC__HXgeom__config_8py.html#ad9062c8cbe9c839bc28268df3374f3df",
-"sndLHC__TI18geom__config_8py.html#ae64997318a7cb18ca39f3858a9983c77",
-"structRawHit.html#ab90a2e6c9d1c97c4a16f4dfdf91350fb",
+"namespacempmod.html#a69e637868d9cc0b9cadb29e82502df9c",
+"namespacemuonDis.html#a3c24e39a6032c4f68939ba304c0f8c52",
+"namespacerootUtils.html#a89ef734205982703a73de4c58adec884",
+"namespacerun__Monitoring.html#a71439fa635f37eb15a58e5e6170f2f95",
+"namespacerun__muonRecoSND.html#a48bd91ca8ac75fcde535750e66d5d856",
+"namespacerun__simScript.html#a9f7719aa60cf8dbaebe6499e089f0c43",
+"namespaceshipPatRec__prev.html#a83cb097d1443f1f9d9b03fc0a1699eff",
+"namespaceshipunit.html#af9326ad1353a3752fb07e7e1da883e60",
+"namespacesndLHC__H6geom__config.html#a0e00a91829354326c064905e41230354",
+"namespacesndLHC__HXgeom__config.html#a5fc106912d004871bcfec16e42eb4e3e",
+"namespacesndLHC__TI18geom__config.html#a6b8b0849f3292f687a4dd8a3a0250129",
+"namespacestudy__muMSC.html#a76a53729f50552341270317708029111",
+"option_page.html#cmd-method",
+"readc_8c.html#a674fc8617257341284bf5115211a403c",
+"run__Monitoring_8py.html#a055b44cf8da622f5b68ba881efb6f47f",
+"run__fixedTarget_8py.html#aa18a0e3d9b0eb89508fce88b6a8603d5",
+"run__simScript_8py.html#a4e59968cfe8bdd1211f20a4db16c60ad",
+"shipLHC_2scripts_2eventDisplay_8py.html#a198871077dba860c4fe342219ea50aa1",
+"shipunit_8py.html#a5c8fe75bfe3b9cfe393945cd4108c421",
+"sndLHC__H4geom__config_8py.html#a68e68d123d9c5a0b689937d5c9a26630",
+"sndLHC__H6geom__config_8py.html#aa9a66a2dd4ae5e7c4ea416fa74fb1189",
+"sndLHC__HXgeom__config_8py.html#ad8b6cba66f7b4737f4b4489336d80962",
+"sndLHC__TI18geom__config_8py.html#ae648fb5eb221e09858665c9f1dbf153d",
+"structRawHit.html#ab5e50d04504bfdd0c1a8634f3bec36bd",
 "structsnd_1_1analysis__tools_1_1USPlane_1_1USHit.html#a72577e5307211a0edc0366d924e7ca05",
-"tests_2____init_____8py.html"
+"testbeam__unpack_8py_source.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
