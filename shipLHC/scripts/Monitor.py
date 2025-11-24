@@ -19,8 +19,8 @@ ROOT.gInterpreter.Declare("""
 #include "AbsMeasurement.h"
 #include "TrackPoint.h"
 
-void fixRoot(MuFilterHit& aHit,std::vector<int>& key,std::vector<float>& value, bool mask) {
-   std::map<int,float> m = aHit.GetAllSignals(false);
+void fixRoot(MuFilterHit& aHit,std::vector<int>& key,std::vector<float>& value, bool mask,bool positive) {
+   std::map<int,float> m = aHit.GetAllSignals(mask,positive);
    std::map<int, float>::iterator it = m.begin();
    while (it != m.end())
     {
@@ -30,7 +30,7 @@ void fixRoot(MuFilterHit& aHit,std::vector<int>& key,std::vector<float>& value, 
     }
 }
 void fixRootT(MuFilterHit& aHit,std::vector<int>& key,std::vector<float>& value, bool mask) {
-   std::map<int,float> m = aHit.GetAllTimes(false);
+   std::map<int,float> m = aHit.GetAllTimes(mask);
    std::map<int, float>::iterator it = m.begin();
    while (it != m.end())
     {
@@ -40,7 +40,7 @@ void fixRootT(MuFilterHit& aHit,std::vector<int>& key,std::vector<float>& value,
     }
 }
 void fixRoot(MuFilterHit& aHit, std::vector<TString>& key,std::vector<float>& value, bool mask) {
-   std::map<TString, float> m = aHit.SumOfSignals();
+   std::map<TString, float> m = aHit.SumOfSignals(mask);
    std::map<TString, float>::iterator it = m.begin();
    while (it != m.end())
     {
@@ -570,7 +570,7 @@ class Monitoring():
                   if l<6: l+=1
          return {'station':s,'plane':l,'bar':bar}
 
-   def map2Dict(self,aHit,T='GetAllSignals',mask=True):
+   def map2Dict(self,aHit,T='GetAllSignals',mask=True,positive=True):
       if T=="SumOfSignals":
          key = Tkey
       elif T=="GetAllSignals" or T=="GetAllTimes":
@@ -581,7 +581,7 @@ class Monitoring():
       key.clear()
       Value.clear()
       if T=="GetAllTimes": ROOT.fixRootT(aHit,key,Value,mask)
-      else:                         ROOT.fixRoot(aHit,key,Value,mask)
+      else:                         ROOT.fixRoot(aHit,key,Value,mask,positive)
       theDict = {}
       for k in range(key.size()):
           if T=="SumOfSignals": theDict[key[k].Data()] = Value[k]
