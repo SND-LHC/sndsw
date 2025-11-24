@@ -144,13 +144,7 @@ class prodManager():
          runNrs = self.dqDataFiles
       for r in runNrs:
            print('executing DQ for run %i'%(r))
-           if   r  < 4575:  geoFile =  "../geofile_sndlhc_TI18_V3_08August2022.root"
-           elif r  < 4855:   geoFile =  "../geofile_sndlhc_TI18_V5_14August2022.root"
-           elif r  < 5172:  geoFile =  "../geofile_sndlhc_TI18_V6_08October2022.root"
-           elif r  < 5485: geoFile =  "../geofile_sndlhc_TI18_V7_22November2022.root"
-           elif r  < 7357: geoFile =  "../geofile_sndlhc_TI18_V1_2023.root"
-           else: geoFile =  options.geofile
-           os.system(monitorCommand.replace('XXXX',str(r)).replace('GGGG',geoFile)+" &")
+           os.system(monitorCommand.replace('XXXX',str(r)).replace('GGGG',options.geofile)+" &")
            time.sleep(20)
            while self.count_python_processes('run_Monitoring')>(ncpus-5) or psutil.virtual_memory()[2]>90 : time.sleep(300)
 
@@ -166,13 +160,7 @@ class prodManager():
         runNrs = [rMin]
       for r in runNrs:
            print('executing DQ for run %i'%(r))
-           if   r  < 4575:  geoFile =  "../geofile_sndlhc_TI18_V3_08August2022.root"
-           elif r  < 4855:   geoFile =  "../geofile_sndlhc_TI18_V5_14August2022.root"
-           elif r  < 5172:  geoFile =  "../geofile_sndlhc_TI18_V6_08October2022.root"
-           elif r  < 5485: geoFile =  "../geofile_sndlhc_TI18_V7_22November2022.root"
-           elif r  < 7357: geoFile =  "../geofile_sndlhc_TI18_V1_2023.root"
-           else: geoFile =  options.geofile
-           os.system(monitorCommand.replace('XXXX',str(r)).replace('GGGG',geoFile))
+           os.system(monitorCommand.replace('XXXX',str(r)).replace('GGGG',options.geofile))
 
    def check4NewFiles(self,latest,rmax):
       rawDataFiles = self.getFileList(path,latest,rmax,minSize=10E6)
