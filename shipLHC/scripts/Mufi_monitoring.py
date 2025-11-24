@@ -994,7 +994,7 @@ class Veto_Efficiency(ROOT.FairTask):
            Minfo = self.M.MuFilter_PlaneBars(aHit.GetDetectorID())
            s,l,bar = Minfo['station'],Minfo['plane'],Minfo['bar']
            if s>1: continue
-           allChannels = self.M.map2Dict(aHit,'GetAllSignals')
+           allChannels = self.M.map2Dict(aHit,'GetAllSignals',mask=True,positive=False)
            hits[l]+=len(allChannels)
            if l != 2:
              for c in allChannels:
