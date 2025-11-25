@@ -9,7 +9,6 @@
 #include <TRandom.h>
 #include <iomanip> 
 
-Double_t speedOfLight = TMath::C() *100./1000000000.0 ; // from m/sec to cm/ns
 // -----   Default constructor   -------------------------------------------
 MuFilterHit::MuFilterHit()
   : SndlhcHit()
@@ -105,7 +104,7 @@ MuFilterHit::MuFilterHit(Int_t detID, std::vector<MuFilterPoint*> V)
      // In the SndlhcHit class the 'signals' array starts from 0.
      for (unsigned int j=0; j<nSiPMs; ++j){
         if ( floor(detID/10000)==2 && (j==2 or j==5)){                 // only US has small SiPMs
-           signals[j] = signalLeft/float(nSiPMs) * siPMcalibrationS;   // most simplest model, divide signal individually. Small SiPMS special
+           signals[j] = signalLeft/float(nSiPMs) * siPMcalibrationS;   // most simplest model, divide signal individually. Small SiPMS special: set signal to zero
            times[j] = gRandom->Gaus(earliestToAL, timeResol);
         }else{
            signals[j] = signalLeft/float(nSiPMs) * siPMcalibration;   // most simplest model, divide signal individually. 
@@ -126,11 +125,12 @@ MuFilterHit::~MuFilterHit() { }
 // -------------------------------------------------------------------------
 
 // -----   Public method GetEnergy   -------------------------------------------
-Float_t MuFilterHit::GetEnergy()
+Float_t MuFilterHit::GetEnergy(Bool_t use_short)
 {
   // to be calculated from digis and calibration constants, missing!
   Float_t E = 0;
   for (unsigned int j=0; j<nSiPMs; ++j){
+        if (!use_short && isShort(j)) continue; // remove small SiPMs
         E+=signals[j];
         if (nSides>1){ E+=signals[j+nSiPMs];}
   }
@@ -151,7 +151,7 @@ bool MuFilterHit::isShort(Int_t i){
 }
 
 // -----   Public method Get List of signals   -------------------------------------------
-std::map<Int_t,Float_t> MuFilterHit::GetAllSignals(Bool_t mask,Bool_t positive)
+std::map<Int_t,Float_t> MuFilterHit::GetAllSignals(Bool_t mask,Bool_t positive,Bool_t use_short)
 {
           std::map<Int_t,Float_t> allSignals;
           for (unsigned int s=0; s<nSides; ++s){
@@ -160,8 +160,10 @@ std::map<Int_t,Float_t> MuFilterHit::GetAllSignals(Bool_t mask,Bool_t positive)
                if (signals[channel]<-900){continue;}
                if (signals[channel]> 0 || !positive){
                  if (!fMasked[channel] || !mask){
+                   if (!isShort(channel) || use_short){
                     allSignals[channel] = signals[channel];
                     }
+                 }
                 }
               }
           }
@@ -169,16 +171,18 @@ std::map<Int_t,Float_t> MuFilterHit::GetAllSignals(Bool_t mask,Bool_t positive)
 }
 
 // -----   Public method Get List of time measurements   -------------------------------------------
-std::map<Int_t,Float_t> MuFilterHit::GetAllTimes(Bool_t mask)
+std::map<Int_t,Float_t> MuFilterHit::GetAllTimes(Bool_t mask,Bool_t positive,Bool_t use_short)
 {
           std::map<Int_t,Float_t> allTimes;
           for (unsigned int s=0; s<nSides; ++s){
               for (unsigned int j=0; j<nSiPMs; ++j){
                unsigned int channel = j+s*nSiPMs;
-               if (signals[channel]> 0){
+               if (signals[channel]> 0 || !positive){
                  if (!fMasked[channel] || !mask){
+                   if (!isShort(channel) || use_short){
                     allTimes[channel] = times[channel];
                     }
+                 }
                 }
               }
           }
@@ -186,7 +190,7 @@ std::map<Int_t,Float_t> MuFilterHit::GetAllTimes(Bool_t mask)
 }
 
 // -----   Public method Get time difference mean Left - mean Right   -----------------
-Float_t MuFilterHit::GetDeltaT(Bool_t mask)
+Float_t MuFilterHit::GetDeltaT(Bool_t mask,Bool_t positive,Bool_t use_short)
 // based on mean TDC measured on Left and Right
 {
           Float_t mean[] = {0,0}; 
@@ -195,11 +199,13 @@ Float_t MuFilterHit::GetDeltaT(Bool_t mask)
           for (unsigned int s=0; s<nSides; ++s){
               for (unsigned int j=0; j<nSiPMs; ++j){
                unsigned int channel = j+s*nSiPMs;
-               if (signals[channel]> 0){
+               if (signals[channel]> 0 || !positive){
                  if (!fMasked[channel] || !mask){
+                   if (!isShort(channel) || use_short){
                     mean[s] += times[channel];
                     count[s] += 1;
                     }
+                 }
                 }
               }
           }
@@ -208,7 +214,7 @@ Float_t MuFilterHit::GetDeltaT(Bool_t mask)
           }
           return dT;
 }
-Float_t MuFilterHit::GetFastDeltaT(Bool_t mask)
+Float_t MuFilterHit::GetFastDeltaT(Bool_t mask,Bool_t positive,Bool_t use_short)
 // based on fastest (earliest) TDC measured on Left and Right
 {
           Float_t first[] = {1E20,1E20}; 
@@ -216,10 +222,12 @@ Float_t MuFilterHit::GetFastDeltaT(Bool_t mask)
           for (unsigned int s=0; s<nSides; ++s){
               for (unsigned int j=0; j<nSiPMs; ++j){
                unsigned int channel = j+s*nSiPMs;
-               if (signals[channel]> 0){
+               if (signals[channel]> 0 || !positive){
                  if (!fMasked[channel] || !mask){
-                    if  (times[channel]<first[s]) {first[s] = times[channel];}
-                    }
+                   if (!isShort(channel) || use_short){
+                      if  (times[channel]<first[s]) {first[s] = times[channel];}
+                   }
+                 }
                 }
               }
           }
@@ -231,7 +239,7 @@ Float_t MuFilterHit::GetFastDeltaT(Bool_t mask)
 
 
 // -----   Public method Get mean time  -----------------
-Float_t MuFilterHit::GetImpactT(Bool_t mask)
+Float_t MuFilterHit::GetImpactT(Bool_t mask,Bool_t positive,Bool_t use_short)
 {
           Float_t mean[] = {0,0}; 
           Int_t count[] = {0,0}; 
@@ -248,11 +256,13 @@ Float_t MuFilterHit::GetImpactT(Bool_t mask)
           for (unsigned int s=0; s<nSides; ++s){
               for (unsigned int j=0; j<nSiPMs; ++j){
                unsigned int channel = j+s*nSiPMs;
-               if (signals[channel]> 0){
+               if (signals[channel]> 0 || !positive){
                  if (!fMasked[channel] || !mask){
-                    mean[s] += times[channel];
-                    count[s] += 1;
-                    }
+                   if (!isShort(channel) || use_short){
+                      mean[s] += times[channel];
+                      count[s] += 1;
+                   }
+                 }
                 }
               }
           }
@@ -263,12 +273,12 @@ Float_t MuFilterHit::GetImpactT(Bool_t mask)
 }
 
 // -----   Public method Get position of impact point along the bar  -----------------
-Float_t MuFilterHit::GetImpactXpos(Bool_t mask, Bool_t isMC)
+Float_t MuFilterHit::GetImpactXpos(Bool_t mask,Bool_t positive,Bool_t use_short,Bool_t isMC)
 {
           if ( nSides!=2 ){
              return -999.;
           }
-          Float_t dT = GetDeltaT(mask);
+          Float_t dT = GetDeltaT(mask,positive,use_short);
           if (dT==-999.){
              return -999.;
           }
@@ -307,7 +317,7 @@ std::map<TString,Float_t> MuFilterHit::SumOfSignals(Bool_t mask)
           for (unsigned int s=0; s<nSides; ++s){
               for (unsigned int j=0; j<nSiPMs; ++j){
                unsigned int channel = j+s*nSiPMs;
-               if (signals[channel]> 0){
+               if (signals[channel]> 0){ // makes sense to sum up positive signals only
                  if (!fMasked[channel] || !mask){
                     if (s==0 and !isShort(j)){theSumL+= signals[channel];}
                     if (s==0 and isShort(j)){theSumLS+= signals[channel];}
