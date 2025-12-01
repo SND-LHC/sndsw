@@ -1,6 +1,6 @@
 var indexSectionsWithContent =
 {
-  0: "$012_abcdefghijklmnopqrstuvwxyz~",
+  0: "$0123_abcdefghijklmnopqrstuvwxyz~",
   1: "_abcdefghiklmnprstuvwx",
   2: "2abcdefghilmnpqrstv",
   3: "2_abcdefghiklmnoprstuvw",

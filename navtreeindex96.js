@@ -1,5 +1,8 @@
 var NAVTREEINDEX96 =
 {
+"option_page.html#cmd-maxrecord":[0,1,1,22],
+"option_page.html#cmd-measurement":[0,1,1,23],
+"option_page.html#cmd-memorydebug":[0,1,1,24],
 "option_page.html#cmd-method":[0,1,1,25],
 "option_page.html#cmd-monpull":[0,1,1,27],
 "option_page.html#cmd-monres":[0,1,1,26],
@@ -246,8 +249,5 @@ var NAVTREEINDEX96 =
 "readMilleBinary_8py.html#aee8bcaaa5c0d9265b7af0e51dff20cca":[14,0,9,0,0,11],
 "readMilleBinary_8py_source.html":[14,0,9,0,0],
 "read_8cc.html":[14,0,5,9,5,1],
-"read_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4":[14,0,5,9,5,1,0],
-"read_8cc_source.html":[14,0,5,9,5,1],
-"readc_8c.html":[14,0,9,24],
-"readc_8c.html#a25dcb0f8b9f06c18381572e0518cc9b4":[14,0,9,24,4]
+"read_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4":[14,0,5,9,5,1,0]
 };

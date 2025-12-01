@@ -1,5 +1,8 @@
 var NAVTREEINDEX78 =
 {
+"namespaceextract__interacting__neutrinos.html#ac2d239f9891ead03bcd4f2e876b8d301":[12,0,44,9],
+"namespaceextract__interacting__neutrinos.html#ac5106530c07a983089463db301f75233":[12,0,44,8],
+"namespaceextract__interacting__neutrinos.html#ace582f62235b649fd42332d5f172bd97":[12,0,44,12],
 "namespaceextract__interacting__neutrinos.html#af22d34688f17c65b330c898ed5ee9d90":[12,0,44,4],
 "namespaceflux__map.html":[12,0,48],
 "namespaceflux__map.html#a0a534466aad410c85e90044a42a9fa87":[12,0,48,1],
@@ -246,8 +249,5 @@ var NAVTREEINDEX78 =
 "namespacegenfit_1_1RKTools.html#a7842d42c75a8456ef78ccc4ddf08373f":[12,0,54,0,8],
 "namespacegenfit_1_1RKTools.html#ad2530899a8df922d173c17f55ac590b9":[12,0,54,0,3],
 "namespacegenfit_1_1RKTools.html#aeddbb43985108adf9f8f7c02cbfba859":[12,0,54,0,0],
-"namespacegenfit_1_1tools.html":[12,0,54,1],
-"namespacegenfit_1_1tools.html#a409cdc24f5908845f845bf0c4a2d4961":[12,0,54,1,2],
-"namespacegenfit_1_1tools.html#a97e35224c7d7ec5d63f23ffda85aef4c":[12,0,54,1,5],
-"namespacegenfit_1_1tools.html#a98e2c1ec0611289beb34a8bfb13980a7":[12,0,54,1,6]
+"namespacegenfit_1_1tools.html":[12,0,54,1]
 };
