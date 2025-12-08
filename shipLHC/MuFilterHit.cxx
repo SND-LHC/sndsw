@@ -146,7 +146,8 @@ bool MuFilterHit::isVertical(){
 }
 
 bool MuFilterHit::isShort(Int_t i){
-  if (i%8==2 || i%8==5) {return kTRUE;}
+  // only US has short SiPMs
+  if (GetSystem()==2 && (i%8==2 || i%8==5)) {return kTRUE;}
   else{return kFALSE;}
 }
 
