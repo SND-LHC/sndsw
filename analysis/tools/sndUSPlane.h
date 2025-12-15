@@ -37,7 +37,7 @@ namespace snd {
 
             double qdc;
             double timestamp;
-            double x;   // position of right or left side of bar
+            double x;
             double y;
             double z;
 
@@ -45,7 +45,7 @@ namespace snd {
             bool is_right;
         };
 
-        USPlane(std::vector<MuFilterHit*> snd_hits, const Configuration &configuration, MuFilter *muon_filter_geometry, int station, bool isMC=false, bool use_small_sipms=false);
+        USPlane(std::vector<MuFilterHit*> snd_hits, const Configuration &configuration, MuFilter *muon_filter_geometry, int station, bool use_small_sipms=false);
 
         const sl_pair<int> GetNHits() const;
         const int GetStation() const { return station_; };
