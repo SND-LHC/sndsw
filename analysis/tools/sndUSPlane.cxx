@@ -10,7 +10,7 @@
 #include "MuFilterHit.h"
 #include "ShipUnit.h"
 
-snd::analysis_tools::USPlane::USPlane(std::vector<MuFilterHit*> snd_hits, const Configuration &configuration, MuFilter *muon_filter_geometry, int station, bool isMC) : configuration_(configuration), centroid_(std::nan(""), std::nan(""), std::nan("")), centroid_error_(std::nan(""), std::nan(""),std::nan("")), station_(station)
+snd::analysis_tools::USPlane::USPlane(std::vector<MuFilterHit*> snd_hits, const Configuration &configuration, MuFilter *muon_filter_geometry, int station, bool isMC, bool use_small_sipms_sipms) : configuration_(configuration), centroid_(std::nan(""), std::nan(""), std::nan("")), centroid_error_(std::nan(""), std::nan(""),std::nan("")), station_(station)
 {
     for ( auto mu_hit : snd_hits)
     {
@@ -23,19 +23,30 @@ snd::analysis_tools::USPlane::USPlane(std::vector<MuFilterHit*> snd_hits, const 
             USHit hit;
             hit.bar = static_cast<int>(detectorID % 1000);
             hit.channel_index = 16 * hit.bar + i;
-            hit.timestamp = mu_hit->GetTime(i);
-            hit.qdc = mu_hit->GetSignal(i);
             hit.is_large = !mu_hit->isShort(i);
             hit.is_right = i > 7 ? true : false;
-        
-            // use the left and right measurements to calculate the x coordinate along the bar
-            float timeConversion = 1.;
-            if (!isMC) {
-              timeConversion = ShipUnit::snd_TDC2ns;
-             }
-            hit.x = A.X() - 0.5*(mu_hit->GetDeltaT()*timeConversion*configuration_.us_signal_speed+configuration_.us_bar_length);
-            hit.y = A.Y();
-            hit.z = A.Z();
+
+            if (!hit.is_large && !use_small_sipms_sipms)
+            {
+                hit.timestamp = std::nan("");
+                hit.qdc = std::nan("");
+                hit.x = std::nan("");
+                hit.y = std::nan("");
+                hit.z = std::nan("");
+            }
+            else
+            {
+                hit.timestamp = mu_hit->GetTime(i);
+                hit.qdc = mu_hit->GetSignal(i);
+                // use the left and right measurements to calculate the x coordinate along the bar
+                float timeConversion = 1.;
+                if (!isMC) {
+                    timeConversion = ShipUnit::snd_TDC2ns;
+                }
+                hit.x = A.X() - 0.5*(mu_hit->GetDeltaT()*timeConversion*configuration_.us_signal_speed+configuration_.us_bar_length);
+                hit.y = A.Y();
+                hit.z = A.Z();
+            }
             hits_.push_back(hit);
         }
     }

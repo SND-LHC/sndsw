@@ -45,7 +45,7 @@ namespace snd {
             bool is_right;
         };
 
-        USPlane(std::vector<MuFilterHit*> snd_hits, const Configuration &configuration, MuFilter *muon_filter_geometry, int station, bool isMC=false);
+        USPlane(std::vector<MuFilterHit*> snd_hits, const Configuration &configuration, MuFilter *muon_filter_geometry, int station, bool isMC=false, bool use_small_sipms=false);
 
         const sl_pair<int> GetNHits() const;
         const int GetStation() const { return station_; };
