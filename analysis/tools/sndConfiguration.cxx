@@ -7,7 +7,7 @@
 #include "Scifi.h"
 #include "MuFilter.h"
 
-snd::Configuration::Configuration(Option option, Scifi *scifi_geometry, MuFilter *muon_filter_geometry)
+snd::Configuration::Configuration(Option option, Scifi *scifi_geometry, MuFilter *muon_filter_geometry, bool is_MC) : is_mc(is_MC)
 {
     // Parameters from geometry
     scifi_n_stations = scifi_geometry->GetConfParI("Scifi/nscifi");
@@ -159,20 +159,24 @@ snd::Configuration::Configuration(Option option, Scifi *scifi_geometry, MuFilter
 
 snd::Configuration::Option snd::Configuration::GetOption(int run_number)
 {
-    if (run_number >= 100840) {
+    if (run_number >= 100841 && run_number <= 100985) {
         std::cout << "Choosing option  >>>>>>>>>>\t test_beam_2024 \t<<<<<<<<<<" <<std::endl;
         return snd::Configuration::Option::test_beam_2024;
     }
-    if (run_number >= 100000) {
+    else if (run_number >= 100238 && run_number <= 100679) {
         std::cout << "Choosing option  >>>>>>>>>>\t test_beam_2023 \t<<<<<<<<<<" <<std::endl;
-        return snd::Configuration::Option::test_beam_2023;
+        return snd::Configuration::Option::test_beam_2023;   
     }
-    else if (run_number < 7648) {
+    else if (run_number >= 7357 && run_number <= 12792) {
+        std::cout << "Choosing option  >>>>>>>>>>\t ti18_2024_2025 \t<<<<<<<<<<" <<std::endl;
+        return snd::Configuration::Option::ti18_2024_2025;
+    }
+    else if (run_number >= 4361 && run_number <= 7356){
         std::cout << "Choosing option  >>>>>>>>>>\t ti18_2022_2023 \t<<<<<<<<<<" <<std::endl;
         return snd::Configuration::Option::ti18_2022_2023;
     }
-    else {
-        std::cout << "Choosing option  >>>>>>>>>>\t ti18_2024_2025 \t<<<<<<<<<<" <<std::endl;
-        return snd::Configuration::Option::ti18_2024_2025;
+    else
+    {
+        throw std::invalid_argument("Run number does not match any configuration option");
     }
 }

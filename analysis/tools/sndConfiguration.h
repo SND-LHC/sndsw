@@ -74,7 +74,9 @@ namespace snd {
 
     int ds_n_stations;
 
-    Configuration(Option option, Scifi *scifi_geometry, MuFilter *muon_filter_geometry);
+    bool is_mc;
+
+    Configuration(Option option, Scifi *scifi_geometry, MuFilter *muon_filter_geometry, bool is_MC = false);
     static Option GetOption(int run_number);
     };
 }
