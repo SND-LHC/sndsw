@@ -1,7 +1,5 @@
 var NAVTREEINDEX69 =
 {
-"muonDis_8py.html#acef2234a931b6dcddd4f000edf9c0ce0":[14,0,20,23,29],
-"muonDis_8py.html#ad1a90dfb17830ac1641f4991480e3482":[14,0,20,23,14],
 "muonDis_8py.html#ad4b3e4999ddd47e023ce054a819b8393":[14,0,20,23,47],
 "muonDis_8py.html#ad6923d5925a2aa4c57ee8c617d3acd8a":[14,0,20,23,52],
 "muonDis_8py.html#ad6926fb694d3918d6e1bfb23d7754f2c":[14,0,20,23,48],
@@ -249,5 +247,7 @@ var NAVTREEINDEX69 =
 "namespaceMufiCTR.html#a19e7a2d79c13e40ac4cb9a4c1adba8db":[12,0,94,5],
 "namespaceMufiCTR.html#a1e82d6ea482d68765e00d62cac57fa84":[12,0,94,14],
 "namespaceMufiCTR.html#a3067ba34628267caac0c67900f6db649":[12,0,94,2],
-"namespaceMufiCTR.html#a3741e8b08358059b7f15041f0c2a4a63":[12,0,94,12]
+"namespaceMufiCTR.html#a3741e8b08358059b7f15041f0c2a4a63":[12,0,94,12],
+"namespaceMufiCTR.html#a394ec6f232f714c5db87ba291041384a":[12,0,94,6],
+"namespaceMufiCTR.html#a3a5551009cb9036a68f35664d162fc4c":[12,0,94,18]
 };

@@ -1,7 +1,5 @@
 var NAVTREEINDEX106 =
 {
-"sndLHC__TI18geom__config_8py.html#ae2797603cc482b68267da3a8bb6b70b8":[14,0,6,6,131],
-"sndLHC__TI18geom__config_8py.html#ae293d3b1d36a0712a650ab2582e7b918":[14,0,6,6,142],
 "sndLHC__TI18geom__config_8py.html#ae376716bce58ab0410962cc8c009a9a3":[14,0,6,6,75],
 "sndLHC__TI18geom__config_8py.html#ae648fb5eb221e09858665c9f1dbf153d":[14,0,6,6,164],
 "sndLHC__TI18geom__config_8py.html#ae64997318a7cb18ca39f3858a9983c77":[14,0,6,6,114],
@@ -44,7 +42,7 @@ var NAVTREEINDEX106 =
 "sndPlaneTools_8cxx_source.html":[14,0,0,1,5],
 "sndPlaneTools_8h.html":[14,0,0,1,6],
 "sndPlaneTools_8h.html#a1b8d5076a98f5ad030ea9e19de318532":[14,0,0,1,6,0],
-"sndPlaneTools_8h.html#a21c38fb41ff24d5917791399d322ed22":[14,0,0,1,6,1],
+"sndPlaneTools_8h.html#a4503076a4f0c335a32b7f90e47ad287b":[14,0,0,1,6,1],
 "sndPlaneTools_8h_source.html":[14,0,0,1,6],
 "sndRecoTrack_8cxx.html":[14,0,20,38],
 "sndRecoTrack_8cxx_source.html":[14,0,20,38],
@@ -212,16 +210,16 @@ var NAVTREEINDEX106 =
 "structDataFrameHeader.html#ab0153919f767201a66d0d3a2f677a7b8":[13,0,56,2],
 "structDataFrameHeader.html#ab8574404c96f7ec912bf1bd17f884128":[13,0,56,5],
 "structDataFrameHeader.html#ae408d01a17b0775e1d9366c5428d4d50":[13,0,56,0],
-"structDriftTubes_1_1ChannelId.html":[12,0,33,0],
 "structDriftTubes_1_1ChannelId.html":[13,0,4,0],
+"structDriftTubes_1_1ChannelId.html":[12,0,33,0],
 "structDriftTubes_1_1ChannelId.html#a103c4d1c46f73e5731b9e5e4ff3e247e":[13,0,4,0,4],
 "structDriftTubes_1_1ChannelId.html#a103c4d1c46f73e5731b9e5e4ff3e247e":[12,0,33,0,4],
-"structDriftTubes_1_1ChannelId.html#a3392f944634e7b40c859891767096dd2":[12,0,33,0,1],
 "structDriftTubes_1_1ChannelId.html#a3392f944634e7b40c859891767096dd2":[13,0,4,0,1],
+"structDriftTubes_1_1ChannelId.html#a3392f944634e7b40c859891767096dd2":[12,0,33,0,1],
 "structDriftTubes_1_1ChannelId.html#a9d094b82ef09db7c79917061b8671e08":[13,0,4,0,5],
 "structDriftTubes_1_1ChannelId.html#a9d094b82ef09db7c79917061b8671e08":[12,0,33,0,5],
-"structDriftTubes_1_1ChannelId.html#a9f0e2acfe7d24e03c5c25d57023f12e6":[12,0,33,0,3],
 "structDriftTubes_1_1ChannelId.html#a9f0e2acfe7d24e03c5c25d57023f12e6":[13,0,4,0,3],
+"structDriftTubes_1_1ChannelId.html#a9f0e2acfe7d24e03c5c25d57023f12e6":[12,0,33,0,3],
 "structDriftTubes_1_1ChannelId.html#ae22d0db464bb87df7f13cfc9ad0d5a53":[12,0,33,0,2],
 "structDriftTubes_1_1ChannelId.html#ae22d0db464bb87df7f13cfc9ad0d5a53":[13,0,4,0,2],
 "structDriftTubes_1_1ChannelId.html#af0b5cd97ba9c38430a1d063123fc0add":[12,0,33,0,0],
@@ -249,5 +247,7 @@ var NAVTREEINDEX106 =
 "structPrimaryTrack.html#afdfa3a1df97113ac40097d9cd8991695":[13,0,134,10],
 "structRawDataHit.html":[13,0,140],
 "structRawDataHit.html#a0119ea686f846801b56c6c3fe98c4364":[13,0,140,1],
-"structRawDataHit.html#a0ffdb9298194486bfac4f2930419648f":[13,0,140,2]
+"structRawDataHit.html#a0ffdb9298194486bfac4f2930419648f":[13,0,140,2],
+"structRawDataHit.html#a7454bd65dad473d935cffca135eb3bc5":[13,0,140,0],
+"structRawHit.html":[13,0,141]
 };
