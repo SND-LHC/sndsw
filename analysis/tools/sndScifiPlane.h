@@ -29,6 +29,7 @@ namespace snd {
                 double y{};
                 double z{};
                 int channel_index{};
+                int density{};
                 bool is_x{};
             };
 
@@ -49,6 +50,8 @@ namespace snd {
             void TimeFilter(double min_timestamp, double max_timestamp);
             // qdc from hits within a given point and radius (square, not circle)
             xy_pair<double> GetPointQdc(const ROOT::Math::XYZPoint &point, double radius) const;
+
+            void ComputeDensity();        
 
         private:
             std::vector<ScifiHit> hits_;

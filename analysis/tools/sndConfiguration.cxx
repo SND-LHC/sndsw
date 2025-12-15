@@ -46,6 +46,7 @@ snd::Configuration::Configuration(Option option, Scifi *scifi_geometry, MuFilter
     us_min_n_hits_for_centroid = 15;
     us_qdc_to_gev = 0.0151;
     us_min_hit_on_bar = 5;
+    scifi_density_radius = 15;
 
     // Ad hoc parameters not present in geometry
     if (option == Option::ti18_2024_2025)
@@ -54,6 +55,7 @@ snd::Configuration::Configuration(Option option, Scifi *scifi_geometry, MuFilter
         scifi_min_hits_in_window = 10;
         scifi_min_n_hits_for_centroid = 5;
         scifi_qdc_to_gev = 0.14;
+        scifi_density_radius = 3;
 
         scifi_x_min = -50.0;
         scifi_x_max = 0.0;
