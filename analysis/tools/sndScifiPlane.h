@@ -34,9 +34,9 @@ namespace snd {
 
             ScifiPlane(std::vector<sndScifiHit*> snd_hits, const Configuration &configuration, Scifi *scifi_geometry, int station);
 
-            const int GetStation() const { return station_; };
-            const std::vector<ScifiHit> GetHits() const { return hits_; };
-            const ROOT::Math::XYZPoint GetCentroid() const { return centroid_; };
+            const int GetStation() const { return station_; }
+            const std::vector<ScifiHit> GetHits() const { return hits_; }
+            const ROOT::Math::XYZPoint GetCentroid() const { return centroid_; }
             const ROOT::Math::XYZPoint GetCentroidError() const { return centroid_error_; }
             const xy_pair<double> GetTotQdc(bool only_positive = false) const;
             const xy_pair<double> GetTotEnergy(bool only_positive = false) const;
