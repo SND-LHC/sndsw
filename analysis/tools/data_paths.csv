@@ -1,5 +1,5 @@
 min_run_number,max_run_number,path
-0,5421,root://eospublic.cern.ch//eos/experiment/sndlhc/convertedData/physics/2022/
+4361,5421,root://eospublic.cern.ch//eos/experiment/sndlhc/convertedData/physics/2022/
 5422,7356,root://eospublic.cern.ch//eos/experiment/sndlhc/convertedData/physics/2023/
 7649,8317,root://eospublic.cern.ch//eos/experiment/sndlhc/convertedData/physics/2024/run_241/
 8318,8580,root://eospublic.cern.ch//eos/experiment/sndlhc/convertedData/physics/2024/run_242/
@@ -13,5 +13,13 @@ min_run_number,max_run_number,path
 9692,9880,root://eospublic.cern.ch//eos/experiment/sndlhc/convertedData/physics/2024/run_2410/
 9881,10011,root://eospublic.cern.ch//eos/experiment/sndlhc/convertedData/physics/2024/run_2411/
 10012,10422,root://eospublic.cern.ch//eos/experiment/sndlhc/convertedData/physics/2024/run_2412/
+10919,11156,root://eospublic.cern.ch//eos/experiment/sndlhc/convertedData/physics/2025/run_251/
+11158,11575,root://eospublic.cern.ch//eos/experiment/sndlhc/convertedData/physics/2025/run_252/
+11576,11675,root://eospublic.cern.ch//eos/experiment/sndlhc/convertedData/physics/2025/run_253/
+11676,11794,root://eospublic.cern.ch//eos/experiment/sndlhc/convertedData/physics/2025/run_254/
+11795,12019,root://eospublic.cern.ch//eos/experiment/sndlhc/convertedData/physics/2025/run_255/
+12021,12121,root://eospublic.cern.ch//eos/experiment/sndlhc/convertedData/physics/2025/run_256/
+12123,12411,root://eospublic.cern.ch//eos/experiment/sndlhc/convertedData/physics/2025/run_257/
+12412,12792,root://eospublic.cern.ch//eos/experiment/sndlhc/convertedData/physics/2025/run_258/
 100238,100679,root://eospublic.cern.ch//eos/experiment/sndlhc/convertedData/commissioning/testbeam_June2023_H8/
 100841,100985,root://eospublic.cern.ch//eos/experiment/sndlhc/convertedData/commissioning/testbeam_24/
