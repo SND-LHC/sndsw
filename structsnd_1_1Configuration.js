@@ -6,7 +6,7 @@ var structsnd_1_1Configuration =
       [ "test_beam_2023", "structsnd_1_1Configuration.html#ab86d5ccd5fd56900c6e3092ed070ed2ba06c265f495d7bb8e88ba66eb2adfeaac", null ],
       [ "test_beam_2024", "structsnd_1_1Configuration.html#ab86d5ccd5fd56900c6e3092ed070ed2ba4c1742111e4eca7ce3f34720ec31a20d", null ]
     ] ],
-    [ "Configuration", "structsnd_1_1Configuration.html#aa7e8741635c47f3e05975ff60fdcdd91", null ],
+    [ "Configuration", "structsnd_1_1Configuration.html#a3b7cdff841b01bee983b859918bf62e3", null ],
     [ "centroid_min_valid_station", "structsnd_1_1Configuration.html#a50beed15915593cce42a70f242b143f0", null ],
     [ "ds_hor_spatial_resolution_x", "structsnd_1_1Configuration.html#a2b107f4cd6ed62de1a7ea6508ee0ccb6", null ],
     [ "ds_hor_spatial_resolution_y", "structsnd_1_1Configuration.html#ad449f805e1fcf06a2bde8c974f2e9f92", null ],
@@ -15,6 +15,7 @@ var structsnd_1_1Configuration =
     [ "ds_ver_spatial_resolution_x", "structsnd_1_1Configuration.html#a7b57b74919614cd4dfd91aa0378527ca", null ],
     [ "ds_ver_spatial_resolution_y", "structsnd_1_1Configuration.html#a39035dca4f3163a9d9b0fd1a24c1b73d", null ],
     [ "ds_ver_spatial_resolution_z", "structsnd_1_1Configuration.html#ad03d71606ba791a046ee9e4e8d231a75", null ],
+    [ "is_mc", "structsnd_1_1Configuration.html#a2e07ad10e2e1caa9e6f8fe2e9b18388a", null ],
     [ "scifi_boards_per_plane", "structsnd_1_1Configuration.html#ac05a10b01c4ea02a46f160fd1123e36a", null ],
     [ "scifi_centroid_error_x", "structsnd_1_1Configuration.html#a51afa38699a4d72c160bc271437a4231", null ],
     [ "scifi_centroid_error_y", "structsnd_1_1Configuration.html#a8dd6115516618e6dbcff8b3dfb8dcd31", null ],

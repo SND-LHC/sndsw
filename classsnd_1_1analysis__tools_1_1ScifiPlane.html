@@ -210,26 +210,31 @@ Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   20</span>        ScifiHit hit;</div>
 <div class="line"><span class="lineno">   21</span>        hit.channel_index = 512 * snd_hit-&gt;GetMat() + 128 * snd_hit-&gt;GetSiPM() + snd_hit-&gt;GetSiPMChan();</div>
 <div class="line"><span class="lineno">   22</span>        <span class="keywordtype">int</span> detectorID = snd_hit-&gt;GetDetectorID();</div>
-<div class="line"><span class="lineno">   23</span>        hit.timestamp = (scifi_geometry-&gt;<a class="code hl_function" href="classScifi.html#ad450e9024b424afc7cc0cdeafbe23552">GetCorrectedTime</a>(detectorID, snd_hit-&gt;GetTime(0)*ShipUnit::snd_TDC2ns, 0) / ShipUnit::snd_TDC2ns);  <span class="comment">// timestamp is in clock cycles</span></div>
-<div class="line"><span class="lineno">   24</span>        hit.qdc = snd_hit-&gt;GetSignal(0);</div>
-<div class="line"><span class="lineno">   25</span>        hit.is_x = snd_hit-&gt;isVertical();</div>
-<div class="line"><span class="lineno">   26</span> </div>
-<div class="line"><span class="lineno">   27</span>        TVector3 <a class="code hl_variable" href="namespacerunPythia8.html#a527266378c7f0299bad9b3c32d02d15b">A</a>, <a class="code hl_variable" href="namespacegeometry__config.html#aa52009c79b19f5c569b183e74aa588c7">B</a>;</div>
-<div class="line"><span class="lineno">   28</span>        scifi_geometry-&gt;<a class="code hl_function" href="classScifi.html#a1b931ff9f46817177b0595f65c1e8f8f">GetSiPMPosition</a>(detectorID, A, B);</div>
-<div class="line"><span class="lineno">   29</span>        hit.z = <a class="code hl_variable" href="namespacerunPythia8.html#a527266378c7f0299bad9b3c32d02d15b">A</a>.Z();</div>
-<div class="line"><span class="lineno">   30</span>        <span class="keywordflow">if</span> (hit.is_x)</div>
-<div class="line"><span class="lineno">   31</span>        {</div>
-<div class="line"><span class="lineno">   32</span>            hit.x = <a class="code hl_variable" href="namespacerunPythia8.html#a527266378c7f0299bad9b3c32d02d15b">A</a>.X();</div>
-<div class="line"><span class="lineno">   33</span>            hit.y = std::nan(<span class="stringliteral">&quot;&quot;</span>);</div>
-<div class="line"><span class="lineno">   34</span>        }</div>
-<div class="line"><span class="lineno">   35</span>        <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">   23</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a480874a8d19c257c265c9d81ec6dd675">configuration_</a>.<a class="code hl_variable" href="structsnd_1_1Configuration.html#a2e07ad10e2e1caa9e6f8fe2e9b18388a">is_mc</a>) {</div>
+<div class="line"><span class="lineno">   24</span>            hit.timestamp = snd_hit-&gt;GetTime(0) / ShipUnit::snd_TDC2ns;  <span class="comment">// timestamp is in clock cycles</span></div>
+<div class="line"><span class="lineno">   25</span>        }</div>
+<div class="line"><span class="lineno">   26</span>        <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">   27</span>            hit.timestamp = (scifi_geometry-&gt;<a class="code hl_function" href="classScifi.html#ad450e9024b424afc7cc0cdeafbe23552">GetCorrectedTime</a>(detectorID, snd_hit-&gt;GetTime(0)*ShipUnit::snd_TDC2ns, 0) / ShipUnit::snd_TDC2ns);  <span class="comment">// timestamp is in clock cycles</span></div>
+<div class="line"><span class="lineno">   28</span>        }</div>
+<div class="line"><span class="lineno">   29</span>        hit.qdc = snd_hit-&gt;GetSignal(0);</div>
+<div class="line"><span class="lineno">   30</span>        hit.is_x = snd_hit-&gt;isVertical();</div>
+<div class="line"><span class="lineno">   31</span> </div>
+<div class="line"><span class="lineno">   32</span>        TVector3 <a class="code hl_variable" href="namespacerunPythia8.html#a527266378c7f0299bad9b3c32d02d15b">A</a>, <a class="code hl_variable" href="namespacegeometry__config.html#aa52009c79b19f5c569b183e74aa588c7">B</a>;</div>
+<div class="line"><span class="lineno">   33</span>        scifi_geometry-&gt;<a class="code hl_function" href="classScifi.html#a1b931ff9f46817177b0595f65c1e8f8f">GetSiPMPosition</a>(detectorID, A, B);</div>
+<div class="line"><span class="lineno">   34</span>        hit.z = <a class="code hl_variable" href="namespacerunPythia8.html#a527266378c7f0299bad9b3c32d02d15b">A</a>.Z();</div>
+<div class="line"><span class="lineno">   35</span>        <span class="keywordflow">if</span> (hit.is_x)</div>
 <div class="line"><span class="lineno">   36</span>        {</div>
-<div class="line"><span class="lineno">   37</span>            hit.x = std::nan(<span class="stringliteral">&quot;&quot;</span>);</div>
-<div class="line"><span class="lineno">   38</span>            hit.y = <a class="code hl_variable" href="namespacerunPythia8.html#a527266378c7f0299bad9b3c32d02d15b">A</a>.Y();</div>
+<div class="line"><span class="lineno">   37</span>            hit.x = <a class="code hl_variable" href="namespacerunPythia8.html#a527266378c7f0299bad9b3c32d02d15b">A</a>.X();</div>
+<div class="line"><span class="lineno">   38</span>            hit.y = std::nan(<span class="stringliteral">&quot;&quot;</span>);</div>
 <div class="line"><span class="lineno">   39</span>        }</div>
-<div class="line"><span class="lineno">   40</span>        <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9b79ca6732ed9148dd79942270fc2ea5">hits_</a>.push_back(hit);</div>
-<div class="line"><span class="lineno">   41</span>    }</div>
-<div class="line"><span class="lineno">   42</span>}</div>
+<div class="line"><span class="lineno">   40</span>        <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">   41</span>        {</div>
+<div class="line"><span class="lineno">   42</span>            hit.x = std::nan(<span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><span class="lineno">   43</span>            hit.y = <a class="code hl_variable" href="namespacerunPythia8.html#a527266378c7f0299bad9b3c32d02d15b">A</a>.Y();</div>
+<div class="line"><span class="lineno">   44</span>        }</div>
+<div class="line"><span class="lineno">   45</span>        <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9b79ca6732ed9148dd79942270fc2ea5">hits_</a>.push_back(hit);</div>
+<div class="line"><span class="lineno">   46</span>    }</div>
+<div class="line"><span class="lineno">   47</span>}</div>
 <div class="ttc" id="aclassScifi_html_a1b931ff9f46817177b0595f65c1e8f8f"><div class="ttname"><a href="classScifi.html#a1b931ff9f46817177b0595f65c1e8f8f">Scifi::GetSiPMPosition</a></div><div class="ttdeci">void GetSiPMPosition(Int_t SiPMChan, TVector3 &amp;A, TVector3 &amp;B)</div><div class="ttdef"><b>Definition</b> <a href="Scifi_8cxx_source.html#l00727">Scifi.cxx:727</a></div></div>
 <div class="ttc" id="aclassScifi_html_ad450e9024b424afc7cc0cdeafbe23552"><div class="ttname"><a href="classScifi.html#ad450e9024b424afc7cc0cdeafbe23552">Scifi::GetCorrectedTime</a></div><div class="ttdeci">Double_t GetCorrectedTime(Int_t fDetectorID, Double_t rawTime, Double_t L)</div><div class="ttdef"><b>Definition</b> <a href="Scifi_8cxx_source.html#l00614">Scifi.cxx:614</a></div></div>
 <div class="ttc" id="aclasssnd_1_1analysis__tools_1_1ScifiPlane_html_a0d48a584b922ddb2afaea5f82f171ecc"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a0d48a584b922ddb2afaea5f82f171ecc">snd::analysis_tools::ScifiPlane::centroid_error_</a></div><div class="ttdeci">ROOT::Math::XYZPoint centroid_error_</div><div class="ttdef"><b>Definition</b> <a href="sndScifiPlane_8h_source.html#l00057">sndScifiPlane.h:57</a></div></div>
@@ -239,6 +244,7 @@ Private Attributes</h2></td></tr>
 <div class="ttc" id="aclasssnd_1_1analysis__tools_1_1ScifiPlane_html_abc94bf7ac37f59a3cf43052a3370a771"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#abc94bf7ac37f59a3cf43052a3370a771">snd::analysis_tools::ScifiPlane::centroid_</a></div><div class="ttdeci">ROOT::Math::XYZPoint centroid_</div><div class="ttdef"><b>Definition</b> <a href="sndScifiPlane_8h_source.html#l00056">sndScifiPlane.h:56</a></div></div>
 <div class="ttc" id="anamespacegeometry__config_html_aa52009c79b19f5c569b183e74aa588c7"><div class="ttname"><a href="namespacegeometry__config.html#aa52009c79b19f5c569b183e74aa588c7">geometry_config.B</a></div><div class="ttdeci">B</div><div class="ttdef"><b>Definition</b> <a href="geometry__config_8py_source.html#l00512">geometry_config.py:512</a></div></div>
 <div class="ttc" id="anamespacerunPythia8_html_a527266378c7f0299bad9b3c32d02d15b"><div class="ttname"><a href="namespacerunPythia8.html#a527266378c7f0299bad9b3c32d02d15b">runPythia8.A</a></div><div class="ttdeci">dict A</div><div class="ttdef"><b>Definition</b> <a href="runPythia8_8py_source.html#l00122">runPythia8.py:122</a></div></div>
+<div class="ttc" id="astructsnd_1_1Configuration_html_a2e07ad10e2e1caa9e6f8fe2e9b18388a"><div class="ttname"><a href="structsnd_1_1Configuration.html#a2e07ad10e2e1caa9e6f8fe2e9b18388a">snd::Configuration::is_mc</a></div><div class="ttdeci">bool is_mc</div><div class="ttdef"><b>Definition</b> <a href="sndConfiguration_8h_source.html#l00077">sndConfiguration.h:77</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -258,53 +264,53 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sndScifiPlane_8cxx_source.html#l00223">223</a> of file <a class="el" href="sndScifiPlane_8cxx_source.html">sndScifiPlane.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  224</span>{</div>
-<div class="line"><span class="lineno">  225</span>    <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#abc94bf7ac37f59a3cf43052a3370a771">centroid_</a>.SetXYZ(0, 0, 0);</div>
-<div class="line"><span class="lineno">  226</span>    <span class="keywordtype">double</span> tot_qdc_x{0}, sum_qdc2_x{0.0};</div>
-<div class="line"><span class="lineno">  227</span>    <span class="keywordtype">double</span> tot_qdc_y{0}, sum_qdc2_y{0.0};</div>
-<div class="line"><span class="lineno">  228</span>    std::vector&lt;ScifiHit&gt; cleaned_hits = <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9b79ca6732ed9148dd79942270fc2ea5">hits_</a>;</div>
-<div class="line"><span class="lineno">  229</span> </div>
-<div class="line"><span class="lineno">  230</span>    cleaned_hits.erase(std::remove_if(cleaned_hits.begin(), cleaned_hits.end(),</div>
-<div class="line"><span class="lineno">  231</span>                               [&amp;](<span class="keyword">auto</span> &amp;hit)</div>
-<div class="line"><span class="lineno">  232</span>                               { return hit.qdc &lt;= 0; }),</div>
-<div class="line"><span class="lineno">  233</span>                       cleaned_hits.end());</div>
-<div class="line"><span class="lineno">  234</span>    <span class="keywordtype">int</span> counts_x = std::count_if(cleaned_hits.begin(), cleaned_hits.end(), [](<span class="keyword">auto</span> &amp;hit)</div>
-<div class="line"><span class="lineno">  235</span>                    { return hit.is_x; });</div>
-<div class="line"><span class="lineno">  236</span>    <span class="keywordtype">int</span> counts_y = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(cleaned_hits.size())-counts_x;</div>
-<div class="line"><span class="lineno">  237</span>    <span class="keywordflow">if</span> (counts_x &lt; <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a480874a8d19c257c265c9d81ec6dd675">configuration_</a>.<a class="code hl_variable" href="structsnd_1_1Configuration.html#acbd25437e372e84689c50fe775a7187a">scifi_min_n_hits_for_centroid</a> &amp;&amp; counts_y &lt; <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a480874a8d19c257c265c9d81ec6dd675">configuration_</a>.<a class="code hl_variable" href="structsnd_1_1Configuration.html#acbd25437e372e84689c50fe775a7187a">scifi_min_n_hits_for_centroid</a> ) {</div>
-<div class="line"><span class="lineno">  238</span>        <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#abc94bf7ac37f59a3cf43052a3370a771">centroid_</a> = ROOT::Math::XYZPoint(std::nan(<span class="stringliteral">&quot;&quot;</span>), std::nan(<span class="stringliteral">&quot;&quot;</span>), std::nan(<span class="stringliteral">&quot;&quot;</span>));</div>
-<div class="line"><span class="lineno">  239</span>        <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  240</span>    }</div>
-<div class="line"><span class="lineno">  241</span> </div>
-<div class="line"><span class="lineno">  242</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;hit : cleaned_hits)</div>
-<div class="line"><span class="lineno">  243</span>    {</div>
-<div class="line"><span class="lineno">  244</span>        <span class="keywordflow">if</span> (hit.qdc &gt; 0)</div>
-<div class="line"><span class="lineno">  245</span>        {</div>
-<div class="line"><span class="lineno">  246</span>            <span class="keywordflow">if</span> (hit.is_x)</div>
-<div class="line"><span class="lineno">  247</span>            {</div>
-<div class="line"><span class="lineno">  248</span>                <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#abc94bf7ac37f59a3cf43052a3370a771">centroid_</a>.SetX(<a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#abc94bf7ac37f59a3cf43052a3370a771">centroid_</a>.X() + hit.x * hit.qdc);</div>
-<div class="line"><span class="lineno">  249</span>                tot_qdc_x += hit.qdc;</div>
-<div class="line"><span class="lineno">  250</span>                sum_qdc2_x += hit.qdc*hit.qdc;</div>
-<div class="line"><span class="lineno">  251</span>            }</div>
-<div class="line"><span class="lineno">  252</span>            <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  253</span>            {</div>
-<div class="line"><span class="lineno">  254</span>                <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#abc94bf7ac37f59a3cf43052a3370a771">centroid_</a>.SetY(<a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#abc94bf7ac37f59a3cf43052a3370a771">centroid_</a>.Y() + hit.y * hit.qdc);</div>
-<div class="line"><span class="lineno">  255</span>                tot_qdc_y += hit.qdc;</div>
-<div class="line"><span class="lineno">  256</span>                sum_qdc2_y += hit.qdc*hit.qdc;</div>
-<div class="line"><span class="lineno">  257</span>            }</div>
-<div class="line"><span class="lineno">  258</span> </div>
-<div class="line"><span class="lineno">  259</span>            <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#abc94bf7ac37f59a3cf43052a3370a771">centroid_</a>.SetZ(<a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#abc94bf7ac37f59a3cf43052a3370a771">centroid_</a>.Z() + hit.z * hit.qdc);</div>
-<div class="line"><span class="lineno">  260</span>        }</div>
-<div class="line"><span class="lineno">  261</span>    }</div>
-<div class="line"><span class="lineno">  262</span>    <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#abc94bf7ac37f59a3cf43052a3370a771">centroid_</a> = ROOT::Math::XYZPoint((tot_qdc_x &gt; 0) ? <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#abc94bf7ac37f59a3cf43052a3370a771">centroid_</a>.X() / tot_qdc_x : std::nan(<span class="stringliteral">&quot;&quot;</span>), (tot_qdc_y &gt; 0) ? <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#abc94bf7ac37f59a3cf43052a3370a771">centroid_</a>.<a class="code hl_variable" href="namespacegeometry__config.html#a813292572f3cf797de3cdc77f6edabb2">Y</a>() / tot_qdc_y : std::nan(<span class="stringliteral">&quot;&quot;</span>), (tot_qdc_x+tot_qdc_y &gt; 0) ? <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#abc94bf7ac37f59a3cf43052a3370a771">centroid_</a>.<a class="code hl_variable" href="namespacegeometry__config.html#ae949308a33fbd7f7096e0223cba1e10b">Z</a>() / (tot_qdc_x+tot_qdc_y) : std::nan(<span class="stringliteral">&quot;&quot;</span>));</div>
-<div class="line"><span class="lineno">  263</span>    <span class="keyword">auto</span> qdc_x_error_scaler = sqrt(sum_qdc2_x)/tot_qdc_x;</div>
-<div class="line"><span class="lineno">  264</span>    <span class="keyword">auto</span> qdc_y_error_scaler = sqrt(sum_qdc2_y)/tot_qdc_y;</div>
-<div class="line"><span class="lineno">  265</span>    <span class="keyword">auto</span> qdc_z_error_scaler = sqrt(sum_qdc2_x+sum_qdc2_y)/(tot_qdc_x+tot_qdc_y);</div>
-<div class="line"><span class="lineno">  266</span>    <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a0d48a584b922ddb2afaea5f82f171ecc">centroid_error_</a> = ROOT::Math::XYZPoint(<a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a480874a8d19c257c265c9d81ec6dd675">configuration_</a>.<a class="code hl_variable" href="structsnd_1_1Configuration.html#a51afa38699a4d72c160bc271437a4231">scifi_centroid_error_x</a>*qdc_x_error_scaler,</div>
-<div class="line"><span class="lineno">  267</span>                                           <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a480874a8d19c257c265c9d81ec6dd675">configuration_</a>.<a class="code hl_variable" href="structsnd_1_1Configuration.html#a8dd6115516618e6dbcff8b3dfb8dcd31">scifi_centroid_error_y</a>*qdc_y_error_scaler,</div>
-<div class="line"><span class="lineno">  268</span>                                           <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a480874a8d19c257c265c9d81ec6dd675">configuration_</a>.<a class="code hl_variable" href="structsnd_1_1Configuration.html#a1e775dc23ad2ad2fe635b302a9e502b7">scifi_centroid_error_z</a>*qdc_z_error_scaler);</div>
-<div class="line"><span class="lineno">  269</span>}</div>
+<p class="definition">Definition at line <a class="el" href="sndScifiPlane_8cxx_source.html#l00228">228</a> of file <a class="el" href="sndScifiPlane_8cxx_source.html">sndScifiPlane.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  229</span>{</div>
+<div class="line"><span class="lineno">  230</span>    <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#abc94bf7ac37f59a3cf43052a3370a771">centroid_</a>.SetXYZ(0, 0, 0);</div>
+<div class="line"><span class="lineno">  231</span>    <span class="keywordtype">double</span> tot_qdc_x{0}, sum_qdc2_x{0.0};</div>
+<div class="line"><span class="lineno">  232</span>    <span class="keywordtype">double</span> tot_qdc_y{0}, sum_qdc2_y{0.0};</div>
+<div class="line"><span class="lineno">  233</span>    std::vector&lt;ScifiHit&gt; cleaned_hits = <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9b79ca6732ed9148dd79942270fc2ea5">hits_</a>;</div>
+<div class="line"><span class="lineno">  234</span> </div>
+<div class="line"><span class="lineno">  235</span>    cleaned_hits.erase(std::remove_if(cleaned_hits.begin(), cleaned_hits.end(),</div>
+<div class="line"><span class="lineno">  236</span>                               [&amp;](<span class="keyword">auto</span> &amp;hit)</div>
+<div class="line"><span class="lineno">  237</span>                               { return hit.qdc &lt;= 0; }),</div>
+<div class="line"><span class="lineno">  238</span>                       cleaned_hits.end());</div>
+<div class="line"><span class="lineno">  239</span>    <span class="keywordtype">int</span> counts_x = std::count_if(cleaned_hits.begin(), cleaned_hits.end(), [](<span class="keyword">auto</span> &amp;hit)</div>
+<div class="line"><span class="lineno">  240</span>                    { return hit.is_x; });</div>
+<div class="line"><span class="lineno">  241</span>    <span class="keywordtype">int</span> counts_y = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(cleaned_hits.size())-counts_x;</div>
+<div class="line"><span class="lineno">  242</span>    <span class="keywordflow">if</span> (counts_x &lt; <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a480874a8d19c257c265c9d81ec6dd675">configuration_</a>.<a class="code hl_variable" href="structsnd_1_1Configuration.html#acbd25437e372e84689c50fe775a7187a">scifi_min_n_hits_for_centroid</a> &amp;&amp; counts_y &lt; <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a480874a8d19c257c265c9d81ec6dd675">configuration_</a>.<a class="code hl_variable" href="structsnd_1_1Configuration.html#acbd25437e372e84689c50fe775a7187a">scifi_min_n_hits_for_centroid</a> ) {</div>
+<div class="line"><span class="lineno">  243</span>        <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#abc94bf7ac37f59a3cf43052a3370a771">centroid_</a> = ROOT::Math::XYZPoint(std::nan(<span class="stringliteral">&quot;&quot;</span>), std::nan(<span class="stringliteral">&quot;&quot;</span>), std::nan(<span class="stringliteral">&quot;&quot;</span>));</div>
+<div class="line"><span class="lineno">  244</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  245</span>    }</div>
+<div class="line"><span class="lineno">  246</span> </div>
+<div class="line"><span class="lineno">  247</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;hit : cleaned_hits)</div>
+<div class="line"><span class="lineno">  248</span>    {</div>
+<div class="line"><span class="lineno">  249</span>        <span class="keywordflow">if</span> (hit.qdc &gt; 0)</div>
+<div class="line"><span class="lineno">  250</span>        {</div>
+<div class="line"><span class="lineno">  251</span>            <span class="keywordflow">if</span> (hit.is_x)</div>
+<div class="line"><span class="lineno">  252</span>            {</div>
+<div class="line"><span class="lineno">  253</span>                <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#abc94bf7ac37f59a3cf43052a3370a771">centroid_</a>.SetX(<a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#abc94bf7ac37f59a3cf43052a3370a771">centroid_</a>.X() + hit.x * hit.qdc);</div>
+<div class="line"><span class="lineno">  254</span>                tot_qdc_x += hit.qdc;</div>
+<div class="line"><span class="lineno">  255</span>                sum_qdc2_x += hit.qdc*hit.qdc;</div>
+<div class="line"><span class="lineno">  256</span>            }</div>
+<div class="line"><span class="lineno">  257</span>            <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  258</span>            {</div>
+<div class="line"><span class="lineno">  259</span>                <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#abc94bf7ac37f59a3cf43052a3370a771">centroid_</a>.SetY(<a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#abc94bf7ac37f59a3cf43052a3370a771">centroid_</a>.Y() + hit.y * hit.qdc);</div>
+<div class="line"><span class="lineno">  260</span>                tot_qdc_y += hit.qdc;</div>
+<div class="line"><span class="lineno">  261</span>                sum_qdc2_y += hit.qdc*hit.qdc;</div>
+<div class="line"><span class="lineno">  262</span>            }</div>
+<div class="line"><span class="lineno">  263</span> </div>
+<div class="line"><span class="lineno">  264</span>            <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#abc94bf7ac37f59a3cf43052a3370a771">centroid_</a>.SetZ(<a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#abc94bf7ac37f59a3cf43052a3370a771">centroid_</a>.Z() + hit.z * hit.qdc);</div>
+<div class="line"><span class="lineno">  265</span>        }</div>
+<div class="line"><span class="lineno">  266</span>    }</div>
+<div class="line"><span class="lineno">  267</span>    <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#abc94bf7ac37f59a3cf43052a3370a771">centroid_</a> = ROOT::Math::XYZPoint((tot_qdc_x &gt; 0) ? <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#abc94bf7ac37f59a3cf43052a3370a771">centroid_</a>.X() / tot_qdc_x : std::nan(<span class="stringliteral">&quot;&quot;</span>), (tot_qdc_y &gt; 0) ? <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#abc94bf7ac37f59a3cf43052a3370a771">centroid_</a>.<a class="code hl_variable" href="namespacegeometry__config.html#a813292572f3cf797de3cdc77f6edabb2">Y</a>() / tot_qdc_y : std::nan(<span class="stringliteral">&quot;&quot;</span>), (tot_qdc_x+tot_qdc_y &gt; 0) ? <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#abc94bf7ac37f59a3cf43052a3370a771">centroid_</a>.<a class="code hl_variable" href="namespacegeometry__config.html#ae949308a33fbd7f7096e0223cba1e10b">Z</a>() / (tot_qdc_x+tot_qdc_y) : std::nan(<span class="stringliteral">&quot;&quot;</span>));</div>
+<div class="line"><span class="lineno">  268</span>    <span class="keyword">auto</span> qdc_x_error_scaler = sqrt(sum_qdc2_x)/tot_qdc_x;</div>
+<div class="line"><span class="lineno">  269</span>    <span class="keyword">auto</span> qdc_y_error_scaler = sqrt(sum_qdc2_y)/tot_qdc_y;</div>
+<div class="line"><span class="lineno">  270</span>    <span class="keyword">auto</span> qdc_z_error_scaler = sqrt(sum_qdc2_x+sum_qdc2_y)/(tot_qdc_x+tot_qdc_y);</div>
+<div class="line"><span class="lineno">  271</span>    <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a0d48a584b922ddb2afaea5f82f171ecc">centroid_error_</a> = ROOT::Math::XYZPoint(<a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a480874a8d19c257c265c9d81ec6dd675">configuration_</a>.<a class="code hl_variable" href="structsnd_1_1Configuration.html#a51afa38699a4d72c160bc271437a4231">scifi_centroid_error_x</a>*qdc_x_error_scaler,</div>
+<div class="line"><span class="lineno">  272</span>                                           <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a480874a8d19c257c265c9d81ec6dd675">configuration_</a>.<a class="code hl_variable" href="structsnd_1_1Configuration.html#a8dd6115516618e6dbcff8b3dfb8dcd31">scifi_centroid_error_y</a>*qdc_y_error_scaler,</div>
+<div class="line"><span class="lineno">  273</span>                                           <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a480874a8d19c257c265c9d81ec6dd675">configuration_</a>.<a class="code hl_variable" href="structsnd_1_1Configuration.html#a1e775dc23ad2ad2fe635b302a9e502b7">scifi_centroid_error_z</a>*qdc_z_error_scaler);</div>
+<div class="line"><span class="lineno">  274</span>}</div>
 <div class="ttc" id="anamespacegeometry__config_html_a813292572f3cf797de3cdc77f6edabb2"><div class="ttname"><a href="namespacegeometry__config.html#a813292572f3cf797de3cdc77f6edabb2">geometry_config.Y</a></div><div class="ttdeci">Y</div><div class="ttdef"><b>Definition</b> <a href="geometry__config_8py_source.html#l00518">geometry_config.py:518</a></div></div>
 <div class="ttc" id="anamespacegeometry__config_html_ae949308a33fbd7f7096e0223cba1e10b"><div class="ttname"><a href="namespacegeometry__config.html#ae949308a33fbd7f7096e0223cba1e10b">geometry_config.Z</a></div><div class="ttdeci">Z</div><div class="ttdef"><b>Definition</b> <a href="geometry__config_8py_source.html#l00519">geometry_config.py:519</a></div></div>
 <div class="ttc" id="astructsnd_1_1Configuration_html_a1e775dc23ad2ad2fe635b302a9e502b7"><div class="ttname"><a href="structsnd_1_1Configuration.html#a1e775dc23ad2ad2fe635b302a9e502b7">snd::Configuration::scifi_centroid_error_z</a></div><div class="ttdeci">double scifi_centroid_error_z</div><div class="ttdef"><b>Definition</b> <a href="sndConfiguration_8h_source.html#l00022">sndConfiguration.h:22</a></div></div>
@@ -338,7 +344,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="sndScifiPlane_8h_source.html#l00039">39</a> of file <a class="el" href="sndScifiPlane_8h_source.html">sndScifiPlane.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   39</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#abc94bf7ac37f59a3cf43052a3370a771">centroid_</a>; };</div>
+<div class="fragment"><div class="line"><span class="lineno">   39</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#abc94bf7ac37f59a3cf43052a3370a771">centroid_</a>; }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -386,99 +392,99 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sndScifiPlane_8cxx_source.html#l00107">107</a> of file <a class="el" href="sndScifiPlane_8cxx_source.html">sndScifiPlane.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  108</span>{</div>
-<div class="line"><span class="lineno">  109</span>    std::vector&lt;double&gt; pos_x(<a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a480874a8d19c257c265c9d81ec6dd675">configuration_</a>.<a class="code hl_variable" href="structsnd_1_1Configuration.html#a739151177098c00a1faabe8aae75508b">scifi_n_channels_per_plane</a>, std::nan(<span class="stringliteral">&quot;&quot;</span>));</div>
-<div class="line"><span class="lineno">  110</span>    std::vector&lt;double&gt; pos_y(<a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a480874a8d19c257c265c9d81ec6dd675">configuration_</a>.<a class="code hl_variable" href="structsnd_1_1Configuration.html#a739151177098c00a1faabe8aae75508b">scifi_n_channels_per_plane</a>, std::nan(<span class="stringliteral">&quot;&quot;</span>));</div>
-<div class="line"><span class="lineno">  111</span> </div>
-<div class="line"><span class="lineno">  112</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;hit : <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9b79ca6732ed9148dd79942270fc2ea5">hits_</a>)</div>
-<div class="line"><span class="lineno">  113</span>    {</div>
-<div class="line"><span class="lineno">  114</span>        <span class="keywordflow">if</span> (hit.qdc &gt; 0)</div>
-<div class="line"><span class="lineno">  115</span>        {</div>
-<div class="line"><span class="lineno">  116</span>            <span class="keywordflow">if</span> (hit.is_x)</div>
-<div class="line"><span class="lineno">  117</span>            {</div>
-<div class="line"><span class="lineno">  118</span>                pos_x[hit.channel_index] = hit.x;</div>
-<div class="line"><span class="lineno">  119</span>            }</div>
-<div class="line"><span class="lineno">  120</span>            <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  121</span>            {</div>
-<div class="line"><span class="lineno">  122</span>                pos_y[hit.channel_index] = hit.y;</div>
-<div class="line"><span class="lineno">  123</span>            }</div>
-<div class="line"><span class="lineno">  124</span>        }</div>
-<div class="line"><span class="lineno">  125</span>    }</div>
-<div class="line"><span class="lineno">  126</span> </div>
-<div class="line"><span class="lineno">  127</span>    <span class="keyword">auto</span> largest_cluster = [&amp;](<span class="keyword">const</span> std::vector&lt;double&gt; &amp;positions)</div>
-<div class="line"><span class="lineno">  128</span>    {</div>
-<div class="line"><span class="lineno">  129</span>        <span class="keywordtype">int</span> <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a0300c9226cb21058a0167e6076c29b1d">n</a> = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(positions.size());</div>
-<div class="line"><span class="lineno">  130</span> </div>
-<div class="line"><span class="lineno">  131</span>        <span class="keywordtype">int</span> best_start = -1, best_end = -1, best_size = 0;</div>
-<div class="line"><span class="lineno">  132</span>        <span class="keywordtype">int</span> <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#abaf58c8e5683cef7081a12d534f05739">start</a> = -1, gap_count = 0, size = 0;</div>
-<div class="line"><span class="lineno">  133</span> </div>
-<div class="line"><span class="lineno">  134</span>        <span class="comment">// Find the largest cluster</span></div>
-<div class="line"><span class="lineno">  135</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a> &lt; <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a0300c9226cb21058a0167e6076c29b1d">n</a>; ++<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>)</div>
-<div class="line"><span class="lineno">  136</span>        {</div>
-<div class="line"><span class="lineno">  137</span>            <span class="keywordflow">if</span> (!std::isnan(positions[i]))</div>
-<div class="line"><span class="lineno">  138</span>            {</div>
-<div class="line"><span class="lineno">  139</span>                <span class="keywordflow">if</span> (start == -1)</div>
-<div class="line"><span class="lineno">  140</span>                    <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#abaf58c8e5683cef7081a12d534f05739">start</a> = <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>; <span class="comment">// Start a new cluster</span></div>
-<div class="line"><span class="lineno">  141</span>                size++;</div>
-<div class="line"><span class="lineno">  142</span>                gap_count = 0; <span class="comment">// Reset consecutive gap counter</span></div>
-<div class="line"><span class="lineno">  143</span>            }</div>
-<div class="line"><span class="lineno">  144</span>            <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  145</span>            {</div>
-<div class="line"><span class="lineno">  146</span>                gap_count++;</div>
-<div class="line"><span class="lineno">  147</span>                <span class="keywordflow">if</span> (gap_count &gt; max_gap)</div>
-<div class="line"><span class="lineno">  148</span>                { <span class="comment">// Too many consecutive gaps, finalize previous cluster</span></div>
-<div class="line"><span class="lineno">  149</span>                    <span class="keywordflow">if</span> (size &gt; best_size)</div>
-<div class="line"><span class="lineno">  150</span>                    {</div>
-<div class="line"><span class="lineno">  151</span>                        best_start = <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#abaf58c8e5683cef7081a12d534f05739">start</a>;</div>
-<div class="line"><span class="lineno">  152</span>                        best_end = <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a> - gap_count; <span class="comment">// End before the excessive gaps</span></div>
-<div class="line"><span class="lineno">  153</span>                        best_size = size;</div>
-<div class="line"><span class="lineno">  154</span>                    }</div>
-<div class="line"><span class="lineno">  155</span>                    <span class="comment">// Reset for a new potential cluster</span></div>
-<div class="line"><span class="lineno">  156</span>                    <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#abaf58c8e5683cef7081a12d534f05739">start</a> = -1;</div>
-<div class="line"><span class="lineno">  157</span>                    gap_count = 0;</div>
-<div class="line"><span class="lineno">  158</span>                    size = 0;</div>
-<div class="line"><span class="lineno">  159</span>                }</div>
-<div class="line"><span class="lineno">  160</span>                <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  161</span>                {</div>
-<div class="line"><span class="lineno">  162</span>                    size++; <span class="comment">// Gaps within max_gap still count in cluster size</span></div>
-<div class="line"><span class="lineno">  163</span>                }</div>
-<div class="line"><span class="lineno">  164</span>            }</div>
-<div class="line"><span class="lineno">  165</span>        }</div>
-<div class="line"><span class="lineno">  166</span> </div>
-<div class="line"><span class="lineno">  167</span>        <span class="comment">// Check last cluster</span></div>
-<div class="line"><span class="lineno">  168</span>        <span class="keywordflow">if</span> (size &gt; best_size)</div>
-<div class="line"><span class="lineno">  169</span>        {</div>
-<div class="line"><span class="lineno">  170</span>            best_start = <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#abaf58c8e5683cef7081a12d534f05739">start</a>;</div>
-<div class="line"><span class="lineno">  171</span>            best_end = <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a0300c9226cb21058a0167e6076c29b1d">n</a> - 1;</div>
-<div class="line"><span class="lineno">  172</span>            best_size = size;</div>
-<div class="line"><span class="lineno">  173</span>        }</div>
-<div class="line"><span class="lineno">  174</span> </div>
-<div class="line"><span class="lineno">  175</span>        <span class="comment">// Compute the average of non-gap values in the best cluster</span></div>
-<div class="line"><span class="lineno">  176</span>        <span class="keywordflow">if</span> (best_start == -1 || best_end == -1)</div>
-<div class="line"><span class="lineno">  177</span>            <span class="keywordflow">return</span> std::nan(<span class="stringliteral">&quot;&quot;</span>); <span class="comment">// No valid cluster found</span></div>
-<div class="line"><span class="lineno">  178</span> </div>
-<div class="line"><span class="lineno">  179</span>        <span class="keywordtype">double</span> sum = 0.0;</div>
-<div class="line"><span class="lineno">  180</span>        <span class="keywordtype">int</span> <a class="code hl_variable" href="namespaceconditionsDatabase_1_1getconditions__condDB.html#ada36c3d9fe2448340f6f292f33ea72ae">count</a> = 0;</div>
-<div class="line"><span class="lineno">  181</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = best_start; <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a> &lt;= best_end; ++<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>)</div>
-<div class="line"><span class="lineno">  182</span>        {</div>
-<div class="line"><span class="lineno">  183</span>            <span class="keywordflow">if</span> (!std::isnan(positions[i]))</div>
-<div class="line"><span class="lineno">  184</span>            {</div>
-<div class="line"><span class="lineno">  185</span>                sum += positions[<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>];</div>
-<div class="line"><span class="lineno">  186</span>                <a class="code hl_variable" href="namespaceconditionsDatabase_1_1getconditions__condDB.html#ada36c3d9fe2448340f6f292f33ea72ae">count</a>++;</div>
-<div class="line"><span class="lineno">  187</span>            }</div>
-<div class="line"><span class="lineno">  188</span>        }</div>
-<div class="line"><span class="lineno">  189</span> </div>
-<div class="line"><span class="lineno">  190</span>        <span class="keywordflow">return</span> (count &gt; 0) ? sum / <a class="code hl_variable" href="namespaceconditionsDatabase_1_1getconditions__condDB.html#ada36c3d9fe2448340f6f292f33ea72ae">count</a> : std::nan(<span class="stringliteral">&quot;&quot;</span>);</div>
-<div class="line"><span class="lineno">  191</span>    };</div>
-<div class="line"><span class="lineno">  192</span> </div>
-<div class="line"><span class="lineno">  193</span>    <span class="keywordtype">double</span> cluster_x = largest_cluster(pos_x);</div>
-<div class="line"><span class="lineno">  194</span>    <span class="keywordtype">double</span> cluster_y = largest_cluster(pos_y);</div>
-<div class="line"><span class="lineno">  195</span>    <span class="keywordflow">if</span> (!(std::isnan(cluster_x) || std::isnan(cluster_y))) {</div>
-<div class="line"><span class="lineno">  196</span>        <span class="keywordflow">return</span> ROOT::Math::XYZPoint(cluster_x, cluster_y, <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9b79ca6732ed9148dd79942270fc2ea5">hits_</a>[0].z);</div>
-<div class="line"><span class="lineno">  197</span>    }</div>
-<div class="line"><span class="lineno">  198</span>    <span class="keywordflow">return</span> ROOT::Math::XYZPoint(std::nan(<span class="stringliteral">&quot;&quot;</span>), std::nan(<span class="stringliteral">&quot;&quot;</span>), std::nan(<span class="stringliteral">&quot;&quot;</span>));</div>
-<div class="line"><span class="lineno">  199</span>}</div>
+<p class="definition">Definition at line <a class="el" href="sndScifiPlane_8cxx_source.html#l00112">112</a> of file <a class="el" href="sndScifiPlane_8cxx_source.html">sndScifiPlane.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  113</span>{</div>
+<div class="line"><span class="lineno">  114</span>    std::vector&lt;double&gt; pos_x(<a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a480874a8d19c257c265c9d81ec6dd675">configuration_</a>.<a class="code hl_variable" href="structsnd_1_1Configuration.html#a739151177098c00a1faabe8aae75508b">scifi_n_channels_per_plane</a>, std::nan(<span class="stringliteral">&quot;&quot;</span>));</div>
+<div class="line"><span class="lineno">  115</span>    std::vector&lt;double&gt; pos_y(<a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a480874a8d19c257c265c9d81ec6dd675">configuration_</a>.<a class="code hl_variable" href="structsnd_1_1Configuration.html#a739151177098c00a1faabe8aae75508b">scifi_n_channels_per_plane</a>, std::nan(<span class="stringliteral">&quot;&quot;</span>));</div>
+<div class="line"><span class="lineno">  116</span> </div>
+<div class="line"><span class="lineno">  117</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;hit : <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9b79ca6732ed9148dd79942270fc2ea5">hits_</a>)</div>
+<div class="line"><span class="lineno">  118</span>    {</div>
+<div class="line"><span class="lineno">  119</span>        <span class="keywordflow">if</span> (hit.qdc &gt; 0)</div>
+<div class="line"><span class="lineno">  120</span>        {</div>
+<div class="line"><span class="lineno">  121</span>            <span class="keywordflow">if</span> (hit.is_x)</div>
+<div class="line"><span class="lineno">  122</span>            {</div>
+<div class="line"><span class="lineno">  123</span>                pos_x[hit.channel_index] = hit.x;</div>
+<div class="line"><span class="lineno">  124</span>            }</div>
+<div class="line"><span class="lineno">  125</span>            <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  126</span>            {</div>
+<div class="line"><span class="lineno">  127</span>                pos_y[hit.channel_index] = hit.y;</div>
+<div class="line"><span class="lineno">  128</span>            }</div>
+<div class="line"><span class="lineno">  129</span>        }</div>
+<div class="line"><span class="lineno">  130</span>    }</div>
+<div class="line"><span class="lineno">  131</span> </div>
+<div class="line"><span class="lineno">  132</span>    <span class="keyword">auto</span> largest_cluster = [&amp;](<span class="keyword">const</span> std::vector&lt;double&gt; &amp;positions)</div>
+<div class="line"><span class="lineno">  133</span>    {</div>
+<div class="line"><span class="lineno">  134</span>        <span class="keywordtype">int</span> <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a0300c9226cb21058a0167e6076c29b1d">n</a> = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(positions.size());</div>
+<div class="line"><span class="lineno">  135</span> </div>
+<div class="line"><span class="lineno">  136</span>        <span class="keywordtype">int</span> best_start = -1, best_end = -1, best_size = 0;</div>
+<div class="line"><span class="lineno">  137</span>        <span class="keywordtype">int</span> <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#abaf58c8e5683cef7081a12d534f05739">start</a> = -1, gap_count = 0, size = 0;</div>
+<div class="line"><span class="lineno">  138</span> </div>
+<div class="line"><span class="lineno">  139</span>        <span class="comment">// Find the largest cluster</span></div>
+<div class="line"><span class="lineno">  140</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a> &lt; <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a0300c9226cb21058a0167e6076c29b1d">n</a>; ++<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>)</div>
+<div class="line"><span class="lineno">  141</span>        {</div>
+<div class="line"><span class="lineno">  142</span>            <span class="keywordflow">if</span> (!std::isnan(positions[i]))</div>
+<div class="line"><span class="lineno">  143</span>            {</div>
+<div class="line"><span class="lineno">  144</span>                <span class="keywordflow">if</span> (start == -1)</div>
+<div class="line"><span class="lineno">  145</span>                    <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#abaf58c8e5683cef7081a12d534f05739">start</a> = <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>; <span class="comment">// Start a new cluster</span></div>
+<div class="line"><span class="lineno">  146</span>                size++;</div>
+<div class="line"><span class="lineno">  147</span>                gap_count = 0; <span class="comment">// Reset consecutive gap counter</span></div>
+<div class="line"><span class="lineno">  148</span>            }</div>
+<div class="line"><span class="lineno">  149</span>            <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  150</span>            {</div>
+<div class="line"><span class="lineno">  151</span>                gap_count++;</div>
+<div class="line"><span class="lineno">  152</span>                <span class="keywordflow">if</span> (gap_count &gt; max_gap)</div>
+<div class="line"><span class="lineno">  153</span>                { <span class="comment">// Too many consecutive gaps, finalize previous cluster</span></div>
+<div class="line"><span class="lineno">  154</span>                    <span class="keywordflow">if</span> (size &gt; best_size)</div>
+<div class="line"><span class="lineno">  155</span>                    {</div>
+<div class="line"><span class="lineno">  156</span>                        best_start = <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#abaf58c8e5683cef7081a12d534f05739">start</a>;</div>
+<div class="line"><span class="lineno">  157</span>                        best_end = <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a> - gap_count; <span class="comment">// End before the excessive gaps</span></div>
+<div class="line"><span class="lineno">  158</span>                        best_size = size;</div>
+<div class="line"><span class="lineno">  159</span>                    }</div>
+<div class="line"><span class="lineno">  160</span>                    <span class="comment">// Reset for a new potential cluster</span></div>
+<div class="line"><span class="lineno">  161</span>                    <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#abaf58c8e5683cef7081a12d534f05739">start</a> = -1;</div>
+<div class="line"><span class="lineno">  162</span>                    gap_count = 0;</div>
+<div class="line"><span class="lineno">  163</span>                    size = 0;</div>
+<div class="line"><span class="lineno">  164</span>                }</div>
+<div class="line"><span class="lineno">  165</span>                <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  166</span>                {</div>
+<div class="line"><span class="lineno">  167</span>                    size++; <span class="comment">// Gaps within max_gap still count in cluster size</span></div>
+<div class="line"><span class="lineno">  168</span>                }</div>
+<div class="line"><span class="lineno">  169</span>            }</div>
+<div class="line"><span class="lineno">  170</span>        }</div>
+<div class="line"><span class="lineno">  171</span> </div>
+<div class="line"><span class="lineno">  172</span>        <span class="comment">// Check last cluster</span></div>
+<div class="line"><span class="lineno">  173</span>        <span class="keywordflow">if</span> (size &gt; best_size)</div>
+<div class="line"><span class="lineno">  174</span>        {</div>
+<div class="line"><span class="lineno">  175</span>            best_start = <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#abaf58c8e5683cef7081a12d534f05739">start</a>;</div>
+<div class="line"><span class="lineno">  176</span>            best_end = <a class="code hl_variable" href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a0300c9226cb21058a0167e6076c29b1d">n</a> - 1;</div>
+<div class="line"><span class="lineno">  177</span>            best_size = size;</div>
+<div class="line"><span class="lineno">  178</span>        }</div>
+<div class="line"><span class="lineno">  179</span> </div>
+<div class="line"><span class="lineno">  180</span>        <span class="comment">// Compute the average of non-gap values in the best cluster</span></div>
+<div class="line"><span class="lineno">  181</span>        <span class="keywordflow">if</span> (best_start == -1 || best_end == -1)</div>
+<div class="line"><span class="lineno">  182</span>            <span class="keywordflow">return</span> std::nan(<span class="stringliteral">&quot;&quot;</span>); <span class="comment">// No valid cluster found</span></div>
+<div class="line"><span class="lineno">  183</span> </div>
+<div class="line"><span class="lineno">  184</span>        <span class="keywordtype">double</span> sum = 0.0;</div>
+<div class="line"><span class="lineno">  185</span>        <span class="keywordtype">int</span> <a class="code hl_variable" href="namespaceconditionsDatabase_1_1getconditions__condDB.html#ada36c3d9fe2448340f6f292f33ea72ae">count</a> = 0;</div>
+<div class="line"><span class="lineno">  186</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = best_start; <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a> &lt;= best_end; ++<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>)</div>
+<div class="line"><span class="lineno">  187</span>        {</div>
+<div class="line"><span class="lineno">  188</span>            <span class="keywordflow">if</span> (!std::isnan(positions[i]))</div>
+<div class="line"><span class="lineno">  189</span>            {</div>
+<div class="line"><span class="lineno">  190</span>                sum += positions[<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>];</div>
+<div class="line"><span class="lineno">  191</span>                <a class="code hl_variable" href="namespaceconditionsDatabase_1_1getconditions__condDB.html#ada36c3d9fe2448340f6f292f33ea72ae">count</a>++;</div>
+<div class="line"><span class="lineno">  192</span>            }</div>
+<div class="line"><span class="lineno">  193</span>        }</div>
+<div class="line"><span class="lineno">  194</span> </div>
+<div class="line"><span class="lineno">  195</span>        <span class="keywordflow">return</span> (count &gt; 0) ? sum / <a class="code hl_variable" href="namespaceconditionsDatabase_1_1getconditions__condDB.html#ada36c3d9fe2448340f6f292f33ea72ae">count</a> : std::nan(<span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><span class="lineno">  196</span>    };</div>
+<div class="line"><span class="lineno">  197</span> </div>
+<div class="line"><span class="lineno">  198</span>    <span class="keywordtype">double</span> cluster_x = largest_cluster(pos_x);</div>
+<div class="line"><span class="lineno">  199</span>    <span class="keywordtype">double</span> cluster_y = largest_cluster(pos_y);</div>
+<div class="line"><span class="lineno">  200</span>    <span class="keywordflow">if</span> (!(std::isnan(cluster_x) || std::isnan(cluster_y))) {</div>
+<div class="line"><span class="lineno">  201</span>        <span class="keywordflow">return</span> ROOT::Math::XYZPoint(cluster_x, cluster_y, <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9b79ca6732ed9148dd79942270fc2ea5">hits_</a>[0].z);</div>
+<div class="line"><span class="lineno">  202</span>    }</div>
+<div class="line"><span class="lineno">  203</span>    <span class="keywordflow">return</span> ROOT::Math::XYZPoint(std::nan(<span class="stringliteral">&quot;&quot;</span>), std::nan(<span class="stringliteral">&quot;&quot;</span>), std::nan(<span class="stringliteral">&quot;&quot;</span>));</div>
+<div class="line"><span class="lineno">  204</span>}</div>
 <div class="ttc" id="anamespaceShipAna_html_aa4bf87f4d17f9d38b1d8f4d009bb54b3"><div class="ttname"><a href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">ShipAna.i</a></div><div class="ttdeci">int i</div><div class="ttdef"><b>Definition</b> <a href="ShipAna_8py_source.html#l00086">ShipAna.py:86</a></div></div>
 <div class="ttc" id="anamespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring_html_a0300c9226cb21058a0167e6076c29b1d"><div class="ttname"><a href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#a0300c9226cb21058a0167e6076c29b1d">conditionsDatabase.demo.drifttubeMonitoring.n</a></div><div class="ttdeci">int n</div><div class="ttdef"><b>Definition</b> <a href="drifttubeMonitoring_8py_source.html#l00253">drifttubeMonitoring.py:253</a></div></div>
 <div class="ttc" id="anamespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring_html_abaf58c8e5683cef7081a12d534f05739"><div class="ttname"><a href="namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#abaf58c8e5683cef7081a12d534f05739">conditionsDatabase.demo.drifttubeMonitoring.start</a></div><div class="ttdeci">dict start</div><div class="ttdef"><b>Definition</b> <a href="drifttubeMonitoring_8py_source.html#l00254">drifttubeMonitoring.py:254</a></div></div>
@@ -511,7 +517,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="sndScifiPlane_8h_source.html#l00038">38</a> of file <a class="el" href="sndScifiPlane_8h_source.html">sndScifiPlane.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   38</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9b79ca6732ed9148dd79942270fc2ea5">hits_</a>; };</div>
+<div class="fragment"><div class="line"><span class="lineno">   38</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9b79ca6732ed9148dd79942270fc2ea5">hits_</a>; }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -530,15 +536,15 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sndScifiPlane_8cxx_source.html#l00044">44</a> of file <a class="el" href="sndScifiPlane_8cxx_source.html">sndScifiPlane.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   45</span>{</div>
-<div class="line"><span class="lineno">   46</span>    xy_pair&lt;int&gt; counts{0, 0};</div>
-<div class="line"><span class="lineno">   47</span>    counts.x = std::count_if(<a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9b79ca6732ed9148dd79942270fc2ea5">hits_</a>.begin(), <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9b79ca6732ed9148dd79942270fc2ea5">hits_</a>.end(), [](<span class="keyword">auto</span> &amp;hit)</div>
-<div class="line"><span class="lineno">   48</span>                             { return hit.is_x; });</div>
-<div class="line"><span class="lineno">   49</span>    counts.y = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9b79ca6732ed9148dd79942270fc2ea5">hits_</a>.size()) - counts.x;</div>
-<div class="line"><span class="lineno">   50</span> </div>
-<div class="line"><span class="lineno">   51</span>    <span class="keywordflow">return</span> counts;</div>
-<div class="line"><span class="lineno">   52</span>}</div>
+<p class="definition">Definition at line <a class="el" href="sndScifiPlane_8cxx_source.html#l00049">49</a> of file <a class="el" href="sndScifiPlane_8cxx_source.html">sndScifiPlane.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   50</span>{</div>
+<div class="line"><span class="lineno">   51</span>    xy_pair&lt;int&gt; counts{0, 0};</div>
+<div class="line"><span class="lineno">   52</span>    counts.x = std::count_if(<a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9b79ca6732ed9148dd79942270fc2ea5">hits_</a>.begin(), <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9b79ca6732ed9148dd79942270fc2ea5">hits_</a>.end(), [](<span class="keyword">auto</span> &amp;hit)</div>
+<div class="line"><span class="lineno">   53</span>                             { return hit.is_x; });</div>
+<div class="line"><span class="lineno">   54</span>    counts.y = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9b79ca6732ed9148dd79942270fc2ea5">hits_</a>.size()) - counts.x;</div>
+<div class="line"><span class="lineno">   55</span> </div>
+<div class="line"><span class="lineno">   56</span>    <span class="keywordflow">return</span> counts;</div>
+<div class="line"><span class="lineno">   57</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -568,19 +574,19 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sndScifiPlane_8cxx_source.html#l00209">209</a> of file <a class="el" href="sndScifiPlane_8cxx_source.html">sndScifiPlane.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  210</span>{</div>
-<div class="line"><span class="lineno">  211</span>    xy_pair&lt;double&gt; qdc{0.0, 0.0};</div>
-<div class="line"><span class="lineno">  212</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;hit : <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9b79ca6732ed9148dd79942270fc2ea5">hits_</a>) {</div>
-<div class="line"><span class="lineno">  213</span>        <span class="keywordflow">if</span> (hit.is_x &amp;&amp; std::abs(hit.x - point.X()) &lt;= radius) {</div>
-<div class="line"><span class="lineno">  214</span>            qdc.x += hit.qdc;</div>
-<div class="line"><span class="lineno">  215</span>        }</div>
-<div class="line"><span class="lineno">  216</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (!hit.is_x &amp;&amp; std::abs(hit.y - point.Y()) &lt;= radius) {</div>
-<div class="line"><span class="lineno">  217</span>            qdc.y += hit.qdc;</div>
-<div class="line"><span class="lineno">  218</span>        }</div>
-<div class="line"><span class="lineno">  219</span>    }</div>
-<div class="line"><span class="lineno">  220</span>    <span class="keywordflow">return</span> qdc;</div>
-<div class="line"><span class="lineno">  221</span>}</div>
+<p class="definition">Definition at line <a class="el" href="sndScifiPlane_8cxx_source.html#l00214">214</a> of file <a class="el" href="sndScifiPlane_8cxx_source.html">sndScifiPlane.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  215</span>{</div>
+<div class="line"><span class="lineno">  216</span>    xy_pair&lt;double&gt; qdc{0.0, 0.0};</div>
+<div class="line"><span class="lineno">  217</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;hit : <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9b79ca6732ed9148dd79942270fc2ea5">hits_</a>) {</div>
+<div class="line"><span class="lineno">  218</span>        <span class="keywordflow">if</span> (hit.is_x &amp;&amp; std::abs(hit.x - point.X()) &lt;= radius) {</div>
+<div class="line"><span class="lineno">  219</span>            qdc.x += hit.qdc;</div>
+<div class="line"><span class="lineno">  220</span>        }</div>
+<div class="line"><span class="lineno">  221</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (!hit.is_x &amp;&amp; std::abs(hit.y - point.Y()) &lt;= radius) {</div>
+<div class="line"><span class="lineno">  222</span>            qdc.y += hit.qdc;</div>
+<div class="line"><span class="lineno">  223</span>        }</div>
+<div class="line"><span class="lineno">  224</span>    }</div>
+<div class="line"><span class="lineno">  225</span>    <span class="keywordflow">return</span> qdc;</div>
+<div class="line"><span class="lineno">  226</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -608,7 +614,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="sndScifiPlane_8h_source.html#l00037">37</a> of file <a class="el" href="sndScifiPlane_8h_source.html">sndScifiPlane.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   37</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a5011bea4fa55f1126fc241807f8db89d">station_</a>; };</div>
+<div class="fragment"><div class="line"><span class="lineno">   37</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a5011bea4fa55f1126fc241807f8db89d">station_</a>; }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -628,17 +634,17 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sndScifiPlane_8cxx_source.html#l00282">282</a> of file <a class="el" href="sndScifiPlane_8cxx_source.html">sndScifiPlane.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  283</span>{</div>
-<div class="line"><span class="lineno">  284</span>    xy_pair&lt;double&gt; <a class="code hl_function" href="namespaceproton__bremsstrahlung.html#a346de5637f6811443ef313e5b10ef9bc">energy</a>{0.0, 0.0};</div>
-<div class="line"><span class="lineno">  285</span>    <span class="keyword">auto</span> qdc = <a class="code hl_function" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a5d1bc51bd6d8467298cd33cc8fef00ce">GetTotQdc</a>(only_positive);</div>
-<div class="line"><span class="lineno">  286</span> </div>
-<div class="line"><span class="lineno">  287</span>    <a class="code hl_function" href="namespaceproton__bremsstrahlung.html#a346de5637f6811443ef313e5b10ef9bc">energy</a>.x = qdc.x * <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a480874a8d19c257c265c9d81ec6dd675">configuration_</a>.<a class="code hl_variable" href="structsnd_1_1Configuration.html#a7baa17e7ef173efa51cdcaf2350a4661">scifi_qdc_to_gev</a>;</div>
-<div class="line"><span class="lineno">  288</span>    <a class="code hl_function" href="namespaceproton__bremsstrahlung.html#a346de5637f6811443ef313e5b10ef9bc">energy</a>.y = qdc.y * <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a480874a8d19c257c265c9d81ec6dd675">configuration_</a>.<a class="code hl_variable" href="structsnd_1_1Configuration.html#a7baa17e7ef173efa51cdcaf2350a4661">scifi_qdc_to_gev</a>;</div>
-<div class="line"><span class="lineno">  289</span> </div>
-<div class="line"><span class="lineno">  290</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceproton__bremsstrahlung.html#a346de5637f6811443ef313e5b10ef9bc">energy</a>;</div>
-<div class="line"><span class="lineno">  291</span>}</div>
-<div class="ttc" id="aclasssnd_1_1analysis__tools_1_1ScifiPlane_html_a5d1bc51bd6d8467298cd33cc8fef00ce"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a5d1bc51bd6d8467298cd33cc8fef00ce">snd::analysis_tools::ScifiPlane::GetTotQdc</a></div><div class="ttdeci">const xy_pair&lt; double &gt; GetTotQdc(bool only_positive=false) const</div><div class="ttdef"><b>Definition</b> <a href="sndScifiPlane_8cxx_source.html#l00271">sndScifiPlane.cxx:271</a></div></div>
+<p class="definition">Definition at line <a class="el" href="sndScifiPlane_8cxx_source.html#l00287">287</a> of file <a class="el" href="sndScifiPlane_8cxx_source.html">sndScifiPlane.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  288</span>{</div>
+<div class="line"><span class="lineno">  289</span>    xy_pair&lt;double&gt; <a class="code hl_function" href="namespaceproton__bremsstrahlung.html#a346de5637f6811443ef313e5b10ef9bc">energy</a>{0.0, 0.0};</div>
+<div class="line"><span class="lineno">  290</span>    <span class="keyword">auto</span> qdc = <a class="code hl_function" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a5d1bc51bd6d8467298cd33cc8fef00ce">GetTotQdc</a>(only_positive);</div>
+<div class="line"><span class="lineno">  291</span> </div>
+<div class="line"><span class="lineno">  292</span>    <a class="code hl_function" href="namespaceproton__bremsstrahlung.html#a346de5637f6811443ef313e5b10ef9bc">energy</a>.x = qdc.x * <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a480874a8d19c257c265c9d81ec6dd675">configuration_</a>.<a class="code hl_variable" href="structsnd_1_1Configuration.html#a7baa17e7ef173efa51cdcaf2350a4661">scifi_qdc_to_gev</a>;</div>
+<div class="line"><span class="lineno">  293</span>    <a class="code hl_function" href="namespaceproton__bremsstrahlung.html#a346de5637f6811443ef313e5b10ef9bc">energy</a>.y = qdc.y * <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a480874a8d19c257c265c9d81ec6dd675">configuration_</a>.<a class="code hl_variable" href="structsnd_1_1Configuration.html#a7baa17e7ef173efa51cdcaf2350a4661">scifi_qdc_to_gev</a>;</div>
+<div class="line"><span class="lineno">  294</span> </div>
+<div class="line"><span class="lineno">  295</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceproton__bremsstrahlung.html#a346de5637f6811443ef313e5b10ef9bc">energy</a>;</div>
+<div class="line"><span class="lineno">  296</span>}</div>
+<div class="ttc" id="aclasssnd_1_1analysis__tools_1_1ScifiPlane_html_a5d1bc51bd6d8467298cd33cc8fef00ce"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a5d1bc51bd6d8467298cd33cc8fef00ce">snd::analysis_tools::ScifiPlane::GetTotQdc</a></div><div class="ttdeci">const xy_pair&lt; double &gt; GetTotQdc(bool only_positive=false) const</div><div class="ttdef"><b>Definition</b> <a href="sndScifiPlane_8cxx_source.html#l00276">sndScifiPlane.cxx:276</a></div></div>
 <div class="ttc" id="anamespaceproton__bremsstrahlung_html_a346de5637f6811443ef313e5b10ef9bc"><div class="ttname"><a href="namespaceproton__bremsstrahlung.html#a346de5637f6811443ef313e5b10ef9bc">proton_bremsstrahlung.energy</a></div><div class="ttdeci">energy(p, m)</div><div class="ttdef"><b>Definition</b> <a href="proton__bremsstrahlung_8py_source.html#l00034">proton_bremsstrahlung.py:34</a></div></div>
 <div class="ttc" id="astructsnd_1_1Configuration_html_a7baa17e7ef173efa51cdcaf2350a4661"><div class="ttname"><a href="structsnd_1_1Configuration.html#a7baa17e7ef173efa51cdcaf2350a4661">snd::Configuration::scifi_qdc_to_gev</a></div><div class="ttdeci">double scifi_qdc_to_gev</div><div class="ttdef"><b>Definition</b> <a href="sndConfiguration_8h_source.html#l00018">sndConfiguration.h:18</a></div></div>
 </div><!-- fragment -->
@@ -660,16 +666,16 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sndScifiPlane_8cxx_source.html#l00271">271</a> of file <a class="el" href="sndScifiPlane_8cxx_source.html">sndScifiPlane.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  272</span>{</div>
-<div class="line"><span class="lineno">  273</span>    xy_pair&lt;double&gt; qdc_sum{0.0, 0.0};</div>
-<div class="line"><span class="lineno">  274</span>    qdc_sum.x = std::accumulate(<a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9b79ca6732ed9148dd79942270fc2ea5">hits_</a>.begin(), <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9b79ca6732ed9148dd79942270fc2ea5">hits_</a>.end(), 0.0, [&amp;](<span class="keywordtype">double</span> current_sum, <span class="keyword">auto</span> &amp;hit)</div>
-<div class="line"><span class="lineno">  275</span>                                { return (hit.is_x &amp;&amp; (hit.qdc &gt; 0 || !only_positive)) ? (current_sum + hit.qdc) : current_sum; });</div>
-<div class="line"><span class="lineno">  276</span>    qdc_sum.y = std::accumulate(<a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9b79ca6732ed9148dd79942270fc2ea5">hits_</a>.begin(), <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9b79ca6732ed9148dd79942270fc2ea5">hits_</a>.end(), 0.0, [&amp;](<span class="keywordtype">double</span> current_sum, <span class="keyword">auto</span> &amp;hit)</div>
-<div class="line"><span class="lineno">  277</span>                                { return (!hit.is_x &amp;&amp; (hit.qdc &gt; 0 || !only_positive)) ? (current_sum + hit.qdc) : current_sum; });</div>
-<div class="line"><span class="lineno">  278</span> </div>
-<div class="line"><span class="lineno">  279</span>    <span class="keywordflow">return</span> qdc_sum;</div>
-<div class="line"><span class="lineno">  280</span>}</div>
+<p class="definition">Definition at line <a class="el" href="sndScifiPlane_8cxx_source.html#l00276">276</a> of file <a class="el" href="sndScifiPlane_8cxx_source.html">sndScifiPlane.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  277</span>{</div>
+<div class="line"><span class="lineno">  278</span>    xy_pair&lt;double&gt; qdc_sum{0.0, 0.0};</div>
+<div class="line"><span class="lineno">  279</span>    qdc_sum.x = std::accumulate(<a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9b79ca6732ed9148dd79942270fc2ea5">hits_</a>.begin(), <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9b79ca6732ed9148dd79942270fc2ea5">hits_</a>.end(), 0.0, [&amp;](<span class="keywordtype">double</span> current_sum, <span class="keyword">auto</span> &amp;hit)</div>
+<div class="line"><span class="lineno">  280</span>                                { return (hit.is_x &amp;&amp; (hit.qdc &gt; 0 || !only_positive)) ? (current_sum + hit.qdc) : current_sum; });</div>
+<div class="line"><span class="lineno">  281</span>    qdc_sum.y = std::accumulate(<a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9b79ca6732ed9148dd79942270fc2ea5">hits_</a>.begin(), <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9b79ca6732ed9148dd79942270fc2ea5">hits_</a>.end(), 0.0, [&amp;](<span class="keywordtype">double</span> current_sum, <span class="keyword">auto</span> &amp;hit)</div>
+<div class="line"><span class="lineno">  282</span>                                { return (!hit.is_x &amp;&amp; (hit.qdc &gt; 0 || !only_positive)) ? (current_sum + hit.qdc) : current_sum; });</div>
+<div class="line"><span class="lineno">  283</span> </div>
+<div class="line"><span class="lineno">  284</span>    <span class="keywordflow">return</span> qdc_sum;</div>
+<div class="line"><span class="lineno">  285</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -688,58 +694,58 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sndScifiPlane_8cxx_source.html#l00054">54</a> of file <a class="el" href="sndScifiPlane_8cxx_source.html">sndScifiPlane.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   55</span>{</div>
-<div class="line"><span class="lineno">   56</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a480874a8d19c257c265c9d81ec6dd675">configuration_</a>.<a class="code hl_variable" href="structsnd_1_1Configuration.html#a416d30fddb467de002aaf742c329c219">scifi_min_hits_in_window</a> &gt; <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a480874a8d19c257c265c9d81ec6dd675">configuration_</a>.<a class="code hl_variable" href="structsnd_1_1Configuration.html#a139879d74ebdf982c84b3e5597d5e30f">scifi_shower_window_width</a>)</div>
-<div class="line"><span class="lineno">   57</span>    {</div>
-<div class="line"><span class="lineno">   58</span>        <span class="keywordflow">throw</span> std::runtime_error{<span class="stringliteral">&quot;min_hits &gt; window_width&quot;</span>};</div>
-<div class="line"><span class="lineno">   59</span>    }</div>
-<div class="line"><span class="lineno">   60</span> </div>
-<div class="line"><span class="lineno">   61</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a480874a8d19c257c265c9d81ec6dd675">configuration_</a>.<a class="code hl_variable" href="structsnd_1_1Configuration.html#a139879d74ebdf982c84b3e5597d5e30f">scifi_shower_window_width</a> &gt; <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a480874a8d19c257c265c9d81ec6dd675">configuration_</a>.<a class="code hl_variable" href="structsnd_1_1Configuration.html#a739151177098c00a1faabe8aae75508b">scifi_n_channels_per_plane</a>)</div>
+<p class="definition">Definition at line <a class="el" href="sndScifiPlane_8cxx_source.html#l00059">59</a> of file <a class="el" href="sndScifiPlane_8cxx_source.html">sndScifiPlane.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   60</span>{</div>
+<div class="line"><span class="lineno">   61</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a480874a8d19c257c265c9d81ec6dd675">configuration_</a>.<a class="code hl_variable" href="structsnd_1_1Configuration.html#a416d30fddb467de002aaf742c329c219">scifi_min_hits_in_window</a> &gt; <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a480874a8d19c257c265c9d81ec6dd675">configuration_</a>.<a class="code hl_variable" href="structsnd_1_1Configuration.html#a139879d74ebdf982c84b3e5597d5e30f">scifi_shower_window_width</a>)</div>
 <div class="line"><span class="lineno">   62</span>    {</div>
-<div class="line"><span class="lineno">   63</span>        <span class="keywordflow">throw</span> std::runtime_error{<span class="stringliteral">&quot;window_width &gt; n_channels_per_plane&quot;</span>};</div>
+<div class="line"><span class="lineno">   63</span>        <span class="keywordflow">throw</span> std::runtime_error{<span class="stringliteral">&quot;min_hits &gt; window_width&quot;</span>};</div>
 <div class="line"><span class="lineno">   64</span>    }</div>
 <div class="line"><span class="lineno">   65</span> </div>
-<div class="line"><span class="lineno">   66</span>    xy_pair&lt;std::vector&lt;int&gt;&gt; is_hit;</div>
-<div class="line"><span class="lineno">   67</span>    is_hit.x.resize(<a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a480874a8d19c257c265c9d81ec6dd675">configuration_</a>.<a class="code hl_variable" href="structsnd_1_1Configuration.html#a739151177098c00a1faabe8aae75508b">scifi_n_channels_per_plane</a>, 0);</div>
-<div class="line"><span class="lineno">   68</span>    is_hit.y.resize(<a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a480874a8d19c257c265c9d81ec6dd675">configuration_</a>.<a class="code hl_variable" href="structsnd_1_1Configuration.html#a739151177098c00a1faabe8aae75508b">scifi_n_channels_per_plane</a>, 0);</div>
-<div class="line"><span class="lineno">   69</span> </div>
-<div class="line"><span class="lineno">   70</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;hit : <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9b79ca6732ed9148dd79942270fc2ea5">hits_</a>)</div>
-<div class="line"><span class="lineno">   71</span>    {</div>
-<div class="line"><span class="lineno">   72</span>        <span class="keywordflow">if</span> (hit.channel_index &lt; 0 ||</div>
-<div class="line"><span class="lineno">   73</span>            hit.channel_index &gt;= <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a480874a8d19c257c265c9d81ec6dd675">configuration_</a>.<a class="code hl_variable" href="structsnd_1_1Configuration.html#a739151177098c00a1faabe8aae75508b">scifi_n_channels_per_plane</a>)</div>
-<div class="line"><span class="lineno">   74</span>        {</div>
-<div class="line"><span class="lineno">   75</span>            <span class="keywordflow">throw</span> std::out_of_range{<span class="stringliteral">&quot;hit.channel_index out of range&quot;</span>};</div>
-<div class="line"><span class="lineno">   76</span>        }</div>
-<div class="line"><span class="lineno">   77</span>        (hit.is_x ? is_hit.x : is_hit.y)[hit.channel_index] = 1;</div>
-<div class="line"><span class="lineno">   78</span>    }</div>
-<div class="line"><span class="lineno">   79</span> </div>
-<div class="line"><span class="lineno">   80</span>    <span class="keyword">auto</span> density = [&amp;](<span class="keyword">const</span> std::vector&lt;int&gt; &amp;hit_arr)</div>
-<div class="line"><span class="lineno">   81</span>    {</div>
-<div class="line"><span class="lineno">   82</span>        <span class="keywordtype">int</span> <a class="code hl_variable" href="namespaceconditionsDatabase_1_1getconditions__condDB.html#ada36c3d9fe2448340f6f292f33ea72ae">count</a>{0};</div>
-<div class="line"><span class="lineno">   83</span> </div>
-<div class="line"><span class="lineno">   84</span>        <span class="comment">// Initial count for the first window</span></div>
-<div class="line"><span class="lineno">   85</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i{0}; <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a> &lt; <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a480874a8d19c257c265c9d81ec6dd675">configuration_</a>.<a class="code hl_variable" href="structsnd_1_1Configuration.html#a139879d74ebdf982c84b3e5597d5e30f">scifi_shower_window_width</a>; ++<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>)</div>
-<div class="line"><span class="lineno">   86</span>        {</div>
-<div class="line"><span class="lineno">   87</span>            <a class="code hl_variable" href="namespaceconditionsDatabase_1_1getconditions__condDB.html#ada36c3d9fe2448340f6f292f33ea72ae">count</a> += hit_arr[<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>];</div>
-<div class="line"><span class="lineno">   88</span>        }</div>
-<div class="line"><span class="lineno">   89</span> </div>
-<div class="line"><span class="lineno">   90</span>        <span class="keywordflow">if</span> (count &gt;= <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a480874a8d19c257c265c9d81ec6dd675">configuration_</a>.<a class="code hl_variable" href="structsnd_1_1Configuration.html#a416d30fddb467de002aaf742c329c219">scifi_min_hits_in_window</a>)</div>
-<div class="line"><span class="lineno">   91</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   92</span> </div>
-<div class="line"><span class="lineno">   93</span>        <span class="comment">// Slide the window across the array</span></div>
-<div class="line"><span class="lineno">   94</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a480874a8d19c257c265c9d81ec6dd675">configuration_</a>.<a class="code hl_variable" href="structsnd_1_1Configuration.html#a139879d74ebdf982c84b3e5597d5e30f">scifi_shower_window_width</a>; <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a> &lt; <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a480874a8d19c257c265c9d81ec6dd675">configuration_</a>.<a class="code hl_variable" href="structsnd_1_1Configuration.html#a739151177098c00a1faabe8aae75508b">scifi_n_channels_per_plane</a>; ++<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>)</div>
-<div class="line"><span class="lineno">   95</span>        {</div>
-<div class="line"><span class="lineno">   96</span>            <a class="code hl_variable" href="namespaceconditionsDatabase_1_1getconditions__condDB.html#ada36c3d9fe2448340f6f292f33ea72ae">count</a> += hit_arr[<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>] - hit_arr[<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a> - <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a480874a8d19c257c265c9d81ec6dd675">configuration_</a>.<a class="code hl_variable" href="structsnd_1_1Configuration.html#a139879d74ebdf982c84b3e5597d5e30f">scifi_shower_window_width</a>];</div>
-<div class="line"><span class="lineno">   97</span>            <span class="keywordflow">if</span> (count &gt;= <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a480874a8d19c257c265c9d81ec6dd675">configuration_</a>.<a class="code hl_variable" href="structsnd_1_1Configuration.html#a416d30fddb467de002aaf742c329c219">scifi_min_hits_in_window</a>)</div>
-<div class="line"><span class="lineno">   98</span>                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   99</span>        }</div>
-<div class="line"><span class="lineno">  100</span> </div>
-<div class="line"><span class="lineno">  101</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  102</span>    };</div>
-<div class="line"><span class="lineno">  103</span> </div>
-<div class="line"><span class="lineno">  104</span>    <span class="keywordflow">return</span> density(is_hit.x) &amp;&amp; density(is_hit.y);</div>
-<div class="line"><span class="lineno">  105</span>}</div>
+<div class="line"><span class="lineno">   66</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a480874a8d19c257c265c9d81ec6dd675">configuration_</a>.<a class="code hl_variable" href="structsnd_1_1Configuration.html#a139879d74ebdf982c84b3e5597d5e30f">scifi_shower_window_width</a> &gt; <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a480874a8d19c257c265c9d81ec6dd675">configuration_</a>.<a class="code hl_variable" href="structsnd_1_1Configuration.html#a739151177098c00a1faabe8aae75508b">scifi_n_channels_per_plane</a>)</div>
+<div class="line"><span class="lineno">   67</span>    {</div>
+<div class="line"><span class="lineno">   68</span>        <span class="keywordflow">throw</span> std::runtime_error{<span class="stringliteral">&quot;window_width &gt; n_channels_per_plane&quot;</span>};</div>
+<div class="line"><span class="lineno">   69</span>    }</div>
+<div class="line"><span class="lineno">   70</span> </div>
+<div class="line"><span class="lineno">   71</span>    xy_pair&lt;std::vector&lt;int&gt;&gt; is_hit;</div>
+<div class="line"><span class="lineno">   72</span>    is_hit.x.resize(<a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a480874a8d19c257c265c9d81ec6dd675">configuration_</a>.<a class="code hl_variable" href="structsnd_1_1Configuration.html#a739151177098c00a1faabe8aae75508b">scifi_n_channels_per_plane</a>, 0);</div>
+<div class="line"><span class="lineno">   73</span>    is_hit.y.resize(<a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a480874a8d19c257c265c9d81ec6dd675">configuration_</a>.<a class="code hl_variable" href="structsnd_1_1Configuration.html#a739151177098c00a1faabe8aae75508b">scifi_n_channels_per_plane</a>, 0);</div>
+<div class="line"><span class="lineno">   74</span> </div>
+<div class="line"><span class="lineno">   75</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;hit : <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9b79ca6732ed9148dd79942270fc2ea5">hits_</a>)</div>
+<div class="line"><span class="lineno">   76</span>    {</div>
+<div class="line"><span class="lineno">   77</span>        <span class="keywordflow">if</span> (hit.channel_index &lt; 0 ||</div>
+<div class="line"><span class="lineno">   78</span>            hit.channel_index &gt;= <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a480874a8d19c257c265c9d81ec6dd675">configuration_</a>.<a class="code hl_variable" href="structsnd_1_1Configuration.html#a739151177098c00a1faabe8aae75508b">scifi_n_channels_per_plane</a>)</div>
+<div class="line"><span class="lineno">   79</span>        {</div>
+<div class="line"><span class="lineno">   80</span>            <span class="keywordflow">throw</span> std::out_of_range{<span class="stringliteral">&quot;hit.channel_index out of range&quot;</span>};</div>
+<div class="line"><span class="lineno">   81</span>        }</div>
+<div class="line"><span class="lineno">   82</span>        (hit.is_x ? is_hit.x : is_hit.y)[hit.channel_index] = 1;</div>
+<div class="line"><span class="lineno">   83</span>    }</div>
+<div class="line"><span class="lineno">   84</span> </div>
+<div class="line"><span class="lineno">   85</span>    <span class="keyword">auto</span> density = [&amp;](<span class="keyword">const</span> std::vector&lt;int&gt; &amp;hit_arr)</div>
+<div class="line"><span class="lineno">   86</span>    {</div>
+<div class="line"><span class="lineno">   87</span>        <span class="keywordtype">int</span> <a class="code hl_variable" href="namespaceconditionsDatabase_1_1getconditions__condDB.html#ada36c3d9fe2448340f6f292f33ea72ae">count</a>{0};</div>
+<div class="line"><span class="lineno">   88</span> </div>
+<div class="line"><span class="lineno">   89</span>        <span class="comment">// Initial count for the first window</span></div>
+<div class="line"><span class="lineno">   90</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i{0}; <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a> &lt; <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a480874a8d19c257c265c9d81ec6dd675">configuration_</a>.<a class="code hl_variable" href="structsnd_1_1Configuration.html#a139879d74ebdf982c84b3e5597d5e30f">scifi_shower_window_width</a>; ++<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>)</div>
+<div class="line"><span class="lineno">   91</span>        {</div>
+<div class="line"><span class="lineno">   92</span>            <a class="code hl_variable" href="namespaceconditionsDatabase_1_1getconditions__condDB.html#ada36c3d9fe2448340f6f292f33ea72ae">count</a> += hit_arr[<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>];</div>
+<div class="line"><span class="lineno">   93</span>        }</div>
+<div class="line"><span class="lineno">   94</span> </div>
+<div class="line"><span class="lineno">   95</span>        <span class="keywordflow">if</span> (count &gt;= <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a480874a8d19c257c265c9d81ec6dd675">configuration_</a>.<a class="code hl_variable" href="structsnd_1_1Configuration.html#a416d30fddb467de002aaf742c329c219">scifi_min_hits_in_window</a>)</div>
+<div class="line"><span class="lineno">   96</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   97</span> </div>
+<div class="line"><span class="lineno">   98</span>        <span class="comment">// Slide the window across the array</span></div>
+<div class="line"><span class="lineno">   99</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a480874a8d19c257c265c9d81ec6dd675">configuration_</a>.<a class="code hl_variable" href="structsnd_1_1Configuration.html#a139879d74ebdf982c84b3e5597d5e30f">scifi_shower_window_width</a>; <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a> &lt; <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a480874a8d19c257c265c9d81ec6dd675">configuration_</a>.<a class="code hl_variable" href="structsnd_1_1Configuration.html#a739151177098c00a1faabe8aae75508b">scifi_n_channels_per_plane</a>; ++<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>)</div>
+<div class="line"><span class="lineno">  100</span>        {</div>
+<div class="line"><span class="lineno">  101</span>            <a class="code hl_variable" href="namespaceconditionsDatabase_1_1getconditions__condDB.html#ada36c3d9fe2448340f6f292f33ea72ae">count</a> += hit_arr[<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>] - hit_arr[<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a> - <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a480874a8d19c257c265c9d81ec6dd675">configuration_</a>.<a class="code hl_variable" href="structsnd_1_1Configuration.html#a139879d74ebdf982c84b3e5597d5e30f">scifi_shower_window_width</a>];</div>
+<div class="line"><span class="lineno">  102</span>            <span class="keywordflow">if</span> (count &gt;= <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a480874a8d19c257c265c9d81ec6dd675">configuration_</a>.<a class="code hl_variable" href="structsnd_1_1Configuration.html#a416d30fddb467de002aaf742c329c219">scifi_min_hits_in_window</a>)</div>
+<div class="line"><span class="lineno">  103</span>                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  104</span>        }</div>
+<div class="line"><span class="lineno">  105</span> </div>
+<div class="line"><span class="lineno">  106</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  107</span>    };</div>
+<div class="line"><span class="lineno">  108</span> </div>
+<div class="line"><span class="lineno">  109</span>    <span class="keywordflow">return</span> density(is_hit.x) &amp;&amp; density(is_hit.y);</div>
+<div class="line"><span class="lineno">  110</span>}</div>
 <div class="ttc" id="astructsnd_1_1Configuration_html_a139879d74ebdf982c84b3e5597d5e30f"><div class="ttname"><a href="structsnd_1_1Configuration.html#a139879d74ebdf982c84b3e5597d5e30f">snd::Configuration::scifi_shower_window_width</a></div><div class="ttdeci">int scifi_shower_window_width</div><div class="ttdef"><b>Definition</b> <a href="sndConfiguration_8h_source.html#l00059">sndConfiguration.h:59</a></div></div>
 <div class="ttc" id="astructsnd_1_1Configuration_html_a416d30fddb467de002aaf742c329c219"><div class="ttname"><a href="structsnd_1_1Configuration.html#a416d30fddb467de002aaf742c329c219">snd::Configuration::scifi_min_hits_in_window</a></div><div class="ttdeci">int scifi_min_hits_in_window</div><div class="ttdef"><b>Definition</b> <a href="sndConfiguration_8h_source.html#l00060">sndConfiguration.h:60</a></div></div>
 </div><!-- fragment -->
@@ -771,13 +777,13 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sndScifiPlane_8cxx_source.html#l00201">201</a> of file <a class="el" href="sndScifiPlane_8cxx_source.html">sndScifiPlane.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  202</span>{</div>
-<div class="line"><span class="lineno">  203</span>    <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9b79ca6732ed9148dd79942270fc2ea5">hits_</a>.erase(std::remove_if(<a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9b79ca6732ed9148dd79942270fc2ea5">hits_</a>.begin(), <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9b79ca6732ed9148dd79942270fc2ea5">hits_</a>.end(),</div>
-<div class="line"><span class="lineno">  204</span>                               [&amp;](<span class="keyword">auto</span> &amp;hit)</div>
-<div class="line"><span class="lineno">  205</span>                               { return hit.timestamp &lt; min_timestamp || hit.timestamp &gt; max_timestamp; }),</div>
-<div class="line"><span class="lineno">  206</span>                <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9b79ca6732ed9148dd79942270fc2ea5">hits_</a>.end());</div>
-<div class="line"><span class="lineno">  207</span>}</div>
+<p class="definition">Definition at line <a class="el" href="sndScifiPlane_8cxx_source.html#l00206">206</a> of file <a class="el" href="sndScifiPlane_8cxx_source.html">sndScifiPlane.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  207</span>{</div>
+<div class="line"><span class="lineno">  208</span>    <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9b79ca6732ed9148dd79942270fc2ea5">hits_</a>.erase(std::remove_if(<a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9b79ca6732ed9148dd79942270fc2ea5">hits_</a>.begin(), <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9b79ca6732ed9148dd79942270fc2ea5">hits_</a>.end(),</div>
+<div class="line"><span class="lineno">  209</span>                               [&amp;](<span class="keyword">auto</span> &amp;hit)</div>
+<div class="line"><span class="lineno">  210</span>                               { return hit.timestamp &lt; min_timestamp || hit.timestamp &gt; max_timestamp; }),</div>
+<div class="line"><span class="lineno">  211</span>                <a class="code hl_variable" href="classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9b79ca6732ed9148dd79942270fc2ea5">hits_</a>.end());</div>
+<div class="line"><span class="lineno">  212</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>

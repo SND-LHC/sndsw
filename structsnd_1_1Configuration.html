@@ -112,8 +112,8 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa7e8741635c47f3e05975ff60fdcdd91" id="r_aa7e8741635c47f3e05975ff60fdcdd91"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsnd_1_1Configuration.html#aa7e8741635c47f3e05975ff60fdcdd91">Configuration</a> (<a class="el" href="structsnd_1_1Configuration.html#ab86d5ccd5fd56900c6e3092ed070ed2b">Option</a> option, <a class="el" href="classScifi.html">Scifi</a> *scifi_geometry, <a class="el" href="classMuFilter.html">MuFilter</a> *muon_filter_geometry)</td></tr>
-<tr class="separator:aa7e8741635c47f3e05975ff60fdcdd91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b7cdff841b01bee983b859918bf62e3" id="r_a3b7cdff841b01bee983b859918bf62e3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsnd_1_1Configuration.html#a3b7cdff841b01bee983b859918bf62e3">Configuration</a> (<a class="el" href="structsnd_1_1Configuration.html#ab86d5ccd5fd56900c6e3092ed070ed2b">Option</a> option, <a class="el" href="classScifi.html">Scifi</a> *scifi_geometry, <a class="el" href="classMuFilter.html">MuFilter</a> *muon_filter_geometry, bool is_MC=false)</td></tr>
+<tr class="separator:a3b7cdff841b01bee983b859918bf62e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -218,6 +218,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a50beed15915593cce42a70f242b143f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4302b387f2d6b6c31a14bfcfe807a9c" id="r_af4302b387f2d6b6c31a14bfcfe807a9c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsnd_1_1Configuration.html#af4302b387f2d6b6c31a14bfcfe807a9c">ds_n_stations</a></td></tr>
 <tr class="separator:af4302b387f2d6b6c31a14bfcfe807a9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e07ad10e2e1caa9e6f8fe2e9b18388a" id="r_a2e07ad10e2e1caa9e6f8fe2e9b18388a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsnd_1_1Configuration.html#a2e07ad10e2e1caa9e6f8fe2e9b18388a">is_mc</a></td></tr>
+<tr class="separator:a2e07ad10e2e1caa9e6f8fe2e9b18388a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
@@ -264,8 +266,8 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="aa7e8741635c47f3e05975ff60fdcdd91" name="aa7e8741635c47f3e05975ff60fdcdd91"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa7e8741635c47f3e05975ff60fdcdd91">&#9670;&#160;</a></span>Configuration()</h2>
+<a id="a3b7cdff841b01bee983b859918bf62e3" name="a3b7cdff841b01bee983b859918bf62e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b7cdff841b01bee983b859918bf62e3">&#9670;&#160;</a></span>Configuration()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -286,7 +288,13 @@ Public Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="classMuFilter.html">MuFilter</a> *&#160;</td>
-          <td class="paramname"><em>muon_filter_geometry</em>&#160;</td>
+          <td class="paramname"><em>muon_filter_geometry</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>is_MC</em> = <code>false</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -297,7 +305,8 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="sndConfiguration_8cxx_source.html#l00010">10</a> of file <a class="el" href="sndConfiguration_8cxx_source.html">sndConfiguration.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   11</span>{</div>
+<div class="fragment"><div class="line"><span class="lineno">   10</span>                                                                                                                : <a class="code hl_variable" href="structsnd_1_1Configuration.html#a2e07ad10e2e1caa9e6f8fe2e9b18388a">is_mc</a>(is_MC)</div>
+<div class="line"><span class="lineno">   11</span>{</div>
 <div class="line"><span class="lineno">   12</span>    <span class="comment">// Parameters from geometry</span></div>
 <div class="line"><span class="lineno">   13</span>    <a class="code hl_variable" href="structsnd_1_1Configuration.html#ad5cdcc8a4612043414960c1e588fe7c5">scifi_n_stations</a> = scifi_geometry-&gt;<a class="code hl_function" href="classScifi.html#a9d326265e6e1be316f361f7202643b4a">GetConfParI</a>(<span class="stringliteral">&quot;Scifi/nscifi&quot;</span>);</div>
 <div class="line"><span class="lineno">   14</span>    <a class="code hl_variable" href="structsnd_1_1Configuration.html#ac05a10b01c4ea02a46f160fd1123e36a">scifi_boards_per_plane</a> = scifi_geometry-&gt;<a class="code hl_function" href="classScifi.html#a9d326265e6e1be316f361f7202643b4a">GetConfParI</a>(<span class="stringliteral">&quot;Scifi/nmats&quot;</span>);</div>
@@ -457,6 +466,7 @@ Public Attributes</h2></td></tr>
 <div class="ttc" id="astructsnd_1_1Configuration_html_a1b198c8ee99cca925871e0349848bdbd"><div class="ttname"><a href="structsnd_1_1Configuration.html#a1b198c8ee99cca925871e0349848bdbd">snd::Configuration::veto_n_stations</a></div><div class="ttdeci">int veto_n_stations</div><div class="ttdef"><b>Definition</b> <a href="sndConfiguration_8h_source.html#l00054">sndConfiguration.h:54</a></div></div>
 <div class="ttc" id="astructsnd_1_1Configuration_html_a1e775dc23ad2ad2fe635b302a9e502b7"><div class="ttname"><a href="structsnd_1_1Configuration.html#a1e775dc23ad2ad2fe635b302a9e502b7">snd::Configuration::scifi_centroid_error_z</a></div><div class="ttdeci">double scifi_centroid_error_z</div><div class="ttdef"><b>Definition</b> <a href="sndConfiguration_8h_source.html#l00022">sndConfiguration.h:22</a></div></div>
 <div class="ttc" id="astructsnd_1_1Configuration_html_a2b107f4cd6ed62de1a7ea6508ee0ccb6"><div class="ttname"><a href="structsnd_1_1Configuration.html#a2b107f4cd6ed62de1a7ea6508ee0ccb6">snd::Configuration::ds_hor_spatial_resolution_x</a></div><div class="ttdeci">double ds_hor_spatial_resolution_x</div><div class="ttdef"><b>Definition</b> <a href="sndConfiguration_8h_source.html#l00047">sndConfiguration.h:47</a></div></div>
+<div class="ttc" id="astructsnd_1_1Configuration_html_a2e07ad10e2e1caa9e6f8fe2e9b18388a"><div class="ttname"><a href="structsnd_1_1Configuration.html#a2e07ad10e2e1caa9e6f8fe2e9b18388a">snd::Configuration::is_mc</a></div><div class="ttdeci">bool is_mc</div><div class="ttdef"><b>Definition</b> <a href="sndConfiguration_8h_source.html#l00077">sndConfiguration.h:77</a></div></div>
 <div class="ttc" id="astructsnd_1_1Configuration_html_a39035dca4f3163a9d9b0fd1a24c1b73d"><div class="ttname"><a href="structsnd_1_1Configuration.html#a39035dca4f3163a9d9b0fd1a24c1b73d">snd::Configuration::ds_ver_spatial_resolution_y</a></div><div class="ttdeci">double ds_ver_spatial_resolution_y</div><div class="ttdef"><b>Definition</b> <a href="sndConfiguration_8h_source.html#l00051">sndConfiguration.h:51</a></div></div>
 <div class="ttc" id="astructsnd_1_1Configuration_html_a416d30fddb467de002aaf742c329c219"><div class="ttname"><a href="structsnd_1_1Configuration.html#a416d30fddb467de002aaf742c329c219">snd::Configuration::scifi_min_hits_in_window</a></div><div class="ttdeci">int scifi_min_hits_in_window</div><div class="ttdef"><b>Definition</b> <a href="sndConfiguration_8h_source.html#l00060">sndConfiguration.h:60</a></div></div>
 <div class="ttc" id="astructsnd_1_1Configuration_html_a49ff8cf9de4639e0f3ea30065f4da472"><div class="ttname"><a href="structsnd_1_1Configuration.html#a49ff8cf9de4639e0f3ea30065f4da472">snd::Configuration::scifi_x_max</a></div><div class="ttdeci">double scifi_x_max</div><div class="ttdef"><b>Definition</b> <a href="sndConfiguration_8h_source.html#l00027">sndConfiguration.h:27</a></div></div>
@@ -527,23 +537,27 @@ Public Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="sndConfiguration_8cxx_source.html#l00160">160</a> of file <a class="el" href="sndConfiguration_8cxx_source.html">sndConfiguration.cxx</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  161</span>{</div>
-<div class="line"><span class="lineno">  162</span>    <span class="keywordflow">if</span> (run_number &gt;= 100840) {</div>
+<div class="line"><span class="lineno">  162</span>    <span class="keywordflow">if</span> (run_number &gt;= 100841 &amp;&amp; run_number &lt;= 100985) {</div>
 <div class="line"><span class="lineno">  163</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;Choosing option  &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;\t test_beam_2024 \t&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&quot;</span> &lt;&lt;std::endl;</div>
 <div class="line"><span class="lineno">  164</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="structsnd_1_1Configuration.html#ab86d5ccd5fd56900c6e3092ed070ed2ba4c1742111e4eca7ce3f34720ec31a20d">snd::Configuration::Option::test_beam_2024</a>;</div>
 <div class="line"><span class="lineno">  165</span>    }</div>
-<div class="line"><span class="lineno">  166</span>    <span class="keywordflow">if</span> (run_number &gt;= 100000) {</div>
+<div class="line"><span class="lineno">  166</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (run_number &gt;= 100238 &amp;&amp; run_number &lt;= 100679) {</div>
 <div class="line"><span class="lineno">  167</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;Choosing option  &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;\t test_beam_2023 \t&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&quot;</span> &lt;&lt;std::endl;</div>
-<div class="line"><span class="lineno">  168</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="structsnd_1_1Configuration.html#ab86d5ccd5fd56900c6e3092ed070ed2ba06c265f495d7bb8e88ba66eb2adfeaac">snd::Configuration::Option::test_beam_2023</a>;</div>
+<div class="line"><span class="lineno">  168</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="structsnd_1_1Configuration.html#ab86d5ccd5fd56900c6e3092ed070ed2ba06c265f495d7bb8e88ba66eb2adfeaac">snd::Configuration::Option::test_beam_2023</a>;   </div>
 <div class="line"><span class="lineno">  169</span>    }</div>
-<div class="line"><span class="lineno">  170</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (run_number &lt; 7648) {</div>
-<div class="line"><span class="lineno">  171</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;Choosing option  &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;\t ti18_2022_2023 \t&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&quot;</span> &lt;&lt;std::endl;</div>
-<div class="line"><span class="lineno">  172</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="structsnd_1_1Configuration.html#ab86d5ccd5fd56900c6e3092ed070ed2ba733c1b039b626a397b439ed0aa9301b6">snd::Configuration::Option::ti18_2022_2023</a>;</div>
+<div class="line"><span class="lineno">  170</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (run_number &gt;= 7357 &amp;&amp; run_number &lt;= 12792) {</div>
+<div class="line"><span class="lineno">  171</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;Choosing option  &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;\t ti18_2024_2025 \t&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&quot;</span> &lt;&lt;std::endl;</div>
+<div class="line"><span class="lineno">  172</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="structsnd_1_1Configuration.html#ab86d5ccd5fd56900c6e3092ed070ed2ba31a500f115d62a3a18c2de48c4970510">snd::Configuration::Option::ti18_2024_2025</a>;</div>
 <div class="line"><span class="lineno">  173</span>    }</div>
-<div class="line"><span class="lineno">  174</span>    <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  175</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;Choosing option  &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;\t ti18_2024_2025 \t&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&quot;</span> &lt;&lt;std::endl;</div>
-<div class="line"><span class="lineno">  176</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="structsnd_1_1Configuration.html#ab86d5ccd5fd56900c6e3092ed070ed2ba31a500f115d62a3a18c2de48c4970510">snd::Configuration::Option::ti18_2024_2025</a>;</div>
+<div class="line"><span class="lineno">  174</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (run_number &gt;= 4361 &amp;&amp; run_number &lt;= 7356){</div>
+<div class="line"><span class="lineno">  175</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;Choosing option  &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;\t ti18_2022_2023 \t&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&quot;</span> &lt;&lt;std::endl;</div>
+<div class="line"><span class="lineno">  176</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="structsnd_1_1Configuration.html#ab86d5ccd5fd56900c6e3092ed070ed2ba733c1b039b626a397b439ed0aa9301b6">snd::Configuration::Option::ti18_2022_2023</a>;</div>
 <div class="line"><span class="lineno">  177</span>    }</div>
-<div class="line"><span class="lineno">  178</span>}</div>
+<div class="line"><span class="lineno">  178</span>    <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  179</span>    {</div>
+<div class="line"><span class="lineno">  180</span>        <span class="keywordflow">throw</span> std::invalid_argument(<span class="stringliteral">&quot;Run number does not match any configuration option&quot;</span>);</div>
+<div class="line"><span class="lineno">  181</span>    }</div>
+<div class="line"><span class="lineno">  182</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -673,6 +687,22 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="sndConfiguration_8h_source.html#l00052">52</a> of file <a class="el" href="sndConfiguration_8h_source.html">sndConfiguration.h</a>.</p>
+
+</div>
+</div>
+<a id="a2e07ad10e2e1caa9e6f8fe2e9b18388a" name="a2e07ad10e2e1caa9e6f8fe2e9b18388a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e07ad10e2e1caa9e6f8fe2e9b18388a">&#9670;&#160;</a></span>is_mc</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool snd::Configuration::is_mc</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="sndConfiguration_8h_source.html#l00077">77</a> of file <a class="el" href="sndConfiguration_8h_source.html">sndConfiguration.h</a>.</p>
 
 </div>
 </div>
