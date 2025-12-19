@@ -33,6 +33,7 @@ parser.add_argument("--pID",     dest="pID",     help="id of particle used by th
 parser.add_argument("--Estart",  dest="Estart",  help="start of energy range of particle gun for muflux detector (default=10 GeV)", required=False, default=10, type=float)
 parser.add_argument("--Eend",    dest="Eend",    help="end of energy range of particle gun for muflux detector (default=10 GeV)", required=False, default=10, type=float)
 
+parser.add_argument("--PGrunID", dest="PGrunID",help="PG run ID", required=False, type=int)
 parser.add_argument("--multiplePGSources", help="Multiple particle guns in a x-y plane at a fixed z or in a 3D volume", action="store_true")
 parser.add_argument("--EVx", dest="EVx", help="particle gun start xpos", required=False, default=0, type=float)
 parser.add_argument("--EVy", dest="EVy", help="particle gun start ypos", required=False, default=0, type=float)
@@ -173,6 +174,9 @@ primGen = ROOT.FairPrimaryGenerator()
 
 # -----Particle Gun-----------------------
 if simEngine == "PG": 
+  if not options.PGrunID:
+    print("Missing option '--PGrunID', which provides PG run ID. Set it and run again!")
+    exit()
   myPgun = ROOT.FairBoxGenerator(options.pID,1)
   myPgun.SetPRange(options.Estart,options.Eend)
   myPgun.SetPhiRange(0, 360) # // Azimuth angle range [degree]
@@ -308,6 +312,12 @@ else:            run.SetStoreTraj(ROOT.kFALSE)
 
 # -----Initialize simulation run------------------------------------
 run.Init()
+
+if simEngine == "PG":
+  # set the runID for
+  theHeader = run.GetMCEventHeader()
+  theHeader.SetRunID(options.PGrunID)
+
 gMC = ROOT.TVirtualMC.GetMC()
 fStack = gMC.GetStack()
 if MCTracksWithHitsOnly:
@@ -407,7 +417,7 @@ saveBasicParameters.execute(geoFile,snd_geo)
 if options.genie == 4 :
 
     f_input = ROOT.TFile(inputFile)
-    gst = f_input.gst
+    gst = f_input.Get("gst")
 
     selection_string = "(Entry$ >= "+str(options.firstEvent)+")"
     if (options.firstEvent + options.nEvents) < gst.GetEntries() :
