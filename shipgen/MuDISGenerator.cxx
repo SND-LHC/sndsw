@@ -13,6 +13,7 @@
 #include "TVectorD.h"
 #include "TParticle.h"
 #include "TGeoCompositeShape.h"
+#include "FairMCEventHeader.h"
 
 using std::cout;
 using std::endl;
@@ -49,6 +50,8 @@ Bool_t MuDISGenerator::Init(const char* fileName, const int firstEvent) {
   fTree = (TTree *)fInputFile->Get("DIS");
   fNevents = fTree->GetEntries();
   fn = firstEvent;
+  fTree->SetBranchAddress("run",&runN); // run number
+  fTree->SetBranchAddress("event",&eventN); // event number
   fTree->SetBranchAddress("InMuon",&iMuon);    // incoming muon
   fTree->SetBranchAddress("Particles",&dPart);
   return kTRUE;
@@ -286,6 +289,12 @@ Bool_t MuDISGenerator::ReadEvent(FairPrimaryGenerator* cpg)
          TParticle* Part = dynamic_cast<TParticle*>(dPart->AddrAt(i));
          cpg->AddTrack(Part->GetPdgCode(),Part->Px(),Part->Py(),Part->Pz(),xmu,ymu,zmu,0,true,Part->Energy(),mu->T(),w);
        }
+
+  // Set the generation run and event numbers through the MC event header
+  FairMCEventHeader* header = cpg->GetEvent();
+  header->SetEventID(eventN);
+  header->SetRunID(runN);
+
   return kTRUE;
 }
 // -------------------------------------------------------------------------
