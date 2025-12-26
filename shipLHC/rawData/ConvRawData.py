@@ -504,6 +504,8 @@ class ConvRawDataPY(ROOT.FairTask):
                   system = self.MufiSystem[board_id][tofpet_id]
                   key = (tofpet_id%2)*1000 + tofpet_channel
                   tmp = self.boardMaps['MuFilter'][board][self.slots[tofpet_id]]
+                  # mini DTs are labelled DS 5V, board is 32
+                  if (tmp == "DS_5Vert"): continue
                   if self.options.debug or not tmp.find('not')<0: print('debug',tmp,system,key,board,tofpet_id,tofpet_id%2,tofpet_channel)
                   sipmChannel = 99
                   if not key in self.TofpetMap[system]:
@@ -639,6 +641,8 @@ class ConvRawDataPY(ROOT.FairTask):
                   system = self.MufiSystem[board_id][tofpet_id]
                   key = (tofpet_id%2)*1000 + tofpet_channel
                   tmp = self.boardMaps['MuFilter'][board][self.slots[tofpet_id]]
+                  # mini DTs are labelled DS 5V, board is 32
+                  if (tmp == "DS_5Vert"): continue
                   if self.options.debug or not tmp.find('not')<0: print('debug',tmp,system,key,board,tofpet_id,tofpet_id%2,tofpet_channel)
                   sipmChannel = 99
                   if not key in self.TofpetMap[system]:
