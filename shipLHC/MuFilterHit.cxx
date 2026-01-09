@@ -63,7 +63,7 @@ MuFilterHit::MuFilterHit(Int_t detID, std::vector<MuFilterPoint*> V)
                  attLength = 2*MuFilterDet->GetConfParF("MuFilter/VandUpAttenuationLength");
               }
               else {attLength = MuFilterDet->GetConfParF("MuFilter/VandUpAttenuationLength");}
-              siPMcalibration = MuFilterDet->GetConfParF("MuFilter/VandUpSiPMcalibration");
+              siPMcalibration = MuFilterDet->GetConfParF("MuFilter/VandUpSiPMcalibrationL");
               siPMcalibrationS = MuFilterDet->GetConfParF("MuFilter/VandUpSiPMcalibrationS");
               propspeed = MuFilterDet->GetConfParF("MuFilter/VandUpPropSpeed");
      }
