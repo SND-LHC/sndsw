@@ -252,7 +252,7 @@ int main(int argc, char **argv)
    meta_entry->auxintname.push_back("Last interaction ID");
    meta_entry->auxdblname.push_back("age");
    meta_entry->auxdblname.push_back("FLUKA_weight");
-   meta_entry->auxdblname.push_back("Kenetic energy");
+   meta_entry->auxdblname.push_back("Kinetic energy");
    meta_entry->auxdblname.push_back("X coordinate");
    meta_entry->auxdblname.push_back("Y coordinate");
    meta_entry->auxdblname.push_back("X cosine");
@@ -260,11 +260,11 @@ int main(int argc, char **argv)
    meta_entry->auxdblname.push_back("Last decay X coordinate");
    meta_entry->auxdblname.push_back("Last decay Y coordinate");
    meta_entry->auxdblname.push_back("Last decay Z coordinate");
-   meta_entry->auxdblname.push_back("Kenetic Energy of decay parent");
+   meta_entry->auxdblname.push_back("Kinetic Energy of decay parent");
    meta_entry->auxdblname.push_back("Last interaction in Z coordinate");
    meta_entry->auxdblname.push_back("Last in interaction Y coordinate");
    meta_entry->auxdblname.push_back("Last in interaction Z coordinate");
-   meta_entry->auxdblname.push_back("Kenetic energy of parent");
+   meta_entry->auxdblname.push_back("Kinetic energy of parent");
 
    metaOut->Fill();
 

@@ -1,5 +1,5 @@
 #ifndef FLUKAntGENERATOR_H
-#define FLUKAntGENERATOR_H 1
+#define FLUKAntGENERATOR_H 4
 
 #include "TROOT.h"
 #include "FairGenerator.h"
@@ -32,13 +32,13 @@ class NtupleGenerator_FLUKA : public FairGenerator
  private:
   
  protected:
-  Double_t id[1],generation[1],E[1],t[1],px[1],py[1],pz[1],x[1],y[1],z[1],w[1],SND_Z;
+  Double_t runN,eventN,id[1],generation[1],E[1],t[1],px[1],py[1],pz[1],x[1],y[1],z[1],w[1],SND_Z;
   TFile* fInputFile;
   TTree* fTree;
   int fNevents;
   int fn;
   TClonesArray* primaries;
-  ClassDef(NtupleGenerator_FLUKA,3);
+  ClassDef(NtupleGenerator_FLUKA,4);
 };
 
 #endif /* !FLUKAntGENERATOR_H */

@@ -145,5 +145,3 @@ rtime = timer.RealTime()
 ctime = timer.CpuTime()
 print(' ') 
 print("Real time ",rtime, " s, CPU time ",ctime,"s")
-if options.FairTask_digi:
-  atexit.register(pyExit)

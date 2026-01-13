@@ -1,5 +1,5 @@
 #ifndef PNDMuGENERATOR_H
-#define PNDMuGENERATOR_H 1
+#define PNDMuGENERATOR_H 2
 
 #include "TROOT.h"
 #include "FairGenerator.h"
@@ -40,13 +40,14 @@ class MuDISGenerator : public FairGenerator
  protected:
   Double_t startZ,endZ;
   TClonesArray* iMuon ;
-  TClonesArray* dPart ; 
+  TClonesArray* dPart ;
+  int runN, eventN; 
   FairLogger*  fLogger; //!   don't make it persistent, magic ROOT command
   TFile* fInputFile;
   TTree* fTree;
   int fNevents;
   int fn;
   bool fFirst;
-  ClassDef(MuDISGenerator,1);
+  ClassDef(MuDISGenerator,2);
 };
 #endif /* !PNDMuGENERATOR_H */
