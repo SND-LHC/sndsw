@@ -714,16 +714,18 @@ void MuFilter::GetPosition(Int_t fDetectorID, TVector3& vLeft, TVector3& vRight)
    }
    Int_t MuFilter::GetnSides(Int_t detID){
        int subsystem     = floor(detID/10000)-1;
-       if (subsystem==0){
-         // vertical Veto 3 has the readout on the top only
-         if (detID>=12000) return conf_ints["MuFilter/VetonSides"]-1;
-         else {return conf_ints["MuFilter/VetonSides"];}
-       }
-       if (subsystem==1){return conf_ints["MuFilter/UpstreamnSides"];}
-       if (subsystem==2){
-          if (detID%1000>59) return conf_ints["MuFilter/DownstreamnSides"]-1;
-          else {return conf_ints["MuFilter/DownstreamnSides"];}
-       }
+	   switch (subsystem) {
+		 case 0:
+		   // vertical Veto 3 has the readout on the top only
+		   return (detID>=12000) ? conf_ints["MuFilter/VetonSides"]-1 : conf_ints["MuFilter/VetonSides"];
+		 case 1:
+		   return conf_ints["MuFilter/UpstreamnSides"];
+		 case 2:
+		   return (detID%1000>59) ? conf_ints["MuFilter/DownstreamnSides"]-1 : conf_ints["MuFilter/DownstreamnSides"];
+		 default:
+		   LOG(FATAL) << "Unknown subsystem";
+		   return -1;
+	   }
   }
 
 ClassImp(MuFilter)
