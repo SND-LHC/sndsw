@@ -24,7 +24,7 @@ void snd::analysis_tools::getSciFiHitsPerStation(const TClonesArray *digiHits, s
    sndScifiHit *hit;
    TIter hitIterator(digiHits);
 
-   while (hit = dynamic_cast<sndScifiHit *>(hitIterator.Next())) {
+   while ((hit = dynamic_cast<sndScifiHit *>(hitIterator.Next()))) {
       if (hit->isValid()) {
          int station = hit->GetStation();
          if (hit->isVertical()) {
@@ -135,9 +135,9 @@ float snd::analysis_tools::peakScifiTiming(const TClonesArray &digiHits, int bin
    TH1F ScifiTiming("Timing", "Scifi Timing", bins, min_x, max_x);
 
    Scifi *ScifiDet = dynamic_cast<Scifi*> (gROOT->GetListOfGlobals()->FindObject("Scifi") );
-   auto* hit = static_cast<sndScifiHit*>(digiHits[0]);
-   int refStation = hit->GetStation();
-   bool refOrientation = hit->isVertical();
+   auto* first_hit = static_cast<sndScifiHit*>(digiHits[0]);
+   int refStation = first_hit->GetStation();
+   bool refOrientation = first_hit->isVertical();
    float hitTime = -1.0;
    float timeConversion = 1.;
    if (!isMC) {
@@ -319,7 +319,6 @@ snd::analysis_tools::filterScifiHits(const TClonesArray &digiHits,
       LOG(info) << "\"TI18\" setup will be used by default, please provide \"H8\" for the Testbeam setup.";
    }
 
-   sndScifiHit *hit;
    TIter hitIterator(&supportArray);
 
    if (method == 0) {
@@ -338,8 +337,8 @@ snd::analysis_tools::filterScifiHits(const TClonesArray &digiHits,
       for (auto station : ROOT::MakeSeq(1, ScifiStations + 1)) {
          for (auto orientation : {false, true}) {
 
-            auto supportArray = selectScifiHits(digiHits, station, orientation, selection_parameters, true, isMC);
-            for (auto *p : *supportArray) {
+            auto supportArray_p = selectScifiHits(digiHits, station, orientation, selection_parameters, true, isMC);
+            for (auto *p : *supportArray_p) {
                auto *hit = dynamic_cast<sndScifiHit *>(p);
                if (hit->isValid()) {
                   new ((*filteredHits)[filteredHitsIndex++]) sndScifiHit(*hit);
