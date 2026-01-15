@@ -1325,17 +1325,19 @@ Protected Member Functions</h2></td></tr>
 <p class="definition">Definition at line <a class="el" href="MuFilter_8cxx_source.html#l00715">715</a> of file <a class="el" href="MuFilter_8cxx_source.html">MuFilter.cxx</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  715</span>                                       {</div>
 <div class="line"><span class="lineno">  716</span>       <span class="keywordtype">int</span> subsystem     = floor(detID/10000)-1;</div>
-<div class="line"><span class="lineno">  717</span>       <span class="keywordflow">if</span> (subsystem==0){</div>
-<div class="line"><span class="lineno">  718</span>         <span class="comment">// vertical Veto 3 has the readout on the top only</span></div>
-<div class="line"><span class="lineno">  719</span>         <span class="keywordflow">if</span> (detID&gt;=12000) <span class="keywordflow">return</span> <a class="code hl_variable" href="classMuFilter.html#ab7a4485f3839f3e67f681e25802d89a7">conf_ints</a>[<span class="stringliteral">&quot;MuFilter/VetonSides&quot;</span>]-1;</div>
-<div class="line"><span class="lineno">  720</span>         <span class="keywordflow">else</span> {<span class="keywordflow">return</span> <a class="code hl_variable" href="classMuFilter.html#ab7a4485f3839f3e67f681e25802d89a7">conf_ints</a>[<span class="stringliteral">&quot;MuFilter/VetonSides&quot;</span>];}</div>
-<div class="line"><span class="lineno">  721</span>       }</div>
-<div class="line"><span class="lineno">  722</span>       <span class="keywordflow">if</span> (subsystem==1){<span class="keywordflow">return</span> <a class="code hl_variable" href="classMuFilter.html#ab7a4485f3839f3e67f681e25802d89a7">conf_ints</a>[<span class="stringliteral">&quot;MuFilter/UpstreamnSides&quot;</span>];}</div>
-<div class="line"><span class="lineno">  723</span>       <span class="keywordflow">if</span> (subsystem==2){</div>
-<div class="line"><span class="lineno">  724</span>          <span class="keywordflow">if</span> (detID%1000&gt;59) <span class="keywordflow">return</span> <a class="code hl_variable" href="classMuFilter.html#ab7a4485f3839f3e67f681e25802d89a7">conf_ints</a>[<span class="stringliteral">&quot;MuFilter/DownstreamnSides&quot;</span>]-1;</div>
-<div class="line"><span class="lineno">  725</span>          <span class="keywordflow">else</span> {<span class="keywordflow">return</span> <a class="code hl_variable" href="classMuFilter.html#ab7a4485f3839f3e67f681e25802d89a7">conf_ints</a>[<span class="stringliteral">&quot;MuFilter/DownstreamnSides&quot;</span>];}</div>
-<div class="line"><span class="lineno">  726</span>       }</div>
-<div class="line"><span class="lineno">  727</span>  }</div>
+<div class="line"><span class="lineno">  717</span>       <span class="keywordflow">switch</span> (subsystem) {</div>
+<div class="line"><span class="lineno">  718</span>         <span class="keywordflow">case</span> 0:</div>
+<div class="line"><span class="lineno">  719</span>           <span class="comment">// vertical Veto 3 has the readout on the top only</span></div>
+<div class="line"><span class="lineno">  720</span>           <span class="keywordflow">return</span> (detID&gt;=12000) ? <a class="code hl_variable" href="classMuFilter.html#ab7a4485f3839f3e67f681e25802d89a7">conf_ints</a>[<span class="stringliteral">&quot;MuFilter/VetonSides&quot;</span>]-1 : <a class="code hl_variable" href="classMuFilter.html#ab7a4485f3839f3e67f681e25802d89a7">conf_ints</a>[<span class="stringliteral">&quot;MuFilter/VetonSides&quot;</span>];</div>
+<div class="line"><span class="lineno">  721</span>         <span class="keywordflow">case</span> 1:</div>
+<div class="line"><span class="lineno">  722</span>           <span class="keywordflow">return</span> <a class="code hl_variable" href="classMuFilter.html#ab7a4485f3839f3e67f681e25802d89a7">conf_ints</a>[<span class="stringliteral">&quot;MuFilter/UpstreamnSides&quot;</span>];</div>
+<div class="line"><span class="lineno">  723</span>         <span class="keywordflow">case</span> 2:</div>
+<div class="line"><span class="lineno">  724</span>           <span class="keywordflow">return</span> (detID%1000&gt;59) ? <a class="code hl_variable" href="classMuFilter.html#ab7a4485f3839f3e67f681e25802d89a7">conf_ints</a>[<span class="stringliteral">&quot;MuFilter/DownstreamnSides&quot;</span>]-1 : <a class="code hl_variable" href="classMuFilter.html#ab7a4485f3839f3e67f681e25802d89a7">conf_ints</a>[<span class="stringliteral">&quot;MuFilter/DownstreamnSides&quot;</span>];</div>
+<div class="line"><span class="lineno">  725</span>         <span class="keywordflow">default</span>:</div>
+<div class="line"><span class="lineno">  726</span>           LOG(FATAL) &lt;&lt; <span class="stringliteral">&quot;Unknown subsystem&quot;</span>;</div>
+<div class="line"><span class="lineno">  727</span>           <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">  728</span>       }</div>
+<div class="line"><span class="lineno">  729</span>  }</div>
 </div><!-- fragment -->
 </div>
 </div>

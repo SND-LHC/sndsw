@@ -217,12 +217,12 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sndSciFiTools_8cxx_source.html#l00566">566</a> of file <a class="el" href="sndSciFiTools_8cxx_source.html">sndSciFiTools.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  567</span>{</div>
-<div class="line"><span class="lineno">  568</span>   <span class="keywordtype">double</span> sum = std::accumulate(<a class="code hl_variable" href="namespaceconditionsDatabase_1_1tests_1_1benchmark__api.html#ac1ed97d908ba6b9513ec2af00658e9f4">values</a>.begin(), <a class="code hl_variable" href="namespaceconditionsDatabase_1_1tests_1_1benchmark__api.html#ac1ed97d908ba6b9513ec2af00658e9f4">values</a>.end(), 0.0);</div>
-<div class="line"><span class="lineno">  569</span>   <span class="keywordtype">double</span> mean = sum / <a class="code hl_variable" href="namespaceconditionsDatabase_1_1tests_1_1benchmark__api.html#ac1ed97d908ba6b9513ec2af00658e9f4">values</a>.size();</div>
-<div class="line"><span class="lineno">  570</span>   <span class="keywordflow">return</span> mean;</div>
-<div class="line"><span class="lineno">  571</span>}</div>
+<p class="definition">Definition at line <a class="el" href="sndSciFiTools_8cxx_source.html#l00565">565</a> of file <a class="el" href="sndSciFiTools_8cxx_source.html">sndSciFiTools.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  566</span>{</div>
+<div class="line"><span class="lineno">  567</span>   <span class="keywordtype">double</span> sum = std::accumulate(<a class="code hl_variable" href="namespaceconditionsDatabase_1_1tests_1_1benchmark__api.html#ac1ed97d908ba6b9513ec2af00658e9f4">values</a>.begin(), <a class="code hl_variable" href="namespaceconditionsDatabase_1_1tests_1_1benchmark__api.html#ac1ed97d908ba6b9513ec2af00658e9f4">values</a>.end(), 0.0);</div>
+<div class="line"><span class="lineno">  568</span>   <span class="keywordtype">double</span> mean = sum / <a class="code hl_variable" href="namespaceconditionsDatabase_1_1tests_1_1benchmark__api.html#ac1ed97d908ba6b9513ec2af00658e9f4">values</a>.size();</div>
+<div class="line"><span class="lineno">  569</span>   <span class="keywordflow">return</span> mean;</div>
+<div class="line"><span class="lineno">  570</span>}</div>
 <div class="ttc" id="anamespaceconditionsDatabase_1_1tests_1_1benchmark__api_html_ac1ed97d908ba6b9513ec2af00658e9f4"><div class="ttname"><a href="namespaceconditionsDatabase_1_1tests_1_1benchmark__api.html#ac1ed97d908ba6b9513ec2af00658e9f4">conditionsDatabase.tests.benchmark_api.values</a></div><div class="ttdeci">dict values</div><div class="ttdef"><b>Definition</b> <a href="benchmark__api_8py_source.html#l00072">benchmark_api.py:72</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -243,77 +243,77 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sndSciFiTools_8cxx_source.html#l00636">636</a> of file <a class="el" href="sndSciFiTools_8cxx_source.html">sndSciFiTools.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  636</span>                                                            {</div>
-<div class="line"><span class="lineno">  637</span>    <span class="comment">/* This function returns the summation of the hit weights </span></div>
-<div class="line"><span class="lineno">  638</span><span class="comment">    where a hit weight is the number of neighbouring hits within 1 cm position (default width).</span></div>
-<div class="line"><span class="lineno">  639</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">  640</span><span class="comment">    Arguments: </span></div>
-<div class="line"><span class="lineno">  641</span><span class="comment">        hit_position: A vector containing the positions of the hits in a specific SciFi station.</span></div>
-<div class="line"><span class="lineno">  642</span><span class="comment">    </span></div>
-<div class="line"><span class="lineno">  643</span><span class="comment">    Returns: </span></div>
-<div class="line"><span class="lineno">  644</span><span class="comment">        The sum of the weights of the hits in the vector.</span></div>
-<div class="line"><span class="lineno">  645</span><span class="comment">        Returns 0 if the vector is empty or if the sum of weights is 0.</span></div>
-<div class="line"><span class="lineno">  646</span><span class="comment">    */</span></div>
-<div class="line"><span class="lineno">  647</span> </div>
-<div class="line"><span class="lineno">  648</span>    <span class="keywordflow">if</span> (hit_position.empty()) {</div>
-<div class="line"><span class="lineno">  649</span>        LOG(INFO) &lt;&lt; <span class="stringliteral">&quot;Warning: The hit position vector is empty.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  650</span>        <span class="keywordflow">return</span> 0; <span class="comment">// Return 0 if the vector is empty</span></div>
-<div class="line"><span class="lineno">  651</span>    }</div>
-<div class="line"><span class="lineno">  652</span> </div>
-<div class="line"><span class="lineno">  653</span>    <span class="keywordtype">int</span> n_hits = hit_position.size();</div>
-<div class="line"><span class="lineno">  654</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="namespacerpvsusy.html#a65398d2857d77a98dec2551c2086163f">width</a> = 1.0; <span class="comment">// Width around the hit to consider as a neighbour, in cm</span></div>
-<div class="line"><span class="lineno">  655</span>    std::vector&lt;double&gt; weights; <span class="comment">// Vector to store the weights of each hit</span></div>
-<div class="line"><span class="lineno">  656</span> </div>
-<div class="line"><span class="lineno">  657</span>    <span class="comment">// Sorting the hits for efficient neighbour counting</span></div>
-<div class="line"><span class="lineno">  658</span>    std::sort(hit_position.begin(), hit_position.end());</div>
-<div class="line"><span class="lineno">  659</span> </div>
-<div class="line"><span class="lineno">  660</span>    <span class="comment">// Initialize pointers for the sliding window.</span></div>
-<div class="line"><span class="lineno">  661</span>    <span class="comment">// Both pointers will only move forward (or stay put) across the outer loop iterations.</span></div>
-<div class="line"><span class="lineno">  662</span>    <span class="keywordtype">int</span> left_ptr = 0; </div>
-<div class="line"><span class="lineno">  663</span>    <span class="keywordtype">int</span> right_ptr = 0; </div>
-<div class="line"><span class="lineno">  664</span> </div>
-<div class="line"><span class="lineno">  665</span>    <span class="comment">// Loop through each hit position to calculate its neighbour count</span></div>
-<div class="line"><span class="lineno">  666</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a> &lt; n_hits; <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>++) {</div>
-<div class="line"><span class="lineno">  667</span>        <span class="keywordtype">double</span> specific_hit = hit_position[<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>];</div>
-<div class="line"><span class="lineno">  668</span>        </div>
-<div class="line"><span class="lineno">  669</span>        <span class="comment">// Move right_ptr forward to include all hits within (specific_hit + width).</span></div>
-<div class="line"><span class="lineno">  670</span>        <span class="comment">// It will point to the first element *just outside* the right boundary of the window.</span></div>
-<div class="line"><span class="lineno">  671</span>        <span class="keywordflow">while</span> (right_ptr &lt; n_hits &amp;&amp; hit_position[right_ptr] &lt;= specific_hit + width) {</div>
-<div class="line"><span class="lineno">  672</span>            right_ptr++;</div>
-<div class="line"><span class="lineno">  673</span>        }</div>
-<div class="line"><span class="lineno">  674</span>        </div>
-<div class="line"><span class="lineno">  675</span>        <span class="comment">// Move left_ptr forward to exclude all hits *less than* (specific_hit - width).</span></div>
-<div class="line"><span class="lineno">  676</span>        <span class="comment">// It will point to the first element *just inside* or at the left boundary of the window.</span></div>
-<div class="line"><span class="lineno">  677</span>        <span class="keywordflow">while</span> (left_ptr &lt; n_hits &amp;&amp; hit_position[left_ptr] &lt; specific_hit - width) {</div>
-<div class="line"><span class="lineno">  678</span>            left_ptr++;</div>
-<div class="line"><span class="lineno">  679</span>        }</div>
-<div class="line"><span class="lineno">  680</span>        </div>
-<div class="line"><span class="lineno">  681</span>        <span class="comment">// Calculate neighbouring hits within the window:</span></div>
-<div class="line"><span class="lineno">  682</span>        <span class="comment">// The number of hits in the current window is (right_ptr - left_ptr).</span></div>
-<div class="line"><span class="lineno">  683</span>        <span class="comment">// This count includes the &#39;specific_hit&#39; itself.</span></div>
-<div class="line"><span class="lineno">  684</span>        <span class="keywordtype">double</span> count_in_window = right_ptr - left_ptr;</div>
-<div class="line"><span class="lineno">  685</span>        </div>
-<div class="line"><span class="lineno">  686</span>        <span class="comment">// Subtract 1 to exclude the &#39;specific_hit&#39; itself from the neighbour count.</span></div>
-<div class="line"><span class="lineno">  687</span>        <span class="comment">// We must ensure that &#39;specific_hit&#39; (hit_position[i]) is actually within the window</span></div>
-<div class="line"><span class="lineno">  688</span>        <span class="comment">// defined by left_ptr and right_ptr. Since the array is sorted and we are iterating</span></div>
-<div class="line"><span class="lineno">  689</span>        <span class="comment">// through &#39;i&#39;, hit_position[i] will always be between hit_position[left_ptr] and </span></div>
-<div class="line"><span class="lineno">  690</span>        <span class="comment">// hit_position[right_ptr-1] (if left_ptr &lt;= i &lt; right_ptr).</span></div>
-<div class="line"><span class="lineno">  691</span>        <span class="keywordtype">double</span> neighbour_no_of_hits = count_in_window - 1; </div>
-<div class="line"><span class="lineno">  692</span> </div>
-<div class="line"><span class="lineno">  693</span>        <span class="comment">// Ensure the neighbour count is non-negative</span></div>
-<div class="line"><span class="lineno">  694</span>        <span class="keywordflow">if</span> (neighbour_no_of_hits &lt; 0) {</div>
-<div class="line"><span class="lineno">  695</span>            neighbour_no_of_hits = 0; </div>
-<div class="line"><span class="lineno">  696</span>        }</div>
-<div class="line"><span class="lineno">  697</span>        </div>
-<div class="line"><span class="lineno">  698</span>        weights.push_back(neighbour_no_of_hits);</div>
-<div class="line"><span class="lineno">  699</span>    }</div>
-<div class="line"><span class="lineno">  700</span> </div>
-<div class="line"><span class="lineno">  701</span>    <span class="comment">// Calculate the sum of all computed weights</span></div>
-<div class="line"><span class="lineno">  702</span>    <span class="keywordtype">double</span> sum_weights = std::accumulate(weights.begin(), weights.end(), 0.0);</div>
-<div class="line"><span class="lineno">  703</span> </div>
-<div class="line"><span class="lineno">  704</span>    <span class="keywordflow">return</span> sum_weights;</div>
-<div class="line"><span class="lineno">  705</span>}</div>
+<p class="definition">Definition at line <a class="el" href="sndSciFiTools_8cxx_source.html#l00635">635</a> of file <a class="el" href="sndSciFiTools_8cxx_source.html">sndSciFiTools.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  635</span>                                                            {</div>
+<div class="line"><span class="lineno">  636</span>    <span class="comment">/* This function returns the summation of the hit weights </span></div>
+<div class="line"><span class="lineno">  637</span><span class="comment">    where a hit weight is the number of neighbouring hits within 1 cm position (default width).</span></div>
+<div class="line"><span class="lineno">  638</span><span class="comment"></span> </div>
+<div class="line"><span class="lineno">  639</span><span class="comment">    Arguments: </span></div>
+<div class="line"><span class="lineno">  640</span><span class="comment">        hit_position: A vector containing the positions of the hits in a specific SciFi station.</span></div>
+<div class="line"><span class="lineno">  641</span><span class="comment">    </span></div>
+<div class="line"><span class="lineno">  642</span><span class="comment">    Returns: </span></div>
+<div class="line"><span class="lineno">  643</span><span class="comment">        The sum of the weights of the hits in the vector.</span></div>
+<div class="line"><span class="lineno">  644</span><span class="comment">        Returns 0 if the vector is empty or if the sum of weights is 0.</span></div>
+<div class="line"><span class="lineno">  645</span><span class="comment">    */</span></div>
+<div class="line"><span class="lineno">  646</span> </div>
+<div class="line"><span class="lineno">  647</span>    <span class="keywordflow">if</span> (hit_position.empty()) {</div>
+<div class="line"><span class="lineno">  648</span>        LOG(INFO) &lt;&lt; <span class="stringliteral">&quot;Warning: The hit position vector is empty.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  649</span>        <span class="keywordflow">return</span> 0; <span class="comment">// Return 0 if the vector is empty</span></div>
+<div class="line"><span class="lineno">  650</span>    }</div>
+<div class="line"><span class="lineno">  651</span> </div>
+<div class="line"><span class="lineno">  652</span>    <span class="keywordtype">int</span> n_hits = hit_position.size();</div>
+<div class="line"><span class="lineno">  653</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="namespacerpvsusy.html#a65398d2857d77a98dec2551c2086163f">width</a> = 1.0; <span class="comment">// Width around the hit to consider as a neighbour, in cm</span></div>
+<div class="line"><span class="lineno">  654</span>    std::vector&lt;double&gt; weights; <span class="comment">// Vector to store the weights of each hit</span></div>
+<div class="line"><span class="lineno">  655</span> </div>
+<div class="line"><span class="lineno">  656</span>    <span class="comment">// Sorting the hits for efficient neighbour counting</span></div>
+<div class="line"><span class="lineno">  657</span>    std::sort(hit_position.begin(), hit_position.end());</div>
+<div class="line"><span class="lineno">  658</span> </div>
+<div class="line"><span class="lineno">  659</span>    <span class="comment">// Initialize pointers for the sliding window.</span></div>
+<div class="line"><span class="lineno">  660</span>    <span class="comment">// Both pointers will only move forward (or stay put) across the outer loop iterations.</span></div>
+<div class="line"><span class="lineno">  661</span>    <span class="keywordtype">int</span> left_ptr = 0; </div>
+<div class="line"><span class="lineno">  662</span>    <span class="keywordtype">int</span> right_ptr = 0; </div>
+<div class="line"><span class="lineno">  663</span> </div>
+<div class="line"><span class="lineno">  664</span>    <span class="comment">// Loop through each hit position to calculate its neighbour count</span></div>
+<div class="line"><span class="lineno">  665</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a> &lt; n_hits; <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>++) {</div>
+<div class="line"><span class="lineno">  666</span>        <span class="keywordtype">double</span> specific_hit = hit_position[<a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>];</div>
+<div class="line"><span class="lineno">  667</span>        </div>
+<div class="line"><span class="lineno">  668</span>        <span class="comment">// Move right_ptr forward to include all hits within (specific_hit + width).</span></div>
+<div class="line"><span class="lineno">  669</span>        <span class="comment">// It will point to the first element *just outside* the right boundary of the window.</span></div>
+<div class="line"><span class="lineno">  670</span>        <span class="keywordflow">while</span> (right_ptr &lt; n_hits &amp;&amp; hit_position[right_ptr] &lt;= specific_hit + width) {</div>
+<div class="line"><span class="lineno">  671</span>            right_ptr++;</div>
+<div class="line"><span class="lineno">  672</span>        }</div>
+<div class="line"><span class="lineno">  673</span>        </div>
+<div class="line"><span class="lineno">  674</span>        <span class="comment">// Move left_ptr forward to exclude all hits *less than* (specific_hit - width).</span></div>
+<div class="line"><span class="lineno">  675</span>        <span class="comment">// It will point to the first element *just inside* or at the left boundary of the window.</span></div>
+<div class="line"><span class="lineno">  676</span>        <span class="keywordflow">while</span> (left_ptr &lt; n_hits &amp;&amp; hit_position[left_ptr] &lt; specific_hit - width) {</div>
+<div class="line"><span class="lineno">  677</span>            left_ptr++;</div>
+<div class="line"><span class="lineno">  678</span>        }</div>
+<div class="line"><span class="lineno">  679</span>        </div>
+<div class="line"><span class="lineno">  680</span>        <span class="comment">// Calculate neighbouring hits within the window:</span></div>
+<div class="line"><span class="lineno">  681</span>        <span class="comment">// The number of hits in the current window is (right_ptr - left_ptr).</span></div>
+<div class="line"><span class="lineno">  682</span>        <span class="comment">// This count includes the &#39;specific_hit&#39; itself.</span></div>
+<div class="line"><span class="lineno">  683</span>        <span class="keywordtype">double</span> count_in_window = right_ptr - left_ptr;</div>
+<div class="line"><span class="lineno">  684</span>        </div>
+<div class="line"><span class="lineno">  685</span>        <span class="comment">// Subtract 1 to exclude the &#39;specific_hit&#39; itself from the neighbour count.</span></div>
+<div class="line"><span class="lineno">  686</span>        <span class="comment">// We must ensure that &#39;specific_hit&#39; (hit_position[i]) is actually within the window</span></div>
+<div class="line"><span class="lineno">  687</span>        <span class="comment">// defined by left_ptr and right_ptr. Since the array is sorted and we are iterating</span></div>
+<div class="line"><span class="lineno">  688</span>        <span class="comment">// through &#39;i&#39;, hit_position[i] will always be between hit_position[left_ptr] and </span></div>
+<div class="line"><span class="lineno">  689</span>        <span class="comment">// hit_position[right_ptr-1] (if left_ptr &lt;= i &lt; right_ptr).</span></div>
+<div class="line"><span class="lineno">  690</span>        <span class="keywordtype">double</span> neighbour_no_of_hits = count_in_window - 1; </div>
+<div class="line"><span class="lineno">  691</span> </div>
+<div class="line"><span class="lineno">  692</span>        <span class="comment">// Ensure the neighbour count is non-negative</span></div>
+<div class="line"><span class="lineno">  693</span>        <span class="keywordflow">if</span> (neighbour_no_of_hits &lt; 0) {</div>
+<div class="line"><span class="lineno">  694</span>            neighbour_no_of_hits = 0; </div>
+<div class="line"><span class="lineno">  695</span>        }</div>
+<div class="line"><span class="lineno">  696</span>        </div>
+<div class="line"><span class="lineno">  697</span>        weights.push_back(neighbour_no_of_hits);</div>
+<div class="line"><span class="lineno">  698</span>    }</div>
+<div class="line"><span class="lineno">  699</span> </div>
+<div class="line"><span class="lineno">  700</span>    <span class="comment">// Calculate the sum of all computed weights</span></div>
+<div class="line"><span class="lineno">  701</span>    <span class="keywordtype">double</span> sum_weights = std::accumulate(weights.begin(), weights.end(), 0.0);</div>
+<div class="line"><span class="lineno">  702</span> </div>
+<div class="line"><span class="lineno">  703</span>    <span class="keywordflow">return</span> sum_weights;</div>
+<div class="line"><span class="lineno">  704</span>}</div>
 <div class="ttc" id="anamespaceShipAna_html_aa4bf87f4d17f9d38b1d8f4d009bb54b3"><div class="ttname"><a href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">ShipAna.i</a></div><div class="ttdeci">int i</div><div class="ttdef"><b>Definition</b> <a href="ShipAna_8py_source.html#l00086">ShipAna.py:86</a></div></div>
 <div class="ttc" id="anamespacerpvsusy_html_a65398d2857d77a98dec2551c2086163f"><div class="ttname"><a href="namespacerpvsusy.html#a65398d2857d77a98dec2551c2086163f">rpvsusy.width</a></div><div class="ttdeci">width(particle)</div><div class="ttdef"><b>Definition</b> <a href="rpvsusy_8py_source.html#l00076">rpvsusy.py:76</a></div></div>
 </div><!-- fragment -->

@@ -346,42 +346,41 @@ $(document).ready(function(){initNavTree('sndShowerTools_8cxx_source.html',''); 
 <div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>  <span class="keywordtype">double</span> lambda1, lambda2;</div>
 <div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>  std::tie(lambda1, lambda2) = <a class="code hl_function" href="sndShowerTools_8cxx.html#abb52a18fc714ecf62e97408ab0d5e102">PCA</a>(x, zx);</div>
 <div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>  <span class="keywordtype">double</span> anisotropy_xz = (lambda1 &gt; 0) ? 1.0 - lambda2 / lambda1 : 0.0;</div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>  <span class="keyword">auto</span> pca_result_yz = <a class="code hl_function" href="sndShowerTools_8cxx.html#abb52a18fc714ecf62e97408ab0d5e102">PCA</a>(y, zy);</div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>  std::tie(lambda1, lambda2) = <a class="code hl_function" href="sndShowerTools_8cxx.html#abb52a18fc714ecf62e97408ab0d5e102">PCA</a>(y, zy);</div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>  <span class="keywordtype">double</span> anisotropy_yz = (lambda1 &gt; 0) ? 1.0 - lambda2 / lambda1 : 0.0;</div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>  <span class="keywordflow">return</span> {anisotropy_xz, anisotropy_yz};</div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>}</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>  std::tie(lambda1, lambda2) = <a class="code hl_function" href="sndShowerTools_8cxx.html#abb52a18fc714ecf62e97408ab0d5e102">PCA</a>(y, zy);</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>  <span class="keywordtype">double</span> anisotropy_yz = (lambda1 &gt; 0) ? 1.0 - lambda2 / lambda1 : 0.0;</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>  <span class="keywordflow">return</span> {anisotropy_xz, anisotropy_yz};</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>}</div>
 </div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span> </div>
-<div class="foldopen" id="foldopen00253" data-start="{" data-end="}">
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno"><a class="line" href="namespacesnd_1_1analysis__tools.html#a3027705487e854d49dbe307d7086b94f">  253</a></span><span class="keywordtype">double</span> <a class="code hl_function" href="namespacesnd_1_1analysis__tools.html#a3027705487e854d49dbe307d7086b94f">snd::analysis_tools::GetUSSpatialAnisotropy</a>(<span class="keyword">const</span> std::vector&lt;USPlane&gt; &amp;us_planes, <span class="keywordtype">bool</span> use_all_centroids)</div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>{</div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>  std::vector&lt;double&gt; y, zy;</div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>  <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;p : us_planes) {</div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>    <span class="comment">// Add measurements per projection and in the respective coordinate vectors</span></div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>    <span class="keywordflow">if</span> (use_all_centroids == <span class="keyword">false</span>) {</div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>      <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;hit : p.GetHits()) {</div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>        y.push_back(hit.y);</div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>        zy.push_back(hit.z);</div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>      }</div>
-<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>      <span class="keyword">auto</span> centroid = p.GetCentroid();</div>
-<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>      <span class="comment">// Check that centroid is valid</span></div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>      <span class="keywordflow">if</span> (!(std::isnan(centroid.Z()) || std::isnan(centroid.Y()))) {</div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>         y.push_back(centroid.Y());</div>
-<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>         zy.push_back(centroid.Z());</div>
-<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>      }</div>
-<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>    }</div>
-<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>  }</div>
-<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span> </div>
-<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>  <span class="comment">// Need at least 3 measurements</span></div>
-<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>  <span class="keywordflow">if</span> (y.size() &lt; 2 || zy.size() &lt; 2) {</div>
-<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>    <span class="keywordflow">return</span> 1.;</div>
-<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>  }</div>
-<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>  <span class="keywordtype">double</span> lambda1, lambda2;</div>
-<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>  std::tie(lambda1, lambda2) = <a class="code hl_function" href="sndShowerTools_8cxx.html#abb52a18fc714ecf62e97408ab0d5e102">PCA</a>(y, zy);</div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>  <span class="keywordflow">return</span> (lambda1 &gt; 0) ? 1.0 - lambda2 / lambda1 : 0.0;</div>
-<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>}</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span> </div>
+<div class="foldopen" id="foldopen00252" data-start="{" data-end="}">
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno"><a class="line" href="namespacesnd_1_1analysis__tools.html#a3027705487e854d49dbe307d7086b94f">  252</a></span><span class="keywordtype">double</span> <a class="code hl_function" href="namespacesnd_1_1analysis__tools.html#a3027705487e854d49dbe307d7086b94f">snd::analysis_tools::GetUSSpatialAnisotropy</a>(<span class="keyword">const</span> std::vector&lt;USPlane&gt; &amp;us_planes, <span class="keywordtype">bool</span> use_all_centroids)</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>{</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>  std::vector&lt;double&gt; y, zy;</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>  <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;p : us_planes) {</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>    <span class="comment">// Add measurements per projection and in the respective coordinate vectors</span></div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>    <span class="keywordflow">if</span> (use_all_centroids == <span class="keyword">false</span>) {</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>      <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;hit : p.GetHits()) {</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>        y.push_back(hit.y);</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>        zy.push_back(hit.z);</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>      }</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>      <span class="keyword">auto</span> centroid = p.GetCentroid();</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>      <span class="comment">// Check that centroid is valid</span></div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>      <span class="keywordflow">if</span> (!(std::isnan(centroid.Z()) || std::isnan(centroid.Y()))) {</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>         y.push_back(centroid.Y());</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>         zy.push_back(centroid.Z());</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>      }</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>    }</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>  }</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span> </div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>  <span class="comment">// Need at least 3 measurements</span></div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>  <span class="keywordflow">if</span> (y.size() &lt; 2 || zy.size() &lt; 2) {</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>    <span class="keywordflow">return</span> 1.;</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>  }</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>  <span class="keywordtype">double</span> lambda1, lambda2;</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>  std::tie(lambda1, lambda2) = <a class="code hl_function" href="sndShowerTools_8cxx.html#abb52a18fc714ecf62e97408ab0d5e102">PCA</a>(y, zy);</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>  <span class="keywordflow">return</span> (lambda1 &gt; 0) ? 1.0 - lambda2 / lambda1 : 0.0;</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>}</div>
 </div>
 <div class="ttc" id="aclasssnd_1_1analysis__tools_1_1ScifiPlane_html"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1ScifiPlane.html">snd::analysis_tools::ScifiPlane</a></div><div class="ttdef"><b>Definition</b> <a href="sndScifiPlane_8h_source.html#l00013">sndScifiPlane.h:14</a></div></div>
 <div class="ttc" id="aclasssnd_1_1analysis__tools_1_1USPlane_html"><div class="ttname"><a href="classsnd_1_1analysis__tools_1_1USPlane.html">snd::analysis_tools::USPlane</a></div><div class="ttdef"><b>Definition</b> <a href="sndUSPlane_8h_source.html#l00013">sndUSPlane.h:14</a></div></div>
@@ -390,7 +389,7 @@ $(document).ready(function(){initNavTree('sndShowerTools_8cxx_source.html',''); 
 <div class="ttc" id="anamespacereadMilleBinary_html_aa5029fee38de108bb42ce94c75edcf2f"><div class="ttname"><a href="namespacereadMilleBinary.html#aa5029fee38de108bb42ce94c75edcf2f">readMilleBinary.val</a></div><div class="ttdeci">list val</div><div class="ttdef"><b>Definition</b> <a href="readMilleBinary_8py_source.html#l00156">readMilleBinary.py:156</a></div></div>
 <div class="ttc" id="anamespacesnd_1_1analysis__tools_html_a0037b9fb2903ba8fb849714fdcd09659"><div class="ttname"><a href="namespacesnd_1_1analysis__tools.html#a0037b9fb2903ba8fb849714fdcd09659">snd::analysis_tools::GetShoweringPlanes</a></div><div class="ttdeci">std::pair&lt; std::vector&lt; ScifiPlane &gt;, std::vector&lt; USPlane &gt; &gt; GetShoweringPlanes(const std::vector&lt; ScifiPlane &gt; &amp;scifi_planes, const std::vector&lt; USPlane &gt; &amp;us_planes)</div></div>
 <div class="ttc" id="anamespacesnd_1_1analysis__tools_html_a2b709b7effbe5edda3f50e65860baf9a"><div class="ttname"><a href="namespacesnd_1_1analysis__tools.html#a2b709b7effbe5edda3f50e65860baf9a">snd::analysis_tools::GetUSShowerEnd</a></div><div class="ttdeci">int GetUSShowerEnd(const std::vector&lt; USPlane &gt; &amp;us_planes)</div></div>
-<div class="ttc" id="anamespacesnd_1_1analysis__tools_html_a3027705487e854d49dbe307d7086b94f"><div class="ttname"><a href="namespacesnd_1_1analysis__tools.html#a3027705487e854d49dbe307d7086b94f">snd::analysis_tools::GetUSSpatialAnisotropy</a></div><div class="ttdeci">double GetUSSpatialAnisotropy(const std::vector&lt; USPlane &gt; &amp;us_planes, bool use_all_centroids=false)</div><div class="ttdef"><b>Definition</b> <a href="sndShowerTools_8cxx_source.html#l00253">sndShowerTools.cxx:253</a></div></div>
+<div class="ttc" id="anamespacesnd_1_1analysis__tools_html_a3027705487e854d49dbe307d7086b94f"><div class="ttname"><a href="namespacesnd_1_1analysis__tools.html#a3027705487e854d49dbe307d7086b94f">snd::analysis_tools::GetUSSpatialAnisotropy</a></div><div class="ttdeci">double GetUSSpatialAnisotropy(const std::vector&lt; USPlane &gt; &amp;us_planes, bool use_all_centroids=false)</div><div class="ttdef"><b>Definition</b> <a href="sndShowerTools_8cxx_source.html#l00252">sndShowerTools.cxx:252</a></div></div>
 <div class="ttc" id="anamespacesnd_1_1analysis__tools_html_a31f0a39d6509b4279f1531d9eafd13c9"><div class="ttname"><a href="namespacesnd_1_1analysis__tools.html#a31f0a39d6509b4279f1531d9eafd13c9">snd::analysis_tools::GetScifiShowerStart</a></div><div class="ttdeci">int GetScifiShowerStart(const std::vector&lt; ScifiPlane &gt; &amp;scifi_planes)</div></div>
 <div class="ttc" id="anamespacesnd_1_1analysis__tools_html_a5197f628dfba5fd4eb3072140cbf8632"><div class="ttname"><a href="namespacesnd_1_1analysis__tools.html#a5197f628dfba5fd4eb3072140cbf8632">snd::analysis_tools::GetUSShowerStart</a></div><div class="ttdeci">int GetUSShowerStart(const std::vector&lt; USPlane &gt; &amp;us_planes)</div></div>
 <div class="ttc" id="anamespacesnd_1_1analysis__tools_html_a99f8d4bf1587166e2451b65d43b280db"><div class="ttname"><a href="namespacesnd_1_1analysis__tools.html#a99f8d4bf1587166e2451b65d43b280db">snd::analysis_tools::GetScifiShowerEnd</a></div><div class="ttdeci">int GetScifiShowerEnd(const std::vector&lt; ScifiPlane &gt; &amp;scifi_planes)</div></div>
