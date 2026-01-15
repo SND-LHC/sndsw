@@ -244,7 +244,6 @@ std::pair<double, double> snd::analysis_tools::GetSciFiSpatialAnisotropy(const s
   double lambda1, lambda2;
   std::tie(lambda1, lambda2) = PCA(x, zx);
   double anisotropy_xz = (lambda1 > 0) ? 1.0 - lambda2 / lambda1 : 0.0;
-  auto pca_result_yz = PCA(y, zy);
   std::tie(lambda1, lambda2) = PCA(y, zy);
   double anisotropy_yz = (lambda1 > 0) ? 1.0 - lambda2 / lambda1 : 0.0;
   return {anisotropy_xz, anisotropy_yz};
