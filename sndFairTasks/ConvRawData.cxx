@@ -145,9 +145,6 @@ InitStatus ConvRawData::Init()
     timerBMap.Stop();
     LOG (info) << "Time to set the board mapping " << timerBMap.RealTime();
     
-    // Get the FairLogger
-    FairLogger::GetLogger();
-    
     eventNumber = fnStart;
     
     return kSUCCESS;
