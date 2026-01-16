@@ -49,8 +49,8 @@ ConvRawData::ConvRawData()
     : FairTask("ConvRawData")
     , fEventTree(nullptr)
     , boards{}
-    , fEventHeader(nullptr)
     , fSNDLHCEventHeader(nullptr)
+    , fEventHeader(nullptr)
     , fDigiSciFi(nullptr)
     , fDigiMuFilter(nullptr)
 {}
@@ -146,7 +146,7 @@ InitStatus ConvRawData::Init()
     LOG (info) << "Time to set the board mapping " << timerBMap.RealTime();
     
     // Get the FairLogger
-    FairLogger *logger = FairLogger::GetLogger();
+    FairLogger::GetLogger();
     
     eventNumber = fnStart;
     
@@ -336,7 +336,7 @@ void ConvRawData::Process0()
            system = MufiSystem[board_id][tofpet_id];
            key = (tofpet_id%2)*1000 + tofpet_channel;
            tmp = boardMapsMu["MuFilter"][board.first][slots[tofpet_id]];
-           if (debug || !tmp.find("not") == string::npos )
+           if (debug || !(tmp.find("not") == string::npos))
            {
              LOG (info) << system << " " << key << " " << board.first << " " << tofpet_id
                          << " " << tofpet_id%2 << " " << tofpet_channel;
@@ -630,7 +630,7 @@ void ConvRawData::Process1()
            system = MufiSystem[board_id][tofpet_id];
            key = (tofpet_id%2)*1000 + tofpet_channel;
            tmp = boardMapsMu["MuFilter"][board_name][slots[tofpet_id]];
-           if (debug || !tmp.find("not") == string::npos )
+           if (debug || !(tmp.find("not") == string::npos))
            {
              LOG (info) << system << " " << key << " " << board_name << " " << tofpet_id
                          << " " << tofpet_id%2 << " " << tofpet_channel;
@@ -778,7 +778,7 @@ void ConvRawData::StartTimeofRun(string Path)
     char *buff = new char[size];
     status = file.Read(offset, size, buff, bytesRead);
     vector<char> vec;
-    for (int i = 0; i < size; i++){vec.push_back(buff[i]);}
+    for (size_t i = 0; i < size; i++){vec.push_back(buff[i]);}
     j = json::parse(vec);
     status = file.Close();
     delete info;
@@ -826,7 +826,7 @@ void ConvRawData::DetMapping(string Path)
     char *buff = new char[size];
     status = file.Read(offset, size, buff, bytesRead);
     vector<char> vec;
-    for (int i = 0; i < size; i++){vec.push_back(buff[i]);}
+    for (size_t i = 0; i < size; i++){vec.push_back(buff[i]);}
     j = json::parse(vec);
     status = file.Close();
     delete info;
