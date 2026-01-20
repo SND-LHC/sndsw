@@ -2,7 +2,7 @@ import ROOT
 import numpy as np
 import scipy.ndimage
 from array import array
-import xml.etree.ElementTree as ET
+import yaml
 import matplotlib.pyplot as plt
 import shipunit as unit
 
@@ -213,6 +213,10 @@ def numPlanesHit(systems, detector_ids) :
     mufi_us_planes.append( (detector_ids[systems == 2]%10000)//1000 )
 
     return len(np.unique(scifi_stations)) + len(np.unique(mufi_ds_planes)) + len(np.unique(mufi_us_planes))
+
+def checkUnit(param, u):
+    if u not in dir(unit):
+       raise RuntimeError("Unsupported unit '"+u+"' provided for '"+param+"'! Check units in shipunit module.")
     
 class MuonReco(ROOT.FairTask) :
     " Muon reconstruction "
@@ -262,90 +266,103 @@ class MuonReco(ROOT.FairTask) :
         self.scale = 1
         self.events_run = 0
         
-        # Initialize hough transform - reading parameter xml file
-        tree = ET.parse(self.par_file)
-        root = tree.getroot()
+        # Initialize hough transform - reading parameter yaml file
+        if self.logger.IsLogNeeded(ROOT.fair.Severity.warn):
+           print("Initialize HT input parameters: YAML file supported! XML support is discontinued!")
+        with open(self.par_file, 'r') as stream:
+           root = yaml.safe_load(stream)
         
         # Output track in genfit::Track or sndRecoTrack format
         # Check if genfit::Track format is already forced
         if hasattr(self, "genfitTrack"): pass
-        else: self.genfitTrack = int(root[0].text)
+        else: self.genfitTrack = root["genfitTrack"]
         
-        self.draw = int(root[1].text)
+        self.draw = int(root['draw'])
 
         track_case_exists = False
-        for case in root.findall('tracking_case'):
-            if case.get('name') == self.tracking_case:
+        for case in root['tracking_case']:
+            if self.tracking_case in case:
                track_case_exists = True
                # Use SciFi hits or clusters
-               self.Scifi_meas = int(case.find('use_Scifi_clust').text)
+               self.Scifi_meas = int(case[self.tracking_case]['use_Scifi_clust'])
                # Maximum absolute value of reconstructed angle (+/- 1 rad is the maximum angle to form a triplet in the SciFi)
-               max_angle = float(case.find('max_angle').text)
-               
+               u = case[self.tracking_case]['max_angle']['unit']
+               checkUnit('max_angle', u)
+               max_angle = float(case[self.tracking_case]['max_angle']['value'])*eval('unit.'+u)
+
                # Hough space representation
                Hspace_format_exists = False 
-               for rep in case.findall('Hough_space_format'):
-                   if rep.get('name') == self.Hough_space_format:
+               for rep in case[self.tracking_case]['Hough_space_format']:
+                   if self.Hough_space_format in rep:
                       Hspace_format_exists = True
                       # Number of bins per Hough accumulator axes and range
                       ''' xH and yH are the abscissa and ordinate of the Hough parameter space
                           xz and yz represent horizontal and vertical projections 
                           in the SNDLHC physics coord. system '''
-                      n_accumulator_yH = int(rep.find('N_yH_bins').text)
-                      yH_min_xz = float(rep.find('yH_min_xz').text)
-                      yH_max_xz = float(rep.find('yH_max_xz').text)
-                      yH_min_yz = float(rep.find('yH_min_yz').text)
-                      yH_max_yz = float(rep.find('yH_max_yz').text)
-                      n_accumulator_xH = int(rep.find('N_xH_bins').text)
-                      xH_min_xz = float(rep.find('xH_min_xz').text)
-                      xH_max_xz = float(rep.find('xH_max_xz').text)
-                      xH_min_yz = float(rep.find('xH_min_yz').text)
-                      xH_max_yz = float(rep.find('xH_max_yz').text)
+                      n_accumulator_yH = int(rep[self.Hough_space_format]['N_yH_bins'])
+                      n_accumulator_xH = int(rep[self.Hough_space_format]['N_xH_bins'])
+                      yH_min_xz = yH_max_xz = yH_min_yz = yH_max_yz = xH_min_xz = xH_max_xz = xH_min_yz = xH_max_yz = 0
+                      items = {'yH_min_xz' : yH_min_xz, 'yH_max_xz': yH_max_xz, 'yH_min_yz': yH_min_yz, \
+                               'yH_max_yz' : yH_max_yz, 'xH_min_xz': xH_min_xz, 'xH_max_xz': xH_max_xz, \
+                               'xH_min_yz' : xH_min_yz, 'xH_max_yz': xH_max_yz}
+                      for sub_item in items:
+                          u = rep[self.Hough_space_format][sub_item]['unit']
+                          checkUnit(sub_item, u)
+                          items[sub_item] = float(rep[self.Hough_space_format][sub_item]['value'])*eval('unit.'+u)
+
 
                    else: continue
                if not Hspace_format_exists:
-                  raise RuntimeError("Unknown Hough space format, check naming in parameter xml file.") 
+                  raise RuntimeError("Unknown Hough space format, check naming in parameter yaml file.") 
 
                # A scale factor for a back-up Hough space having more/less bins than the default one
                # It is useful when fitting some low-E muon tracks, which are curved due to mult. scattering.
-               self.HT_space_scale = 1 if case.find('HT_space_scale')==None else float(case.find('HT_space_scale').text)
+               if 'HT_space_scale' not in case[self.tracking_case]:
+                  self.HT_space_scale = 1  
+               else:
+                  self.HT_space_scale = float(case[self.tracking_case]['HT_space_scale'])
 
                # Number of random throws per hit
-               self.n_random = int(case.find('n_random').text)
+               self.n_random = int(case[self.tracking_case]['n_random'])
                # MuFilter weight. Muon filter hits are thrown more times than scifi
-               self.muon_weight = int(case.find('mufi_weight').text)
+               self.muon_weight = int(case[self.tracking_case]['mufi_weight'])
                # Minimum number of planes hit in each of the downstream muon filter (if muon filter hits used) or scifi (if muon filter hits not used) views to try to reconstruct a muon
-               self.min_planes_hit = int(case.find('min_planes_hit').text)
+               self.min_planes_hit = int(case[self.tracking_case]['min_planes_hit'])
 
                # Maximum number of muons to find. To avoid spending too much time on events with lots of downstream activity.
-               self.max_reco_muons = int(case.find('max_reco_muons').text)
+               self.max_reco_muons = int(case[self.tracking_case]['max_reco_muons'])
 
                # How far away from Hough line hits will be assigned to the muon, for Kalman tracking
-               self.tolerance = float(case.find('tolerance').text)
+               u = case[self.tracking_case]['tolerance']['unit']
+               checkUnit('tolerance', u)
+               self.tolerance = float(case[self.tracking_case]['tolerance']['value'])*eval('unit.'+u)
 
                # Which hits to use for track fitting.
-               self.hits_to_fit = case.find('hits_to_fit').text.strip()
+               self.hits_to_fit = case[self.tracking_case]['hits_to_fit'].strip()
                # Which hits to use for triplet condition.
-               self.hits_for_triplet = case.find('hits_for_hough').text.strip() if case.find('hits_to_validate')==None else case.find('hits_to_validate').text.strip()
-               
+               if 'hits_to_validate' not in case[self.tracking_case]:
+                  self.hits_for_triplet = case[self.tracking_case]['hits_for_hough'].strip()
+               else: 
+                  self.hits_for_triplet = case[self.tracking_case]['hits_to_validate'].strip()
+
                # Detector plane masking. If flag is active, a plane will be masked if its N_hits > Nhits_per_plane.
                # In any case, plane masking will only be applied if solely Scifi hits are used in HT as it is
                # a measure against having many maxima in HT space.
-               self.mask_plane = int(case.find('mask_plane').text)
-               self.Nhits_per_plane = int(case.find('Nhits_per_plane').text)
+               self.mask_plane = int(case[self.tracking_case]['mask_plane'])
+               self.Nhits_per_plane = int(case[self.tracking_case]['Nhits_per_plane'])
 
                # Enable Gaussian smoothing over the full accumulator space.
-               self.smooth_full  = int(case.find('smooth_full').text)
+               self.smooth_full  = int(case[self.tracking_case]['smooth_full'])
                # Gaussian smoothing parameters. The kernel size is determined as 2*int(truncate*sigma+0.5)+1
-               self.sigma = int(case.find('sigma').text)
-               self.truncate = int(case.find('truncate').text)
+               self.sigma = int(case[self.tracking_case]['sigma'])
+               self.truncate = int(case[self.tracking_case]['truncate'])
                # Helpers to pick up one of many HT space maxima
-               self.n_quantile = float(case.find('n_quantile').text)
-               self.res = int(case.find('res').text)
+               self.n_quantile = float(case[self.tracking_case]['n_quantile'])
+               self.res = int(case[self.tracking_case]['res'])
 
             else: continue
         if not track_case_exists:
-           raise RuntimeError("Unknown tracking case, check naming in parameter xml file.")
+           raise RuntimeError("Unknown tracking case, check naming in parameter yaml file.")
 
         # Get sensor dimensions from geometry
         self.MuFilter_ds_dx = self.mufiDet.GetConfParF("MuFilter/DownstreamBarY") # Assume y dimensions in vertical bars are the same as x dimensions in horizontal bars.
