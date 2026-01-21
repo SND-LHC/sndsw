@@ -8,6 +8,8 @@ import os
 parser = argparse.ArgumentParser(
     prog="makeRunListDB",
     description="Extracts a list of runs from the SND@LHC DB, matching the conditions given in the arguments. Produces an XML file with the run list and a summary of the selection.")
+parser.add_argument("--username", type=str, help="Database username. Contact database maintainer to obtain it", required=True)
+parser.add_argument("--password", type=str, help="Database password. Contact database maintainer to obtain it", required=True)
 parser.add_argument("--name", type=str, help="Run list name", required=True)
 parser.add_argument("--years", nargs="+", type=int, help="Years to be included, e.g. 2022 2023", required=True)
 parser.add_argument("--min_events", type=int, help="Minimum number of events in run", default=0)
@@ -23,7 +25,8 @@ parser.add_argument("--include_runs", nargs="+", type=int, help="Runs to include
 parser.add_argument("--exclude_runs", nargs="+", type=int, help="Runs to exclude from the list", default=[])
 args = parser.parse_args()
 
-client = pymongo.MongoClient("sndrundb.cern.ch")
+client = pymongo.MongoClient('sndrundb.cern.ch', username=args.username, password=args.password, authSource='sndrundb', authMechanism='SCRAM-SHA-1')
+
 db = client.sndrundb
 
 pipeline = []
