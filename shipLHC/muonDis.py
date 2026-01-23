@@ -461,10 +461,16 @@ def makeMuDISEvents(withElossFunction=False,nucleon='p+'):
     myPythia.SetMRPY(1,R)
     mutype = {-13:'gamma/mu+',13:'gamma/mu-'}
 # DIS event
+# run number
+# event number
 # incoming muon,      id:px:py:pz:x:y:z:w
 # outgoing particles, id:px:py:pz
+    run = array('i', [0])
+    event = array('i', [0])
     fout  = ROOT.TFile('muonDis_'+str(options.run)+'.root','recreate')
     dTree = ROOT.TTree('DIS','muon DIS')
+    dTree.Branch("run",   run,   "run/I")
+    dTree.Branch("event", event, "event/I")
     iMuon       = ROOT.TClonesArray("TParticle") 
     iMuonBranch = dTree.Branch("InMuon",iMuon,32000,-1)
     dPart       = ROOT.TClonesArray("TParticle") 
@@ -480,6 +486,8 @@ def makeMuDISEvents(withElossFunction=False,nucleon='p+'):
     nMade = 0
     for k in range(options.nStart,nEnd):
       rc = sTree.GetEvent(k)
+      run[0] = int(sTree.run)
+      event[0] = int(sTree.event)
 # make n events / muon
       px,py,pz = sTree.px,sTree.py,sTree.pz
       x,y,z    = sTree.x,sTree.y,sTree.z-SND_Z

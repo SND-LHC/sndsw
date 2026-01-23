@@ -15,6 +15,7 @@
 #include "TGeoCompositeShape.h"
 #include "TParticle.h"
 #include "TClonesArray.h"
+#include "FairMCEventHeader.h"
 
 using std::cout;
 using std::endl;
@@ -52,6 +53,8 @@ Bool_t GenieGenerator::Init(const char* fileName, const int firstEvent) {
   fTree = (TTree *)fInputFile->Get("gst");
   fNevents = fTree->GetEntries();
   fn = firstEvent;
+  fTree->SetBranchAddress("FlukaRun",&runN); // run number
+  fTree->SetBranchAddress("evtNumber",&eventN); // event number
   fTree->SetBranchAddress("Ev",&Ev);    // incoming neutrino energy
   fTree->SetBranchAddress("pxv",&pxv);
   fTree->SetBranchAddress("pyv",&pyv);
@@ -494,7 +497,12 @@ Bool_t GenieGenerator::ReadEvent(FairPrimaryGenerator* cpg)
 		    0,               
 		    true);
     }
-    
+
+    // Set the generation run and event numbers through the MC event header
+    FairMCEventHeader* header = cpg->GetEvent();
+    header->SetEventID(eventN);
+    header->SetRunID(runN);
+
     return kTRUE;
 
   } else {
@@ -706,6 +714,12 @@ Bool_t GenieGenerator::ReadEvent(FairPrimaryGenerator* cpg)
     //cout << "Info GenieGenerator Return from GenieGenerator" << endl;
     }
   }
+
+  // Set the generation run and event numbers through the MC event header
+  FairMCEventHeader* header = cpg->GetEvent();
+  header->SetEventID(eventN);
+  header->SetRunID(runN);
+
   return kTRUE;
 }
 // -------------------------------------------------------------------------

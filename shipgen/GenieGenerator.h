@@ -1,5 +1,5 @@
 #ifndef PNDGeGENERATOR_H
-#define PNDGeGENERATOR_H 1
+#define PNDGeGENERATOR_H 3
 
 #include "TROOT.h"
 #include "FairGenerator.h"
@@ -52,6 +52,7 @@ class GenieGenerator : public FairGenerator
  private:
   
  protected:
+  int runN,eventN;
   Double_t FLUKA_x_cos, FLUKA_y_cos, FLUKA_x, FLUKA_y;
   Double_t fDeltaE_GenieFLUKA_nu;
   Double_t Yvessel,Xvessel,Lvessel,ztarget,startZ,endZ;
@@ -78,7 +79,7 @@ class GenieGenerator : public FairGenerator
   TH1D* pyslice[3000][500];//!
   TClonesArray *ancstr;//!
 
-  ClassDef(GenieGenerator,2);
+  ClassDef(GenieGenerator,3);
 };
 
 #endif /* !PNDGeGENERATOR_H */

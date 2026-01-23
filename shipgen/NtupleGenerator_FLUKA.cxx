@@ -5,6 +5,7 @@
 #include "FairPrimaryGenerator.h"
 #include "NtupleGenerator_FLUKA.h"
 #include "FairLogger.h"
+#include "FairMCEventHeader.h"
 
 // read events from ntuples produced by FLUKA
 
@@ -39,6 +40,8 @@ Bool_t NtupleGenerator_FLUKA::Init(const char* fileName, const int firstEvent) {
      fTree->SetBranchAddress("primaries",&primaries);
   }
   else {  
+    fTree->SetBranchAddress("run",&runN); // run number
+    fTree->SetBranchAddress("event",&eventN); // event number
     fTree->SetBranchAddress("id",&id);                // particle id
     fTree->SetBranchAddress("generation",&generation);    //  origin generation number
     fTree->SetBranchAddress("t",&t);             // time of flight
@@ -83,7 +86,7 @@ Bool_t NtupleGenerator_FLUKA::ReadEvent(FairPrimaryGenerator* cpg)
       for(int i=0; i<nf; i++){
           //casting
           struct PrimaryTrack* primary = dynamic_cast<struct PrimaryTrack*>(primaries->AddrAt(i));
-          // what to do with generation info?   convert time from ns to sec
+          //convert time from ns to sec
           cpg->AddTrack(int(primary->id),primary->px,primary->py,primary->pz,
                         primary->x,primary->y,primary->z-SND_Z,-1,true,primary->E,
                         primary->t/1E9,primary->w,(TMCProcess)primary->generation);
@@ -94,10 +97,15 @@ Bool_t NtupleGenerator_FLUKA::ReadEvent(FairPrimaryGenerator* cpg)
       }
    }
    else {
-     // what to do with generation info?   convert time from ns to sec
+     // convert time from ns to sec
      cpg->AddTrack(int(id[0]),px[0],py[0],pz[0],x[0],y[0],z[0]-SND_Z,-1,true,E[0],t[0]/1E9,w[0],(TMCProcess)generation[0]);
      LOG(DEBUG) << "NtupleGenerator_FLUKA: add muon " << id[0]<<","<<px[0]<<","<<py[0]<<","<<pz[0]<<","<<x[0]<<","<<y[0]<<","<<z[0]-SND_Z<<","<<generation[0]<<","<<E[0]<<","<<t[0]<<"ns,"<<w[0];
    }
+
+   // Set the generation run and event numbers through the MC event header
+   FairMCEventHeader* header = cpg->GetEvent();
+   header->SetEventID(int(eventN));
+   header->SetRunID(int(runN));
 
    return kTRUE;
 }
