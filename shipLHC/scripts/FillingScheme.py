@@ -1,17 +1,20 @@
-import ROOT,os
-import rootUtils as ut
-from urllib.request import urlopen
-import numpy
-import time,calendar
-import subprocess
-from XRootD import client
-import pickle
-from rootpyPickler import Pickler
-from rootpyPickler import Unpickler
 import atexit
-import requests
+import calendar
 import json
+import os
+import pickle
 import re
+import subprocess
+import time
+from urllib.request import urlopen
+
+import numpy
+import requests
+import ROOT
+import rootUtils as ut
+from rootpyPickler import Pickler, Unpickler
+from XRootD import client
+
 
 def pyExit():
        print("Make suicide until solution found for freezing")
@@ -21,7 +24,7 @@ atexit.register(pyExit)
 fromElog = {4361:7902,4362: 7921, 4363: 7921, 4364: 7921, 4365: 7921, 4366: 7922, 4367: 7923, 4368: 7923, 4369: 7923, 4370: 7924, 4371: 7924, 4372: 7925, 4373: 7926, 4374: 7927, 4375: 7928, 4376: 7929, 4377: 7930, 4378: 7931, 4379: 7931, 4380: 7932, 4381: 7933, 4382: 7934, 4383: 7935, 4384: 7936, 4385: 7937, 4386: 7938, 4387: 7939, 4388: 7940, 4389: 7941, 4390: 7942, 4391: 7943, 4392: 7944, 4393: 7945, 4394: 7946, 4395: 7947, 4396: 7948, 4397: 7949, 4398: 7950, 4399: 7951, 4400: 7952, 4401: 7953, 4402: 7954, 4403: 7955, 4404: 7956, 4405: 7957, 4406: 7958, 4407: 7959, 4408: 7959, 4409: 7960, 4410: 7960, 4411: 7961, 4412: 7961, 4413: 7962, 4414: 7963, 4415: 7963, 4416: 7964, 4418: 7964, 4419: 7965, 4420: 7966, 4421: 7966, 4422: 7967, 4423: 7967, 4424: 7967, 4425: 7967, 4426: 7968, 4427: 7969, 4428: 7969, 4429: 7970, 4430: 7971, 4431: 7971, 4432: 7972, 4433: 7973, 4434: 7974, 4435: 7974, 4436: 7975, 4437: 7976, 4438: 7976, 4440: 7977, 4441: 7977, 4443: 7977, 4446: 7977, 4447: 7977, 4448: 7977, 4449: 7978, 4450: 7979, 4451: 7979, 4452: 7979, 4461: 7979, 4462: 7982, 4463: 7983, 4464: 7984, 4465: 7985, 4466: 7986, 4467: 7987, 4468: 7988, 4469: 7989, 4470: 7990, 4471: 7991, 4472: 7992, 4473: 7993, 4474: 7994, 4475: 7995, 4476: 7996, 4477: 7997, 4478: 7998, 4479: 7999, 4480: 7999, 4481: 8000, 4482: 8001, 4483: 8002, 4484: 8003, 4485: 8004, 4486: 8005, 4487: 8006, 4488: 8007, 4489: 8008, 4493: 8008, 4494: 8008, 4495: 8009, 4496: 8010, 4497: 8010, 4498: 8011, 4499: 8012, 4500: 8013, 4501: 8014, 4503: 8016, 4504: 8017, 4505: 8018, 4506: 8018, 4507: 8019, 4508: 8019, 4509: 8020, 4510: 8021, 4511: 8021, 4512: 8022, 4513: 8022, 4514: 8023, 4515: 8023, 4516: 8024, 4523: 8025, 4524: 8025, 4525: 8025, 4526: 8026, 4527: 8027, 4528: 8028, 4529: 8028, 4530: 8029, 4531: 8029, 4532: 8030, 4533: 8031, 4534: 8032, 4535: 8032, 4536: 8033, 4537: 8033, 4539: 8033, 4540: 8033, 4541: 8033, 4542: 8034, 4543: 8034, 4544: 8034, 4557: 8035, 4558: 8035, 4559: 8036, 4561: 8038, 4562: 8039, 4563: 8040, 4564: 8041, 4568: 8043, 4569: 8044, 4570: 8044, 4571: 8045, 4572: 8046, 4573: 8047, 4574: 8047, 4575: 8047, 4578: 8047, 4579: 8047, 4580: 8050, 4581: 8051, 4582: 8052, 4583: 8052, 4585: 8053, 4586: 8053, 4587: 8054, 4588: 8055, 4589: 8056, 4590: 8056, 4591: 8057, 4592: 8058, 4593: 8058, 4594: 8059, 4595: 8059, 4598: 8061, 4601: 8061, 4602: 8061, 4603: 8061, 4604: 8062, 4606: 8063, 4612: 8063, 4613: 8064, 4614: 8064, 4615: 8065, 4616: 8066, 4617: 8067, 4619: 8068, 4620: 8069, 4621: 8069, 4622: 8070, 4623: 8071, 4624: 8071, 4625: 8072, 4626: 8072, 4627: 8073, 4628: 8073, 4629: 8073, 4630: 8073, 4631: 8073, 4632: 8073, 4635: 8073, 4636: 8074, 4637: 8075, 4638: 8076, 4639: 8076, 4641: 8076, 4642: 8076, 4643: 8076, 4644: 8076, 4645: 8076, 4646: 8076, 4647: 8076, 4648: 8077, 4649: 8078, 4650: 8079, 4653: 8080, 4654: 8081, 4657: 8082, 4658: 8082, 4659: 8082, 4660: 8082, 4662: 8083, 4665: 8083, 4666: 8083, 4667: 8083, 4669: 8084, 4670: 8084, 4672: 8084, 4673: 8084, 4675: 8084, 4676: 8084, 4677: 8084, 4678: 8084, 4679: 8084, 4680: 8084, 4681: 8084, 4682: 8084, 4684: 8084, 4686: 8084, 4687: 8084, 4688: 8084, 4689: 8084, 4690: 8084, 4693: 8084, 4560: 8037, 4661: 8083}
 
 # other remarks
-# run 4986 fill 8234 Acc Message :  - 300b fill for VELO insertion - issue with MKI - B2, we ramp with 218b 
+# run 4986 fill 8234 Acc Message :  - 300b fill for VELO insertion - issue with MKI - B2, we ramp with 218b
 
 
 emulsionReplacements = {0:1,4573:2,4859:3,5172:4,5485:5,6446:6}   # first runs with new emulsion
@@ -129,11 +132,11 @@ class fillingScheme():
         i = self.lpcFillingscheme.find(self.tagi.replace('XXXX',str(tmp)))
         if int(Y)>=2024:
           if i>0:
-            end_of_line = self.lpcFillingscheme[i:].find(self.tagl)            
+            end_of_line = self.lpcFillingscheme[i:].find(self.tagl)
             # In rare cases there is a link to download the FS file
             # One needs to skip this link data
             end_link_data = self.lpcFillingscheme[i:i+end_of_line].find('</a>')
-            if end_link_data!=-1: 
+            if end_link_data!=-1:
               end_of_line = self.lpcFillingscheme[i:].find('</a>'+self.tagl)
             line_of_interest = self.lpcFillingscheme[i:i+end_of_line]
             last_separator = line_of_interest.rfind("<td>")
@@ -151,7 +154,7 @@ class fillingScheme():
                if k>0:
                  fs = self.lpcFillingscheme[j:j+k]
         return fs
-        
+
    def getFillNrFromRunNr(self,runNumber):
        if runNumber in fromElog:
             return fromElog[runNumber]
@@ -239,7 +242,7 @@ class fillingScheme():
             self.lumiAtIP1['lumiTime'].AddPoint(e.unix_timestamp-t0,e.var)
 
        return 0
-       
+
      elif fromAtlas:
        fileLoc = os.environ['EOSSHIP']+"/eos/experiment/sndlhc/atlas_lumi/fill_"+str(fillnr).zfill(6)+".root"
        try:
@@ -270,7 +273,7 @@ class fillingScheme():
        self.h['c1'].cd()
        ROOT.gROOT.cd()
        self.options.fillNumbers = self.getFillNrFromRunNr(runNumber)
-       # for overlay, need SND@LHC startTime to adjust with lumiTime 
+       # for overlay, need SND@LHC startTime to adjust with lumiTime
        runDir = options.rawData+"/run_"+str(runNumber).zfill(6)
        jname = "run_timestamps.json"
        dirlist  = str( subprocess.check_output("xrdfs "+os.environ['EOSSHIP']+" ls "+runDir,shell=True) )
@@ -300,7 +303,7 @@ class fillingScheme():
            tmp = self.date['start_time'].replace('T',' ').replace('Z','')
        else: tmp = self.date['start_time']
        self.h['time10'].SetTitle('Run '+str(runNumber)+'  Fill '+str(self.options.fillNumbers)+'  '+tmp)
-# what to do with spikes? 
+# what to do with spikes?
        mx = self.h['time10'].GetMaximumBin()
        side = self.h['time10'].GetBinContent(mx-1)+self.h['time10'].GetBinContent(mx+1)
        if self.h['time10'].GetBinContent(mx+1)<0.2*self.h['time10'].GetBinContent(mx-1): side = 2*self.h['time10'].GetBinContent(mx-1) # happens at end of fill
@@ -339,7 +342,7 @@ class fillingScheme():
                l = self.lumiAtIP1['lumiTime'].GetPointY(n)
                self.lumiAtlas.AddPoint(t,l)
                if l>self.Lmax: self.Lmax = l
-               if tprev[0] < 0: 
+               if tprev[0] < 0:
                    tprev = [t,l]
                else:
                    dt = t - tprev[0]
@@ -350,7 +353,7 @@ class fillingScheme():
                    tprev[1] = l
        self.LumiInt[runNumber] = [self.Lint,self.Lsnd]
 
-       if not self.Lmax>0: 
+       if not self.Lmax>0:
            print('no lumi for run ',runNumber)
            return
 # work with second axis
@@ -382,10 +385,10 @@ class fillingScheme():
        self.myPrint('c1','Lumi-run'+str(runNumber).zfill(6))
    def alternativeFill(self,fillNr):
        alternative = None
-       if fillNr=='8470': 
+       if fillNr=='8470':
                   # 25ns_156b_144_90_96_48bpi_4inj_MD7003 from ELOG
              alternative = '8471'
-       if fillNr=='8461': 
+       if fillNr=='8461':
                   # 2nominals_10pilots_lossmaps_coll_allIPs from ELOG
              alternative = '8184'
        if fillNr=='8256':
@@ -422,15 +425,15 @@ class fillingScheme():
              alternative = '8007'  # ???
        elif fillNr=='8388':
                   # 25ns_2462b_2450_1737_1735_180bpi_17inj_2INDIV
-             alternative = '8387'  #  
+             alternative = '8387'  #
        elif fillNr=='8478':
                   # Single_12b_9_1_3_BSRT_2018_pilot
-             alternative = '8479'  #  
+             alternative = '8479'  #
        elif fillNr=='8294':
                   # 25ns_315b_302_237_240_48bpi_11inj,
-             alternative = '8295'  #?  8293'  #  
+             alternative = '8295'  #?  8293'  #
        return alternative
-       
+
    def extractFillingScheme(self,fillNr):
         alternative = self.alternativeFill(str(fillNr))
         # Get the FS name from the all-year LPC table
@@ -440,7 +443,7 @@ class fillingScheme():
         if fs_name_table=="50ns_119b_58_51_58_56bpi_9inj_3INDIV_4NC_PbPb":
            fs_name_table="50ns_119b_58_51_58_56bpi_9inj_4NC_3INDIV_PbPb"
         print('Name of filling scheme: ',fs_name_table)
-        if fs_name_table==0: 
+        if fs_name_table==0:
           return -1
         # since 2024 there is new storage of FS in json files, no csv
         fs_url="https://gitlab.cern.ch/lhc-injection-scheme/injection-schemes/-/raw/master/"+\
@@ -449,7 +452,7 @@ class fillingScheme():
         nt = ROOT.TNtuple('fill'+fillNr,'b1 IP1 IP2','B1:IP1:IP2:IsB2')
         # Get the data for year>=2024
         # 9323 is first fillNr for 2024
-        if int(fillNr) >= 9323: 
+        if int(fillNr) >= 9323:
           # Get the JSON file content from the web
           response = requests.get(fs_url)
           # If JSON file is not found, try adding char 's' to FS name
@@ -479,12 +482,12 @@ class fillingScheme():
              # Accept if difference is char 's'
              if fs_name_json!=fs_name_table+'s':
                return -1
-             
+
            nB1 = fs_data_json['collsPatternB1']#B1 bucket number,IP1,IP2,IP5,IP8
            nB2 = fs_data_json['collsPatternB2']#B2 bucket number,IP1,IP2,IP5,IP8
            # Sanity checks.
            if not len(nB1)==5 or not len(nB2)==5:
-             print("missing collsPattern data in the FS JSON file")	
+             print("missing collsPattern data in the FS JSON file")
              return -1
 
            # Get N colliding bunches from name of the FS json file
@@ -493,11 +496,11 @@ class fillingScheme():
            n_ip1_in_title = int(fs_n_bunches[0])
            n_ip2_in_title = int(fs_n_bunches[1])
            n_ip8_in_title = int(fs_n_bunches[2])
-           
+
            summary_collisions = {'B1':[], 'B2':[]}
            collsPatterns = {'B1':nB1, 'B2':nB2}
            for beam in collsPatterns.keys():
-             for i in range(1,5): 
+             for i in range(1,5):
                summary_collisions[beam].append(numpy.count_nonzero(numpy.array(collsPatterns[beam][i])))
                if i==1 or i==3: #IP1/5
                   if not summary_collisions[beam][i-1]== n_ip1_in_title:
@@ -511,7 +514,7 @@ class fillingScheme():
                      print("For the number of IP8 bunches for {0} got {1} expected {2}. Check the FS!".format(beam,summary_collisions[beam][i-1],n_ip8_in_title))
            print("From the json file, we got:\nBeam1:\nIP1 {0}, IP2 {1}, IP5 {2}, IP8 {3}".format(*summary_collisions['B1']))
            print("Beam2:\nIP1 {0}, IP2 {1}, IP5 {2}, IP8 {3}".format(*summary_collisions['B2']))
-           
+
            for i in range(len(nB1[0])):
              if nB1[1][i]==1: # 1 if headon in IP1
                  b1_ip1_id = int(nB1[0][i])
@@ -528,7 +531,7 @@ class fillingScheme():
                 b2_ip2_id = int(nB2[0][i])
              else: b2_ip2_id = -1
              rc = nt.Fill(int(nB2[0][i]),b2_ip1_id, b2_ip2_id,1)
-             
+
         else:
           # 2022-2023 FS storage in csv files
           # cases where only a binary csv file exists or the json file is wrong
@@ -545,9 +548,9 @@ class fillingScheme():
               fs_url = fs_url+fillNr+'&fmt=json'
             with urlopen(fs_url) as webpage:
               tmp = webpage.read().decode()
-              
+
             exec("self.content = "+tmp)
-            if len(self.content['fills']) < 1: 
+            if len(self.content['fills']) < 1:
               print('Filling scheme not yet known',fillNr,self.options.runNumbers)
               return -1
             if alternative:
@@ -560,7 +563,7 @@ class fillingScheme():
                      "https://lpc.web.cern.ch/fillingSchemes/202X/candidates")
                return -1
             csv = self.content['fills'][fillNr]['csv'].split('\n')
-            
+
           nB1 = csv.index('B1 bucket number,IP1,IP2,IP5,IP8')
           while nB1>0:
             tmp = csv[nB1+1].split(',')
@@ -578,6 +581,70 @@ class fillingScheme():
         F.Close()
         return 0
 
+   def getBunchStructureDict(self, fillNr):
+        """
+        Extracts bunch structure from a filling scheme file into a dictionary.
+
+        Args:
+            fillNr (str): The fill number.
+
+        Returns:
+            dict: A dictionary with keys 'B1', 'B2', 'IP1', 'IP2',
+                  each containing a sorted list of bunch numbers.
+                  Returns None if extraction fails.
+        """
+        fs_file = os.path.join(self.path, f'fillingScheme-{fillNr}.root')
+        if not os.path.exists(fs_file):
+            rc = self.extractFillingScheme(fillNr)
+            if rc < 0:
+                print(f"Could not extract filling scheme for fill {fillNr}")
+                return None
+
+        F = ROOT.TFile.Open(fs_file)
+        if not F or F.IsZombie():
+            print(f"Could not open {fs_file}")
+            return None
+        
+        nt = F.Get('fill' + fillNr)
+        if not nt:
+            print(f"Could not find TNtuple 'fill{fillNr}' in {fs_file}")
+            F.Close()
+            return None
+
+        fs_name_table = self.getNameOfFillingscheme(int(fillNr))
+        is_ion_run = "PbPb" in fs_name_table
+
+        if is_ion_run:
+            divisor = 20
+        else:
+            divisor = 10
+
+        bunch_dict = {"B1": set(), "B2": set(), "IP1": set(), "IP2": set()}
+        for event in nt:
+            bunch_slot = (int(event.B1) - 1) // divisor
+
+            is_b2 = event.IsB2 > 0
+            is_ip1 = event.IP1 > 0
+            is_ip2 = event.IP2 > 0
+
+            if is_b2:
+                bunch_dict["B2"].add(bunch_slot)
+            else:
+                bunch_dict["B1"].add(bunch_slot)
+
+            if is_ip1:
+                bunch_dict["IP1"].add(bunch_slot)
+            if is_ip2:
+                bunch_dict["IP2"].add(bunch_slot)
+        
+        F.Close()
+
+        # Convert sets to sorted lists
+        for key in bunch_dict:
+            bunch_dict[key] = sorted(list(bunch_dict[key]))
+
+        return bunch_dict
+
    def extractPhaseShift(self,fillNr,runNumber):
          # Check if the offline monitoring file exists
          try:
@@ -586,14 +653,14 @@ class fillingScheme():
            try:
              self.h['bnr'] = R.daq.Get('bunchNumber').FindObject('bnr').Clone('bnr')
            except:
-             self.h['bnr'] = R.daq.Get('shifter/bunchNumber').FindObject('bnr').Clone('bnr')         
+             self.h['bnr'] = R.daq.Get('shifter/bunchNumber').FindObject('bnr').Clone('bnr')
            R.Close()
          # create the bunch number plot if offline monitoring file is missing
          except:
            try:
              self.h['bnr']=self.h['bnr_from_data']
            except:
-             self.h['bnr'] = self.BunchNumberPlotFromData(runNumber)         
+             self.h['bnr'] = self.BunchNumberPlotFromData(runNumber)
          Nbunches = self.h['bnr'].GetNbinsX()
 #Filling scheme
          self.F = ROOT.TFile(self.path+'fillingScheme-'+fillNr+'.root')
@@ -636,7 +703,7 @@ class fillingScheme():
                    ip1 = (j-1+Nbunches-self.phaseShift1)%Nbunches
                    if ip1 in fsdict['B1']:
                        if fsdict['B1'][ip1]['IP1']: continue
-                   if fsdict['B2'][n]['IP2'] or 1>0: 
+                   if fsdict['B2'][n]['IP2'] or 1>0:
                       self.matches[phase2]+=self.h['bnr'].GetBinContent(j)
            self.phaseShift2 = max(self.matches,key=self.matches.get)
            print('phaseShift2 found:',self.phaseShift2,Nbunches-self.phaseShift2)
@@ -671,7 +738,7 @@ class fillingScheme():
                 self.phaseShift1 =  2598 +129
            # force 129 for proton beams
            # It is determined using ~480m distance to IP1 and 25-ns distance between bunches:
-           # 482.5m/speed of light/bunch distance = 64.33 
+           # 482.5m/speed of light/bunch distance = 64.33
            # This is multiplied by 2 to arrive at 129.
            self.phaseShift2 = Nbunches - 129
          print('phaseShift2 is set to:',self.phaseShift2,Nbunches-self.phaseShift2)
@@ -682,14 +749,14 @@ class fillingScheme():
          h=self.h
          self.F = ROOT.TFile(self.path+'fillingScheme-'+fillNr+'.root')
          self.fs = self.F.Get('fill'+fillNr)
-         
+
          try:
            R = ROOT.TFile.Open(www+"offline/run"+str(runNumber).zfill(6)+".root")
            ROOT.gROOT.cd()
            bCanvas = R.daq.Get('bunchNumber')
            if not bCanvas:
              bCanvas = R.daq.shifter.Get('bunchNumber')
-           h['bnr']= bCanvas.FindObject('bnr').Clone('bnr')           
+           h['bnr']= bCanvas.FindObject('bnr').Clone('bnr')
          # create the bunch number plot if offline monitoring file is missing
          except:
             try:
@@ -698,7 +765,7 @@ class fillingScheme():
                h['bnr'] = self.BunchNumberPlotFromData(runNumber)
          Nbunches = h['bnr'].GetNbinsX()
          ROOT.gROOT.cd()
-         
+
          ut.bookHist(h,'b1','b1',35640,-0.5,35639.5)
          ut.bookHist(h,'IP1','IP1',35640,-0.5,35639.5)
          ut.bookHist(h,'IP2','IP2',35640,-0.5,35639.5)
@@ -722,9 +789,9 @@ class fillingScheme():
          h = self.h
          Nbunches = h['bnr'].GetNbinsX()
          eq = ''
-         if Nbunches==1782: 
+         if Nbunches==1782:
            equation_str ='floor((B1-1)/20)'
-         if Nbunches==3564: 
+         if Nbunches==3564:
            equation_str = '(B1-1)/10'
          h['c1'].cd()
          self.fs.Draw('(( '+equation_str+'+'+str(self.phaseShift1)+')%'+str(Nbunches)+')>>b1z','!(IsB2>0)','hist')
@@ -745,7 +812,7 @@ class fillingScheme():
          txt = 'phase shift B1, B2: '+str(Nbunches-self.phaseShift1)+','+str(Nbunches-self.phaseShift2)+' for run '+str(options.runNumbers)
          txt += " fill nr "+options.fillNumbers
          h['b1z'].SetTitle(txt)
-         if self.options.withIP2: 
+         if self.options.withIP2:
                h['IP2z'].Draw('histsame')
                h['b2z'].Draw('histsame')
          h['IP1z'].Draw('histsame')
@@ -802,26 +869,72 @@ class fillingScheme():
             if h['XIP1z'].GetBinContent(n+1)>0:
               rc = h['scycle'].Fill(n%div, h['Xbnr'].GetBinContent(n+1))
 
+
+
+
    def Extract(self):
-        if self.options.fillNumbers=='':
-           fillNumber = self.getFillNrFromRunNr(int(options.runNumbers))
-           if not fillNumber: 
-               print('Fill number not found')
-           else:
-               rc = self.extractFillingScheme(str(fillNumber))
-               if not rc<0:
-                 self.options.fillNumbers = str(fillNumber)
-                 self.extractPhaseShift(self.options.fillNumbers,int(self.options.runNumbers))
-                 r = int(self.options.runNumbers)
-                 self.plotBunchStructure(self.options.fillNumbers,r)
-                 self.myPrint('c1','FS-run'+str(r).zfill(6))
-                 # add the FS to the file without running all other modules
-                 self.merge()
-                 self.storeDict(self.FSdict,'FSdict','FSdict') 
-       
+        print("DEBUG: Entering Extract()")
+
+        if self.options.fillNumbers == '':
+            print("DEBUG: fillNumbers empty, calling getFillNrFromRunNr()")
+            fillNumber = self.getFillNrFromRunNr(int(options.runNumbers))
+
+            if not fillNumber:
+                print('Fill number not found')
+            else:
+                print("DEBUG: Calling extractFillingScheme()")
+                rc = self.extractFillingScheme(str(fillNumber))
+
+                if not rc < 0:
+                    print("DEBUG: Setting fillNumbers and calling extractPhaseShift()")
+                    self.options.fillNumbers = str(fillNumber)
+
+                    print("DEBUG: Calling extractPhaseShift()")
+                    self.extractPhaseShift(self.options.fillNumbers, int(self.options.runNumbers))
+
+                    r = int(self.options.runNumbers)
+
+                    print("DEBUG: Calling plotBunchStructure()")
+                    self.plotBunchStructure(self.options.fillNumbers, r)
+
+                    print("DEBUG: Calling myPrint()")
+                    self.myPrint('c1', 'FS-run'+str(r).zfill(6))
+
+                    print("DEBUG: Calling merge()")
+                    self.merge()
+
+                    print("DEBUG: Calling storeDict()")
+                    self.storeDict(self.FSdict, 'FSdict', 'FSdict')
+
         else:
-           for r in options.fillNumbers.split(','):
-              self.extractFillingScheme(r)
+            print("DEBUG: Non-empty fillNumbers, looping")
+            for r in options.fillNumbers.split(','):
+                print(f"DEBUG: Calling extractFillingScheme({r})")
+                self.extractFillingScheme(r)
+
+
+
+
+   # def Extract(self):
+   #      if self.options.fillNumbers=='':
+   #         fillNumber = self.getFillNrFromRunNr(int(options.runNumbers))
+   #         if not fillNumber:
+   #             print('Fill number not found')
+   #         else:
+   #             rc = self.extractFillingScheme(str(fillNumber))
+   #             if not rc<0:
+   #               self.options.fillNumbers = str(fillNumber)
+   #               self.extractPhaseShift(self.options.fillNumbers,int(self.options.runNumbers))
+   #               r = int(self.options.runNumbers)
+   #               self.plotBunchStructure(self.options.fillNumbers,r)
+   #               self.myPrint('c1','FS-run'+str(r).zfill(6))
+   #               # add the FS to the file without running all other modules
+   #               self.merge()
+   #               self.storeDict(self.FSdict,'FSdict','FSdict')
+
+   #      else:
+   #         for r in options.fillNumbers.split(','):
+   #            self.extractFillingScheme(r)
 
    def test(self,runnr,I=True):
        h = self.h
@@ -829,7 +942,7 @@ class fillingScheme():
        p = open("FSdict.pkl",'rb')
        self.FSdict = pickle.load(p)
        if runnr in self.FSdict: fsdict = self.FSdict[runnr]
-       else: 
+       else:
             print('run number not known. Exit.')
             return()
        options.runNumbers = str(runnr)
@@ -870,7 +983,7 @@ class fillingScheme():
 
    def b1b2(self,runnr,b):
      Nbunches = self.h['bnr'].GetNbinsX()
-     if runnr in self.FSdict: 
+     if runnr in self.FSdict:
             fsdict = self.FSdict[runnr]
             nb1 = ( Nbunches + b - fsdict['phaseShift1'])%Nbunches
             nb2 = ( Nbunches + b - fsdict['phaseShift1'] - fsdict['phaseShift2'])%Nbunches
@@ -890,11 +1003,11 @@ class fillingScheme():
            h[runNumber+'_Mu']=ROOT.TGraph()
        # need to know the number of colliding bunches. Take from filling scheme
            fs = runInfo[int(runNumber)]['FillingScheme']
-           if fs==' ' or fs=='' or fs==0: 
+           if fs==' ' or fs=='' or fs==0:
               print('filling scheme not in runinfo, try ',runNumber)
               fillnr = runInfo[int(runNumber)]['Fillnumber']
               fs = self.getNameOfFillingscheme(fillnr)
-              if fs==' ' or fs=='' or fs==0: 
+              if fs==' ' or fs=='' or fs==0:
                             print('filling scheme not found')
                             continue
               else:print('filling scheme found!')
@@ -970,7 +1083,7 @@ class fillingScheme():
               print('calcMu: run not in runInfo',r)
               continue
           runInfo[r]['muAv'] = {'':h['muAv'][runNumber][''],'Scifi':h['muAv'][runNumber]['Scifi'],'DS':h['muAv'][runNumber]['DS']}
-       
+
    def FwBw(self,runNumber):
        options.runNumbers = runNumber
        options.fillNumbers = self.runInfo[options.runNumbers]['Fillnumber']
@@ -980,7 +1093,7 @@ class fillingScheme():
        self.B = ROOT.TFile.Open(www+"offline/BunchStructure.root")
        self.L = ROOT.TFile.Open(www+"offline/Lumi.root")
        xing = {'all':False,'B1only':False,'B2noB1':False,'noBeam':False}
-                
+
        for T in ['Txing','TD','T']:
           h[T] = self.F.daq.Get(T).Clone(T)
        for X in ['time','timeWt','timeWtDS']:
@@ -997,7 +1110,7 @@ class fillingScheme():
            h[X].SetName('Track Velocity '+x)
        h['BunchStructure'] = self.B.Get("run"+str(runNumber).zfill(6)).Clone("run"+str(runNumber).zfill(6))
        h['Lumi'] = self.L.Get("run"+str(runNumber).zfill(6)).Clone("run"+str(runNumber).zfill(6))
-       for x in h['Lumi'].GetListOfPrimitives(): 
+       for x in h['Lumi'].GetListOfPrimitives():
          if x.ClassName() == "TGraph": break
        h['LumiT'] = x.Clone()
        Lmax = 0
@@ -1005,7 +1118,7 @@ class fillingScheme():
                l = h['LumiT'].GetPointY(n)
                if l>Lmax: Lmax = l
 
-       for x in ['IP1z','b1z','b2z']:      
+       for x in ['IP1z','b1z','b2z']:
              h[x] = h['BunchStructure'].FindObject(x)
        ROOT.gROOT.cd()
        ut.bookCanvas(h,'dirRes','',1600,900,2,1)
@@ -1173,7 +1286,7 @@ class fillingScheme():
                  h[cv].cd()
                  txt = y+B
                  h[y+B].Draw('colz')
-              else: 
+              else:
                  txt = 'scifi-'+y+B
                  cv = '1dslopes'
                  h[cv].cd()
@@ -1204,7 +1317,7 @@ class fillingScheme():
                  h[cv].cd()
                  txt = y+B
                  h[y+B].Draw('colz')
-              else: 
+              else:
                  cv = '1dslopes'
                  h[cv].cd()
                  txt = 'mufi-'+y+B
@@ -1250,7 +1363,7 @@ class fillingScheme():
             self.beamCurrent[X][1].AddPoint(e.unix_timestamp-t0,e.var)
             if e.var > mx: mx=e.var
      self.beamCurrent[X][0] = mx
-     
+
 # work with second axis
      if 1<0:
         rightmax = 1.1*Lmax/1000
@@ -1278,22 +1391,33 @@ class fillingScheme():
 
 
    def merge(self):
-        h = self.h
-        for fname in os.listdir():
-            if fname.find('FS')==0 and fname.find('.root')>0 and fname.find('dict')<0:
-                rname = fname.split('-')[1].split('.')[0]
-                F = ROOT.TFile(fname)
-                h[rname] = F.c1.Clone(rname)
-                h[rname].SetName(rname)
-                h[rname].SetTitle(rname)
-        F = ROOT.TFile('BunchStructure.root','recreate')
-        keys = list(h.keys())
-        keys.sort(reverse=True)
-        for r in keys:
-           if r.find('run')==0: 
-              if int(r.split('run')[1])<options.rmin: continue
-              h[r].Write()
-        F.Close()
+       histos = self.h
+
+       for fileName in os.listdir(self.path):
+           if (
+               fileName.startswith('FS') and
+               fileName.endswith('.root') and
+               fileName.find('dict')<0
+           ):
+               runName = fileName.removeprefix("FS-").removesuffix(".root")
+               fsRootFile = ROOT.TFile.Open(f"{self.path}/{fileName}", "read")
+               histos[runName] = fsRootFile.c1.Clone(runName)
+               histos[runName].SetName(runName)
+               histos[runName].SetTitle(runName)
+
+       bunchStructPath = os.path.join(self.path, 'BunchStructure.root')
+       bunchStructFile = ROOT.TFile.Open(bunchStructPath, "recreate")
+       bunchStructFile.cd()
+
+       for run in sorted(histos, reverse=True):
+           if not run.startswith("run"):
+               continue
+           elif int(run.split('run')[1]) < options.rmin:
+               continue
+
+           histos[run].Write()
+       bunchStructFile.Close()
+
 
    def mergeLumi(self):
         h = self.h
@@ -1354,6 +1478,7 @@ class fillingScheme():
                 h[newname].Write()
 
    def BunchNumberPlotFromData(self,r):
+          print(f"DEBUG: Calling BunchNumberPlotFromData(self, {r})")
 # check for partitions
           runNr = str(r).zfill(6)
           partitions = []
@@ -1374,13 +1499,24 @@ class fillingScheme():
           # use postscale, same logic as in the monitoring task
           postScale = 0
           if nEvents>10E6: postScale = 10
-          if nEvents>100E6: postScale = 100
+          if nEvents>100E6: postScale = 100 #100
+          if nEvents>200E6: postScale = 750
+          sampling_threshold = 1.0 / postScale if postScale > 0 else 1.0
           print('using postScale ',postScale,' for run ',r)
-          for event in eventChain:
-            if postScale>0:
-              if ROOT.gRandom.Rndm()>1./postScale: continue
+          start_time = time.time()
+          for i_event, event in enumerate(eventChain):
+            if i_event%int(1e4)==0:
+                duration = time.time() - start_time
+                h = int(duration // 3600)
+                m, s = divmod(duration%3600, 60)
+
+                print(f"\t >> [{i_event*100/nEvents:.01f} %]\t{i_event:,}/{nEvents:,}\t{h} h {int(m)} m, {round(s)} sec")
+            if numpy.random.rand() > sampling_threshold:
+                continue
+#            if postScale>0:
+#              if ROOT.gRandom.Rndm()>1./postScale: continue
             self.h['bnr_from_data'].Fill(int((event.EventHeader.GetEventTime()%(div*Nbunches))/div+0.5))
-          
+
           return self.h['bnr_from_data']
 
    def getEntriesPerRun(self,r):
@@ -1405,7 +1541,7 @@ class fillingScheme():
            N+=self.runInfo[r]['Entries']
 
    def makeLatex(self):
-        # make latex code 
+        # make latex code
         # filling schemes:  FS-run004626.pdf  and  Lumi-run004626.pdf
         L,N= 0,0
         for r in self.runInfo:
@@ -1490,7 +1626,7 @@ class fillingScheme():
            if 'muAv' in self.runInfo[r]: mu = "%4.1F"%(self.runInfo[r]['muAv'][''])
            lines.append(" %i & %6s & %10i & %s & $%5.1F$ & %s \\\\"%(r,fill,N,mu,lumi,self.runInfo[r]['StartTimeC']))
            ilines+=1
-           if ilines%19==0: 
+           if ilines%19==0:
                 lines.append("\end{tabular}")
                 lines.append("\\end{scriptsize}")
                 lines.append("\end{frame}")
@@ -1529,7 +1665,7 @@ class fillingScheme():
            if "run"+r+"Lumi-tracks.pdf" in os.listdir('.'):
              lines.append("\includegraphics[width = 0.3\\textwidth]{run"+r+"Lumi-tracks.pdf}")
            lines.append("\\newline")
-           if (3*k+3)%12==0: 
+           if (3*k+3)%12==0:
                 lines.append("\end{frame}")
                 lines.append("\\begin{frame}{}")
            k+=1
@@ -1683,7 +1819,7 @@ class fillingScheme():
              for x in tc.GetListOfPrimitives():
                   if x.GetTitle()=='' and x.GetName()=='': lumi = x
                   if x.GetTitle().find('Hz/nb')>0: yaxis = x
-             if not lumi: 
+             if not lumi:
                  print('lumi not available',runNumber)
                  continue
              calib = yaxis.GetWmax()/yaxis.GetY2()
@@ -1700,7 +1836,7 @@ class fillingScheme():
              if runNumber == 5122: tMin = 8000
              if runNumber == 5120: tMin = 4000
              if runNumber == 4449: tMin = 5100
-             if runNumber == 4504: 
+             if runNumber == 4504:
                    tMin = 4900
                    tMax = 15000
              for x in ["timeWtDS","timeWt"]:
@@ -1790,7 +1926,7 @@ class fillingScheme():
              rList = list(emulsionReplacements.keys())
              rList.sort(reverse=True)
              for runNr in rList:
-                if runNumber >= runNr: 
+                if runNumber >= runNr:
                     emulsionNr = emulsionReplacements[runNr]
                     break
              for k in [ 'scifi-TtrackPos','mufi-TtrackPos']:
@@ -1798,7 +1934,7 @@ class fillingScheme():
                     h['I'+k+str(emulsionNr)] = h[k].Clone('I'+k)
                     h['I'+k+str(emulsionNr)].Scale(postScale)
                     if k=='scifi-TtrackPos': h['emulsionILumi'+str(emulsionNr)] =  self.runInfo[runNumber]['lumiAtIP1withSNDLHC']
-                 else: 
+                 else:
                     h['I'+k+str(emulsionNr)].Add(h[k],postScale)
                     if k=='scifi-TtrackPos': h['emulsionILumi'+str(emulsionNr)] +=  self.runInfo[runNumber]['lumiAtIP1withSNDLHC']
 
@@ -1996,16 +2132,41 @@ class fillingScheme():
                       h[hname+'B2noB1'].Draw()
                       h[hname+'MC'].Draw('sameHist')
               self.myPrint(hitmaps,hitmaps+'-Q12MC')
-               
-       
-   def storeDict(self,dictPtr,dictName,outFileName):
-           fp = ROOT.TFile.Open(outFileName+'.root','recreate')
-           pkl = Pickler(fp)
-           pkl.dump(dictPtr,dictName)
-           fp.Close()
-           fp = open(outFileName+'.pkl','wb')
-           pickle.dump(dictPtr,fp)
-           fp.close()
+
+
+   def storeDict(self, dictPtr, dictName, outFileName):
+       # Search for existing files in the provided path
+       outFileRoot = os.path.join(self.path, f"{outFileName}.root")
+       outFilePkl = os.path.join(self.path, f"{outFileName}.pkl")
+
+       # If root file exists, load and update existing data
+       if os.path.exists(outFileRoot):
+           rootFile = ROOT.TFile.Open(outFileRoot, 'read')
+           pkl = Unpickler(rootFile)
+           existingDict = pkl.load(dictName)
+           rootFile.Close()
+
+           # Merge new with existing data
+           existingDict.update(dictPtr)
+           dictPtr = existingDict
+
+       # Overwrite old data with updated data
+       rootFile = ROOT.TFile.Open(outFileRoot, "recreate")
+       pkl = Pickler(rootFile)
+       pkl.dump(dictPtr, dictName)
+       rootFile.Close()
+
+       # Repeat for pickle file
+       if os.path.exists(outFilePkl):
+           with open(outFilePkl, "rb") as f:
+               existingPkl = pickle.load(f)
+
+           existingPkl.update(dictPtr)
+           dictPtr = existingPkl
+
+       with open(outFilePkl, "wb") as f:
+           pickle.dump(dictPtr, f)
+
 
    def checkSynch(self):
          for r in self.FSdict:
@@ -2013,7 +2174,7 @@ class fillingScheme():
                  print('run does not exist in runInfo',r)
             elif not self.runInfo[r]['phaseShift1'] == self.FSdict[r]['phaseShift1']:
                  print(r,self.runInfo[r]['phaseShift1'], self.FSdict[r]['phaseShift1'])
-            
+
    def modifyFSdict(self,shift=-1):
          # shift = -1 for converting 2022 to reproc2022, otherwise 0
          fg  = ROOT.TFile.Open(options.path+'FSdict.root')
@@ -2046,10 +2207,10 @@ if __name__ == '__main__':
     parser.add_argument("-www", dest="www", help="path to offline folder",default=os.environ['EOSSHIP']+"/eos/experiment/sndlhc/www/")
     parser.add_argument("-nMin", dest="nMin", help="min entries for a run",default=100000)
     parser.add_argument("--batch", help="run in batch mode",default=False,action='store_true')
-    
+
     options = parser.parse_args()
     if options.batch:
-      ROOT.gROOT.SetBatch(True)    
+      ROOT.gROOT.SetBatch(True)
     www = options.www
     if options.rawData.find('2022')>0:
        options.convpath = "/eos/experiment/sndlhc/convertedData/physics/2022/"
@@ -2081,6 +2242,17 @@ if __name__ == '__main__':
     elif options.command == "draw":
         options.withIP2=True
         FS.plotBunchStructure(options.fillNumbers,int(options.runNumbers))
+    elif options.command == "get-dict":
+        if not options.fillNumbers:
+            print("Please provide a fill number with -F or --fillNumbers")
+        else:
+            # The user can provide a comma-separated list of fills, but we'll only use the first one.
+            fill_number = options.fillNumbers.split(',')[0]
+            print(f"Extracting bunch structure for fill {fill_number}...")
+            bunch_dictionary = FS.getBunchStructureDict(fill_number)
+            if bunch_dictionary:
+                import pprint
+                pprint.pprint(bunch_dictionary)
     elif options.command == "makeAll" or options.command == "update":
            problems = {}
            with client.File() as f:
@@ -2162,13 +2334,13 @@ if __name__ == '__main__':
               L+=FS.runInfo[r]['lumiAtIP1withSNDLHC']
               N+=FS.runInfo[r]['Entries']
            print('total nr of events',N,'  integrated luminosity ',L/1E9,'fb')
-           print('run tracks per Lumi') 
+           print('run tracks per Lumi')
            FS.tracksPerLumi()
            FS.plotLumiPerTime()
            print('make Latex', 'requires up to date files on EOS! pdflatex LumiSummary.tex')
            FS.makeLatex()
            # os.system('pdflatex LumiSummary.tex')
-           
+
            print('problems',problems)
            # other functionalities of this manager that will be skipped for now
            '''
