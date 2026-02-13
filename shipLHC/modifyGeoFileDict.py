@@ -668,7 +668,7 @@ def modifyDicts(year=2024):
    1.22*u.mrad, 0.00*u.mrad, -0.24*u.mrad,
    1.50*u.mrad, 0.10*u.mrad, 0.00*u.mrad,
    -1.52*u.mrad, -0.21*u.mrad, 0.21*u.mrad,
-   1.83*u.mrad, -0.24*u.mrad, 0.50**u.mrad]
+   1.83*u.mrad, -0.24*u.mrad, 0.50*u.mrad]
          alignment['t_12123']=[ #2025 dummy target run_257 and ion run_258
    230.00*u.um, 213.75*u.um, 268.00*u.um,
    -70.75*u.um, 9.00*u.um, -36.25*u.um,
@@ -684,7 +684,7 @@ def modifyDicts(year=2024):
    -0.18*u.mrad, -0.01*u.mrad, 0.23*u.mrad,
    0.45*u.mrad, 0.05*u.mrad, 0.00*u.mrad,
    0.39*u.mrad, -0.09*u.mrad, 0.01*u.mrad,
-   -0.59*u.mrad, 0.01*u.mrad, 0.00**u.mrad]
+   -0.59*u.mrad, 0.01*u.mrad, 0.00*u.mrad]
 
          scifi_spatial_aligment_consts = {
            2022: ['t_0', 't_4361','t_4575','t_4855','t_5172'],
