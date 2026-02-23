@@ -1,5 +1,14 @@
 var NAVTREEINDEX47 =
 {
+"classgenfit_1_1mySpacepointDetectorHit.html#ad8b83da02bbc210e91a42e03b4336dcb":[12,0,54,50,0],
+"classgenfit_1_1mySpacepointDetectorHit.html#af13a615daff0d86fb436b293f692a18b":[12,0,54,50,5],
+"classgenfit_1_1mySpacepointDetectorHit.html#af13a615daff0d86fb436b293f692a18b":[13,0,13,48,5],
+"classgenfit_1_1mySpacepointMeasurement.html":[12,0,54,51],
+"classgenfit_1_1mySpacepointMeasurement.html":[13,0,13,49],
+"classgenfit_1_1mySpacepointMeasurement.html#a5c5f9035c3ef28cbbd476e231c8b9b5f":[12,0,54,51,2],
+"classgenfit_1_1mySpacepointMeasurement.html#a5c5f9035c3ef28cbbd476e231c8b9b5f":[13,0,13,49,2],
+"classgenfit_1_1mySpacepointMeasurement.html#a620a5e895175258e6346348e7e5797dc":[12,0,54,51,0],
+"classgenfit_1_1mySpacepointMeasurement.html#a620a5e895175258e6346348e7e5797dc":[13,0,13,49,0],
 "classgenfit_1_1mySpacepointMeasurement.html#afc12364373fa28d955463e9bde3cb175":[12,0,54,51,1],
 "classgenfit_1_1mySpacepointMeasurement.html#afc12364373fa28d955463e9bde3cb175":[13,0,13,49,1],
 "classhcal.html":[13,0,95],
@@ -240,14 +249,5 @@ var NAVTREEINDEX47 =
 "classhcalModuleMC.html#a56cf5ac59de833850569922cf2121e54":[13,0,101,14],
 "classhcalModuleMC.html#a575cfc330d509c9990deae2cd90ecd8b":[13,0,101,7],
 "classhcalModuleMC.html#a594eeda29a5ffee5011e21e7a1dc62d6":[13,0,101,5],
-"classhcalModuleMC.html#a66ab0d85ef31fe7eb6fda284418bfa8d":[13,0,101,12],
-"classhcalModuleMC.html#a6bd4081c50915036e1afae0929b0d07f":[13,0,101,15],
-"classhcalModuleMC.html#a709d36c328a11cd34dc1282b3b9bf45d":[13,0,101,4],
-"classhcalModuleMC.html#a857c610f9618c1eed7faf9fc1abd1f1d":[13,0,101,10],
-"classhcalModuleMC.html#a8c9d20687cbef1da89f15af4d84dc408":[13,0,101,9],
-"classhcalModuleMC.html#a8f0e7c0c80948a2501631daadc9f1356":[13,0,101,3],
-"classhcalModuleMC.html#a9b45bd973920828915a6bd88b0e99c7f":[13,0,101,8],
-"classhcalModuleMC.html#aa6f9a436cbc5bda57e7253468116717f":[13,0,101,13],
-"classhcalModuleMC.html#abdf3d80fdb0ad21960264bea9631b2b6":[13,0,101,11],
-"classhcalModuleMC.html#adc23eaad47213cad7698de59de09fa95":[13,0,101,1]
+"classhcalModuleMC.html#a66ab0d85ef31fe7eb6fda284418bfa8d":[13,0,101,12]
 };

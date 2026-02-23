@@ -1,5 +1,15 @@
 var NAVTREEINDEX95 =
 {
+"namespacestudy__muMSC.html#a4c914249f916700584a39d0bd5c4a4de":[12,0,181,15],
+"namespacestudy__muMSC.html#a4e7c6632d93810a50d1b8b89ddb5f24d":[12,0,181,27],
+"namespacestudy__muMSC.html#a52fd7062dc55452254001843cfe34d07":[12,0,181,44],
+"namespacestudy__muMSC.html#a534fd692f34916fdf187283c2af77736":[12,0,181,2],
+"namespacestudy__muMSC.html#a5951c873929539a073136d680ee1a454":[12,0,181,48],
+"namespacestudy__muMSC.html#a5c13fb2f4d3d920a9cd1ea5a775bf8fc":[12,0,181,8],
+"namespacestudy__muMSC.html#a5c27691d46c8201ce1331da1d33985d2":[12,0,181,19],
+"namespacestudy__muMSC.html#a5d79158ac5e9fac73e754f02ddd23c14":[12,0,181,12],
+"namespacestudy__muMSC.html#a6b14755453040cb3f775690620e2211e":[12,0,181,23],
+"namespacestudy__muMSC.html#a6c3f1023b01f15b5efc22b74002e8b14":[12,0,181,13],
 "namespacestudy__muMSC.html#a75382afe241c0be021497e8d372d8d17":[12,0,181,4],
 "namespacestudy__muMSC.html#a76a53729f50552341270317708029111":[12,0,181,49],
 "namespacestudy__muMSC.html#a77cbcf86b14e327d2a99157a38e82781":[12,0,181,38],
@@ -239,15 +249,5 @@ var NAVTREEINDEX95 =
 "option_page.html#cmd-entries":[0,1,1,10],
 "option_page.html#cmd-errlabels":[0,1,1,11],
 "option_page.html#cmd-force":[0,1,1,12],
-"option_page.html#cmd-fortranfiles":[0,1,1,13],
-"option_page.html#cmd-globalcorr":[0,1,1,14],
-"option_page.html#cmd-histprint":[0,1,1,15],
-"option_page.html#cmd-hugecut":[0,1,1,16],
-"option_page.html#cmd-iterateentries":[0,1,1,17],
-"option_page.html#cmd-linesearch":[0,1,1,18],
-"option_page.html#cmd-localfit":[0,1,1,19],
-"option_page.html#cmd-matiter":[0,1,1,20],
-"option_page.html#cmd-matmoni":[0,1,1,21],
-"option_page.html#cmd-maxrecord":[0,1,1,22],
-"option_page.html#cmd-measurement":[0,1,1,23]
+"option_page.html#cmd-fortranfiles":[0,1,1,13]
 };

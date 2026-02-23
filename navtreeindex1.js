@@ -204,6 +204,7 @@ var NAVTREEINDEX1 =
 "GenieGenerator_8cxx.html":[14,0,19,9],
 "GenieGenerator_8cxx_source.html":[14,0,19,9],
 "GenieGenerator_8h.html":[14,0,19,10],
+"GenieGenerator_8h.html#a0bac24d1aa11e9295bf714b9ac2100a8":[14,0,19,10,1],
 "GenieGenerator_8h_source.html":[14,0,19,10],
 "GoliathField_8cc.html":[14,0,5,2,1,4],
 "GoliathField_8cc_source.html":[14,0,5,2,1,4],
@@ -248,6 +249,5 @@ var NAVTREEINDEX1 =
 "Hit2MCPoints_8cxx_source.html":[14,0,18,0],
 "Hit2MCPoints_8h.html":[14,0,18,1],
 "Hit2MCPoints_8h_source.html":[14,0,18,1],
-"HptPoint_8cxx.html":[14,0,12,4],
-"HptPoint_8cxx_source.html":[14,0,12,4]
+"HptPoint_8cxx.html":[14,0,12,4]
 };

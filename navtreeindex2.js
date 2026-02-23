@@ -1,5 +1,6 @@
 var NAVTREEINDEX2 =
 {
+"HptPoint_8cxx_source.html":[14,0,12,4],
 "HptPoint_8h.html":[14,0,12,5],
 "HptPoint_8h_source.html":[14,0,12,5],
 "KalmanFitStatus_8cc.html":[14,0,5,4,1,3],
@@ -85,6 +86,7 @@ var NAVTREEINDEX2 =
 "MuDISGenerator_8cxx.html":[14,0,19,14],
 "MuDISGenerator_8cxx_source.html":[14,0,19,14],
 "MuDISGenerator_8h.html":[14,0,19,15],
+"MuDISGenerator_8h.html#a1bbea70d248b2cc34dadfa56fa4877a8":[14,0,19,15,1],
 "MuDISGenerator_8h_source.html":[14,0,19,15],
 "MuFilterHit_8cxx.html":[14,0,20,19],
 "MuFilterHit_8cxx_source.html":[14,0,20,19],
@@ -238,6 +240,7 @@ var NAVTREEINDEX2 =
 "NtupleGenerator__FLUKA_8cxx.html":[14,0,19,22],
 "NtupleGenerator__FLUKA_8cxx_source.html":[14,0,19,22],
 "NtupleGenerator__FLUKA_8h.html":[14,0,19,23],
+"NtupleGenerator__FLUKA_8h.html#ac090b3b605f48d666d9bbcd86a9c4259":[14,0,19,23,2],
 "NtupleGenerator__FLUKA_8h_source.html":[14,0,19,23],
 "NuTauMudet_8cxx.html":[14,0,12,11],
 "NuTauMudet_8cxx_source.html":[14,0,12,11],
@@ -246,8 +249,5 @@ var NAVTREEINDEX2 =
 "NuageGenerator_8cxx.html":[14,0,19,24],
 "NuageGenerator_8cxx_source.html":[14,0,19,24],
 "NuageGenerator_8h.html":[14,0,19,25],
-"NuageGenerator_8h_source.html":[14,0,19,25],
-"NutaudetContFact_8cxx.html":[14,0,12,8],
-"NutaudetContFact_8cxx.html#a974b34fb43044e3c547e7d4a15694832":[14,0,12,8,0],
-"NutaudetContFact_8cxx_source.html":[14,0,12,8]
+"NuageGenerator_8h_source.html":[14,0,19,25]
 };

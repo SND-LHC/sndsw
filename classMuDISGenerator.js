@@ -2,7 +2,7 @@ var classMuDISGenerator =
 [
     [ "MuDISGenerator", "classMuDISGenerator.html#a43dc0272efe9a2ec3ccb3120396c91ef", null ],
     [ "~MuDISGenerator", "classMuDISGenerator.html#a7ec2f2e2622af19a9e93cca1afe4d8c7", null ],
-    [ "ClassDef", "classMuDISGenerator.html#aec11cf8d7665cc7e91d0b50835e5605a", null ],
+    [ "ClassDef", "classMuDISGenerator.html#a1cee0fff9a9495bcd333b901e60ba60a", null ],
     [ "GetNevents", "classMuDISGenerator.html#a0ce1232934fc28d9259d5255e0c34f57", null ],
     [ "Init", "classMuDISGenerator.html#ac83bb0ab4d089d85221d8e75978e9757", null ],
     [ "Init", "classMuDISGenerator.html#acff8290c0d478cf8998a4dd9344387d8", null ],
@@ -11,6 +11,7 @@ var classMuDISGenerator =
     [ "SetPositions", "classMuDISGenerator.html#ab69e782d12c131065ae055fc88009b76", null ],
     [ "dPart", "classMuDISGenerator.html#af1bfb064f0e597bcce6f3202829b5d37", null ],
     [ "endZ", "classMuDISGenerator.html#aebd4e2db02a83054f90440088fd8d9a7", null ],
+    [ "eventN", "classMuDISGenerator.html#a739663f6d7d87f016c41f65e0700fe0b", null ],
     [ "fFirst", "classMuDISGenerator.html#ad40fc4c44152721d8b6613ae011d34de", null ],
     [ "fInputFile", "classMuDISGenerator.html#a92fa592ef709cd36ff6843f911ce7df6", null ],
     [ "fLogger", "classMuDISGenerator.html#a02a27ca2523fef8be266e35faa18414e", null ],
@@ -18,5 +19,6 @@ var classMuDISGenerator =
     [ "fNevents", "classMuDISGenerator.html#a1884e25a973fb2b12c6b69525a142130", null ],
     [ "fTree", "classMuDISGenerator.html#a35b38465414dcef5825c2f404c392ca4", null ],
     [ "iMuon", "classMuDISGenerator.html#ac3ed57fb1dc35b1f018cdb2e1e2d0324", null ],
+    [ "runN", "classMuDISGenerator.html#ae3af0d0ca039e7212de3a16a6defa88f", null ],
     [ "startZ", "classMuDISGenerator.html#a265ad29dfc07e699d171b204b5480eef", null ]
 ];

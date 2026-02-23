@@ -66,6 +66,7 @@ var namespacerun__simSND =
     [ "snd_geo", "namespacerun__simSND.html#a8fdb8c28571cc65dca274d9fe42bd472", null ],
     [ "tag", "namespacerun__simSND.html#a5b70f498dfa0a53ba660ca7ad4e80bee", null ],
     [ "targetZpos", "namespacerun__simSND.html#a6591eefdf4b75b1d09ffd1ef70af9fd3", null ],
+    [ "theHeader", "namespacerun__simSND.html#a4af4e8fab313d5475321112b2456f1d4", null ],
     [ "timer", "namespacerun__simSND.html#a498f3cda1d4d074431f3f0ca08e3bfe3", null ],
     [ "tolerance_vtx_z", "namespacerun__simSND.html#a93e38786107b2b7745bfb7004cf8d73c", null ],
     [ "type", "namespacerun__simSND.html#a09e2cf736a7bb499b29e3962beefea2f", null ],

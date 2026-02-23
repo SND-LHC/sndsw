@@ -1,5 +1,15 @@
 var NAVTREEINDEX96 =
 {
+"option_page.html#cmd-globalcorr":[0,1,1,14],
+"option_page.html#cmd-histprint":[0,1,1,15],
+"option_page.html#cmd-hugecut":[0,1,1,16],
+"option_page.html#cmd-iterateentries":[0,1,1,17],
+"option_page.html#cmd-linesearch":[0,1,1,18],
+"option_page.html#cmd-localfit":[0,1,1,19],
+"option_page.html#cmd-matiter":[0,1,1,20],
+"option_page.html#cmd-matmoni":[0,1,1,21],
+"option_page.html#cmd-maxrecord":[0,1,1,22],
+"option_page.html#cmd-measurement":[0,1,1,23],
 "option_page.html#cmd-memorydebug":[0,1,1,24],
 "option_page.html#cmd-method":[0,1,1,25],
 "option_page.html#cmd-monpull":[0,1,1,27],
@@ -239,15 +249,5 @@ var NAVTREEINDEX96 =
 "readMilleBinary_8py.html#a7a632b97efdf6bdfc5b4423bfa26966e":[14,0,9,0,0,19],
 "readMilleBinary_8py.html#a837787ba33dda72e3974b3a2c4f4ddd0":[14,0,9,0,0,1],
 "readMilleBinary_8py.html#a8aa8cebf98323fc0fc1534b2a6a8228a":[14,0,9,0,0,14],
-"readMilleBinary_8py.html#a8e3d4f4eb18249b2689c1393ad6653f8":[14,0,9,0,0,17],
-"readMilleBinary_8py.html#a9bd2145ea98272cd2f37e2814b3afe63":[14,0,9,0,0,4],
-"readMilleBinary_8py.html#aa5029fee38de108bb42ce94c75edcf2f":[14,0,9,0,0,21],
-"readMilleBinary_8py.html#aaf0be2d00267ec3004b53a1dc9c29ee4":[14,0,9,0,0,0],
-"readMilleBinary_8py.html#ad00b5cf02db505296a82b35c8fecea62":[14,0,9,0,0,16],
-"readMilleBinary_8py.html#aee8bcaaa5c0d9265b7af0e51dff20cca":[14,0,9,0,0,11],
-"readMilleBinary_8py_source.html":[14,0,9,0,0],
-"read_8cc.html":[14,0,5,9,5,1],
-"read_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4":[14,0,5,9,5,1,0],
-"read_8cc_source.html":[14,0,5,9,5,1],
-"readc_8c.html":[14,0,9,24]
+"readMilleBinary_8py.html#a8e3d4f4eb18249b2689c1393ad6653f8":[14,0,9,0,0,17]
 };

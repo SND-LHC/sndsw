@@ -141,11 +141,15 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a8e9b78def6c829a99e103e0785377e1a" id="r_a8e9b78def6c829a99e103e0785377e1a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNtupleGenerator__FLUKA.html#a8e9b78def6c829a99e103e0785377e1a">ClassDef</a> (<a class="el" href="classNtupleGenerator__FLUKA.html">NtupleGenerator_FLUKA</a>, 3)</td></tr>
-<tr class="separator:a8e9b78def6c829a99e103e0785377e1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f790ce500616ccb8b6b8cf92c9ff606" id="r_a2f790ce500616ccb8b6b8cf92c9ff606"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNtupleGenerator__FLUKA.html#a2f790ce500616ccb8b6b8cf92c9ff606">ClassDef</a> (<a class="el" href="classNtupleGenerator__FLUKA.html">NtupleGenerator_FLUKA</a>, 4)</td></tr>
+<tr class="separator:a2f790ce500616ccb8b6b8cf92c9ff606"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
+<tr class="memitem:ade143b8cb76cc4ca21ea0bc7c13d6e0c" id="r_ade143b8cb76cc4ca21ea0bc7c13d6e0c"><td class="memItemLeft" align="right" valign="top">Double_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNtupleGenerator__FLUKA.html#ade143b8cb76cc4ca21ea0bc7c13d6e0c">runN</a></td></tr>
+<tr class="separator:ade143b8cb76cc4ca21ea0bc7c13d6e0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1336aa399083c6a5ab26849c365c454" id="r_af1336aa399083c6a5ab26849c365c454"><td class="memItemLeft" align="right" valign="top">Double_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNtupleGenerator__FLUKA.html#af1336aa399083c6a5ab26849c365c454">eventN</a></td></tr>
+<tr class="separator:af1336aa399083c6a5ab26849c365c454"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a676cc1df4afd4e42d14afda7eb4287b2" id="r_a676cc1df4afd4e42d14afda7eb4287b2"><td class="memItemLeft" align="right" valign="top">Double_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNtupleGenerator__FLUKA.html#a676cc1df4afd4e42d14afda7eb4287b2">id</a> [1]</td></tr>
 <tr class="separator:a676cc1df4afd4e42d14afda7eb4287b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc460b482e76e9b50f3e7c0313c39637" id="r_adc460b482e76e9b50f3e7c0313c39637"><td class="memItemLeft" align="right" valign="top">Double_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNtupleGenerator__FLUKA.html#adc460b482e76e9b50f3e7c0313c39637">generation</a> [1]</td></tr>
@@ -201,8 +205,8 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>default constructor </p>
 
-<p class="definition">Definition at line <a class="el" href="NtupleGenerator__FLUKA_8cxx_source.html#l00012">12</a> of file <a class="el" href="NtupleGenerator__FLUKA_8cxx_source.html">NtupleGenerator_FLUKA.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   12</span>{}</div>
+<p class="definition">Definition at line <a class="el" href="NtupleGenerator__FLUKA_8cxx_source.html#l00013">13</a> of file <a class="el" href="NtupleGenerator__FLUKA_8cxx_source.html">NtupleGenerator_FLUKA.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   13</span>{}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -230,20 +234,20 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>destructor </p>
 
-<p class="definition">Definition at line <a class="el" href="NtupleGenerator__FLUKA_8cxx_source.html#l00060">60</a> of file <a class="el" href="NtupleGenerator__FLUKA_8cxx_source.html">NtupleGenerator_FLUKA.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   61</span>{</div>
-<div class="line"><span class="lineno">   62</span> <span class="comment">// cout &lt;&lt; &quot;destroy Ntuple&quot; &lt;&lt; endl;</span></div>
-<div class="line"><span class="lineno">   63</span> <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a0b9ae0fe894957b7f96ed9b3835bf941">fInputFile</a>-&gt;Close();</div>
-<div class="line"><span class="lineno">   64</span> <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a0b9ae0fe894957b7f96ed9b3835bf941">fInputFile</a>-&gt;Delete();</div>
-<div class="line"><span class="lineno">   65</span> <span class="keyword">delete</span> <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a0b9ae0fe894957b7f96ed9b3835bf941">fInputFile</a>;</div>
-<div class="line"><span class="lineno">   66</span>}</div>
+<p class="definition">Definition at line <a class="el" href="NtupleGenerator__FLUKA_8cxx_source.html#l00063">63</a> of file <a class="el" href="NtupleGenerator__FLUKA_8cxx_source.html">NtupleGenerator_FLUKA.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   64</span>{</div>
+<div class="line"><span class="lineno">   65</span> <span class="comment">// cout &lt;&lt; &quot;destroy Ntuple&quot; &lt;&lt; endl;</span></div>
+<div class="line"><span class="lineno">   66</span> <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a0b9ae0fe894957b7f96ed9b3835bf941">fInputFile</a>-&gt;Close();</div>
+<div class="line"><span class="lineno">   67</span> <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a0b9ae0fe894957b7f96ed9b3835bf941">fInputFile</a>-&gt;Delete();</div>
+<div class="line"><span class="lineno">   68</span> <span class="keyword">delete</span> <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a0b9ae0fe894957b7f96ed9b3835bf941">fInputFile</a>;</div>
+<div class="line"><span class="lineno">   69</span>}</div>
 <div class="ttc" id="aclassNtupleGenerator__FLUKA_html_a0b9ae0fe894957b7f96ed9b3835bf941"><div class="ttname"><a href="classNtupleGenerator__FLUKA.html#a0b9ae0fe894957b7f96ed9b3835bf941">NtupleGenerator_FLUKA::fInputFile</a></div><div class="ttdeci">TFile * fInputFile</div><div class="ttdef"><b>Definition</b> <a href="NtupleGenerator__FLUKA_8h_source.html#l00036">NtupleGenerator_FLUKA.h:36</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a8e9b78def6c829a99e103e0785377e1a" name="a8e9b78def6c829a99e103e0785377e1a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8e9b78def6c829a99e103e0785377e1a">&#9670;&#160;</a></span>ClassDef()</h2>
+<a id="a2f790ce500616ccb8b6b8cf92c9ff606" name="a2f790ce500616ccb8b6b8cf92c9ff606"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f790ce500616ccb8b6b8cf92c9ff606">&#9670;&#160;</a></span>ClassDef()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -260,7 +264,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">3&#160;</td>
+          <td class="paramtype">4&#160;</td>
           <td class="paramname">&#160;</td>
         </tr>
         <tr>
@@ -293,10 +297,10 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="NtupleGenerator__FLUKA_8cxx_source.html#l00106">106</a> of file <a class="el" href="NtupleGenerator__FLUKA_8cxx_source.html">NtupleGenerator_FLUKA.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  107</span>{</div>
-<div class="line"><span class="lineno">  108</span> <span class="keywordflow">return</span> <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a86db52688b951a70a10bdd67e38ae5da">fNevents</a>;</div>
-<div class="line"><span class="lineno">  109</span>}</div>
+<p class="definition">Definition at line <a class="el" href="NtupleGenerator__FLUKA_8cxx_source.html#l00114">114</a> of file <a class="el" href="NtupleGenerator__FLUKA_8cxx_source.html">NtupleGenerator_FLUKA.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  115</span>{</div>
+<div class="line"><span class="lineno">  116</span> <span class="keywordflow">return</span> <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a86db52688b951a70a10bdd67e38ae5da">fNevents</a>;</div>
+<div class="line"><span class="lineno">  117</span>}</div>
 <div class="ttc" id="aclassNtupleGenerator__FLUKA_html_a86db52688b951a70a10bdd67e38ae5da"><div class="ttname"><a href="classNtupleGenerator__FLUKA.html#a86db52688b951a70a10bdd67e38ae5da">NtupleGenerator_FLUKA::fNevents</a></div><div class="ttdeci">int fNevents</div><div class="ttdef"><b>Definition</b> <a href="NtupleGenerator__FLUKA_8h_source.html#l00038">NtupleGenerator_FLUKA.h:38</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -325,11 +329,11 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="NtupleGenerator__FLUKA_8cxx_source.html#l00015">15</a> of file <a class="el" href="NtupleGenerator__FLUKA_8cxx_source.html">NtupleGenerator_FLUKA.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   15</span>                                                       {</div>
-<div class="line"><span class="lineno">   16</span>  <span class="keywordflow">return</span> <a class="code hl_function" href="classNtupleGenerator__FLUKA.html#ae5c3927d4d3fb056eed83f6b024f4d09">Init</a>(fileName, 0);</div>
-<div class="line"><span class="lineno">   17</span>}</div>
-<div class="ttc" id="aclassNtupleGenerator__FLUKA_html_ae5c3927d4d3fb056eed83f6b024f4d09"><div class="ttname"><a href="classNtupleGenerator__FLUKA.html#ae5c3927d4d3fb056eed83f6b024f4d09">NtupleGenerator_FLUKA::Init</a></div><div class="ttdeci">virtual Bool_t Init(const char *, int)</div><div class="ttdef"><b>Definition</b> <a href="NtupleGenerator__FLUKA_8cxx_source.html#l00019">NtupleGenerator_FLUKA.cxx:19</a></div></div>
+<p class="definition">Definition at line <a class="el" href="NtupleGenerator__FLUKA_8cxx_source.html#l00016">16</a> of file <a class="el" href="NtupleGenerator__FLUKA_8cxx_source.html">NtupleGenerator_FLUKA.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   16</span>                                                       {</div>
+<div class="line"><span class="lineno">   17</span>  <span class="keywordflow">return</span> <a class="code hl_function" href="classNtupleGenerator__FLUKA.html#ae5c3927d4d3fb056eed83f6b024f4d09">Init</a>(fileName, 0);</div>
+<div class="line"><span class="lineno">   18</span>}</div>
+<div class="ttc" id="aclassNtupleGenerator__FLUKA_html_ae5c3927d4d3fb056eed83f6b024f4d09"><div class="ttname"><a href="classNtupleGenerator__FLUKA.html#ae5c3927d4d3fb056eed83f6b024f4d09">NtupleGenerator_FLUKA::Init</a></div><div class="ttdeci">virtual Bool_t Init(const char *, int)</div><div class="ttdef"><b>Definition</b> <a href="NtupleGenerator__FLUKA_8cxx_source.html#l00020">NtupleGenerator_FLUKA.cxx:20</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -367,44 +371,46 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="NtupleGenerator__FLUKA_8cxx_source.html#l00019">19</a> of file <a class="el" href="NtupleGenerator__FLUKA_8cxx_source.html">NtupleGenerator_FLUKA.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   19</span>                                                                             {</div>
-<div class="line"><span class="lineno">   20</span>  TString fN = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><span class="lineno">   21</span>   <span class="keywordflow">if</span> (0 == strncmp(<span class="stringliteral">&quot;/eos&quot;</span>,fileName,4) ) {</div>
-<div class="line"><span class="lineno">   22</span>      fN = gSystem-&gt;Getenv(<span class="stringliteral">&quot;EOSSHIP&quot;</span>);</div>
-<div class="line"><span class="lineno">   23</span>   }</div>
-<div class="line"><span class="lineno">   24</span>  fN+=fileName;</div>
-<div class="line"><span class="lineno">   25</span>  <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a0b9ae0fe894957b7f96ed9b3835bf941">fInputFile</a>  = TFile::Open(fN);</div>
-<div class="line"><span class="lineno">   26</span>  <span class="keywordflow">if</span> (<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a0b9ae0fe894957b7f96ed9b3835bf941">fInputFile</a>-&gt;IsZombie()) {</div>
-<div class="line"><span class="lineno">   27</span>    LOG(FATAL) &lt;&lt; <span class="stringliteral">&quot;NtupleGenerator_FLUKA: Error opening the Signal file&quot;</span> &lt;&lt; fN;</div>
-<div class="line"><span class="lineno">   28</span>    <span class="keywordflow">return</span> kFALSE;</div>
-<div class="line"><span class="lineno">   29</span>  }</div>
-<div class="line"><span class="lineno">   30</span>  LOG(INFO) &lt;&lt; <span class="stringliteral">&quot;NtupleGenerator_FLUKA: Opening input file &quot;</span> &lt;&lt; fN;</div>
-<div class="line"><span class="lineno">   31</span> </div>
-<div class="line"><span class="lineno">   32</span>  <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ad39ba2a2aa2be5716372dd7e6edd94b0">fTree</a> = (TTree *)<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a0b9ae0fe894957b7f96ed9b3835bf941">fInputFile</a>-&gt;Get(<span class="stringliteral">&quot;nt&quot;</span>);</div>
-<div class="line"><span class="lineno">   33</span> </div>
-<div class="line"><span class="lineno">   34</span>  <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a86db52688b951a70a10bdd67e38ae5da">fNevents</a> = <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ad39ba2a2aa2be5716372dd7e6edd94b0">fTree</a>-&gt;GetEntries();</div>
-<div class="line"><span class="lineno">   35</span>  <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#af928363d999e764c48999224ecc0dbe1">fn</a> = <a class="code hl_variable" href="namespaceMufluxReco.html#a25bf3c01fa91e183c42bbee53cbf4123">firstEvent</a>;</div>
-<div class="line"><span class="lineno">   36</span>  <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ad44e52e19d02dd22f789fd3d4ecac1d0">primaries</a> = 0;</div>
-<div class="line"><span class="lineno">   37</span>  <span class="comment">// Check the input TTree structure</span></div>
-<div class="line"><span class="lineno">   38</span>  <span class="keywordflow">if</span> (<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ad39ba2a2aa2be5716372dd7e6edd94b0">fTree</a>-&gt;FindLeaf(<span class="stringliteral">&quot;primaries_&quot;</span>) != <span class="keyword">nullptr</span>) {     </div>
-<div class="line"><span class="lineno">   39</span>     <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ad39ba2a2aa2be5716372dd7e6edd94b0">fTree</a>-&gt;SetBranchAddress(<span class="stringliteral">&quot;primaries&quot;</span>,&amp;<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ad44e52e19d02dd22f789fd3d4ecac1d0">primaries</a>);</div>
-<div class="line"><span class="lineno">   40</span>  }</div>
-<div class="line"><span class="lineno">   41</span>  <span class="keywordflow">else</span> {  </div>
-<div class="line"><span class="lineno">   42</span>    <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ad39ba2a2aa2be5716372dd7e6edd94b0">fTree</a>-&gt;SetBranchAddress(<span class="stringliteral">&quot;id&quot;</span>,&amp;<span class="keywordtype">id</span>);                <span class="comment">// particle id</span></div>
-<div class="line"><span class="lineno">   43</span>    <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ad39ba2a2aa2be5716372dd7e6edd94b0">fTree</a>-&gt;SetBranchAddress(<span class="stringliteral">&quot;generation&quot;</span>,&amp;<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#adc460b482e76e9b50f3e7c0313c39637">generation</a>);    <span class="comment">//  origin generation number</span></div>
-<div class="line"><span class="lineno">   44</span>    <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ad39ba2a2aa2be5716372dd7e6edd94b0">fTree</a>-&gt;SetBranchAddress(<span class="stringliteral">&quot;t&quot;</span>,&amp;<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a08184d8683a29c05f81e30e36870c98e">t</a>);             <span class="comment">// time of flight</span></div>
-<div class="line"><span class="lineno">   45</span>    <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ad39ba2a2aa2be5716372dd7e6edd94b0">fTree</a>-&gt;SetBranchAddress(<span class="stringliteral">&quot;E&quot;</span>,&amp;<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a7c2c3b462cc100f640ef9902241c75a0">E</a>);          <span class="comment">// incoming muon energy</span></div>
-<div class="line"><span class="lineno">   46</span>    <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ad39ba2a2aa2be5716372dd7e6edd94b0">fTree</a>-&gt;SetBranchAddress(<span class="stringliteral">&quot;w&quot;</span>,&amp;<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a4163d8fecb2588cedd288baad8ed9aa9">w</a>);                  <span class="comment">// weight of event</span></div>
-<div class="line"><span class="lineno">   47</span>    <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ad39ba2a2aa2be5716372dd7e6edd94b0">fTree</a>-&gt;SetBranchAddress(<span class="stringliteral">&quot;x&quot;</span>,&amp;<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a82703789344076eabaa813408d22b8d3">x</a>);   <span class="comment">// position</span></div>
-<div class="line"><span class="lineno">   48</span>    <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ad39ba2a2aa2be5716372dd7e6edd94b0">fTree</a>-&gt;SetBranchAddress(<span class="stringliteral">&quot;y&quot;</span>,&amp;<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a7a217bea3f3ec6322edb4cee2cf37b7a">y</a>);</div>
-<div class="line"><span class="lineno">   49</span>    <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ad39ba2a2aa2be5716372dd7e6edd94b0">fTree</a>-&gt;SetBranchAddress(<span class="stringliteral">&quot;z&quot;</span>,&amp;<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ae5e3fa41361a3cd05611f6f62cc1c4b1">z</a>);</div>
-<div class="line"><span class="lineno">   50</span>    <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ad39ba2a2aa2be5716372dd7e6edd94b0">fTree</a>-&gt;SetBranchAddress(<span class="stringliteral">&quot;px&quot;</span>,&amp;<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a3a318fb3b1324b943d48c5f701a08a60">px</a>);   <span class="comment">// momentum</span></div>
-<div class="line"><span class="lineno">   51</span>    <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ad39ba2a2aa2be5716372dd7e6edd94b0">fTree</a>-&gt;SetBranchAddress(<span class="stringliteral">&quot;py&quot;</span>,&amp;<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a07e8773e3164fb945eee8d4053c66646">py</a>);</div>
-<div class="line"><span class="lineno">   52</span>    <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ad39ba2a2aa2be5716372dd7e6edd94b0">fTree</a>-&gt;SetBranchAddress(<span class="stringliteral">&quot;pz&quot;</span>,&amp;<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a05b94531e49c726ed7827bc272e72db7">pz</a>);</div>
-<div class="line"><span class="lineno">   53</span>  }</div>
-<div class="line"><span class="lineno">   54</span>  <span class="keywordflow">return</span> kTRUE;</div>
-<div class="line"><span class="lineno">   55</span>}</div>
+<p class="definition">Definition at line <a class="el" href="NtupleGenerator__FLUKA_8cxx_source.html#l00020">20</a> of file <a class="el" href="NtupleGenerator__FLUKA_8cxx_source.html">NtupleGenerator_FLUKA.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   20</span>                                                                             {</div>
+<div class="line"><span class="lineno">   21</span>  TString fN = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><span class="lineno">   22</span>   <span class="keywordflow">if</span> (0 == strncmp(<span class="stringliteral">&quot;/eos&quot;</span>,fileName,4) ) {</div>
+<div class="line"><span class="lineno">   23</span>      fN = gSystem-&gt;Getenv(<span class="stringliteral">&quot;EOSSHIP&quot;</span>);</div>
+<div class="line"><span class="lineno">   24</span>   }</div>
+<div class="line"><span class="lineno">   25</span>  fN+=fileName;</div>
+<div class="line"><span class="lineno">   26</span>  <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a0b9ae0fe894957b7f96ed9b3835bf941">fInputFile</a>  = TFile::Open(fN);</div>
+<div class="line"><span class="lineno">   27</span>  <span class="keywordflow">if</span> (<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a0b9ae0fe894957b7f96ed9b3835bf941">fInputFile</a>-&gt;IsZombie()) {</div>
+<div class="line"><span class="lineno">   28</span>    LOG(FATAL) &lt;&lt; <span class="stringliteral">&quot;NtupleGenerator_FLUKA: Error opening the Signal file&quot;</span> &lt;&lt; fN;</div>
+<div class="line"><span class="lineno">   29</span>    <span class="keywordflow">return</span> kFALSE;</div>
+<div class="line"><span class="lineno">   30</span>  }</div>
+<div class="line"><span class="lineno">   31</span>  LOG(INFO) &lt;&lt; <span class="stringliteral">&quot;NtupleGenerator_FLUKA: Opening input file &quot;</span> &lt;&lt; fN;</div>
+<div class="line"><span class="lineno">   32</span> </div>
+<div class="line"><span class="lineno">   33</span>  <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ad39ba2a2aa2be5716372dd7e6edd94b0">fTree</a> = (TTree *)<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a0b9ae0fe894957b7f96ed9b3835bf941">fInputFile</a>-&gt;Get(<span class="stringliteral">&quot;nt&quot;</span>);</div>
+<div class="line"><span class="lineno">   34</span> </div>
+<div class="line"><span class="lineno">   35</span>  <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a86db52688b951a70a10bdd67e38ae5da">fNevents</a> = <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ad39ba2a2aa2be5716372dd7e6edd94b0">fTree</a>-&gt;GetEntries();</div>
+<div class="line"><span class="lineno">   36</span>  <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#af928363d999e764c48999224ecc0dbe1">fn</a> = <a class="code hl_variable" href="namespaceMufluxReco.html#a25bf3c01fa91e183c42bbee53cbf4123">firstEvent</a>;</div>
+<div class="line"><span class="lineno">   37</span>  <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ad44e52e19d02dd22f789fd3d4ecac1d0">primaries</a> = 0;</div>
+<div class="line"><span class="lineno">   38</span>  <span class="comment">// Check the input TTree structure</span></div>
+<div class="line"><span class="lineno">   39</span>  <span class="keywordflow">if</span> (<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ad39ba2a2aa2be5716372dd7e6edd94b0">fTree</a>-&gt;FindLeaf(<span class="stringliteral">&quot;primaries_&quot;</span>) != <span class="keyword">nullptr</span>) {     </div>
+<div class="line"><span class="lineno">   40</span>     <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ad39ba2a2aa2be5716372dd7e6edd94b0">fTree</a>-&gt;SetBranchAddress(<span class="stringliteral">&quot;primaries&quot;</span>,&amp;<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ad44e52e19d02dd22f789fd3d4ecac1d0">primaries</a>);</div>
+<div class="line"><span class="lineno">   41</span>  }</div>
+<div class="line"><span class="lineno">   42</span>  <span class="keywordflow">else</span> {  </div>
+<div class="line"><span class="lineno">   43</span>    <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ad39ba2a2aa2be5716372dd7e6edd94b0">fTree</a>-&gt;SetBranchAddress(<span class="stringliteral">&quot;run&quot;</span>,&amp;<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ade143b8cb76cc4ca21ea0bc7c13d6e0c">runN</a>); <span class="comment">// run number</span></div>
+<div class="line"><span class="lineno">   44</span>    <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ad39ba2a2aa2be5716372dd7e6edd94b0">fTree</a>-&gt;SetBranchAddress(<span class="stringliteral">&quot;event&quot;</span>,&amp;<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#af1336aa399083c6a5ab26849c365c454">eventN</a>); <span class="comment">// event number</span></div>
+<div class="line"><span class="lineno">   45</span>    <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ad39ba2a2aa2be5716372dd7e6edd94b0">fTree</a>-&gt;SetBranchAddress(<span class="stringliteral">&quot;id&quot;</span>,&amp;<span class="keywordtype">id</span>);                <span class="comment">// particle id</span></div>
+<div class="line"><span class="lineno">   46</span>    <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ad39ba2a2aa2be5716372dd7e6edd94b0">fTree</a>-&gt;SetBranchAddress(<span class="stringliteral">&quot;generation&quot;</span>,&amp;<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#adc460b482e76e9b50f3e7c0313c39637">generation</a>);    <span class="comment">//  origin generation number</span></div>
+<div class="line"><span class="lineno">   47</span>    <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ad39ba2a2aa2be5716372dd7e6edd94b0">fTree</a>-&gt;SetBranchAddress(<span class="stringliteral">&quot;t&quot;</span>,&amp;<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a08184d8683a29c05f81e30e36870c98e">t</a>);             <span class="comment">// time of flight</span></div>
+<div class="line"><span class="lineno">   48</span>    <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ad39ba2a2aa2be5716372dd7e6edd94b0">fTree</a>-&gt;SetBranchAddress(<span class="stringliteral">&quot;E&quot;</span>,&amp;<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a7c2c3b462cc100f640ef9902241c75a0">E</a>);          <span class="comment">// incoming muon energy</span></div>
+<div class="line"><span class="lineno">   49</span>    <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ad39ba2a2aa2be5716372dd7e6edd94b0">fTree</a>-&gt;SetBranchAddress(<span class="stringliteral">&quot;w&quot;</span>,&amp;<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a4163d8fecb2588cedd288baad8ed9aa9">w</a>);                  <span class="comment">// weight of event</span></div>
+<div class="line"><span class="lineno">   50</span>    <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ad39ba2a2aa2be5716372dd7e6edd94b0">fTree</a>-&gt;SetBranchAddress(<span class="stringliteral">&quot;x&quot;</span>,&amp;<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a82703789344076eabaa813408d22b8d3">x</a>);   <span class="comment">// position</span></div>
+<div class="line"><span class="lineno">   51</span>    <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ad39ba2a2aa2be5716372dd7e6edd94b0">fTree</a>-&gt;SetBranchAddress(<span class="stringliteral">&quot;y&quot;</span>,&amp;<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a7a217bea3f3ec6322edb4cee2cf37b7a">y</a>);</div>
+<div class="line"><span class="lineno">   52</span>    <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ad39ba2a2aa2be5716372dd7e6edd94b0">fTree</a>-&gt;SetBranchAddress(<span class="stringliteral">&quot;z&quot;</span>,&amp;<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ae5e3fa41361a3cd05611f6f62cc1c4b1">z</a>);</div>
+<div class="line"><span class="lineno">   53</span>    <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ad39ba2a2aa2be5716372dd7e6edd94b0">fTree</a>-&gt;SetBranchAddress(<span class="stringliteral">&quot;px&quot;</span>,&amp;<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a3a318fb3b1324b943d48c5f701a08a60">px</a>);   <span class="comment">// momentum</span></div>
+<div class="line"><span class="lineno">   54</span>    <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ad39ba2a2aa2be5716372dd7e6edd94b0">fTree</a>-&gt;SetBranchAddress(<span class="stringliteral">&quot;py&quot;</span>,&amp;<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a07e8773e3164fb945eee8d4053c66646">py</a>);</div>
+<div class="line"><span class="lineno">   55</span>    <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ad39ba2a2aa2be5716372dd7e6edd94b0">fTree</a>-&gt;SetBranchAddress(<span class="stringliteral">&quot;pz&quot;</span>,&amp;<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a05b94531e49c726ed7827bc272e72db7">pz</a>);</div>
+<div class="line"><span class="lineno">   56</span>  }</div>
+<div class="line"><span class="lineno">   57</span>  <span class="keywordflow">return</span> kTRUE;</div>
+<div class="line"><span class="lineno">   58</span>}</div>
 <div class="ttc" id="aclassNtupleGenerator__FLUKA_html_a05b94531e49c726ed7827bc272e72db7"><div class="ttname"><a href="classNtupleGenerator__FLUKA.html#a05b94531e49c726ed7827bc272e72db7">NtupleGenerator_FLUKA::pz</a></div><div class="ttdeci">Double_t pz[1]</div><div class="ttdef"><b>Definition</b> <a href="NtupleGenerator__FLUKA_8h_source.html#l00035">NtupleGenerator_FLUKA.h:35</a></div></div>
 <div class="ttc" id="aclassNtupleGenerator__FLUKA_html_a07e8773e3164fb945eee8d4053c66646"><div class="ttname"><a href="classNtupleGenerator__FLUKA.html#a07e8773e3164fb945eee8d4053c66646">NtupleGenerator_FLUKA::py</a></div><div class="ttdeci">Double_t py[1]</div><div class="ttdef"><b>Definition</b> <a href="NtupleGenerator__FLUKA_8h_source.html#l00035">NtupleGenerator_FLUKA.h:35</a></div></div>
 <div class="ttc" id="aclassNtupleGenerator__FLUKA_html_a08184d8683a29c05f81e30e36870c98e"><div class="ttname"><a href="classNtupleGenerator__FLUKA.html#a08184d8683a29c05f81e30e36870c98e">NtupleGenerator_FLUKA::t</a></div><div class="ttdeci">Double_t t[1]</div><div class="ttdef"><b>Definition</b> <a href="NtupleGenerator__FLUKA_8h_source.html#l00035">NtupleGenerator_FLUKA.h:35</a></div></div>
@@ -416,7 +422,9 @@ Protected Attributes</h2></td></tr>
 <div class="ttc" id="aclassNtupleGenerator__FLUKA_html_ad39ba2a2aa2be5716372dd7e6edd94b0"><div class="ttname"><a href="classNtupleGenerator__FLUKA.html#ad39ba2a2aa2be5716372dd7e6edd94b0">NtupleGenerator_FLUKA::fTree</a></div><div class="ttdeci">TTree * fTree</div><div class="ttdef"><b>Definition</b> <a href="NtupleGenerator__FLUKA_8h_source.html#l00037">NtupleGenerator_FLUKA.h:37</a></div></div>
 <div class="ttc" id="aclassNtupleGenerator__FLUKA_html_ad44e52e19d02dd22f789fd3d4ecac1d0"><div class="ttname"><a href="classNtupleGenerator__FLUKA.html#ad44e52e19d02dd22f789fd3d4ecac1d0">NtupleGenerator_FLUKA::primaries</a></div><div class="ttdeci">TClonesArray * primaries</div><div class="ttdef"><b>Definition</b> <a href="NtupleGenerator__FLUKA_8h_source.html#l00040">NtupleGenerator_FLUKA.h:40</a></div></div>
 <div class="ttc" id="aclassNtupleGenerator__FLUKA_html_adc460b482e76e9b50f3e7c0313c39637"><div class="ttname"><a href="classNtupleGenerator__FLUKA.html#adc460b482e76e9b50f3e7c0313c39637">NtupleGenerator_FLUKA::generation</a></div><div class="ttdeci">Double_t generation[1]</div><div class="ttdef"><b>Definition</b> <a href="NtupleGenerator__FLUKA_8h_source.html#l00035">NtupleGenerator_FLUKA.h:35</a></div></div>
+<div class="ttc" id="aclassNtupleGenerator__FLUKA_html_ade143b8cb76cc4ca21ea0bc7c13d6e0c"><div class="ttname"><a href="classNtupleGenerator__FLUKA.html#ade143b8cb76cc4ca21ea0bc7c13d6e0c">NtupleGenerator_FLUKA::runN</a></div><div class="ttdeci">Double_t runN</div><div class="ttdef"><b>Definition</b> <a href="NtupleGenerator__FLUKA_8h_source.html#l00035">NtupleGenerator_FLUKA.h:35</a></div></div>
 <div class="ttc" id="aclassNtupleGenerator__FLUKA_html_ae5e3fa41361a3cd05611f6f62cc1c4b1"><div class="ttname"><a href="classNtupleGenerator__FLUKA.html#ae5e3fa41361a3cd05611f6f62cc1c4b1">NtupleGenerator_FLUKA::z</a></div><div class="ttdeci">Double_t z[1]</div><div class="ttdef"><b>Definition</b> <a href="NtupleGenerator__FLUKA_8h_source.html#l00035">NtupleGenerator_FLUKA.h:35</a></div></div>
+<div class="ttc" id="aclassNtupleGenerator__FLUKA_html_af1336aa399083c6a5ab26849c365c454"><div class="ttname"><a href="classNtupleGenerator__FLUKA.html#af1336aa399083c6a5ab26849c365c454">NtupleGenerator_FLUKA::eventN</a></div><div class="ttdeci">Double_t eventN</div><div class="ttdef"><b>Definition</b> <a href="NtupleGenerator__FLUKA_8h_source.html#l00035">NtupleGenerator_FLUKA.h:35</a></div></div>
 <div class="ttc" id="aclassNtupleGenerator__FLUKA_html_af928363d999e764c48999224ecc0dbe1"><div class="ttname"><a href="classNtupleGenerator__FLUKA.html#af928363d999e764c48999224ecc0dbe1">NtupleGenerator_FLUKA::fn</a></div><div class="ttdeci">int fn</div><div class="ttdef"><b>Definition</b> <a href="NtupleGenerator__FLUKA_8h_source.html#l00039">NtupleGenerator_FLUKA.h:39</a></div></div>
 <div class="ttc" id="anamespaceMufluxReco_html_a25bf3c01fa91e183c42bbee53cbf4123"><div class="ttname"><a href="namespaceMufluxReco.html#a25bf3c01fa91e183c42bbee53cbf4123">MufluxReco.firstEvent</a></div><div class="ttdeci">int firstEvent</div><div class="ttdef"><b>Definition</b> <a href="MufluxReco_8py_source.html#l00013">MufluxReco.py:13</a></div></div>
 </div><!-- fragment -->
@@ -439,43 +447,49 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>public method ReadEvent </p>
 
-<p class="definition">Definition at line <a class="el" href="NtupleGenerator__FLUKA_8cxx_source.html#l00070">70</a> of file <a class="el" href="NtupleGenerator__FLUKA_8cxx_source.html">NtupleGenerator_FLUKA.cxx</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   71</span>{</div>
-<div class="line"><span class="lineno">   72</span>   <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ad39ba2a2aa2be5716372dd7e6edd94b0">fTree</a>-&gt;GetEntry(<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#af928363d999e764c48999224ecc0dbe1">fn</a>);</div>
-<div class="line"><span class="lineno">   73</span>   <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#af928363d999e764c48999224ecc0dbe1">fn</a>++;</div>
-<div class="line"><span class="lineno">   74</span>   <span class="keywordflow">if</span> (<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#af928363d999e764c48999224ecc0dbe1">fn</a> %10000==0)  {LOG(INFO)&lt;&lt; <span class="stringliteral">&quot;reading event &quot;</span>&lt;&lt;<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#af928363d999e764c48999224ecc0dbe1">fn</a>;}</div>
-<div class="line"><span class="lineno">   75</span>   <span class="keywordflow">if</span> (<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#af928363d999e764c48999224ecc0dbe1">fn</a> &gt; <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a86db52688b951a70a10bdd67e38ae5da">fNevents</a>) {</div>
-<div class="line"><span class="lineno">   76</span>     LOG(WARNING) &lt;&lt; <span class="stringliteral">&quot;No more input events&quot;</span>;</div>
-<div class="line"><span class="lineno">   77</span>     <span class="keywordflow">return</span> kFALSE; }   </div>
-<div class="line"><span class="lineno">   78</span>   <span class="comment">/* Add all primary tracks in the event. Typically, muon bkg MC has single muon per event. </span></div>
-<div class="line"><span class="lineno">   79</span><span class="comment">      Several muon primaries per event exist in the multi-muon MC.</span></div>
-<div class="line"><span class="lineno">   80</span><span class="comment">   */</span></div>
-<div class="line"><span class="lineno">   81</span>   <span class="keywordflow">if</span> (<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ad39ba2a2aa2be5716372dd7e6edd94b0">fTree</a>-&gt;FindLeaf(<span class="stringliteral">&quot;primaries_&quot;</span>) != <span class="keyword">nullptr</span>) {</div>
-<div class="line"><span class="lineno">   82</span>      <span class="keywordtype">int</span> nf = <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ad44e52e19d02dd22f789fd3d4ecac1d0">primaries</a>-&gt;GetEntries();</div>
-<div class="line"><span class="lineno">   83</span>      <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>&lt;nf; <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>++){</div>
-<div class="line"><span class="lineno">   84</span>          <span class="comment">//casting</span></div>
-<div class="line"><span class="lineno">   85</span>          <span class="keyword">struct </span><a class="code hl_struct" href="structPrimaryTrack.html">PrimaryTrack</a>* primary = <span class="keyword">dynamic_cast&lt;</span>struct <a class="code hl_struct" href="structPrimaryTrack.html">PrimaryTrack</a>*<span class="keyword">&gt;</span>(<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ad44e52e19d02dd22f789fd3d4ecac1d0">primaries</a>-&gt;AddrAt(i));</div>
-<div class="line"><span class="lineno">   86</span>          <span class="comment">// what to do with generation info?   convert time from ns to sec</span></div>
-<div class="line"><span class="lineno">   87</span>          cpg-&gt;AddTrack(<span class="keywordtype">int</span>(primary-&gt;<a class="code hl_variable" href="structPrimaryTrack.html#a8e75d2208a8b68d1a95203fd576fc02e">id</a>),primary-&gt;<a class="code hl_variable" href="structPrimaryTrack.html#a140e63e6387224fdeb02f1702f752b9d">px</a>,primary-&gt;<a class="code hl_variable" href="structPrimaryTrack.html#ade52390b968263530f4c4ebaa4269d3a">py</a>,primary-&gt;<a class="code hl_variable" href="structPrimaryTrack.html#a835f296823d3b3af64630d7c2f503a28">pz</a>,</div>
-<div class="line"><span class="lineno">   88</span>                        primary-&gt;<a class="code hl_variable" href="structPrimaryTrack.html#a6befb1b5b8309cec18abfdd8194b7bcf">x</a>,primary-&gt;<a class="code hl_variable" href="structPrimaryTrack.html#ac94cf202b2909e10f2470e1078be0d18">y</a>,primary-&gt;<a class="code hl_variable" href="structPrimaryTrack.html#afdfa3a1df97113ac40097d9cd8991695">z</a>-<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ac503fb1cce28a9313d69606df6e6f5f6">SND_Z</a>,-1,<span class="keyword">true</span>,primary-&gt;<a class="code hl_variable" href="structPrimaryTrack.html#a4f07a2bc25e08fa0c8213b8d16e492ec">E</a>,</div>
-<div class="line"><span class="lineno">   89</span>                        primary-&gt;<a class="code hl_variable" href="structPrimaryTrack.html#ab467969da64b85ae1cb88fba6ea651a6">t</a>/1E9,primary-&gt;<a class="code hl_variable" href="structPrimaryTrack.html#ae80d819eae5a2b0d057071b28aba66bb">w</a>,(TMCProcess)primary-&gt;<a class="code hl_variable" href="structPrimaryTrack.html#ab6d61da88859de227f7b7caf0472c205">generation</a>);</div>
-<div class="line"><span class="lineno">   90</span>          LOG(DEBUG) &lt;&lt; <span class="stringliteral">&quot;NtupleGenerator_FLUKA: add muon &quot;</span> &lt;&lt; <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a> &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; <a class="code hl_variable" href="namespacemakeRunListDB.html#a1871ab24b92549e3c377b1d947b295ef">int</a>(primary-&gt;<a class="code hl_variable" href="structPrimaryTrack.html#a8e75d2208a8b68d1a95203fd576fc02e">id</a>)</div>
-<div class="line"><span class="lineno">   91</span>                     &lt;&lt;<span class="stringliteral">&quot;,&quot;</span>&lt;&lt;primary-&gt;<a class="code hl_variable" href="structPrimaryTrack.html#a140e63e6387224fdeb02f1702f752b9d">px</a>&lt;&lt;<span class="stringliteral">&quot;,&quot;</span>&lt;&lt;primary-&gt;<a class="code hl_variable" href="structPrimaryTrack.html#ade52390b968263530f4c4ebaa4269d3a">py</a>&lt;&lt;<span class="stringliteral">&quot;,&quot;</span>&lt;&lt;primary-&gt;<a class="code hl_variable" href="structPrimaryTrack.html#a835f296823d3b3af64630d7c2f503a28">pz</a>&lt;&lt;<span class="stringliteral">&quot;,&quot;</span>&lt;&lt;primary-&gt;<a class="code hl_variable" href="structPrimaryTrack.html#a6befb1b5b8309cec18abfdd8194b7bcf">x</a></div>
-<div class="line"><span class="lineno">   92</span>                     &lt;&lt;<span class="stringliteral">&quot;,&quot;</span>&lt;&lt;primary-&gt;<a class="code hl_variable" href="structPrimaryTrack.html#ac94cf202b2909e10f2470e1078be0d18">y</a>&lt;&lt;<span class="stringliteral">&quot;,&quot;</span>&lt;&lt;primary-&gt;<a class="code hl_variable" href="structPrimaryTrack.html#afdfa3a1df97113ac40097d9cd8991695">z</a>-<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ac503fb1cce28a9313d69606df6e6f5f6">SND_Z</a>&lt;&lt;<span class="stringliteral">&quot;,&quot;</span>&lt;&lt;primary-&gt;<a class="code hl_variable" href="structPrimaryTrack.html#ab6d61da88859de227f7b7caf0472c205">generation</a></div>
-<div class="line"><span class="lineno">   93</span>                     &lt;&lt;<span class="stringliteral">&quot;,&quot;</span>&lt;&lt;primary-&gt;<a class="code hl_variable" href="structPrimaryTrack.html#a4f07a2bc25e08fa0c8213b8d16e492ec">E</a>&lt;&lt;<span class="stringliteral">&quot;,&quot;</span>&lt;&lt;primary-&gt;<a class="code hl_variable" href="structPrimaryTrack.html#ab467969da64b85ae1cb88fba6ea651a6">t</a>&lt;&lt;<span class="stringliteral">&quot;ns,&quot;</span>&lt;&lt;primary-&gt;<a class="code hl_variable" href="structPrimaryTrack.html#ae80d819eae5a2b0d057071b28aba66bb">w</a>;</div>
-<div class="line"><span class="lineno">   94</span>      }</div>
-<div class="line"><span class="lineno">   95</span>   }</div>
-<div class="line"><span class="lineno">   96</span>   <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">   97</span>     <span class="comment">// what to do with generation info?   convert time from ns to sec</span></div>
-<div class="line"><span class="lineno">   98</span>     cpg-&gt;AddTrack(<span class="keywordtype">int</span>(<span class="keywordtype">id</span>[0]),<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a3a318fb3b1324b943d48c5f701a08a60">px</a>[0],<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a07e8773e3164fb945eee8d4053c66646">py</a>[0],<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a05b94531e49c726ed7827bc272e72db7">pz</a>[0],<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a82703789344076eabaa813408d22b8d3">x</a>[0],<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a7a217bea3f3ec6322edb4cee2cf37b7a">y</a>[0],<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ae5e3fa41361a3cd05611f6f62cc1c4b1">z</a>[0]-<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ac503fb1cce28a9313d69606df6e6f5f6">SND_Z</a>,-1,<span class="keyword">true</span>,<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a7c2c3b462cc100f640ef9902241c75a0">E</a>[0],<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a08184d8683a29c05f81e30e36870c98e">t</a>[0]/1E9,<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a4163d8fecb2588cedd288baad8ed9aa9">w</a>[0],(TMCProcess)<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#adc460b482e76e9b50f3e7c0313c39637">generation</a>[0]);</div>
-<div class="line"><span class="lineno">   99</span>     LOG(DEBUG) &lt;&lt; <span class="stringliteral">&quot;NtupleGenerator_FLUKA: add muon &quot;</span> &lt;&lt; <span class="keywordtype">id</span>[0]&lt;&lt;<span class="stringliteral">&quot;,&quot;</span>&lt;&lt;<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a3a318fb3b1324b943d48c5f701a08a60">px</a>[0]&lt;&lt;<span class="stringliteral">&quot;,&quot;</span>&lt;&lt;<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a07e8773e3164fb945eee8d4053c66646">py</a>[0]&lt;&lt;<span class="stringliteral">&quot;,&quot;</span>&lt;&lt;<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a05b94531e49c726ed7827bc272e72db7">pz</a>[0]&lt;&lt;<span class="stringliteral">&quot;,&quot;</span>&lt;&lt;<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a82703789344076eabaa813408d22b8d3">x</a>[0]&lt;&lt;<span class="stringliteral">&quot;,&quot;</span>&lt;&lt;<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a7a217bea3f3ec6322edb4cee2cf37b7a">y</a>[0]&lt;&lt;<span class="stringliteral">&quot;,&quot;</span>&lt;&lt;<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ae5e3fa41361a3cd05611f6f62cc1c4b1">z</a>[0]-<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ac503fb1cce28a9313d69606df6e6f5f6">SND_Z</a>&lt;&lt;<span class="stringliteral">&quot;,&quot;</span>&lt;&lt;<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#adc460b482e76e9b50f3e7c0313c39637">generation</a>[0]&lt;&lt;<span class="stringliteral">&quot;,&quot;</span>&lt;&lt;<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a7c2c3b462cc100f640ef9902241c75a0">E</a>[0]&lt;&lt;<span class="stringliteral">&quot;,&quot;</span>&lt;&lt;<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a08184d8683a29c05f81e30e36870c98e">t</a>[0]&lt;&lt;<span class="stringliteral">&quot;ns,&quot;</span>&lt;&lt;<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a4163d8fecb2588cedd288baad8ed9aa9">w</a>[0];</div>
-<div class="line"><span class="lineno">  100</span>   }</div>
-<div class="line"><span class="lineno">  101</span> </div>
-<div class="line"><span class="lineno">  102</span>   <span class="keywordflow">return</span> kTRUE;</div>
-<div class="line"><span class="lineno">  103</span>}</div>
+<p class="definition">Definition at line <a class="el" href="NtupleGenerator__FLUKA_8cxx_source.html#l00073">73</a> of file <a class="el" href="NtupleGenerator__FLUKA_8cxx_source.html">NtupleGenerator_FLUKA.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   74</span>{</div>
+<div class="line"><span class="lineno">   75</span>   <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ad39ba2a2aa2be5716372dd7e6edd94b0">fTree</a>-&gt;GetEntry(<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#af928363d999e764c48999224ecc0dbe1">fn</a>);</div>
+<div class="line"><span class="lineno">   76</span>   <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#af928363d999e764c48999224ecc0dbe1">fn</a>++;</div>
+<div class="line"><span class="lineno">   77</span>   <span class="keywordflow">if</span> (<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#af928363d999e764c48999224ecc0dbe1">fn</a> %10000==0)  {LOG(INFO)&lt;&lt; <span class="stringliteral">&quot;reading event &quot;</span>&lt;&lt;<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#af928363d999e764c48999224ecc0dbe1">fn</a>;}</div>
+<div class="line"><span class="lineno">   78</span>   <span class="keywordflow">if</span> (<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#af928363d999e764c48999224ecc0dbe1">fn</a> &gt; <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a86db52688b951a70a10bdd67e38ae5da">fNevents</a>) {</div>
+<div class="line"><span class="lineno">   79</span>     LOG(WARNING) &lt;&lt; <span class="stringliteral">&quot;No more input events&quot;</span>;</div>
+<div class="line"><span class="lineno">   80</span>     <span class="keywordflow">return</span> kFALSE; }   </div>
+<div class="line"><span class="lineno">   81</span>   <span class="comment">/* Add all primary tracks in the event. Typically, muon bkg MC has single muon per event. </span></div>
+<div class="line"><span class="lineno">   82</span><span class="comment">      Several muon primaries per event exist in the multi-muon MC.</span></div>
+<div class="line"><span class="lineno">   83</span><span class="comment">   */</span></div>
+<div class="line"><span class="lineno">   84</span>   <span class="keywordflow">if</span> (<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ad39ba2a2aa2be5716372dd7e6edd94b0">fTree</a>-&gt;FindLeaf(<span class="stringliteral">&quot;primaries_&quot;</span>) != <span class="keyword">nullptr</span>) {</div>
+<div class="line"><span class="lineno">   85</span>      <span class="keywordtype">int</span> nf = <a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ad44e52e19d02dd22f789fd3d4ecac1d0">primaries</a>-&gt;GetEntries();</div>
+<div class="line"><span class="lineno">   86</span>      <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>&lt;nf; <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a>++){</div>
+<div class="line"><span class="lineno">   87</span>          <span class="comment">//casting</span></div>
+<div class="line"><span class="lineno">   88</span>          <span class="keyword">struct </span><a class="code hl_struct" href="structPrimaryTrack.html">PrimaryTrack</a>* primary = <span class="keyword">dynamic_cast&lt;</span>struct <a class="code hl_struct" href="structPrimaryTrack.html">PrimaryTrack</a>*<span class="keyword">&gt;</span>(<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ad44e52e19d02dd22f789fd3d4ecac1d0">primaries</a>-&gt;AddrAt(i));</div>
+<div class="line"><span class="lineno">   89</span>          <span class="comment">//convert time from ns to sec</span></div>
+<div class="line"><span class="lineno">   90</span>          cpg-&gt;AddTrack(<span class="keywordtype">int</span>(primary-&gt;<a class="code hl_variable" href="structPrimaryTrack.html#a8e75d2208a8b68d1a95203fd576fc02e">id</a>),primary-&gt;<a class="code hl_variable" href="structPrimaryTrack.html#a140e63e6387224fdeb02f1702f752b9d">px</a>,primary-&gt;<a class="code hl_variable" href="structPrimaryTrack.html#ade52390b968263530f4c4ebaa4269d3a">py</a>,primary-&gt;<a class="code hl_variable" href="structPrimaryTrack.html#a835f296823d3b3af64630d7c2f503a28">pz</a>,</div>
+<div class="line"><span class="lineno">   91</span>                        primary-&gt;<a class="code hl_variable" href="structPrimaryTrack.html#a6befb1b5b8309cec18abfdd8194b7bcf">x</a>,primary-&gt;<a class="code hl_variable" href="structPrimaryTrack.html#ac94cf202b2909e10f2470e1078be0d18">y</a>,primary-&gt;<a class="code hl_variable" href="structPrimaryTrack.html#afdfa3a1df97113ac40097d9cd8991695">z</a>-<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ac503fb1cce28a9313d69606df6e6f5f6">SND_Z</a>,-1,<span class="keyword">true</span>,primary-&gt;<a class="code hl_variable" href="structPrimaryTrack.html#a4f07a2bc25e08fa0c8213b8d16e492ec">E</a>,</div>
+<div class="line"><span class="lineno">   92</span>                        primary-&gt;<a class="code hl_variable" href="structPrimaryTrack.html#ab467969da64b85ae1cb88fba6ea651a6">t</a>/1E9,primary-&gt;<a class="code hl_variable" href="structPrimaryTrack.html#ae80d819eae5a2b0d057071b28aba66bb">w</a>,(TMCProcess)primary-&gt;<a class="code hl_variable" href="structPrimaryTrack.html#ab6d61da88859de227f7b7caf0472c205">generation</a>);</div>
+<div class="line"><span class="lineno">   93</span>          LOG(DEBUG) &lt;&lt; <span class="stringliteral">&quot;NtupleGenerator_FLUKA: add muon &quot;</span> &lt;&lt; <a class="code hl_variable" href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">i</a> &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; <a class="code hl_variable" href="namespacemakeRunListDB.html#a1871ab24b92549e3c377b1d947b295ef">int</a>(primary-&gt;<a class="code hl_variable" href="structPrimaryTrack.html#a8e75d2208a8b68d1a95203fd576fc02e">id</a>)</div>
+<div class="line"><span class="lineno">   94</span>                     &lt;&lt;<span class="stringliteral">&quot;,&quot;</span>&lt;&lt;primary-&gt;<a class="code hl_variable" href="structPrimaryTrack.html#a140e63e6387224fdeb02f1702f752b9d">px</a>&lt;&lt;<span class="stringliteral">&quot;,&quot;</span>&lt;&lt;primary-&gt;<a class="code hl_variable" href="structPrimaryTrack.html#ade52390b968263530f4c4ebaa4269d3a">py</a>&lt;&lt;<span class="stringliteral">&quot;,&quot;</span>&lt;&lt;primary-&gt;<a class="code hl_variable" href="structPrimaryTrack.html#a835f296823d3b3af64630d7c2f503a28">pz</a>&lt;&lt;<span class="stringliteral">&quot;,&quot;</span>&lt;&lt;primary-&gt;<a class="code hl_variable" href="structPrimaryTrack.html#a6befb1b5b8309cec18abfdd8194b7bcf">x</a></div>
+<div class="line"><span class="lineno">   95</span>                     &lt;&lt;<span class="stringliteral">&quot;,&quot;</span>&lt;&lt;primary-&gt;<a class="code hl_variable" href="structPrimaryTrack.html#ac94cf202b2909e10f2470e1078be0d18">y</a>&lt;&lt;<span class="stringliteral">&quot;,&quot;</span>&lt;&lt;primary-&gt;<a class="code hl_variable" href="structPrimaryTrack.html#afdfa3a1df97113ac40097d9cd8991695">z</a>-<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ac503fb1cce28a9313d69606df6e6f5f6">SND_Z</a>&lt;&lt;<span class="stringliteral">&quot;,&quot;</span>&lt;&lt;primary-&gt;<a class="code hl_variable" href="structPrimaryTrack.html#ab6d61da88859de227f7b7caf0472c205">generation</a></div>
+<div class="line"><span class="lineno">   96</span>                     &lt;&lt;<span class="stringliteral">&quot;,&quot;</span>&lt;&lt;primary-&gt;<a class="code hl_variable" href="structPrimaryTrack.html#a4f07a2bc25e08fa0c8213b8d16e492ec">E</a>&lt;&lt;<span class="stringliteral">&quot;,&quot;</span>&lt;&lt;primary-&gt;<a class="code hl_variable" href="structPrimaryTrack.html#ab467969da64b85ae1cb88fba6ea651a6">t</a>&lt;&lt;<span class="stringliteral">&quot;ns,&quot;</span>&lt;&lt;primary-&gt;<a class="code hl_variable" href="structPrimaryTrack.html#ae80d819eae5a2b0d057071b28aba66bb">w</a>;</div>
+<div class="line"><span class="lineno">   97</span>      }</div>
+<div class="line"><span class="lineno">   98</span>   }</div>
+<div class="line"><span class="lineno">   99</span>   <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  100</span>     <span class="comment">// convert time from ns to sec</span></div>
+<div class="line"><span class="lineno">  101</span>     cpg-&gt;AddTrack(<span class="keywordtype">int</span>(<span class="keywordtype">id</span>[0]),<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a3a318fb3b1324b943d48c5f701a08a60">px</a>[0],<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a07e8773e3164fb945eee8d4053c66646">py</a>[0],<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a05b94531e49c726ed7827bc272e72db7">pz</a>[0],<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a82703789344076eabaa813408d22b8d3">x</a>[0],<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a7a217bea3f3ec6322edb4cee2cf37b7a">y</a>[0],<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ae5e3fa41361a3cd05611f6f62cc1c4b1">z</a>[0]-<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ac503fb1cce28a9313d69606df6e6f5f6">SND_Z</a>,-1,<span class="keyword">true</span>,<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a7c2c3b462cc100f640ef9902241c75a0">E</a>[0],<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a08184d8683a29c05f81e30e36870c98e">t</a>[0]/1E9,<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a4163d8fecb2588cedd288baad8ed9aa9">w</a>[0],(TMCProcess)<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#adc460b482e76e9b50f3e7c0313c39637">generation</a>[0]);</div>
+<div class="line"><span class="lineno">  102</span>     LOG(DEBUG) &lt;&lt; <span class="stringliteral">&quot;NtupleGenerator_FLUKA: add muon &quot;</span> &lt;&lt; <span class="keywordtype">id</span>[0]&lt;&lt;<span class="stringliteral">&quot;,&quot;</span>&lt;&lt;<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a3a318fb3b1324b943d48c5f701a08a60">px</a>[0]&lt;&lt;<span class="stringliteral">&quot;,&quot;</span>&lt;&lt;<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a07e8773e3164fb945eee8d4053c66646">py</a>[0]&lt;&lt;<span class="stringliteral">&quot;,&quot;</span>&lt;&lt;<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a05b94531e49c726ed7827bc272e72db7">pz</a>[0]&lt;&lt;<span class="stringliteral">&quot;,&quot;</span>&lt;&lt;<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a82703789344076eabaa813408d22b8d3">x</a>[0]&lt;&lt;<span class="stringliteral">&quot;,&quot;</span>&lt;&lt;<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a7a217bea3f3ec6322edb4cee2cf37b7a">y</a>[0]&lt;&lt;<span class="stringliteral">&quot;,&quot;</span>&lt;&lt;<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ae5e3fa41361a3cd05611f6f62cc1c4b1">z</a>[0]-<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ac503fb1cce28a9313d69606df6e6f5f6">SND_Z</a>&lt;&lt;<span class="stringliteral">&quot;,&quot;</span>&lt;&lt;<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#adc460b482e76e9b50f3e7c0313c39637">generation</a>[0]&lt;&lt;<span class="stringliteral">&quot;,&quot;</span>&lt;&lt;<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a7c2c3b462cc100f640ef9902241c75a0">E</a>[0]&lt;&lt;<span class="stringliteral">&quot;,&quot;</span>&lt;&lt;<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a08184d8683a29c05f81e30e36870c98e">t</a>[0]&lt;&lt;<span class="stringliteral">&quot;ns,&quot;</span>&lt;&lt;<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#a4163d8fecb2588cedd288baad8ed9aa9">w</a>[0];</div>
+<div class="line"><span class="lineno">  103</span>   }</div>
+<div class="line"><span class="lineno">  104</span> </div>
+<div class="line"><span class="lineno">  105</span>   <span class="comment">// Set the generation run and event numbers through the MC event header</span></div>
+<div class="line"><span class="lineno">  106</span>   FairMCEventHeader* <a class="code hl_variable" href="namespaceneutrinoFilterGoldenSample__stage2.html#afac92c1273b53cafe345d6fe3036a893">header</a> = cpg-&gt;GetEvent();</div>
+<div class="line"><span class="lineno">  107</span>   <a class="code hl_variable" href="namespaceneutrinoFilterGoldenSample__stage2.html#afac92c1273b53cafe345d6fe3036a893">header</a>-&gt;SetEventID(<span class="keywordtype">int</span>(<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#af1336aa399083c6a5ab26849c365c454">eventN</a>));</div>
+<div class="line"><span class="lineno">  108</span>   <a class="code hl_variable" href="namespaceneutrinoFilterGoldenSample__stage2.html#afac92c1273b53cafe345d6fe3036a893">header</a>-&gt;SetRunID(<span class="keywordtype">int</span>(<a class="code hl_variable" href="classNtupleGenerator__FLUKA.html#ade143b8cb76cc4ca21ea0bc7c13d6e0c">runN</a>));</div>
+<div class="line"><span class="lineno">  109</span> </div>
+<div class="line"><span class="lineno">  110</span>   <span class="keywordflow">return</span> kTRUE;</div>
+<div class="line"><span class="lineno">  111</span>}</div>
 <div class="ttc" id="aclassNtupleGenerator__FLUKA_html_ac503fb1cce28a9313d69606df6e6f5f6"><div class="ttname"><a href="classNtupleGenerator__FLUKA.html#ac503fb1cce28a9313d69606df6e6f5f6">NtupleGenerator_FLUKA::SND_Z</a></div><div class="ttdeci">Double_t SND_Z</div><div class="ttdef"><b>Definition</b> <a href="NtupleGenerator__FLUKA_8h_source.html#l00035">NtupleGenerator_FLUKA.h:35</a></div></div>
 <div class="ttc" id="anamespaceShipAna_html_aa4bf87f4d17f9d38b1d8f4d009bb54b3"><div class="ttname"><a href="namespaceShipAna.html#aa4bf87f4d17f9d38b1d8f4d009bb54b3">ShipAna.i</a></div><div class="ttdeci">int i</div><div class="ttdef"><b>Definition</b> <a href="ShipAna_8py_source.html#l00086">ShipAna.py:86</a></div></div>
 <div class="ttc" id="anamespacemakeRunListDB_html_a1871ab24b92549e3c377b1d947b295ef"><div class="ttname"><a href="namespacemakeRunListDB.html#a1871ab24b92549e3c377b1d947b295ef">makeRunListDB.int</a></div><div class="ttdeci">int</div><div class="ttdef"><b>Definition</b> <a href="makeRunListDB_8py_source.html#l00014">makeRunListDB.py:14</a></div></div>
+<div class="ttc" id="anamespaceneutrinoFilterGoldenSample__stage2_html_afac92c1273b53cafe345d6fe3036a893"><div class="ttname"><a href="namespaceneutrinoFilterGoldenSample__stage2.html#afac92c1273b53cafe345d6fe3036a893">neutrinoFilterGoldenSample_stage2.header</a></div><div class="ttdeci">list header</div><div class="ttdef"><b>Definition</b> <a href="neutrinoFilterGoldenSample__stage2_8py_source.html#l00423">neutrinoFilterGoldenSample_stage2.py:423</a></div></div>
 <div class="ttc" id="astructPrimaryTrack_html"><div class="ttname"><a href="structPrimaryTrack.html">PrimaryTrack</a></div><div class="ttdef"><b>Definition</b> <a href="NtupleGenerator__FLUKA_8h_source.html#l00010">NtupleGenerator_FLUKA.h:10</a></div></div>
 <div class="ttc" id="astructPrimaryTrack_html_a140e63e6387224fdeb02f1702f752b9d"><div class="ttname"><a href="structPrimaryTrack.html#a140e63e6387224fdeb02f1702f752b9d">PrimaryTrack::px</a></div><div class="ttdeci">Double_t px</div><div class="ttdef"><b>Definition</b> <a href="NtupleGenerator__FLUKA_8h_source.html#l00011">NtupleGenerator_FLUKA.h:11</a></div></div>
 <div class="ttc" id="astructPrimaryTrack_html_a4f07a2bc25e08fa0c8213b8d16e492ec"><div class="ttname"><a href="structPrimaryTrack.html#a4f07a2bc25e08fa0c8213b8d16e492ec">PrimaryTrack::E</a></div><div class="ttdeci">Double_t E</div><div class="ttdef"><b>Definition</b> <a href="NtupleGenerator__FLUKA_8h_source.html#l00011">NtupleGenerator_FLUKA.h:11</a></div></div>
@@ -533,6 +547,30 @@ Protected Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">Double_t NtupleGenerator_FLUKA::E[1]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="NtupleGenerator__FLUKA_8h_source.html#l00035">35</a> of file <a class="el" href="NtupleGenerator__FLUKA_8h_source.html">NtupleGenerator_FLUKA.h</a>.</p>
+
+</div>
+</div>
+<a id="af1336aa399083c6a5ab26849c365c454" name="af1336aa399083c6a5ab26849c365c454"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1336aa399083c6a5ab26849c365c454">&#9670;&#160;</a></span>eventN</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Double_t NtupleGenerator_FLUKA::eventN</td>
         </tr>
       </table>
   </td>
@@ -773,6 +811,30 @@ Protected Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">Double_t NtupleGenerator_FLUKA::pz[1]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="NtupleGenerator__FLUKA_8h_source.html#l00035">35</a> of file <a class="el" href="NtupleGenerator__FLUKA_8h_source.html">NtupleGenerator_FLUKA.h</a>.</p>
+
+</div>
+</div>
+<a id="ade143b8cb76cc4ca21ea0bc7c13d6e0c" name="ade143b8cb76cc4ca21ea0bc7c13d6e0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade143b8cb76cc4ca21ea0bc7c13d6e0c">&#9670;&#160;</a></span>runN</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Double_t NtupleGenerator_FLUKA::runN</td>
         </tr>
       </table>
   </td>
