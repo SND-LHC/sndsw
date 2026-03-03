@@ -5,6 +5,13 @@
 /mcVerbose/all 0
 /mcTracking/loopVerbose 0    # suggested by Ivana Hrivnacova to switch off *** Particle reached max step number ....
 
+# Geant4 range cut for all geo regions and all supported particle types: e+,e-, gamma, proton
+/mcPhysics/rangeCuts 2 mm
+# range cut for all geo regions and selected particle e.g.
+#/mcPhysics/rangeCutForGamma 2 mm
+# print the Geant4 and VMC cuts per material
+#/mcRegions/print true
+
 # switch on other sources of di muon 
 /physics_lists/em/PositronToMuons true
 /physics_lists/em/GammaToMuons true
