@@ -1,6 +1,8 @@
 
 /** Configuration macro for setting common cuts and processes for G3, G4 and Fluka (M. Al-Turany 27.03.2008)
     specific cuts and processes to g3 or g4 should be set in the g3Config.C, g4Config.C or flConfig.C
+    Comment out all cuts defined in this macro (S. Ilieva 3.03.2026)
+    essentially removing the 1 MeV particle production cut-off for SND@LHC G4 simulations
 
 */
 
@@ -33,20 +35,22 @@ void SetCuts()
   gMC->SetProcess("LOSS",1); /**energy loss*/
   gMC->SetProcess("MULS",1); /**multiple scattering*/
 
-  Double_t cut1 = 1.0E-3;         // GeV --> 1 MeV
-  Double_t cutb = 1.0E4;          // GeV --> 10 TeV
-  Double_t tofmax = 1.E10;        // seconds
-  cout << "SetCuts Macro: Setting cuts.." <<endl;
+  cout << "SetCuts Macro: No cuts to be set in here." <<endl;
+  
+  //Double_t cut1 = 1.0E-3;         // GeV --> 1 MeV
+  //Double_t cutb = 1.0E4;          // GeV --> 10 TeV
+  //Double_t tofmax = 1.E10;        // seconds
+  //cout << "SetCuts Macro: Setting cuts.." <<endl;
 
-  gMC->SetCut("CUTGAM",cut1);   /** gammas (GeV)*/
-  gMC->SetCut("CUTELE",cut1);   /** electrons (GeV)*/
-  gMC->SetCut("CUTNEU",cut1);   /** neutral hadrons (GeV)*/
-  gMC->SetCut("CUTHAD",cut1);   /** charged hadrons (GeV)*/
-  gMC->SetCut("CUTMUO",cut1);   /** muons (GeV)*/
-  gMC->SetCut("BCUTE",cut1);    /** electron bremsstrahlung (GeV)*/
-  gMC->SetCut("BCUTM",cut1);    /** muon and hadron bremsstrahlung(GeV)*/
-  gMC->SetCut("DCUTE",cut1);    /** delta-rays by electrons (GeV)*/
-  gMC->SetCut("DCUTM",cut1);    /** delta-rays by muons (GeV)*/
-  gMC->SetCut("PPCUTM",cut1);   /** direct pair production by muons (GeV)*/
-  gMC->SetCut("TOFMAX",tofmax); /**time of flight cut in seconds*/
+  //gMC->SetCut("CUTGAM",cut1);   /** gammas (GeV)*/
+  //gMC->SetCut("CUTELE",cut1);   /** electrons (GeV)*/
+  //gMC->SetCut("CUTNEU",cut1);   /** neutral hadrons (GeV)*/
+  //gMC->SetCut("CUTHAD",cut1);   /** charged hadrons (GeV)*/
+  //gMC->SetCut("CUTMUO",cut1);   /** muons (GeV)*/
+  //gMC->SetCut("BCUTE",cut1);    /** electron bremsstrahlung (GeV)*/
+  //gMC->SetCut("BCUTM",cut1);    /** muon and hadron bremsstrahlung(GeV)*/
+  //gMC->SetCut("DCUTE",cut1);    /** delta-rays by electrons (GeV)*/
+  //gMC->SetCut("DCUTM",cut1);    /** delta-rays by muons (GeV)*/
+  //gMC->SetCut("PPCUTM",cut1);   /** direct pair production by muons (GeV)*/
+  //gMC->SetCut("TOFMAX",tofmax); /**time of flight cut in seconds*/
 }
