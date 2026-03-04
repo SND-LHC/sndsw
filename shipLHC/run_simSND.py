@@ -32,6 +32,7 @@ parser.add_argument("--PG",      dest="pg",      help="Use Particle Gun", requir
 parser.add_argument("--pID",     dest="pID",     help="id of particle used by the gun (default=22)", required=False, default=22, type=int)
 parser.add_argument("--Estart",  dest="Estart",  help="start of energy range of particle gun for muflux detector (default=10 GeV)", required=False, default=10, type=float)
 parser.add_argument("--Eend",    dest="Eend",    help="end of energy range of particle gun for muflux detector (default=10 GeV)", required=False, default=10, type=float)
+parser.add_argument('--eMin_store', type=float, help="kinetic energy cut for !particle storage! in MeV", dest='emin_store', default=100.)
 
 parser.add_argument("--PGrunID", dest="PGrunID",help="PG run ID", required=False, type=int)
 parser.add_argument("--multiplePGSources", help="Multiple particle guns in a x-y plane at a fixed z or in a 3D volume", action="store_true")
@@ -325,10 +326,10 @@ if MCTracksWithHitsOnly:
  fStack.SetEnergyCut(-100.*u.MeV)
 elif MCTracksWithEnergyCutOnly:
  fStack.SetMinPoints(-1)
- fStack.SetEnergyCut(100.*u.MeV)
+ fStack.SetEnergyCut(options.emin_store*u.MeV)
 elif MCTracksWithHitsOrEnergyCut: 
  fStack.SetMinPoints(1)
- fStack.SetEnergyCut(100.*u.MeV)
+ fStack.SetEnergyCut(options.emin_store*u.MeV)
 elif options.deepCopy: 
  fStack.SetMinPoints(0)
  fStack.SetEnergyCut(0.*u.MeV)
