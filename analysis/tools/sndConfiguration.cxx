@@ -19,6 +19,7 @@ snd::Configuration::Configuration(Option option, Scifi *scifi_geometry, MuFilter
     scifi_centroid_error_z = scifi_geometry->GetConfParF("Scifi/channel_height");
 
     veto_n_stations = muon_filter_geometry->GetConfParI("MuFilter/NVetoPlanes");
+    veto_bar_per_station = muon_filter_geometry->GetConfParI("MuFilter/NVetoBars");
 
     us_n_stations = muon_filter_geometry->GetConfParI("MuFilter/NUpstreamPlanes");
     us_bar_per_station = muon_filter_geometry->GetConfParI("MuFilter/NUpstreamBars");
@@ -31,6 +32,7 @@ snd::Configuration::Configuration(Option option, Scifi *scifi_geometry, MuFilter
     us_centroid_error_z = muon_filter_geometry->GetConfParF("MuFilter/UpstreamBarZ");
 
     ds_n_stations = muon_filter_geometry->GetConfParI("MuFilter/NDownstreamPlanes");
+    ds_bar_per_station = muon_filter_geometry->GetConfParI("MuFilter/NDownstreamBars");
     ds_hor_spatial_resolution_x = muon_filter_geometry->GetConfParF("MuFilter/DownstreamBarX") / std::sqrt(12);
     ds_hor_spatial_resolution_y = muon_filter_geometry->GetConfParF("MuFilter/DownstreamBarY") / std::sqrt(12);
     ds_hor_spatial_resolution_z = muon_filter_geometry->GetConfParF("MuFilter/DownstreamBarZ") / std::sqrt(12);
@@ -39,6 +41,7 @@ snd::Configuration::Configuration(Option option, Scifi *scifi_geometry, MuFilter
     ds_ver_spatial_resolution_z = muon_filter_geometry->GetConfParF("MuFilter/DownstreamBarZ_ver") / std::sqrt(12);
 
     // Common parameters not present in geometry
+    veto_min_hit_on_bar = 0;
     scifi_min_timestamp = std::nan("");
     scifi_max_timestamp = std::nan("");
     us_min_timestamp = std::nan("");

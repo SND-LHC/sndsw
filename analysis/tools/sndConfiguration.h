@@ -44,6 +44,9 @@ namespace snd {
     double us_z_min;
     double us_z_max;
 
+    double us_bar_length;
+    double us_signal_speed;
+
     double ds_hor_spatial_resolution_x;
     double ds_hor_spatial_resolution_y;
     double ds_hor_spatial_resolution_z;
@@ -52,6 +55,8 @@ namespace snd {
     double ds_ver_spatial_resolution_z;
 
     int veto_n_stations;
+    int veto_bar_per_station;
+    int veto_min_hit_on_bar;
     
     int scifi_n_stations;
     int scifi_n_channels_per_plane;
@@ -67,12 +72,10 @@ namespace snd {
     int us_min_n_hits_for_centroid;
     int us_min_hit_on_bar;
 
-    double us_bar_length;
-    double us_signal_speed;
-
     int centroid_min_valid_station;
 
     int ds_n_stations;
+    int ds_bar_per_station;
 
     bool is_mc;
 
