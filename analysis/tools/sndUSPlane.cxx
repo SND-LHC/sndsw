@@ -10,7 +10,7 @@
 #include "MuFilterHit.h"
 #include "ShipUnit.h"
 
-snd::analysis_tools::USPlane::USPlane(std::vector<MuFilterHit*> snd_hits, const Configuration &configuration, MuFilter *muon_filter_geometry, int station, bool use_small_sipms_sipms) : configuration_(configuration), centroid_(std::nan(""), std::nan(""), std::nan("")), centroid_error_(std::nan(""), std::nan(""),std::nan("")), station_(station)
+snd::analysis_tools::USPlane::USPlane(std::vector<MuFilterHit*> snd_hits, const Configuration &configuration, MuFilter *muon_filter_geometry, int station, bool use_small_sipms) : configuration_(configuration), centroid_(std::nan(""), std::nan(""), std::nan("")), centroid_error_(std::nan(""), std::nan(""),std::nan("")), station_(station)
 {
     for ( auto mu_hit : snd_hits)
     {
@@ -26,7 +26,7 @@ snd::analysis_tools::USPlane::USPlane(std::vector<MuFilterHit*> snd_hits, const 
             hit.is_large = !mu_hit->isShort(i);
             hit.is_right = i > 7 ? true : false;
 
-            if (!hit.is_large && !use_small_sipms_sipms)
+            if (!hit.is_large && !use_small_sipms)
             {
                 hit.timestamp = std::nan("");
                 hit.qdc = std::nan("");
@@ -39,8 +39,8 @@ snd::analysis_tools::USPlane::USPlane(std::vector<MuFilterHit*> snd_hits, const 
                 hit.timestamp = configuration_.is_mc ? mu_hit->GetTime(i) / ShipUnit::snd_TDC2ns : mu_hit->GetTime(i);
                 hit.qdc = mu_hit->GetSignal(i);
                 // use the left and right measurements to calculate the x coordinate along the bar
-                float timeConversion = configuration_.is_mc ? 1. : ShipUnit::snd_TDC2ns;
-                hit.x = A.X() - 0.5*(mu_hit->GetDeltaT()*timeConversion*configuration_.us_signal_speed+configuration_.us_bar_length);
+                float tmp_x = mu_hit->GetImpactXpos(true, true, false, configuration_.is_mc);
+                hit.x = (tmp_x < -990.) ? std::nan("") : A.X() - tmp_x; 
                 hit.y = A.Y();
                 hit.z = A.Z();
             }
@@ -56,13 +56,12 @@ void snd::analysis_tools::USPlane::FindCentroid()
 
     cleaned_hits.erase(std::remove_if(cleaned_hits.begin(), cleaned_hits.end(),
                                [&](auto &hit)
-                               { return (hit.qdc <= 0 || hit.is_large == false); }),
+                               { return (hit.qdc <= 0 || hit.is_large == false || std::isnan(hit.x)); }),
                        cleaned_hits.end());
 
     // min number of hit in the plane to attempt to find a centroid
     if (static_cast<int>(cleaned_hits.size()) < configuration_.us_min_n_hits_for_centroid)
     {
-        // std::cout<<"Not enough hits in US plane " << station_ <<" to find centroid\n";
         return;
     }
 
