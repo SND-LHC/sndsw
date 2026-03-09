@@ -188,7 +188,8 @@ const snd::analysis_tools::USPlane::sl_pair<int> snd::analysis_tools::USPlane::G
     return counts;
 }
 
-const int snd::analysis_tools::USPlane::GetNHitBars() const{
+const int snd::analysis_tools::USPlane::GetNHitBars() const
+{
     int count{0};
     for (int bar{0}; bar < configuration_.us_bar_per_station; ++bar) {
         if (GetBarNHits(bar).large > configuration_.us_min_hit_on_bar) count++;
@@ -196,3 +197,7 @@ const int snd::analysis_tools::USPlane::GetNHitBars() const{
     return count;
 }
 
+void snd::analysis_tools::USPlane::USHit::Print() const 
+{
+    LOGF(INFO, "USHit ch_idx :%d\tposition: (%f,%f,%f)\ttime: %f\tqdc: %f\tbar: %d\tis_right: %d\tis_large: %d", channel_index, x, y, z, timestamp, qdc, bar, is_right, is_large);
+}

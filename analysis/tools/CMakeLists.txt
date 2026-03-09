@@ -14,8 +14,10 @@ sndSciFiTools.cxx
 sndTchainGetter.cxx
 sndGeometryGetter.cxx
 sndConfiguration.cxx
+sndVetoPlane.cxx
 sndScifiPlane.cxx
 sndUSPlane.cxx
+sndDSPlane.cxx
 sndPlaneTools.cxx
 sndShowerTools.cxx
 )

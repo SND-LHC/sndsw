@@ -8,8 +8,10 @@
 #pragma link C++ nestedtypedef;
 
 #pragma link C++ class snd::Configuration+;
+#pragma link C++ class snd::analysis_tools::VetoPlane+;
 #pragma link C++ class snd::analysis_tools::ScifiPlane+;
 #pragma link C++ class snd::analysis_tools::USPlane+;
+#pragma link C++ class snd::analysis_tools::DSPlane+;
 
 #pragma link C++ namespace snd::analysis_tools;
 #pragma link C++ defined_in namespace snd::analysis_tools;
@@ -38,8 +40,10 @@
 #pragma link C++ function snd::analysis_tools::GetGeoPath(int, std::string);
 #pragma link C++ function snd::analysis_tools::GetGeometry(int, const std::string &);
 #pragma link C++ function snd::analysis_tools::GetGeometry(const std::string &);
+#pragma link C++ function snd::analysis_tools::FillVeto(const snd::Configuration &, TClonesArray *, MuFilter *);
 #pragma link C++ function snd::analysis_tools::FillScifi(const snd::Configuration &, TClonesArray *, Scifi *);
-#pragma link C++ function snd::analysis_tools::FillUS(const snd::Configuration &, TClonesArray *, MuFilter *);
+#pragma link C++ function snd::analysis_tools::FillUS(const snd::Configuration &, TClonesArray *, MuFilter *, bool);
+#pragma link C++ function snd::analysis_tools::FillDS(const snd::Configuration &, TClonesArray *, MuFilter *);
 #pragma link C++ function snd::analysis_tools::GetScifiShowerStart(const std::vector<snd::analysis_tools::ScifiPlane &);
 #pragma link C++ function snd::analysis_tools::GetScifiShowerEnd(const std::vector<snd::analysis_tools::ScifiPlane &);
 #pragma link C++ function snd::analysis_tools::GetUSShowerStart(const std::vector<snd::analysis_tools::USPlane> &);

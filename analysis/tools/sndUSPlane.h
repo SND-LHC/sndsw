@@ -43,6 +43,8 @@ namespace snd {
 
             bool is_large;
             bool is_right;
+
+            void Print() const;
         };
 
         USPlane(std::vector<MuFilterHit*> snd_hits, const Configuration &configuration, MuFilter *muon_filter_geometry, int station, bool use_small_sipms=false);
