@@ -2832,7 +2832,7 @@ def analyze_EfficiencyAndResiduals(readHists=False,mode='S',local=True,zoom=Fals
      hist.GetYaxis().SetRangeUser(ymin,ymax)
      hist.Draw('colz')
 # get time x correlation, X = m*dt + b
-     h['gdtLRvsX_'+key] = ROOT.TGraph()
+     h['gdtLRvsX_'+key] = ROOT.TGraphErrors()
      g = h['gdtLRvsX_'+key]
      xproj = hist.ProjectionX('tmpx')
      if xproj.GetSumOfWeights()==0:   continue
@@ -2844,9 +2844,14 @@ def analyze_EfficiencyAndResiduals(readHists=False,mode='S',local=True,zoom=Fals
             X   = hist.GetXaxis().GetBinCenter(nx)
             rc = tmp.Fit('gaus','NQS')
             res = rc.Get()
-            if not res: dt = tmp.GetMean()
-            else:   dt = res.Parameter(1)
+            if not res: 
+              dt = tmp.GetMean()
+              err = tmp.GetStd()
+            else:
+              dt = res.Parameter(1)
+              err =res.Parameter(2)
             g.SetPoint(np,X,dt)
+            g.SetPointError(np, 0, err)
             np+=1
      g.SetLineColor(ROOT.kRed)
      g.SetLineWidth(2)
