@@ -245,15 +245,16 @@ with ConfigRegistry.register_config("basic") as c:
         c.MuFilter.VETOBoxY2        = c.MuFilter.VETOLocY + c.MuFilter.VetoBarZ/2 + c.MuFilter.SupportBoxD
 
        #digitization parameters
-        c.MuFilter.DsAttenuationLength   =  350 * u.cm                #  values between 300 cm and 400cm observed for H6 testbeam
-        c.MuFilter.DsTAttenuationLength =  700 * u.cm                # top readout with mirror on bottom
-        c.MuFilter.VandUpAttenuationLength = 999 * u.cm        # no significante attenuation observed for H6 testbeam
-        c.MuFilter.VandUpSiPMcalibrationL    = 25.*1000.       # 1.65 MeV = 41 qcd 
-        c.MuFilter.VandUpSiPMcalibrationS    = 25.*1000.
+        c.MuFilter.DsAttenuationLength  =  230*u.cm          # values between 130cm and 330cm are observed for TI18 in years 2022-2025, but between 300 cm and 400cm for H6 testbeam
+        c.MuFilter.DsTAttenuationLength =  700*u.cm          # top readout with mirror on bottom, TI18 and H6 observables agree
+        c.MuFilter.VandUpAttenuationLength = 210*u.cm        # while no significant attenuation observed for H6 testbeam
+        c.MuFilter.VTAttenuationLength =  999*u.cm           # Veto 3, no significant attenuation observed in 2024-2025 data
+        c.MuFilter.VandUpSiPMcalibrationL    = 50.*1000.       # 1.65 MeV = 41 qcd over 6 Large SiPMs(one side)
+        c.MuFilter.VandUpSiPMcalibrationS    = 0.              # no MIP signal for small SiPMs, delayed and compromised response in general
         c.MuFilter.DsSiPMcalibration             = 25.*1000.
         c.MuFilter.timeResol = 150.*u.picosecond
-        c.MuFilter.VandUpPropSpeed    = 12.5*u.cm/u.nanosecond
-        c.MuFilter.DsPropSpeed        = 14.3*u.cm/u.nanosecond
+        c.MuFilter.VandUpPropSpeed    = 13.6*u.cm/u.nanosecond
+        c.MuFilter.DsPropSpeed        = 15.1*u.cm/u.nanosecond
 
         c.Floor = AttrDict(z=48000.*u.cm) # to place tunnel in SND_@LHC coordinate system
         c.Floor.DX = 1.0*u.cm 
