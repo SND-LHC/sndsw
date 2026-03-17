@@ -60,7 +60,7 @@ MuFilterHit::MuFilterHit(Int_t detID, std::vector<MuFilterPoint*> V)
      else { 
               if (floor(detID/10000)==1 && nSides==1){
                  // top readout with mirror on bottom
-                 attLength = 2*MuFilterDet->GetConfParF("MuFilter/VandUpAttenuationLength");
+                 attLength = 2*MuFilterDet->GetConfParF("MuFilter/VTAttenuationLength");
               }
               else {attLength = MuFilterDet->GetConfParF("MuFilter/VandUpAttenuationLength");}
               siPMcalibration = MuFilterDet->GetConfParF("MuFilter/VandUpSiPMcalibrationL");
