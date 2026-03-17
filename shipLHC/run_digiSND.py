@@ -71,20 +71,48 @@ snd_geo = SndlhcGeo.GeoInterface(options.geoFile)
 lsOfGlobals  = ROOT.gROOT.GetListOfGlobals()
 scifiDet     = lsOfGlobals.FindObject('Scifi')
 mufiDet      = lsOfGlobals.FindObject('MuFilter')
-mufiDet.SetConfPar("MuFilter/DsAttenuationLength",350 * u.cm)		#  values between 300 cm and 400cm observed for H6 testbeam
-mufiDet.SetConfPar("MuFilter/DsTAttenuationLength",700 * u.cm)		# top readout with mirror on bottom
-mufiDet.SetConfPar("MuFilter/VandUpAttenuationLength",999 * u.cm)	# no significante attenuation observed for H6 testbeam
-mufiDet.SetConfPar("MuFilter/DsSiPMcalibrationS",25.*1000.)			# in MC: 1.65 keV are about 41.2 qdc
-mufiDet.SetConfPar("MuFilter/VandUpPropSpeed",12.5*u.cm/u.nanosecond);
-mufiDet.SetConfPar("MuFilter/DsPropSpeed",14.3*u.cm/u.nanosecond);
 scifiDet.SetConfPar("Scifi/nphe_min",options.ts)   # threshold
 scifiDet.SetConfPar("Scifi/nphe_max",options.ss) # saturation
-scifiDet.SetConfPar("Scifi/timeResol",150.*u.picosecond) # time resolution in ps
-scifiDet.SetConfPar("MuFilter/timeResol",150.*u.picosecond) # time resolution in ps, first guess
+
+####
+# The lines below aim to reproduce the original digitization case, but urge the user to regenerate
+# the sample shall it be outdated from before the removal of the 1MeV production cut, which
+# coincides with MuFi digi const update.
+#
 # in MC productions generated before July 2022 Scifi signal speed is missing from the geofile
+better_update = False
 if scifiDet.GetConfParF("Scifi/signalSpeed")==0:
   scifiDet.SetConfPar("Scifi/signalSpeed", 15*u.cm/u.nanosecond)
+  better_update = True
+# geofiles before March 2026 don't have the Veto 3 atten.length  
+if mufiDet.GetConfParF("MuFilter/VTAttenuationLength")==0:
+  mufiDet.SetConfPar("MuFilter/VTAttenuationLength",999*u.cm)
+  better_update = True
+# old digi constants from before the MuFi response update 
+if mufiDet.GetConfParF("MuFilter/VandUpAttenuationLength")==999*u.cm:
+  better_update = True
+# in very ancient MC productions it is possible some digitization params are missing
+# set them here values updated in March 2026.
+if mufiDet.GetConfParF("MuFilter/DsAttenuationLength")==0 or\
+     mufiDet.GetConfParF("MuFilter/VandUpPropSpeed")==0 :
+  mufiDet.SetConfPar("MuFilter/DsAttenuationLength",230*u.cm)
+  mufiDet.SetConfPar("MuFilter/DsTAttenuationLength",700*u.cm)
+  mufiDet.SetConfPar("MuFilter/VandUpAttenuationLength",210*u.cm)
+  mufiDet.SetConfPar("MuFilter/VTAttenuationLength",999*u.cm)
+  mufiDet.SetConfPar("MuFilter/DsSiPMcalibration",25.*1000.)
+  # 1.65 MeV = 41 qcd over 6 Large SiPMs(one side)
+  mufiDet.SetConfPar("MuFilter/VandUpSiPMcalibrationL",50.*1000.)
+  # no MIP signal for small SiPMs, delayed and compromised response in general
+  mufiDet.SetConfPar("MuFilter/VandUpSiPMcalibrationS",0.)
+  mufiDet.SetConfPar("MuFilter/VandUpPropSpeed",13.6*u.cm/u.nanosecond);
+  mufiDet.SetConfPar("MuFilter/DsPropSpeed",15.1*u.cm/u.nanosecond);
+  scifiDet.SetConfPar("Scifi/timeResol",150.*u.picosecond)
+  mufiDet.SetConfPar("MuFilter/timeResol",150.*u.picosecond) # time resolution in ps, first guess
+  better_update = True
 
+if better_update:
+  print("WARNING: Simulation file preceding the production cut change! Consider regenerating from scratch!")
+####
 
 # Fair digitization task
 if options.FairTask_digi:
