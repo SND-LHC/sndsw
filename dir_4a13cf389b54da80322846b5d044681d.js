@@ -3,6 +3,8 @@ var dir_4a13cf389b54da80322846b5d044681d =
     [ "AnalysisToolsLinkDef.h", "AnalysisToolsLinkDef_8h.html", null ],
     [ "sndConfiguration.cxx", "sndConfiguration_8cxx.html", null ],
     [ "sndConfiguration.h", "sndConfiguration_8h.html", "sndConfiguration_8h" ],
+    [ "sndDSPlane.cxx", "sndDSPlane_8cxx.html", null ],
+    [ "sndDSPlane.h", "sndDSPlane_8h.html", "sndDSPlane_8h" ],
     [ "sndGeometryGetter.cxx", "sndGeometryGetter_8cxx.html", null ],
     [ "sndGeometryGetter.h", "sndGeometryGetter_8h.html", "sndGeometryGetter_8h" ],
     [ "sndPlaneTools.cxx", "sndPlaneTools_8cxx.html", null ],
@@ -16,5 +18,7 @@ var dir_4a13cf389b54da80322846b5d044681d =
     [ "sndTchainGetter.cxx", "sndTchainGetter_8cxx.html", null ],
     [ "sndTchainGetter.h", "sndTchainGetter_8h.html", "sndTchainGetter_8h" ],
     [ "sndUSPlane.cxx", "sndUSPlane_8cxx.html", null ],
-    [ "sndUSPlane.h", "sndUSPlane_8h.html", "sndUSPlane_8h" ]
+    [ "sndUSPlane.h", "sndUSPlane_8h.html", "sndUSPlane_8h" ],
+    [ "sndVetoPlane.cxx", "sndVetoPlane_8cxx.html", null ],
+    [ "sndVetoPlane.h", "sndVetoPlane_8h.html", "sndVetoPlane_8h" ]
 ];

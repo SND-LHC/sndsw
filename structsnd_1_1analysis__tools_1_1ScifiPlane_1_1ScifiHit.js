@@ -1,5 +1,6 @@
 var structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit =
 [
+    [ "Print", "structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit.html#a76afd92fc788da1deb3916019ee3c307", null ],
     [ "channel_index", "structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit.html#aad77054f4756d328b0f090e56c838f6c", null ],
     [ "is_x", "structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit.html#a84054e06bd359fae1d4c9e053104d4fa", null ],
     [ "qdc", "structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit.html#a5d8bf3af31582d6536b7ba1e6ddc5e2b", null ],

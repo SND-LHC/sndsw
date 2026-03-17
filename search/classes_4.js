@@ -16,6 +16,8 @@ var searchData=
   ['drawvetodigi_13',['DrawVetoDigi',['../classeventDisplay_1_1DrawVetoDigi.html',1,'eventDisplay']]],
   ['drifttubeunpack_14',['DriftTubeUnpack',['../classDriftTubeUnpack.html',1,'']]],
   ['dsactivitycut_15',['DSActivityCut',['../classsnd_1_1analysis__cuts_1_1DSActivityCut.html',1,'snd::analysis_cuts']]],
-  ['dsvetocut_16',['DSVetoCut',['../classsnd_1_1analysis__cuts_1_1DSVetoCut.html',1,'snd::analysis_cuts']]],
-  ['dummyunpack_17',['DummyUnpack',['../classDummyUnpack.html',1,'']]]
+  ['dshit_16',['DSHit',['../structsnd_1_1analysis__tools_1_1DSPlane_1_1DSHit.html',1,'snd::analysis_tools::DSPlane']]],
+  ['dsplane_17',['DSPlane',['../classsnd_1_1analysis__tools_1_1DSPlane.html',1,'snd::analysis_tools']]],
+  ['dsvetocut_18',['DSVetoCut',['../classsnd_1_1analysis__cuts_1_1DSVetoCut.html',1,'snd::analysis_cuts']]],
+  ['dummyunpack_19',['DummyUnpack',['../classDummyUnpack.html',1,'']]]
 ];

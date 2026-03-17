@@ -8,6 +8,7 @@ var structsnd_1_1Configuration =
     ] ],
     [ "Configuration", "structsnd_1_1Configuration.html#a3b7cdff841b01bee983b859918bf62e3", null ],
     [ "centroid_min_valid_station", "structsnd_1_1Configuration.html#a50beed15915593cce42a70f242b143f0", null ],
+    [ "ds_bar_per_station", "structsnd_1_1Configuration.html#aebc165c7088a0ee0f244a7cb4af9de9f", null ],
     [ "ds_hor_spatial_resolution_x", "structsnd_1_1Configuration.html#a2b107f4cd6ed62de1a7ea6508ee0ccb6", null ],
     [ "ds_hor_spatial_resolution_y", "structsnd_1_1Configuration.html#ad449f805e1fcf06a2bde8c974f2e9f92", null ],
     [ "ds_hor_spatial_resolution_z", "structsnd_1_1Configuration.html#add76bc6c7a2f3d9995e54b0182134f03", null ],
@@ -55,5 +56,7 @@ var structsnd_1_1Configuration =
     [ "us_y_min", "structsnd_1_1Configuration.html#a9437acec355bc05b51a1bccc4043ab81", null ],
     [ "us_z_max", "structsnd_1_1Configuration.html#a0ad7be2c4168241311bd6513568a29a7", null ],
     [ "us_z_min", "structsnd_1_1Configuration.html#ac513b0dc00c889e8aadf840a0bdd8126", null ],
+    [ "veto_bar_per_station", "structsnd_1_1Configuration.html#ad528cc426a0e2cfc106a46583ee52a5a", null ],
+    [ "veto_min_hit_on_bar", "structsnd_1_1Configuration.html#a84a26016df59bbf7729fd312cd6c7af7", null ],
     [ "veto_n_stations", "structsnd_1_1Configuration.html#a1b198c8ee99cca925871e0349848bdbd", null ]
 ];

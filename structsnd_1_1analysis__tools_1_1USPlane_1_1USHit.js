@@ -1,5 +1,6 @@
 var structsnd_1_1analysis__tools_1_1USPlane_1_1USHit =
 [
+    [ "Print", "structsnd_1_1analysis__tools_1_1USPlane_1_1USHit.html#ad930974213af00ad9d67fc490ade9cf5", null ],
     [ "bar", "structsnd_1_1analysis__tools_1_1USPlane_1_1USHit.html#a72577e5307211a0edc0366d924e7ca05", null ],
     [ "channel_index", "structsnd_1_1analysis__tools_1_1USPlane_1_1USHit.html#ae9c105c66a38e1ed668a2f4b5e0e78a1", null ],
     [ "is_large", "structsnd_1_1analysis__tools_1_1USPlane_1_1USHit.html#a1419c07d5a0b60a523c1d078b5b3c129", null ],

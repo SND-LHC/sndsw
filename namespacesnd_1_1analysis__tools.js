@@ -1,12 +1,16 @@
 var namespacesnd_1_1analysis__tools =
 [
+    [ "DSPlane", "classsnd_1_1analysis__tools_1_1DSPlane.html", "classsnd_1_1analysis__tools_1_1DSPlane" ],
     [ "ScifiPlane", "classsnd_1_1analysis__tools_1_1ScifiPlane.html", "classsnd_1_1analysis__tools_1_1ScifiPlane" ],
     [ "USPlane", "classsnd_1_1analysis__tools_1_1USPlane.html", "classsnd_1_1analysis__tools_1_1USPlane" ],
+    [ "VetoPlane", "classsnd_1_1analysis__tools_1_1VetoPlane.html", "classsnd_1_1analysis__tools_1_1VetoPlane" ],
     [ "calculateSiPMNumber", "namespacesnd_1_1analysis__tools.html#a072fe05f5196e2d1f0baf54ac8c62793", null ],
     [ "densityCheck", "namespacesnd_1_1analysis__tools.html#aa6dd4352f5c110708f8070ad1c88a907", null ],
     [ "densityScifi", "namespacesnd_1_1analysis__tools.html#a898d2da7d9071ef733eb86625ed1cc7d", null ],
+    [ "FillDS", "namespacesnd_1_1analysis__tools.html#a76b7d92d8224e5e83b432618924c3748", null ],
     [ "FillScifi", "namespacesnd_1_1analysis__tools.html#a1b8d5076a98f5ad030ea9e19de318532", null ],
     [ "FillUS", "namespacesnd_1_1analysis__tools.html#aab43b0901e4f76f9804645a9e30590cf", null ],
+    [ "FillVeto", "namespacesnd_1_1analysis__tools.html#a43a49e5026a23c54d7192a144215822a", null ],
     [ "filterScifiHits", "namespacesnd_1_1analysis__tools.html#a4a13c3ae2f5d528737de97d8837f2df9", null ],
     [ "filterScifiHits", "namespacesnd_1_1analysis__tools.html#aabaf2879845b2998aeab516ce908994d", null ],
     [ "findCentreOfGravityPerStation", "namespacesnd_1_1analysis__tools.html#aa0b845dbe4852f824b3188318b7e766e", null ],

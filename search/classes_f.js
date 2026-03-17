@@ -8,7 +8,7 @@ var searchData=
   ['reverschannelmapping_5',['reversChannelMapping',['../classreverseMapping_1_1reversChannelMapping.html',1,'reverseMapping']]],
   ['rkstep_6',['RKStep',['../structgenfit_1_1RKStep.html',1,'genfit']]],
   ['rktrackrep_7',['RKTrackRep',['../classgenfit_1_1RKTrackRep.html',1,'genfit']]],
-  ['rl_5fpair_8',['rl_pair',['../structsnd_1_1analysis__tools_1_1USPlane_1_1rl__pair.html',1,'snd::analysis_tools::USPlane']]],
+  ['rl_5fpair_8',['rl_pair',['../structsnd_1_1analysis__tools_1_1DSPlane_1_1rl__pair.html',1,'snd::analysis_tools::DSPlane::rl_pair&lt; T &gt;'],['../structsnd_1_1analysis__tools_1_1VetoPlane_1_1rl__pair.html',1,'snd::analysis_tools::VetoPlane::rl_pair&lt; T &gt;'],['../structsnd_1_1analysis__tools_1_1USPlane_1_1rl__pair.html',1,'snd::analysis_tools::USPlane::rl_pair&lt; T &gt;']]],
   ['root_5fproxy_9',['ROOT_Proxy',['../classrootpyPickler_1_1ROOT__Proxy.html',1,'rootpyPickler']]],
   ['rpcunpack_10',['RPCUnpack',['../classRPCUnpack.html',1,'']]],
   ['rpvsusy_11',['RPVSUSY',['../classrpvsusy_1_1RPVSUSY.html',1,'rpvsusy']]],

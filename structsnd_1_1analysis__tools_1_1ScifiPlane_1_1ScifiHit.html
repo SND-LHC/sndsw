@@ -90,6 +90,7 @@ $(document).ready(function(){initNavTree('structsnd_1_1analysis__tools_1_1ScifiP
 
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">snd::analysis_tools::ScifiPlane::ScifiHit Struct Reference</div></div>
@@ -98,6 +99,11 @@ $(document).ready(function(){initNavTree('structsnd_1_1analysis__tools_1_1ScifiP
 
 <p><code>#include &lt;<a class="el" href="sndScifiPlane_8h_source.html">sndScifiPlane.h</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a76afd92fc788da1deb3916019ee3c307" id="r_a76afd92fc788da1deb3916019ee3c307"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit.html#a76afd92fc788da1deb3916019ee3c307">Print</a> () const</td></tr>
+<tr class="separator:a76afd92fc788da1deb3916019ee3c307"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a5d8bf3af31582d6536b7ba1e6ddc5e2b" id="r_a5d8bf3af31582d6536b7ba1e6ddc5e2b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit.html#a5d8bf3af31582d6536b7ba1e6ddc5e2b">qdc</a> {}</td></tr>
@@ -118,7 +124,37 @@ Public Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
 <p class="definition">Definition at line <a class="el" href="sndScifiPlane_8h_source.html#l00024">24</a> of file <a class="el" href="sndScifiPlane_8h_source.html">sndScifiPlane.h</a>.</p>
-</div><h2 class="groupheader">Member Data Documentation</h2>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a76afd92fc788da1deb3916019ee3c307" name="a76afd92fc788da1deb3916019ee3c307"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76afd92fc788da1deb3916019ee3c307">&#9670;&#160;</a></span>Print()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void snd::analysis_tools::ScifiPlane::ScifiHit::Print </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="sndScifiPlane_8cxx_source.html#l00299">299</a> of file <a class="el" href="sndScifiPlane_8cxx_source.html">sndScifiPlane.cxx</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  300</span>{</div>
+<div class="line"><span class="lineno">  301</span>    LOGF(INFO, <span class="stringliteral">&quot;ScifiHit ch_idx :%d\tposition: (%f,%f,%f)\ttime: %f\tqdc: %f\tis_x: %d&quot;</span>, <a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit.html#aad77054f4756d328b0f090e56c838f6c">channel_index</a>, <a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit.html#a0dde40811abb0b495d3315d91b371103">x</a>, <a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit.html#a48c8cffd79f28daac301f2c80e8aa072">y</a>, <a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit.html#aa72b14cbd5347088f19e5a8d2a583c03">z</a>, <a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit.html#a7ff6178992a108faab8ddf442f82e2ac">timestamp</a>, <a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit.html#a5d8bf3af31582d6536b7ba1e6ddc5e2b">qdc</a>, <a class="code hl_variable" href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit.html#a84054e06bd359fae1d4c9e053104d4fa">is_x</a>);</div>
+<div class="line"><span class="lineno">  302</span>}</div>
+<div class="ttc" id="astructsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit_html_a0dde40811abb0b495d3315d91b371103"><div class="ttname"><a href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit.html#a0dde40811abb0b495d3315d91b371103">snd::analysis_tools::ScifiPlane::ScifiHit::x</a></div><div class="ttdeci">double x</div><div class="ttdef"><b>Definition</b> <a href="sndScifiPlane_8h_source.html#l00028">sndScifiPlane.h:28</a></div></div>
+<div class="ttc" id="astructsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit_html_a48c8cffd79f28daac301f2c80e8aa072"><div class="ttname"><a href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit.html#a48c8cffd79f28daac301f2c80e8aa072">snd::analysis_tools::ScifiPlane::ScifiHit::y</a></div><div class="ttdeci">double y</div><div class="ttdef"><b>Definition</b> <a href="sndScifiPlane_8h_source.html#l00029">sndScifiPlane.h:29</a></div></div>
+<div class="ttc" id="astructsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit_html_a5d8bf3af31582d6536b7ba1e6ddc5e2b"><div class="ttname"><a href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit.html#a5d8bf3af31582d6536b7ba1e6ddc5e2b">snd::analysis_tools::ScifiPlane::ScifiHit::qdc</a></div><div class="ttdeci">double qdc</div><div class="ttdef"><b>Definition</b> <a href="sndScifiPlane_8h_source.html#l00026">sndScifiPlane.h:26</a></div></div>
+<div class="ttc" id="astructsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit_html_a7ff6178992a108faab8ddf442f82e2ac"><div class="ttname"><a href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit.html#a7ff6178992a108faab8ddf442f82e2ac">snd::analysis_tools::ScifiPlane::ScifiHit::timestamp</a></div><div class="ttdeci">double timestamp</div><div class="ttdef"><b>Definition</b> <a href="sndScifiPlane_8h_source.html#l00027">sndScifiPlane.h:27</a></div></div>
+<div class="ttc" id="astructsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit_html_a84054e06bd359fae1d4c9e053104d4fa"><div class="ttname"><a href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit.html#a84054e06bd359fae1d4c9e053104d4fa">snd::analysis_tools::ScifiPlane::ScifiHit::is_x</a></div><div class="ttdeci">bool is_x</div><div class="ttdef"><b>Definition</b> <a href="sndScifiPlane_8h_source.html#l00032">sndScifiPlane.h:32</a></div></div>
+<div class="ttc" id="astructsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit_html_aa72b14cbd5347088f19e5a8d2a583c03"><div class="ttname"><a href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit.html#aa72b14cbd5347088f19e5a8d2a583c03">snd::analysis_tools::ScifiPlane::ScifiHit::z</a></div><div class="ttdeci">double z</div><div class="ttdef"><b>Definition</b> <a href="sndScifiPlane_8h_source.html#l00030">sndScifiPlane.h:30</a></div></div>
+<div class="ttc" id="astructsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit_html_aad77054f4756d328b0f090e56c838f6c"><div class="ttname"><a href="structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit.html#aad77054f4756d328b0f090e56c838f6c">snd::analysis_tools::ScifiPlane::ScifiHit::channel_index</a></div><div class="ttdeci">int channel_index</div><div class="ttdef"><b>Definition</b> <a href="sndScifiPlane_8h_source.html#l00031">sndScifiPlane.h:31</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
 <a id="aad77054f4756d328b0f090e56c838f6c" name="aad77054f4756d328b0f090e56c838f6c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aad77054f4756d328b0f090e56c838f6c">&#9670;&#160;</a></span>channel_index</h2>
 
@@ -238,8 +274,9 @@ Public Attributes</h2></td></tr>
 </div><!-- fragment -->
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
+<hr/>The documentation for this struct was generated from the following files:<ul>
 <li>analysis/tools/<a class="el" href="sndScifiPlane_8h_source.html">sndScifiPlane.h</a></li>
+<li>analysis/tools/<a class="el" href="sndScifiPlane_8cxx_source.html">sndScifiPlane.cxx</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

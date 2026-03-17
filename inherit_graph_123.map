@@ -1,0 +1,15 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,129,83,155"/>
+<area shape="rect" id="Node000001" href="$classSNDLHCEventHeader.html" title=" " alt="" coords="131,5,291,31"/>
+<area shape="poly" id="edge270_Node000000_Node000001" title=" " alt="" coords="58,116,88,77,107,57,129,40,152,28,155,33,132,44,111,61,92,81,62,119"/>
+<area shape="rect" id="Node000002" href="$classecalLightMap.html" title=" " alt="" coords="156,55,265,80"/>
+<area shape="poly" id="edge271_Node000000_Node000002" title=" " alt="" coords="74,119,130,89,160,78,162,83,132,94,77,124"/>
+<area shape="rect" id="Node000003" href="$classecalStructure.html" title=" " alt="" coords="157,104,265,129"/>
+<area shape="poly" id="edge272_Node000000_Node000003" title=" " alt="" coords="96,131,156,122,157,127,97,137"/>
+<area shape="rect" id="Node000004" href="$classgenfit_1_1EventDisplay.html" title="Event display designed to run with Genfit." alt="" coords="134,153,287,179"/>
+<area shape="poly" id="edge273_Node000000_Node000004" title=" " alt="" coords="97,147,134,152,133,158,96,152"/>
+<area shape="rect" id="Node000005" href="$classhcalLightMap.html" title=" " alt="" coords="156,203,265,228"/>
+<area shape="poly" id="edge274_Node000000_Node000005" title=" " alt="" coords="78,160,132,188,166,200,164,205,130,192,76,164"/>
+<area shape="rect" id="Node000006" href="$classhcalStructure.html" title=" " alt="" coords="157,252,265,277"/>
+<area shape="poly" id="edge275_Node000000_Node000006" title=" " alt="" coords="63,165,93,202,132,237,157,250,155,254,129,242,89,206,59,168"/>
+</map>
