@@ -26,6 +26,33 @@ We start with the first sndsw release: v1.0.0+2025-07-updateScifi.
 Shall there be a strong will/need, one can go back and create and
 fill in the logs for previous stacks.
 
+## v1.4.0+2026-01-G4cutoff
+
+### Added
+
+- Geant4 range cut set to 2mm
+- Record simulation run and event ID
+- `is_mc` option for sndConfiguration, used in all sndPlane classes
+-  Veto and DS plane classes
+- 2025 data file locations for the analysis tools
+
+### Changed
+
+- Geant4 physics list to FTFP_BERT_HP_EMZ
+-  retire small SiPMs: add a flag to skip(default) them in analysis
+
+### Removed
+
+- Geant4 production cut at 1MeV
+- hard coded digi params in run_digi macro
+
+### Fixed
+
+- MeV to qdc conversion for US
+- Scifi station 5 rotation for target 256
+- revised the drift velocity and attenuation length of Veto/US/DS using 2022-2025 data
+
+
 ## v1.3.0+2025-11-showerToolsAndP8Decayer
 
 ### Added
