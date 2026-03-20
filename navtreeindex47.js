@@ -1,12 +1,12 @@
 var NAVTREEINDEX47 =
 {
 "classgenfit_1_1mySpacepointDetectorHit.html#ad8b83da02bbc210e91a42e03b4336dcb":[12,0,54,50,0],
-"classgenfit_1_1mySpacepointDetectorHit.html#af13a615daff0d86fb436b293f692a18b":[13,0,13,48,5],
 "classgenfit_1_1mySpacepointDetectorHit.html#af13a615daff0d86fb436b293f692a18b":[12,0,54,50,5],
-"classgenfit_1_1mySpacepointMeasurement.html":[12,0,54,51],
+"classgenfit_1_1mySpacepointDetectorHit.html#af13a615daff0d86fb436b293f692a18b":[13,0,13,48,5],
 "classgenfit_1_1mySpacepointMeasurement.html":[13,0,13,49],
-"classgenfit_1_1mySpacepointMeasurement.html#a5c5f9035c3ef28cbbd476e231c8b9b5f":[13,0,13,49,2],
+"classgenfit_1_1mySpacepointMeasurement.html":[12,0,54,51],
 "classgenfit_1_1mySpacepointMeasurement.html#a5c5f9035c3ef28cbbd476e231c8b9b5f":[12,0,54,51,2],
+"classgenfit_1_1mySpacepointMeasurement.html#a5c5f9035c3ef28cbbd476e231c8b9b5f":[13,0,13,49,2],
 "classgenfit_1_1mySpacepointMeasurement.html#a620a5e895175258e6346348e7e5797dc":[13,0,13,49,0],
 "classgenfit_1_1mySpacepointMeasurement.html#a620a5e895175258e6346348e7e5797dc":[12,0,54,51,0],
 "classgenfit_1_1mySpacepointMeasurement.html#afc12364373fa28d955463e9bde3cb175":[13,0,13,49,1],

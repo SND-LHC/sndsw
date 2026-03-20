@@ -1,5 +1,10 @@
 var NAVTREEINDEX78 =
 {
+"namespaceextractMuonsAndUpdateWeight.html#a07e86667d9efa17c17c9a03af642ae20":[12,0,45,2],
+"namespaceextractMuonsAndUpdateWeight.html#a1cdf3f365964f648f0eeab3b202234ef":[12,0,45,1],
+"namespaceextractMuonsAndUpdateWeight.html#a202e852d3bdae40e39b5742ee2457b1d":[12,0,45,9],
+"namespaceextractMuonsAndUpdateWeight.html#a2694d2114d39e70309162196875e1414":[12,0,45,5],
+"namespaceextractMuonsAndUpdateWeight.html#a3540e4762b6a0339d1c923d86bd5314a":[12,0,45,11],
 "namespaceextractMuonsAndUpdateWeight.html#a3ee737d91956d07c94601d0781b01ba5":[12,0,45,10],
 "namespaceextractMuonsAndUpdateWeight.html#a6931ea78c2f6638c3581e970e932c7cd":[12,0,45,14],
 "namespaceextractMuonsAndUpdateWeight.html#a78c024da4bd6482a82d5fdd95cd8fe7b":[12,0,45,12],
@@ -244,10 +249,5 @@ var NAVTREEINDEX78 =
 "namespacegenfit.html#a31706efb8d31465e314243eca3594f6d":[12,0,54,89],
 "namespacegenfit.html#a31706efb8d31465e314243eca3594f6da09a1aa99d6f1d0b3d655e793f8744268":[12,0,54,89,0],
 "namespacegenfit.html#a31706efb8d31465e314243eca3594f6da4da62c4f01005fa9d9b41383d919fb42":[12,0,54,89,1],
-"namespacegenfit.html#a31706efb8d31465e314243eca3594f6da605e0085946c284dd888271e7f7c5252":[12,0,54,89,5],
-"namespacegenfit.html#a31706efb8d31465e314243eca3594f6da61f5269fcba7511a27c72e1583641040":[12,0,54,89,3],
-"namespacegenfit.html#a31706efb8d31465e314243eca3594f6da8852b71e03fd20194decbff0cfae4096":[12,0,54,89,7],
-"namespacegenfit.html#a31706efb8d31465e314243eca3594f6da9a3e90c9756979f3bdd4de5e3cd9da15":[12,0,54,89,4],
-"namespacegenfit.html#a31706efb8d31465e314243eca3594f6daa23157bc4bd9610af3b3416324b47bff":[12,0,54,89,2],
-"namespacegenfit.html#a31706efb8d31465e314243eca3594f6dade88faa0984312182863fb378aecc4bf":[12,0,54,89,6]
+"namespacegenfit.html#a31706efb8d31465e314243eca3594f6da605e0085946c284dd888271e7f7c5252":[12,0,54,89,5]
 };

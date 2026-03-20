@@ -111,8 +111,38 @@ $(document).ready(function(){initNavTree('md_CHANGELOG.html',''); initResizable(
 </ul>
 <p>We start with the first sndsw release: v1.0.0+2025-07-updateScifi. Shall there be a strong will/need, one can go back and create and fill in the logs for previous stacks.</p>
 <h1><a class="anchor" id="autotoc_md1"></a>
-v1.3.0+2025-11-showerToolsAndP8Decayer</h1>
+v1.4.0+2026-01-G4cutoff</h1>
 <h2><a class="anchor" id="autotoc_md2"></a>
+Added</h2>
+<ul>
+<li>Geant4 range cut set to 2mm</li>
+<li>Record simulation run and event ID</li>
+<li><code>is_mc</code> option for sndConfiguration, used in all sndPlane classes</li>
+<li>Veto and DS plane classes</li>
+<li>2025 data file locations for the analysis tools</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md3"></a>
+Changed</h2>
+<ul>
+<li>Geant4 physics list to FTFP_BERT_HP_EMZ</li>
+<li>retire small SiPMs: add a flag to skip(default) them in analysis</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md4"></a>
+Removed</h2>
+<ul>
+<li>Geant4 production cut at 1MeV</li>
+<li>hard coded digi params in run_digi macro</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md5"></a>
+Fixed</h2>
+<ul>
+<li>MeV to qdc conversion for US</li>
+<li><a class="el" href="classScifi.html">Scifi</a> station 5 rotation for target 256</li>
+<li>revised the drift velocity and attenuation length of Veto/US/DS using 2022-2025 data</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6"></a>
+v1.3.0+2025-11-showerToolsAndP8Decayer</h1>
+<h2><a class="anchor" id="autotoc_md7"></a>
 Added</h2>
 <ul>
 <li>shower tools: start, stop, shower direction</li>
@@ -124,7 +154,7 @@ Added</h2>
 <li>add time window selection for US(test_beam_2023 configuration)</li>
 <li>alignment of targets 256-258</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md3"></a>
+<h2><a class="anchor" id="autotoc_md8"></a>
 Changed</h2>
 <ul>
 <li>G4conf: Remove obsolete neutron and hadronic process verbosity settings</li>
@@ -138,7 +168,7 @@ Changed</h2>
 <li>remove invalid SciFi hits from ScifiPlane's constructor</li>
 <li>2dED: Plot tracks starting from most upstream Veto</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md4"></a>
+<h2><a class="anchor" id="autotoc_md9"></a>
 Fixed</h2>
 <ul>
 <li>change pythia8 decayer configuration method<ul>
@@ -151,14 +181,14 @@ Fixed</h2>
 <li>multiple fixes due to drop of attribute pythonization for TDirectory and TClonesArray</li>
 <li>Disable web-viewer when checking for geo overlaps (workaround!)</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md5"></a>
+<h1><a class="anchor" id="autotoc_md10"></a>
 v1.2.1+2025-09</h1>
-<h2><a class="anchor" id="autotoc_md6"></a>
+<h2><a class="anchor" id="autotoc_md11"></a>
 Added</h2>
 <ul>
 <li>alignment of target 255</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md7"></a>
+<h2><a class="anchor" id="autotoc_md12"></a>
 Changed</h2>
 <ul>
 <li>optimize the MCEventBuider:<ul>
@@ -167,61 +197,61 @@ Changed</h2>
 </ul>
 </li>
 </ul>
-<h2><a class="anchor" id="autotoc_md8"></a>
+<h2><a class="anchor" id="autotoc_md13"></a>
 Fixed</h2>
 <ul>
 <li>fix in SciFi and US plane classes to allow channel indexing in MC and data alike</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md9"></a>
+<h1><a class="anchor" id="autotoc_md14"></a>
 v1.2.0+2025-09-MCEventBuilder</h1>
-<h2><a class="anchor" id="autotoc_md10"></a>
+<h2><a class="anchor" id="autotoc_md15"></a>
 Added</h2>
 <ul>
 <li><a class="el" href="classMCEventBuilder.html">MCEventBuilder</a> Fair Task</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md11"></a>
+<h1><a class="anchor" id="autotoc_md16"></a>
 v1.1.0+2025-08-BolognaTools</h1>
-<h2><a class="anchor" id="autotoc_md12"></a>
+<h2><a class="anchor" id="autotoc_md17"></a>
 Added</h2>
 <ul>
 <li>analysys classes for SciFi and US planes, together with parameter configuraions for TI18 and testbeams setups</li>
 <li>SciFi tools: hit density</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md13"></a>
+<h1><a class="anchor" id="autotoc_md18"></a>
 v1.0.1+2025-07-fixTB24Wtarget</h1>
-<h2><a class="anchor" id="autotoc_md14"></a>
+<h2><a class="anchor" id="autotoc_md19"></a>
 Fixed</h2>
 <ul>
 <li>flag logic to select target geometry for testbeam 2024</li>
 <li>unit fix for selectScifiHits's <code>time_lower_range</code> default</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md15"></a>
+<h2><a class="anchor" id="autotoc_md20"></a>
 Added</h2>
 <ul>
 <li>options for the 2dEvent display: filter hits in time, plot collision axis and more.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md16"></a>
+<h1><a class="anchor" id="autotoc_md21"></a>
 v1.0.0+2025-07-updateScifi</h1>
-<h2><a class="anchor" id="autotoc_md17"></a>
+<h2><a class="anchor" id="autotoc_md22"></a>
 Added</h2>
 <ul>
 <li>CHANGELOG</li>
 <li>Data file and geometry getters from run number</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md18"></a>
+<h2><a class="anchor" id="autotoc_md23"></a>
 Changed</h2>
 <ul>
 <li>Major update on the TI18 and baby SciFi detector geometry</li>
 <li>Update on the testbeams system geometry to take care of air gaps</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md19"></a>
+<h2><a class="anchor" id="autotoc_md24"></a>
 Fixed</h2>
 <ul>
 <li>Units for energy and snd_TDC2ns in the cpp units header</li>
 <li>storage of Emulsion(using a flag) and Veto points(always)</li>
 <li>Adapted to the latest FairRoot v19</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md20"></a>
+<h2><a class="anchor" id="autotoc_md25"></a>
 Removed</h2>
 <ul>
 <li>TI18 MC geometry config file is gone. We use a single one for data and simulation </li>

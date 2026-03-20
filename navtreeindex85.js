@@ -1,5 +1,10 @@
 var NAVTREEINDEX85 =
 {
+"namespacemptext.html":[12,0,91],
+"namespacemptext.html#a0b8b9be380072379b1ab5e04d9c8c55e":[12,0,91,1],
+"namespacemptext.html#a5a15cd59193f031a1b4d5a21f4678795":[12,0,91,0],
+"namespacemuDIS__mergeFiles.html":[12,0,92],
+"namespacemuDIS__mergeFiles.html#a1a441eb731971198a418bf5e43b8498f":[12,0,92,0],
 "namespacemuDIS__mergeFiles.html#a2ad4e59b5b770f5e8954ae02a12b75c0":[12,0,92,3],
 "namespacemuDIS__mergeFiles.html#a500b25fa8ced3622c7a6fb33f4a5c4a9":[12,0,92,2],
 "namespacemuDIS__mergeFiles.html#a83f94c211fdeec0f62c2f112ef51da13":[12,0,92,4],
@@ -244,10 +249,5 @@ var NAVTREEINDEX85 =
 "namespacepythia8__conf__utils.html#a6a47cb7861e4155b59d826ed6e40d730":[12,0,108,9],
 "namespacepythia8__conf__utils.html#a7bec05780607ee21023f773202ab1cd7":[12,0,108,10],
 "namespacepythia8__conf__utils.html#a80fb0a346f3bd8fe89bb6703c0c20624":[12,0,108,15],
-"namespacepythia8__conf__utils.html#a915ba86d5a241f69502f650f81aa81d0":[12,0,108,3],
-"namespacepythia8__conf__utils.html#a9b18dd66c293ddc3174281049ce22b81":[12,0,108,11],
-"namespacepythia8__conf__utils.html#a9e848ced4855607fcf8b26f17a24daad":[12,0,108,16],
-"namespacepythia8__conf__utils.html#ade884ee9c4e28d015aaadf3ebe894d3a":[12,0,108,7],
-"namespacepythia8darkphoton__conf.html":[12,0,109],
-"namespacepythia8darkphoton__conf.html#a2d210c1850611efa3f2d94cfed4a549d":[12,0,109,0]
+"namespacepythia8__conf__utils.html#a915ba86d5a241f69502f650f81aa81d0":[12,0,108,3]
 };
