@@ -220,6 +220,7 @@ var sndLHC__TI18geom__config_8py =
     [ "VetoPitY", "sndLHC__TI18geom__config_8py.html#a0a5289d5de0346e98402f1eb82946319", null ],
     [ "VetoPitZ", "sndLHC__TI18geom__config_8py.html#a6b3170b4eba50f2999dd40c0e5714799", null ],
     [ "VetoPitZdim", "sndLHC__TI18geom__config_8py.html#af4e9cd4d55ab1505a91b55409676237d", null ],
+    [ "VTAttenuationLength", "sndLHC__TI18geom__config_8py.html#a9116ce60573b3588446dd1ee38342320", null ],
     [ "wall", "sndLHC__TI18geom__config_8py.html#afabf5e80e6df68dd81e893f6349598b9", null ],
     [ "WallXDim", "sndLHC__TI18geom__config_8py.html#a5d94fceca44506236c2220378ae97305", null ],
     [ "WallYDim", "sndLHC__TI18geom__config_8py.html#a1ae4a06849211efbca81dbe19dee41e3", null ],

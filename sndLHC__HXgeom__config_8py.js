@@ -207,6 +207,7 @@ var sndLHC__HXgeom__config_8py =
     [ "VETOLocZ", "sndLHC__HXgeom__config_8py.html#aa8f3dba4814cf9f43a66064de6e99bcf", null ],
     [ "VetonSides", "sndLHC__HXgeom__config_8py.html#a8904dca31d91f3e8fd83af0e16b18412", null ],
     [ "VetonSiPMs", "sndLHC__HXgeom__config_8py.html#aeef5baf262a3fff4e58917d56ae9befd", null ],
+    [ "VTAttenuationLength", "sndLHC__HXgeom__config_8py.html#a85024e7e7fa30bc2575383638f28d846", null ],
     [ "wall", "sndLHC__HXgeom__config_8py.html#afd404a328560b0b953a2b098ca22b899", null ],
     [ "WallXDim", "sndLHC__HXgeom__config_8py.html#acfc2c80507b8ba7b5bcd4caa6877ff5c", null ],
     [ "WallYDim", "sndLHC__HXgeom__config_8py.html#ad9062c8cbe9c839bc28268df3374f3df", null ],

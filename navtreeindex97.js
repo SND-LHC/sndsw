@@ -1,5 +1,10 @@
 var NAVTREEINDEX97 =
 {
+"pythia8darkphoton__conf_8py.html#a2d210c1850611efa3f2d94cfed4a549d":[14,0,17,30,0],
+"pythia8darkphoton__conf_8py.html#a30ec2a38b1c060549969ba2c6703c113":[14,0,17,30,7],
+"pythia8darkphoton__conf_8py.html#a3eec5e259d85af3772c0465e4785a1f9":[14,0,17,30,3],
+"pythia8darkphoton__conf_8py.html#a4e665f9019e795ebc2533973bbe5a2a1":[14,0,17,30,5],
+"pythia8darkphoton__conf_8py.html#a7aa8f7540430e7572460a9e92b5082e3":[14,0,17,30,2],
 "pythia8darkphoton__conf_8py.html#a7ce8c8aa53e93dfe5afaa43e2f0901b6":[14,0,17,30,4],
 "pythia8darkphoton__conf_8py.html#abf09dd3a8d5afdafed0abf06741d1fed":[14,0,17,30,6],
 "pythia8darkphoton__conf_8py.html#acd520394960a5dfa80c744de77b559f4":[14,0,17,30,1],
@@ -244,10 +249,5 @@ var NAVTREEINDEX97 =
 "runPythia8_8py.html#a8f6dc596dad6a9d1c17c140b006ffd1f":[14,0,8,25,36],
 "runPythia8_8py.html#a90a308a775a2506ebd46c3296fbea90d":[14,0,8,25,24],
 "runPythia8_8py.html#a95f4581bff645aeaec44b97f840d7a09":[14,0,8,25,8],
-"runPythia8_8py.html#a99bf800291267c5a0d14eba7ff7d0ab5":[14,0,8,25,25],
-"runPythia8_8py.html#a9b3b8bbacb7da11ba1a35f9863dc1be6":[14,0,8,25,22],
-"runPythia8_8py.html#a9f1e93c8a33c19095f5f1616550e0643":[14,0,8,25,43],
-"runPythia8_8py.html#aa6ccf15df5382fe526735a07d97d3cd4":[14,0,8,25,38],
-"runPythia8_8py.html#abd7b29a5f50395da217611dc27e6e748":[14,0,8,25,16],
-"runPythia8_8py.html#abe0f426ab2326f15f01fa0d914944a54":[14,0,8,25,28]
+"runPythia8_8py.html#a99bf800291267c5a0d14eba7ff7d0ab5":[14,0,8,25,25]
 };

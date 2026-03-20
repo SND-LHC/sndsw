@@ -169,6 +169,7 @@ var sndLHC__H6geom__config_8py =
     [ "VetoShiftX", "sndLHC__H6geom__config_8py.html#a34f7a3dc0f73d00711027c2fefc0f1f8", null ],
     [ "VetoShiftY", "sndLHC__H6geom__config_8py.html#a88fa87ecda015161d2424b98229647cc", null ],
     [ "VetoShiftZ", "sndLHC__H6geom__config_8py.html#adb8ad273524ddb4821400651ccf4e03e", null ],
+    [ "VTAttenuationLength", "sndLHC__H6geom__config_8py.html#a8ebdce928e63d1f790ab94b73706a74c", null ],
     [ "wall", "sndLHC__H6geom__config_8py.html#ab7dab834fb053317db988617d3333215", null ],
     [ "WallXDim", "sndLHC__H6geom__config_8py.html#a08198b8355560ee84ed94faeddc77041", null ],
     [ "WallYDim", "sndLHC__H6geom__config_8py.html#a6487789af014c1ed3d77e4f80d7846cf", null ],

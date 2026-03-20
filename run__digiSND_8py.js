@@ -3,6 +3,7 @@ var run__digiSND_8py =
     [ "mem_monitor", "run__digiSND_8py.html#ae34605fb6726080dc9f65abe58bba9c2", null ],
     [ "pyExit", "run__digiSND_8py.html#ae602ec3cb4dbd8402561d9387b18090f", null ],
     [ "action", "run__digiSND_8py.html#aa62fdc224ae15c8eae440522929a7951", null ],
+    [ "better_update", "run__digiSND_8py.html#aefc4a572f3f342293bf52c5f2069dc4c", null ],
     [ "ctime", "run__digiSND_8py.html#aeec7c35dc7b68d4eae80546432e05585", null ],
     [ "default", "run__digiSND_8py.html#afd902e05aaff52727afa34a94a386431", null ],
     [ "dest", "run__digiSND_8py.html#a765ac06b5801ac2ee0dae6f1998a3185", null ],

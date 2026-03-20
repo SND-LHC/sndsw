@@ -344,65 +344,66 @@ $(document).ready(function(){initNavTree('sndLHC__H6geom__config_8py_source.html
 <div class="line"><a id="l00245" name="l00245"></a><span class="lineno"><a class="line" href="namespacesndLHC__H6geom__config.html#a7274c023c4bbefc49c6d7a45b711b6f0">  245</a></span>        c.MuFilter.VETOBoxY2        = c.MuFilter.VETOLocY + c.MuFilter.VetoBarZ/2 + c.MuFilter.SupportBoxD</div>
 <div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span> </div>
 <div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>       <span class="comment">#digitization parameters</span></div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno"><a class="line" href="namespacesndLHC__H6geom__config.html#a0b758b6c377ed3572549259c9e0a9da5">  248</a></span>        c.MuFilter.DsAttenuationLength   =  350 * u.cm                <span class="comment">#  values between 300 cm and 400cm observed for H6 testbeam</span></div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno"><a class="line" href="namespacesndLHC__H6geom__config.html#a556f7ef008b34a9e01f45767d2c624c8">  249</a></span>        c.MuFilter.DsTAttenuationLength =  700 * u.cm                <span class="comment"># top readout with mirror on bottom</span></div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno"><a class="line" href="namespacesndLHC__H6geom__config.html#aa5ee9bcf5f989359f77e2df66892915d">  250</a></span>        c.MuFilter.VandUpAttenuationLength = 999 * u.cm        <span class="comment"># no significante attenuation observed for H6 testbeam</span></div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno"><a class="line" href="namespacesndLHC__H6geom__config.html#a0e9d0614b952561f95a8f59fae56d246">  251</a></span>        c.MuFilter.VandUpSiPMcalibrationL    = 25.*1000.       <span class="comment"># 1.65 MeV = 41 qcd </span></div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno"><a class="line" href="namespacesndLHC__H6geom__config.html#a9b11800d615b804b49c23d2685397f58">  252</a></span>        c.MuFilter.VandUpSiPMcalibrationS    = 25.*1000.</div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno"><a class="line" href="namespacesndLHC__H6geom__config.html#a3d4595c521f89ffa4099409843cc881c">  253</a></span>        c.MuFilter.DsSiPMcalibration             = 25.*1000.</div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>        c.MuFilter.timeResol = 150.*u.picosecond</div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno"><a class="line" href="namespacesndLHC__H6geom__config.html#a7630730dbcd73d228f734e44301a163a">  255</a></span>        c.MuFilter.VandUpPropSpeed    = 12.5*u.cm/u.nanosecond</div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno"><a class="line" href="namespacesndLHC__H6geom__config.html#a7332626878e790a8f1d336651c5c2ffc">  256</a></span>        c.MuFilter.DsPropSpeed        = 14.3*u.cm/u.nanosecond</div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span> </div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno"><a class="line" href="namespacesndLHC__H6geom__config.html#a7073ea064dda781373cda3edf327df87">  258</a></span>        c.Floor = <a class="code hl_class" href="classShipGeoConfig_1_1AttrDict.html">AttrDict</a>(z=48000.*u.cm) <span class="comment"># to place tunnel in SND_@LHC coordinate system</span></div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno"><a class="line" href="namespacesndLHC__H6geom__config.html#acb56988d8a0f406a98e70935117f6dcc">  259</a></span>        c.Floor.DX = 1.0*u.cm </div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno"><a class="line" href="namespacesndLHC__H6geom__config.html#a1fa2138c9a07bae04dbc39ed174ada15">  260</a></span>        c.Floor.DY = -4.5*u.cm <span class="comment">#  subtract 4.5cm to avoid overlaps </span></div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>        c.Floor.DZ = 0.</div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span> </div>
-<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span><span class="comment"># for H6 / H8 testbeam and commissioning</span></div>
-<div class="line"><a id="l00264" name="l00264"></a><span class="lineno"><a class="line" href="namespacesndLHC__H6geom__config.html#a6d82090e3820412072f90178ef6593b3">  264</a></span>        H6 = <span class="keyword">True</span></div>
-<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>        <span class="keywordflow">if</span> H6:</div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>           c.Floor.z = 0   <span class="comment"># no tunnel, no slope</span></div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno"><a class="line" href="namespacesndLHC__H6geom__config.html#a173273a0a94aef74074f6c8522de2733">  267</a></span>           c.MuFilter.Iron9Dy = 0*u.mm <span class="comment"># move iron blocks at the end out of the way</span></div>
-<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span><span class="comment"># scifi moved 46cm behind the iron block of second DS station and lifted by 10-15 cm.</span></div>
-<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span><span class="comment"># equal to move MuFilter in front of target and lower by 10-15cm, from 289 to 538+46, delta = -295</span></div>
-<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>           c.MuFilter.ShiftX =   4.5*u.cm</div>
-<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>           c.MuFilter.ShiftY =   -15.5*u.cm</div>
-<div class="line"><a id="l00272" name="l00272"></a><span class="lineno"><a class="line" href="namespacesndLHC__H6geom__config.html#afe853f18aa0bfddb84eae172a918c46e">  272</a></span>           c.MuFilter.ShiftZ = -275.0*u.cm            <span class="comment"># -295cm was 20cm too much</span></div>
-<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span><span class="comment"># for H6, Veto  placed directly in front of first US</span></div>
-<div class="line"><a id="l00274" name="l00274"></a><span class="lineno"><a class="line" href="namespacesndLHC__H6geom__config.html#adb8ad273524ddb4821400651ccf4e03e">  274</a></span>           c.MuFilter.VetoShiftZ = 70*u.cm + c.MuFilter.ShiftZ</div>
-<div class="line"><a id="l00275" name="l00275"></a><span class="lineno"><a class="line" href="namespacesndLHC__H6geom__config.html#a34f7a3dc0f73d00711027c2fefc0f1f8">  275</a></span>           c.MuFilter.VetoShiftX = -13.5*u.cm</div>
-<div class="line"><a id="l00276" name="l00276"></a><span class="lineno"><a class="line" href="namespacesndLHC__H6geom__config.html#a88fa87ecda015161d2424b98229647cc">  276</a></span>           c.MuFilter.VetoShiftY = -17.7*u.cm</div>
-<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span><span class="comment"># fine adjustements</span></div>
-<div class="line"><a id="l00278" name="l00278"></a><span class="lineno"><a class="line" href="namespacesndLHC__H6geom__config.html#aadb815a20497cce16df049e162c561fc">  278</a></span>           c.MuFilter.Muon8Dx = -4.7*u.mm - 4*u.cm</div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno"><a class="line" href="namespacesndLHC__H6geom__config.html#a7be4ce7472c9284cb9fca8f8979e7a75">  279</a></span>           c.MuFilter.Muon7Dx = -47.1*u.mm + 0.74*u.cm</div>
-<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>           c.MuFilter.Muon1Dz = 146.6*u.mm - 2.3*u.cm</div>
-<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>           c.MuFilter.Muon2Dz = 136.6*u.mm - 1.5*u.cm</div>
-<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>           c.MuFilter.Muon5Dz = 127.7*u.mm + 0.25*u.cm</div>
-<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>           c.MuFilter.Muon7Dz = 127.7*u.mm + 0.25*u.cm</div>
-<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>           c.MuFilter.Muon8Dz = 127.7*u.mm + 0.56*u.cm</div>
-<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span><span class="comment"># from track alignment</span></div>
-<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>           c.Scifi.Zpos0+=  537.00  *u.um</div>
-<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>           c.Scifi.Xpos0+=  -1177.09  *u.um</div>
-<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>           c.Scifi.Zpos1+=  113.00  *u.um</div>
-<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>           c.Scifi.Xpos1+=  -810.00  *u.um</div>
-<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>           c.Scifi.Zpos2+=   22.00  *u.um</div>
-<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>           c.Scifi.Xpos2+=  1602.8  *u.um</div>
-<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>           c.Scifi.Zpos3+=  162.62  *u.um</div>
-<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>           c.Scifi.Xpos3+=  -322.53  *u.um</div>
-<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>           c.Scifi.Zpos4+=  229.08  *u.um</div>
-<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>           c.Scifi.Xpos4+= -122.04  *u.um</div>
-<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span><span class="comment"># relative mat alignments</span></div>
-<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>           c.Scifi.LocM100,c.Scifi.LocM101,c.Scifi.LocM102 =  0.0*u.um,     0.0*u.um,          0.0*u.um</div>
-<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>           c.Scifi.LocM110,c.Scifi.LocM111,c.Scifi.LocM112=   14.91*u.um, -29.82*u.um,     14.91*u.um</div>
-<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>           c.Scifi.LocM200,c.Scifi.LocM201,c.Scifi.LocM202=   0.0*u.um,     0.0*u.um,          0.0*u.um</div>
-<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>           c.Scifi.LocM210,c.Scifi.LocM211,c.Scifi.LocM212 =  0.0*u.um,     0.0*u.um,          0.0*u.um</div>
-<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>           c.Scifi.LocM300,c.Scifi.LocM301,c.Scifi.LocM302=   0.0*u.um,     0.0*u.um,          0.0*u.um</div>
-<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>           c.Scifi.LocM310,c.Scifi.LocM311,c.Scifi.LocM312=   30.80*u.um, -61.61*u.um,     30.80*u.um</div>
-<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>           c.Scifi.LocM400,c.Scifi.LocM401,c.Scifi.LocM402 = -65.64*u.um, -37.62*u.um,     103.25*u.um</div>
-<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>           c.Scifi.LocM410,c.Scifi.LocM411,c.Scifi.LocM412=  -1.49*u.um,    24.0*u.um,      -22.52*u.um</div>
-<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>           c.Scifi.LocM500,c.Scifi.LocM501,c.Scifi.LocM502=  -0.08*u.um,   -46.78*u.um,      46.86*u.um</div>
-<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>           c.Scifi.LocM510,c.Scifi.LocM511,c.Scifi.LocM512=  -230.92*u.um, 292.28*u.um,   -61.36*u.um</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno"><a class="line" href="namespacesndLHC__H6geom__config.html#a0b758b6c377ed3572549259c9e0a9da5">  248</a></span>        c.MuFilter.DsAttenuationLength  =  230*u.cm          <span class="comment"># values between 130cm and 330cm are observed for TI18 in years 2022-2025, but between 300 cm and 400cm for H6 testbeam</span></div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno"><a class="line" href="namespacesndLHC__H6geom__config.html#a556f7ef008b34a9e01f45767d2c624c8">  249</a></span>        c.MuFilter.DsTAttenuationLength =  700*u.cm          <span class="comment"># top readout with mirror on bottom, TI18 and H6 observables agree</span></div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno"><a class="line" href="namespacesndLHC__H6geom__config.html#aa5ee9bcf5f989359f77e2df66892915d">  250</a></span>        c.MuFilter.VandUpAttenuationLength = 210*u.cm        <span class="comment"># while no significant attenuation observed for H6 testbeam</span></div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno"><a class="line" href="namespacesndLHC__H6geom__config.html#a8ebdce928e63d1f790ab94b73706a74c">  251</a></span>        c.MuFilter.VTAttenuationLength =  999*u.cm           <span class="comment"># Veto 3, no significant attenuation observed in 2024-2025 data</span></div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno"><a class="line" href="namespacesndLHC__H6geom__config.html#a0e9d0614b952561f95a8f59fae56d246">  252</a></span>        c.MuFilter.VandUpSiPMcalibrationL    = 50.*1000.       <span class="comment"># 1.65 MeV = 41 qcd over 6 Large SiPMs(one side)</span></div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno"><a class="line" href="namespacesndLHC__H6geom__config.html#a9b11800d615b804b49c23d2685397f58">  253</a></span>        c.MuFilter.VandUpSiPMcalibrationS    = 0.              <span class="comment"># no MIP signal for small SiPMs, delayed and compromised response in general</span></div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno"><a class="line" href="namespacesndLHC__H6geom__config.html#a3d4595c521f89ffa4099409843cc881c">  254</a></span>        c.MuFilter.DsSiPMcalibration             = 25.*1000.</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>        c.MuFilter.timeResol = 150.*u.picosecond</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno"><a class="line" href="namespacesndLHC__H6geom__config.html#a7630730dbcd73d228f734e44301a163a">  256</a></span>        c.MuFilter.VandUpPropSpeed    = 13.6*u.cm/u.nanosecond</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno"><a class="line" href="namespacesndLHC__H6geom__config.html#a7332626878e790a8f1d336651c5c2ffc">  257</a></span>        c.MuFilter.DsPropSpeed        = 15.1*u.cm/u.nanosecond</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span> </div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno"><a class="line" href="namespacesndLHC__H6geom__config.html#a7073ea064dda781373cda3edf327df87">  259</a></span>        c.Floor = <a class="code hl_class" href="classShipGeoConfig_1_1AttrDict.html">AttrDict</a>(z=48000.*u.cm) <span class="comment"># to place tunnel in SND_@LHC coordinate system</span></div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno"><a class="line" href="namespacesndLHC__H6geom__config.html#acb56988d8a0f406a98e70935117f6dcc">  260</a></span>        c.Floor.DX = 1.0*u.cm </div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno"><a class="line" href="namespacesndLHC__H6geom__config.html#a1fa2138c9a07bae04dbc39ed174ada15">  261</a></span>        c.Floor.DY = -4.5*u.cm <span class="comment">#  subtract 4.5cm to avoid overlaps </span></div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>        c.Floor.DZ = 0.</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span> </div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span><span class="comment"># for H6 / H8 testbeam and commissioning</span></div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno"><a class="line" href="namespacesndLHC__H6geom__config.html#a6d82090e3820412072f90178ef6593b3">  265</a></span>        H6 = <span class="keyword">True</span></div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>        <span class="keywordflow">if</span> H6:</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>           c.Floor.z = 0   <span class="comment"># no tunnel, no slope</span></div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno"><a class="line" href="namespacesndLHC__H6geom__config.html#a173273a0a94aef74074f6c8522de2733">  268</a></span>           c.MuFilter.Iron9Dy = 0*u.mm <span class="comment"># move iron blocks at the end out of the way</span></div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span><span class="comment"># scifi moved 46cm behind the iron block of second DS station and lifted by 10-15 cm.</span></div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span><span class="comment"># equal to move MuFilter in front of target and lower by 10-15cm, from 289 to 538+46, delta = -295</span></div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>           c.MuFilter.ShiftX =   4.5*u.cm</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>           c.MuFilter.ShiftY =   -15.5*u.cm</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno"><a class="line" href="namespacesndLHC__H6geom__config.html#afe853f18aa0bfddb84eae172a918c46e">  273</a></span>           c.MuFilter.ShiftZ = -275.0*u.cm            <span class="comment"># -295cm was 20cm too much</span></div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span><span class="comment"># for H6, Veto  placed directly in front of first US</span></div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno"><a class="line" href="namespacesndLHC__H6geom__config.html#adb8ad273524ddb4821400651ccf4e03e">  275</a></span>           c.MuFilter.VetoShiftZ = 70*u.cm + c.MuFilter.ShiftZ</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno"><a class="line" href="namespacesndLHC__H6geom__config.html#a34f7a3dc0f73d00711027c2fefc0f1f8">  276</a></span>           c.MuFilter.VetoShiftX = -13.5*u.cm</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno"><a class="line" href="namespacesndLHC__H6geom__config.html#a88fa87ecda015161d2424b98229647cc">  277</a></span>           c.MuFilter.VetoShiftY = -17.7*u.cm</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span><span class="comment"># fine adjustements</span></div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno"><a class="line" href="namespacesndLHC__H6geom__config.html#aadb815a20497cce16df049e162c561fc">  279</a></span>           c.MuFilter.Muon8Dx = -4.7*u.mm - 4*u.cm</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno"><a class="line" href="namespacesndLHC__H6geom__config.html#a7be4ce7472c9284cb9fca8f8979e7a75">  280</a></span>           c.MuFilter.Muon7Dx = -47.1*u.mm + 0.74*u.cm</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>           c.MuFilter.Muon1Dz = 146.6*u.mm - 2.3*u.cm</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>           c.MuFilter.Muon2Dz = 136.6*u.mm - 1.5*u.cm</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>           c.MuFilter.Muon5Dz = 127.7*u.mm + 0.25*u.cm</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>           c.MuFilter.Muon7Dz = 127.7*u.mm + 0.25*u.cm</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>           c.MuFilter.Muon8Dz = 127.7*u.mm + 0.56*u.cm</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span><span class="comment"># from track alignment</span></div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>           c.Scifi.Zpos0+=  537.00  *u.um</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>           c.Scifi.Xpos0+=  -1177.09  *u.um</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>           c.Scifi.Zpos1+=  113.00  *u.um</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>           c.Scifi.Xpos1+=  -810.00  *u.um</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>           c.Scifi.Zpos2+=   22.00  *u.um</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>           c.Scifi.Xpos2+=  1602.8  *u.um</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>           c.Scifi.Zpos3+=  162.62  *u.um</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>           c.Scifi.Xpos3+=  -322.53  *u.um</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>           c.Scifi.Zpos4+=  229.08  *u.um</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>           c.Scifi.Xpos4+= -122.04  *u.um</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span><span class="comment"># relative mat alignments</span></div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>           c.Scifi.LocM100,c.Scifi.LocM101,c.Scifi.LocM102 =  0.0*u.um,     0.0*u.um,          0.0*u.um</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>           c.Scifi.LocM110,c.Scifi.LocM111,c.Scifi.LocM112=   14.91*u.um, -29.82*u.um,     14.91*u.um</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>           c.Scifi.LocM200,c.Scifi.LocM201,c.Scifi.LocM202=   0.0*u.um,     0.0*u.um,          0.0*u.um</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>           c.Scifi.LocM210,c.Scifi.LocM211,c.Scifi.LocM212 =  0.0*u.um,     0.0*u.um,          0.0*u.um</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>           c.Scifi.LocM300,c.Scifi.LocM301,c.Scifi.LocM302=   0.0*u.um,     0.0*u.um,          0.0*u.um</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>           c.Scifi.LocM310,c.Scifi.LocM311,c.Scifi.LocM312=   30.80*u.um, -61.61*u.um,     30.80*u.um</div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>           c.Scifi.LocM400,c.Scifi.LocM401,c.Scifi.LocM402 = -65.64*u.um, -37.62*u.um,     103.25*u.um</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>           c.Scifi.LocM410,c.Scifi.LocM411,c.Scifi.LocM412=  -1.49*u.um,    24.0*u.um,      -22.52*u.um</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>           c.Scifi.LocM500,c.Scifi.LocM501,c.Scifi.LocM502=  -0.08*u.um,   -46.78*u.um,      46.86*u.um</div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>           c.Scifi.LocM510,c.Scifi.LocM511,c.Scifi.LocM512=  -230.92*u.um, 292.28*u.um,   -61.36*u.um</div>
 <div class="ttc" id="aclassShipGeoConfig_1_1AttrDict_html"><div class="ttname"><a href="classShipGeoConfig_1_1AttrDict.html">ShipGeoConfig.AttrDict</a></div><div class="ttdef"><b>Definition</b> <a href="ShipGeoConfig_8py_source.html#l00094">ShipGeoConfig.py:94</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
