@@ -128,7 +128,7 @@ var searchData=
   ['addscatterer_125',['addscatterer',['../classgbl_1_1GblPoint.html#a02e4f3ea825675c43017235b28d31d67',1,'gbl::GblPoint::addScatterer(const TVectorD &amp;aResiduals, const TMatrixDSym &amp;aPrecision)'],['../classgbl_1_1GblPoint.html#a5f35c13484013ab6de3112cfd781ceb0',1,'gbl::GblPoint::addScatterer(const TVectorD &amp;aResiduals, const TVectorD &amp;aPrecision)']]],
   ['addsum_126',['addsum',['../pede_8f90.html#abe72f30ba17fdfd70d04a47c5e3b6c08',1,'pede.f90']]],
   ['addtext_127',['addText',['../namespaceconditionsDatabase_1_1demo_1_1drifttubeMonitoring.html#ae447084be4070e93d40f5fbb48a412be',1,'conditionsDatabase::demo::drifttubeMonitoring']]],
-  ['addtrack_128',['addtrack',['../classEventDisplay__Task_1_1twod.html#ad0e3c838d3df2ba705537d247bcff5bc',1,'EventDisplay_Task.twod.addTrack()'],['../namespace2dEventDisplay.html#a5bf00cbd7526b2a505b9746b90727333',1,'2dEventDisplay.addTrack()']]],
+  ['addtrack_128',['addtrack',['../classEventDisplay__Task_1_1twod.html#ad0e3c838d3df2ba705537d247bcff5bc',1,'EventDisplay_Task.twod.addTrack()'],['../namespace2dEventDisplay.html#a531a00efd60578057d8680f3c9b2b5f4',1,'2dEventDisplay.addTrack()']]],
   ['addtrackenergy_129',['addtrackenergy',['../classecalCellMC.html#a9cc4c10518984675660f35e6d96a5b04',1,'ecalCellMC::AddTrackEnergy()'],['../classhcalModuleMC.html#adc23eaad47213cad7698de59de09fa95',1,'hcalModuleMC::AddTrackEnergy(Int_t num, Float_t energy)']]],
   ['addtrackenergy2_130',['AddTrackEnergy2',['../classhcalModuleMC.html#aef1b7df01edb0fe1408b2a943d85677b',1,'hcalModuleMC']]],
   ['addtrackrep_131',['addTrackRep',['../classgenfit_1_1Track.html#a0b6d9d10d404ae80046fcc2eba46dea3',1,'genfit::Track']]],
