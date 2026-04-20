@@ -1,3 +1,4 @@
+import json
 import ROOT as r
 import shipunit as u
 from ShipGeoConfig import AttrDict, ConfigRegistry
@@ -386,6 +387,19 @@ with ConfigRegistry.register_config("basic") as c:
              c.Scifi.station2t,c.Scifi.station2H0t,c.Scifi.station2V0t  =  0.000*u.ns,  0.000*u.ns,  0.000*u.ns
              c.Scifi.station3t,c.Scifi.station3H0t,c.Scifi.station3V0t  =  0.000*u.ns,  0.000*u.ns,  0.000*u.ns
              c.Scifi.station4t,c.Scifi.station4H0t,c.Scifi.station4V0t  =  0.000*u.ns,  0.000*u.ns,  0.000*u.ns
+#US saturation values
+             # Bars other than 4 and 5 in each plane don't record any showers and don't saturate.
+             # For those we use an average of all SiPMs in the 2 bars per plane, where showers are incident.
+             # For small SiPMs we set a dummy saturation value of zero. 
+             file_sat = open('/eos/experiment/sndlhc/calibration/MuFilter/US/tb2023_US_satur.json')
+             data_sat = json.load(file_sat)
+             for i in data_sat.items():
+                detID  = int(i[0])
+                for j in i[1].items():
+                  chanID = int(j[0])
+                  setattr(c.MuFilter,'US_saturation_'+str(detID)+'_'+str(chanID),float(j[1]))
+                  c.MuFilter['US_saturation_'+str(detID)+'_'+str(chanID)] = float(j[1])
+
            else :
 # spatial
              c.Scifi.LocM100, c.Scifi.LocM110 = 667.33*u.um, 429.73*u.um
