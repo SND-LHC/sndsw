@@ -68,12 +68,21 @@ MuFilterHit::MuFilterHit(Int_t detID, std::vector<MuFilterPoint*> V)
               propspeed = MuFilterDet->GetConfParF("MuFilter/VandUpPropSpeed");
      }
 
+     // read the saturation levels per channel
+     float saturation[16];
      for (unsigned int j=0; j<16; ++j){
         signals[j] = -1;
         times[j]    =-1;
+        if (floor(detID/10000)==2){ // exists for US only for now
+            saturation[j] = MuFilterDet->GetConfParF("MuFilter/US_saturation_"+std::to_string(detID)+"_"+std::to_string(j));
+            if (saturation[j]==0) saturation[j] = 1E6; // dummy large value
+        }
+        else saturation[j] = 1E6; // dummy large value
+
      }
      LOG(DEBUG) << "detid "<<detID<< " size "<<nSiPMs<< "  side "<<nSides;
 
+     
      fDetectorID  = detID;
      Float_t signalLeft    = 0;
      Float_t signalRight = 0;
@@ -103,15 +112,17 @@ MuFilterHit::MuFilterHit(Int_t detID, std::vector<MuFilterPoint*> V)
      // shortSiPM = {3,6,11,14,19,22,27,30,35,38,43,46,51,54,59,62,67,70,75,78}; - counting from 1!
      // In the SndlhcHit class the 'signals' array starts from 0.
      for (unsigned int j=0; j<nSiPMs; ++j){
-        if ( floor(detID/10000)==2 && (j==2 or j==5)){                 // only US has small SiPMs
+        if ( floor(detID/10000)==2 && (j==2 or j==5)){                 // only US has small SiPMs, no saturation for them
            signals[j] = signalLeft/float(nSiPMs) * siPMcalibrationS;   // most simplest model, divide signal individually. Small SiPMS special: set signal to zero
            times[j] = gRandom->Gaus(earliestToAL, timeResol);
         }else{
            signals[j] = signalLeft/float(nSiPMs) * siPMcalibration;   // most simplest model, divide signal individually. 
+           if (signals[j]>saturation[j]) signals[j] = saturation[j];
            times[j] = gRandom->Gaus(earliestToAL, timeResol);
         }
         if (nSides>1){ 
             signals[j+nSiPMs] = signalRight/float(nSiPMs) * siPMcalibration;   // most simplest model, divide signal individually.
+            if (signals[j+nSiPMs]>saturation[j+nSiPMs]) signals[j+nSiPMs] = saturation[j+nSiPMs];
             times[j+nSiPMs] = gRandom->Gaus(earliestToAR, timeResol);
         }
      }
