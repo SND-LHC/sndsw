@@ -333,6 +333,8 @@ void ConvRawData::Process0()
            system = MufiSystem[board_id][tofpet_id];
            key = (tofpet_id%2)*1000 + tofpet_channel;
            tmp = boardMapsMu["MuFilter"][board.first][slots[tofpet_id]];
+           // mini DTs are labelled DS 5V, board is 32
+           if (tmp == "DS_5Vert") continue;
            if (debug || !(tmp.find("not") == string::npos))
            {
              LOG (info) << system << " " << key << " " << board.first << " " << tofpet_id
@@ -627,6 +629,8 @@ void ConvRawData::Process1()
            system = MufiSystem[board_id][tofpet_id];
            key = (tofpet_id%2)*1000 + tofpet_channel;
            tmp = boardMapsMu["MuFilter"][board_name][slots[tofpet_id]];
+           // mini DTs are labelled DS 5V, board is 32
+           if (tmp == "DS_5Vert") continue;
            if (debug || !(tmp.find("not") == string::npos))
            {
              LOG (info) << system << " " << key << " " << board_name << " " << tofpet_id

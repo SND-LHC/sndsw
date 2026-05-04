@@ -2,6 +2,7 @@
 
 #include <vector>
 #include <stdexcept>
+#include <cmath>
 
 #include "TClonesArray.h"
 #include "Scifi.h"
@@ -110,3 +111,9 @@ std::vector<snd::analysis_tools::DSPlane> snd::analysis_tools::FillDS(const snd:
   }
   return ds_planes;
 }
+
+
+// template <typename H>
+// std::vector<snd::analysis_tools::Cluster>
+// ClustersPositions(const std::vector<H>& hits, double max_gap)
+

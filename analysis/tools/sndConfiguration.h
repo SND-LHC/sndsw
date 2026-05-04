@@ -22,6 +22,7 @@ namespace snd {
     double scifi_centroid_error_z;
     double scifi_min_timestamp;
     double scifi_max_timestamp;
+    double scifi_density_radius;
     // For plots
     double scifi_x_min;
     double scifi_x_max;

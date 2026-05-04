@@ -261,7 +261,7 @@ def getSciFiHitDensity(g, x_range=0.5):
               ret.append(density)
        return ret
                        
-def drawLegend(max_density, max_QDC, n_legend_points):
+def drawLegend(max_density, max_QDC, n_legend_points, darkMode=False):
        """Draws legend for hit colour"""
        h['simpleDisplay'].cd(1)
        n_legend_points = 5
@@ -273,6 +273,7 @@ def drawLegend(max_density, max_QDC, n_legend_points):
        text_scifi_legend.SetTextAlign(11)
        text_scifi_legend.SetTextFont(42)
        text_scifi_legend.SetTextSize(.15)
+       if darkMode: text_scifi_legend.SetTextColor(ROOT.kWhite)
        for i in range(n_legend_points) :
               if i < (n_legend_points - 1) :
                      text_scifi_legend.DrawLatex((i+0.3)*(1./(n_legend_points+2)), 0.2, "{:d}".format(int(i*max_density/(n_legend_points-1))))
@@ -282,11 +283,17 @@ def drawLegend(max_density, max_QDC, n_legend_points):
                      text_scifi_legend.DrawLatex((i+0.3)*(1./(n_legend_points+2)), 0.,  "{:.0f} QDC units".format(int(i*max_QDC/(n_legend_points-1))))
                      
               h["markerCollection"].append(ROOT.TEllipse((i+0.15)*(1./(n_legend_points+2)), 0.26, 0.05/4, 0.05))
-              h["markerCollection"][-1].SetFillColor(ROOT.TColor.GetPalette()[int(float(i*max_density/(n_legend_points-1))/max_density*(len(ROOT.TColor.GetPalette())-1))])
+              if not darkMode:
+                  h["markerCollection"][-1].SetFillColor(ROOT.TColor.GetPalette()[int(float(i*max_density/(n_legend_points-1))/max_density*(len(ROOT.TColor.GetPalette())-1))])
+              else:
+                  h["markerCollection"][-1].SetFillColor(ROOT.TColor.GetPalette()[int((1/4+3/4*float(i*max_density/(n_legend_points-1))/max_density)*(len(ROOT.TColor.GetPalette())-1))])
               h["markerCollection"][-1].Draw("SAME")
               
               h["markerCollection"].append(ROOT.TBox((i+0.15)*(1./(n_legend_points+2))-0.05/4 , 0.06 - 0.05, (i+0.15)*(1./(n_legend_points+2))+0.05/4, 0.06 + 0.05))
-              h["markerCollection"][-1].SetFillColor(ROOT.TColor.GetPalette()[int(float(i*max_QDC/(n_legend_points-1))/max_QDC*(len(ROOT.TColor.GetPalette())-1))])
+              if not darkMode:
+                  h["markerCollection"][-1].SetFillColor(ROOT.TColor.GetPalette()[int(float(i*max_QDC/(n_legend_points-1))/max_QDC*(len(ROOT.TColor.GetPalette())-1))])
+              else:
+                  h["markerCollection"][-1].SetFillColor(ROOT.TColor.GetPalette()[int((1/4+3/4*float(i*max_QDC/(n_legend_points-1))/max_QDC)*(len(ROOT.TColor.GetPalette())-1))])
               h["markerCollection"][-1].Draw("SAME")
 
 def drawSciFiHits(g, colour):
@@ -319,9 +326,12 @@ def loopEvents(
               verbose=0,
               auto=False,
               hitColour=None,
-              FilterScifiHits=None
+              FilterScifiHits=None,
+              darkMode=False
               ):
-
+ if darkMode:
+     ROOT.gStyle.SetCanvasColor(ROOT.kBlack)
+     
  # check the format of FilterScifiHits if set
  if FilterScifiHits: 
     important_keys = {"bins_x", "min_x", "max_x", "time_lower_range", "time_upper_range"}
@@ -367,6 +377,15 @@ def loopEvents(
     for d in ['xmin','xmax','ymin','ymax','zmin','zmax']: h['c'+d]=h[d]
  ut.bookHist(h,'xz','; z [cm]; x [cm]',500,h['czmin'],h['czmax'],100,h['cxmin'],h['cxmax'])
  ut.bookHist(h,'yz','; z [cm]; y [cm]',500,h['czmin'],h['czmax'],100,h['cymin'],h['cymax'])
+ if darkMode:
+    for hist in [h['xz'], h['yz']]:
+        # set axis lines, labels, titles to white in dark mode
+        hist.GetXaxis().SetAxisColor(ROOT.kWhite)
+        hist.GetYaxis().SetAxisColor(ROOT.kWhite)
+        hist.GetXaxis().SetLabelColor(ROOT.kWhite)
+        hist.GetYaxis().SetLabelColor(ROOT.kWhite)
+        hist.GetXaxis().SetTitleColor(ROOT.kWhite)
+        hist.GetYaxis().SetTitleColor(ROOT.kWhite)
 
  proj = {1:'xz',2:'yz'}
  h['xz'].SetStats(0)
@@ -522,7 +541,7 @@ def loopEvents(
           drawCollisionAxis(h['simpleDisplay'], k)
        
     if withDetector:
-      drawDetectors()
+      drawDetectors(darkMode=darkMode)
     for D in digis:
       for digi in D:
          detID = digi.GetDetectorID()
@@ -576,9 +595,12 @@ def loopEvents(
                                      this_qdc += qdc
                 if this_qdc > max_QDC :
                        this_qdc = max_QDC
-                fillNode(curPath, ROOT.TColor.GetPalette()[int(this_qdc/max_QDC*(len(ROOT.TColor.GetPalette())-1))])
+                if not darkMode:
+                    fillNode(curPath, ROOT.TColor.GetPalette()[int(this_qdc/max_QDC*(len(ROOT.TColor.GetPalette())-1))])
+                else:  # for dark mode, only use the lighter part of the colormap; the dark hues have bad contrast
+                    fillNode(curPath, ROOT.TColor.GetPalette()[int((1/4 + 3/4*this_qdc/max_QDC) * (len(ROOT.TColor.GetPalette())-1))])
          else :
-                fillNode(curPath)
+                fillNode(curPath, darkMode=darkMode)
 
          if digi.isVertical():  F = 'firedChannelsX'
          else:                     F = 'firedChannelsY'
@@ -591,17 +613,20 @@ def loopEvents(
                        h[F][systems[system]][0]+=1
                        if len(h[F][systems[system]]) < 2+side: continue
                        h[F][systems[system]][2+side]+=qdc
-    h['hitCollectionY']['Scifi'][1].SetMarkerColor(ROOT.kBlue+2)
-    h['hitCollectionX']['Scifi'][1].SetMarkerColor(ROOT.kBlue+2)
+    h['hitCollectionY']['Scifi'][1].SetMarkerColor(ROOT.kBlue+2 if not darkMode else ROOT.kBlue-4)
+    h['hitCollectionX']['Scifi'][1].SetMarkerColor(ROOT.kBlue+2 if not darkMode else ROOT.kBlue-4)
 
     if hitColour == "q" :
        for orientation in ['X', 'Y']:
               max_density = 40
               density = np.clip(0, max_density, getSciFiHitDensity(h['hitCollection'+orientation]['Scifi'][1]))
               for i in range(h['hitCollection'+orientation]['Scifi'][1].GetN()) :
-                     h['hitColour'+orientation]['Scifi'].append(ROOT.TColor.GetPalette()[int(float(density[i])/max_density*(len(ROOT.TColor.GetPalette())-1))])
+                  if not darkMode:
+                      h['hitColour'+orientation]['Scifi'].append(ROOT.TColor.GetPalette()[int(float(density[i])/max_density*(len(ROOT.TColor.GetPalette())-1))])
+                  else:  # for dark mode, only use the lighter part of the colormap; the dark hues have bad contrast
+                      h['hitColour'+orientation]['Scifi'].append(ROOT.TColor.GetPalette()[int((1/4 + 3/4*float(density[i])/max_density) * (len(ROOT.TColor.GetPalette())-1))])
 
-       drawLegend(max_density, max_QDC, 5)
+       drawLegend(max_density, max_QDC, 5, darkMode=darkMode)
                          
     k = 1
     moreEventInfo = []
@@ -609,7 +634,7 @@ def loopEvents(
 
     for collection in ['hitCollectionX','hitCollectionY']:
        h['simpleDisplay'].cd(k)
-       drawInfo(h['simpleDisplay'], k, runId, N, T)
+       drawInfo(h['simpleDisplay'], k, runId, N, T, darkMode=darkMode)
        k+=1
        for c in h[collection]:
           F = collection.replace('hitCollection','firedChannels')
@@ -645,12 +670,12 @@ def loopEvents(
     k = 1
     for collection in ['hitCollectionX','hitCollectionY']:
        h['simpleDisplay'].cd(k)
-       drawInfo(h['simpleDisplay'], k, runId, N, T,moreEventInfo)
+       drawInfo(h['simpleDisplay'], k, runId, N, T,moreEventInfo, darkMode=darkMode)
        k+=1
             
     h['simpleDisplay'].Update()
     if withTiming: timingOfEvent()
-    addTrack(OT)
+    addTrack(OT, darkMode=darkMode)
 
     # try finding shower direction and intercept
     if options.drawShowerDir:
@@ -678,12 +703,12 @@ def loopEvents(
     h['simpleDisplay'].Update()
 
     if option == "2tracks": 
-          rc = twoTrackEvent(sMin=10,dClMin=7,minDistance=0.5,sepDistance=0.5)
-          if not rc: rc = twoTrackEvent(sMin=10,dClMin=7,minDistance=0.5,sepDistance=0.75)
-          if not rc: rc = twoTrackEvent(sMin=10,dClMin=7,minDistance=0.5,sepDistance=1.0)
-          if not rc: rc = twoTrackEvent(sMin=10,dClMin=7,minDistance=0.5,sepDistance=1.75)
-          if not rc: rc = twoTrackEvent(sMin=10,dClMin=7,minDistance=0.5,sepDistance=2.5)
-          if not rc: rc = twoTrackEvent(sMin=10,dClMin=7,minDistance=0.5,sepDistance=3.0)
+          rc = twoTrackEvent(sMin=10,dClMin=7,minDistance=0.5,sepDistance=0.5, darkMode=darkMode)
+          if not rc: rc = twoTrackEvent(sMin=10,dClMin=7,minDistance=0.5,sepDistance=0.75, darkMode=darkMode)
+          if not rc: rc = twoTrackEvent(sMin=10,dClMin=7,minDistance=0.5,sepDistance=1.0, darkMode=darkMode)
+          if not rc: rc = twoTrackEvent(sMin=10,dClMin=7,minDistance=0.5,sepDistance=1.75, darkMode=darkMode)
+          if not rc: rc = twoTrackEvent(sMin=10,dClMin=7,minDistance=0.5,sepDistance=2.5, darkMode=darkMode)
+          if not rc: rc = twoTrackEvent(sMin=10,dClMin=7,minDistance=0.5,sepDistance=3.0, darkMode=darkMode)
 
     if verbose>0: dumpChannels()
     userProcessing(event)
@@ -703,18 +728,18 @@ def loopEvents(
  if save:
      os.system("convert -delay 60 -loop 0 event*." + options.extension + " animated.gif")
 
-def addTrack(OT,scifi=False):
+def addTrack(OT,scifi=False, darkMode=False):
    xax = h['xz'].GetXaxis()
    nTrack = 0
    for   aTrack in OT.Reco_MuonTracks:
       trackColor = ROOT.kRed
       if aTrack.GetUniqueID()==1:
-          trackColor = ROOT.kBlue+2
+          trackColor = ROOT.kBlue+2 if not darkMode else ROOT.kBlue-4
           flightDir = trackTask.trackDir(aTrack)
           print('flight direction: %5.3F  significance: %5.3F'%(flightDir[0],flightDir[1]))
-      if aTrack.GetUniqueID()==3: trackColor = ROOT.kBlack
-      if aTrack.GetUniqueID()==11: trackColor = ROOT.kAzure-2 # HT scifi track
-      if aTrack.GetUniqueID()==13: trackColor = ROOT.kGray+2 # HT ds track
+      if aTrack.GetUniqueID()==3: trackColor = ROOT.kBlack if not darkMode else ROOT.kWhite
+      if aTrack.GetUniqueID()==11: trackColor = ROOT.kAzure-2 if not darkMode else ROOT.kAzure-3 # HT scifi track
+      if aTrack.GetUniqueID()==13: trackColor = ROOT.kGray+2 if not darkMode else ROOT.kGray # HT ds track
       # HT cross-system track fit
       if aTrack.GetUniqueID()==15: trackColor = ROOT.kOrange+7
       S = aTrack.getFitStatus()
@@ -754,7 +779,7 @@ def addTrack(OT,scifi=False):
              h[ 'simpleDisplay'].Update()
       nTrack+=1
 
-def twoTrackEvent(sMin=10,dClMin=7,minDistance=1.5,sepDistance=0.5):
+def twoTrackEvent(sMin=10,dClMin=7,minDistance=1.5,sepDistance=0.5, darkMode=False):
         trackTask.clusScifi.Clear()
         trackTask.scifiCluster()
         clusters = trackTask.clusScifi
@@ -838,40 +863,40 @@ def twoTrackEvent(sMin=10,dClMin=7,minDistance=1.5,sepDistance=0.5):
            if len(tracks)==2:
                  OT = sink.GetOutTree()
                  OT.Reco_MuonTracks = tracks
-                 addTrack(OT,True) 
+                 addTrack(OT,True, darkMode=darkMode) 
         return passed
 
-def drawDetectors():
-   nodes = {'volMuFilter_1/volFeBlockEnd_1':ROOT.kGreen-6}
+def drawDetectors(darkMode=False):
+   nodes = {'volMuFilter_1/volFeBlockEnd_1':ROOT.kGreen-6 if not darkMode else ROOT.kGreen-2}
    for i in range(mi.NVetoPlanes):
       nodes['volVeto_1/volVetoPlane_{}_{}'.format(i, i)]=ROOT.kRed
       for j in range(mi.NVetoBars):
          if i<2: nodes['volVeto_1/volVetoPlane_{}_{}/volVetoBar_1{}{:0>3d}'.format(i, i, i, j)]=ROOT.kRed
          if i==2: nodes['volVeto_1/volVetoPlane_{}_{}/volVetoBar_ver_1{}{:0>3d}'.format(i, i, i, j)]=ROOT.kRed
-      if i<2: nodes['volVeto_1/subVetoBox_{}'.format(i)]=ROOT.kGray+1
-      if i==2: nodes['volVeto_1/subVeto3Box_{}'.format(i)]=ROOT.kGray+1
+      if i<2: nodes['volVeto_1/subVetoBox_{}'.format(i)]=ROOT.kGray+1 if not darkMode else ROOT.kGray+2
+      if i==2: nodes['volVeto_1/subVeto3Box_{}'.format(i)]=ROOT.kGray+1 if not darkMode else ROOT.kGray+2
    for i in range(si.nscifi): # number of scifi stations
-      nodes['volTarget_1/ScifiVolume{}_{}000000'.format(i+1, i+1)]=ROOT.kBlue+1
+      nodes['volTarget_1/ScifiVolume{}_{}000000'.format(i+1, i+1)]=ROOT.kBlue+1 if not darkMode else ROOT.kCyan-6
       # iron blocks btw SciFi planes in the testbeam 2023-2024 det layout
-      nodes['volTarget_1/volFeTarget{}_1'.format(i+1)]=ROOT.kGreen-6
+      nodes['volTarget_1/volFeTarget{}_1'.format(i+1)]=ROOT.kGreen-6 if not darkMode else ROOT.kGreen-2
    for i in range(em.wall): # number of target walls
-      nodes['volTarget_1/volWallborder_{}'.format(i)]=ROOT.kGray
+      nodes['volTarget_1/volWallborder_{}'.format(i)]=ROOT.kGray if not darkMode else ROOT.kGray+2
    for i in range(mi.NDownstreamPlanes):
-      nodes['volMuFilter_1/volMuDownstreamDet_{}_{}'.format(i, i+mi.NVetoPlanes+mi.NUpstreamPlanes)]=ROOT.kBlue+1
+      nodes['volMuFilter_1/volMuDownstreamDet_{}_{}'.format(i, i+mi.NVetoPlanes+mi.NUpstreamPlanes)]=ROOT.kBlue+1 if not darkMode else ROOT.kCyan-6
       for j in range(mi.NDownstreamBars):
-         nodes['volMuFilter_1/volMuDownstreamDet_{}_{}/volMuDownstreamBar_ver_3{}{:0>3d}'.format(i, i+mi.NVetoPlanes+mi.NUpstreamPlanes, i, j+mi.NDownstreamBars)]=ROOT.kBlue+1
+         nodes['volMuFilter_1/volMuDownstreamDet_{}_{}/volMuDownstreamBar_ver_3{}{:0>3d}'.format(i, i+mi.NVetoPlanes+mi.NUpstreamPlanes, i, j+mi.NDownstreamBars)]=ROOT.kBlue+1 if not darkMode else ROOT.kCyan-6
          if i < 3:
-            nodes['volMuFilter_1/volMuDownstreamDet_{}_{}/volMuDownstreamBar_hor_3{}{:0>3d}'.format(i, i+mi.NVetoPlanes+mi.NUpstreamPlanes, i, j)]=ROOT.kBlue+1
+            nodes['volMuFilter_1/volMuDownstreamDet_{}_{}/volMuDownstreamBar_hor_3{}{:0>3d}'.format(i, i+mi.NVetoPlanes+mi.NUpstreamPlanes, i, j)]=ROOT.kBlue+1 if not darkMode else ROOT.kCyan-6
    for i in range(mi.NDownstreamPlanes):
-      nodes['volMuFilter_1/subDSBox_{}'.format(i+mi.NVetoPlanes+mi.NUpstreamPlanes)]=ROOT.kGray+1
+      nodes['volMuFilter_1/subDSBox_{}'.format(i+mi.NVetoPlanes+mi.NUpstreamPlanes)]=ROOT.kGray+1 if not darkMode else ROOT.kGray+2
    for i in range(mi.NUpstreamPlanes):
-      nodes['volMuFilter_1/subUSBox_{}'.format(i+mi.NVetoPlanes)]=ROOT.kGray+1
-      nodes['volMuFilter_1/volMuUpstreamDet_{}_{}'.format(i, i+mi.NVetoPlanes)]=ROOT.kBlue+1
+      nodes['volMuFilter_1/subUSBox_{}'.format(i+mi.NVetoPlanes)]=ROOT.kGray+1 if not darkMode else ROOT.kGray+2
+      nodes['volMuFilter_1/volMuUpstreamDet_{}_{}'.format(i, i+mi.NVetoPlanes)]=ROOT.kBlue+1 if not darkMode else ROOT.kCyan-6
       for j in range(mi.NUpstreamBars):
-         nodes['volMuFilter_1/volMuUpstreamDet_{}_{}/volMuUpstreamBar_2{}00{}'.format(i, i+mi.NVetoPlanes, i, j)]=ROOT.kBlue+1
-      nodes['volMuFilter_1/volFeBlock_{}'.format(i)]=ROOT.kGreen-6
+         nodes['volMuFilter_1/volMuUpstreamDet_{}_{}/volMuUpstreamBar_2{}00{}'.format(i, i+mi.NVetoPlanes, i, j)]=ROOT.kBlue+1 if not darkMode else ROOT.kCyan-6
+      nodes['volMuFilter_1/volFeBlock_{}'.format(i)]=ROOT.kGreen-6 if not darkMode else ROOT.kGreen-2
    for i in range(mi.NVetoPlanes+mi.NUpstreamPlanes,mi.NVetoPlanes+mi.NUpstreamPlanes+mi.NDownstreamPlanes):
-      nodes['volMuFilter_1/volFeBlock_{}'.format(i)]=ROOT.kGreen-6
+      nodes['volMuFilter_1/volFeBlock_{}'.format(i)]=ROOT.kGreen-6 if not darkMode else ROOT.kGreen-2
    passNodes = {'Block', 'Wall', 'FeTarget'}
    xNodes = {'UpstreamBar', 'VetoBar', 'hor'}
    proj = {'X':0,'Y':1}
@@ -1182,12 +1207,12 @@ def dumpChannels(D='Digi_MuFilterHits'):
      keys.sort()
      for k in keys: print(text[k])
 
-def fillNode(node, color=None):
+def fillNode(node, color=None, darkMode=False):
    xNodes = {'UpstreamBar', 'VetoBar', 'hor'}
    proj = {'X':0,'Y':1}
    if color == None :
-          hcal_color = ROOT.kBlack
-          veto_color = ROOT.kRed+1
+          hcal_color = ROOT.kBlack if not darkMode else ROOT.kWhite
+          veto_color = ROOT.kRed+1 if not darkMode else ROOT.kRed-4
    else :
           hcal_color = color
           veto_color = color
@@ -1210,15 +1235,16 @@ def fillNode(node, color=None):
          X.Draw('f&&same')
          X.Draw('same')   
 
-def drawInfo(pad, k, run, event, timestamp,moreEventInfo=[]):
+def drawInfo(pad, k, run, event, timestamp,moreEventInfo=[], darkMode=False):
    drawLogo = True
    drawText = True
    if drawLogo:
       padLogo = ROOT.TPad("logo","logo",0.1,0.1,0.2,0.3)
       padLogo.SetFillStyle(4000)
       padLogo.SetFillColorAlpha(0, 0)
+      if darkMode: padLogo.SetFillColor(ROOT.kBlack)
       padLogo.Draw()
-      logo = ROOT.TImage.Open('$SNDSW_ROOT/shipLHC/Large__SND_Logo_black_cut.png')
+      logo = ROOT.TImage.Open('$SNDSW_ROOT/shipLHC/Large__SND_Logo_black_cut.png') if not darkMode else ROOT.TImage.Open('$SNDSW_ROOT/shipLHC/Large__SND_Logo_white_cut.png')
       logo.SetConstRatio(True)
       padLogo.cd()
       logo.Draw()
@@ -1239,6 +1265,7 @@ def drawInfo(pad, k, run, event, timestamp,moreEventInfo=[]):
       textInfo.SetTextAlign(11)
       textInfo.SetTextFont(42)
       textInfo.SetTextSize(.15)
+      if darkMode: textInfo.SetTextColor(ROOT.kWhite)
       textInfo.DrawLatex(0, 0.6, 'SND@LHC Experiment, CERN')
       if hasattr(eventTree.EventHeader,'GetEventNumber'): N = eventTree.EventHeader.GetEventNumber()
       else: N = event
@@ -1255,7 +1282,7 @@ def drawInfo(pad, k, run, event, timestamp,moreEventInfo=[]):
       textInfo.SetTextAlign(11)
       textInfo.SetTextFont(42)
       textInfo.SetTextSize(.1)
-      textInfo.SetTextColor(ROOT.kMagenta+2)
+      textInfo.SetTextColor((ROOT.kMagenta+2) if not darkMode else (ROOT.kMagenta-4))
       dely = 0.12
       ystart = 0.85
       for i in range(7):
