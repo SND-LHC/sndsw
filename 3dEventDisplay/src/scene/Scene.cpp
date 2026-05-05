@@ -132,7 +132,7 @@ namespace snd3D {
         if (event != nullptr) {
             this->hits.clear();
             for (const auto& hit : event->getHits()) {
-                auto hitMesh= std::unique_ptr<Object>(this->objectFactory.getSphere());
+                auto hitMesh= std::unique_ptr<Object>(this->objectFactory.getCube());
                 hitMesh->setShader(this->flat);
                 glm::vec3 position(
                     static_cast<float>(hit->x),
