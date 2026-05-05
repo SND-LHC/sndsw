@@ -137,15 +137,15 @@ namespace snd3D {
 
         switch (direction) {
             case Directions::ALIGN_X:
-                movement = vec3(dist, 0, 0);
-                break;
-
-            case Directions::ALIGN_X_NEG:
                 movement = vec3(-dist, 0, 0);
                 break;
 
+            case Directions::ALIGN_X_NEG:
+                movement = vec3(dist, 0, 0);
+                break;
+
             case Directions::ALIGN_Y:
-                movement = vec3(0.01f, dist, 0); // Avoid gimball lock
+                movement = vec3(-0.01f, dist, 0); // Avoid gimball lock
                 break;
 
             case Directions::ALIGN_Y_NEG:
@@ -153,16 +153,21 @@ namespace snd3D {
                 break;
 
             case Directions::ALIGN_Z:
-                movement = vec3(0, 0, dist);
-                break;
-
-            case Directions::ALIGN_Z_NEG:
                 movement = vec3(0, 0, -dist);
                 break;
 
-            case Directions::ISOMETRIC:
+            case Directions::ALIGN_Z_NEG:
+                movement = vec3(0, 0, dist);
+                break;
+
+            case Directions::ISOMETRIC1:
                 dist = dist / std::sqrt(3); // Preserve the distance
-                movement = vec3(dist, dist, dist);
+                movement = vec3(-dist, dist, -dist);
+                break;
+
+            case Directions::ISOMETRIC2:
+                dist = dist / std::sqrt(3); // Preserve the distance
+                movement = vec3(dist, dist, -dist);
                 break;
         }
         this->position = this->target + movement;

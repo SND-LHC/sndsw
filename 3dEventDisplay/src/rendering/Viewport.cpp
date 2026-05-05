@@ -7,7 +7,7 @@
 namespace snd3D {
 
     Viewport::Viewport(float _aspectRatio, bool _ortographic) {
-        this->camera = std::make_unique<Camera>(glm::vec3(400.0f), glm::vec3(0.0f, 0.0f, 554.0f));
+        this->camera = std::make_unique<Camera>(glm::vec3(-237, 235, 248), glm::vec3(-39, 37, 446));
         this->ortographic = _ortographic;
         this->aspectRatio = _aspectRatio;
         this->projection = std::unique_ptr<Projection>(this->ortographic ? (Projection *)

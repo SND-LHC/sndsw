@@ -12,7 +12,8 @@ namespace snd3D {
                 ALIGN_Y_NEG,
                 ALIGN_Z,
                 ALIGN_Z_NEG,
-                ISOMETRIC
+                ISOMETRIC1,
+                ISOMETRIC2
             };
 
             Camera(glm::vec3 _position, glm::vec3 _target);

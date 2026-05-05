@@ -50,6 +50,11 @@ namespace snd3D {
         if (mods & GLFW_MOD_CONTROL) { // CTRL pressed
             switch (key) {
 
+                case GLFW_KEY_KP_0:
+                case GLFW_KEY_0:
+                    if (interactionState) this->app.scene->viewport->setDirection(Camera::Directions::ISOMETRIC2);
+                    break;
+
                 case GLFW_KEY_KP_1:
                 case GLFW_KEY_1:
                     if (interactionState) this->app.scene->viewport->setDirection(Camera::Directions::ALIGN_Z_NEG);
@@ -92,7 +97,7 @@ namespace snd3D {
 
                 case GLFW_KEY_KP_0:
                 case GLFW_KEY_0:
-                    if (interactionState) this->app.scene->viewport->setDirection(Camera::Directions::ISOMETRIC);
+                    if (interactionState) this->app.scene->viewport->setDirection(Camera::Directions::ISOMETRIC1);
                     break;
 
                 case GLFW_KEY_KP_1:

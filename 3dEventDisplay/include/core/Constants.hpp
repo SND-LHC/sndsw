@@ -23,8 +23,8 @@ namespace snd3D::constants {
         inline constexpr bool SHOW_PIVOT = true;
         inline constexpr bool SHOW_AXIS = true;
         inline constexpr bool TRANSPARENCY = true;
-        inline constexpr float EDGE_ALPHA_VALUE = 0.3f;
-        inline constexpr float FACE_ALPHA_VALUE = 0.1f;
+        inline constexpr float EDGE_ALPHA_VALUE = 0.15f;
+        inline constexpr float FACE_ALPHA_VALUE = 0.03f;
         inline constexpr float EDGE_THICKNESS = 1.5f;
         inline constexpr bool ORTHOGRAPHIC_PROJECTION = false;
         inline constexpr int AXIS_WIDGET_SIZE = 100;

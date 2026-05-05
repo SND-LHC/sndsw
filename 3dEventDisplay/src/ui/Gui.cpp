@@ -183,7 +183,8 @@ namespace snd3D {
                     if (ImGui::MenuItem("Back (-XY)", "Ctrl + 1"))    this->app.scene->viewport->setDirection(Camera::Directions::ALIGN_Z_NEG);
                     if (ImGui::MenuItem("Left (-YZ)", "Ctrl + 3"))    this->app.scene->viewport->setDirection(Camera::Directions::ALIGN_X_NEG);
                     ImGui::Separator();
-                    if (ImGui::MenuItem("Isometric", "0"))  this->app.scene->viewport->setDirection(Camera::Directions::ISOMETRIC);
+                    if (ImGui::MenuItem("Isometric 1", "0"))  this->app.scene->viewport->setDirection(Camera::Directions::ISOMETRIC1);
+                    if (ImGui::MenuItem("Isometric 2", "Ctrl + 0"))  this->app.scene->viewport->setDirection(Camera::Directions::ISOMETRIC2);
                     ImGui::EndMenu();
                 }
                 ImGui::Separator();
