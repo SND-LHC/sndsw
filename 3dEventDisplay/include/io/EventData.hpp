@@ -15,11 +15,11 @@ namespace snd3D {
             const int64_t timestamp;
 
             EventData(int _id, std::string _dateTime, int64_t _timestamp);
-            void addCentroid(HitData* hit);
-            const std::vector<std::unique_ptr<HitData>>& getCentroids() const;
+            void addHit(HitData* hit);
+            const std::vector<std::unique_ptr<HitData>>& getHits() const;
 
 
         private:
-            std::vector<std::unique_ptr<HitData>> centroids;
+            std::vector<std::unique_ptr<HitData>> hits;
     };
 }

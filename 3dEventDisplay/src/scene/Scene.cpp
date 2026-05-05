@@ -131,7 +131,7 @@ namespace snd3D {
     void Scene::setEvent(const EventData* event) {
         if (event != nullptr) {
             this->hits.clear();
-            for (const auto& hit : event->getCentroids()) {
+            for (const auto& hit : event->getHits()) {
                 auto hitMesh= std::unique_ptr<Object>(this->objectFactory.getSphere());
                 hitMesh->setShader(this->flat);
                 glm::vec3 position(
@@ -139,8 +139,13 @@ namespace snd3D {
                     static_cast<float>(hit->y),
                     static_cast<float>(hit->z)
                 );
+                glm::vec3 scaling(
+                    static_cast<float>(hit->radiusX),
+                    static_cast<float>(hit->radiusY),
+                    static_cast<float>(hit->radiusZ)
+                );
                 glm::mat4 matrix = glm::translate(glm::mat4(1.0f), position);
-                matrix = glm::scale(matrix, glm::vec3(3.0f));
+                matrix = glm::scale(matrix, scaling);
                 hitMesh->updateModelMatrix(matrix);
                 this->hits.push_back(std::move(hitMesh));
             }

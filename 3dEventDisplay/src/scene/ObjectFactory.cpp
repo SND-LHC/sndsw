@@ -51,7 +51,7 @@ namespace snd3D {
         vector<vec3> normals;
 
         vec3 center = vec3(0.0, 0.0, 0.0);
-        vec3 radius = vec3(0.5f, 0.5f, 0.5f);
+        vec3 radius = vec3(1.0f, 1.0f, 1.0f);
 
         int stacks = 10;  // Number of subdivisions along the Y axis
         int slices = 10;  // Number of subdivisions along the X axis

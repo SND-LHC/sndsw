@@ -66,7 +66,9 @@ namespace snd3D {
                 try {
                     this->stateManager.eventLoaded(
                         this->ioManager.loadEvent(
-                            this->stateManager.getPendingNumber()
+                            this->stateManager.getPendingNumber(),
+                            constants::data::MIN_SCIFI_ENTRIES,
+                            constants::data::MIN_US_ENTRIES
                         )
                     );
                     this->scene->setEvent(this->stateManager.getEvent());

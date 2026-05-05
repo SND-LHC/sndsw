@@ -10,7 +10,6 @@
 
 #include "sndTchainGetter.h"
 #include "sndScifiPlane.h"
-#include "sndGeometryGetter.h"
 #include "sndPlaneTools.h"
 
 #include "io/HitData.hpp"
@@ -30,6 +29,7 @@ namespace snd3D {
         this->scifiGeometry = geometry.first;
         this->mufilterGeometry = geometry.second;
         this->config = new snd::Configuration(snd::Configuration::GetOption(runNumber), this->scifiGeometry, this->mufilterGeometry);
+        this->boundaries = new snd::analysis_tools::DetectorBoundaries(*this->config, runNumber); 
 
         this->muHits = new TClonesArray("MuFilterHit");
         this->chain->SetBranchAddress("Digi_MuFilterHits", &this->muHits);
@@ -67,7 +67,7 @@ namespace snd3D {
         return new RunData(runNumber, ss.str(), fileName, this->chain->GetEntries());
     }
 
-    EventData* SndswEventManager::loadEvent(int64_t eventNumber) {
+    EventData* SndswEventManager::loadEvent(int64_t eventNumber, int minScifiEntries, int minUsEntries) {
 
         if (eventNumber < 0 || eventNumber >= this->chain->GetEntries()) {
             throw std::out_of_range("Invalid Event Number: must be between 0 and " + std::to_string(this->chain->GetEntries() - 1));
@@ -83,26 +83,123 @@ namespace snd3D {
 
         EventData* toReturn = new EventData(eventNumber, ss.str(), rawTime);
 
+        this->vetoPlanes = snd::analysis_tools::FillVeto(*this->config, this->muHits, this->mufilterGeometry);
         this->scifiPlanes = snd::analysis_tools::FillScifi(*this->config, this->sfHits, this->scifiGeometry);
         this->usPlanes = snd::analysis_tools::FillUS(*this->config, this->muHits, this->mufilterGeometry);
+        this->dsPlanes = snd::analysis_tools::FillDS(*this->config, this->muHits, this->mufilterGeometry);
 
-        for (auto &us : this->usPlanes) {
-            if (us.HasShower()) {
-                us.FindCentroid();
-                auto centroid = us.GetCentroid();
-                if (!std::isnan(centroid.X()) && !std::isnan(centroid.Y())) {
-                    toReturn->addCentroid(new HitData(centroid.X(), centroid.Y(), centroid.Z(), us.GetTotEnergy().large));
-                }
+        if (this->sfHits->GetEntries() < minScifiEntries) {
+            return toReturn;
+        }
+        int count{0};
+        for (const auto &p : this->usPlanes) {
+          count += (p.GetNHits().large);
+        }
+        if (count < minUsEntries) {
+            return toReturn;
+        }
+
+        // cluster SCIFI
+        //std::cout << "########################### SCIFI #####################" << std::endl;
+        std::vector<std::vector<snd::analysis_tools::Cluster>> scifi_clusters(this->config->scifi_n_stations);
+
+        for (auto &p : this->scifiPlanes) {
+            int st = p.GetStation() - 1;
+
+            if (st >= 0 && st < this->config->scifi_n_stations+1) {
+                //std::cout << p.GetHits().size() << " hits in Scifi plane " << st << std::endl;
+                auto plane_clusters = ClustersPositions(*this->config, *this->boundaries, p.GetHits(), this->config->scifi_centroid_error_x, this->config->scifi_centroid_error_y);    // centroid error is fiber width which is the same for x and y
+
+                scifi_clusters[st].insert(
+                    scifi_clusters[st].end(),
+                    plane_clusters.begin(),
+                    plane_clusters.end()
+                );
             }
         }
 
-        for (auto &sf : this->scifiPlanes) {
-            if (sf.HasShower()) {
-                sf.FindCentroid();
-                auto centroid = sf.GetCentroid();
-                if (!std::isnan(centroid.X()) && !std::isnan(centroid.Y())) {
-                    toReturn->addCentroid(new HitData(centroid.X(), centroid.Y(), centroid.Z(), sf.GetTotEnergy().x + sf.GetTotEnergy().y));
-                }
+        for (int i = 0; i < this->config->scifi_n_stations; ++i) {
+            for (auto &c : scifi_clusters[i]) {
+                //std::cout << "Scifi Station " << (i) << ": " << c.center << "\t" << c.radius << std::endl;
+                toReturn->addHit(new HitData(c.center.X(), c.center.Y(), c.center.Z(), c.radius.X(), c.radius.Y(), c.radius.Z()));
+            }
+        }
+
+        // cluster VETO
+        //std::cout << "########################### VETO #####################" << std::endl;
+        std::vector<std::vector<snd::analysis_tools::Cluster>> veto_clusters(this->config->veto_n_stations);
+
+        for (auto &p : this->vetoPlanes) {
+            int st = p.GetStation() - 1;
+
+            if (st >= 0 && st < this->config->veto_n_stations+1) {
+                //std::cout << p.GetHits().size() << " hits in Veto plane " << st << std::endl;
+                auto plane_clusters = ClustersPositions(*this->config, *this->boundaries, p.GetHits(),1.73, 3, 5);
+
+                veto_clusters[st].insert(
+                    veto_clusters[st].end(),
+                    plane_clusters.begin(),
+                    plane_clusters.end()
+                );
+            }
+        }
+
+        for (int i = 0; i < this->config->veto_n_stations; ++i) {
+            for (auto &c : veto_clusters[i]) {
+                //std::cout << "Veto Station " << (i) << ": " << c.center << "\t" << c.radius << std::endl;
+                toReturn->addHit(new HitData(c.center.X(), c.center.Y(), c.center.Z(), c.radius.X(), c.radius.Y(), c.radius.Z()));
+            }
+        }
+
+        // cluster US
+        //std::cout << "########################### US #####################" << std::endl;
+        std::vector<std::vector<snd::analysis_tools::Cluster>> us_clusters(this->config->us_n_stations);
+
+        for (auto &p : this->usPlanes) {
+            int st = p.GetStation() - 1;
+
+            if (st >= 0 && st < this->config->us_n_stations+1) {
+                //std::cout << p.GetHits().size() << " hits in US plane " << st << std::endl;
+                auto plane_clusters = ClustersPositions(*this->config, *this->boundaries, p.GetHits(), this->config->us_centroid_error_x, this->config->us_centroid_error_y, 5);
+
+                us_clusters[st].insert(
+                    us_clusters[st].end(),
+                    plane_clusters.begin(),
+                    plane_clusters.end()
+                );
+            }
+        }
+
+        for (int i = 0; i < this->config->us_n_stations; ++i) {
+            for (auto &c : us_clusters[i]) {
+                //std::cout << "US Station " << (i) << ": " << c.center << "\t" << c.radius << std::endl;
+                toReturn->addHit(new HitData(c.center.X(), c.center.Y(), c.center.Z(), c.radius.X(), c.radius.Y(), c.radius.Z()));
+            }
+        }
+
+        // cluster DS
+        //std::cout << "########################### DS #####################" << std::endl;
+        std::vector<std::vector<snd::analysis_tools::Cluster>> ds_clusters(this->config->ds_n_stations);
+
+        for (auto &p : this->dsPlanes) {
+            int st = p.GetStation() - 1;
+
+            if (st >= 0 && st < this->config->ds_n_stations+1) {
+                //std::cout << p.GetHits().size() << " hits in DS plane " << st << std::endl;
+                auto plane_clusters = ClustersPositions(*this->config, *this->boundaries, p.GetHits(), this->config->ds_hor_spatial_resolution_y, this->config->ds_ver_spatial_resolution_x);
+
+                ds_clusters[st].insert(
+                    ds_clusters[st].end(),
+                    plane_clusters.begin(),
+                    plane_clusters.end()
+                );
+            }
+        }
+
+        for (int i = 0; i < this->config->ds_n_stations; ++i) {
+            for (auto &c : ds_clusters[i]) {
+                toReturn->addHit(new HitData(c.center.X(), c.center.Y(), c.center.Z(), c.radius.X(), c.radius.Y(), c.radius.Z()));
+                //std::cout << "DS Station " << (i) << ": " << c.center << "\t" << c.radius << std::endl;
             }
         }
 

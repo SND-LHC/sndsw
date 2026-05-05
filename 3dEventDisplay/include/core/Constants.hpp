@@ -56,7 +56,7 @@ namespace snd3D::constants {
         inline constexpr float GUI_FONT = 0.8f;
         inline constexpr float FONT = 30;
         inline constexpr int ANCHOR = 15;
-        inline constexpr float PIVOT = 5;
+        inline constexpr float PIVOT = 3;
         inline constexpr int PADDING = 10;
         inline constexpr float AXIS = 2.5f;
     }
@@ -66,5 +66,10 @@ namespace snd3D::constants {
         inline constexpr uint8_t COLORS_LAYER = 1;
         inline constexpr uint8_t NORMALS_LAYER = 2;
         inline constexpr uint8_t TEXTURE_LAYER = 3;
+    }
+
+    namespace data {
+        inline constexpr int MIN_SCIFI_ENTRIES = 20;
+        inline constexpr int MIN_US_ENTRIES = 50;
     }
 }
