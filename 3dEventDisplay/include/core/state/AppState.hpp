@@ -15,6 +15,8 @@ namespace snd3D {
         CHANGE_GEOMETRY_START,
         CHANGE_GEOMETRY_BROWSE,
         CHANGE_GEOMETRY_LOAD,
+        CHANGE_EVENT_START,
+        CHANGE_EVENT_LOAD,
         TRACKBALL,
         MOVING_TRACKBALL,
         PAN,
@@ -33,6 +35,8 @@ namespace snd3D {
             case AppState::DEFAULT_GEOMETRY_FAILED: return "Default geometry failed";
             case AppState::USER_GEOMETRY_CHOICE:    return "Choosing geometry";
             case AppState::USER_GEOMETRY_LOAD:      return "Loading user geometry";
+            case AppState::CHANGE_EVENT_START:      return "Changing event";
+            case AppState::CHANGE_EVENT_LOAD:       return "Loading new event";
             case AppState::SHOW_LOADING:            return "Loading data";
             case AppState::INIT_ERROR:              return "Initialization Error";
             case AppState::CHANGE_GEOMETRY_START:   return "Opening new geometry";

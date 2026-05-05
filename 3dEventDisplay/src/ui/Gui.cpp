@@ -71,6 +71,8 @@ namespace snd3D {
             case AppState::EVENT_LOAD:
             case AppState::USER_GEOMETRY_LOAD:
             case AppState::DEFAULT_GEOMETRY_LOAD:
+            case AppState::CHANGE_EVENT_START:
+            case AppState::CHANGE_EVENT_LOAD:
                 this->drawLoadingData();
                 this->needsFocus = true; // Reset the focus when something is loaded
                 break;
@@ -142,6 +144,13 @@ namespace snd3D {
             this->menuBarHeight = ImGui::GetWindowSize().y;
             if (ImGui::BeginMenu("File")) {
                 if (!interactionState) ImGui::BeginDisabled();
+                if (ImGui::MenuItem("Next Event", "K")) {
+                    this->app.stateManager.changeEvent(1);
+                }
+                if (ImGui::MenuItem("Previous Event", "J")) {
+                    this->app.stateManager.changeEvent(-1);
+                }
+                ImGui::Separator();
                 if (ImGui::MenuItem("Change Geometry", "Ctrl + G")) {
                     this->app.stateManager.openGeometryDialog();
                 }

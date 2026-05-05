@@ -32,6 +32,7 @@ namespace snd3D {
             void geometryLoaded();
             void errorInitializing(std::string exceptionMessage = "");
             void previousStep();
+            void changeEvent(int64_t offset);
 
             // INTERACTION
             void toggleMovingTrackball();

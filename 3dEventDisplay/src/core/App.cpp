@@ -63,6 +63,7 @@ namespace snd3D {
                 break;
 
             case AppState::EVENT_LOAD:
+            case AppState::CHANGE_EVENT_LOAD:
                 try {
                     this->stateManager.eventLoaded(
                         this->ioManager.loadEvent(

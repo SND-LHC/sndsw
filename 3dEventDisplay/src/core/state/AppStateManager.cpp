@@ -22,6 +22,12 @@ namespace snd3D {
                 this->message = "Opening File Browser...";
                 break;
 
+            case AppState::CHANGE_EVENT_START:
+                this->nextState = AppState::SHOW_LOADING;
+                this->message = "Loading new EVENT:\n" + std::to_string(this->pendingNumber) + " - RUN N° " + std::to_string(this->run->runNumber);
+                this->statesHistory.push(AppState::CHANGE_EVENT_LOAD);
+                break;
+
             default:
                 break;
         }
@@ -91,6 +97,7 @@ namespace snd3D {
     void AppStateManager::eventLoaded(EventData* eventData) {
         switch (this->currentState) {
             case AppState::EVENT_LOAD:
+            case AppState::CHANGE_EVENT_LOAD:
                 this->event = std::unique_ptr<EventData>(eventData);
                 this->nextState = AppState::TRACKBALL;
                 break;
@@ -206,6 +213,11 @@ namespace snd3D {
                 this->message = "Error loading file:\n" + this->detectorPath;
                 break;
 
+            case AppState::CHANGE_EVENT_LOAD:
+                this->statesHistory.push(AppState::TRACKBALL);
+                this->message = "Invalid event number chosen:\n" + std::to_string(this->pendingNumber) + " - RUN N° " + std::to_string(this->run->runNumber);
+                break;
+
             default:
                 return;
         }
@@ -240,6 +252,16 @@ namespace snd3D {
             default:
                 break;
         }
+    }
+
+    void AppStateManager::changeEvent(int64_t offset) {
+        if (!isInteractionState(this->currentState)) {
+            std::cerr << "ERROR! Changing event not allowed in state: " << appStateToString(this->currentState) << std::endl;
+            return;
+        }
+
+        this->nextState = AppState::CHANGE_EVENT_START;
+        this->pendingNumber = this->event->id + offset;
     }
 
     void AppStateManager::toggleMovingTrackball() {
