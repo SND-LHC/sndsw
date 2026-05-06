@@ -280,6 +280,7 @@ Float_t MuFilterHit::GetImpactXpos(Bool_t mask,Bool_t positive,Bool_t use_small_
              return -999.;
           }
           Float_t dT = GetDeltaT(mask,positive,use_small_sipms);
+          if (dT > 3) std::cout << dT << std::endl;
           if (dT==-999.){
              return -999.;
           }
