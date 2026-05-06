@@ -28,6 +28,12 @@ namespace snd3D {
                 this->statesHistory.push(AppState::CHANGE_EVENT_LOAD);
                 break;
 
+            case AppState::ROOT_GEOMETRY_LOAD:
+                this->nextState = AppState::SHOW_LOADING;
+                this->message = "Loading EVENT:\n" + std::to_string(this->pendingNumber) + " - RUN N° " + std::to_string(this->run->runNumber);
+                this->statesHistory.push(AppState::EVENT_LOAD);
+                break;
+
             default:
                 break;
         }
@@ -65,8 +71,8 @@ namespace snd3D {
             case AppState::EVENT_CHOICE:
                 this->pendingNumber = number;
                 this->nextState = AppState::SHOW_LOADING;
-                this->message = "Loading EVENT:\n" + std::to_string(number) + " - RUN N° " + std::to_string(this->run->runNumber);
-                this->statesHistory.push(AppState::EVENT_LOAD);
+                this->message = "Loading root geometry...";
+                this->statesHistory.push(AppState::ROOT_GEOMETRY_LOAD);
                 break;
 
             default:

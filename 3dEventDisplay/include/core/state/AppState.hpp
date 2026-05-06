@@ -6,6 +6,7 @@ namespace snd3D {
         RUN_LOAD,
         EVENT_CHOICE,
         EVENT_LOAD,
+        ROOT_GEOMETRY_LOAD,
         DEFAULT_GEOMETRY_LOAD,
         DEFAULT_GEOMETRY_FAILED,
         USER_GEOMETRY_CHOICE,
@@ -31,6 +32,7 @@ namespace snd3D {
             case AppState::RUN_LOAD:                return "Loading run";
             case AppState::EVENT_CHOICE:            return "Choosing event";
             case AppState::EVENT_LOAD:              return "Loading event";
+            case AppState::ROOT_GEOMETRY_LOAD:      return "Loading root geometry";
             case AppState::DEFAULT_GEOMETRY_LOAD:   return "Loading default geometry";
             case AppState::DEFAULT_GEOMETRY_FAILED: return "Default geometry failed";
             case AppState::USER_GEOMETRY_CHOICE:    return "Choosing geometry";

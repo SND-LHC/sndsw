@@ -62,6 +62,12 @@ namespace snd3D {
                 } catch (const std::exception& e) { this->stateManager.errorInitializing(e.what()); }
                 break;
 
+            case AppState::ROOT_GEOMETRY_LOAD:
+                try {
+                    this->ioManager.loadGeometry();
+                } catch (const std::exception& e) { this->stateManager.errorInitializing(e.what()); }
+                break;
+
             case AppState::EVENT_LOAD:
             case AppState::CHANGE_EVENT_LOAD:
                 try {

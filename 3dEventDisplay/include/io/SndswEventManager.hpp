@@ -21,11 +21,14 @@
 namespace snd3D {
     class SndswEventManager {
         public:
+            ~SndswEventManager();
             RunData* loadRun(int64_t runNumber);
+            void loadGeometry();
             EventData* loadEvent(int64_t eventNumber, int minScifiEntries, int minUsEntries);
 
         private:
             // Run data
+            int64_t loadedRun = -1;
             std::unique_ptr<TChain> chain;    
             Scifi* scifiGeometry = nullptr;
             MuFilter* mufilterGeometry = nullptr;

@@ -16,6 +16,16 @@
 
 namespace snd3D {
 
+    SndswEventManager::~SndswEventManager() {
+        if (this->scifiGeometry != nullptr)     delete this->scifiGeometry;
+        if (this->mufilterGeometry != nullptr)  delete this->mufilterGeometry;
+        if (this->config != nullptr)            delete this->config;
+        if (this->boundaries != nullptr)        delete this->boundaries;
+        if (this->muHits != nullptr)            delete this->muHits;
+        if (this->sfHits != nullptr)            delete this->sfHits;
+        if (this->header != nullptr)            delete this->header;
+    }
+
     RunData* SndswEventManager::loadRun(int64_t runNumber) {
 
         std::unique_ptr<TChain> newChain = snd::analysis_tools::GetTChain(runNumber);
@@ -25,11 +35,9 @@ namespace snd3D {
 
         this->chain = std::move(newChain);
 
-        std::pair<Scifi*, MuFilter*> geometry = snd::analysis_tools::GetGeometry(runNumber);
-        this->scifiGeometry = geometry.first;
-        this->mufilterGeometry = geometry.second;
-        this->config = new snd::Configuration(snd::Configuration::GetOption(runNumber), this->scifiGeometry, this->mufilterGeometry);
-        this->boundaries = new snd::analysis_tools::DetectorBoundaries(*this->config, runNumber); 
+        if (this->muHits != nullptr) delete this->muHits;
+        if (this->sfHits != nullptr) delete this->sfHits;
+        if (this->header != nullptr) delete this->header;
 
         this->muHits = new TClonesArray("MuFilterHit");
         this->chain->SetBranchAddress("Digi_MuFilterHits", &this->muHits);
@@ -40,11 +48,6 @@ namespace snd3D {
                 this->chain->GetBranch("EventHeader") ? "EventHeader" : "EventHeader.",
                 &this->header
         );
-        this->scifiGeometry->InitEvent(this->header);
-        this->mufilterGeometry->InitEvent(this->header);
-
-        this->scifiPlanes.clear();
-        this->usPlanes.clear();
 
         // LOAD GEOMETRY FILENAME
         std::string fullPath = snd::analysis_tools::GetGeoPath(runNumber); 
@@ -64,10 +67,38 @@ namespace snd3D {
         std::stringstream ss;
         ss << std::put_time(dt, "%Y-%m-%d");
 
+        this->loadedRun = runNumber;
+
         return new RunData(runNumber, ss.str(), fileName, this->chain->GetEntries());
     }
 
+    void SndswEventManager::loadGeometry() {
+        if (this->loadedRun == -1) {
+            throw std::runtime_error("Run not loaded yet: loadRun() needs to be called.");
+        }
+
+        std::pair<Scifi*, MuFilter*> geometry = snd::analysis_tools::GetGeometry(this->loadedRun);
+        this->scifiGeometry = geometry.first;
+        this->mufilterGeometry = geometry.second;
+        this->config = new snd::Configuration(snd::Configuration::GetOption(this->loadedRun), this->scifiGeometry, this->mufilterGeometry);
+        this->boundaries = new snd::analysis_tools::DetectorBoundaries(*this->config, this->loadedRun); 
+
+        this->scifiGeometry->InitEvent(this->header);
+        this->mufilterGeometry->InitEvent(this->header);
+
+        this->scifiPlanes.clear();
+        this->usPlanes.clear();
+    }
+
     EventData* SndswEventManager::loadEvent(int64_t eventNumber, int minScifiEntries, int minUsEntries) {
+
+        if (this->loadedRun == -1) {
+            throw std::runtime_error("Run not loaded yet: loadRun() needs to be called.");
+        }
+
+        if (this->scifiGeometry == nullptr || this->mufilterGeometry == nullptr) {
+            throw std::runtime_error("Geometry not loaded yet: loadGeometry() needs to be called.");
+        }
 
         if (eventNumber < 0 || eventNumber >= this->chain->GetEntries()) {
             throw std::out_of_range("Invalid Event Number: must be between 0 and " + std::to_string(this->chain->GetEntries() - 1));

@@ -69,6 +69,7 @@ namespace snd3D {
             case AppState::SHOW_LOADING:
             case AppState::RUN_LOAD:
             case AppState::EVENT_LOAD:
+            case AppState::ROOT_GEOMETRY_LOAD:
             case AppState::USER_GEOMETRY_LOAD:
             case AppState::DEFAULT_GEOMETRY_LOAD:
             case AppState::CHANGE_EVENT_START:
