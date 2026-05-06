@@ -139,7 +139,7 @@ namespace snd3D {
 
             if (st >= 0 && st < this->config->scifi_n_stations+1) {
                 //std::cout << p.GetHits().size() << " hits in Scifi plane " << st << std::endl;
-                auto plane_clusters = ClustersPositions(*this->config, *this->boundaries, p.GetHits(), this->config->scifi_centroid_error_x, this->config->scifi_centroid_error_y);    // centroid error is fiber width which is the same for x and y
+                auto plane_clusters = ClustersPositions(*this->boundaries, p.GetHits(), this->config->scifi_centroid_error_x, this->config->scifi_centroid_error_y);    // centroid error is fiber width which is the same for x and y
 
                 scifi_clusters[st].insert(
                     scifi_clusters[st].end(),
@@ -165,7 +165,7 @@ namespace snd3D {
 
             if (st >= 0 && st < this->config->veto_n_stations+1) {
                 //std::cout << p.GetHits().size() << " hits in Veto plane " << st << std::endl;
-                auto plane_clusters = ClustersPositions(*this->config, *this->boundaries, p.GetHits(),1.73, 3, 5);
+                auto plane_clusters = ClustersPositions(*this->boundaries, p.GetHits(),1.73, 3, 5);
 
                 veto_clusters[st].insert(
                     veto_clusters[st].end(),
@@ -191,7 +191,7 @@ namespace snd3D {
 
             if (st >= 0 && st < this->config->us_n_stations+1) {
                 //std::cout << p.GetHits().size() << " hits in US plane " << st << std::endl;
-                auto plane_clusters = ClustersPositions(*this->config, *this->boundaries, p.GetHits(), this->config->us_centroid_error_x, this->config->us_centroid_error_y, 5);
+                auto plane_clusters = ClustersPositions(*this->boundaries, p.GetHits(), this->config->us_centroid_error_x, this->config->us_centroid_error_y, 5);
 
                 us_clusters[st].insert(
                     us_clusters[st].end(),
@@ -217,7 +217,7 @@ namespace snd3D {
 
             if (st >= 0 && st < this->config->ds_n_stations+1) {
                 //std::cout << p.GetHits().size() << " hits in DS plane " << st << std::endl;
-                auto plane_clusters = ClustersPositions(*this->config, *this->boundaries, p.GetHits(), this->config->ds_hor_spatial_resolution_y, this->config->ds_ver_spatial_resolution_x);
+                auto plane_clusters = ClustersPositions(*this->boundaries, p.GetHits(), this->config->ds_hor_spatial_resolution_y, this->config->ds_ver_spatial_resolution_x);
 
                 ds_clusters[st].insert(
                     ds_clusters[st].end(),
