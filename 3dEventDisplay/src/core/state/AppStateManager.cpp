@@ -22,12 +22,6 @@ namespace snd3D {
                 this->message = "Opening File Browser...";
                 break;
 
-            case AppState::CHANGE_EVENT_START:
-                this->nextState = AppState::SHOW_LOADING;
-                this->message = "Loading new EVENT:\n" + std::to_string(this->pendingNumber) + " - RUN N° " + std::to_string(this->run->runNumber);
-                this->statesHistory.push(AppState::CHANGE_EVENT_LOAD);
-                break;
-
             case AppState::ROOT_GEOMETRY_LOAD:
                 this->nextState = AppState::SHOW_LOADING;
                 this->message = "Loading EVENT:\n" + std::to_string(this->pendingNumber) + " - RUN N° " + std::to_string(this->run->runNumber);
@@ -82,6 +76,13 @@ namespace snd3D {
                 this->statesHistory.push(AppState::CHANGE_RUN_LOAD);
                 break;
 
+            case AppState::CHANGE_EVENT_CHOICE:
+                this->pendingNumber = number;
+                this->nextState = AppState::SHOW_LOADING;
+                this->message = "Loading new EVENT:\n" + std::to_string(this->pendingNumber) + " - RUN N° " + std::to_string(this->run->runNumber);
+                this->statesHistory.push(AppState::CHANGE_EVENT_LOAD);
+                break;
+
             default:
                 break;
         }
@@ -94,12 +95,16 @@ namespace snd3D {
     void AppStateManager::runLoaded(RunData* runData) {
         switch (this->currentState) {
             case AppState::RUN_LOAD:
-            case AppState::CHANGE_RUN_LOAD:
                 this->run = std::unique_ptr<RunData>(runData);
                 this->nextState = AppState::SHOW_LOADING;
                 this->detectorPath = std::string(constants::paths::GEOMETRIES) + this->run->geoName + ".gltf"; 
                 this->message = "Loading default geometry file:\n" + this->detectorPath;
                 this->statesHistory.push(AppState::DEFAULT_GEOMETRY_LOAD);
+                break;
+
+            case AppState::CHANGE_RUN_LOAD:
+                this->run = std::unique_ptr<RunData>(runData);
+                this->nextState = AppState::CHANGE_EVENT_CHOICE;
                 break;
 
             default:
@@ -270,19 +275,13 @@ namespace snd3D {
                 this->nextState = AppState::TRACKBALL;
                 break;
 
+            case AppState::CHANGE_EVENT_CHOICE:
+                this->nextState = AppState::CHANGE_RUN_CHOICE;
+                break;
+
             default:
                 break;
         }
-    }
-
-    void AppStateManager::changeEvent(int64_t offset) {
-        if (!isInteractionState(this->currentState)) {
-            std::cerr << "ERROR! Changing event not allowed in state: " << appStateToString(this->currentState) << std::endl;
-            return;
-        }
-
-        this->nextState = AppState::CHANGE_EVENT_START;
-        this->pendingNumber = this->event->id + offset;
     }
 
     void AppStateManager::startRunChange() {
@@ -297,6 +296,32 @@ namespace snd3D {
             default:
                 break;
         }
+    }
+
+    void AppStateManager::startEventChange() {
+        switch (this->currentState) {
+            case AppState::TRACKBALL:
+            case AppState::MOVING_TRACKBALL:
+            case AppState::PAN:
+            case AppState::MOVING_PAN:
+                this->nextState = AppState::CHANGE_EVENT_CHOICE;
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    void AppStateManager::changeEvent(int64_t offset) {
+        if (!isInteractionState(this->currentState)) {
+            std::cerr << "ERROR! Changing event not allowed in state: " << appStateToString(this->currentState) << std::endl;
+            return;
+        }
+
+        this->pendingNumber = this->event->id + offset;
+        this->nextState = AppState::SHOW_LOADING;
+        this->message = "Loading new EVENT:\n" + std::to_string(this->pendingNumber) + " - RUN N° " + std::to_string(this->run->runNumber);
+        this->statesHistory.push(AppState::CHANGE_EVENT_LOAD);
     }
 
     void AppStateManager::toggleMovingTrackball() {

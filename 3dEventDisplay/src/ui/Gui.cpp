@@ -73,13 +73,14 @@ namespace snd3D {
             case AppState::ROOT_GEOMETRY_LOAD:
             case AppState::USER_GEOMETRY_LOAD:
             case AppState::DEFAULT_GEOMETRY_LOAD:
-            case AppState::CHANGE_EVENT_START:
             case AppState::CHANGE_EVENT_LOAD:
+            case AppState::CHANGE_RUN_LOAD:
                 this->drawLoadingData();
                 this->needsFocus = true; // Reset the focus when something is loaded
                 break;
 
             case AppState::EVENT_CHOICE:
+            case AppState::CHANGE_EVENT_CHOICE:
                 this->drawEventDialog();
                 break;
 
@@ -150,6 +151,9 @@ namespace snd3D {
                     this->app.stateManager.startRunChange();
                 }
                 ImGui::Separator();
+                if (ImGui::MenuItem("Change Event", "Ctrl + E")) {
+                    this->app.stateManager.startEventChange();
+                }
                 if (ImGui::MenuItem("Next Event", "K")) {
                     this->app.stateManager.changeEvent(1);
                 }
@@ -512,7 +516,7 @@ namespace snd3D {
             ImGuiCond_Always
         );
 
-        ImGui::Begin("WELCOME", NULL,
+        ImGui::Begin("SELECT RUN", NULL,
             ImGuiWindowFlags_NoResize
             | ImGuiWindowFlags_AlwaysAutoResize
             | ImGuiWindowFlags_NoMove
@@ -542,6 +546,7 @@ namespace snd3D {
             this->app.stateManager.previousStep();
             this->needsFocus = true; // Reset the focus
         }
+        ImGui::SameLine();
         if (ImGui::Button("Quit")) {
             this->app.stateManager.close();
         }

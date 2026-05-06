@@ -80,6 +80,10 @@ namespace snd3D {
                     this->app.guiManager->changeFontSize(1 / constants::factors::GUI_FONT_RESIZE);
                     break;
 
+                case GLFW_KEY_E:
+                    if (interactionState) this->app.stateManager.startEventChange();
+                    break;
+
                 case GLFW_KEY_G:
                     if (interactionState) this->app.stateManager.openGeometryDialog();
                     break;

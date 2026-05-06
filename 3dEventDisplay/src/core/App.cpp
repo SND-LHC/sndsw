@@ -53,7 +53,6 @@ namespace snd3D {
     void App::update() {
         switch(this->stateManager.getCurrentState()) {
             case AppState::RUN_LOAD:
-            case AppState::CHANGE_RUN_LOAD:
                 try {
                     this->stateManager.runLoaded(
                         this->ioManager.loadRun(
@@ -68,6 +67,19 @@ namespace snd3D {
                     this->ioManager.loadGeometry();
                 } catch (const std::exception& e) { this->stateManager.errorInitializing(e.what()); }
                 break;
+
+            // When changing the run the geometry, configuation, ... also need to be reloaded
+            case AppState::CHANGE_RUN_LOAD:
+                try {
+                    this->stateManager.runLoaded(
+                        this->ioManager.loadRun(
+                            this->stateManager.getPendingNumber()
+                        )
+                    );
+                    this->ioManager.loadGeometry();
+                } catch (const std::exception& e) { this->stateManager.errorInitializing(e.what()); }
+                break;
+
 
             case AppState::EVENT_LOAD:
             case AppState::CHANGE_EVENT_LOAD:
