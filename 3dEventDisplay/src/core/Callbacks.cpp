@@ -84,6 +84,10 @@ namespace snd3D {
                     if (interactionState) this->app.stateManager.openGeometryDialog();
                     break;
 
+                case GLFW_KEY_N:
+                    if (interactionState) this->app.stateManager.startRunChange();
+                    break;
+
                 case GLFW_KEY_P:
                     if (interactionState) this->app.stateManager.toggleImageExport();
                     break;

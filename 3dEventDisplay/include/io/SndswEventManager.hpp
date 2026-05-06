@@ -3,6 +3,7 @@
 #include <memory>
 #include <cstdint>
 #include <vector>
+#include <string>
 
 #include "io/RunData.hpp"
 #include "io/EventData.hpp"
@@ -29,6 +30,7 @@ namespace snd3D {
         private:
             // Run data
             int64_t loadedRun = -1;
+            std::string loadedGeometry = "";
             std::unique_ptr<TChain> chain;    
             Scifi* scifiGeometry = nullptr;
             MuFilter* mufilterGeometry = nullptr;

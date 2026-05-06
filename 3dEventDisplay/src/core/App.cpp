@@ -53,6 +53,7 @@ namespace snd3D {
     void App::update() {
         switch(this->stateManager.getCurrentState()) {
             case AppState::RUN_LOAD:
+            case AppState::CHANGE_RUN_LOAD:
                 try {
                     this->stateManager.runLoaded(
                         this->ioManager.loadRun(

@@ -13,6 +13,7 @@
 #include "sndPlaneTools.h"
 
 #include "io/HitData.hpp"
+#include "io/GeometryMismatchException.hpp"
 
 namespace snd3D {
 
@@ -27,6 +28,20 @@ namespace snd3D {
     }
 
     RunData* SndswEventManager::loadRun(int64_t runNumber) {
+
+        // LOAD GEOMETRY FILENAME
+        std::string fullPath = snd::analysis_tools::GetGeoPath(runNumber); 
+        size_t lastSlash = fullPath.find_last_of('/');
+        std::string fileName = (lastSlash == std::string::npos) ? fullPath : fullPath.substr(lastSlash + 1);
+
+        size_t lastDot = fileName.find_last_of('.');
+        if (lastDot != std::string::npos && fileName.substr(lastDot) == ".root") {
+            fileName = fileName.substr(0, lastDot);
+        }
+
+        if (!this->loadedGeometry.empty() && fileName != this->loadedGeometry) {
+            throw GeometryMismatchException(this->loadedRun, this->loadedGeometry, runNumber, fileName);
+        }
 
         std::unique_ptr<TChain> newChain = snd::analysis_tools::GetTChain(runNumber);
         if (newChain->GetEntries() <= 0) {
@@ -48,16 +63,6 @@ namespace snd3D {
                 this->chain->GetBranch("EventHeader") ? "EventHeader" : "EventHeader.",
                 &this->header
         );
-
-        // LOAD GEOMETRY FILENAME
-        std::string fullPath = snd::analysis_tools::GetGeoPath(runNumber); 
-        size_t lastSlash = fullPath.find_last_of('/');
-        std::string fileName = (lastSlash == std::string::npos) ? fullPath : fullPath.substr(lastSlash + 1);
-
-        size_t lastDot = fileName.find_last_of('.');
-        if (lastDot != std::string::npos && fileName.substr(lastDot) == ".root") {
-            fileName = fileName.substr(0, lastDot);
-        }
 
         // LOAD RUN DATE AS THE DATE OF THE FIRST EVENT
         this->chain->GetEntry(0);
@@ -88,6 +93,17 @@ namespace snd3D {
 
         this->scifiPlanes.clear();
         this->usPlanes.clear();
+
+        std::string fullPath = snd::analysis_tools::GetGeoPath(this->loadedRun); 
+        size_t lastSlash = fullPath.find_last_of('/');
+        std::string fileName = (lastSlash == std::string::npos) ? fullPath : fullPath.substr(lastSlash + 1);
+
+        size_t lastDot = fileName.find_last_of('.');
+        if (lastDot != std::string::npos && fileName.substr(lastDot) == ".root") {
+            fileName = fileName.substr(0, lastDot);
+        }
+
+        this->loadedGeometry = fileName;
     }
 
     EventData* SndswEventManager::loadEvent(int64_t eventNumber, int minScifiEntries, int minUsEntries) {

@@ -75,6 +75,13 @@ namespace snd3D {
                 this->statesHistory.push(AppState::ROOT_GEOMETRY_LOAD);
                 break;
 
+            case AppState::CHANGE_RUN_CHOICE:
+                this->pendingNumber = number;
+                this->nextState = AppState::SHOW_LOADING;
+                this->message = "Loading new RUN:\n" + std::to_string(number);
+                this->statesHistory.push(AppState::CHANGE_RUN_LOAD);
+                break;
+
             default:
                 break;
         }
@@ -87,6 +94,7 @@ namespace snd3D {
     void AppStateManager::runLoaded(RunData* runData) {
         switch (this->currentState) {
             case AppState::RUN_LOAD:
+            case AppState::CHANGE_RUN_LOAD:
                 this->run = std::unique_ptr<RunData>(runData);
                 this->nextState = AppState::SHOW_LOADING;
                 this->detectorPath = std::string(constants::paths::GEOMETRIES) + this->run->geoName + ".gltf"; 
@@ -224,6 +232,12 @@ namespace snd3D {
                 this->message = "Invalid event number chosen:\n" + std::to_string(this->pendingNumber) + " - RUN N° " + std::to_string(this->run->runNumber);
                 break;
 
+            case AppState::CHANGE_RUN_LOAD:
+                this->statesHistory.push(AppState::CHANGE_RUN_CHOICE);
+                this->message = "Error loading new run:\n" + std::to_string(this->pendingNumber);
+                break;
+
+
             default:
                 return;
         }
@@ -252,6 +266,7 @@ namespace snd3D {
                 break;
 
             case AppState::CHANGE_GEOMETRY_BROWSE:
+            case AppState::CHANGE_RUN_CHOICE:
                 this->nextState = AppState::TRACKBALL;
                 break;
 
@@ -268,6 +283,20 @@ namespace snd3D {
 
         this->nextState = AppState::CHANGE_EVENT_START;
         this->pendingNumber = this->event->id + offset;
+    }
+
+    void AppStateManager::startRunChange() {
+        switch (this->currentState) {
+            case AppState::TRACKBALL:
+            case AppState::MOVING_TRACKBALL:
+            case AppState::PAN:
+            case AppState::MOVING_PAN:
+                this->nextState = AppState::CHANGE_RUN_CHOICE;
+                break;
+
+            default:
+                break;
+        }
     }
 
     void AppStateManager::toggleMovingTrackball() {

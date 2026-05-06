@@ -63,6 +63,7 @@ namespace snd3D {
         switch (this->app.stateManager.getCurrentState()) {
 
             case AppState::RUN_CHOICE:
+            case AppState::CHANGE_RUN_CHOICE:
                 this->drawRunDialog();
                 break;
 
@@ -145,6 +146,10 @@ namespace snd3D {
             this->menuBarHeight = ImGui::GetWindowSize().y;
             if (ImGui::BeginMenu("File")) {
                 if (!interactionState) ImGui::BeginDisabled();
+                if (ImGui::MenuItem("Load New Run", "Ctrl + N")) {
+                    this->app.stateManager.startRunChange();
+                }
+                ImGui::Separator();
                 if (ImGui::MenuItem("Next Event", "K")) {
                     this->app.stateManager.changeEvent(1);
                 }
@@ -533,6 +538,10 @@ namespace snd3D {
         ImGui::NewLine();
         ImGui::Separator();
         ImGui::NewLine();
+        if (ImGui::Button("Go Back")) {
+            this->app.stateManager.previousStep();
+            this->needsFocus = true; // Reset the focus
+        }
         if (ImGui::Button("Quit")) {
             this->app.stateManager.close();
         }

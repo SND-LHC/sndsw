@@ -33,6 +33,7 @@ namespace snd3D {
             void errorInitializing(std::string exceptionMessage = "");
             void previousStep();
             void changeEvent(int64_t offset);
+            void startRunChange();
 
             // INTERACTION
             void toggleMovingTrackball();

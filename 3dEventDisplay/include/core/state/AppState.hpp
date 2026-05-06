@@ -18,6 +18,8 @@ namespace snd3D {
         CHANGE_GEOMETRY_LOAD,
         CHANGE_EVENT_START,
         CHANGE_EVENT_LOAD,
+        CHANGE_RUN_CHOICE,
+        CHANGE_RUN_LOAD,
         TRACKBALL,
         MOVING_TRACKBALL,
         PAN,
@@ -44,6 +46,8 @@ namespace snd3D {
             case AppState::CHANGE_GEOMETRY_START:   return "Opening new geometry";
             case AppState::CHANGE_GEOMETRY_BROWSE:  return "Choosing new geometry";
             case AppState::CHANGE_GEOMETRY_LOAD:    return "Loading new geometry";
+            case AppState::CHANGE_RUN_CHOICE:       return "Choosing new run";
+            case AppState::CHANGE_RUN_LOAD:         return "Loading new run";
             case AppState::TRACKBALL:               return "Trackball";
             case AppState::MOVING_TRACKBALL:        return "Trackball moving";
             case AppState::PAN:                     return "Pan";
