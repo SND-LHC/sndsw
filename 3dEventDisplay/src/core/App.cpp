@@ -25,7 +25,7 @@ namespace snd3D {
         );
 
         this->guiManager = std::make_unique<Gui>(*this, constants::sizes::GUI_FONT);
-        this->scene = std::make_unique<Scene>(*this->windowManager, this->stateManager, this->settings);
+        this->scene = std::make_unique<Scene>(*this->windowManager, this->stateManager, this->settings, *this->guiManager);
     }
 
     void App::run() {

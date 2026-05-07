@@ -6,11 +6,14 @@
 
 #include "rendering/camera/Camera.hpp"
 #include "rendering/camera/Projection.hpp"
+#include "core/WindowManager.hpp"
+#include "ui/Gui.hpp"
 
 namespace snd3D {
     class Viewport {
         public:
-            Viewport(float _aspectRatio, bool _ortographic);
+            Viewport(WindowManager& winMan, Gui& guiMan, bool _ortographic);
+            void update();
 
             // GETTER
             bool isCameraChanged();
@@ -26,7 +29,6 @@ namespace snd3D {
             void rotateByAngles(float deltaAngleX, float deltaAngleY);
             void rotateTrackball(glm::vec3 origin, glm::vec3 destination);
 
-            void setAspectRatio(float newAspectRatio);
             void setDirection(Camera::Directions direction);
             void toggleProjectionType();
             void zoom(float offset);
@@ -37,6 +39,11 @@ namespace snd3D {
             std::unique_ptr<Camera> camera;
             std::unique_ptr<Projection> projection;
             bool ortographic;
-            float aspectRatio;
+
+            // Owned by App, keep reference to spped up access
+            WindowManager& windowManager;
+            Gui& guiManager;
+
+            glm::vec3 cursorToUnitSphere(int x, int y);
     };
 }

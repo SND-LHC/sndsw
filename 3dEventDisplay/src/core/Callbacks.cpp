@@ -45,7 +45,7 @@ namespace snd3D {
     void Callbacks::keyAction(int key, int scancode, int action, int mods) {
         if (action != GLFW_PRESS && (key != GLFW_KEY_LEFT_SHIFT && key != GLFW_KEY_RIGHT_SHIFT)) return;
 
-        bool interactionState = isInteractionState(this->app.stateManager.getCurrentState());
+        bool interactionState = this->app.stateManager.getCurrentState() == AppState::INTERACTION;
 
         if (mods & GLFW_MOD_CONTROL) { // CTRL pressed
             switch (key) {
@@ -165,71 +165,24 @@ namespace snd3D {
             }
         }
 
-        switch (key) { // Actions to be performed regardless of which control keys are pressed
-            case GLFW_KEY_LEFT_SHIFT:
-            case GLFW_KEY_RIGHT_SHIFT:
-                if (action == GLFW_PRESS) this->app.stateManager.shiftPressed();
-                else if (action == GLFW_RELEASE) this->app.stateManager.shiftReleased();
-                break;
-
-            case GLFW_KEY_ESCAPE:
-                this->app.stateManager.resetInteraction();
-                break;
-        }
     }
 
     void Callbacks::cursorPosition(double currentMousePosX, double currentMousePosY) {
-        if (this->app.guiManager->isPointerOverGui()) return;
-
-        switch (this->app.stateManager.getCurrentState()) {
-            case AppState::MOVING_TRACKBALL:
-            case AppState::MOVING_PAN:
-                this->app.windowManager->currentMousePosition[0] = (int)currentMousePosX;
-                this->app.windowManager->currentMousePosition[1] = (int)currentMousePosY;
-            break;
-
-            default:
-                break;
-        }
+        // Moved cursor logic into viewport, so that not too many events are created that need to travel across the network
     }
 
     void Callbacks::mouseButton(int button, int action, int mods) {
-        if (this->app.guiManager->isPointerOverGui() && action != GLFW_RELEASE) return; // Don't start new actions if the pointer is over the gui
+        if (this->app.guiManager->isPointerUsedByGui() && action != GLFW_RELEASE) return; // Don't start new actions if the pointer is over the gui
 
         // Retrieve mouse position
         double xPos, yPos;
         glfwGetCursorPos(this->app.windowManager->getWindow(), &xPos, &yPos);
 
         switch (this->app.stateManager.getCurrentState()) {
-            case AppState::TRACKBALL:
+            case AppState::INTERACTION:
                 if (action == GLFW_PRESS) {
                     this->app.windowManager->lastMousePosition[0] = (int)xPos;
                     this->app.windowManager->lastMousePosition[1] = (int)yPos;
-                    this->app.windowManager->currentMousePosition[0] = (int)xPos;
-                    this->app.windowManager->currentMousePosition[1] = (int)yPos;
-                    this->app.stateManager.toggleMovingTrackball();
-                }
-                break;
-
-            case AppState::MOVING_TRACKBALL:
-                if (action == GLFW_RELEASE) {
-                    this->app.stateManager.toggleMovingTrackball();
-                }
-                break;
-
-            case AppState::PAN:
-                if (action == GLFW_PRESS) {
-                    this->app.windowManager->lastMousePosition[0] = (int)xPos;
-                    this->app.windowManager->lastMousePosition[1] = (int)yPos;
-                    this->app.windowManager->currentMousePosition[0] = (int)xPos;
-                    this->app.windowManager->currentMousePosition[1] = (int)yPos;
-                    this->app.stateManager.toggleMovingPan();
-                }
-                break;
-
-            case AppState::MOVING_PAN:
-                if (action == GLFW_RELEASE) {
-                    this->app.stateManager.toggleMovingPan();
                 }
                 break;
 
@@ -243,17 +196,16 @@ namespace snd3D {
     }
 
     void Callbacks::scroll(double xOffset, double yOffset) {
-        if (this->app.guiManager->isPointerOverGui()) return;
+        if (this->app.guiManager->isPointerUsedByGui()) return;
 
         switch (this->app.stateManager.getCurrentState()) {
-            case AppState::PAN:
-            case AppState::MOVING_PAN:
-                this->app.scene->viewport->movePerpendicular(xOffset * constants::factors::PAN, yOffset * constants::factors::PAN);
-                break;
-
-            case AppState::TRACKBALL:
-            case AppState::MOVING_TRACKBALL:
-                this->app.scene->viewport->zoom(yOffset);
+            case AppState::INTERACTION:
+                if (glfwGetKey(this->app.windowManager->getWindow(), GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS ||
+                    glfwGetKey(this->app.windowManager->getWindow(), GLFW_KEY_RIGHT_SHIFT) == GLFW_PRESS) {
+                    this->app.scene->viewport->movePerpendicular(xOffset * constants::factors::PAN, yOffset * constants::factors::PAN);
+                } else {
+                    this->app.scene->viewport->zoom(yOffset);
+                }
                 break;
 
             default:

@@ -39,12 +39,7 @@ namespace snd3D {
             void changeEvent(int64_t offset);
 
             // INTERACTION
-            void toggleMovingTrackball();
-            void shiftPressed();
-            void shiftReleased();
-            void toggleMovingPan();
             void toggleImageExport();
-            void resetInteraction();
 
         private:
             AppState currentState = AppState::RUN_CHOICE;

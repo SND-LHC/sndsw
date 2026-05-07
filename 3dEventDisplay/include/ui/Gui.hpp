@@ -4,12 +4,12 @@
 #include <cstdint>
 #include <memory>
 
-#include "scene/Object.hpp"
 #include "scene/Node.hpp"
 #include "rendering/engine/Texture.hpp"
 
 namespace snd3D {
     class App;
+    class Object;
 
     class Gui {
         public:
@@ -18,7 +18,7 @@ namespace snd3D {
             void update();
             void render();
             void changeFontSize(float factor);
-            bool isPointerOverGui();
+            bool isPointerUsedByGui();
 
         private:
             App& app;

@@ -118,7 +118,7 @@ namespace snd3D {
             case AppState::EVENT_LOAD:
             case AppState::CHANGE_EVENT_LOAD:
                 this->event = std::unique_ptr<EventData>(eventData);
-                this->nextState = AppState::TRACKBALL;
+                this->nextState = AppState::INTERACTION;
                 break;
 
             default:
@@ -133,10 +133,7 @@ namespace snd3D {
                 this->nextState = AppState::USER_GEOMETRY_CHOICE;
                 break;
 
-            case AppState::TRACKBALL:
-            case AppState::MOVING_TRACKBALL:
-            case AppState::PAN:
-            case AppState::MOVING_PAN:
+            case AppState::INTERACTION:
                 this->nextState = AppState::CHANGE_GEOMETRY_START;
                 break;
 
@@ -168,10 +165,7 @@ namespace snd3D {
 
     void AppStateManager::resetDefaultGeometry() {
         switch (this->currentState) {
-            case AppState::TRACKBALL:
-            case AppState::MOVING_TRACKBALL:
-            case AppState::PAN:
-            case AppState::MOVING_PAN:
+            case AppState::INTERACTION:
                 this->detectorPath = std::string(constants::paths::GEOMETRIES) + this->run->geoName + ".gltf"; 
                 this->nextState = AppState::SHOW_LOADING;
                 this->message = "Loading default geometry file:\n" + this->detectorPath;
@@ -195,7 +189,7 @@ namespace snd3D {
                 break;
 
             case AppState::CHANGE_GEOMETRY_LOAD:
-                this->nextState = AppState::TRACKBALL;
+                this->nextState = AppState::INTERACTION;
                 break;
 
             default:
@@ -233,7 +227,7 @@ namespace snd3D {
                 break;
 
             case AppState::CHANGE_EVENT_LOAD:
-                this->statesHistory.push(AppState::TRACKBALL);
+                this->statesHistory.push(AppState::INTERACTION);
                 this->message = "Invalid event number chosen:\n" + std::to_string(this->pendingNumber) + " - RUN N° " + std::to_string(this->run->runNumber);
                 break;
 
@@ -272,7 +266,7 @@ namespace snd3D {
 
             case AppState::CHANGE_GEOMETRY_BROWSE:
             case AppState::CHANGE_RUN_CHOICE:
-                this->nextState = AppState::TRACKBALL;
+                this->nextState = AppState::INTERACTION;
                 break;
 
             case AppState::CHANGE_EVENT_CHOICE:
@@ -286,10 +280,7 @@ namespace snd3D {
 
     void AppStateManager::startRunChange() {
         switch (this->currentState) {
-            case AppState::TRACKBALL:
-            case AppState::MOVING_TRACKBALL:
-            case AppState::PAN:
-            case AppState::MOVING_PAN:
+            case AppState::INTERACTION:
                 this->nextState = AppState::CHANGE_RUN_CHOICE;
                 break;
 
@@ -300,10 +291,7 @@ namespace snd3D {
 
     void AppStateManager::startEventChange() {
         switch (this->currentState) {
-            case AppState::TRACKBALL:
-            case AppState::MOVING_TRACKBALL:
-            case AppState::PAN:
-            case AppState::MOVING_PAN:
+            case AppState::INTERACTION:
                 this->nextState = AppState::CHANGE_EVENT_CHOICE;
                 break;
 
@@ -313,100 +301,29 @@ namespace snd3D {
     }
 
     void AppStateManager::changeEvent(int64_t offset) {
-        if (!isInteractionState(this->currentState)) {
-            std::cerr << "ERROR! Changing event not allowed in state: " << appStateToString(this->currentState) << std::endl;
-            return;
-        }
 
-        this->pendingNumber = this->event->id + offset;
-        this->nextState = AppState::SHOW_LOADING;
-        this->message = "Loading new EVENT:\n" + std::to_string(this->pendingNumber) + " - RUN N° " + std::to_string(this->run->runNumber);
-        this->statesHistory.push(AppState::CHANGE_EVENT_LOAD);
-    }
-
-    void AppStateManager::toggleMovingTrackball() {
         switch (this->currentState) {
-            case AppState::TRACKBALL:
-                this->nextState = AppState::MOVING_TRACKBALL;
-                break;
-            case AppState::MOVING_TRACKBALL:
-                this->nextState = AppState::TRACKBALL;
-                break;
-            default:
-                std::cerr << "ERROR! Toggle moving trackball not allowed in state: " << appStateToString(this->currentState) << std::endl;
-                break;
-        }
-    }
-
-    void AppStateManager::shiftPressed() {
-        switch (this->currentState) {
-            case AppState::TRACKBALL:
-                this->nextState = AppState::PAN;
-                break;
-
-            case AppState::MOVING_TRACKBALL:
-                this->nextState = AppState::MOVING_PAN;
+            case AppState::INTERACTION:
+                this->pendingNumber = this->event->id + offset;
+                this->nextState = AppState::SHOW_LOADING;
+                this->message = "Loading new EVENT:\n" + std::to_string(this->pendingNumber) + " - RUN N° " + std::to_string(this->run->runNumber);
+                this->statesHistory.push(AppState::CHANGE_EVENT_LOAD);
                 break;
 
             default:
-                break;
-        }
-    }
-
-    void AppStateManager::shiftReleased() {
-        switch (this->currentState) {
-            case AppState::PAN:
-                this->nextState = AppState::TRACKBALL;
-                break;
-
-            case AppState::MOVING_PAN:
-                this->nextState = AppState::MOVING_TRACKBALL;
-                break;
-
-            default:
-                break;
-        }
-    }
-
-    void AppStateManager::toggleMovingPan() {
-        switch (this->currentState) {
-            case AppState::PAN:
-                this->nextState = AppState::MOVING_PAN;
-                break;
-            case AppState::MOVING_PAN:
-                this->nextState = AppState::PAN;
-                break;
-            default:
-                std::cerr << "ERROR! Toggle moving pan not allowed in state: " << appStateToString(this->currentState) << std::endl;
+                std::cerr << "ERROR! Changing event not allowed in state: " << appStateToString(this->currentState) << std::endl;
                 break;
         }
     }
 
     void AppStateManager::toggleImageExport() {
         switch (this->currentState) {
-            case AppState::TRACKBALL:
-            case AppState::MOVING_TRACKBALL:
-            case AppState::PAN:
-            case AppState::MOVING_PAN:
+            case AppState::INTERACTION:
                 this->nextState = AppState::EXPORT_IMAGE;
                 break;
 
             case AppState::EXPORT_IMAGE:
-                this->nextState = AppState::TRACKBALL;
-                break;
-
-            default:
-                break;
-        }
-    }
-
-    void AppStateManager::resetInteraction() {
-        switch (this->currentState) {
-            case AppState::TRACKBALL:
-            case AppState::MOVING_TRACKBALL:
-            case AppState::PAN:
-            case AppState::MOVING_PAN:
-                this->nextState = AppState::TRACKBALL;
+                this->nextState = AppState::INTERACTION;
                 break;
 
             default:

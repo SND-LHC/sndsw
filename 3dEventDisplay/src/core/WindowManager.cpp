@@ -38,12 +38,12 @@ namespace snd3D {
 
         // Bind callbacks
         glfwSetWindowUserPointer(this->window, callbacksHandler); // Save the callbacks object instance into the window
-        glfwSetCursorPosCallback(this->window, Callbacks::cursorPosition);
+        //glfwSetCursorPosCallback(this->window, Callbacks::cursorPosition); Using polling so no flood of events is generated
         glfwSetKeyCallback(this->window, Callbacks::keyAction);
         glfwSetMouseButtonCallback(this->window, Callbacks::mouseButton);
         glfwSetFramebufferSizeCallback(this->window, Callbacks::framebufferSize);
         glfwSetScrollCallback(this->window, Callbacks::scroll);
-        glfwSetWindowCloseCallback(window, Callbacks::close);
+        glfwSetWindowCloseCallback(this->window, Callbacks::close);
 
         // Enable transparency management and depth test
         glEnable(GL_BLEND);

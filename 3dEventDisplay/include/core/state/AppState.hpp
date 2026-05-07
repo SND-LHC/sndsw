@@ -26,10 +26,7 @@ namespace snd3D {
         CHANGE_RUN_LOAD,
 
         // INTERACTION
-        TRACKBALL,
-        MOVING_TRACKBALL,
-        PAN,
-        MOVING_PAN,
+        INTERACTION,
         EXPORT_IMAGE,
 
         CLOSED
@@ -55,20 +52,10 @@ namespace snd3D {
             case AppState::CHANGE_EVENT_LOAD:       return "Loading new event";
             case AppState::CHANGE_RUN_CHOICE:       return "Choosing new run";
             case AppState::CHANGE_RUN_LOAD:         return "Loading new run";
-            case AppState::TRACKBALL:               return "Trackball";
-            case AppState::MOVING_TRACKBALL:        return "Trackball moving";
-            case AppState::PAN:                     return "Pan";
-            case AppState::MOVING_PAN:              return "Pan moving";
+            case AppState::INTERACTION:             return "Interaction";
             case AppState::EXPORT_IMAGE:            return "Export image";
             case AppState::CLOSED:                  return "Closing";
             default:                                return "Unknown";
         }
-    }
-
-    inline bool isInteractionState(AppState state) {
-        return state == AppState::TRACKBALL
-            || state == AppState::MOVING_TRACKBALL
-            || state == AppState::PAN
-            || state == AppState::MOVING_PAN;
     }
 }

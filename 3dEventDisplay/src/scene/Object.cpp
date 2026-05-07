@@ -6,6 +6,7 @@
 #include <glm/ext/matrix_transform.hpp>
 
 #include "rendering/engine/Material.hpp"
+#include "rendering/Viewport.hpp"
 #include "scene/Mesh.hpp"
 
 namespace snd3D {

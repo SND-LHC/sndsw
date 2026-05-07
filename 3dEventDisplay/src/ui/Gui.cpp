@@ -12,6 +12,7 @@
 #include "core/Constants.hpp"
 #include "scene/Node.hpp"
 #include "core/state/AppState.hpp"
+#include "scene/Object.hpp"
 
 namespace snd3D {
 
@@ -100,10 +101,7 @@ namespace snd3D {
                 this->drawEventDetails();
                 break;
 
-            case AppState::TRACKBALL:
-            case AppState::MOVING_TRACKBALL:
-            case AppState::PAN:
-            case AppState::MOVING_PAN:
+            case AppState::INTERACTION:
                 this->drawInspector();
                 this->drawRenderOptions();
                 this->drawEventDetails();
@@ -137,12 +135,13 @@ namespace snd3D {
         io.FontGlobalScale = this->fontSize;
     }
 
-    bool Gui::isPointerOverGui() {
-        return ImGui::IsWindowHovered(ImGuiHoveredFlags_AnyWindow);
+    bool Gui::isPointerUsedByGui() {
+        ImGuiIO& io = ImGui::GetIO();
+        return io.WantCaptureMouse;
     }
 
     void Gui::drawMenuBar() {
-        bool interactionState = isInteractionState(this->app.stateManager.getCurrentState());
+        bool interactionState = this->app.stateManager.getCurrentState() == AppState::INTERACTION;
         if (ImGui::BeginMainMenuBar()) {
             this->menuBarHeight = ImGui::GetWindowSize().y;
             if (ImGui::BeginMenu("File")) {
@@ -282,9 +281,6 @@ namespace snd3D {
                     this->app.scene->viewport->moveParallel(-constants::factors::PAN, 0);
                 }
                 ImGui::Separator();
-                if (ImGui::MenuItem("Reset Interaction", "ESC")) {
-                    this->app.stateManager.resetInteraction();
-                }
                 if (ImGui::MenuItem("Reset Position", "R")) {
                     this->app.scene->viewport->reset();
                 }

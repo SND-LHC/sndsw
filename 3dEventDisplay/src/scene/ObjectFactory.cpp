@@ -121,7 +121,7 @@ namespace snd3D {
         vertices.push_back(vec3(1.0, 1.0, -1.0));
         vertices.push_back(vec3(-1.0, 1.0, -1.0));
 
-        for (int i = 0; i < vertices.size(); i++) colors.push_back(baseColor);
+        for (int i = 0; i < (int)vertices.size(); i++) colors.push_back(baseColor);
 
         indices.push_back(0); indices.push_back(1); indices.push_back(2);
         indices.push_back(2); indices.push_back(3); indices.push_back(0);

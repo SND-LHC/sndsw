@@ -13,6 +13,7 @@
 #include "scene/ObjectFactory.hpp"
 #include "rendering/AxisWidget.hpp"
 #include "io/EventData.hpp"
+#include "ui/Gui.hpp"
 
 namespace snd3D {
     class Scene {
@@ -22,7 +23,7 @@ namespace snd3D {
         friend class Gui;
 
         public:
-            Scene(WindowManager& winMan, AppStateManager& stateMan, AppSettings& appSettings);
+            Scene(WindowManager& winMan, AppStateManager& stateMan, AppSettings& appSettings, Gui& guiMan);
             void update();
             void render();
             void loadGeometry(std::string path);
@@ -40,10 +41,8 @@ namespace snd3D {
             ObjectFactory objectFactory;
 
             // Owned by App, keep reference to spped up access
-            WindowManager &windowManager;
-            AppStateManager &stateManager;
+            WindowManager& windowManager;
+            AppStateManager& stateManager;
             AppSettings& settings;
-
-            glm::vec3 cursorToUnitSphere(int x, int y);
     };
 }

@@ -7,9 +7,10 @@
 
 #include "scene/Node.hpp"
 #include "rendering/engine/Shader.hpp"
-#include "rendering/Viewport.hpp"
 
 namespace snd3D {
+
+    class Viewport; // Forward declaration to avoid circular inclusion
 
     class Object {
 

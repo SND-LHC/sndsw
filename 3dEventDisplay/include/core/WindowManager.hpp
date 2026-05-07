@@ -20,7 +20,7 @@ namespace snd3D {
             bool isFramebufferChanged();
             glm::vec2 getCurrentResolution();
             float getAspectRatio();
-            int lastMousePosition[2], currentMousePosition[2];
+            int lastMousePosition[2];
 
         private:
             GLFWwindow* window;
