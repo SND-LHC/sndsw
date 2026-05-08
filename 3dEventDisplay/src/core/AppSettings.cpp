@@ -81,4 +81,19 @@ namespace snd3D {
     void AppSettings::setEdgeThickness(const float thickness) {
         this->edgeThickness = glm::clamp(thickness, constants::limits::EDGE_THICKNESS_MIN, constants::limits::EDGE_THICKNESS_MAX);
     }
+
+    void AppSettings::setBackgroundColor(const glm::vec3& newColor) {
+        this->backgroundColor = newColor;
+        this->backgroundColorChanged = true;
+    }
+    
+    glm::vec3 AppSettings::getBackgroundColor() {
+        return this->backgroundColor;
+    }
+
+    bool AppSettings::isBackgroundColorChanged() {
+        bool tmp = this->backgroundColorChanged;
+        this->backgroundColorChanged = false;
+        return tmp;
+    }
 }

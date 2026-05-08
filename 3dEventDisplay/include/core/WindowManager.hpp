@@ -20,6 +20,7 @@ namespace snd3D {
             bool isFramebufferChanged();
             glm::vec2 getCurrentResolution();
             float getAspectRatio();
+            void setBackgroundColor(const glm::vec3& newColor);
             int lastMousePosition[2];
 
         private:

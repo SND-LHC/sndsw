@@ -29,6 +29,9 @@ namespace snd3D::constants {
         inline constexpr bool ORTHOGRAPHIC_PROJECTION = false;
         inline constexpr int AXIS_WIDGET_SIZE = 100;
         inline constexpr int AXIS_WIDGET_MARGIN = 20;
+        inline constexpr float BG_COLOR_R = 0;
+        inline constexpr float BG_COLOR_G = 0;
+        inline constexpr float BG_COLOR_B = 0;
 
         namespace window {
             inline constexpr int WIDTH = 1280;

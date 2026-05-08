@@ -51,6 +51,11 @@ namespace snd3D {
     }
 
     void App::update() {
+
+        if (this->settings.isBackgroundColorChanged()) {
+            this->windowManager->setBackgroundColor(this->settings.getBackgroundColor());
+        }
+
         switch(this->stateManager.getCurrentState()) {
             case AppState::RUN_LOAD:
                 try {

@@ -6,6 +6,7 @@
 #include <GLFW/glfw3.h>
 
 #include "core/Callbacks.hpp"
+#include "core/Constants.hpp"
 
 namespace snd3D {
 
@@ -51,7 +52,7 @@ namespace snd3D {
         glEnable(GL_DEPTH_TEST);
 
         // Set base color
-        glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
+        glClearColor(constants::defaults::BG_COLOR_R, constants::defaults::BG_COLOR_G, constants::defaults::BG_COLOR_B, 1.0f);
 
         // Set polygon mode
         glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
@@ -161,5 +162,9 @@ namespace snd3D {
         }
 
         return bestmonitor != NULL ? bestmonitor : glfwGetPrimaryMonitor();
+    }
+
+    void WindowManager::setBackgroundColor(const glm::vec3& newColor) {
+        glClearColor(newColor.r, newColor.g, newColor.b, 1.0f);
     }
 }

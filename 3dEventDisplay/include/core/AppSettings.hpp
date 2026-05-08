@@ -1,5 +1,7 @@
 #pragma once
 
+#include <glm/glm.hpp>
+
 #include "core/Constants.hpp"
 
 namespace snd3D {
@@ -24,6 +26,9 @@ namespace snd3D {
             void setFaceAlphaValue(const float alpha);
             float getEdgeThickness();
             void setEdgeThickness(const float thickness);
+            void setBackgroundColor(const glm::vec3& newColor);
+            glm::vec3 getBackgroundColor();
+            bool isBackgroundColorChanged();
 
         private:
             bool cameraPivotActive = constants::defaults::SHOW_PIVOT;
@@ -35,5 +40,7 @@ namespace snd3D {
             float edgeAlphaValue = constants::defaults::EDGE_ALPHA_VALUE;
             float faceAlphaValue = constants::defaults::FACE_ALPHA_VALUE;
             float edgeThickness = constants::defaults::EDGE_THICKNESS;
+            glm::vec3 backgroundColor = glm::vec3(constants::defaults::BG_COLOR_R, constants::defaults::BG_COLOR_G, constants::defaults::BG_COLOR_B);
+            bool backgroundColorChanged = true;
     };
 }

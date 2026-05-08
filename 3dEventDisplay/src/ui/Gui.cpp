@@ -6,6 +6,7 @@
 #include <imgui_impl_glfw.h>
 #include <imgui_impl_opengl3.h>
 #include <ImGuiFileDialog.h>
+#include <glm/gtc/type_ptr.hpp>
 
 #include "ui/JetBrainsMono.h"
 #include "core/App.hpp"
@@ -395,6 +396,15 @@ namespace snd3D {
                 }
                 ImGui::NewLine();
             }
+
+            ImGui::NewLine();
+            ImGui::Separator();
+            ImGui::NewLine();
+
+            glm::vec3 bgColor = this->app.settings.getBackgroundColor();
+            if (ImGui::ColorEdit3("Background Color", glm::value_ptr(bgColor))) {
+                this->app.settings.setBackgroundColor(bgColor);
+            }
             ImGui::End();
         }
 
@@ -706,7 +716,6 @@ namespace snd3D {
     }
 
     void Gui::drawEventDetails() {
-
         bool open = this->app.settings.isEventInfoActive();
 
         if (open) {
@@ -718,13 +727,19 @@ namespace snd3D {
                 ImVec2(0.0f, 1.0f) // Set bottom-left pivot
             );
 
+            ImGuiWindowFlags windowFlags = 
+                ImGuiWindowFlags_NoMove |
+                ImGuiWindowFlags_NoResize |
+                ImGuiWindowFlags_NoCollapse |
+                ImGuiWindowFlags_AlwaysAutoResize;
+
+            if (this->app.stateManager.getCurrentState() == AppState::EXPORT_IMAGE) windowFlags |= ImGuiWindowFlags_NoTitleBar; // In the screenshot the title bar must disappear
+
+
             ImGui::Begin(
                 "Event Info",
-                this->app.stateManager.getCurrentState() != AppState::EXPORT_IMAGE ? &open : NULL, // In the screenshot the X must disappear
-                ImGuiWindowFlags_NoMove |
-                    ImGuiWindowFlags_NoResize |
-                    ImGuiWindowFlags_NoCollapse |
-                    ImGuiWindowFlags_AlwaysAutoResize
+                &open,
+                windowFlags
             );
             ImGui::BeginTable("EventInfo", 3, ImGuiTableFlags_None);
 
