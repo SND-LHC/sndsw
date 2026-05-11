@@ -13,6 +13,9 @@
 #include "sndPlaneTools.h"
 
 #include "io/HitData.hpp"
+#include "io/DetectorData.hpp"
+#include "io/EventData.hpp"
+#include "io/RunData.hpp"
 #include "io/GeometryMismatchException.hpp"
 
 namespace snd3D {
@@ -149,6 +152,8 @@ namespace snd3D {
         // cluster SCIFI
         //std::cout << "########################### SCIFI #####################" << std::endl;
         std::vector<std::vector<snd::analysis_tools::Cluster>> scifi_clusters(this->config->scifi_n_stations);
+        DetectorData* detector = new DetectorData("SciFi");
+        toReturn->addDetector(detector);
 
         for (auto &p : this->scifiPlanes) {
             int st = p.GetStation() - 1;
@@ -168,13 +173,17 @@ namespace snd3D {
         for (int i = 0; i < this->config->scifi_n_stations; ++i) {
             for (auto &c : scifi_clusters[i]) {
                 //std::cout << "Scifi Station " << (i) << ": " << c.center << "\t" << c.radius << std::endl;
-                toReturn->addHit(new HitData(c.center.X(), c.center.Y(), c.center.Z(), c.radius.X(), c.radius.Y(), c.radius.Z()));
+                detector->addHit(new HitData(c.center.X(), c.center.Y(), c.center.Z(), c.radius.X(), c.radius.Y(), c.radius.Z(), c.energy, c.time));
             }
         }
+
+        detector->energyRange = snd::analysis_tools::FindRange(scifi_clusters);
 
         // cluster VETO
         //std::cout << "########################### VETO #####################" << std::endl;
         std::vector<std::vector<snd::analysis_tools::Cluster>> veto_clusters(this->config->veto_n_stations);
+        detector = new DetectorData("Veto");
+        toReturn->addDetector(detector);
 
         for (auto &p : this->vetoPlanes) {
             int st = p.GetStation() - 1;
@@ -194,13 +203,15 @@ namespace snd3D {
         for (int i = 0; i < this->config->veto_n_stations; ++i) {
             for (auto &c : veto_clusters[i]) {
                 //std::cout << "Veto Station " << (i) << ": " << c.center << "\t" << c.radius << std::endl;
-                toReturn->addHit(new HitData(c.center.X(), c.center.Y(), c.center.Z(), c.radius.X(), c.radius.Y(), c.radius.Z()));
+                detector->addHit(new HitData(c.center.X(), c.center.Y(), c.center.Z(), c.radius.X(), c.radius.Y(), c.radius.Z(), c.energy, c.time));
             }
         }
 
         // cluster US
         //std::cout << "########################### US #####################" << std::endl;
         std::vector<std::vector<snd::analysis_tools::Cluster>> us_clusters(this->config->us_n_stations);
+        detector = new DetectorData("US");
+        toReturn->addDetector(detector);
 
         for (auto &p : this->usPlanes) {
             int st = p.GetStation() - 1;
@@ -220,13 +231,17 @@ namespace snd3D {
         for (int i = 0; i < this->config->us_n_stations; ++i) {
             for (auto &c : us_clusters[i]) {
                 //std::cout << "US Station " << (i) << ": " << c.center << "\t" << c.radius << std::endl;
-                toReturn->addHit(new HitData(c.center.X(), c.center.Y(), c.center.Z(), c.radius.X(), c.radius.Y(), c.radius.Z()));
+                detector->addHit(new HitData(c.center.X(), c.center.Y(), c.center.Z(), c.radius.X(), c.radius.Y(), c.radius.Z(), c.energy, c.time));
             }
         }
+
+        detector->energyRange = snd::analysis_tools::FindRange(us_clusters);
 
         // cluster DS
         //std::cout << "########################### DS #####################" << std::endl;
         std::vector<std::vector<snd::analysis_tools::Cluster>> ds_clusters(this->config->ds_n_stations);
+        detector = new DetectorData("DS");
+        toReturn->addDetector(detector);
 
         for (auto &p : this->dsPlanes) {
             int st = p.GetStation() - 1;
@@ -245,7 +260,7 @@ namespace snd3D {
 
         for (int i = 0; i < this->config->ds_n_stations; ++i) {
             for (auto &c : ds_clusters[i]) {
-                toReturn->addHit(new HitData(c.center.X(), c.center.Y(), c.center.Z(), c.radius.X(), c.radius.Y(), c.radius.Z()));
+                detector->addHit(new HitData(c.center.X(), c.center.Y(), c.center.Z(), c.radius.X(), c.radius.Y(), c.radius.Z(), c.energy, c.time));
                 //std::cout << "DS Station " << (i) << ": " << c.center << "\t" << c.radius << std::endl;
             }
         }

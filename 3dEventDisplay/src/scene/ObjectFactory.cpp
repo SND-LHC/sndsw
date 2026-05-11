@@ -3,8 +3,11 @@
 #include <vector>
 #include <stdexcept>
 #include <iostream>
+#include <sstream>
+#include <iomanip>
 
 #include <glm/gtc/constants.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 #include <assimp/Importer.hpp>
 #include <assimp/postprocess.h>
 #include <assimp/scene.h>
@@ -50,6 +53,31 @@ namespace snd3D {
         meshes.push_back(this->cube);
         Node* node = new Node("Cube", meshes);
         return new Object(node);
+    } 
+
+    Object* ObjectFactory::getHits(const EventData* event) {
+        if (event == nullptr) return nullptr;
+
+        vector<shared_ptr<Mesh>> meshes;
+        Node* hits = new Node("Detectors", meshes);
+
+        for (const auto& d : event->getDetectors()) {
+            Node* detector = new Node(d->getName(), meshes);
+            hits->addChild(detector);
+            for (const auto& h : d->getHits()) {
+                meshes.push_back(this->cube);
+                mat4 matrix = translate(mat4(1.0f), h->position);
+                matrix = scale(matrix, h->radius);
+                std::stringstream ss;
+                ss << std::fixed << std::setprecision(1);
+                ss << "(" << h->position.x << ", " << h->position.y << ", " << h->position.z << ")";
+                Node* hit = new Node(ss.str(), meshes, matrix);
+                detector->addChild(hit);
+                meshes.clear();
+            }
+        }
+
+        return new Object(hits);
     } 
 
     Mesh* ObjectFactory::createSphere(vec4 baseColor) {

@@ -27,15 +27,20 @@ namespace snd3D {
         }
     }
 
-    Node::Node(std::string _name, std::vector<std::shared_ptr<Mesh>>& _meshes) {
+    Node::Node(std::string _name, std::vector<std::shared_ptr<Mesh>>& _meshes, glm::mat4 modelMatrix) {
         this->name = _name;
-        this->localModelMatrix = glm::mat4(1.0f);
+        this->localModelMatrix = modelMatrix;
         this->globalModelMatrix = glm::mat4(1.0f);
 
         // Get the reference to all the meshes passed
         for (auto mesh : _meshes) {
             this->meshes.push_back(mesh);
         }
+    }
+
+    void Node::addChild(Node* node) {
+        this->childrenNode.push_back(std::unique_ptr<Node>(node));
+        node->updateGlobalModelMatrix(this->globalModelMatrix);
     }
 
     void Node::setGlobalActive(bool value) {

@@ -6,6 +6,7 @@
 #include <glm/glm.hpp>
 
 #include "scene/Object.hpp"
+#include "io/EventData.hpp"
 
 namespace snd3D {
     class ObjectFactory {
@@ -14,6 +15,7 @@ namespace snd3D {
             Object* getFromFile(std::string filePath);
             Object* getSphere();
             Object* getCube();
+            Object* getHits(const EventData* event);
 
         private:
             static Mesh* createSphere(glm::vec4 baseColor = glm::vec4(0, 1, 1, 1.0f));

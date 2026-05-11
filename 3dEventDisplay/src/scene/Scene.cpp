@@ -52,13 +52,11 @@ namespace snd3D {
                 glDepthMask(GL_TRUE);  // Write depth
                 glDisable(GL_BLEND);   // Don't use transparency
 
-                if (this->settings.isCameraPivotActive()) {
+                if (this->settings.isCameraPivotActive() && this->stateManager.getCurrentState() != AppState::EXPORT_IMAGE) {
                     this->pivot->render(*this->viewport, false);
                 }
 
-                for (const auto& e: this->hits) {
-                    e->render(*this->viewport, false);
-                }
+                this->hits->render(*this->viewport, false);
 
                 // TRANSPARENT MESHES RENDERING
                 // The transparency function is set in the OpenGL initialization: GL_ONE_MINUS_SRC_ALPHA
@@ -94,25 +92,9 @@ namespace snd3D {
 
     void Scene::setEvent(const EventData* event) {
         if (event != nullptr) {
-            this->hits.clear();
-            for (const auto& hit : event->getHits()) {
-                auto hitMesh= std::unique_ptr<Object>(this->objectFactory.getCube());
-                hitMesh->setShader(this->flat);
-                glm::vec3 position(
-                    static_cast<float>(hit->x),
-                    static_cast<float>(hit->y),
-                    static_cast<float>(hit->z)
-                );
-                glm::vec3 scaling(
-                    static_cast<float>(hit->radiusX),
-                    static_cast<float>(hit->radiusY),
-                    static_cast<float>(hit->radiusZ)
-                );
-                glm::mat4 matrix = glm::translate(glm::mat4(1.0f), position);
-                matrix = glm::scale(matrix, scaling);
-                hitMesh->updateModelMatrix(matrix);
-                this->hits.push_back(std::move(hitMesh));
-            }
+            auto hitMesh= std::unique_ptr<Object>(this->objectFactory.getHits(event));
+            hitMesh->setShader(this->transparent);
+            this->hits = std::move(hitMesh);
         }
     }
 

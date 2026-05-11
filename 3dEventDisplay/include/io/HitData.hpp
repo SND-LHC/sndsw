@@ -1,15 +1,15 @@
 #pragma once
 
+#include <glm/glm.hpp>
+
 namespace snd3D {
     struct HitData {
-        const double x;
-        const double y;
-        const double z;
-        const double radiusX;
-        const double radiusY;
-        const double radiusZ;
+        glm::vec3 position;
+        glm::vec3 radius;
+        double energy;
+        double time;
 
-        HitData(double _x, double _y, double _z, double _radiusX, double _radiusY, double _radiusZ)
-            : x(_x), y(_y), z(_z), radiusX(_radiusX), radiusY(_radiusY), radiusZ(_radiusZ) {}
+        HitData(double x, double y, double z, double radiusX, double radiusY, double radiusZ, double _energy, double _time)
+            : position((float)x, (float)y, (float)z), radius((float)radiusX, (float)radiusY, (float)radiusZ), energy(_energy), time(_time) {}
     };
 }

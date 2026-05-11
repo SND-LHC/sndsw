@@ -1,11 +1,11 @@
 #pragma once
 
+#include <vector>
 #include <string>
 #include <cstdint>
-#include <vector>
 #include <memory>
 
-#include "io/HitData.hpp"
+#include "io/DetectorData.hpp"
 
 namespace snd3D {
     class EventData {
@@ -15,11 +15,10 @@ namespace snd3D {
             const int64_t timestamp;
 
             EventData(int _id, std::string _dateTime, int64_t _timestamp);
-            void addHit(HitData* hit);
-            const std::vector<std::unique_ptr<HitData>>& getHits() const;
-
+            void addDetector(DetectorData* detector);
+            const std::vector<std::unique_ptr<DetectorData>>& getDetectors() const;
 
         private:
-            std::vector<std::unique_ptr<HitData>> hits;
+            std::vector<std::unique_ptr<DetectorData>> detectors;
     };
 }

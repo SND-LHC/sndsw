@@ -322,6 +322,8 @@ namespace snd3D {
 
             this->drawObjectTree("SND", this->app.scene->detector.get());
 
+            this->drawObjectTree("HITS", this->app.scene->hits.get());
+
             ImGui::End();
         }
 
@@ -421,7 +423,8 @@ namespace snd3D {
 
         if (ImGui::CollapsingHeader(label.c_str(), ImGuiTreeNodeFlags_DefaultOpen)) {
 
-            ImGui::BeginChild((label + "Tree").c_str(), ImVec2(0, 0), ImGuiChildFlags_Border | ImGuiChildFlags_ResizeY, ImGuiWindowFlags_HorizontalScrollbar);
+            float height = ImGui::GetContentRegionAvail().y * 0.4f;
+            ImGui::BeginChild((label + "Tree").c_str(), ImVec2(0, height), ImGuiChildFlags_Border | ImGuiChildFlags_ResizeY, ImGuiWindowFlags_HorizontalScrollbar);
 
             if (ImGui::Button("Show All")) {
                 obj->setGlobalActive(true);
