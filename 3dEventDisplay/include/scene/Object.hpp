@@ -17,7 +17,7 @@ namespace snd3D {
         friend class Gui; // Needs access to show object propreties
 
         public:
-            Object(const aiScene* _scene);
+            Object(const aiScene* _scene, std::vector<std::shared_ptr<GpuMesh>>& _meshes, std::vector<std::shared_ptr<Material>>& _materials);
             Object(Node* _rootNode);
             void setShader(const std::shared_ptr<Shader>& _shader);
             void updateModelMatrix(const glm::mat4& _modelMatrix);

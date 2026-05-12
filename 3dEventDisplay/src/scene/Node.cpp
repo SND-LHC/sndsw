@@ -2,7 +2,7 @@
 
 namespace snd3D {
 
-    Node::Node(const aiScene* _scene, aiNode* _node, std::vector<std::shared_ptr<Mesh>>& _meshes) {
+    Node::Node(const aiScene* _scene, aiNode* _node, std::vector<std::shared_ptr<GpuMesh>>& _meshes, std::vector<std::shared_ptr<Material>>& _materials) {
 
         aiMatrix4x4 matrix = _node->mTransformation;
 
@@ -15,32 +15,41 @@ namespace snd3D {
 
         this->name = std::string(_node->mName.C_Str());
 
-        // Get the reference to all the meshes of the node
+        // Create a mesh for all the meshes of the node and assign material
         for (unsigned int i = 0; i < _node->mNumMeshes; i++) {
-            this->meshes.push_back(_meshes[_node->mMeshes[i]]);
+            unsigned int meshId = _node->mMeshes[i];
+            aiMesh* assimpMesh = _scene->mMeshes[meshId];
+
+            std::string _name = std::string(assimpMesh->mName.C_Str());
+            if (_name.empty()) {
+                _name = "Unnamed_Mesh_" + std::to_string(meshId);
+            }
+
+            std::unique_ptr<Mesh> mesh = std::make_unique<Mesh>(_name, _meshes[meshId]);
+            mesh->setMaterial(_materials[assimpMesh->mMaterialIndex]);
+            this->meshes.push_back(std::move(mesh));
         }
 
         // Create children nodes
         this->childrenNode.reserve(_node->mNumChildren);
         for (unsigned int i = 0; i < _node->mNumChildren; i++) {
-            this->childrenNode.push_back(std::make_unique<Node>(_scene, _node->mChildren[i], _meshes));
+            this->childrenNode.push_back(std::make_unique<Node>(_scene, _node->mChildren[i], _meshes, _materials));
         }
     }
 
-    Node::Node(std::string _name, std::vector<std::shared_ptr<Mesh>>& _meshes, glm::mat4 modelMatrix) {
+    Node::Node(std::string _name, glm::mat4 modelMatrix) {
         this->name = _name;
         this->localModelMatrix = modelMatrix;
         this->globalModelMatrix = glm::mat4(1.0f);
-
-        // Get the reference to all the meshes passed
-        for (auto mesh : _meshes) {
-            this->meshes.push_back(mesh);
-        }
     }
 
     void Node::addChild(Node* node) {
         this->childrenNode.push_back(std::unique_ptr<Node>(node));
         node->updateGlobalModelMatrix(this->globalModelMatrix);
+    }
+
+    void Node::addMesh(Mesh* mesh) {
+        this->meshes.push_back(std::unique_ptr<Mesh>(mesh));
     }
 
     void Node::setGlobalActive(bool value) {
