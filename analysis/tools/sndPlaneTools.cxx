@@ -115,6 +115,7 @@ std::vector<snd::analysis_tools::DSPlane> snd::analysis_tools::FillDS(const snd:
 
 std::pair<double, double> snd::analysis_tools::FindRange(const std::vector<std::vector<snd::analysis_tools::Cluster>> &planes, const bool time){
 
+
   // flatten vector
   size_t n_clusters{0};
   for (const auto& p : planes) {
@@ -140,6 +141,7 @@ std::pair<double, double> snd::analysis_tools::FindRange(const std::vector<std::
     });
   }
 
-  return std::make_pair(flattened_planes[0].time, flattened_planes[flattened_planes.size()-1].time);
+  if(time) return std::make_pair(flattened_planes[0].time, flattened_planes[flattened_planes.size()-1].time);
+  else return std::make_pair(flattened_planes[0].energy, flattened_planes[flattened_planes.size()-1].energy);
 }
 
