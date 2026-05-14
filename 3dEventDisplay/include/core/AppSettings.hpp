@@ -3,6 +3,7 @@
 #include <glm/glm.hpp>
 
 #include "core/Constants.hpp"
+#include "scene/colors/Modes.hpp"
 
 namespace snd3D {
     class AppSettings {
@@ -31,6 +32,10 @@ namespace snd3D {
             void setBackgroundColor(const glm::vec3& newColor);
             glm::vec3 getBackgroundColor();
             bool isBackgroundColorChanged();
+            void setColorVariable(ColorVariable variable);
+            ColorVariable getColorVariable();
+            void setColorScalingMode(ColorScalingMode mode);
+            ColorScalingMode getColorScalingMode();
 
         private:
             bool cameraPivotActive = constants::defaults::SHOW_PIVOT;
@@ -45,5 +50,7 @@ namespace snd3D {
             float edgeThickness = constants::defaults::EDGE_THICKNESS;
             glm::vec3 backgroundColor = glm::vec3(constants::defaults::colors::BACKGROUND_R, constants::defaults::colors::BACKGROUND_G, constants::defaults::colors::BACKGROUND_B);
             bool backgroundColorChanged = true;
+            ColorVariable colorVariable = ColorVariable::ENERGY;
+            ColorScalingMode colorScalingMode = ColorScalingMode::LINEAR;
     };
 }

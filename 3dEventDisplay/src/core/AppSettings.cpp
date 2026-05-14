@@ -104,4 +104,20 @@ namespace snd3D {
         this->backgroundColorChanged = false;
         return tmp;
     }
+
+    void AppSettings::setColorVariable(ColorVariable variable) {
+        this->colorVariable = variable; 
+    }
+    
+    ColorVariable AppSettings::getColorVariable() {
+        return this->colorVariable;
+    }
+
+    void AppSettings::setColorScalingMode(ColorScalingMode mode) {
+        this->colorScalingMode = mode;
+    }
+
+    ColorScalingMode AppSettings::getColorScalingMode() {
+        return this->colorScalingMode;
+    }
 }

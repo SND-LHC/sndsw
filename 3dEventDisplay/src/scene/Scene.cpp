@@ -3,7 +3,12 @@
 #include <glm/gtc/matrix_transform.hpp>
 
 #include "core/Constants.hpp"
-#include "scene/colors/LinearEnergyColorPalette.hpp"
+#include "scene/colors/ValueMapper.hpp"
+#include "scene/colors/LinearValueMapper.hpp"
+#include "scene/colors/LogarithmicValueMapper.hpp"
+#include "scene/colors/VariableGetter.hpp"
+#include "scene/colors/EnergyVariableGetter.hpp"
+#include "scene/colors/TimeVariableGetter.hpp"
 
 namespace snd3D {
 
@@ -96,13 +101,36 @@ namespace snd3D {
     void Scene::setEvent(const EventData* event) {
         if (event != nullptr) {
 
-            this->colorPalette = std::unique_ptr<ColorPalette>(
-                new LinearEnergyColorPalette(
-                    event->energyRange,
-                    glm::vec3(constants::defaults::colors::HIT_ENERGY_MIN_R, constants::defaults::colors::HIT_ENERGY_MIN_G, constants::defaults::colors::HIT_ENERGY_MIN_B),
-                    glm::vec3(constants::defaults::colors::HIT_ENERGY_MAX_R, constants::defaults::colors::HIT_ENERGY_MAX_G, constants::defaults::colors::HIT_ENERGY_MAX_B)
-                )
-            );
+            VariableGetter* variableGetter;
+            ValueMapper* valueMapper;
+
+            switch (this->settings.getColorVariable()) {
+                case ColorVariable::ENERGY:
+                    variableGetter = new EnergyVariableGetter(event);
+                    break;
+
+                case ColorVariable::TIME:
+                    variableGetter = new TimeVariableGetter(event);
+                    break;
+            }
+
+            switch (this->settings.getColorScalingMode()) {
+                case ColorScalingMode::LOGARITHMIC:
+                    valueMapper = new LogarithmicValueMapper(
+                        glm::vec3(constants::defaults::colors::HIT_ENERGY_MIN_R, constants::defaults::colors::HIT_ENERGY_MIN_G, constants::defaults::colors::HIT_ENERGY_MIN_B),
+                        glm::vec3(constants::defaults::colors::HIT_ENERGY_MAX_R, constants::defaults::colors::HIT_ENERGY_MAX_G, constants::defaults::colors::HIT_ENERGY_MAX_B)
+                    );
+                    break;
+
+                case ColorScalingMode::LINEAR:
+                    valueMapper = new LinearValueMapper(
+                        glm::vec3(constants::defaults::colors::HIT_ENERGY_MIN_R, constants::defaults::colors::HIT_ENERGY_MIN_G, constants::defaults::colors::HIT_ENERGY_MIN_B),
+                        glm::vec3(constants::defaults::colors::HIT_ENERGY_MAX_R, constants::defaults::colors::HIT_ENERGY_MAX_G, constants::defaults::colors::HIT_ENERGY_MAX_B)
+                    );
+                    break;
+            }
+
+            this->colorPalette = std::make_unique<ColorPalette>(variableGetter, valueMapper);
 
             auto hitMesh = std::unique_ptr<Object>(this->objectFactory.getHits(event, this->colorPalette));
             hitMesh->setShader(this->flatMaterial);

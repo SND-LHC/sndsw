@@ -34,9 +34,9 @@ namespace snd3D::constants {
             inline constexpr float BACKGROUND_R = 0;
             inline constexpr float BACKGROUND_G = 0;
             inline constexpr float BACKGROUND_B = 0;
-            inline constexpr float PIVOT_R = 0;
-            inline constexpr float PIVOT_G = 1;
-            inline constexpr float PIVOT_B = 1;
+            inline constexpr float PIVOT_R = 0.8f;
+            inline constexpr float PIVOT_G = 0.8f;
+            inline constexpr float PIVOT_B = 0.8f;
             inline constexpr float HIT_ENERGY_MIN_R = 0;
             inline constexpr float HIT_ENERGY_MIN_G = 1;
             inline constexpr float HIT_ENERGY_MIN_B = 1;

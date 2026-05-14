@@ -14,6 +14,7 @@
 #include "scene/Node.hpp"
 #include "core/state/AppState.hpp"
 #include "scene/Object.hpp"
+#include "scene/colors/Modes.hpp"
 
 namespace snd3D {
 
@@ -324,7 +325,7 @@ namespace snd3D {
 
             ImGui::SetNextWindowSize(ImVec2(400, this->app.windowManager->getCurrentResolution().y - this->menuBarHeight - constants::sizes::PADDING * 2), ImGuiCond_Once);
 
-            ImGui::Begin("SCENE", &open, ImGuiWindowFlags_NoMove);
+            ImGui::Begin("Scene", &open, ImGuiWindowFlags_NoMove);
 
             this->drawObjectTree("SND", this->app.scene->detector.get());
 
@@ -357,7 +358,7 @@ namespace snd3D {
 
             ImGui::SetNextWindowSize(ImVec2(450, 0), ImGuiCond_Once);
 
-            ImGui::Begin("RENDER OPTIONS", &open, ImGuiWindowFlags_NoMove);
+            ImGui::Begin("Render Options", &open, ImGuiWindowFlags_NoMove);
 
             ImGui::Text("Projection Mode:");
             int projMode = this->app.scene->viewport->isOrthographic() ? 1 : 0;
@@ -621,6 +622,30 @@ namespace snd3D {
         ImGui::InputScalar("Event Number", ImGuiDataType_S64, &this->eventInputNumber);
         ImGui::NewLine();
 
+        int currentVariable = (int)this->app.settings.getColorVariable();
+
+        ImGui::Text("Color by:");
+        if (ImGui::RadioButton("Energy", &currentVariable, (int)ColorVariable::ENERGY)) {
+            this->app.settings.setColorVariable(ColorVariable::ENERGY);
+        }
+        ImGui::SameLine();
+        if (ImGui::RadioButton("Time", &currentVariable, (int)ColorVariable::TIME)) {
+            this->app.settings.setColorVariable(ColorVariable::TIME);
+        }
+
+        int currentMode = (int)this->app.settings.getColorScalingMode();
+
+        ImGui::Text("Scale:");
+        if (ImGui::RadioButton("Linear", &currentMode, (int)ColorScalingMode::LINEAR)) {
+            this->app.settings.setColorScalingMode(ColorScalingMode::LINEAR);
+        }
+        ImGui::SameLine();
+        if (ImGui::RadioButton("Logarithmic", &currentMode, (int)ColorScalingMode::LOGARITHMIC)) {
+            this->app.settings.setColorScalingMode(ColorScalingMode::LOGARITHMIC);
+        }
+
+        ImGui::NewLine();
+
         bool isInvalid = this->eventInputNumber < 0 || this->eventInputNumber >= run->totalEvents;
 
         if (isInvalid) ImGui::BeginDisabled();
@@ -791,23 +816,22 @@ namespace snd3D {
     }
 
     void Gui::drawColorScale() {
-
         bool open = this->app.settings.isColorScaleActive();
 
         if (open) {
 
             ImGui::SetNextWindowPos(ImVec2(
-                constants::sizes::PADDING,
+                this->app.windowManager->getCurrentResolution().x * 2 / 3,
                 this->app.windowManager->getCurrentResolution().y - constants::sizes::PADDING),
                 ImGuiCond_FirstUseEver,
-                ImVec2(0.0f, 1.0f) // Set low - left pivot
+                ImVec2(0.5f, 1.0f) // Set low - center pivot
             );
 
             ImGuiWindowFlags windowFlags = ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_AlwaysAutoResize;
 
             if (this->app.stateManager.getCurrentState() == AppState::EXPORT_IMAGE) windowFlags |= ImGuiWindowFlags_NoTitleBar; // In the screenshot the title bar must disappear
 
-            ImGui::Begin("COLOR SCALE", &open, windowFlags);
+            ImGui::Begin("Color Scale", &open, windowFlags);
 
             if (this->app.scene->colorPalette.get() != nullptr) {
                 ImDrawList* draw_list = ImGui::GetWindowDrawList();
@@ -840,7 +864,7 @@ namespace snd3D {
                 ImGui::Text("Range: ");
                 ImGui::PopStyleColor();
                 ImGui::SameLine();
-                ImGui::Text("[%.1f, %.1f] %s", range.first, range.second, this->app.scene->colorPalette->getUdm().c_str());
+                ImGui::Text("[%.1f, %.1f] %s", range.first, range.second, this->app.scene->colorPalette->getUnitOfMeasure().c_str());
             } else {
                 ImGui::Text("Color scale not set");
             }
