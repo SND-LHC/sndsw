@@ -8,6 +8,8 @@
 #include "scene/Object.hpp"
 #include "io/EventData.hpp"
 #include "rendering/engine/GpuMesh.hpp"
+#include "rendering/engine/Material.hpp"
+#include "scene/colors/ColorPalette.hpp"
 
 namespace snd3D {
     class ObjectFactory {
@@ -16,12 +18,9 @@ namespace snd3D {
             Object* getFromFile(std::string filePath);
             Object* getSphere();
             Object* getCube();
-            Object* getHits(const EventData* event);
+            Object* getHits(const EventData* event, const std::unique_ptr<ColorPalette>& colorGetter);
 
         private:
-            static GpuMesh* createSphere(glm::vec4 baseColor = glm::vec4(0, 1, 1, 1.0f));
-            static GpuMesh* createCube(glm::vec4 baseColor = glm::vec4(1, 1, 0, 1.0f));
-            static GpuMesh* loadAssimpMesh(aiMesh* mesh, glm::vec4 baseColor);
             std::shared_ptr<GpuMesh> sphere;
             std::shared_ptr<GpuMesh> cube;
     };

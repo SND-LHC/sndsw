@@ -127,6 +127,10 @@ namespace snd3D {
                     if (interactionState) this->app.settings.toggleAxisWidget();
                     break;
 
+                case GLFW_KEY_C:
+                    if (interactionState) this->app.settings.toggleColorScale();
+                    break;
+
                 case GLFW_KEY_G:
                     if (interactionState) this->app.settings.toggleRenderOptions();
                     break;

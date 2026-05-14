@@ -10,6 +10,7 @@ namespace snd3D {
     class DetectorData {
         public:
             std::pair<double, double> energyRange;
+            std::pair<double, double> timeRange;
 
             DetectorData(std::string _name);
             void addHit(HitData* hit);

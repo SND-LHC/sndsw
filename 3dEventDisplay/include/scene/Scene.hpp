@@ -13,6 +13,7 @@
 #include "rendering/AxisWidget.hpp"
 #include "io/EventData.hpp"
 #include "ui/Gui.hpp"
+#include "scene/colors/ColorPalette.hpp"
 
 namespace snd3D {
     class Scene {
@@ -35,9 +36,11 @@ namespace snd3D {
             std::unique_ptr<Object> hits;
             std::unique_ptr<AxisWidget> axis;
             std::shared_ptr<Shader> flat;
+            std::shared_ptr<Shader> flatMaterial;
             std::shared_ptr<Shader> transparent;
 
             ObjectFactory objectFactory;
+            std::unique_ptr<ColorPalette> colorPalette;
 
             // Owned by App, keep reference to spped up access
             WindowManager& windowManager;

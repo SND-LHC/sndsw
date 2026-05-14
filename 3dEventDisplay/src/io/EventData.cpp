@@ -6,6 +6,18 @@ namespace snd3D {
             : id(_id), dateTime(std::move(_dateTime)), timestamp(_timestamp) {
     }
 
+    int EventData::getId() const {
+        return this->id;
+    }
+
+    std::string EventData::getDateTime() const {
+        return this->dateTime;
+    }
+
+    int64_t EventData::getTimestamp() const {
+        return this->timestamp;
+    }
+
     void EventData::addDetector(DetectorData* detector) {
         this->detectors.push_back(std::unique_ptr<DetectorData>(detector));
     }

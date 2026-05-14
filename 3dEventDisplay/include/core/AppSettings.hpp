@@ -17,6 +17,8 @@ namespace snd3D {
             void toggleRenderOptions();
             bool isEventInfoActive();
             void toggleEventInfo();
+            bool isColorScaleActive();
+            void toggleColorScale();
             bool isTransparencyEnabled();
             bool isTransparencyChanged();
             void toggleTransparency();
@@ -36,11 +38,12 @@ namespace snd3D {
             bool sceneInspectorActive = true;
             bool renderOptionsActive = true;
             bool eventInfoActive = true;
+            bool colorScaleActive = true;
             bool transparency = constants::defaults::TRANSPARENCY, transparencyChanged = true;
             float edgeAlphaValue = constants::defaults::EDGE_ALPHA_VALUE;
             float faceAlphaValue = constants::defaults::FACE_ALPHA_VALUE;
             float edgeThickness = constants::defaults::EDGE_THICKNESS;
-            glm::vec3 backgroundColor = glm::vec3(constants::defaults::BG_COLOR_R, constants::defaults::BG_COLOR_G, constants::defaults::BG_COLOR_B);
+            glm::vec3 backgroundColor = glm::vec3(constants::defaults::colors::BACKGROUND_R, constants::defaults::colors::BACKGROUND_G, constants::defaults::colors::BACKGROUND_B);
             bool backgroundColorChanged = true;
     };
 }

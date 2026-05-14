@@ -19,6 +19,7 @@ namespace snd3D {
         this->uniform_Projection = glGetUniformLocation(this->programId, "Projection");
         this->uniform_View = glGetUniformLocation(this->programId, "View");
         this->uniform_ViewPos = glGetUniformLocation(this->programId, "ViewPos");
+        this->uniform_MaterialBaseColor = glGetUniformLocation(this->programId, "material.baseColor");
         this->uniform_MaterialAmbient = glGetUniformLocation(this->programId, "material.ambient");
         this->uniform_MaterialDiffuse = glGetUniformLocation(this->programId, "material.diffuse");
         this->uniform_MaterialSpecular = glGetUniformLocation(this->programId, "material.specular");
@@ -56,6 +57,7 @@ namespace snd3D {
     void Shader::bindLocalUniforms(const glm::mat4& modelMatrix, Material* material) {
         // Check for uniform existence in the active shader; if present, update them
         if (this->uniform_Model != -1) glUniformMatrix4fv(this->uniform_Model, 1, GL_FALSE, glm::value_ptr(modelMatrix));
+        if (this->uniform_MaterialBaseColor != -1 && material != nullptr) glUniform3fv(this->uniform_MaterialBaseColor, 1, glm::value_ptr(material->getBaseColor()));
         if (this->uniform_MaterialAmbient != -1 && material != nullptr) glUniform3fv(this->uniform_MaterialAmbient, 1, glm::value_ptr(material->getAmbient()));
         if (this->uniform_MaterialDiffuse != -1 && material != nullptr) glUniform3fv(this->uniform_MaterialDiffuse, 1, glm::value_ptr(material->getDiffuse()));
         if (this->uniform_MaterialSpecular != -1 && material != nullptr) glUniform3fv(this->uniform_MaterialSpecular, 1, glm::value_ptr(material->getSpecular()));

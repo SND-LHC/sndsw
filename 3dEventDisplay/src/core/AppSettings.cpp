@@ -43,6 +43,14 @@ namespace snd3D {
         this->eventInfoActive = !this->eventInfoActive;
     }
 
+    bool AppSettings::isColorScaleActive() {
+        return this->colorScaleActive;
+    }
+
+    void AppSettings::toggleColorScale() {
+        this->colorScaleActive = !this->colorScaleActive;
+    }
+
     bool AppSettings::isTransparencyEnabled() {
         return this->transparency;
     }

@@ -160,7 +160,7 @@ namespace snd3D {
 
             if (st >= 0 && st < this->config->scifi_n_stations+1) {
                 //std::cout << p.GetHits().size() << " hits in Scifi plane " << st << std::endl;
-                auto plane_clusters = ClustersPositions(*this->boundaries, p.GetHits(), this->config->scifi_centroid_error_x, this->config->scifi_centroid_error_y);    // centroid error is fiber width which is the same for x and y
+                auto plane_clusters = ClustersPositions(*this->boundaries, p.GetHits(), this->config->scifi_centroid_error_x, this->config->scifi_centroid_error_y, 1.5, this->config->scifi_qdc_to_gev, 2);    // centroid error is fiber width which is the same for x and y
 
                 scifi_clusters[st].insert(
                     scifi_clusters[st].end(),
@@ -178,6 +178,7 @@ namespace snd3D {
         }
 
         detector->energyRange = snd::analysis_tools::FindRange(scifi_clusters);
+        detector->timeRange = snd::analysis_tools::FindRange(scifi_clusters, true);
 
         // cluster VETO
         //std::cout << "########################### VETO #####################" << std::endl;
@@ -190,7 +191,7 @@ namespace snd3D {
 
             if (st >= 0 && st < this->config->veto_n_stations+1) {
                 //std::cout << p.GetHits().size() << " hits in Veto plane " << st << std::endl;
-                auto plane_clusters = ClustersPositions(*this->boundaries, p.GetHits(),1.73, 3, 5);
+                auto plane_clusters = ClustersPositions(*this->boundaries, p.GetHits(),1.73, 3, 7);
 
                 veto_clusters[st].insert(
                     veto_clusters[st].end(),
@@ -218,7 +219,7 @@ namespace snd3D {
 
             if (st >= 0 && st < this->config->us_n_stations+1) {
                 //std::cout << p.GetHits().size() << " hits in US plane " << st << std::endl;
-                auto plane_clusters = ClustersPositions(*this->boundaries, p.GetHits(), this->config->us_centroid_error_x, this->config->us_centroid_error_y, 5);
+                auto plane_clusters = ClustersPositions(*this->boundaries, p.GetHits(), this->config->us_centroid_error_x, this->config->us_centroid_error_y, 7, this->config->us_qdc_to_gev);
 
                 us_clusters[st].insert(
                     us_clusters[st].end(),
@@ -236,6 +237,7 @@ namespace snd3D {
         }
 
         detector->energyRange = snd::analysis_tools::FindRange(us_clusters);
+        detector->timeRange = snd::analysis_tools::FindRange(us_clusters, true);
 
         // cluster DS
         //std::cout << "########################### DS #####################" << std::endl;
@@ -248,7 +250,7 @@ namespace snd3D {
 
             if (st >= 0 && st < this->config->ds_n_stations+1) {
                 //std::cout << p.GetHits().size() << " hits in DS plane " << st << std::endl;
-                auto plane_clusters = ClustersPositions(*this->boundaries, p.GetHits(), this->config->ds_hor_spatial_resolution_y, this->config->ds_ver_spatial_resolution_x);
+                auto plane_clusters = ClustersPositions(*this->boundaries, p.GetHits(), this->config->ds_hor_spatial_resolution_y, this->config->ds_ver_spatial_resolution_x, 2);
 
                 ds_clusters[st].insert(
                     ds_clusters[st].end(),
@@ -264,6 +266,40 @@ namespace snd3D {
                 //std::cout << "DS Station " << (i) << ": " << c.center << "\t" << c.radius << std::endl;
             }
         }
+
+        std::vector<std::vector<snd::analysis_tools::Cluster>> generic_clusters;
+
+        // US and SciFi are used to compute generic energy range
+
+        generic_clusters.insert(
+            generic_clusters.end(),
+            scifi_clusters.begin(),
+            scifi_clusters.end()
+        );
+
+        generic_clusters.insert(
+            generic_clusters.end(),
+            us_clusters.begin(),
+            us_clusters.end()
+        );
+
+        toReturn->energyRange = snd::analysis_tools::FindRange(generic_clusters);
+
+        // Consider aldo DS and Veto for time range
+
+        generic_clusters.insert(
+            generic_clusters.end(),
+            ds_clusters.begin(),
+            ds_clusters.end()
+        );
+
+        generic_clusters.insert(
+            generic_clusters.end(),
+            veto_clusters.begin(),
+            veto_clusters.end()
+        );
+
+        toReturn->timeRange = snd::analysis_tools::FindRange(generic_clusters, true);
 
         return toReturn;
     }

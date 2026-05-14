@@ -29,9 +29,21 @@ namespace snd3D::constants {
         inline constexpr bool ORTHOGRAPHIC_PROJECTION = false;
         inline constexpr int AXIS_WIDGET_SIZE = 100;
         inline constexpr int AXIS_WIDGET_MARGIN = 20;
-        inline constexpr float BG_COLOR_R = 0;
-        inline constexpr float BG_COLOR_G = 0;
-        inline constexpr float BG_COLOR_B = 0;
+
+        namespace colors {
+            inline constexpr float BACKGROUND_R = 0;
+            inline constexpr float BACKGROUND_G = 0;
+            inline constexpr float BACKGROUND_B = 0;
+            inline constexpr float PIVOT_R = 0;
+            inline constexpr float PIVOT_G = 1;
+            inline constexpr float PIVOT_B = 1;
+            inline constexpr float HIT_ENERGY_MIN_R = 0;
+            inline constexpr float HIT_ENERGY_MIN_G = 1;
+            inline constexpr float HIT_ENERGY_MIN_B = 1;
+            inline constexpr float HIT_ENERGY_MAX_R = 1;
+            inline constexpr float HIT_ENERGY_MAX_G = 1;
+            inline constexpr float HIT_ENERGY_MAX_B = 0;
+        }
 
         namespace window {
             inline constexpr int WIDTH = 1280;
@@ -62,6 +74,8 @@ namespace snd3D::constants {
         inline constexpr float PIVOT = 3;
         inline constexpr int PADDING = 10;
         inline constexpr float AXIS = 2.5f;
+        inline constexpr float COLOR_SCALE_WIDTH = 300;
+        inline constexpr float COLOR_SCALE_HEIGHT = 20;
     }
 
     namespace graphics {

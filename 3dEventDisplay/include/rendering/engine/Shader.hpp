@@ -27,6 +27,7 @@ namespace snd3D {
             GLint uniform_Model = -1;
             GLint uniform_View = -1;
             GLint uniform_ViewPos = -1;
+            GLint uniform_MaterialBaseColor = -1;
             GLint uniform_MaterialAmbient = -1;
             GLint uniform_MaterialDiffuse = -1;
             GLint uniform_MaterialSpecular = -1;

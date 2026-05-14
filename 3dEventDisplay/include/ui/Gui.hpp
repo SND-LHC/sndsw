@@ -41,5 +41,6 @@ namespace snd3D {
             void drawGeometryFileDialog();
             void drawInitializationError();
             void drawEventDetails();
+            void drawColorScale();
     };
 }

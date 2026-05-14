@@ -52,7 +52,7 @@ namespace snd3D {
         glEnable(GL_DEPTH_TEST);
 
         // Set base color
-        glClearColor(constants::defaults::BG_COLOR_R, constants::defaults::BG_COLOR_G, constants::defaults::BG_COLOR_B, 1.0f);
+        glClearColor(constants::defaults::colors::BACKGROUND_R, constants::defaults::colors::BACKGROUND_G, constants::defaults::colors::BACKGROUND_B, 1.0f);
 
         // Set polygon mode
         glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);

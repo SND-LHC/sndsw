@@ -100,12 +100,14 @@ namespace snd3D {
 
             case AppState::EXPORT_IMAGE:
                 this->drawEventDetails();
+                this->drawColorScale();
                 break;
 
             case AppState::INTERACTION:
                 this->drawInspector();
                 this->drawRenderOptions();
                 this->drawEventDetails();
+                this->drawColorScale();
                 break;
 
             case AppState::CHANGE_GEOMETRY_START: {
@@ -209,6 +211,10 @@ namespace snd3D {
                 bool eventInfo = this->app.settings.isEventInfoActive();
                 if (ImGui::MenuItem("Event Info", "I", eventInfo)) {
                     this->app.settings.toggleEventInfo();
+                }
+                bool colorScale = this->app.settings.isColorScaleActive();
+                if (ImGui::MenuItem("Color Scale", "C", colorScale)) {
+                    this->app.settings.toggleColorScale();
                 }
                 if (!interactionState) ImGui::EndDisabled();
                 ImGui::EndMenu();
@@ -773,14 +779,75 @@ namespace snd3D {
             ImGui::TableSetColumnIndex(2);
             ImGui::Text("%d", this->app.stateManager.getRun()->runNumber);
             ImGui::Spacing();
-            ImGui::Text("%d", this->app.stateManager.getEvent()->id);
+            ImGui::Text("%d", this->app.stateManager.getEvent()->getId());
             ImGui::Spacing();
-            ImGui::Text(this->app.stateManager.getEvent()->dateTime.c_str());
+            ImGui::Text(this->app.stateManager.getEvent()->getDateTime().c_str());
 
             ImGui::EndTable();
             ImGui::End();
         }
 
         if (open != this->app.settings.isEventInfoActive()) this->app.settings.toggleEventInfo();
+    }
+
+    void Gui::drawColorScale() {
+
+        bool open = this->app.settings.isColorScaleActive();
+
+        if (open) {
+
+            ImGui::SetNextWindowPos(ImVec2(
+                constants::sizes::PADDING,
+                this->app.windowManager->getCurrentResolution().y - constants::sizes::PADDING),
+                ImGuiCond_FirstUseEver,
+                ImVec2(0.0f, 1.0f) // Set low - left pivot
+            );
+
+            ImGuiWindowFlags windowFlags = ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_AlwaysAutoResize;
+
+            if (this->app.stateManager.getCurrentState() == AppState::EXPORT_IMAGE) windowFlags |= ImGuiWindowFlags_NoTitleBar; // In the screenshot the title bar must disappear
+
+            ImGui::Begin("COLOR SCALE", &open, windowFlags);
+
+            if (this->app.scene->colorPalette.get() != nullptr) {
+                ImDrawList* draw_list = ImGui::GetWindowDrawList();
+                ImVec2 cursorPos = ImGui::GetCursorScreenPos();
+
+                const auto& colors = this->app.scene->colorPalette->getScale();
+                const auto& range = this->app.scene->colorPalette->getRange();
+
+                int numSegments = colors.size() - 1;
+                float segmentWidth = constants::sizes::COLOR_SCALE_WIDTH / numSegments;
+
+                for (int i = 0; i < numSegments; ++i) {
+                    // Start and end point of each segment (left bottom and right top corners of the rectangle)
+                    ImVec2 start = ImVec2(cursorPos.x + (i * segmentWidth), cursorPos.y);
+                    ImVec2 end = ImVec2(cursorPos.x + ((i + 1) * segmentWidth), cursorPos.y + constants::sizes::COLOR_SCALE_HEIGHT);
+
+                    // Get colors
+                    ImColor col1 = ImColor(colors[i].x, colors[i].y, colors[i].z);
+                    ImColor col2 = ImColor(colors[i+1].x, colors[i+1].y, colors[i+1].z);
+
+                    // Draw the segment
+                    draw_list->AddRectFilledMultiColor(start, end, col1, col2, col2, col1);
+                }
+
+                // Fill the space of the color bar so the text won't overlap it
+                ImGui::Dummy(ImVec2(constants::sizes::COLOR_SCALE_WIDTH, constants::sizes::COLOR_SCALE_HEIGHT));
+
+                // Range label
+                ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.6f, 0.6f, 0.6f, 1.0f));
+                ImGui::Text("Range: ");
+                ImGui::PopStyleColor();
+                ImGui::SameLine();
+                ImGui::Text("[%.1f, %.1f] %s", range.first, range.second, this->app.scene->colorPalette->getUdm().c_str());
+            } else {
+                ImGui::Text("Color scale not set");
+            }
+            ImGui::End();
+        }
+
+        if (open != this->app.settings.isColorScaleActive()) this->app.settings.toggleColorScale();
+
     }
 }

@@ -304,7 +304,7 @@ namespace snd3D {
 
         switch (this->currentState) {
             case AppState::INTERACTION:
-                this->pendingNumber = this->event->id + offset;
+                this->pendingNumber = this->event->getId() + offset;
                 this->nextState = AppState::SHOW_LOADING;
                 this->message = "Loading new EVENT:\n" + std::to_string(this->pendingNumber) + " - RUN N° " + std::to_string(this->run->runNumber);
                 this->statesHistory.push(AppState::CHANGE_EVENT_LOAD);

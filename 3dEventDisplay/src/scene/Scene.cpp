@@ -3,6 +3,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 
 #include "core/Constants.hpp"
+#include "scene/colors/LinearEnergyColorPalette.hpp"
 
 namespace snd3D {
 
@@ -11,6 +12,7 @@ namespace snd3D {
 
         this->viewport = std::make_unique<Viewport>(winMan, guiMan, constants::defaults::ORTHOGRAPHIC_PROJECTION);
         this->flat = std::make_shared<Shader>("Flat", "flat.vert", "flat.frag");
+        this->flatMaterial = std::make_shared<Shader>("Flat Material", "flat_material.vert", "flat.frag");
         this->transparent = std::make_shared<Shader>("Transparent", "transparent.vert", "transparent.frag", "transparent.geom");
         this->pivot = std::unique_ptr<Object>(this->objectFactory.getSphere());
         this->pivot->setShader(this->flat);
@@ -48,14 +50,15 @@ namespace snd3D {
             case AppState::EXPORT_IMAGE:
 
                 // SOLID MESHES RENDERING
-                this->flat->use();
                 glDepthMask(GL_TRUE);  // Write depth
                 glDisable(GL_BLEND);   // Don't use transparency
 
                 if (this->settings.isCameraPivotActive() && this->stateManager.getCurrentState() != AppState::EXPORT_IMAGE) {
+                    this->flat->use();
                     this->pivot->render(*this->viewport, false);
                 }
 
+                this->flatMaterial->use();
                 this->hits->render(*this->viewport, false);
 
                 // TRANSPARENT MESHES RENDERING
@@ -92,8 +95,17 @@ namespace snd3D {
 
     void Scene::setEvent(const EventData* event) {
         if (event != nullptr) {
-            auto hitMesh= std::unique_ptr<Object>(this->objectFactory.getHits(event));
-            hitMesh->setShader(this->transparent);
+
+            this->colorPalette = std::unique_ptr<ColorPalette>(
+                new LinearEnergyColorPalette(
+                    event->energyRange,
+                    glm::vec3(constants::defaults::colors::HIT_ENERGY_MIN_R, constants::defaults::colors::HIT_ENERGY_MIN_G, constants::defaults::colors::HIT_ENERGY_MIN_B),
+                    glm::vec3(constants::defaults::colors::HIT_ENERGY_MAX_R, constants::defaults::colors::HIT_ENERGY_MAX_G, constants::defaults::colors::HIT_ENERGY_MAX_B)
+                )
+            );
+
+            auto hitMesh = std::unique_ptr<Object>(this->objectFactory.getHits(event, this->colorPalette));
+            hitMesh->setShader(this->flatMaterial);
             this->hits = std::move(hitMesh);
         }
     }
