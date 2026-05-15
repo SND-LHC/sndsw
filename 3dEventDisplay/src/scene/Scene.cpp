@@ -6,6 +6,7 @@
 #include "scene/colors/ValueMapper.hpp"
 #include "scene/colors/LinearValueMapper.hpp"
 #include "scene/colors/LogarithmicValueMapper.hpp"
+#include "scene/colors/FixedValueMapper.hpp"
 #include "scene/colors/VariableGetter.hpp"
 #include "scene/colors/EnergyVariableGetter.hpp"
 #include "scene/colors/TimeVariableGetter.hpp"
@@ -125,6 +126,12 @@ namespace snd3D {
                 case ColorScalingMode::LINEAR:
                     valueMapper = new LinearValueMapper(
                         glm::vec3(constants::defaults::colors::HIT_ENERGY_MIN_R, constants::defaults::colors::HIT_ENERGY_MIN_G, constants::defaults::colors::HIT_ENERGY_MIN_B),
+                        glm::vec3(constants::defaults::colors::HIT_ENERGY_MAX_R, constants::defaults::colors::HIT_ENERGY_MAX_G, constants::defaults::colors::HIT_ENERGY_MAX_B)
+                    );
+                    break;
+
+                case ColorScalingMode::FIXED:
+                    valueMapper = new FixedValueMapper(
                         glm::vec3(constants::defaults::colors::HIT_ENERGY_MAX_R, constants::defaults::colors::HIT_ENERGY_MAX_G, constants::defaults::colors::HIT_ENERGY_MAX_B)
                     );
                     break;

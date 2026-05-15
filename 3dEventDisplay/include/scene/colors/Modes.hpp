@@ -3,7 +3,8 @@
 namespace snd3D {
     enum class ColorScalingMode {
         LINEAR,
-        LOGARITHMIC
+        LOGARITHMIC,
+        FIXED
     };
 
     enum class ColorVariable {

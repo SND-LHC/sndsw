@@ -643,6 +643,10 @@ namespace snd3D {
         if (ImGui::RadioButton("Logarithmic", &currentMode, (int)ColorScalingMode::LOGARITHMIC)) {
             this->app.settings.setColorScalingMode(ColorScalingMode::LOGARITHMIC);
         }
+        ImGui::SameLine();
+        if (ImGui::RadioButton("Monochrome", &currentMode, (int)ColorScalingMode::FIXED)) {
+            this->app.settings.setColorScalingMode(ColorScalingMode::FIXED);
+        }
 
         ImGui::NewLine();
 
