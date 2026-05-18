@@ -1513,9 +1513,9 @@ Variables</h2></td></tr>
 <div class="line"><span class="lineno">  497</span>      ROOT.snd.Configuration.Option.test_beam_2024</div>
 <div class="line"><span class="lineno">  498</span>    <span class="keywordflow">else</span>:</div>
 <div class="line"><span class="lineno">  499</span>      print(<span class="stringliteral">&quot;Going for default setup TI18&quot;</span>)</div>
-<div class="line"><span class="lineno">  500</span>    configuration = ROOT.snd.Configuration(run_conf, geo.modules[<span class="stringliteral">&#39;Scifi&#39;</span>], geo.modules[<span class="stringliteral">&#39;MuFilter&#39;</span>])</div>
+<div class="line"><span class="lineno">  500</span>    configuration = ROOT.snd.Configuration(run_conf, geo.modules[<span class="stringliteral">&#39;Scifi&#39;</span>], geo.modules[<span class="stringliteral">&#39;MuFilter&#39;</span>], mc)</div>
 <div class="line"><span class="lineno">  501</span>    scifi_planes = ROOT.snd.analysis_tools.FillScifi(configuration, scifi_digis, geo.modules[<span class="stringliteral">&#39;Scifi&#39;</span>])</div>
-<div class="line"><span class="lineno">  502</span>    us_planes = ROOT.snd.analysis_tools.FillUS(configuration, event.Digi_MuFilterHits, geo.modules[<span class="stringliteral">&#39;MuFilter&#39;</span>], mc)</div>
+<div class="line"><span class="lineno">  502</span>    us_planes = ROOT.snd.analysis_tools.FillUS(configuration, event.Digi_MuFilterHits, geo.modules[<span class="stringliteral">&#39;MuFilter&#39;</span>])</div>
 <div class="line"><span class="lineno">  503</span>    <span class="keywordflow">if</span> event.FindBranch(<span class="stringliteral">&quot;Digi_MuFilterHits&quot;</span>): digis.append(event.Digi_MuFilterHits)</div>
 <div class="line"><span class="lineno">  504</span>    <span class="keywordflow">if</span> event.FindBranch(<span class="stringliteral">&quot;Digi_MuFilterHit&quot;</span>): digis.append(event.Digi_MuFilterHit)</div>
 <div class="line"><span class="lineno">  505</span>    empty = <span class="keyword">True</span></div>

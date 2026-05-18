@@ -611,9 +611,9 @@ $(document).ready(function(){initNavTree('2dEventDisplay_8py_source.html',''); i
 <div class="line"><a id="l00497" name="l00497"></a><span class="lineno">  497</span>      ROOT.snd.Configuration.Option.test_beam_2024</div>
 <div class="line"><a id="l00498" name="l00498"></a><span class="lineno">  498</span>    else:</div>
 <div class="line"><a id="l00499" name="l00499"></a><span class="lineno">  499</span>      print(&quot;Going for default setup TI18&quot;)</div>
-<div class="line"><a id="l00500" name="l00500"></a><span class="lineno">  500</span>    configuration = ROOT.snd.Configuration(run_conf, geo.modules[&#39;Scifi&#39;], geo.modules[&#39;MuFilter&#39;])</div>
+<div class="line"><a id="l00500" name="l00500"></a><span class="lineno">  500</span>    configuration = ROOT.snd.Configuration(run_conf, geo.modules[&#39;Scifi&#39;], geo.modules[&#39;MuFilter&#39;], mc)</div>
 <div class="line"><a id="l00501" name="l00501"></a><span class="lineno">  501</span>    scifi_planes = ROOT.snd.analysis_tools.FillScifi(configuration, scifi_digis, geo.modules[&#39;Scifi&#39;])</div>
-<div class="line"><a id="l00502" name="l00502"></a><span class="lineno">  502</span>    us_planes = ROOT.snd.analysis_tools.FillUS(configuration, event.Digi_MuFilterHits, geo.modules[&#39;MuFilter&#39;], mc)</div>
+<div class="line"><a id="l00502" name="l00502"></a><span class="lineno">  502</span>    us_planes = ROOT.snd.analysis_tools.FillUS(configuration, event.Digi_MuFilterHits, geo.modules[&#39;MuFilter&#39;])</div>
 <div class="line"><a id="l00503" name="l00503"></a><span class="lineno">  503</span>    if event.FindBranch(&quot;Digi_MuFilterHits&quot;): digis.append(event.Digi_MuFilterHits)</div>
 <div class="line"><a id="l00504" name="l00504"></a><span class="lineno">  504</span>    if event.FindBranch(&quot;Digi_MuFilterHit&quot;): digis.append(event.Digi_MuFilterHit)</div>
 <div class="line"><a id="l00505" name="l00505"></a><span class="lineno">  505</span>    empty = True</div>
