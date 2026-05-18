@@ -46,6 +46,17 @@ namespace snd3D {
         catch (const std::runtime_error& e) {
             std::cerr << "Exception caught when loading logo image:\n\t" << e.what() << std::endl;
         }
+
+        this->clusterConfig = std::make_unique<ClusterConfiguration>(
+            constants::defaults::clusters::VETO_MAX_GAP,
+            constants::defaults::clusters::VETO_MIN_HIT,
+            constants::defaults::clusters::SCIFI_MAX_GAP,
+            constants::defaults::clusters::SCIFI_MIN_HIT,
+            constants::defaults::clusters::US_MAX_GAP,
+            constants::defaults::clusters::US_MIN_HIT,
+            constants::defaults::clusters::DS_MAX_GAP,
+            constants::defaults::clusters::DS_MIN_HIT
+        );
     }
 
     Gui::~Gui() {
@@ -102,6 +113,7 @@ namespace snd3D {
             case AppState::EXPORT_IMAGE:
                 this->drawEventDetails();
                 this->drawColorScale();
+                this->drawClusterConfiguration();
                 break;
 
             case AppState::INTERACTION:
@@ -109,6 +121,7 @@ namespace snd3D {
                 this->drawRenderOptions();
                 this->drawEventDetails();
                 this->drawColorScale();
+                this->drawClusterConfiguration();
                 break;
 
             case AppState::CHANGE_GEOMETRY_START: {
@@ -212,6 +225,10 @@ namespace snd3D {
                 bool eventInfo = this->app.settings.isEventInfoActive();
                 if (ImGui::MenuItem("Event Info", "I", eventInfo)) {
                     this->app.settings.toggleEventInfo();
+                }
+                bool clusterConfigInfo = this->app.settings.isClusterConfigInfoActive();
+                if (ImGui::MenuItem("Cluster Configuration", nullptr, clusterConfigInfo)) {
+                    this->app.settings.toggleClusterConfigInfo();
                 }
                 bool colorScale = this->app.settings.isColorScaleActive();
                 if (ImGui::MenuItem("Color Scale", "C", colorScale)) {
@@ -551,7 +568,7 @@ namespace snd3D {
 
         if (isInvalid) ImGui::BeginDisabled();
         if ((ImGui::Button("Continue") || ImGui::IsKeyPressed(ImGuiKey_Enter) || ImGui::IsKeyPressed(ImGuiKey_KeypadEnter)) && !isInvalid) {
-            this->app.stateManager.numberSelected(this->runInputNumber);
+            this->app.stateManager.runNumberSelected(this->runInputNumber);
         }
         if (isInvalid) ImGui::EndDisabled();
 
@@ -622,31 +639,89 @@ namespace snd3D {
         ImGui::InputScalar("Event Number", ImGuiDataType_S64, &this->eventInputNumber);
         ImGui::NewLine();
 
-        int currentVariable = (int)this->app.settings.getColorVariable();
 
-        ImGui::Text("Color by:");
-        if (ImGui::RadioButton("Energy", &currentVariable, (int)ColorVariable::ENERGY)) {
-            this->app.settings.setColorVariable(ColorVariable::ENERGY);
-        }
-        ImGui::SameLine();
-        if (ImGui::RadioButton("Time", &currentVariable, (int)ColorVariable::TIME)) {
-            this->app.settings.setColorVariable(ColorVariable::TIME);
+        ImGui::BeginTable("EventData", 2, ImGuiTableFlags_None);
+
+        ImGui::TableSetupColumn("ClusterConfig", ImGuiTableColumnFlags_WidthFixed);
+        ImGui::TableSetupColumn("ColorConfig", ImGuiTableColumnFlags_WidthFixed);
+
+        ImGui::TableNextRow();
+
+        ImGui::TableSetColumnIndex(0);
+
+        if (ImGui::CollapsingHeader("Cluster Configuration", ImGuiTreeNodeFlags_DefaultOpen)) {
+            // Change tab colors
+            ImGui::PushStyleColor(ImGuiCol_Tab,          ImVec4(0.15f, 0.15f, 0.15f, 1.0f));
+            ImGui::PushStyleColor(ImGuiCol_TabHovered,   ImVec4(0.25f, 0.40f, 0.65f, 1.0f));
+            ImGui::PushStyleColor(ImGuiCol_TabActive,    ImVec4(0.20f, 0.50f, 0.85f, 1.0f));
+
+            if (ImGui::BeginTabBar("Cluster Configuration")) {
+                if (ImGui::BeginTabItem("Veto")) {
+                    ImGui::InputInt("Min Entries", &this->clusterConfig->vetoMinHitInCluster);
+                    ImGui::InputDouble("Max Gap", &this->clusterConfig->vetoMaxGap, 0, 0, "%.2f");
+                    ImGui::EndTabItem();
+                }
+                
+                if (ImGui::BeginTabItem("SciFi")) {
+                    ImGui::InputInt("Min Entries", &this->clusterConfig->sciFiMinHitInCluster);
+                    ImGui::InputDouble("Max Gap", &this->clusterConfig->sciFiMaxGap, 0, 0, "%.2f");
+                    ImGui::EndTabItem();
+                }
+                
+                if (ImGui::BeginTabItem("US")) {
+                    ImGui::InputInt("Min Entries", &this->clusterConfig->usMinHitInCluster);
+                    ImGui::InputDouble("Max Gap", &this->clusterConfig->usMaxGap, 0, 0, "%.2f");
+                    ImGui::EndTabItem();
+                }
+                
+                if (ImGui::BeginTabItem("DS")) {
+                    ImGui::InputInt("Min Entries", &this->clusterConfig->dsMinHitInCluster);
+                    ImGui::InputDouble("Max Gap", &this->clusterConfig->dsMaxGap, 0, 0, "%.2f");
+                    ImGui::EndTabItem();
+                }
+
+                ImGui::EndTabBar();
+            }
+            ImGui::PopStyleColor(3);
         }
 
-        int currentMode = (int)this->app.settings.getColorScalingMode();
+        ImGui::TableSetColumnIndex(1);
 
-        ImGui::Text("Scale:");
-        if (ImGui::RadioButton("Linear", &currentMode, (int)ColorScalingMode::LINEAR)) {
-            this->app.settings.setColorScalingMode(ColorScalingMode::LINEAR);
+        ImGui::Indent(50.0f);
+
+        if (ImGui::CollapsingHeader("Color Configuration", ImGuiTreeNodeFlags_DefaultOpen)) {
+
+            int currentVariable = (int)this->app.settings.getColorVariable();
+
+            ImGui::Text("Color by:");
+            if (ImGui::RadioButton("Energy", &currentVariable, (int)ColorVariable::ENERGY)) {
+                this->app.settings.setColorVariable(ColorVariable::ENERGY);
+            }
+            ImGui::SameLine();
+            if (ImGui::RadioButton("Time", &currentVariable, (int)ColorVariable::TIME)) {
+                this->app.settings.setColorVariable(ColorVariable::TIME);
+            }
+
+            int currentMode = (int)this->app.settings.getColorScalingMode();
+
+            ImGui::Text("Scale:");
+            if (ImGui::RadioButton("Linear", &currentMode, (int)ColorScalingMode::LINEAR)) {
+                this->app.settings.setColorScalingMode(ColorScalingMode::LINEAR);
+            }
+            ImGui::SameLine();
+            if (ImGui::RadioButton("Logarithmic", &currentMode, (int)ColorScalingMode::LOGARITHMIC)) {
+                this->app.settings.setColorScalingMode(ColorScalingMode::LOGARITHMIC);
+            }
+            ImGui::SameLine();
+            if (ImGui::RadioButton("Monochrome", &currentMode, (int)ColorScalingMode::FIXED)) {
+                this->app.settings.setColorScalingMode(ColorScalingMode::FIXED);
+            }
+
         }
-        ImGui::SameLine();
-        if (ImGui::RadioButton("Logarithmic", &currentMode, (int)ColorScalingMode::LOGARITHMIC)) {
-            this->app.settings.setColorScalingMode(ColorScalingMode::LOGARITHMIC);
-        }
-        ImGui::SameLine();
-        if (ImGui::RadioButton("Monochrome", &currentMode, (int)ColorScalingMode::FIXED)) {
-            this->app.settings.setColorScalingMode(ColorScalingMode::FIXED);
-        }
+
+        ImGui::Unindent(50.0f);
+
+        ImGui::EndTable();
 
         ImGui::NewLine();
 
@@ -654,7 +729,7 @@ namespace snd3D {
 
         if (isInvalid) ImGui::BeginDisabled();
         if ((ImGui::Button("Continue") || ImGui::IsKeyPressed(ImGuiKey_Enter) || ImGui::IsKeyPressed(ImGuiKey_KeypadEnter)) && !isInvalid) {
-            this->app.stateManager.numberSelected(this->eventInputNumber);
+            this->app.stateManager.eventNumberSelected(this->eventInputNumber, new ClusterConfiguration(*this->clusterConfig));
         }
         if (isInvalid) ImGui::EndDisabled();
 
@@ -877,5 +952,78 @@ namespace snd3D {
 
         if (open != this->app.settings.isColorScaleActive()) this->app.settings.toggleColorScale();
 
+    }
+
+    void Gui::drawClusterConfiguration() {
+        bool open = this->app.settings.isClusterConfigInfoActive();
+
+        if (open) {
+            ImGui::SetNextWindowPos(ImVec2(
+                this->app.windowManager->getCurrentResolution().x * 0.5f,
+                this->menuBarHeight + constants::sizes::PADDING),
+                ImGuiCond_FirstUseEver,
+                ImVec2(0.5f, 0.0f) // Set top - center pivot
+            );
+
+            ImGuiWindowFlags windowFlags = ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_AlwaysAutoResize;
+
+            if (this->app.stateManager.getCurrentState() == AppState::EXPORT_IMAGE) windowFlags |= ImGuiWindowFlags_NoTitleBar; // In the screenshot the title bar must disappear
+
+            ImGui::Begin(
+                "Clustering Options",
+                &open,
+                windowFlags
+            );
+            ImGui::BeginTable("ClusterInfo", 2, ImGuiTableFlags_None);
+
+            ImGui::TableSetupColumn("Labels", ImGuiTableColumnFlags_WidthFixed);
+            ImGui::TableSetupColumn("Values", ImGuiTableColumnFlags_WidthFixed);
+
+            ImGui::TableNextRow();
+
+            ImGui::TableSetColumnIndex(0);
+            ImGui::Indent(10.0f);
+            ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.6f, 0.6f, 0.6f, 1.0f));
+            ImGui::Text("Veto Max Gap");
+            ImGui::Spacing();
+            ImGui::Text("Veto Min Entries");
+            ImGui::Spacing();
+            ImGui::Text("SciFi Max Gap");
+            ImGui::Spacing();
+            ImGui::Text("SciFi Min Entries");
+            ImGui::Spacing();
+            ImGui::Text("US Max Gap");
+            ImGui::Spacing();
+            ImGui::Text("US Min Entries");
+            ImGui::Spacing();
+            ImGui::Text("DS Max Gap");
+            ImGui::Spacing();
+            ImGui::Text("DS Min Entries");
+            ImGui::PopStyleColor();
+            ImGui::Unindent(10.0f);
+
+            ImGui::TableSetColumnIndex(1);
+            ClusterConfiguration* config = this->app.stateManager.getClusterConfiguration();
+            ImGui::Text("%.2f", config->vetoMaxGap);
+            ImGui::Spacing();
+            ImGui::Text("%d", config->vetoMinHitInCluster);
+            ImGui::Spacing();
+            ImGui::Text("%.2f", config->sciFiMaxGap);
+            ImGui::Spacing();
+            ImGui::Text("%d", config->sciFiMinHitInCluster);
+            ImGui::Spacing();
+            ImGui::Text("%.2f", config->usMaxGap);
+            ImGui::Spacing();
+            ImGui::Text("%d", config->usMinHitInCluster);
+            ImGui::Spacing();
+            ImGui::Text("%.2f", config->dsMaxGap);
+            ImGui::Spacing();
+            ImGui::Text("%d", config->dsMinHitInCluster);
+
+            ImGui::EndTable();
+            ImGui::End();
+        }
+
+        if (open != this->app.settings.isClusterConfigInfoActive()) this->app.settings.toggleClusterConfigInfo();
     }
 }

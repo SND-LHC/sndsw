@@ -92,8 +92,7 @@ namespace snd3D {
                     this->stateManager.eventLoaded(
                         this->ioManager.loadEvent(
                             this->stateManager.getPendingNumber(),
-                            constants::data::MIN_SCIFI_ENTRIES,
-                            constants::data::MIN_US_ENTRIES
+                            this->stateManager.getClusterConfiguration()
                         )
                     );
                     this->scene->setEvent(this->stateManager.getEvent());

@@ -8,7 +8,7 @@ namespace snd3D {
 
     Material::Material(const aiMaterial* material) {
         aiString _name;
-        aiColor4D baseColor(0.5f, 0.5f, 0.5f, 1.0f);
+        aiColor4D _baseColor(0.5f, 0.5f, 0.5f, 1.0f);
         float metallic = 0, roughness = 1;
 
         if (material->Get(AI_MATKEY_NAME, _name) != AI_SUCCESS) {
@@ -17,12 +17,12 @@ namespace snd3D {
             this->name = std::string(_name.C_Str());
         }
 
-        material->Get(AI_MATKEY_BASE_COLOR, baseColor);
+        material->Get(AI_MATKEY_BASE_COLOR, _baseColor);
         material->Get(AI_MATKEY_METALLIC_FACTOR, metallic);
         material->Get(AI_MATKEY_ROUGHNESS_FACTOR, roughness);
 
-        glm::vec3 color = glm::vec3(baseColor.r, baseColor.g, baseColor.b);
-        this->alpha = baseColor.a;
+        glm::vec3 color = glm::vec3(_baseColor.r, _baseColor.g, _baseColor.b);
+        this->alpha = _baseColor.a;
 
         this->baseColor = color;
         this->ambient = color * 0.1f;

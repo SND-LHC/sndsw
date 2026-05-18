@@ -109,7 +109,7 @@ namespace snd3D {
         this->loadedGeometry = fileName;
     }
 
-    EventData* SndswEventManager::loadEvent(int64_t eventNumber, int minScifiEntries, int minUsEntries) {
+    EventData* SndswEventManager::loadEvent(int64_t eventNumber, ClusterConfiguration* clusterConfig) {
 
         if (this->loadedRun == -1) {
             throw std::runtime_error("Run not loaded yet: loadRun() needs to be called.");
@@ -138,17 +138,6 @@ namespace snd3D {
         this->usPlanes = snd::analysis_tools::FillUS(*this->config, this->muHits, this->mufilterGeometry);
         this->dsPlanes = snd::analysis_tools::FillDS(*this->config, this->muHits, this->mufilterGeometry);
 
-        if (this->sfHits->GetEntries() < minScifiEntries) {
-            return toReturn;
-        }
-        int count{0};
-        for (const auto &p : this->usPlanes) {
-          count += (p.GetNHits().large);
-        }
-        if (count < minUsEntries) {
-            return toReturn;
-        }
-
         // cluster SCIFI
         //std::cout << "########################### SCIFI #####################" << std::endl;
         std::vector<std::vector<snd::analysis_tools::Cluster>> scifi_clusters(this->config->scifi_n_stations);
@@ -160,7 +149,7 @@ namespace snd3D {
 
             if (st >= 0 && st < this->config->scifi_n_stations+1) {
                 //std::cout << p.GetHits().size() << " hits in Scifi plane " << st << std::endl;
-                auto plane_clusters = ClustersPositions(*this->boundaries, p.GetHits(), this->config->scifi_centroid_error_x, this->config->scifi_centroid_error_y, 1.5, this->config->scifi_qdc_to_gev, 2);    // centroid error is fiber width which is the same for x and y
+                auto plane_clusters = ClustersPositions(*this->boundaries, p.GetHits(), this->config->scifi_centroid_error_x, this->config->scifi_centroid_error_y, clusterConfig->sciFiMaxGap, this->config->scifi_qdc_to_gev, clusterConfig->sciFiMinHitInCluster);    // centroid error is fiber width which is the same for x and y
 
                 scifi_clusters[st].insert(
                     scifi_clusters[st].end(),
@@ -191,7 +180,7 @@ namespace snd3D {
 
             if (st >= 0 && st < this->config->veto_n_stations+1) {
                 //std::cout << p.GetHits().size() << " hits in Veto plane " << st << std::endl;
-                auto plane_clusters = ClustersPositions(*this->boundaries, p.GetHits(),1.73, 3, 7);
+                auto plane_clusters = ClustersPositions(*this->boundaries, p.GetHits(), 1.73, 3, clusterConfig->vetoMaxGap, 0, clusterConfig->vetoMinHitInCluster);
 
                 veto_clusters[st].insert(
                     veto_clusters[st].end(),
@@ -219,7 +208,7 @@ namespace snd3D {
 
             if (st >= 0 && st < this->config->us_n_stations+1) {
                 //std::cout << p.GetHits().size() << " hits in US plane " << st << std::endl;
-                auto plane_clusters = ClustersPositions(*this->boundaries, p.GetHits(), this->config->us_centroid_error_x, this->config->us_centroid_error_y, 7, this->config->us_qdc_to_gev);
+                auto plane_clusters = ClustersPositions(*this->boundaries, p.GetHits(), this->config->us_centroid_error_x, this->config->us_centroid_error_y, clusterConfig->usMaxGap, this->config->us_qdc_to_gev, clusterConfig->usMinHitInCluster);
 
                 us_clusters[st].insert(
                     us_clusters[st].end(),
@@ -250,7 +239,7 @@ namespace snd3D {
 
             if (st >= 0 && st < this->config->ds_n_stations+1) {
                 //std::cout << p.GetHits().size() << " hits in DS plane " << st << std::endl;
-                auto plane_clusters = ClustersPositions(*this->boundaries, p.GetHits(), this->config->ds_hor_spatial_resolution_y, this->config->ds_ver_spatial_resolution_x, 2);
+                auto plane_clusters = ClustersPositions(*this->boundaries, p.GetHits(), this->config->ds_hor_spatial_resolution_y, this->config->ds_ver_spatial_resolution_x, clusterConfig->dsMaxGap, 0, clusterConfig->dsMinHitInCluster);
 
                 ds_clusters[st].insert(
                     ds_clusters[st].end(),

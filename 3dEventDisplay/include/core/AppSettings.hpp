@@ -18,6 +18,8 @@ namespace snd3D {
             void toggleRenderOptions();
             bool isEventInfoActive();
             void toggleEventInfo();
+            bool isClusterConfigInfoActive();
+            void toggleClusterConfigInfo();
             bool isColorScaleActive();
             void toggleColorScale();
             bool isTransparencyEnabled();
@@ -43,6 +45,7 @@ namespace snd3D {
             bool sceneInspectorActive = true;
             bool renderOptionsActive = true;
             bool eventInfoActive = true;
+            bool clusterConfigInfoActive = false;
             bool colorScaleActive = true;
             bool transparency = constants::defaults::TRANSPARENCY, transparencyChanged = true;
             float edgeAlphaValue = constants::defaults::EDGE_ALPHA_VALUE;

@@ -53,20 +53,13 @@ namespace snd3D {
         return this->event.get();
     }
 
-    void AppStateManager::numberSelected(int64_t number) {
+    void AppStateManager::runNumberSelected(int64_t number) {
         switch (this->currentState) {
             case AppState::RUN_CHOICE:
                 this->pendingNumber = number;
                 this->nextState = AppState::SHOW_LOADING;
                 this->message = "Loading RUN:\n" + std::to_string(number);
                 this->statesHistory.push(AppState::RUN_LOAD);
-                break;
-
-            case AppState::EVENT_CHOICE:
-                this->pendingNumber = number;
-                this->nextState = AppState::SHOW_LOADING;
-                this->message = "Loading root geometry...";
-                this->statesHistory.push(AppState::ROOT_GEOMETRY_LOAD);
                 break;
 
             case AppState::CHANGE_RUN_CHOICE:
@@ -76,8 +69,24 @@ namespace snd3D {
                 this->statesHistory.push(AppState::CHANGE_RUN_LOAD);
                 break;
 
+            default:
+                break;
+        }
+    }
+
+    void AppStateManager::eventNumberSelected(int64_t number, ClusterConfiguration *config) {
+        switch (this->currentState) {
+            case AppState::EVENT_CHOICE:
+                this->pendingNumber = number;
+                this->clusterConfig = std::unique_ptr<ClusterConfiguration>(config);
+                this->nextState = AppState::SHOW_LOADING;
+                this->message = "Loading root geometry...";
+                this->statesHistory.push(AppState::ROOT_GEOMETRY_LOAD);
+                break;
+
             case AppState::CHANGE_EVENT_CHOICE:
                 this->pendingNumber = number;
+                this->clusterConfig = std::unique_ptr<ClusterConfiguration>(config);
                 this->nextState = AppState::SHOW_LOADING;
                 this->message = "Loading new EVENT:\n" + std::to_string(this->pendingNumber) + " - RUN N° " + std::to_string(this->run->runNumber);
                 this->statesHistory.push(AppState::CHANGE_EVENT_LOAD);
@@ -90,6 +99,10 @@ namespace snd3D {
 
     int64_t AppStateManager::getPendingNumber() {
         return this->pendingNumber;
+    }
+    
+    ClusterConfiguration* AppStateManager::getClusterConfiguration() {
+        return this->clusterConfig.get();
     }
 
     void AppStateManager::runLoaded(RunData* runData) {

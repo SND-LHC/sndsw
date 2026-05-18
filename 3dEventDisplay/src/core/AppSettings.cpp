@@ -43,6 +43,14 @@ namespace snd3D {
         this->eventInfoActive = !this->eventInfoActive;
     }
 
+    bool AppSettings::isClusterConfigInfoActive() {
+        return this->clusterConfigInfoActive;
+    }
+
+    void AppSettings::toggleClusterConfigInfo() {
+        this->clusterConfigInfoActive = !this->clusterConfigInfoActive;
+    }
+
     bool AppSettings::isColorScaleActive() {
         return this->colorScaleActive;
     }

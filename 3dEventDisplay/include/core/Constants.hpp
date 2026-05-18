@@ -51,6 +51,17 @@ namespace snd3D::constants {
             inline constexpr const char* NAME = "SND 3D Event Display";
             inline constexpr bool VSYNC = true;
         }
+
+        namespace clusters {
+            inline constexpr double VETO_MAX_GAP = 7;
+            inline constexpr int VETO_MIN_HIT = 1;
+            inline constexpr double SCIFI_MAX_GAP = 1.5;
+            inline constexpr int SCIFI_MIN_HIT = 2;
+            inline constexpr double US_MAX_GAP = 7;
+            inline constexpr int US_MIN_HIT = 1;
+            inline constexpr double DS_MAX_GAP = 2;
+            inline constexpr int DS_MIN_HIT = 1;
+        }
     }
 
     namespace paths {
@@ -83,10 +94,5 @@ namespace snd3D::constants {
         inline constexpr uint8_t COLORS_LAYER = 1;
         inline constexpr uint8_t NORMALS_LAYER = 2;
         inline constexpr uint8_t TEXTURE_LAYER = 3;
-    }
-
-    namespace data {
-        inline constexpr int MIN_SCIFI_ENTRIES = 20;
-        inline constexpr int MIN_US_ENTRIES = 50;
     }
 }

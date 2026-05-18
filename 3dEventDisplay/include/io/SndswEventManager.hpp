@@ -7,6 +7,7 @@
 
 #include "io/RunData.hpp"
 #include "io/EventData.hpp"
+#include "io/ClusterConfiguration.hpp"
 #include "Scifi.h"
 #include "MuFilter.h"
 #include "TChain.h"
@@ -25,7 +26,7 @@ namespace snd3D {
             ~SndswEventManager();
             RunData* loadRun(int64_t runNumber);
             void loadGeometry();
-            EventData* loadEvent(int64_t eventNumber, int minScifiEntries, int minUsEntries);
+            EventData* loadEvent(int64_t eventNumber, ClusterConfiguration* clusterConfig);
 
         private:
             // Run data
