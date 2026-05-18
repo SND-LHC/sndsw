@@ -32,7 +32,7 @@ namespace snd {
         };
 
         template <typename H>
-        std::vector<Cluster> ClustersPositions(const snd::analysis_tools::DetectorBoundaries &boundaries, std::vector<H> hits, double min_radius_x, double min_radius_y, double max_gap = 1.0, double calibration_constant = 0.0, int min_hit_in_cluster = 0) {
+        std::vector<Cluster> ClustersPositions(const snd::analysis_tools::DetectorBoundaries &boundaries, std::vector<H> hits, double min_radius_x, double min_radius_y, double max_gap = 1.0, double calibration_constant = 0.0, int min_hit_in_cluster = 1) {
 
             static_assert(std::is_convertible_v<decltype(std::declval<const H>().HitPosition()), ROOT::Math::XYZPoint>,
                             "Hit must have HitPosition()");
@@ -146,7 +146,7 @@ namespace snd {
                     double rz = (z_max-z_min)/2.0;     //half of detector dimension 
 
                     ROOT::Math::XYZPoint radius(rx, ry, rz);
-                    if (countZ > min_hit_in_cluster ) result.push_back({center, radius, energy, time});   
+                    if (countZ >= min_hit_in_cluster ) result.push_back({center, radius, energy, time});   
                     start = end + 1;
                 }
                 return result;
