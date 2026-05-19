@@ -93,6 +93,5 @@ namespace snd3D::constants {
         inline constexpr uint8_t VERTICES_LAYER = 0;
         inline constexpr uint8_t COLORS_LAYER = 1;
         inline constexpr uint8_t NORMALS_LAYER = 2;
-        inline constexpr uint8_t TEXTURE_LAYER = 3;
     }
 }
