@@ -93,5 +93,28 @@ namespace snd3D::constants {
         inline constexpr uint8_t VERTICES_LAYER = 0;
         inline constexpr uint8_t COLORS_LAYER = 1;
         inline constexpr uint8_t NORMALS_LAYER = 2;
+
+        namespace lights {
+            inline constexpr int NUM = 2;
+
+            namespace ambient {
+                inline constexpr int ID = 0;
+                inline constexpr float POS_X = 500;
+                inline constexpr float POS_Y = 1000;
+                inline constexpr float POS_Z = 500;
+                inline constexpr float COLOR_R = 1;
+                inline constexpr float COLOR_G = 1;
+                inline constexpr float COLOR_B = 1;
+                inline constexpr float POWER = 0.8f;
+            }
+
+            namespace camera {
+                inline constexpr int ID = 1;
+                inline constexpr float COLOR_R = 1;
+                inline constexpr float COLOR_G = 1;
+                inline constexpr float COLOR_B = 1;
+                inline constexpr float POWER = 0.55f;
+            }
+        }
     }
 }

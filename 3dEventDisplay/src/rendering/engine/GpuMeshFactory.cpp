@@ -68,39 +68,50 @@ namespace snd3D {
         vector<GLuint> indices;
         vector<vec3> normals;
 
-        vertices.push_back(vec3(-1.0, -1.0, 1.0));
-        vertices.push_back(vec3(1.0, -1.0, 1.0));
-        vertices.push_back(vec3(1.0, 1.0, 1.0));
-        vertices.push_back(vec3(-1.0, 1.0, 1.0));
+        // Frontal face
+        vertices.push_back(vec3(-1, -1,  1)); normals.push_back(vec3( 0,  0,  1));
+        vertices.push_back(vec3( 1, -1,  1)); normals.push_back(vec3( 0,  0,  1));
+        vertices.push_back(vec3( 1,  1,  1)); normals.push_back(vec3( 0,  0,  1));
+        vertices.push_back(vec3(-1,  1,  1)); normals.push_back(vec3( 0,  0,  1));
 
-        vertices.push_back(vec3(-1.0, -1.0, -1.0));
-        vertices.push_back(vec3(1.0, -1.0, -1.0));
-        vertices.push_back(vec3(1.0, 1.0, -1.0));
-        vertices.push_back(vec3(-1.0, 1.0, -1.0));
+        // Rear face
+        vertices.push_back(vec3( 1, -1, -1)); normals.push_back(vec3( 0,  0, -1));
+        vertices.push_back(vec3(-1, -1, -1)); normals.push_back(vec3( 0,  0, -1));
+        vertices.push_back(vec3(-1,  1, -1)); normals.push_back(vec3( 0,  0, -1));
+        vertices.push_back(vec3( 1,  1, -1)); normals.push_back(vec3( 0,  0, -1));
+
+        // Right face
+        vertices.push_back(vec3( 1, -1,  1)); normals.push_back(vec3( 1,  0,  0));
+        vertices.push_back(vec3( 1, -1, -1)); normals.push_back(vec3( 1,  0,  0));
+        vertices.push_back(vec3( 1,  1, -1)); normals.push_back(vec3( 1,  0,  0));
+        vertices.push_back(vec3( 1,  1,  1)); normals.push_back(vec3( 1,  0,  0));
+
+        // Left face
+        vertices.push_back(vec3(-1, -1, -1)); normals.push_back(vec3(-1,  0,  0));
+        vertices.push_back(vec3(-1, -1,  1)); normals.push_back(vec3(-1,  0,  0));
+        vertices.push_back(vec3(-1,  1,  1)); normals.push_back(vec3(-1,  0,  0));
+        vertices.push_back(vec3(-1,  1, -1)); normals.push_back(vec3(-1,  0,  0));
+
+        // Upper face
+        vertices.push_back(vec3(-1,  1,  1)); normals.push_back(vec3( 0,  1,  0));
+        vertices.push_back(vec3( 1,  1,  1)); normals.push_back(vec3( 0,  1,  0));
+        vertices.push_back(vec3( 1,  1, -1)); normals.push_back(vec3( 0,  1,  0));
+        vertices.push_back(vec3(-1,  1, -1)); normals.push_back(vec3( 0,  1,  0));
+
+        // Lower face
+        vertices.push_back(vec3(-1, -1, -1)); normals.push_back(vec3( 0, -1,  0));
+        vertices.push_back(vec3( 1, -1, -1)); normals.push_back(vec3( 0, -1,  0));
+        vertices.push_back(vec3( 1, -1,  1)); normals.push_back(vec3( 0, -1,  0));
+        vertices.push_back(vec3(-1, -1,  1)); normals.push_back(vec3( 0, -1,  0));
+
+        // Generate indices for the 6 faces (2 triangles per face) using a 4-vertex offset loop
+        for (int f = 0; f < 6; f++) {
+            int b = f * 4;
+            indices.push_back(b);   indices.push_back(b+1); indices.push_back(b+2);
+            indices.push_back(b+2); indices.push_back(b+3); indices.push_back(b);
+        }
 
         for (int i = 0; i < (int)vertices.size(); i++) colors.push_back(baseColor);
-
-        indices.push_back(0); indices.push_back(1); indices.push_back(2);
-        indices.push_back(2); indices.push_back(3); indices.push_back(0);
-        indices.push_back(1); indices.push_back(5); indices.push_back(6);
-        indices.push_back(6); indices.push_back(2); indices.push_back(1);
-        indices.push_back(7); indices.push_back(6); indices.push_back(5);
-        indices.push_back(5); indices.push_back(4); indices.push_back(7);
-        indices.push_back(4); indices.push_back(0); indices.push_back(3);
-        indices.push_back(3); indices.push_back(7); indices.push_back(4);
-        indices.push_back(4); indices.push_back(5); indices.push_back(1);
-        indices.push_back(1); indices.push_back(0); indices.push_back(4);
-        indices.push_back(3); indices.push_back(2); indices.push_back(6);
-        indices.push_back(6); indices.push_back(7); indices.push_back(3);
-
-        normals.push_back(normalize(vec3(0, 0, 1)));
-        normals.push_back(normalize(vec3(0, 0, 1)));
-        normals.push_back(normalize(vec3(0, 0, 1)));
-        normals.push_back(normalize(vec3(0, 0, 1)));
-        normals.push_back(normalize(vec3(0, 0, -1)));
-        normals.push_back(normalize(vec3(0, 0, -1)));
-        normals.push_back(normalize(vec3(0, 0, -1)));
-        normals.push_back(normalize(vec3(0, 0, -1)));
 
         return new GpuMesh(vertices, colors, normals, indices, vertices[0]);
     }

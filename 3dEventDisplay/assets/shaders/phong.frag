@@ -1,7 +1,6 @@
 #version 330 core
 
-// NB: THE VALUE CAN MAKE THE SHADER LINKING FAIL: IF SO, LOWER IT
-#define MAX_LIGHTS 5 // Keep the value updated with the cpp code and other shaders
+#define NUM_LIGHTS 2 // Keep the value updated with the cpp code and other shaders
 
 // Structure representing a point light
 struct PointLight {
@@ -12,7 +11,6 @@ struct PointLight {
 
 // Structure holding material informations
 struct Material {
-    vec3 baseColor;
     vec3 ambient;
     vec3 diffuse;
     vec3 specular;
@@ -20,16 +18,13 @@ struct Material {
 };
 
 // UNIFORM VARIABLES
-uniform int numLights;  // Number of lights really used
 uniform Material material; // Material propreties
-uniform bool uUseBlinnPhong; // True if BlinnPhong model is used, false if Phong
-uniform PointLight lights[MAX_LIGHTS]; // Propreties of each light in the scene
+uniform PointLight lights[NUM_LIGHTS]; // Propreties of each light in the scene
 
-float ambientLightIntensity = 0.2;
+float ambientLightIntensity = 0.4;
 
 // SHADER INPUT (from the vertex shader)
-in vec3 N, L[MAX_LIGHTS], R[MAX_LIGHTS], V[MAX_LIGHTS]; // Interpolated vectors for each light
-in vec2 vTexCoord;
+in vec3 N, L[NUM_LIGHTS], R[NUM_LIGHTS], V[NUM_LIGHTS]; // Interpolated vectors for each light
 
 // SHADER OUTPUTS
 out vec4 FragColor;
@@ -43,21 +38,15 @@ void main() {
     vec3 baseColor = ambient;
 
     // Compute contribution for each light
-    for (int i = 0; i < numLights; i++) {
+    for (int i = 0; i < NUM_LIGHTS; i++) {
 
         // ----- DIFFUSE COMPONENT -----
         float cos_theta = max(dot(L[i], N), 0);
         vec3 diffuse = lights[i].color * cos_theta * material.diffuse;
 
         // ----- SPECULAR COMPONENT -----
-        float cos_alfa;
-        // Changes the calculation of specular reflection of light based on the chosen lighting model
-        if (uUseBlinnPhong) {
-            vec3 H = normalize(L[i] + V[i]);
-            cos_alfa = pow(max(dot(H, N), 0), material.shininess * 4);
-        } else {
-            cos_alfa = pow(max(dot(V[i], R[i]), 0), material.shininess);
-        }
+        vec3 H = normalize(L[i] + V[i]);
+        float cos_alfa = pow(max(dot(H, N), 0), material.shininess * 4);
         vec3 specular = lights[i].color * cos_alfa * material.specular;
 
         // Accumulate the contribution given by this light

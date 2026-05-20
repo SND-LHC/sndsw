@@ -1,11 +1,13 @@
 #pragma once
 
 #include <memory>
+#include <vector>
 
 #include <assimp/scene.h>
 #include <glm/fwd.hpp>
 
 #include "scene/Node.hpp"
+#include "scene/PointLight.hpp"
 #include "rendering/engine/Shader.hpp"
 
 namespace snd3D {
@@ -21,7 +23,7 @@ namespace snd3D {
             Object(Node* _rootNode);
             void setShader(const std::shared_ptr<Shader>& _shader);
             void updateModelMatrix(const glm::mat4& _modelMatrix);
-            void render(const Viewport& viewport, bool showAnchor, const float edgeAlphaValue = 1, const float faceAlphaValue = 1, const float edgeThickness = 1);
+            void render(const Viewport& viewport, bool showAnchor, const std::vector<std::unique_ptr<PointLight>>& lights = {}, const float edgeAlphaValue = 1, const float faceAlphaValue = 1, const float edgeThickness = 1);
             void setGlobalActive(bool value);
 
         private:

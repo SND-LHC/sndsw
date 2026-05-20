@@ -7,10 +7,6 @@ out vec4 vertexColor;       // Output color processed by this shader
 
 struct Material {
     vec3 baseColor;
-    vec3 ambient;
-    vec3 diffuse;
-    vec3 specular;
-    float shininess;
 };
 
 // Uniform variables set by the main program; they remain the same for every fragment during a draw call

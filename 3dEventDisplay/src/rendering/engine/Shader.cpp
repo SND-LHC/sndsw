@@ -2,7 +2,6 @@
 
 #include <glm/gtc/type_ptr.hpp>
 
-#include "core/Constants.hpp"
 #include "rendering/engine/ShaderMaker.hpp"
 
 namespace snd3D {
@@ -27,6 +26,12 @@ namespace snd3D {
         this->uniform_EdgeAlphaValue = glGetUniformLocation(this->programId, "uEdgeAlpha");
         this->uniform_FaceAlphaValue = glGetUniformLocation(this->programId, "uFaceAlpha");
         this->uniform_EdgeThickness = glGetUniformLocation(this->programId, "uEdgeThickness");
+        for (int i = 0; i < constants::graphics::lights::NUM; i++) {
+            std::string base = "lights[" + std::to_string(i) + "].";
+            this->uniform_LightPosition[i] = glGetUniformLocation(this->programId, (base + "position").c_str());
+            this->uniform_LightColor[i] = glGetUniformLocation(this->programId, (base + "color").c_str());
+            this->uniform_LightPower[i] = glGetUniformLocation(this->programId, (base + "power").c_str());
+        }
     }
 
     Shader::~Shader() {
@@ -45,13 +50,18 @@ namespace snd3D {
         glUseProgram(this->programId);
     }
 
-    void Shader::bindGlobalUniforms(const glm::mat4& viewMatrix, const glm::mat4& projectionMatrix, const glm::vec3& camPos, const float edgeAlphaValue, const float faceAlphaValue, const float edgeThickness) {
+    void Shader::bindGlobalUniforms(const glm::mat4& viewMatrix, const glm::mat4& projectionMatrix, const glm::vec3& camPos, const std::vector<std::unique_ptr<PointLight>>& lights, const float edgeAlphaValue, const float faceAlphaValue, const float edgeThickness) {
         if (this->uniform_Projection != -1) glUniformMatrix4fv(this->uniform_Projection, 1, GL_FALSE, glm::value_ptr(projectionMatrix));
         if (this->uniform_View != -1) glUniformMatrix4fv(this->uniform_View, 1, GL_FALSE, glm::value_ptr(viewMatrix));
         if (this->uniform_ViewPos != -1) glUniform3f(this->uniform_ViewPos, camPos.x, camPos.y, camPos.z);
         if (this->uniform_EdgeAlphaValue != -1) glUniform1f(this->uniform_EdgeAlphaValue, edgeAlphaValue);
         if (this->uniform_FaceAlphaValue != -1) glUniform1f(this->uniform_FaceAlphaValue, faceAlphaValue);
         if (this->uniform_EdgeThickness != -1) glUniform1f(this->uniform_EdgeThickness, edgeThickness);
+        for (int i = 0; i < std::min((int)lights.size(), constants::graphics::lights::NUM); i++) {
+            if (this->uniform_LightColor[i] != -1) glUniform3f(this->uniform_LightColor[i], lights.at(i)->getColor().x, lights.at(i)->getColor().y, lights.at(i)->getColor().z);
+            if (this->uniform_LightPosition[i] != -1) glUniform3f(this->uniform_LightPosition[i], lights.at(i)->getPosition().x, lights.at(i)->getPosition().y, lights.at(i)->getPosition().z);
+            if (this->uniform_LightPower[i] != -1) glUniform1f(this->uniform_LightPower[i], lights.at(i)->getPower());
+        }
     }
 
     void Shader::bindLocalUniforms(const glm::mat4& modelMatrix, Material* material) {

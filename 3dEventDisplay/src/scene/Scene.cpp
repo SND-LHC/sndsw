@@ -2,7 +2,6 @@
 
 #include <glm/gtc/matrix_transform.hpp>
 
-#include "core/Constants.hpp"
 #include "scene/colors/ValueMapper.hpp"
 #include "scene/colors/LinearValueMapper.hpp"
 #include "scene/colors/LogarithmicValueMapper.hpp"
@@ -18,22 +17,32 @@ namespace snd3D {
 
         this->viewport = std::make_unique<Viewport>(winMan, guiMan, constants::defaults::ORTHOGRAPHIC_PROJECTION);
         this->flat = std::make_shared<Shader>("Flat", "flat.vert", "flat.frag");
+        this->phong = std::make_shared<Shader>("Phong", "phong.vert", "phong.frag");
         this->flatMaterial = std::make_shared<Shader>("Flat Material", "flat_material.vert", "flat.frag");
         this->transparent = std::make_shared<Shader>("Transparent", "transparent.vert", "transparent.frag", "transparent.geom");
         this->pivot = std::unique_ptr<Object>(this->objectFactory.getSphere());
         this->pivot->setShader(this->flat);
         this->axis = std::make_unique<AxisWidget>(this->flat, constants::defaults::AXIS_WIDGET_SIZE, constants::defaults::AXIS_WIDGET_MARGIN);
+        this->lights[constants::graphics::lights::ambient::ID] = std::make_unique<PointLight>(
+                glm::vec3(constants::graphics::lights::ambient::POS_X, constants::graphics::lights::ambient::POS_Y, constants::graphics::lights::ambient::POS_Z),
+                glm::vec3(constants::graphics::lights::ambient::COLOR_R, constants::graphics::lights::ambient::COLOR_G, constants::graphics::lights::ambient::COLOR_B),
+                constants::graphics::lights::ambient::POWER
+        );
+        this->lights[constants::graphics::lights::camera::ID] = std::make_unique<PointLight>(
+            this->viewport->getCameraPosition(),
+            glm::vec3(constants::graphics::lights::camera::COLOR_R, constants::graphics::lights::camera::COLOR_G, constants::graphics::lights::camera::COLOR_B),
+            constants::graphics::lights::camera::POWER
+        );
     }
 
     void Scene::update() {
         this->viewport->update(); // Updates camera and projection
 
-        if (this->settings.isCameraPivotActive()) { // Calculations are performed only if the pivot is active
-            if (this->viewport->isCameraChanged()) {
-                glm::mat4 matrix = glm::translate(glm::mat4(1.0f), this->viewport->getCameraTarget());
-                matrix = glm::scale(matrix, glm::vec3(constants::sizes::PIVOT));
-                this->pivot->updateModelMatrix(matrix);
-            }
+        if (this->viewport->isCameraChanged()) {
+            glm::mat4 matrix = glm::translate(glm::mat4(1.0f), this->viewport->getCameraTarget());
+            matrix = glm::scale(matrix, glm::vec3(constants::sizes::PIVOT));
+            this->pivot->updateModelMatrix(matrix);
+            this->lights[constants::graphics::lights::camera::ID]->setPosition(this->viewport->getCameraPosition());
         }
 
         if (glfwGetKey(this->windowManager.getWindow(), GLFW_KEY_LEFT) == GLFW_PRESS)  this->viewport->rotateByAngles(-constants::factors::ROTATION_SPEED, 0);
@@ -65,7 +74,7 @@ namespace snd3D {
                 }
 
                 this->flatMaterial->use();
-                this->hits->render(*this->viewport, false);
+                this->hits->render(*this->viewport, false, this->lights);
 
                 // TRANSPARENT MESHES RENDERING
                 // The transparency function is set in the OpenGL initialization: GL_ONE_MINUS_SRC_ALPHA
@@ -75,7 +84,7 @@ namespace snd3D {
                     glDepthMask(GL_FALSE);  // Don't write on the depth-buffer, otherwise further away meshes won't be rendered
                 }
 
-                this->detector->render(*this->viewport, false, this->settings.getEdgeAlphaValue(), this->settings.getFaceAlphaValue(), this->settings.getEdgeThickness());
+                this->detector->render(*this->viewport, false, this->lights, this->settings.getEdgeAlphaValue(), this->settings.getFaceAlphaValue(), this->settings.getEdgeThickness());
 
                 if (this->settings.isTransparencyEnabled()) {
                     glDepthMask(GL_TRUE);   // Final reset
@@ -140,7 +149,7 @@ namespace snd3D {
             this->colorPalette = std::make_unique<ColorPalette>(variableGetter, valueMapper);
 
             auto hitMesh = std::unique_ptr<Object>(this->objectFactory.getHits(event, this->colorPalette));
-            hitMesh->setShader(this->flatMaterial);
+            hitMesh->setShader(this->phong);
             this->hits = std::move(hitMesh);
         }
     }

@@ -33,9 +33,9 @@ namespace snd3D {
 
     Material::Material(glm::vec3 _baseColor) {
         this->baseColor = _baseColor;
-        this->ambient = glm::vec4(_baseColor * 0.2f, 1.0f);
+        this->ambient = glm::vec4(_baseColor * 0.5f, 1.0f);
         this->diffuse = glm::vec4(_baseColor * 0.8f, 1.0f);
-        this->specular = glm::vec4(0.5f, 0.5f, 0.5f, 1.0f);
+        this->specular = glm::vec4(_baseColor * 0.3f + glm::vec3(0.3f), 1.0f);
         this->shininess = 32.0f;
     }
 

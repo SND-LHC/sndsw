@@ -1,19 +1,22 @@
 #pragma once
 
 #include <string>
+#include <memory>
 
 #include <glm/glm.hpp>
 
+#include "ui/Gui.hpp"
+#include "io/EventData.hpp"
 #include "scene/Object.hpp"
+#include "scene/PointLight.hpp"
+#include "scene/ObjectFactory.hpp"
+#include "scene/colors/ColorPalette.hpp"
 #include "rendering/Viewport.hpp"
+#include "rendering/AxisWidget.hpp"
 #include "core/AppSettings.hpp"
+#include "core/Constants.hpp"
 #include "core/WindowManager.hpp"
 #include "core/state/AppStateManager.hpp"
-#include "scene/ObjectFactory.hpp"
-#include "rendering/AxisWidget.hpp"
-#include "io/EventData.hpp"
-#include "ui/Gui.hpp"
-#include "scene/colors/ColorPalette.hpp"
 
 namespace snd3D {
     class Scene {
@@ -36,8 +39,10 @@ namespace snd3D {
             std::unique_ptr<Object> hits;
             std::unique_ptr<AxisWidget> axis;
             std::shared_ptr<Shader> flat;
+            std::shared_ptr<Shader> phong;
             std::shared_ptr<Shader> flatMaterial;
             std::shared_ptr<Shader> transparent;
+            std::vector<std::unique_ptr<PointLight>> lights{constants::graphics::lights::NUM};
 
             ObjectFactory objectFactory;
             std::unique_ptr<ColorPalette> colorPalette;

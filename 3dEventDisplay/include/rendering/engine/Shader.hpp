@@ -1,11 +1,15 @@
 #pragma once
 
 #include <string>
+#include <vector>
+#include <memory>
 
 #include <glad/glad.h>
 #include <glm/fwd.hpp>
 
+#include "core/Constants.hpp"
 #include "rendering/engine/Material.hpp"
+#include "scene/PointLight.hpp"
 
 namespace snd3D {
     class Shader {
@@ -15,7 +19,7 @@ namespace snd3D {
             std::string getName();
             GLuint getProgramId();
             void use();
-            void bindGlobalUniforms(const glm::mat4& viewMatrix, const glm::mat4& projectionMatrix, const glm::vec3& camPos, const float edgeAlphaValue = 0.5f, const float faceAlphaValue = 0.5f, const float edgeThickness = 0.25f);
+            void bindGlobalUniforms(const glm::mat4& viewMatrix, const glm::mat4& projectionMatrix, const glm::vec3& camPos, const std::vector<std::unique_ptr<PointLight>>& lights = {}, const float edgeAlphaValue = 0.5f, const float faceAlphaValue = 0.5f, const float edgeThickness = 0.25f);
             void bindLocalUniforms(const glm::mat4& modelMatrix, Material* material);
 
         private:
@@ -35,5 +39,8 @@ namespace snd3D {
             GLint uniform_EdgeAlphaValue = -1;
             GLint uniform_FaceAlphaValue = -1;
             GLint uniform_EdgeThickness = -1;
+            GLint uniform_LightPosition[constants::graphics::lights::NUM];
+            GLint uniform_LightColor[constants::graphics::lights::NUM];
+            GLint uniform_LightPower[constants::graphics::lights::NUM];
     };
 }

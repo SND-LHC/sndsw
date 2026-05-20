@@ -1,7 +1,6 @@
 #version 330 core
 
-// NB: THE VALUE CAN MAKE THE SHADER LINKING FAIL: IF SO, LOWER IT
-#define MAX_LIGHTS 5 // Keep the value updated with the cpp code and other shaders
+#define NUM_LIGHTS 2 // Keep the value updated with the cpp code and other shaders
 
 // Structure representing a point light
 struct PointLight {
@@ -20,12 +19,10 @@ uniform mat4 Projection;
 uniform mat4 Model;
 uniform mat4 View;
 uniform vec3 ViewPos;
-uniform int numLights;  // Number of lights really used
-uniform PointLight lights[MAX_LIGHTS]; // Propreties of each light in the scene
+uniform PointLight lights[NUM_LIGHTS]; // Propreties of each light in the scene
 
 // SHADER OUTPUTS TO THE FRAGMENT
-out vec3 N, L[MAX_LIGHTS], R[MAX_LIGHTS], V[MAX_LIGHTS];
-out vec2 vTexCoord;
+out vec3 N, L[NUM_LIGHTS], R[NUM_LIGHTS], V[NUM_LIGHTS];
 
 void main() {
     // Transform vertices from object-local coordinates (aPos) to world/view/clip space.
@@ -40,7 +37,7 @@ void main() {
     N = normalize(transpose(inverse(mat3(View * Model))) * vertexNormal);
 
     // Compute vectors that the fragment will use the contribution for each light
-    for (int i = 0; i < numLights; i++) {
+    for (int i = 0; i < NUM_LIGHTS; i++) {
 
         // Transform light position in VCS
         vec4 eyeLightPos = View * vec4(lights[i].position, 1.0);
