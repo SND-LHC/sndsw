@@ -74,6 +74,21 @@ namespace snd3D {
         this->transparencyChanged = true;
     }
 
+    bool AppSettings::isLightingEnabled() {
+        return this->lighting;
+    }
+
+    bool AppSettings::isLightingChanged() {
+        bool tmp = this->lightingChanged;
+        this->lightingChanged = false;
+        return tmp;
+    }
+
+    void AppSettings::toggleLighting() {
+        this->lighting = !this->lighting;
+        this->lightingChanged = true;
+    }
+
     float AppSettings::getEdgeAlphaValue() {
         return this->edgeAlphaValue;
     }

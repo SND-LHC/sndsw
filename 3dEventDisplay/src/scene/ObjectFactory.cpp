@@ -19,6 +19,7 @@ namespace snd3D {
     ObjectFactory::ObjectFactory() {
         this->sphere = std::shared_ptr<GpuMesh>(GpuMeshFactory::createSphere());
         this->cube = std::shared_ptr<GpuMesh>(GpuMeshFactory::createCube());
+        this->sphereMaterial = std::make_shared<Material>(glm::vec3(constants::defaults::colors::PIVOT_R, constants::defaults::colors::PIVOT_G, constants::defaults::colors::PIVOT_B));
     }
 
     Object* ObjectFactory::getFromFile(std::string filePath) {
@@ -55,6 +56,7 @@ namespace snd3D {
 
     Object* ObjectFactory::getSphere() {
         Mesh* mesh = new Mesh("SphereMesh", this->sphere);
+        mesh->setMaterial(this->sphereMaterial);
         Node* node = new Node("Sphere");
         node->addMesh(mesh);
         return new Object(node);

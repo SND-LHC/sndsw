@@ -48,6 +48,10 @@ namespace snd3D {
     }
 
     void Camera::moveParallel(float deltaX, float deltaY) {
+        float distance = glm::length(this->target - this->position);
+        deltaX *= constants::factors::PAN_SPEED * distance;
+        deltaY *= constants::factors::PAN_SPEED * distance;
+
         vec3 direction = normalize(this->target - this->position);
         vec3 right = normalize(cross(direction, this->worldUp));
         vec3 up = normalize(cross(right, direction));

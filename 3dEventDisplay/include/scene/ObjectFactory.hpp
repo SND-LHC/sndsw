@@ -23,5 +23,6 @@ namespace snd3D {
         private:
             std::shared_ptr<GpuMesh> sphere;
             std::shared_ptr<GpuMesh> cube;
+            std::shared_ptr<Material> sphereMaterial;
     };
 }

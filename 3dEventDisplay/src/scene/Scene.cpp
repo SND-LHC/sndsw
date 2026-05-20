@@ -21,7 +21,7 @@ namespace snd3D {
         this->flatMaterial = std::make_shared<Shader>("Flat Material", "flat_material.vert", "flat.frag");
         this->transparent = std::make_shared<Shader>("Transparent", "transparent.vert", "transparent.frag", "transparent.geom");
         this->pivot = std::unique_ptr<Object>(this->objectFactory.getSphere());
-        this->pivot->setShader(this->flat);
+        this->pivot->setShader(this->settings.isLightingEnabled() ? this->phong : this->flat);
         this->axis = std::make_unique<AxisWidget>(this->flat, constants::defaults::AXIS_WIDGET_SIZE, constants::defaults::AXIS_WIDGET_MARGIN);
         this->lights[constants::graphics::lights::ambient::ID] = std::make_unique<PointLight>(
                 glm::vec3(constants::graphics::lights::ambient::POS_X, constants::graphics::lights::ambient::POS_Y, constants::graphics::lights::ambient::POS_Z),
@@ -50,11 +50,13 @@ namespace snd3D {
         if (glfwGetKey(this->windowManager.getWindow(), GLFW_KEY_UP) == GLFW_PRESS)  this->viewport->rotateByAngles(0, constants::factors::ROTATION_SPEED);
         if (glfwGetKey(this->windowManager.getWindow(), GLFW_KEY_DOWN) == GLFW_PRESS) this->viewport->rotateByAngles(0, -constants::factors::ROTATION_SPEED);
 
-        if (this->stateManager.getCurrentState() == AppState::INTERACTION && this->settings.isTransparencyChanged()) {
-            if (this->settings.isTransparencyEnabled()) {
-                this->detector->setShader(this->transparent);
-            } else {
-                this->detector->setShader(this->flat);
+        if (this->stateManager.getCurrentState() == AppState::INTERACTION) {
+            if (this->settings.isTransparencyChanged()) {
+                if (this->detector.get() != nullptr) this->detector->setShader(this->settings.isTransparencyEnabled() ? this->transparent : this->flat);
+            }
+            if (this->settings.isLightingChanged()) {
+                if (this->hits.get() != nullptr) this->hits->setShader(this->settings.isLightingEnabled() ? this->phong : this->flatMaterial);
+                if (this->pivot.get() != nullptr) this->pivot->setShader(this->settings.isLightingEnabled() ? this->phong : this->flat);
             }
         }
     }
@@ -69,17 +71,14 @@ namespace snd3D {
                 glDisable(GL_BLEND);   // Don't use transparency
 
                 if (this->settings.isCameraPivotActive() && this->stateManager.getCurrentState() != AppState::EXPORT_IMAGE) {
-                    this->flat->use();
-                    this->pivot->render(*this->viewport, false);
+                    this->pivot->render(*this->viewport, false, this->lights);
                 }
 
-                this->flatMaterial->use();
                 this->hits->render(*this->viewport, false, this->lights);
 
                 // TRANSPARENT MESHES RENDERING
                 // The transparency function is set in the OpenGL initialization: GL_ONE_MINUS_SRC_ALPHA
                 if (this->settings.isTransparencyEnabled()) {
-                    this->transparent->use();
                     glEnable(GL_BLEND);     // Use transparency
                     glDepthMask(GL_FALSE);  // Don't write on the depth-buffer, otherwise further away meshes won't be rendered
                 }
@@ -101,11 +100,7 @@ namespace snd3D {
     void Scene::loadGeometry(std::string path) {
         Object* newGeometry = this->objectFactory.getFromFile(path); // If an exception is thrown don't replace old detector
         this->detector = std::unique_ptr<Object>(newGeometry);
-        if (this->settings.isTransparencyEnabled()) {
-            this->detector->setShader(this->transparent);
-        } else {
-            this->detector->setShader(this->flat);
-        }
+        this->detector->setShader(this->settings.isTransparencyEnabled() ? this->transparent : this->flat);
     }
 
     void Scene::setEvent(const EventData* event) {
@@ -148,9 +143,9 @@ namespace snd3D {
 
             this->colorPalette = std::make_unique<ColorPalette>(variableGetter, valueMapper);
 
-            auto hitMesh = std::unique_ptr<Object>(this->objectFactory.getHits(event, this->colorPalette));
-            hitMesh->setShader(this->phong);
-            this->hits = std::move(hitMesh);
+            auto hitsObject = std::unique_ptr<Object>(this->objectFactory.getHits(event, this->colorPalette));
+            hitsObject->setShader(this->settings.isLightingEnabled() ? this->phong : this->flatMaterial);
+            this->hits = std::move(hitsObject);
         }
     }
 

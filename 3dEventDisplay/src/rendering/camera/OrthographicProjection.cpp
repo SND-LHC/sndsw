@@ -13,9 +13,8 @@ namespace snd3D {
 
     void OrthographicProjection::computeProjectionMatrix() {
         // ortho() requires the vertices of the front plane: we compute them centering the view
-        float zoom = this->distance * std::tan(glm::radians(this->fovY * 0.5f)); // Use the fov to scale the front plane
-        float halfWidth = (zoom * this->aspectRatio) / 2.0f;
-        float halfHeight = zoom / 2.0f;
+        float halfHeight = this->distance * std::tan(glm::radians(this->fovY * 0.5f)); // Use the fov to scale the front plane
+        float halfWidth = this->aspectRatio * halfHeight;
         this->matrix = glm::ortho(-halfWidth, halfWidth, -halfHeight, halfHeight, this->nearPlane, this->farPlane);
     }
 

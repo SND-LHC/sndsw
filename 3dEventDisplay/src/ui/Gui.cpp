@@ -196,6 +196,10 @@ namespace snd3D {
             }
             if (ImGui::BeginMenu("View")) {
                 if (!interactionState) ImGui::BeginDisabled();
+                bool lighting = this->app.settings.isLightingEnabled();
+                if (ImGui::MenuItem("Lighting", "L", lighting)) {
+                    this->app.settings.toggleLighting();
+                }
                 bool ortographic = this->app.scene->viewport->isOrthographic();
                 if (ImGui::MenuItem("Ortographic projection", "P", ortographic)) {
                     this->app.scene->viewport->toggleProjectionType();
@@ -394,6 +398,12 @@ namespace snd3D {
 
             ImGui::NewLine();
             ImGui::Separator();
+            ImGui::NewLine();
+
+            bool lighting = this->app.settings.isLightingEnabled();
+            if (ImGui::Checkbox("Lighting", &lighting)) {
+                this->app.settings.toggleLighting();
+            }
             ImGui::NewLine();
 
             bool transparency = this->app.settings.isTransparencyEnabled();

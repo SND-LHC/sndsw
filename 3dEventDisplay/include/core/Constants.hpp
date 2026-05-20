@@ -23,6 +23,7 @@ namespace snd3D::constants {
         inline constexpr bool SHOW_PIVOT = true;
         inline constexpr bool SHOW_AXIS = true;
         inline constexpr bool TRANSPARENCY = true;
+        inline constexpr bool LIGHTING = false;
         inline constexpr float EDGE_ALPHA_VALUE = 0.15f;
         inline constexpr float FACE_ALPHA_VALUE = 0.03f;
         inline constexpr float EDGE_THICKNESS = 1.5f;
@@ -75,7 +76,8 @@ namespace snd3D::constants {
         inline constexpr float GUI_FONT_RESIZE = 1.1f;
         inline constexpr float ZOOM = 0.1f;
         inline constexpr float ROTATION_SPEED = 2;
-        inline constexpr float PAN = 20;
+        inline constexpr float PAN = 20; // Used to move by a fixed amount, like when using the menu button
+        inline constexpr float PAN_SPEED = 0.002f;
     }
 
     namespace sizes {
