@@ -43,6 +43,7 @@ namespace snd3D {
             matrix = glm::scale(matrix, glm::vec3(constants::sizes::PIVOT));
             this->pivot->updateModelMatrix(matrix);
             this->lights[constants::graphics::lights::camera::ID]->setPosition(this->viewport->getCameraPosition());
+            this->detector->sortMeshes(this->viewport->getCameraPosition());
         }
 
         if (glfwGetKey(this->windowManager.getWindow(), GLFW_KEY_LEFT) == GLFW_PRESS)  this->viewport->rotateByAngles(-constants::factors::ROTATION_SPEED, 0);
@@ -50,14 +51,12 @@ namespace snd3D {
         if (glfwGetKey(this->windowManager.getWindow(), GLFW_KEY_UP) == GLFW_PRESS)  this->viewport->rotateByAngles(0, constants::factors::ROTATION_SPEED);
         if (glfwGetKey(this->windowManager.getWindow(), GLFW_KEY_DOWN) == GLFW_PRESS) this->viewport->rotateByAngles(0, -constants::factors::ROTATION_SPEED);
 
-        if (this->stateManager.getCurrentState() == AppState::INTERACTION) {
-            if (this->settings.isTransparencyChanged()) {
-                if (this->detector.get() != nullptr) this->detector->setShader(this->settings.isTransparencyEnabled() ? this->transparent : this->flat);
-            }
-            if (this->settings.isLightingChanged()) {
-                if (this->hits.get() != nullptr) this->hits->setShader(this->settings.isLightingEnabled() ? this->phong : this->flatMaterial);
-                if (this->pivot.get() != nullptr) this->pivot->setShader(this->settings.isLightingEnabled() ? this->phong : this->flat);
-            }
+        if (this->settings.isTransparencyChanged()) {
+            if (this->detector.get() != nullptr) this->detector->setShader(this->settings.isTransparencyEnabled() ? this->transparent : this->flat);
+        }
+        if (this->settings.isLightingChanged()) {
+            if (this->hits.get() != nullptr) this->hits->setShader(this->settings.isLightingEnabled() ? this->phong : this->flatMaterial);
+            if (this->pivot.get() != nullptr) this->pivot->setShader(this->settings.isLightingEnabled() ? this->phong : this->flat);
         }
     }
 
@@ -83,7 +82,7 @@ namespace snd3D {
                     glDepthMask(GL_FALSE);  // Don't write on the depth-buffer, otherwise further away meshes won't be rendered
                 }
 
-                this->detector->render(*this->viewport, false, this->lights, this->settings.getEdgeAlphaValue(), this->settings.getFaceAlphaValue(), this->settings.getEdgeThickness());
+                this->detector->renderBuffered(*this->viewport, false, this->lights, this->settings.getEdgeAlphaValue(), this->settings.getFaceAlphaValue(), this->settings.getEdgeThickness());
 
                 if (this->settings.isTransparencyEnabled()) {
                     glDepthMask(GL_TRUE);   // Final reset

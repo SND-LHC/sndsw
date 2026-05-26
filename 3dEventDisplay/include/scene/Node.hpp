@@ -24,8 +24,8 @@ namespace snd3D {
             void addMesh(Mesh* mesh);
             void setGlobalActive(bool value);
             void updateGlobalModelMatrix(const glm::mat4& parentModelMatrix);
-            void render(const glm::mat4& parentModelMatrix, bool showAnchor, Shader* shader);
             void render(bool showAnchor, Shader* shader); // Use the buffered model matrix
+            void getMeshes(std::vector<Mesh*>& outMeshes);
 
         private:
             std::string name;

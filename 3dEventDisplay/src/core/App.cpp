@@ -35,10 +35,7 @@ namespace snd3D {
             glfwPollEvents();
             if (glfwWindowShouldClose(this->windowManager->getWindow())) this->stateManager.close();
 
-            this->stateManager.update();
             this->update();
-            this->scene->update();
-            this->guiManager->update();
 
             // Rendering
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -51,6 +48,8 @@ namespace snd3D {
     }
 
     void App::update() {
+
+        this->stateManager.update();
 
         if (this->settings.isBackgroundColorChanged()) {
             this->windowManager->setBackgroundColor(this->settings.getBackgroundColor());
@@ -110,9 +109,15 @@ namespace snd3D {
                 }
                 break;
 
+            case AppState::INTERACTION:
+                this->scene->update();
+                break;
+
             default:
                 break;
         }
+
+        this->guiManager->update();
     }
 
     void App::exportImage() {

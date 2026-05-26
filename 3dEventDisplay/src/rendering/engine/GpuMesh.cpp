@@ -16,6 +16,7 @@ namespace snd3D {
 
         this->numIndices = indices.size();
         this->numVertices = vertices.size();
+        this->anchor = anchorPosition;
 
         // Add the anchor to the vectors so it's copied into the VBOs
         vertices.push_back(anchorPosition);
@@ -97,5 +98,9 @@ namespace snd3D {
             glPointSize(constants::sizes::ANCHOR);
             glDrawElements(GL_POINTS, 1, GL_UNSIGNED_INT, BUFFER_OFFSET(this->numIndices * sizeof(GLuint)));
         }
+    }
+
+    const glm::vec3& GpuMesh::getAnchor() {
+        return this->anchor;
     }
 }

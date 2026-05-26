@@ -35,7 +35,7 @@ namespace snd3D {
             void drawInspector();
             void drawRenderOptions();
             void drawObjectTree(const std::string& label, Object* obj);
-            void drawNodeTree(Node* node);
+            void drawNodeTree(Node* node, bool parentActive);
             void drawRunDialog();
             void drawLoadingData();
             void drawEventDialog();

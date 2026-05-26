@@ -452,7 +452,10 @@ namespace snd3D {
 
         ImGui::PushID(obj); // Create unique ID to identify the object into the gui
 
-        ImGui::Checkbox("##objActive", &obj->active);
+        bool active = obj->active;
+        if (ImGui::Checkbox("##objActive", &active)) {
+            obj->setGlobalActive(active);
+        }
         ImGui::SameLine();
 
         if (ImGui::CollapsingHeader(label.c_str(), ImGuiTreeNodeFlags_DefaultOpen)) {
@@ -468,7 +471,7 @@ namespace snd3D {
                 obj->setGlobalActive(false);
             }
 
-            this->drawNodeTree(obj->rootNode.get()); // Start showing children recursively
+            this->drawNodeTree(obj->rootNode.get(), obj->active); // Start showing children recursively
 
             ImGui::EndChild();
         }
@@ -476,7 +479,7 @@ namespace snd3D {
         ImGui::PopID(); // End using this object ID
     }
 
-    void Gui::drawNodeTree(Node* node) {
+    void Gui::drawNodeTree(Node* node, bool parentActive) {
         if (!node) return;
 
         ImGuiTreeNodeFlags nodeFlags = ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_OpenOnDoubleClick;
@@ -487,27 +490,38 @@ namespace snd3D {
 
         ImGui::PushID(node); // Create unique ID to identify the node into the gui
 
-        ImGui::Checkbox("##nodeActive", &node->active);
+        bool isCurrentDisabled = !parentActive;
+        ImGui::BeginDisabled(isCurrentDisabled);
+        
+        bool active = node->active;
+        if (ImGui::Checkbox("##nodeActive", &active)) {
+            node->setGlobalActive(active);
+        }
         ImGui::SameLine();
 
         bool isOpened = ImGui::TreeNodeEx((void*)node, nodeFlags, "[Node] - %s", node->name.c_str()); // Create the tree for this node
 
         if (isOpened) {
+            bool childrenActive = parentActive && node->active;
+
             for (auto& mesh : node->meshes) {
                 ImGui::PushID(mesh.get()); // Create unique ID to identify the mesh into the gui
 
                 ImGuiTreeNodeFlags meshFlags = ImGuiTreeNodeFlags_Leaf | ImGuiTreeNodeFlags_NoTreePushOnOpen | ImGuiTreeNodeFlags_Bullet;
+
+                ImGui::BeginDisabled(!childrenActive);
 
                 ImGui::Checkbox("##meshActive", &mesh->active);
                 ImGui::SameLine();
 
                 ImGui::TreeNodeEx((void*)mesh.get(), meshFlags, "[Mesh] - %s", mesh->name.c_str());
 
+                ImGui::EndDisabled();
                 ImGui::PopID();
             }
 
             for (auto& child : node->childrenNode) {
-                drawNodeTree(child.get());
+                drawNodeTree(child.get(), childrenActive);
             }
 
             // If the node isn't a leaf, close the TreeNodeEx
@@ -516,6 +530,7 @@ namespace snd3D {
             }
         }
 
+        ImGui::EndDisabled();
         ImGui::PopID();
     }
 

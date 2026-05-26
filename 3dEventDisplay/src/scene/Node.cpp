@@ -70,30 +70,31 @@ namespace snd3D {
         for (auto& node : this->childrenNode) {
             node->updateGlobalModelMatrix(this->globalModelMatrix);
         }
-    }
-
-    void Node::render(const glm::mat4& parentModelMatrix, bool showAnchor, Shader* shader) {
-        glm::mat4 modelMatrix = parentModelMatrix * this->localModelMatrix;
-
-        for (auto& node : this->childrenNode) {
-            node->render(modelMatrix, showAnchor, shader);
-        }
 
         for (auto& mesh : this->meshes) {
-            mesh->render(modelMatrix, showAnchor, shader);
+            mesh->updateGlobalModelMatrix(this->globalModelMatrix);
         }
     }
 
     void Node::render(bool showAnchor, Shader* shader) {
-
         if (this->active) {
             for (auto& node : this->childrenNode) {
                 node->render(showAnchor, shader);
             }
 
             for (auto& mesh : this->meshes) {
-                mesh->render(this->globalModelMatrix, showAnchor, shader);
+                mesh->render(showAnchor, shader);
             }
+        }
+    }
+
+    void Node::getMeshes(std::vector<Mesh*>& outMeshes) {
+        for (auto& node : this->childrenNode) {
+            node->getMeshes(outMeshes);
+        }
+
+        for (auto& mesh : this->meshes) {
+            outMeshes.push_back(mesh.get());
         }
     }
 }

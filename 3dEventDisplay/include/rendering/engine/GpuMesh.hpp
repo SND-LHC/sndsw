@@ -20,6 +20,7 @@ namespace snd3D {
             ~GpuMesh();
             void setRenderMode(GLenum _renderMode);
             void render(bool showAnchor);
+            const glm::vec3& getAnchor();
 
         private:
             unsigned int numIndices, numVertices; // The number of vertices and indices without considering the anchor
@@ -33,6 +34,6 @@ namespace snd3D {
 
             GLenum renderMode = GL_TRIANGLES; // Vertex interpretation mode for the rendering stage (ex. GL_TRIANGLES, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_LINES, GL_POINTS)
 
-            //bool usingBlinnPhong = true; // Enable default blinn phong if supported
+            glm::vec3 anchor;
     };
 }
