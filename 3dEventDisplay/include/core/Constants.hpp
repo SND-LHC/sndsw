@@ -16,6 +16,7 @@ namespace snd3D::constants {
         inline constexpr float ALPHA_VALUE_MAX = 1;
         inline constexpr float EDGE_THICKNESS_MIN = 0.5f;
         inline constexpr float EDGE_THICKNESS_MAX = 5;
+        inline constexpr int MAX_FPS = 60;
     }
 
     namespace defaults {
@@ -50,7 +51,7 @@ namespace snd3D::constants {
             inline constexpr int WIDTH = 1280;
             inline constexpr int HEIGHT = 720;
             inline constexpr const char* NAME = "SND 3D Event Display";
-            inline constexpr bool VSYNC = true;
+            inline constexpr bool VSYNC = false;
         }
 
         namespace clusters {

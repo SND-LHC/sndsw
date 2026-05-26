@@ -28,6 +28,7 @@ namespace snd3D {
             std::unique_ptr<WindowManager> windowManager;
             std::unique_ptr<Scene> scene;
             SndswEventManager ioManager;
+            float lastFrame = 0; // Used to limit FPS
 
             void update();
             void exportImage();

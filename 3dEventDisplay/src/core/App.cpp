@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include <chrono>
+#include <thread>
 #include <filesystem>
 
 #include <glad/glad.h>
@@ -44,6 +45,12 @@ namespace snd3D {
             if (this->stateManager.getCurrentState() == AppState::EXPORT_IMAGE) this->exportImage();
 
             glfwSwapBuffers(this->windowManager->getWindow());
+
+            // If the VSync isn't active, manually limit the FPS
+            if (!this->windowManager->isVsyncActive()) {
+                std::this_thread::sleep_for(std::chrono::milliseconds(1000 / constants::limits::MAX_FPS) - std::chrono::milliseconds((int)(((float)glfwGetTime() - this->lastFrame) * 1000)));
+            }
+            this->lastFrame = (float)glfwGetTime();
         }
     }
 
