@@ -9,26 +9,34 @@
 #include <iomanip>
 
 // -----   Default constructor   -------------------------------------------
-DriftTubeHit::DriftTubeHit() : SndlhcHit()
+DriftTubeHit::DriftTubeHit() 
+   : TObject(),
+    fDetectorID(-1)
 {
-   flag = true;
 }
 // -----   Standard constructor   ------------------------------------------
-DriftTubeHit::DriftTubeHit(Int_t detID) : SndlhcHit(detID)
+DriftTubeHit::DriftTubeHit(Int_t detID) 
+   : TObject(),
+   fDetectorID(detID)
 {
    flag = true;
 }
+DriftTubeHit::DriftTubeHit(Int_t detID, const Double_t& m_timestamp) : TObject(), fDetectorID(detID), timestamp(m_timestamp)
+{
+   flag = true;
+}
+
 // -----   constructor from point class  ------------------------------------------
 DriftTubeHit::DriftTubeHit(int detID, std::vector<DriftTubePoint *> V, std::vector<Float_t> W)
 {
    DriftTube *DriftTubeDet = dynamic_cast<DriftTube *>(gROOT->GetListOfGlobals()->FindObject("DriftTube"));
    // Float_t timeResol = DriftTubeDet->GetConfParF("DriftTube/timeResol"); // example
 
-   nSides = 1;
-   for (unsigned int j = 0; j < 16; ++j) {
-      signals[j] = -1;
-      times[j] = -1;
-   }
+   // nSides = 1;
+   // for (unsigned int j = 0; j < 16; ++j) {
+   //    signals[j] = -1;
+   //    times[j] = -1;
+   // }
 
    for (auto p = std::begin(V); p != std::end(V); ++p) {
 
@@ -54,7 +62,7 @@ DriftTubeHit::~DriftTubeHit() {}
 // -----   Public method Print   -------------------------------------------
 void DriftTubeHit::Print()
 {
-   std::cout << "-I- DriftTubeHit: DriftTube hit " << " in station " << GetStation();
+   std::cout << "-I- DriftTubeHit: DriftTube hit " << " in station " << GetPlane();
    if (isVertical()) {
       std::cout << " vertical plane ";
    } else {
