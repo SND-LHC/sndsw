@@ -35,7 +35,8 @@ public:
    Int_t GetPlane() { return int(fDetectorID / 1000) % 10; }
    Int_t GetLayer() { return int(fDetectorID % 1000) / 100; }
    Int_t GetCell() { return int(fDetectorID % 100); }
-   bool isVertical() { return GetPlane() == 1; }      
+   bool isVertical() { return GetPlane() == 1; }  
+   TVector3 GetPosition();     
    void setLaterality(const int& lat) { laterality = lat; }
    int GetLaterality() {return laterality;};
 
