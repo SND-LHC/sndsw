@@ -25,10 +25,10 @@ namespace snd3D {
         this->alpha = _baseColor.a;
 
         this->baseColor = color;
-        this->ambient = color * 0.1f;
-        this->diffuse = color * (1.0f - metallic);
-        this->specular = glm::mix(glm::vec3(0.04f), color, metallic);
-        this->shininess = (1.0f - roughness) * 128.0f;
+        this->ambient = glm::vec4(color * 0.5f, 1.0f);
+        this->diffuse = glm::vec4(color * 0.8f, 1.0f);
+        this->specular = glm::vec4(color * 0.3f + glm::vec3(0.3f), 1.0f);
+        this->shininess = 32.0f;
     }
 
     Material::Material(glm::vec3 _baseColor) {

@@ -1,7 +1,6 @@
 #version 330 core
 
 #define MAX_LIGHTS 4 // Keep the value updated with the cpp code and other shaders
-#define COLOR_AMPLIFIER 6
 
 struct PointLight {
 	vec3 position;
@@ -76,5 +75,5 @@ void main() {
 
     float finalAlpha = mix(uEdgeAlpha, uFaceAlpha, edgeFactor); // Higher alpha for edges and lower for faces
 
-    FragColor = vec4(vec3(baseColor * COLOR_AMPLIFIER), finalAlpha); // Output the color replacing the computed transparency
+    FragColor = vec4(vec3(baseColor), finalAlpha); // Output the color replacing the computed transparency
 }
