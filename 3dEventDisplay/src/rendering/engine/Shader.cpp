@@ -26,6 +26,7 @@ namespace snd3D {
         this->uniform_EdgeAlphaValue = glGetUniformLocation(this->programId, "uEdgeAlpha");
         this->uniform_FaceAlphaValue = glGetUniformLocation(this->programId, "uFaceAlpha");
         this->uniform_EdgeThickness = glGetUniformLocation(this->programId, "uEdgeThickness");
+        this->uniform_NumLights = glGetUniformLocation(this->programId, "numLights");
         for (int i = 0; i < constants::graphics::lights::NUM; i++) {
             std::string base = "lights[" + std::to_string(i) + "].";
             this->uniform_LightPosition[i] = glGetUniformLocation(this->programId, (base + "position").c_str());
@@ -57,6 +58,7 @@ namespace snd3D {
         if (this->uniform_EdgeAlphaValue != -1) glUniform1f(this->uniform_EdgeAlphaValue, edgeAlphaValue);
         if (this->uniform_FaceAlphaValue != -1) glUniform1f(this->uniform_FaceAlphaValue, faceAlphaValue);
         if (this->uniform_EdgeThickness != -1) glUniform1f(this->uniform_EdgeThickness, edgeThickness);
+        if (this->uniform_NumLights != -1) glUniform1i(this->uniform_NumLights, (int)lights.size());
         for (int i = 0; i < std::min((int)lights.size(), constants::graphics::lights::NUM); i++) {
             if (this->uniform_LightColor[i] != -1) glUniform3f(this->uniform_LightColor[i], lights.at(i)->getColor().x, lights.at(i)->getColor().y, lights.at(i)->getColor().z);
             if (this->uniform_LightPosition[i] != -1) glUniform3f(this->uniform_LightPosition[i], lights.at(i)->getPosition().x, lights.at(i)->getPosition().y, lights.at(i)->getPosition().z);

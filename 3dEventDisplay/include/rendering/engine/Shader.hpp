@@ -39,6 +39,7 @@ namespace snd3D {
             GLint uniform_EdgeAlphaValue = -1;
             GLint uniform_FaceAlphaValue = -1;
             GLint uniform_EdgeThickness = -1;
+            GLint uniform_NumLights = -1;
             GLint uniform_LightPosition[constants::graphics::lights::NUM];
             GLint uniform_LightColor[constants::graphics::lights::NUM];
             GLint uniform_LightPower[constants::graphics::lights::NUM];

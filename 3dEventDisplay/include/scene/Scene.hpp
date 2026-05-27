@@ -42,6 +42,7 @@ namespace snd3D {
             std::shared_ptr<Shader> phong;
             std::shared_ptr<Shader> flatMaterial;
             std::shared_ptr<Shader> transparent;
+            std::shared_ptr<Shader> transparentPhong;
             std::vector<std::unique_ptr<PointLight>> lights{constants::graphics::lights::NUM};
 
             ObjectFactory objectFactory;

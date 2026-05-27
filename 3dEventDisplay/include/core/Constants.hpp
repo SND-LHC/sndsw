@@ -98,25 +98,36 @@ namespace snd3D::constants {
         inline constexpr uint8_t NORMALS_LAYER = 2;
 
         namespace lights {
-            inline constexpr int NUM = 2;
+            inline constexpr int NUM = 3;
 
-            namespace ambient {
+            namespace pointlight1 {
                 inline constexpr int ID = 0;
-                inline constexpr float POS_X = 500;
-                inline constexpr float POS_Y = 1000;
-                inline constexpr float POS_Z = 500;
+                inline constexpr float POS_X = 600;
+                inline constexpr float POS_Y = 1200;
+                inline constexpr float POS_Z = 600;
                 inline constexpr float COLOR_R = 1;
                 inline constexpr float COLOR_G = 1;
                 inline constexpr float COLOR_B = 1;
-                inline constexpr float POWER = 0.8f;
+                inline constexpr float POWER = 0.5f;
+            }
+
+            namespace pointlight2 {
+                inline constexpr int ID = 1;
+                inline constexpr float POS_X = -600;
+                inline constexpr float POS_Y = 1200;
+                inline constexpr float POS_Z = -600;
+                inline constexpr float COLOR_R = 1;
+                inline constexpr float COLOR_G = 1;
+                inline constexpr float COLOR_B = 1;
+                inline constexpr float POWER = 0.5f;
             }
 
             namespace camera {
-                inline constexpr int ID = 1;
+                inline constexpr int ID = 2;
                 inline constexpr float COLOR_R = 1;
                 inline constexpr float COLOR_G = 1;
                 inline constexpr float COLOR_B = 1;
-                inline constexpr float POWER = 0.55f;
+                inline constexpr float POWER = 0.4f;
             }
         }
     }

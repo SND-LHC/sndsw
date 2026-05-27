@@ -20,13 +20,19 @@ namespace snd3D {
         this->phong = std::make_shared<Shader>("Phong", "phong.vert", "phong.frag");
         this->flatMaterial = std::make_shared<Shader>("Flat Material", "flat_material.vert", "flat.frag");
         this->transparent = std::make_shared<Shader>("Transparent", "transparent.vert", "transparent.frag", "transparent.geom");
+        this->transparentPhong = std::make_shared<Shader>("Transparent Phong", "transparent_phong.vert", "transparent_phong.frag", "transparent_phong.geom");
         this->pivot = std::unique_ptr<Object>(this->objectFactory.getSphere());
         this->pivot->setShader(this->settings.isLightingEnabled() ? this->phong : this->flat);
         this->axis = std::make_unique<AxisWidget>(this->flat, constants::defaults::AXIS_WIDGET_SIZE, constants::defaults::AXIS_WIDGET_MARGIN);
-        this->lights[constants::graphics::lights::ambient::ID] = std::make_unique<PointLight>(
-                glm::vec3(constants::graphics::lights::ambient::POS_X, constants::graphics::lights::ambient::POS_Y, constants::graphics::lights::ambient::POS_Z),
-                glm::vec3(constants::graphics::lights::ambient::COLOR_R, constants::graphics::lights::ambient::COLOR_G, constants::graphics::lights::ambient::COLOR_B),
-                constants::graphics::lights::ambient::POWER
+        this->lights[constants::graphics::lights::pointlight1::ID] = std::make_unique<PointLight>(
+                glm::vec3(constants::graphics::lights::pointlight1::POS_X, constants::graphics::lights::pointlight1::POS_Y, constants::graphics::lights::pointlight1::POS_Z),
+                glm::vec3(constants::graphics::lights::pointlight1::COLOR_R, constants::graphics::lights::pointlight1::COLOR_G, constants::graphics::lights::pointlight1::COLOR_B),
+                constants::graphics::lights::pointlight1::POWER
+        );
+        this->lights[constants::graphics::lights::pointlight2::ID] = std::make_unique<PointLight>(
+                glm::vec3(constants::graphics::lights::pointlight2::POS_X, constants::graphics::lights::pointlight2::POS_Y, constants::graphics::lights::pointlight2::POS_Z),
+                glm::vec3(constants::graphics::lights::pointlight2::COLOR_R, constants::graphics::lights::pointlight2::COLOR_G, constants::graphics::lights::pointlight2::COLOR_B),
+                constants::graphics::lights::pointlight2::POWER
         );
         this->lights[constants::graphics::lights::camera::ID] = std::make_unique<PointLight>(
             this->viewport->getCameraPosition(),
@@ -52,11 +58,24 @@ namespace snd3D {
         if (glfwGetKey(this->windowManager.getWindow(), GLFW_KEY_DOWN) == GLFW_PRESS) this->viewport->rotateByAngles(0, -constants::factors::ROTATION_SPEED);
 
         if (this->settings.isTransparencyChanged()) {
-            if (this->detector.get() != nullptr) this->detector->setShader(this->settings.isTransparencyEnabled() ? this->transparent : this->flat);
+            if (this->detector.get() != nullptr) {
+                if (this->settings.isTransparencyEnabled()) {
+                    this->detector->setShader(this->settings.isLightingEnabled() ? this->transparentPhong : this->transparent);
+                } else {
+                    this->detector->setShader(this->settings.isLightingEnabled() ? this->phong : this->flat);
+                }
+            }
         }
         if (this->settings.isLightingChanged()) {
             if (this->hits.get() != nullptr) this->hits->setShader(this->settings.isLightingEnabled() ? this->phong : this->flatMaterial);
             if (this->pivot.get() != nullptr) this->pivot->setShader(this->settings.isLightingEnabled() ? this->phong : this->flat);
+            if (this->detector.get() != nullptr) {
+                if (this->settings.isTransparencyEnabled()) {
+                    this->detector->setShader(this->settings.isLightingEnabled() ? this->transparentPhong : this->transparent);
+                } else {
+                    this->detector->setShader(this->settings.isLightingEnabled() ? this->phong : this->flat);
+                }
+            }
         }
     }
 
@@ -99,7 +118,11 @@ namespace snd3D {
     void Scene::loadGeometry(std::string path) {
         Object* newGeometry = this->objectFactory.getFromFile(path); // If an exception is thrown don't replace old detector
         this->detector = std::unique_ptr<Object>(newGeometry);
-        this->detector->setShader(this->settings.isTransparencyEnabled() ? this->transparent : this->flat);
+        if (this->settings.isTransparencyEnabled()) {
+            this->detector->setShader(this->settings.isLightingEnabled() ? this->transparentPhong : this->transparent);
+        } else {
+            this->detector->setShader(this->settings.isLightingEnabled() ? this->phong : this->flat);
+        }
     }
 
     void Scene::setEvent(const EventData* event) {
