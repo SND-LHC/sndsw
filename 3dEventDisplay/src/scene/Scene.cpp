@@ -25,16 +25,19 @@ namespace snd3D {
         this->pivot->setShader(this->settings.isLightingEnabled() ? this->phong : this->flat);
         this->axis = std::make_unique<AxisWidget>(this->flat, constants::defaults::AXIS_WIDGET_SIZE, constants::defaults::AXIS_WIDGET_MARGIN);
         this->lights[constants::graphics::lights::pointlight1::ID] = std::make_unique<PointLight>(
-                glm::vec3(constants::graphics::lights::pointlight1::POS_X, constants::graphics::lights::pointlight1::POS_Y, constants::graphics::lights::pointlight1::POS_Z),
-                glm::vec3(constants::graphics::lights::pointlight1::COLOR_R, constants::graphics::lights::pointlight1::COLOR_G, constants::graphics::lights::pointlight1::COLOR_B),
-                constants::graphics::lights::pointlight1::POWER
+            std::string(constants::graphics::lights::pointlight1::NAME),
+            glm::vec3(constants::graphics::lights::pointlight1::POS_X, constants::graphics::lights::pointlight1::POS_Y, constants::graphics::lights::pointlight1::POS_Z),
+            glm::vec3(constants::graphics::lights::pointlight1::COLOR_R, constants::graphics::lights::pointlight1::COLOR_G, constants::graphics::lights::pointlight1::COLOR_B),
+            constants::graphics::lights::pointlight1::POWER
         );
         this->lights[constants::graphics::lights::pointlight2::ID] = std::make_unique<PointLight>(
-                glm::vec3(constants::graphics::lights::pointlight2::POS_X, constants::graphics::lights::pointlight2::POS_Y, constants::graphics::lights::pointlight2::POS_Z),
-                glm::vec3(constants::graphics::lights::pointlight2::COLOR_R, constants::graphics::lights::pointlight2::COLOR_G, constants::graphics::lights::pointlight2::COLOR_B),
-                constants::graphics::lights::pointlight2::POWER
+            std::string(constants::graphics::lights::pointlight2::NAME),
+            glm::vec3(constants::graphics::lights::pointlight2::POS_X, constants::graphics::lights::pointlight2::POS_Y, constants::graphics::lights::pointlight2::POS_Z),
+            glm::vec3(constants::graphics::lights::pointlight2::COLOR_R, constants::graphics::lights::pointlight2::COLOR_G, constants::graphics::lights::pointlight2::COLOR_B),
+            constants::graphics::lights::pointlight2::POWER
         );
         this->lights[constants::graphics::lights::camera::ID] = std::make_unique<PointLight>(
+            std::string(constants::graphics::lights::camera::NAME),
             this->viewport->getCameraPosition(),
             glm::vec3(constants::graphics::lights::camera::COLOR_R, constants::graphics::lights::camera::COLOR_G, constants::graphics::lights::camera::COLOR_B),
             constants::graphics::lights::camera::POWER

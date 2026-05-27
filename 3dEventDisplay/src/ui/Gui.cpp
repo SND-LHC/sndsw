@@ -400,18 +400,14 @@ namespace snd3D {
             ImGui::Separator();
             ImGui::NewLine();
 
-            bool lighting = this->app.settings.isLightingEnabled();
-            if (ImGui::Checkbox("Lighting", &lighting)) {
-                this->app.settings.toggleLighting();
-            }
-            ImGui::NewLine();
-
             bool transparency = this->app.settings.isTransparencyEnabled();
-            if (ImGui::Checkbox("Transparency", &transparency)) {
+            if (ImGui::Checkbox("##Transparency", &transparency)) {
                 this->app.settings.toggleTransparency();
             }
-            if (transparency) {
-                ImGui::NewLine();
+            ImGui::SameLine();
+            if (ImGui::CollapsingHeader("Transparency")) {
+                ImGui::BeginDisabled(!transparency);
+                ImGui::Indent(10.0f);
                 float edgeAlphaValue = this->app.settings.getEdgeAlphaValue();
                 if (ImGui::SliderFloat(" Edge Alpha", &edgeAlphaValue, constants::limits::ALPHA_VALUE_MIN, constants::limits::ALPHA_VALUE_MAX)) {
                     this->app.settings.setEdgeAlphaValue(edgeAlphaValue);
@@ -424,13 +420,52 @@ namespace snd3D {
                 if (ImGui::SliderFloat(" Edge Weight", &edgeThickness, constants::limits::EDGE_THICKNESS_MIN, constants::limits::EDGE_THICKNESS_MAX)) {
                     this->app.settings.setEdgeThickness(edgeThickness);
                 }
-                ImGui::NewLine();
                 if (ImGui::Button("Reset")) {
                     this->app.settings.setEdgeAlphaValue(constants::defaults::EDGE_ALPHA_VALUE);
                     this->app.settings.setFaceAlphaValue(constants::defaults::FACE_ALPHA_VALUE);
                     this->app.settings.setEdgeThickness(constants::defaults::EDGE_THICKNESS);
                 }
-                ImGui::NewLine();
+                ImGui::Unindent(10.0f);
+                ImGui::EndDisabled();
+            }
+
+            ImGui::NewLine();
+            ImGui::Separator();
+            ImGui::NewLine();
+
+            bool lighting = this->app.settings.isLightingEnabled();
+            if (ImGui::Checkbox("##LightingActive", &lighting)) {
+                this->app.settings.toggleLighting();
+            }
+            ImGui::SameLine();
+            if (ImGui::CollapsingHeader("Lighting")) {
+                ImGui::BeginDisabled(!lighting);
+                ImGui::Indent(10.0f);
+                for (int i = 0; i < (int)this->app.scene->lights.size(); i++) {
+                    ImGui::PushID(i);
+                    if (ImGui::CollapsingHeader(this->app.scene->lights.at(i)->getName().c_str())) {
+                        glm::vec3 pos = this->app.scene->lights.at(i)->getPosition();
+                        glm::vec3 color = this->app.scene->lights.at(i)->getColor();
+                        float power = this->app.scene->lights.at(i)->getPower();
+                        if (i != constants::graphics::lights::camera::ID) {
+                            if (ImGui::DragFloat3("Position", glm::value_ptr(pos), 0.1f)) this->app.scene->lights.at(i)->setPosition(pos);
+                        }
+                        if (ImGui::ColorEdit3("Color", glm::value_ptr(color))) this->app.scene->lights.at(i)->setColor(color);
+                        if (ImGui::SliderFloat("Power", &power, constants::limits::LIGHT_POWER_MIN, constants::limits::LIGHT_POWER_MAX)) this->app.scene->lights.at(i)->setPower(power);
+                        if (ImGui::Button("Reset")) {
+                            this->app.scene->lights.at(i)->reset();
+                            // Used to update the camera light position
+                            if (i == constants::graphics::lights::camera::ID) {
+                                this->app.scene->viewport->moveParallel(0.01f, 0);
+                                this->app.scene->viewport->moveParallel(-0.01f, 0);
+                            }
+                        }
+                        ImGui::NewLine();
+                    }
+                    ImGui::PopID();
+                }
+                ImGui::Unindent(10.0f);
+                ImGui::EndDisabled();
             }
 
             ImGui::NewLine();

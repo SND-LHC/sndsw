@@ -2,10 +2,14 @@
 
 namespace snd3D {
 
-    PointLight::PointLight(glm::vec3 _position, glm::vec3 _color, float _power) {
+    PointLight::PointLight(std::string _name, glm::vec3 _position, glm::vec3 _color, float _power) {
+        this->name = _name;
         this->setPosition(_position);
         this->setColor(_color);
         this->setPower(_power);
+        this->startPosition = this->position;
+        this->startColor = this->color;
+        this->startPower = this->power;
     }
 
     const glm::vec3& PointLight::getPosition() const {
@@ -20,6 +24,10 @@ namespace snd3D {
         return this->power;
     }
 
+    const std::string& PointLight::getName() const {
+        return this->name;
+    }
+
     void PointLight::setPosition(glm::vec3 newPos) {
         this->position = newPos;
     }
@@ -30,5 +38,11 @@ namespace snd3D {
 
     void PointLight::setPower(float newPower) {
         this->power = newPower >= 0 ? newPower : 0;
+    }
+
+    void PointLight::reset() {
+        this->setPosition(this->startPosition);
+        this->setColor(this->startColor);
+        this->setPower(this->startPower);
     }
 }

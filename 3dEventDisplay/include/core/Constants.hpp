@@ -17,6 +17,8 @@ namespace snd3D::constants {
         inline constexpr float EDGE_THICKNESS_MIN = 0.5f;
         inline constexpr float EDGE_THICKNESS_MAX = 5;
         inline constexpr int MAX_FPS = 60;
+        inline constexpr float LIGHT_POWER_MIN = 0;
+        inline constexpr float LIGHT_POWER_MAX = 2;
     }
 
     namespace defaults {
@@ -101,6 +103,7 @@ namespace snd3D::constants {
             inline constexpr int NUM = 3;
 
             namespace pointlight1 {
+                inline constexpr std::string_view NAME = "Point Light 1";
                 inline constexpr int ID = 0;
                 inline constexpr float POS_X = 600;
                 inline constexpr float POS_Y = 1200;
@@ -112,6 +115,7 @@ namespace snd3D::constants {
             }
 
             namespace pointlight2 {
+                inline constexpr std::string_view NAME = "Point Light 2";
                 inline constexpr int ID = 1;
                 inline constexpr float POS_X = -600;
                 inline constexpr float POS_Y = 1200;
@@ -123,6 +127,7 @@ namespace snd3D::constants {
             }
 
             namespace camera {
+                inline constexpr std::string_view NAME = "Camera";
                 inline constexpr int ID = 2;
                 inline constexpr float COLOR_R = 1;
                 inline constexpr float COLOR_G = 1;
