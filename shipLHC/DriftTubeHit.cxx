@@ -5,6 +5,7 @@
 #include "TGeoNavigator.h"
 #include "TGeoManager.h"
 #include "TGeoBBox.h"
+#include "DriftTubeConstants.h"
 #include <TRandom.h>
 #include <iomanip>
 
@@ -87,7 +88,7 @@ TVector3 DriftTubeHit::GetPosition() {
          const Double_t *origin = box->GetOrigin();  
 
          navigator->cd(node.c_str());
-         Double_t localPosition[3] {origin[0] + std::min(static_cast<double>((timestamp - TPED) * VDRIFT), WCELL * 0.5) * laterality, origin[1], origin[2]};
+         Double_t localPosition[3] {origin[0] + std::min(static_cast<double>((timestamp - drifttube::tped) * drifttube::vdrift), WCELL * 0.5) * laterality, origin[1], origin[2]};
          Double_t globalPosition[3] {};
          navigator->LocalToMaster(localPosition, globalPosition);
 

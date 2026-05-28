@@ -21,6 +21,7 @@
 #include "FairRootManager.h"      // for FairRootManager
 #include "ConvDriftTubeRawData.h" // for Conversion
 #include "DriftTube.h"            // for Drift Tube detector
+#include "DriftTubeConstants.h"
 
 // FIXME cleanup headers
 
@@ -326,14 +327,14 @@ void ConvDriftTubeRawData::FindLateralitySlope(const TClonesArray * hits, const 
 
             double y {(layer + 0.5) * HCELL};
             double x_wire {(hit->GetCell() + (layer % 2 == 1 ? 0.5 : 1.0)) * WCELL};
-            double drift_time = static_cast<double>(hit->GetTimestamp()- TPED);
+            double drift_time = static_cast<double>(hit->GetTimestamp()- drifttube::tped);
             
             double x {};
             if (drift_time < 0) {
                 x = x_wire;
                 currentLats[layer] = 0;
             } else {
-                double dist = std::min(static_cast<double>(drift_time * VDRIFT), WCELL * 0.5);
+                double dist = std::min(static_cast<double>(drift_time * drifttube::vdrift), WCELL * 0.5);
                 x = x_wire + (lat * dist);
             }
             points.push_back({x, y});

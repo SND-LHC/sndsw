@@ -4,9 +4,7 @@
 #include "DriftTubePoint.h"
 #include "TObject.h"
 #include "TVector3.h"
-
-inline const double VDRIFT {0.0055 * 1e9};
-inline const double TPED {190.0 * 1e-9}; 
+ 
 
 class DriftTubeHit : public TObject {
 public:
