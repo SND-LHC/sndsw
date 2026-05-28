@@ -450,6 +450,14 @@ namespace snd3D {
             if (ImGui::CollapsingHeader("Lighting")) {
                 ImGui::BeginDisabled(!lighting);
                 ImGui::Indent(10.0f);
+                if (ImGui::CollapsingHeader("Ambient Light")) {
+                    float ambientLight = this->app.settings.getAmbientLightPower();
+                    if (ImGui::SliderFloat(" Power##AmbientLight", &ambientLight, constants::limits::AMBIENT_LIGHT_POWER_MIN, constants::limits::AMBIENT_LIGHT_POWER_MAX)) {
+                        this->app.settings.setAmbientLightPower(ambientLight);
+                    }
+                    if (ImGui::Button("Reset##AmbientLight")) this->app.settings.setAmbientLightPower(constants::defaults::AMBIENT_LIGHT_POWER);
+                    ImGui::NewLine();
+                }
                 for (int i = 0; i < (int)this->app.scene->lights.size(); i++) {
                     ImGui::PushID(i);
                     if (ImGui::CollapsingHeader(this->app.scene->lights.at(i)->getName().c_str())) {
@@ -472,6 +480,17 @@ namespace snd3D {
                         ImGui::NewLine();
                     }
                     ImGui::PopID();
+                }
+                if (ImGui::Button("Reset All")) {
+                    this->app.settings.setAmbientLightPower(constants::defaults::AMBIENT_LIGHT_POWER);
+                    for (int i = 0; i < (int)this->app.scene->lights.size(); i++) {
+                        this->app.scene->lights.at(i)->reset();
+                        // Used to update the camera light position
+                        if (i == constants::graphics::lights::camera::ID) {
+                            this->app.scene->viewport->moveParallel(0.01f, 0);
+                            this->app.scene->viewport->moveParallel(-0.01f, 0);
+                        }
+                    }
                 }
                 ImGui::Unindent(10.0f);
                 ImGui::EndDisabled();

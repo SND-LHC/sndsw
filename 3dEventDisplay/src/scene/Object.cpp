@@ -46,19 +46,19 @@ namespace snd3D {
     
     }
 
-    void Object::render(const Viewport& viewport, bool showAnchor, const std::vector<std::unique_ptr<PointLight>>& lights, const float edgeAlphaValue, const float faceAlphaValue, const float edgeThickness) {
+    void Object::render(const Viewport& viewport, bool showAnchor, const float ambientLight, const std::vector<std::unique_ptr<PointLight>>& lights, const float edgeAlphaValue, const float faceAlphaValue, const float edgeThickness) {
         if (this->active) {
             this->shader->use();
-            this->shader->bindGlobalUniforms(viewport.getViewMatrix(), viewport.getProjectionMatrix(), viewport.getCameraPosition(), lights, edgeAlphaValue, faceAlphaValue, edgeThickness);
+            this->shader->bindGlobalUniforms(viewport.getViewMatrix(), viewport.getProjectionMatrix(), viewport.getCameraPosition(), ambientLight, lights, edgeAlphaValue, faceAlphaValue, edgeThickness);
             // Using the render mode without passing model matrix beacuse we calculated it in the object creation
             this->rootNode->render(showAnchor, this->shader.get());
         }
     }
 
-    void Object::renderBuffered(const Viewport& viewport, bool showAnchor, const std::vector<std::unique_ptr<PointLight>>& lights, const float edgeAlphaValue, const float faceAlphaValue, const float edgeThickness) {
+    void Object::renderBuffered(const Viewport& viewport, bool showAnchor, const float ambientLight, const std::vector<std::unique_ptr<PointLight>>& lights, const float edgeAlphaValue, const float faceAlphaValue, const float edgeThickness) {
         if (this->active) {
             this->shader->use();
-            this->shader->bindGlobalUniforms(viewport.getViewMatrix(), viewport.getProjectionMatrix(), viewport.getCameraPosition(), lights, edgeAlphaValue, faceAlphaValue, edgeThickness);
+            this->shader->bindGlobalUniforms(viewport.getViewMatrix(), viewport.getProjectionMatrix(), viewport.getCameraPosition(), ambientLight, lights, edgeAlphaValue, faceAlphaValue, edgeThickness);
 
             for (Mesh* mesh: this->meshes) {
                 mesh->render(showAnchor, this->shader.get());

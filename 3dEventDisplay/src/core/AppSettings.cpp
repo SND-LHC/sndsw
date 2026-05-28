@@ -89,6 +89,14 @@ namespace snd3D {
         this->lightingChanged = true;
     }
 
+    float AppSettings::getAmbientLightPower() {
+        return this->ambientLightPower;
+    }
+
+    void AppSettings::setAmbientLightPower(const float power) {
+        this->ambientLightPower = glm::clamp(power, constants::limits::AMBIENT_LIGHT_POWER_MIN, constants::limits::AMBIENT_LIGHT_POWER_MAX);
+    }
+
     float AppSettings::getEdgeAlphaValue() {
         return this->edgeAlphaValue;
     }

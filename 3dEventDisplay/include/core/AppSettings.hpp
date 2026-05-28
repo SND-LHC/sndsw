@@ -28,6 +28,8 @@ namespace snd3D {
             bool isLightingEnabled();
             bool isLightingChanged();
             void toggleLighting();
+            float getAmbientLightPower();
+            void setAmbientLightPower(const float power);
             float getEdgeAlphaValue();
             void setEdgeAlphaValue(const float alpha);
             float getFaceAlphaValue();
@@ -52,6 +54,7 @@ namespace snd3D {
             bool colorScaleActive = true;
             bool transparency = constants::defaults::TRANSPARENCY, transparencyChanged = true;
             bool lighting = constants::defaults::LIGHTING, lightingChanged = true; 
+            float ambientLightPower = constants::defaults::AMBIENT_LIGHT_POWER;
             float edgeAlphaValue = constants::defaults::EDGE_ALPHA_VALUE;
             float faceAlphaValue = constants::defaults::FACE_ALPHA_VALUE;
             float edgeThickness = constants::defaults::EDGE_THICKNESS;

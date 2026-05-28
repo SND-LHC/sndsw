@@ -19,6 +19,8 @@ namespace snd3D::constants {
         inline constexpr int MAX_FPS = 60;
         inline constexpr float LIGHT_POWER_MIN = 0;
         inline constexpr float LIGHT_POWER_MAX = 2;
+        inline constexpr float AMBIENT_LIGHT_POWER_MIN = 0;
+        inline constexpr float AMBIENT_LIGHT_POWER_MAX = 2;
     }
 
     namespace defaults {
@@ -27,6 +29,7 @@ namespace snd3D::constants {
         inline constexpr bool SHOW_AXIS = true;
         inline constexpr bool TRANSPARENCY = true;
         inline constexpr bool LIGHTING = false;
+        inline constexpr float AMBIENT_LIGHT_POWER = 0.5f;
         inline constexpr float EDGE_ALPHA_VALUE = 0.15f;
         inline constexpr float FACE_ALPHA_VALUE = 0.03f;
         inline constexpr float EDGE_THICKNESS = 1.5f;

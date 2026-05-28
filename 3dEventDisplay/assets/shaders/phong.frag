@@ -21,8 +21,7 @@ struct Material {
 uniform Material material; // Material propreties
 uniform PointLight lights[MAX_LIGHTS]; // Propreties of each light in the scene
 uniform int numLights;
-
-float ambientLightIntensity = 0.4;
+uniform float uAmbientLightIntensity;
 
 // SHADER INPUT (from the vertex shader)
 in vec3 N, V, L[MAX_LIGHTS];
@@ -33,7 +32,7 @@ out vec4 FragColor;
 void main() {
 
     // ----- AMBIENT COMPONENT -----
-    vec3 ambient = ambientLightIntensity * material.ambient;
+    vec3 ambient = uAmbientLightIntensity * material.ambient;
 
     // Light contributions accumulator, starting with ambient light (which is not depending on the lights)
     vec3 baseColor = ambient;

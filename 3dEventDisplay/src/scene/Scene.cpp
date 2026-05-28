@@ -92,10 +92,10 @@ namespace snd3D {
                 glDisable(GL_BLEND);   // Don't use transparency
 
                 if (this->settings.isCameraPivotActive() && this->stateManager.getCurrentState() != AppState::EXPORT_IMAGE) {
-                    this->pivot->render(*this->viewport, false, this->lights);
+                    this->pivot->render(*this->viewport, false, this->settings.getAmbientLightPower(), this->lights);
                 }
 
-                this->hits->render(*this->viewport, false, this->lights);
+                this->hits->render(*this->viewport, false, this->settings.getAmbientLightPower(), this->lights);
 
                 // TRANSPARENT MESHES RENDERING
                 // The transparency function is set in the OpenGL initialization: GL_ONE_MINUS_SRC_ALPHA
@@ -104,7 +104,7 @@ namespace snd3D {
                     glDepthMask(GL_FALSE);  // Don't write on the depth-buffer, otherwise further away meshes won't be rendered
                 }
 
-                this->detector->renderBuffered(*this->viewport, false, this->lights, this->settings.getEdgeAlphaValue(), this->settings.getFaceAlphaValue(), this->settings.getEdgeThickness());
+                this->detector->renderBuffered(*this->viewport, false, this->settings.getAmbientLightPower(), this->lights, this->settings.getEdgeAlphaValue(), this->settings.getFaceAlphaValue(), this->settings.getEdgeThickness());
 
                 if (this->settings.isTransparencyEnabled()) {
                     glDepthMask(GL_TRUE);   // Final reset

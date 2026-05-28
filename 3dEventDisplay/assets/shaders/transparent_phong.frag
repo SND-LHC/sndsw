@@ -28,8 +28,7 @@ uniform float uEdgeThickness;
 uniform Material material; // Material propreties
 uniform PointLight lights[MAX_LIGHTS]; // Propreties of each light in the scene
 uniform int numLights;
-
-float ambientLightIntensity = 0.4;
+uniform float uAmbientLightIntensity;
 
 in vec3 localPos;
 in vec3 barycentric; // The interpolation will fill the correct barycentric coordinates for each fragment
@@ -43,7 +42,7 @@ void main() {
      */
 
     // ----- AMBIENT COMPONENT -----
-    vec3 ambient = ambientLightIntensity * material.ambient;
+    vec3 ambient = uAmbientLightIntensity * material.ambient;
 
     // Light contributions accumulator, starting with ambient light (which is not depending on the lights)
     vec3 baseColor = ambient;
