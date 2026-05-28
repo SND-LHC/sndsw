@@ -31,13 +31,7 @@ DriftTubeHit::DriftTubeHit(Int_t detID, const Double_t& m_timestamp) : TObject()
 DriftTubeHit::DriftTubeHit(int detID, std::vector<DriftTubePoint *> V, std::vector<Float_t> W)
 {
    DriftTube *DriftTubeDet = dynamic_cast<DriftTube *>(gROOT->GetListOfGlobals()->FindObject("DriftTube"));
-   // Float_t timeResol = DriftTubeDet->GetConfParF("DriftTube/timeResol"); // example
-
-   // nSides = 1;
-   // for (unsigned int j = 0; j < 16; ++j) {
-   //    signals[j] = -1;
-   //    times[j] = -1;
-   // }
+   Float_t timeResol = DriftTubeDet->GetConfParF("DriftTube/timeResol"); // example
 
    for (auto p = std::begin(V); p != std::end(V); ++p) {
 
