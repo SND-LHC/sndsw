@@ -20,6 +20,7 @@ namespace snd3D {
             void render();
             void changeFontSize(float factor);
             bool isPointerUsedByGui();
+            bool isKeyboardUsedByGui();
 
         private:
             App& app;

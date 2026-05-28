@@ -157,6 +157,11 @@ namespace snd3D {
         return io.WantCaptureMouse;
     }
 
+    bool Gui::isKeyboardUsedByGui() {
+        ImGuiIO& io = ImGui::GetIO();
+        return ImGui::IsAnyItemActive() && io.WantCaptureKeyboard;
+    }
+
     void Gui::drawMenuBar() {
         bool interactionState = this->app.stateManager.getCurrentState() == AppState::INTERACTION;
         if (ImGui::BeginMainMenuBar()) {
@@ -196,6 +201,10 @@ namespace snd3D {
             }
             if (ImGui::BeginMenu("View")) {
                 if (!interactionState) ImGui::BeginDisabled();
+                bool transparency = this->app.settings.isTransparencyEnabled();
+                if (ImGui::MenuItem("Transparency", "T", transparency)) {
+                    this->app.settings.toggleTransparency();
+                }
                 bool lighting = this->app.settings.isLightingEnabled();
                 if (ImGui::MenuItem("Lighting", "L", lighting)) {
                     this->app.settings.toggleLighting();

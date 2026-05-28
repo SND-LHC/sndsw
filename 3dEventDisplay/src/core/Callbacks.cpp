@@ -43,6 +43,7 @@ namespace snd3D {
     /* ---------- INSTANCE METHODS ----------*/
 
     void Callbacks::keyAction(int key, int scancode, int action, int mods) {
+        if (this->app.guiManager->isKeyboardUsedByGui()) return;
         if (action != GLFW_PRESS && (key != GLFW_KEY_LEFT_SHIFT && key != GLFW_KEY_RIGHT_SHIFT)) return;
 
         bool interactionState = this->app.stateManager.getCurrentState() == AppState::INTERACTION;
@@ -161,6 +162,10 @@ namespace snd3D {
 
                 case GLFW_KEY_S:
                     if (interactionState) this->app.settings.toggleSceneInspector();
+                    break;
+
+                case GLFW_KEY_T:
+                    if (interactionState) this->app.settings.toggleTransparency();
                     break;
 
                 case GLFW_KEY_V:
