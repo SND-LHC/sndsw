@@ -4,6 +4,8 @@
 #include <cstdint>
 #include <memory>
 
+#include <imgui.h>
+
 #include "scene/Node.hpp"
 #include "rendering/engine/Texture.hpp"
 #include "io/ClusterConfiguration.hpp"
@@ -29,6 +31,8 @@ namespace snd3D {
             int64_t runInputNumber = 0;     // Used as a buffer for run number input
             int64_t eventInputNumber = 0;   // Used as a buffer for event number input
             std::unique_ptr<Texture> logo;
+            ImFont* italicFont;
+
             bool needsFocus = true;
             std::unique_ptr<ClusterConfiguration> clusterConfig; // Used as a buffer for cluster configuration
 

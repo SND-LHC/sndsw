@@ -2,13 +2,13 @@
 
 #include <iostream>
 
-#include <imgui.h>
 #include <imgui_impl_glfw.h>
 #include <imgui_impl_opengl3.h>
 #include <ImGuiFileDialog.h>
 #include <glm/gtc/type_ptr.hpp>
 
 #include "ui/JetBrainsMono.h"
+#include "ui/JetBrainsMonoItalic.h"
 #include "core/App.hpp"
 #include "core/Constants.hpp"
 #include "scene/Node.hpp"
@@ -36,6 +36,13 @@ namespace snd3D {
         if (font == nullptr) {
             io.Fonts->AddFontDefault();
         }
+
+        this->italicFont = io.Fonts->AddFontFromMemoryCompressedTTF( // Load JetBrainsMonoItalic
+            jetbrains_mono_italic_compressed_data,
+            jetbrains_mono_italic_compressed_size,
+            constants::sizes::FONT
+        );
+
         ImGui::StyleColorsDark(); // Set ImGUI dark theme
         ImGui_ImplGlfw_InitForOpenGL(this->app.windowManager->getWindow(), true);
         ImGui_ImplOpenGL3_Init("#version 330 core");
@@ -329,7 +336,7 @@ namespace snd3D {
             // Move FPS label at the end of the window
             float fps = ImGui::GetIO().Framerate;
             char label[50];
-            sprintf(label, "%s - %05.1f FPS", appStateToString(this->app.stateManager.getCurrentState()), fps);
+            sprintf(label, "%s - % 5.1f FPS", appStateToString(this->app.stateManager.getCurrentState()), fps);
             float textWidth = ImGui::CalcTextSize(label).x;
             float padding = ImGui::GetStyle().ItemSpacing.x;
             ImGui::SetCursorPosX(ImGui::GetWindowWidth() - textWidth - padding);
@@ -642,14 +649,47 @@ namespace snd3D {
             | ImGuiWindowFlags_AlwaysAutoResize
             | ImGuiWindowFlags_NoMove
             | ImGuiWindowFlags_NoCollapse
+            | ImGuiWindowFlags_NoTitleBar
         );
-        ImGui::TextWrapped("Insert the RUN number");
+
+        ImGui::Dummy(ImVec2(0.0f, constants::sizes::TOP_PADDING));
+        ImGui::BeginTable("RunSelector", 2, ImGuiTableFlags_None);
+
+        ImGui::TableSetupColumn("Logo", ImGuiTableColumnFlags_WidthFixed, this->logo.get() != nullptr ? this->logo->getWidth() : 128);
+        ImGui::TableSetupColumn("Text", ImGuiTableColumnFlags_WidthStretch);
+
+        ImGui::TableNextRow();
+
+        ImGui::TableSetColumnIndex(0);
+        ImGui::Indent(constants::sizes::PADDING);
+        if (this->logo.get() != nullptr) {
+            ImGui::Image(this->logo->getProgramId(), ImVec2(this->logo->getWidth(), this->logo->getHeight()));
+        } else {
+            ImGui::Button("SND LOGO\nNot Found", ImVec2(128, 128));
+        }
+        ImGui::Unindent(constants::sizes::PADDING);
+
+        ImGui::TableSetColumnIndex(1);
+        ImGui::Indent(constants::sizes::TABLE_COLUMN_PADDING);
+
+        ImGui::SetWindowFontScale(1.5f);
+        ImGui::Text(constants::defaults::TITLE);
+        ImGui::SetWindowFontScale(1.0f);
+        if (this->italicFont != nullptr) ImGui::PushFont(this->italicFont);
+        ImGui::Text("Select Run");
+        if (this->italicFont != nullptr) ImGui::PopFont();
+        ImGui::SetWindowFontScale(1.5f);
         ImGui::NewLine();
+        ImGui::SetWindowFontScale(1.0f);
+
+        ImGui::Text("Run Number");
+        ImGui::SetNextItemWidth(250.0f);
         if (this->needsFocus) {
             ImGui::SetKeyboardFocusHere(0);
             this->needsFocus = false;
         }
-        ImGui::InputScalar("Run Number", ImGuiDataType_S64, &this->runInputNumber);
+        ImGui::InputScalar("##RunNumber", ImGuiDataType_S64, &this->runInputNumber);
+        ImGui::NewLine();
         ImGui::NewLine();
 
         bool isInvalid = this->runInputNumber < 0;
@@ -672,6 +712,8 @@ namespace snd3D {
             this->app.stateManager.close();
         }
 
+        ImGui::Unindent(constants::sizes::TABLE_COLUMN_PADDING);
+        ImGui::EndTable();
         ImGui::End();
     }
 
@@ -689,11 +731,50 @@ namespace snd3D {
             | ImGuiWindowFlags_AlwaysAutoResize
             | ImGuiWindowFlags_NoMove
             | ImGuiWindowFlags_NoCollapse
+            | ImGuiWindowFlags_NoTitleBar
         );
+
+        ImGui::Dummy(ImVec2(0.0f, constants::sizes::TOP_PADDING));
+
+        ImGui::BeginTable("DataLoading", 2, ImGuiTableFlags_None);
+
+        ImGui::TableSetupColumn("Logo", ImGuiTableColumnFlags_WidthFixed, this->logo.get() != nullptr ? this->logo->getWidth() : 128);
+        ImGui::TableSetupColumn("Text", ImGuiTableColumnFlags_WidthStretch);
+
+        ImGui::TableNextRow();
+
+        ImGui::TableSetColumnIndex(0);
+        ImGui::Indent(constants::sizes::PADDING);
+        if (this->logo.get() != nullptr) {
+            ImGui::Image(this->logo->getProgramId(), ImVec2(this->logo->getWidth(), this->logo->getHeight()));
+        } else {
+            ImGui::Button("SND LOGO\nNot Found", ImVec2(128, 128));
+        }
+        ImGui::Unindent(constants::sizes::PADDING);
+
+        ImGui::TableSetColumnIndex(1);
+
+        ImGui::Indent(constants::sizes::TABLE_COLUMN_PADDING);
+
+        ImGui::SetWindowFontScale(1.5f);
+        ImGui::Text(constants::defaults::TITLE);
+        ImGui::SetWindowFontScale(1.0f);
+        if (this->italicFont != nullptr) ImGui::PushFont(this->italicFont);
+        ImGui::Text("Loading Data");
+        if (this->italicFont != nullptr) ImGui::PopFont();
+        ImGui::SetWindowFontScale(1.5f);
+        ImGui::NewLine();
+        ImGui::SetWindowFontScale(1.0f);
+
+        if (this->italicFont != nullptr) ImGui::PushFont(this->italicFont);
         ImGui::TextWrapped("Please Wait...");
+        if (this->italicFont != nullptr) ImGui::PopFont();
+
         ImGui::NewLine();
         ImGui::TextWrapped(this->app.stateManager.getMessage().c_str());
 
+        ImGui::Unindent(constants::sizes::TABLE_COLUMN_PADDING);
+        ImGui::EndTable();
         ImGui::End();
     }
 
@@ -711,22 +792,66 @@ namespace snd3D {
             | ImGuiWindowFlags_AlwaysAutoResize
             | ImGuiWindowFlags_NoMove
             | ImGuiWindowFlags_NoCollapse
+            | ImGuiWindowFlags_NoTitleBar
         );
 
+        ImGui::Dummy(ImVec2(0.0f, constants::sizes::TOP_PADDING));
+        ImGui::BeginTable("EventSelector", 2, ImGuiTableFlags_None);
+
+        ImGui::TableSetupColumn("Logo", ImGuiTableColumnFlags_WidthFixed, this->logo.get() != nullptr ? this->logo->getWidth() : 128);
+        ImGui::TableSetupColumn("Text", ImGuiTableColumnFlags_WidthStretch);
+
+        ImGui::TableNextRow();
+
+        ImGui::TableSetColumnIndex(0);
+        ImGui::Indent(constants::sizes::PADDING);
+        if (this->logo.get() != nullptr) {
+            ImGui::Image(this->logo->getProgramId(), ImVec2(this->logo->getWidth(), this->logo->getHeight()));
+        } else {
+            ImGui::Button("SND LOGO\nNot Found", ImVec2(128, 128));
+        }
+
         const RunData* run = this->app.stateManager.getRun();
-        ImGui::Text("RUN N° %d", run->runNumber);
-        ImGui::Text("Date: %s", run->startDate.c_str());
-        ImGui::Text("Num entries: %d", run->totalEvents);
+
         ImGui::NewLine();
-        ImGui::TextWrapped("Insert the EVENT number");
+        ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.6f, 0.6f, 0.6f, 1.0f));
+        ImGui::Text("RUN N°");
+        ImGui::PopStyleColor();
+        ImGui::Text("%d", run->runNumber);
+
+        ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.6f, 0.6f, 0.6f, 1.0f));
+        ImGui::Text("Date");
+        ImGui::PopStyleColor();
+        ImGui::Text(run->startDate.c_str());
+
+        ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.6f, 0.6f, 0.6f, 1.0f));
+        ImGui::Text("Num entries");
+        ImGui::PopStyleColor();
+        ImGui::Text("%d", run->totalEvents);
+
+        ImGui::Unindent(constants::sizes::PADDING);
+
+        ImGui::TableSetColumnIndex(1);
+        ImGui::Indent(constants::sizes::TABLE_COLUMN_PADDING);
+
+        ImGui::SetWindowFontScale(1.5f);
+        ImGui::Text(constants::defaults::TITLE);
+        ImGui::SetWindowFontScale(1.0f);
+        if (this->italicFont != nullptr) ImGui::PushFont(this->italicFont);
+        ImGui::Text("Select Event");
+        if (this->italicFont != nullptr) ImGui::PopFont();
+        ImGui::SetWindowFontScale(1.5f);
         ImGui::NewLine();
+        ImGui::SetWindowFontScale(1.0f);
+
+        ImGui::TextWrapped("Event Number");
+        ImGui::SetNextItemWidth(250.0f);
         if (this->needsFocus) {
             ImGui::SetKeyboardFocusHere(0);
             this->needsFocus = false;
         }
-        ImGui::InputScalar("Event Number", ImGuiDataType_S64, &this->eventInputNumber);
+        ImGui::InputScalar("##Event Number", ImGuiDataType_S64, &this->eventInputNumber);
         ImGui::NewLine();
-
 
         ImGui::BeginTable("EventData", 2, ImGuiTableFlags_None);
 
@@ -747,35 +872,52 @@ namespace snd3D {
                 if (ImGui::BeginTabItem("Veto")) {
                     ImGui::InputInt("Min Entries", &this->clusterConfig->vetoMinHitInCluster);
                     ImGui::InputDouble("Max Gap", &this->clusterConfig->vetoMaxGap, 0, 0, "%.2f");
+                    if (ImGui::Button("Reset Veto")) {
+                        this->clusterConfig->vetoMinHitInCluster = constants::defaults::clusters::VETO_MIN_HIT;
+                        this->clusterConfig->vetoMaxGap = constants::defaults::clusters::VETO_MAX_GAP;
+                    }
                     ImGui::EndTabItem();
                 }
                 
                 if (ImGui::BeginTabItem("SciFi")) {
                     ImGui::InputInt("Min Entries", &this->clusterConfig->sciFiMinHitInCluster);
                     ImGui::InputDouble("Max Gap", &this->clusterConfig->sciFiMaxGap, 0, 0, "%.2f");
+                    if (ImGui::Button("Reset SciFi")) {
+                        this->clusterConfig->sciFiMinHitInCluster = constants::defaults::clusters::SCIFI_MIN_HIT;
+                        this->clusterConfig->sciFiMaxGap = constants::defaults::clusters::SCIFI_MAX_GAP;
+                    }
                     ImGui::EndTabItem();
                 }
                 
                 if (ImGui::BeginTabItem("US")) {
                     ImGui::InputInt("Min Entries", &this->clusterConfig->usMinHitInCluster);
                     ImGui::InputDouble("Max Gap", &this->clusterConfig->usMaxGap, 0, 0, "%.2f");
+                    if (ImGui::Button("Reset US")) {
+                        this->clusterConfig->usMinHitInCluster = constants::defaults::clusters::US_MIN_HIT;
+                        this->clusterConfig->usMaxGap = constants::defaults::clusters::US_MAX_GAP;
+                    }
                     ImGui::EndTabItem();
                 }
                 
                 if (ImGui::BeginTabItem("DS")) {
                     ImGui::InputInt("Min Entries", &this->clusterConfig->dsMinHitInCluster);
                     ImGui::InputDouble("Max Gap", &this->clusterConfig->dsMaxGap, 0, 0, "%.2f");
+                    if (ImGui::Button("Reset DS")) {
+                        this->clusterConfig->dsMinHitInCluster = constants::defaults::clusters::DS_MIN_HIT;
+                        this->clusterConfig->dsMaxGap = constants::defaults::clusters::DS_MAX_GAP;
+                    }
                     ImGui::EndTabItem();
                 }
 
                 ImGui::EndTabBar();
+                ImGui::NewLine();
             }
             ImGui::PopStyleColor(3);
         }
 
         ImGui::TableSetColumnIndex(1);
 
-        ImGui::Indent(50.0f);
+        ImGui::Indent(constants::sizes::TABLE_COLUMN_PADDING);
 
         if (ImGui::CollapsingHeader("Color Configuration", ImGuiTreeNodeFlags_DefaultOpen)) {
 
@@ -807,10 +949,8 @@ namespace snd3D {
 
         }
 
-        ImGui::Unindent(50.0f);
-
+        ImGui::Unindent(constants::sizes::TABLE_COLUMN_PADDING);
         ImGui::EndTable();
-
         ImGui::NewLine();
 
         bool isInvalid = this->eventInputNumber < 0 || this->eventInputNumber >= run->totalEvents;
@@ -833,6 +973,7 @@ namespace snd3D {
             this->app.stateManager.close();
         }
 
+        ImGui::EndTable();
         ImGui::End();
     }
 
@@ -850,15 +991,71 @@ namespace snd3D {
             | ImGuiWindowFlags_AlwaysAutoResize
             | ImGuiWindowFlags_NoMove
             | ImGuiWindowFlags_NoCollapse
+            | ImGuiWindowFlags_NoTitleBar
         );
 
+        ImGui::Dummy(ImVec2(0.0f, constants::sizes::TOP_PADDING));
+        ImGui::BeginTable("DefaultGeometryFailed", 2, ImGuiTableFlags_None);
+
+        ImGui::TableSetupColumn("Logo", ImGuiTableColumnFlags_WidthFixed, this->logo.get() != nullptr ? this->logo->getWidth() : 128);
+        ImGui::TableSetupColumn("Text", ImGuiTableColumnFlags_WidthStretch);
+
+        ImGui::TableNextRow();
+
+        ImGui::TableSetColumnIndex(0);
+        ImGui::Indent(constants::sizes::PADDING);
+        if (this->logo.get() != nullptr) {
+            ImGui::Image(this->logo->getProgramId(), ImVec2(this->logo->getWidth(), this->logo->getHeight()));
+        } else {
+            ImGui::Button("SND LOGO\nNot Found", ImVec2(128, 128));
+        }
+
         const RunData* run = this->app.stateManager.getRun();
-        ImGui::Text("RUN N° %d", run->runNumber);
-        ImGui::Text("Start date: %s", run->startDate.c_str());
-        ImGui::Text("Required geometry file: %s", run->geoName.c_str());
+
         ImGui::NewLine();
+        ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.6f, 0.6f, 0.6f, 1.0f));
+        ImGui::Text("RUN N°");
+        ImGui::PopStyleColor();
+        ImGui::Text("%d", run->runNumber);
+
+        ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.6f, 0.6f, 0.6f, 1.0f));
+        ImGui::Text("Date");
+        ImGui::PopStyleColor();
+        ImGui::Text(run->startDate.c_str());
+
+        ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.6f, 0.6f, 0.6f, 1.0f));
+        ImGui::Text("Num entries");
+        ImGui::PopStyleColor();
+        ImGui::Text("%d", run->totalEvents);
+
+        ImGui::Unindent(constants::sizes::PADDING);
+
+        ImGui::TableSetColumnIndex(1);
+        ImGui::Indent(constants::sizes::TABLE_COLUMN_PADDING);
+
+        ImGui::SetWindowFontScale(1.5f);
+        ImGui::Text(constants::defaults::TITLE);
+        ImGui::SetWindowFontScale(1.0f);
+        if (this->italicFont != nullptr) ImGui::PushFont(this->italicFont);
+        ImGui::Text("Select Geometry");
+        if (this->italicFont != nullptr) ImGui::PopFont();
+        ImGui::SetWindowFontScale(1.5f);
+        ImGui::NewLine();
+        ImGui::SetWindowFontScale(1.0f);
+
         ImGui::TextWrapped("I wasn't able to open the file:");
+        if (this->italicFont != nullptr) ImGui::PushFont(this->italicFont);
         ImGui::TextWrapped(this->app.stateManager.getDetectorPath().c_str());
+        if (this->italicFont != nullptr) ImGui::PopFont();
+        ImGui::NewLine();
+
+        ImGui::TextWrapped("Required geometry file:");
+        ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(1.0f, 0.8f, 0.2f, 1.0f));
+        if (this->italicFont != nullptr) ImGui::PushFont(this->italicFont);
+        ImGui::TextWrapped(run->geoName.c_str());
+        if (this->italicFont != nullptr) ImGui::PopFont();
+        ImGui::PopStyleColor();
+
         ImGui::NewLine();
         ImGui::TextWrapped("Open manually a geometry asset to initialize the 3D viewport.");
         ImGui::TextWrapped("Click the button below to browse your local files.");
@@ -882,6 +1079,8 @@ namespace snd3D {
             this->app.stateManager.close();
         }
 
+        ImGui::Unindent(constants::sizes::TABLE_COLUMN_PADDING);
+        ImGui::EndTable();
         ImGui::End();
     }
 
@@ -899,7 +1098,40 @@ namespace snd3D {
             | ImGuiWindowFlags_AlwaysAutoResize
             | ImGuiWindowFlags_NoMove
             | ImGuiWindowFlags_NoCollapse
+            | ImGuiWindowFlags_NoTitleBar
         );
+
+        ImGui::Dummy(ImVec2(0.0f, constants::sizes::TOP_PADDING));
+
+        ImGui::BeginTable("InitError", 2, ImGuiTableFlags_None);
+
+        ImGui::TableSetupColumn("Logo", ImGuiTableColumnFlags_WidthFixed, this->logo.get() != nullptr ? this->logo->getWidth() : 128);
+        ImGui::TableSetupColumn("Text", ImGuiTableColumnFlags_WidthStretch);
+
+        ImGui::TableNextRow();
+
+        ImGui::TableSetColumnIndex(0);
+        ImGui::Indent(constants::sizes::PADDING);
+        if (this->logo.get() != nullptr) {
+            ImGui::Image(this->logo->getProgramId(), ImVec2(this->logo->getWidth(), this->logo->getHeight()));
+        } else {
+            ImGui::Button("SND LOGO\nNot Found", ImVec2(128, 128));
+        }
+        ImGui::Unindent(constants::sizes::PADDING);
+
+        ImGui::TableSetColumnIndex(1);
+
+        ImGui::Indent(constants::sizes::TABLE_COLUMN_PADDING);
+
+        ImGui::SetWindowFontScale(1.5f);
+        ImGui::Text(constants::defaults::TITLE);
+        ImGui::SetWindowFontScale(1.0f);
+        if (this->italicFont != nullptr) ImGui::PushFont(this->italicFont);
+        ImGui::Text("Initialization Error");
+        if (this->italicFont != nullptr) ImGui::PopFont();
+        ImGui::SetWindowFontScale(1.5f);
+        ImGui::NewLine();
+        ImGui::SetWindowFontScale(1.0f);
 
         ImGui::TextWrapped(this->app.stateManager.getMessage().c_str());
         ImGui::NewLine();
@@ -913,6 +1145,8 @@ namespace snd3D {
             this->app.stateManager.close();
         }
 
+        ImGui::Unindent(constants::sizes::TABLE_COLUMN_PADDING);
+        ImGui::EndTable();
         ImGui::End();
     }
 
@@ -958,7 +1192,7 @@ namespace snd3D {
             }
 
             ImGui::TableSetColumnIndex(1);
-            ImGui::Indent(10.0f);
+            ImGui::Indent(constants::sizes::PADDING);
             ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.6f, 0.6f, 0.6f, 1.0f));
             ImGui::Text("Run N°");
             ImGui::Spacing();
@@ -966,7 +1200,7 @@ namespace snd3D {
             ImGui::Spacing();
             ImGui::Text("Time (GMT)");
             ImGui::PopStyleColor();
-            ImGui::Unindent(10.0f);
+            ImGui::Unindent(constants::sizes::PADDING);
 
             ImGui::TableSetColumnIndex(2);
             ImGui::Text("%d", this->app.stateManager.getRun()->runNumber);
@@ -1070,7 +1304,7 @@ namespace snd3D {
             ImGui::TableNextRow();
 
             ImGui::TableSetColumnIndex(0);
-            ImGui::Indent(10.0f);
+            ImGui::Indent(constants::sizes::PADDING);
             ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.6f, 0.6f, 0.6f, 1.0f));
             ImGui::Text("Veto Max Gap");
             ImGui::Spacing();
@@ -1088,7 +1322,7 @@ namespace snd3D {
             ImGui::Spacing();
             ImGui::Text("DS Min Entries");
             ImGui::PopStyleColor();
-            ImGui::Unindent(10.0f);
+            ImGui::Unindent(constants::sizes::PADDING);
 
             ImGui::TableSetColumnIndex(1);
             ClusterConfiguration* config = this->app.stateManager.getClusterConfiguration();

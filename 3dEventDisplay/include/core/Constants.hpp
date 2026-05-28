@@ -36,6 +36,7 @@ namespace snd3D::constants {
         inline constexpr bool ORTHOGRAPHIC_PROJECTION = false;
         inline constexpr int AXIS_WIDGET_SIZE = 100;
         inline constexpr int AXIS_WIDGET_MARGIN = 20;
+        inline constexpr const char* TITLE = "SND@LHC 3D Event Display";
 
         namespace colors {
             inline constexpr float BACKGROUND_R = 0;
@@ -55,7 +56,7 @@ namespace snd3D::constants {
         namespace window {
             inline constexpr int WIDTH = 1280;
             inline constexpr int HEIGHT = 720;
-            inline constexpr const char* NAME = "SND 3D Event Display";
+            inline constexpr const char* NAME = "SND@LHC 3D Event Display";
             inline constexpr bool VSYNC = false;
         }
 
@@ -92,6 +93,8 @@ namespace snd3D::constants {
         inline constexpr int ANCHOR = 15;
         inline constexpr float PIVOT = 3;
         inline constexpr int PADDING = 10;
+        inline constexpr int TOP_PADDING = 20;
+        inline constexpr int TABLE_COLUMN_PADDING = 50;
         inline constexpr float AXIS = 2.5f;
         inline constexpr float COLOR_SCALE_WIDTH = 300;
         inline constexpr float COLOR_SCALE_HEIGHT = 20;
