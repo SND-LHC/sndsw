@@ -1,7 +1,7 @@
 #include "rendering/engine/GpuMeshFactory.hpp"
 
-#include <vector>
 #include <iostream>
+#include <cfloat>
 
 #include <glm/gtc/constants.hpp>
 
@@ -59,7 +59,7 @@ namespace snd3D {
             }
         }
 
-        return new GpuMesh(vertices, colors, normals, indices, vertices[0]);
+        return new GpuMesh(vertices, colors, normals, indices, computeCenter(vertices));
     }
 
     GpuMesh* GpuMeshFactory::createCube(vec4 baseColor) {
@@ -113,7 +113,7 @@ namespace snd3D {
 
         for (int i = 0; i < (int)vertices.size(); i++) colors.push_back(baseColor);
 
-        return new GpuMesh(vertices, colors, normals, indices, vertices[0]);
+        return new GpuMesh(vertices, colors, normals, indices, computeCenter(vertices));
     }
 
     GpuMesh* GpuMeshFactory::loadAssimpMesh(aiMesh* mesh, vec4 baseColor) {
@@ -162,6 +162,18 @@ namespace snd3D {
             indices.push_back(mesh->mFaces[i].mIndices[2]);
         }
 
-        return new GpuMesh(vertices, colors, normals, indices, vertices[0]);
+        return new GpuMesh(vertices, colors, normals, indices, computeCenter(vertices));
+    }
+
+    vec3 GpuMeshFactory::computeCenter(const vector<vec3>& vertices) {
+        vec3 minV( FLT_MAX,  FLT_MAX,  FLT_MAX);
+        vec3 maxV(-FLT_MAX, -FLT_MAX, -FLT_MAX);
+
+        for (const auto& v : vertices) {
+            minV = glm::min(minV, v);
+            maxV = glm::max(maxV, v);
+        }
+
+        return (minV + maxV) * 0.5f;
     }
 }

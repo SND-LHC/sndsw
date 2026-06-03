@@ -1,5 +1,7 @@
 #pragma once
 
+#include <vector>
+
 #include <glm/glm.hpp>
 #include <assimp/mesh.h>
 
@@ -15,5 +17,6 @@ namespace snd3D {
         
         private:
             GpuMeshFactory() {}
+            static glm::vec3 computeCenter(const std::vector<glm::vec3>& vertices);
     };
 }
