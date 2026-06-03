@@ -95,7 +95,7 @@ set(LINK_DIRECTORIES
 
 link_directories(${LINK_DIRECTORIES})
 
-set(BINARY_NAME "snddisplay")
+set(BINARY_NAME "3dEventDisplay")
 
 add_executable(${BINARY_NAME} ${PROJECT_SOURCES})
 
