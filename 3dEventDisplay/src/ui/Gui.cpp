@@ -105,7 +105,7 @@ namespace snd3D {
                 this->drawEventDialog();
                 break;
 
-            case AppState::DEFAULT_GEOMETRY_FAILED:
+            case AppState::GEOMETRY_LOAD_FAILED:
                 this->drawDefaultGeometryFailed();
                 break;
 
@@ -113,7 +113,7 @@ namespace snd3D {
                 this->drawGeometryFileDialog();
                 break;
 
-            case AppState::INIT_ERROR:
+            case AppState::ERROR:
                 this->drawInitializationError();
                 break;
 

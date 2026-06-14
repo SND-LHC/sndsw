@@ -9,12 +9,12 @@ namespace snd3D {
         EVENT_LOAD,
         ROOT_GEOMETRY_LOAD,
         DEFAULT_GEOMETRY_LOAD,
-        DEFAULT_GEOMETRY_FAILED,
+        GEOMETRY_LOAD_FAILED,
         USER_GEOMETRY_CHOICE,
         USER_GEOMETRY_LOAD,
         
         SHOW_LOADING,
-        INIT_ERROR,
+        ERROR,
 
         // RUNTIME UPDATES
         CHANGE_GEOMETRY_START,
@@ -40,11 +40,11 @@ namespace snd3D {
             case AppState::EVENT_LOAD:              return "Loading event";
             case AppState::ROOT_GEOMETRY_LOAD:      return "Loading root geometry";
             case AppState::DEFAULT_GEOMETRY_LOAD:   return "Loading default geometry";
-            case AppState::DEFAULT_GEOMETRY_FAILED: return "Default geometry failed";
+            case AppState::GEOMETRY_LOAD_FAILED:    return "Geometry file load failed";
             case AppState::USER_GEOMETRY_CHOICE:    return "Choosing geometry";
             case AppState::USER_GEOMETRY_LOAD:      return "Loading user geometry";
             case AppState::SHOW_LOADING:            return "Loading data";
-            case AppState::INIT_ERROR:              return "Initialization Error";
+            case AppState::ERROR:                   return "Error";
             case AppState::CHANGE_GEOMETRY_START:   return "Opening new geometry";
             case AppState::CHANGE_GEOMETRY_BROWSE:  return "Choosing new geometry";
             case AppState::CHANGE_GEOMETRY_LOAD:    return "Loading new geometry";

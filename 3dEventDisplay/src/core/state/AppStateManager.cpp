@@ -142,7 +142,7 @@ namespace snd3D {
 
     void AppStateManager::openGeometryDialog() {
         switch (this->currentState) {
-            case AppState::DEFAULT_GEOMETRY_FAILED:
+            case AppState::GEOMETRY_LOAD_FAILED:
                 this->nextState = AppState::USER_GEOMETRY_CHOICE;
                 break;
 
@@ -225,12 +225,12 @@ namespace snd3D {
                 break;
 
             case AppState::DEFAULT_GEOMETRY_LOAD:
-                this->statesHistory.push(AppState::DEFAULT_GEOMETRY_FAILED);
+                this->statesHistory.push(AppState::GEOMETRY_LOAD_FAILED);
                 this->message = "Default geometry file not found:\n" + this->detectorPath;
                 break;
 
             case AppState::USER_GEOMETRY_LOAD:
-                this->statesHistory.push(AppState::DEFAULT_GEOMETRY_FAILED);
+                this->statesHistory.push(AppState::GEOMETRY_LOAD_FAILED);
                 this->message = "Error loading file:\n" + this->detectorPath;
                 break;
 
@@ -254,7 +254,7 @@ namespace snd3D {
                 return;
         }
 
-        this->nextState = AppState::INIT_ERROR;
+        this->nextState = AppState::ERROR;
 
         if (!exceptionMessage.empty()) this->message += "\n\nException message:\n" + exceptionMessage;
     }
@@ -262,10 +262,10 @@ namespace snd3D {
     void AppStateManager::previousStep() {
         switch (this->currentState) {
             case AppState::USER_GEOMETRY_CHOICE:
-                this->nextState = AppState::DEFAULT_GEOMETRY_FAILED;
+                this->nextState = AppState::GEOMETRY_LOAD_FAILED;
                 break;
 
-            case AppState::DEFAULT_GEOMETRY_FAILED:
+            case AppState::GEOMETRY_LOAD_FAILED:
                 this->nextState = AppState::RUN_CHOICE;
                 break;
 
@@ -273,7 +273,7 @@ namespace snd3D {
                 this->nextState = AppState::RUN_CHOICE;
                 break;
 
-            case AppState::INIT_ERROR:
+            case AppState::ERROR:
                 this->setNextStateFromHistory();
                 break;
 
