@@ -1,0 +1,440 @@
+---
+# Input paramameters used with the SND@LHC Hough transform tracking
+
+# Author: S.Ilieva
+
+# Date: 28 Jan 2023
+
+# Tracks stored in genfit::Track format, value 1,
+# or sndRecoTrack class, value 0
+genfitTrack: 0
+# Enable option to visualize the polulated Hough space. Usefull for tests.
+draw: 0
+
+tracking_case:
+  - nu_interaction_products:
+#     Which detectors to use in the tracks fit, in the format: vesfusds, 
+#     where [ve] is Veto, [sf] is SciFi, [us] is Upstream Muon Filter,
+#     and [ds] is Downstream Muon Filter.
+      hits_to_fit: sfusds
+#     Which detectors to use to validate a track fit attempt. Format as above.
+#     Detectors specified here are automatically used in the cathegory above.     
+      hits_to_validate: ds
+#     Use SciFi hits, value 0, or clusters, value 1
+      use_Scifi_clust: 0
+#     Minumum number of planes with measurement to start pattern recognition.
+#     Also, the required minimum number of planes intersected by
+#     the Hough line prediction to proceed to track fitting.
+      min_planes_hit: 3
+#     Mask a detector plane if its number of hits is larger than Nhits_per_plane.
+#     Masking is only applied to detectors used for Hough transform.
+#     Plane masking always leaves at least <min_planes_hit> active planes
+#     Plane masking will only be applied if solely Scifi hits are used in HT.
+      mask_plane: 0
+      Nhits_per_plane: 5
+#     Maximum number of fitted tracks per event
+      max_reco_muons: 6
+#     Maximum absolute value of reconstructed angle 
+#     (+/- 1 rad is the maximum angle to form a triplet in the SciFi)
+#     The unit field is helper and not used in the code!
+      max_angle:
+        unit: rad
+        value: 1.
+#     Number of random throws per measurement
+      n_random: 5
+#     How many more times muon filter hits are thrown compared to SciFi measurements?
+      mufi_weight: 100
+#     How far away from Hough line hits assigned to the muon can be?
+      tolerance:
+        unit: cm
+        value: 0.
+#     Enable Gaussian smoothing of the Hough-space image.
+#     For 'ds' HT prediction, do a full accumulator smoothing.
+      smooth_full: 1
+#     Gaussian filtering parameters. 
+#     The kernel size is determined as 2*int(truncate*sigma+0.5)+1.
+      sigma: 3
+      truncate: 4
+#     Define the chosen Hough parameter space.
+#     Choose parametrization. Options are
+#     normal (rho, theta) representation, or
+#     linear (slope, intecept), or
+#     linear (intercept@1st, intercept@last syb-system plane)
+      Hough_space_format:
+        - normal:
+            N_yH_bins: 1000
+            yH_min_xz:
+              unit: cm
+              value: -80.
+            yH_max_xz:
+              unit: cm
+              value: 0.
+            yH_min_yz:
+              unit: cm
+              value: 0.
+            yH_max_yz:
+              unit: cm
+              value: 80.
+            N_xH_bins: 2500
+            xH_min_xz:
+              unit: rad
+              value: -1.57
+            xH_max_xz:
+              unit: rad
+              value: 1.57
+            xH_min_yz:
+              unit: rad
+              value: -1.57
+            xH_max_yz:
+              unit: rad
+              value: 1.57
+        - linearSlopeIntercept:
+            N_yH_bins: 610
+            yH_min_xz:
+              unit: cm
+              value: -105.
+            yH_max_xz:
+              unit: cm
+              value: 17.
+            yH_min_yz:
+              unit: cm
+              value: 0.
+            yH_max_yz:
+              unit: cm
+              value: 122.
+            N_xH_bins: 220
+            xH_min_xz:
+              unit: rad
+              value: -1.1
+            xH_max_xz:
+              unit: rad
+              value: 1.1
+            xH_min_yz:
+              unit: rad
+              value: -1.1
+            xH_max_yz:
+              unit: rad
+              value: 1.1
+        - linearIntercepts:
+            N_yH_bins: 610
+            yH_min_xz:
+              unit: cm
+              value: -105.
+            yH_max_xz:
+              unit: cm
+              value: 17.
+            yH_min_yz:
+              unit: cm
+              value: 0.
+            yH_max_yz:
+              unit: cm
+              value: 122.
+            N_xH_bins: 610
+            xH_min_xz:
+             unit: cm
+             value: -105.
+            xH_max_xz:
+              unit: cm
+              value: 17.
+            xH_min_yz:
+              unit: cm
+              value: 0.
+            xH_max_yz:
+              unit: cm
+              value: 122.
+#     Helpers to select one HT space maxima among many.
+#     The n-th quantile of found peaks along 'slope' axis(yH axis) must enlose
+#     n_quantile portion of all maxima 'slope' bins within a res range.
+#     If smoothing is active, n_quantile and res are not used!
+      n_quantile: 0
+#     It is advisable to have res consistent with detector angular resolution. 
+#     The unit is Hough-space pixels.
+      res: 0
+#     A back-up Hough space with 'space_scale'*Nbins in xH and yH axes.
+#     It is used in events where the above-defined common HT space is not optimal.     
+      HT_space_scale: 1
+
+  - passing_mu_Sf:
+#     Which detectors to use in the tracks fit, in the format: vesfusds, 
+#     where [ve] is Veto, [sf] is SciFi, [us] is Upstream Muon Filter,
+#     and [ds] is Downstream Muon Filter.
+      hits_to_fit: sf
+#     Which detectors to use to validate a track fit attempt. Format as above.
+#     Detectors specified here are automatically used in the cathegory above.     
+      hits_to_validate: sf
+#     Use SciFi hits, value 0, or clusters, value 1
+      use_Scifi_clust: 0
+#     Minumum number of planes with measurement to start pattern recognition.
+#     Also, the required minimum number of planes intersected by
+#     the Hough line prediction to proceed to track fitting.
+      min_planes_hit: 3
+#     Mask a detector plane if its number of hits is larger than Nhits_per_plane.
+#     Masking is only applied to detectors used for Hough transform.
+#     Plane masking always leaves at least <min_planes_hit> active planes
+#     Plane masking will only be applied if solely Scifi hits are used in HT.
+      mask_plane: 0
+      Nhits_per_plane: 4
+#     Maximum number of fitted tracks per event
+      max_reco_muons: 1
+#     Maximum absolute value of reconstructed angle 
+#     (+/- 1 rad is the maximum angle to form a triplet in the SciFi)
+#     The unit field is helper and not used in the code!
+      max_angle:
+        unit: rad
+        value: 1.
+#     Number of random throws per measurement
+      n_random: 0
+#     How many more times muon filter hits are thrown compared to SciFi measurements?
+      mufi_weight: 1
+#     How far away from Hough line hits assigned to the muon can be?
+      tolerance:
+        unit: cm
+        value: 0.1
+#     Enable Gaussian smoothing of the Hough-space image.
+#     For 'ds' HT prediction, do a full accumulator smoothing.
+      smooth_full: 0
+#     Gaussian filtering parameters. 
+#     The kernel size is determined as 2*int(truncate*sigma+0.5)+1.
+      sigma: 3
+      truncate: 4
+#     Define the chosen Hough parameter space.
+#     Choose parametrization. Options are
+#     normal (rho, theta) representation, or
+#     linear (slope, intecept), or
+#     linear (intercept@1st, intercept@last syb-system plane)
+      Hough_space_format:
+        - normal:
+            N_yH_bins: 10000
+            yH_min_xz:
+              unit: cm
+              value: -85.
+            yH_max_xz:
+              unit: cm
+              value: 85.
+            yH_min_yz:
+              unit: cm
+              value: -85.
+            yH_max_yz:
+              unit: cm
+              value: 85.
+            N_xH_bins: 10000
+            xH_min_xz:
+              unit: rad
+              value: -1.57
+            xH_max_xz:
+              unit: rad
+              value: 1.57
+            xH_min_yz:
+              unit: rad
+              value: -1.57
+            xH_max_yz:
+              unit: rad
+              value: 1.57
+        - linearSlopeIntercept:
+            N_yH_bins: 7000
+            yH_min_xz:
+              unit: cm
+              value: -100.
+            yH_max_xz:
+              unit: cm
+              value: 40.
+            yH_min_yz:
+              unit: cm
+              value: -35.
+            yH_max_yz:
+              unit: cm
+              value: 105.
+            N_xH_bins: 7000
+            xH_min_xz:
+              unit: rad
+              value: -1.1
+            xH_max_xz:
+              unit: rad
+              value: 1.1
+            xH_min_yz:
+              unit: rad
+              value: -1.1
+            xH_max_yz:
+              unit: rad
+              value: 1.1
+        - linearIntercepts:
+            N_yH_bins: 7000
+            yH_min_xz:
+              unit: cm
+              value: -100.
+            yH_max_xz:
+              unit: cm
+              value: 40.
+            yH_min_yz:
+              unit: cm
+              value: -35.
+            yH_max_yz:
+              unit: cm
+              value: 105.
+            N_xH_bins: 7000
+            xH_min_xz:
+              unit: cm
+              value: -100.
+            xH_max_xz:
+              unit: cm
+              value: 40.
+            xH_min_yz:
+              unit: cm
+              value: -35.
+            xH_max_yz:
+              unit: cm
+              value: 105.
+#     Helpers to select one HT space maxima among many.
+#     The n-th quantile of found peaks along 'slope' axis(yH axis) must enlose
+#     n_quantile portion of all maxima 'slope' bins within a res range.
+#     If smoothing is active, n_quantile and res are not used!
+      n_quantile: 0.5
+#     It is advisable to have res consistent with detector angular resolution. 
+#     The unit is Hough-space pixels.
+      res: 50
+#     A back-up Hough space with 'space_scale'*Nbins in xH and yH axes.
+#     It is used in events where the above-defined common HT space is not optimal.     
+      HT_space_scale: 0.1
+
+  - passing_mu_DS:
+#     Which detectors to use in the tracks fit, in the format: vesfusds, 
+#     where [ve] is Veto, [sf] is SciFi, [us] is Upstream Muon Filter,
+#     and [ds] is Downstream Muon Filter.
+      hits_to_fit: ds
+#     Which detectors to use to validate a track fit attempt. Format as above.
+#     Detectors specified here are automatically used in the cathegory above.     
+      hits_to_validate: ds
+#     Use SciFi hits, value 0, or clusters, value 1
+      use_Scifi_clust: 0
+#     Minumum number of planes with measurement to start pattern recognition.
+#     Also, the required minimum number of planes intersected by
+#     the Hough line prediction to proceed to track fitting.
+      min_planes_hit: 3
+#     Mask a detector plane if its number of hits is larger than Nhits_per_plane.
+#     Masking is only applied to detectors used for Hough transform.
+#     Plane masking always leaves at least <min_planes_hit> active planes
+#     Plane masking will only be applied if solely Scifi hits are used in HT.
+      mask_plane: 0
+      Nhits_per_plane: 4
+#     Maximum number of fitted tracks per event
+      max_reco_muons: 1
+#     Maximum absolute value of reconstructed angle 
+#     (+/- 1 rad is the maximum angle to form a triplet in the SciFi)
+#     The unit field is helper and not used in the code!
+      max_angle:
+        unit: rad
+        value: 1.
+#     Number of random throws per measurement
+      n_random: 0
+#     How many more times muon filter hits are thrown compared to SciFi measurements?
+      mufi_weight: 1
+#     How far away from Hough line hits assigned to the muon can be?
+      tolerance:
+        unit: cm
+        value: 1
+#     Enable Gaussian smoothing of the Hough-space image.
+#     For 'ds' HT prediction, do a full accumulator smoothing.
+      smooth_full: 0
+#     Gaussian filtering parameters. 
+#     The kernel size is determined as 2*int(truncate*sigma+0.5)+1.
+      sigma: 3
+      truncate: 4
+#     Define the chosen Hough parameter space.
+#     Choose parametrization. Options are
+#     normal (rho, theta) representation, or
+#     linear (slope, intecept), or
+#     linear (intercept@1st, intercept@last syb-system plane)
+      Hough_space_format:
+        - normal:
+            N_yH_bins: 1152
+            yH_min_xz:
+              unit: cm
+              value: -576.
+            yH_max_xz:
+              unit: cm
+              value: 576.
+            yH_min_yz:
+              unit: cm
+              value: -576.
+            yH_max_yz:
+              unit: cm
+              value: 576.
+            N_xH_bins: 2500
+            xH_min_xz:
+              unit: rad
+              value: -1.57
+            xH_max_xz:
+              unit: rad
+              value: 1.57
+            xH_min_yz:
+              unit: rad
+              value: -1.57
+            xH_max_yz:
+              unit: rad
+              value: 1.57
+        - linearSlopeIntercept:
+            N_yH_bins: 122
+            yH_min_xz:
+              unit: cm
+              value: -105.
+            yH_max_xz:
+              unit: cm
+              value: 17.
+            yH_min_yz:
+              unit: cm
+              value: 0.
+            yH_max_yz:
+              unit: cm
+              value: 122.
+            N_xH_bins: 220
+            xH_min_xz:
+              unit: rad
+              value: -1.1
+            xH_max_xz:
+              unit: rad
+              value: 1.1
+            xH_min_yz:
+              unit: rad
+              value: -1.1
+            xH_max_yz:
+              unit: rad
+              value: 1.1
+        - linearIntercepts:
+            N_yH_bins: 610
+            yH_min_xz:
+              unit: cm
+              value: -105.
+            yH_max_xz:
+              unit: cm
+              value: 17.
+            yH_min_yz:
+              unit: cm
+              value: 0.
+            yH_max_yz:
+              unit: cm
+              value: 122.
+            N_xH_bins: 610
+            xH_min_xz:
+              unit: cm
+              value: -105.
+            xH_max_xz:
+              unit: cm
+              value: 17.
+            xH_min_yz:
+              unit: cm
+              value: 0.
+            xH_max_yz:
+              unit: cm
+              value: 122.
+#     Helpers to select one HT space maxima among many.
+#     The n-th quantile of found peaks along 'slope' axis(yH axis) must enlose
+#     n_quantile portion of all maxima 'slope' bins within a res range.
+#     If smoothing is active, n_quantile and res are not used!
+      n_quantile: 0.5
+#     It is advisable to have res consistent with detector angular resolution. 
+#     The unit is Hough-space pixels.
+      res: 5
+#     A back-up Hough space with 'space_scale'*Nbins in xH and yH axes.
+#     It is used in events where the above-defined common HT space is not optimal.     
+      HT_space_scale: 1
+# end

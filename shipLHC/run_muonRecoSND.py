@@ -9,7 +9,7 @@ parser.add_argument("-f", "--inputFile", dest="inputFile", help="single input fi
 parser.add_argument("-g", "--geoFile", dest="geoFile", help="geofile", required=False)
 parser.add_argument("-o", "--withOutput", dest="withOutput", help="persistent output", action='store_true',default=False)
 parser.add_argument("-s", "--saveTo", dest="outPath", help="output storage path", type=str,default="",required=False)
-parser.add_argument("-par", "--parFile", dest="parFile", help="parameter file", required=False, default=os.environ['SNDSW_ROOT']+"/python/TrackingParams.xml")
+parser.add_argument("-par", "--parFile", dest="parFile", help="parameter file", required=False, default=os.environ['SNDSW_ROOT']+"/python/TrackingParams.yml")
 parser.add_argument("-c", "--case", dest="trackingCase", help="type of tracks to build. Should match the 'tracking_case' name in parFile, use quotes", required=True)
 parser.add_argument("-hf", "--HoughSpaceFormat", dest="HspaceFormat", help="Hough space representation. Should match the 'Hough_space_format' name in parFile, use quotes", required=True)
 parser.add_argument("-n", "--nEvents", dest="nEvents",  type=int, help="number of events to process", default=1100000)
