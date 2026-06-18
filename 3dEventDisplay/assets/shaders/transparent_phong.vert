@@ -22,7 +22,6 @@ layout (location = 2) in vec3 vertexNormal;
 uniform mat4 Model;
 uniform mat4 View;
 uniform mat4 Projection;
-uniform vec3 ViewPos;
 uniform PointLight lights[MAX_LIGHTS]; // Propreties of each light in the scene
 uniform int numLights;
 
@@ -40,7 +39,7 @@ void main() {
     vIlluminationData.N = normalize(transpose(inverse(mat3(View * Model))) * vertexNormal);
 
     // Compute view direction V
-    vIlluminationData.V = normalize(ViewPos - eyePosition.xyz);
+    vIlluminationData.V = normalize(-eyePosition.xyz);
 
     // Compute vectors that the fragment will use the contribution for each light
     for (int i = 0; i < numLights; i++) {

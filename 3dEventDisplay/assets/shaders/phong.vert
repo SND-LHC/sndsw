@@ -18,12 +18,11 @@ layout (location = 2) in vec3 vertexNormal; // Normal vectors
 uniform mat4 Projection;
 uniform mat4 Model;
 uniform mat4 View;
-uniform vec3 ViewPos;
 uniform PointLight lights[MAX_LIGHTS]; // Propreties of each light in the scene
 uniform int numLights;
 
 // SHADER OUTPUTS TO THE FRAGMENT
-out vec3 N, V, L[MAX_LIGHTS];
+out vec3 n, v, l[MAX_LIGHTS];
 
 void main() {
     // Transform vertices from object-local coordinates (aPos) to world/view/clip space.
@@ -35,10 +34,10 @@ void main() {
     vec4 eyePosition = View * Model * vec4(aPos, 1.0);
 
     // Transform the vertex normal into view space
-    N = normalize(transpose(inverse(mat3(View * Model))) * vertexNormal);
+    n = normalize(transpose(inverse(mat3(View * Model))) * vertexNormal);
 
     // Compute view direction V
-    V = normalize(ViewPos - eyePosition.xyz);
+    v = normalize(-eyePosition.xyz);
 
     // Compute vectors that the fragment will use the contribution for each light
     for (int i = 0; i < numLights; i++) {
@@ -47,6 +46,6 @@ void main() {
         vec4 eyeLightPos = View * vec4(lights[i].position, 1.0);
 
         // Compute light direction L
-        L[i] = normalize((eyeLightPos - eyePosition).xyz);
+        l[i] = normalize((eyeLightPos - eyePosition).xyz);
     }
 }

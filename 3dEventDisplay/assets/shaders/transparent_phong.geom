@@ -29,13 +29,7 @@ void main() {
         // Keep these values unchanged
         localPos = vLocalPos[i];
         gl_Position = gl_in[i].gl_Position;
-        
-        illuminationData.N = vIlluminationData[i].N;
-        illuminationData.V = vIlluminationData[i].V;
-
-        for (int l = 0; l < numLights; l++) {
-            illuminationData.L[l] = vIlluminationData[i].L[l];
-        }
+        illuminationData = vIlluminationData[i];
 
         EmitVertex();
     }

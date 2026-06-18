@@ -24,12 +24,14 @@ uniform int numLights;
 uniform float uAmbientLightIntensity;
 
 // SHADER INPUT (from the vertex shader)
-in vec3 N, V, L[MAX_LIGHTS];
+in vec3 n, v, l[MAX_LIGHTS];
 
 // SHADER OUTPUTS
 out vec4 FragColor;
 
 void main() {
+    vec3 N = normalize(n);
+    vec3 V = normalize(v);
 
     // ----- AMBIENT COMPONENT -----
     vec3 ambient = uAmbientLightIntensity * material.ambient;
@@ -39,13 +41,14 @@ void main() {
 
     // Compute contribution for each light
     for (int i = 0; i < numLights; i++) {
+        vec3 L = normalize(l[i]);
 
         // ----- DIFFUSE COMPONENT -----
-        float cos_theta = max(dot(L[i], N), 0);
+        float cos_theta = max(dot(L, N), 0);
         vec3 diffuse = lights[i].color * cos_theta * material.diffuse;
 
         // ----- SPECULAR COMPONENT -----
-        vec3 H = normalize(L[i] + V);
+        vec3 H = normalize(L + V);
         float cos_alfa = pow(max(dot(H, N), 0), material.shininess * 4);
         vec3 specular = lights[i].color * cos_alfa * material.specular;
 

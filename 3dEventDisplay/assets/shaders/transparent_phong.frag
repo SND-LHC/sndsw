@@ -40,6 +40,8 @@ void main() {
     /*
      * COLOR COMPUTATION
      */
+    vec3 N = normalize(illuminationData.N);
+    vec3 V = normalize(illuminationData.V);
 
     // ----- AMBIENT COMPONENT -----
     vec3 ambient = uAmbientLightIntensity * material.ambient;
@@ -49,14 +51,15 @@ void main() {
 
     // Compute contribution for each light
     for (int i = 0; i < numLights; i++) {
+        vec3 L = normalize(illuminationData.L[i]);
 
         // ----- DIFFUSE COMPONENT -----
-        float cos_theta = max(dot(illuminationData.L[i], illuminationData.N), 0);
+        float cos_theta = max(dot(L, N), 0);
         vec3 diffuse = lights[i].color * cos_theta * material.diffuse;
 
         // ----- SPECULAR COMPONENT -----
-        vec3 H = normalize(illuminationData.L[i] + illuminationData.V);
-        float cos_alfa = pow(max(dot(H, illuminationData.N), 0), material.shininess * 4);
+        vec3 H = normalize(L + V);
+        float cos_alfa = pow(max(dot(H, N), 0), material.shininess * 4);
         vec3 specular = lights[i].color * cos_alfa * material.specular;
 
         // Accumulate the contribution given by this light

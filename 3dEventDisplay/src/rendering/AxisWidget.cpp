@@ -97,7 +97,7 @@ namespace snd3D {
 
         // Enable the shader and set the uniforms
         shader->use();
-        shader->bindGlobalUniforms(viewRotation, this->projectionMatrix, vec3(0));
+        shader->bindGlobalUniforms(viewRotation, this->projectionMatrix);
         shader->bindLocalUniforms(mat4(1.0f), NULL);
 
         // Draw the axes

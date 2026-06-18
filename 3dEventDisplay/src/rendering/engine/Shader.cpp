@@ -17,7 +17,6 @@ namespace snd3D {
         this->uniform_Model = glGetUniformLocation(this->programId, "Model");
         this->uniform_Projection = glGetUniformLocation(this->programId, "Projection");
         this->uniform_View = glGetUniformLocation(this->programId, "View");
-        this->uniform_ViewPos = glGetUniformLocation(this->programId, "ViewPos");
         this->uniform_MaterialBaseColor = glGetUniformLocation(this->programId, "material.baseColor");
         this->uniform_MaterialAmbient = glGetUniformLocation(this->programId, "material.ambient");
         this->uniform_MaterialDiffuse = glGetUniformLocation(this->programId, "material.diffuse");
@@ -52,10 +51,9 @@ namespace snd3D {
         glUseProgram(this->programId);
     }
 
-    void Shader::bindGlobalUniforms(const glm::mat4& viewMatrix, const glm::mat4& projectionMatrix, const glm::vec3& camPos, const float ambientLight, const std::vector<std::unique_ptr<PointLight>>& lights, const float edgeAlphaValue, const float faceAlphaValue, const float edgeThickness) {
+    void Shader::bindGlobalUniforms(const glm::mat4& viewMatrix, const glm::mat4& projectionMatrix, const float ambientLight, const std::vector<std::unique_ptr<PointLight>>& lights, const float edgeAlphaValue, const float faceAlphaValue, const float edgeThickness) {
         if (this->uniform_Projection != -1) glUniformMatrix4fv(this->uniform_Projection, 1, GL_FALSE, glm::value_ptr(projectionMatrix));
         if (this->uniform_View != -1) glUniformMatrix4fv(this->uniform_View, 1, GL_FALSE, glm::value_ptr(viewMatrix));
-        if (this->uniform_ViewPos != -1) glUniform3f(this->uniform_ViewPos, camPos.x, camPos.y, camPos.z);
         if (this->uniform_EdgeAlphaValue != -1) glUniform1f(this->uniform_EdgeAlphaValue, edgeAlphaValue);
         if (this->uniform_FaceAlphaValue != -1) glUniform1f(this->uniform_FaceAlphaValue, faceAlphaValue);
         if (this->uniform_EdgeThickness != -1) glUniform1f(this->uniform_EdgeThickness, edgeThickness);
