@@ -167,7 +167,7 @@ namespace snd3D {
         }
 
         detector->energyRange = snd::analysis_tools::FindRange(scifi_clusters);
-        detector->timeRange = snd::analysis_tools::FindRange(scifi_clusters, true);
+        detector->clockCycleRange = snd::analysis_tools::FindRange(scifi_clusters, true);
 
         // cluster VETO
         //std::cout << "########################### VETO #####################" << std::endl;
@@ -226,7 +226,7 @@ namespace snd3D {
         }
 
         detector->energyRange = snd::analysis_tools::FindRange(us_clusters);
-        detector->timeRange = snd::analysis_tools::FindRange(us_clusters, true);
+        detector->clockCycleRange = snd::analysis_tools::FindRange(us_clusters, true);
 
         // cluster DS
         //std::cout << "########################### DS #####################" << std::endl;
@@ -288,7 +288,7 @@ namespace snd3D {
             veto_clusters.end()
         );
 
-        toReturn->timeRange = snd::analysis_tools::FindRange(generic_clusters, true);
+        toReturn->clockCycleRange = snd::analysis_tools::FindRange(generic_clusters, true);
 
         return toReturn;
     }

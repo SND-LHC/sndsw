@@ -11,7 +11,7 @@ namespace snd3D {
     class EventData {
         public:
             std::pair<double, double> energyRange;
-            std::pair<double, double> timeRange;
+            std::pair<double, double> clockCycleRange;
 
             EventData(int _id, std::string _dateTime, int64_t _timestamp);
             int getId() const;

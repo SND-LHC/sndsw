@@ -9,6 +9,7 @@ namespace snd3D {
 
     enum class ColorVariable {
         ENERGY,
-        TIME
+        TIME,
+        CLOCK_CYCLE
     };
 }

@@ -931,6 +931,10 @@ namespace snd3D {
             if (ImGui::RadioButton("Time", &currentVariable, (int)ColorVariable::TIME)) {
                 this->app.settings.setColorVariable(ColorVariable::TIME);
             }
+            ImGui::SameLine();
+            if (ImGui::RadioButton("Clock cycle", &currentVariable, (int)ColorVariable::CLOCK_CYCLE)) {
+                this->app.settings.setColorVariable(ColorVariable::CLOCK_CYCLE);
+            }
 
             int currentMode = (int)this->app.settings.getColorScalingMode();
 

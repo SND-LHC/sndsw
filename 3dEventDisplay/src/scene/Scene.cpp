@@ -9,6 +9,7 @@
 #include "scene/colors/VariableGetter.hpp"
 #include "scene/colors/EnergyVariableGetter.hpp"
 #include "scene/colors/TimeVariableGetter.hpp"
+#include "scene/colors/ClockCycleVariableGetter.hpp"
 
 namespace snd3D {
 
@@ -141,6 +142,10 @@ namespace snd3D {
 
                 case ColorVariable::TIME:
                     variableGetter = new TimeVariableGetter(event);
+                    break;
+
+                case ColorVariable::CLOCK_CYCLE:
+                    variableGetter = new ClockCycleVariableGetter(event);
                     break;
             }
 

@@ -7,9 +7,9 @@ namespace snd3D {
         glm::vec3 position;
         glm::vec3 radius;
         double energy;
-        double time;
+        double clockCycle;
 
-        HitData(double x, double y, double z, double radiusX, double radiusY, double radiusZ, double _energy, double _time)
-            : position((float)x, (float)y, (float)z), radius((float)radiusX, (float)radiusY, (float)radiusZ), energy(_energy), time(_time) {}
+        HitData(double x, double y, double z, double radiusX, double radiusY, double radiusZ, double _energy, double _clockCycle)
+            : position((float)x, (float)y, (float)z), radius((float)radiusX, (float)radiusY, (float)radiusZ), energy(_energy), clockCycle(_clockCycle) {}
     };
 }
