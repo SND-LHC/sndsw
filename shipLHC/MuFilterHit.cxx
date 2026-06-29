@@ -80,6 +80,11 @@ MuFilterHit::MuFilterHit(Int_t detID, std::vector<MuFilterPoint*> V)
         else saturation[j] = 1E6; // dummy large value
 
      }
+     // thresholds per system in deposited energy [GeV]
+     // For now only US is set, thus non-zero!
+     Float_t dE_min[3] = { MuFilterDet->GetConfParF("MuFilter/Veto_dE_min"),
+                           MuFilterDet->GetConfParF("MuFilter/US_dE_min"),
+                           MuFilterDet->GetConfParF("MuFilter/DS_dE_min")};
      LOG(DEBUG) << "detid "<<detID<< " size "<<nSiPMs<< "  side "<<nSides;
 
      
@@ -108,7 +113,15 @@ MuFilterHit::MuFilterHit(Int_t detID, std::vector<MuFilterPoint*> V)
         Double_t t_Right = ptime + distance_Right/propspeed;
         if ( t_Left <earliestToAL){earliestToAL = t_Left ;}
         if ( t_Right <earliestToAR){earliestToAR = t_Right ;}
-     } 
+     }
+
+     // Apply the signal threshold per bar
+     flag = true;
+     if ( signalRight+signalRight < dE_min[int(floor(detID/10000)-1)] ) {
+          flag = false;
+     }
+
+     // Divide signal per SiPM, convert E->QDC, and apply saturation
      // shortSiPM = {3,6,11,14,19,22,27,30,35,38,43,46,51,54,59,62,67,70,75,78}; - counting from 1!
      // In the SndlhcHit class the 'signals' array starts from 0.
      for (unsigned int j=0; j<nSiPMs; ++j){
@@ -126,7 +139,6 @@ MuFilterHit::MuFilterHit(Int_t detID, std::vector<MuFilterPoint*> V)
             times[j+nSiPMs] = gRandom->Gaus(earliestToAR, timeResol);
         }
      }
-     flag = true;
      for (Int_t i=0;i<16;i++){fMasked[i]=kFALSE;}
      LOG(DEBUG) << "signal created";
 }
