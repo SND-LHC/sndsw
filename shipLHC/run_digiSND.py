@@ -33,8 +33,9 @@ parser.add_argument("-g", "--geoFile", dest="geoFile", help="geofile", required=
 parser.add_argument("-n", "--nEvents", dest="nEvents",  type=int, help="number of events to process", default=100000)
 parser.add_argument("-ts", "--thresholdScifi", dest="ts", type=float, help="threshold energy for Scifi [p.e.]", default=3.5)
 parser.add_argument("-ss", "--saturationScifi", dest="ss", type=float, help="saturation energy for Scifi [p.e.]", default=104.)
-parser.add_argument("-tML", "--thresholdMufiL", dest="tml", type=float, help="threshold energy for Mufi large [p.e.]", default=0.0)
-parser.add_argument("-tMS", "--thresholdMufiS", dest="tms", type=float, help="threshold energy for Mufi small [p.e.]", default=0.0)
+parser.add_argument("-tVS", "--thresholdVS", dest="tVS", type=float, help="threshold energy for Veto [GeV]", default=0.0)
+parser.add_argument("-tUS", "--thresholdUS", dest="tUS", type=float, help="threshold energy for US large [GeV]", default=0.0)
+parser.add_argument("-tDS", "--thresholdDS", dest="tDS", type=float, help="threshold energy for DS [GeV]", default=0.0)
 parser.add_argument("-no-cls", "--noClusterScifi", action='store_true', help="do not make Scifi clusters")
 parser.add_argument("-cpp", "--digiCPP", action='store_true', dest="FairTask_digi", help="perform digitization using DigiTaskSND")
 parser.add_argument("-d", "--Debug", dest="debug", help="debug", default=False)
@@ -73,6 +74,9 @@ scifiDet     = lsOfGlobals.FindObject('Scifi')
 mufiDet      = lsOfGlobals.FindObject('MuFilter')
 scifiDet.SetConfPar("Scifi/nphe_min",options.ts)   # threshold
 scifiDet.SetConfPar("Scifi/nphe_max",options.ss) # saturation
+mufiDet.SetConfPar("MuFilter/VS_dE_min",options.tVS) # Veto(VS) threshold in deposited energy [GeV]
+mufiDet.SetConfPar("MuFilter/US_dE_min",options.tUS) # US threshold in deposited energy [GeV]
+mufiDet.SetConfPar("MuFilter/DS_dE_min",options.tDS) # DS threshold in deposited energy [GeV]
 
 ####
 # The lines below aim to reproduce the original digitization case, but urge the user to regenerate
