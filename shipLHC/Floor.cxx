@@ -208,8 +208,8 @@ void Floor::ConstructGeometry()
   std::vector<double> UJ18_x  = {-92.57914735775,108.94172460057,48288.782816717,-141.138131672,-35.36121461014,582.09072513608,175.0};
   std::vector<double> tu012_i = {     -596.38194369,    30., 47654.730979, -155.10509191, 0.0,2761.9020453, 220.0};
   std::vector<double> tu012_o = {   -596.38194369,    30., 4.7654730979E+04, -155.10509191, 0.0,2761.9020453, 250.0};
-  std::vector<double> tu011_i = {   -552.09173359,      30., 4.6171636594E+04, -99.7891926, 0.0,2700.9587043, 220.0};
-  std::vector<double> tu011_o = {   -552.09173359,    30., 4.6171636594E+04, -99.7891926, 0.0,2700.9587043, 250.0,360.,850.};
+  std::vector<double> tu011_i = {   -552.09173359,      30., 4.6171636594E+04, -99.7891926, 0.0,1954.9587043, 220.0};
+  std::vector<double> tu011_o = {   -552.09173359,    30., 4.6171636594E+04, -99.7891926, 0.0,1954.9587043, 250.0,360.,850.};
   std::vector<double> tu010_i = {   -451.24339295,      30., 4.4607412772E+04, -89.817671994, 0.0,1955.4422017, 220.0};
   std::vector<double> tu010_o = {   -451.24339295,     30., 4.4607412772E+04, -89.817671994, 0.0,1955.4422017, 250.0,750.,1100.};
 // PLA   TI18_01 and TI18_02
@@ -374,7 +374,7 @@ void Floor::ConstructGeometry()
     
     //UJ18 tunnel
     // UJ18 translation and angle rotation
-         Double_t dx_0_UJ18 = -2300.0;
+         Double_t dx_0_UJ18 = -2302.0;
          Double_t dy_0_UJ18 = -117.0;
          Double_t dz_0_UJ18 = 7346.0;
          Double_t rot_X = 0;
@@ -708,12 +708,94 @@ void Floor::ConstructGeometry()
     CombiTrans->RegisterYourself();
     trans.push_back(CombiTrans);
   }
-    auto total2 = new TGeoCompositeShape("Stotal2","tu011_:TS_tu011_-Solid_UJ18_shape:new_translation_for_UJ18");
-    auto Ftotal2 = new TGeoCompositeShape("Ftotal2","Ftu011_:TS_tu011_-Solid_UJ18_shape:new_translation_for_UJ18");
-    auto volT2 = new TGeoVolume("VUJ",total2,concrete);
-    volT2->SetTransparency(0);
-    volT2->SetLineColor(kGray);
-    tunnel->AddNode(volT2, 1);
+    // LHC Tunnel
+    // LHC translation and angle rotation
+         Double_t dx_0_LHC = -336.0;
+         Double_t dy_0_LHC = 258.0;
+         Double_t dz_0_LHC = -590.0;
+         Double_t rot_X_LHC = 0.0 ;
+         Double_t rot_Y_LHC = -13.63;
+         Double_t rot_Z_LHC = 0.0 ;
+
+         TGeoRotation *rotB = new TGeoRotation("rotB");
+         rotB->RotateX(rot_X_LHC);
+         rotB->RotateY(rot_Y_LHC);
+         rotB->RotateZ(rot_Z_LHC);
+         TGeoCombiTrans *matB = new TGeoCombiTrans("matB",dx_0_LHC, dy_0_LHC, dz_0_LHC, rotB);
+    
+       Double_t dx_LHC, dy_LHC, dz_LHC;
+       Double_t dx_LHC1, dx_LHC2, dy_LHC1, dy_LHC2;
+       Double_t rmin_LHC, rmax_LHC, rmin_LHC1, rmax_LHC1, rmin_LHC2, rmax_LHC2;
+
+       rmin_LHC = 0;
+       rmax_LHC = 220;
+       dz_LHC   = 4100;
+       TGeoShape *Tube_LHC_001 = new TGeoTube("Tube_LHC_001",rmin_LHC,rmax_LHC,dz_LHC);
+
+       dx_LHC = 300;
+       dy_LHC = 46;
+       dz_LHC = 4100;
+       TGeoShape *Box_LHC_001 = new TGeoBBox("Box_LHC_001", dx_LHC,dy_LHC,dz_LHC);
+
+       dx_LHC = 0;
+       dy_LHC = -174;
+       dz_LHC = 0;
+       auto LHC_trans_001 = new TGeoCombiTrans("LHC_trans_001");
+       LHC_trans_001->SetTranslation(dx_LHC, dy_LHC, dz_LHC);
+       Boolean = new TGeoIntersection(Tube_LHC_001,Box_LHC_001,0,LHC_trans_001);
+       TGeoShape *Intersect_LHC_001 = new TGeoCompositeShape("Intersect_LHC_001", Boolean);
+
+       rmin_LHC = 220;
+       rmax_LHC = 250;
+       dz_LHC   = 4100;
+       TGeoShape *Tube_LHC_002 = new TGeoTube("Tube_LHC_002",rmin_LHC,rmax_LHC,dz_LHC);
+       Boolean = new TGeoUnion(Intersect_LHC_001,Tube_LHC_002,0,0);
+       TGeoShape *Add_LHC_001 = new TGeoCompositeShape("Add_LHC_001", Boolean);
+
+       dx_LHC = 300;
+       dy_LHC = 50;
+       dz_LHC = 4100;
+       TGeoShape *Box_LHC_002 = new TGeoBBox("Box_LHC_002", dx_LHC,dy_LHC,dz_LHC);
+
+       dx_LHC = 0;
+       dy_LHC = -228;
+       dz_LHC = 0;
+       auto LHC_trans_002 = new TGeoCombiTrans("LHC_trans_002");
+       LHC_trans_002->SetTranslation(dx_LHC, dy_LHC, dz_LHC);
+       Boolean = new TGeoSubtraction(Add_LHC_001,Box_LHC_002,0,LHC_trans_002);
+       TGeoShape *Cut_LHC_001 = new TGeoCompositeShape("Cut_LHC_001", Boolean);
+       
+       //get the new rotation and translation
+       TGeoHMatrix * Matrix_setup_LHC = new TGeoHMatrix("Matrix_setup_LHC");
+       Matrix_setup_LHC->Multiply(matB);
+       Matrix_setup_LHC->Multiply(LHC_trans_002);
+       //for registyourself
+       Matrix_setup_LHC->RegisterYourself();
+
+       auto total2 = new TGeoCompositeShape("Stotal2","Cut_LHC_001:Matrix_setup_LHC-Solid_UJ18_shape:new_translation_for_UJ18");
+       auto volT2 = new TGeoVolume("VUJ",total2,concrete);
+       volT2->SetTransparency(0);
+       volT2->SetLineColor(kGray);
+       tunnel->AddNode(volT2, 1);
+
+    // LHC tunnel solid Geometry
+       rmin_LHC = 0;
+       rmax_LHC = 250;
+       dz_LHC   = 4100;
+       TGeoShape *Tube_LHC_solid_001 = new TGeoTube("Tube_LHC_solid_001",rmin_LHC,rmax_LHC,dz_LHC);
+
+       dx_LHC = 300;
+       dy_LHC = 50;
+       dz_LHC = 4100;
+       TGeoShape *Box_LHC_solid_001 = new TGeoBBox("Box_LHC_solid_001", dx_LHC,dy_LHC,dz_LHC);
+
+       dx_LHC = 0;
+       dy_LHC = -228;
+       dz_LHC = 0;
+       auto LHC_solid_trans_001 = new TGeoCombiTrans("LHC_solid_trans_001");
+       LHC_solid_trans_001->SetTranslation(dx_LHC, dy_LHC, dz_LHC);
+       Boolean = new TGeoSubtraction(Tube_LHC_solid_001,Box_LHC_solid_001,0,LHC_solid_trans_001);
+       TGeoShape *Cut_solid_LHC_001 = new TGeoCompositeShape("Cut_solid_LHC_001", Boolean);
 
 /*
   std::vector<TString> loopr = {"tu010_","tu011_"};
@@ -751,7 +833,10 @@ void Floor::ConstructGeometry()
  auto TR_1       = new TGeoTranslation("TR_1",0.,0.,-dz+extended_z+geoParameters["TI18_o1"][2]-SND_Z - 50.); // move a bit more upstream to have free view from the back
  TR_1->RegisterYourself();
  
- auto cutOut   = new TGeoCompositeShape("cutOut", "BigBox:TR_1-Ftotal2-(TI18_1_Funion+TI18_2_Funion+TI18_3_Funion+Solid_UJ18_shape:new_translation_for_UJ18)");
+ auto cutOut   = new TGeoCompositeShape(
+    "cutOut",
+    "BigBox:TR_1-(Cut_solid_LHC_001:Matrix_setup_LHC)-(TI18_1_Funion+TI18_2_Funion+TI18_3_Funion+Solid_UJ18_shape:new_translation_for_UJ18)");
+    
  auto volT3      = new TGeoVolume("Vrock",cutOut,rock);
  volT3->SetTransparency(75);
  volT3->SetLineColor(kRed);
