@@ -40,6 +40,9 @@ sndScifiHit.cxx
 sndCluster.cxx
 SNDLHCEventHeader.cxx
 sndRecoTrack.cxx
+DriftTube.cxx
+DriftTubePoint.cxx
+DriftTubeHit.cxx
 )
 
 Set(HEADERS )

@@ -30,6 +30,7 @@ DigiTaskSND.cxx
 ConvRawData.cxx
 boardMappingParser.cxx
 MCEventBuilder.cxx
+ConvDriftTubeRawData.cxx
 )
 
 Set(HEADERS)

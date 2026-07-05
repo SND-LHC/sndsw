@@ -18,6 +18,9 @@
 #pragma link C++ class sndCluster;
 #pragma link C++ class SNDLHCEventHeader+;
 #pragma link C++ class sndRecoTrack+;
+#pragma link C++ class DriftTube+;
+#pragma link C++ class DriftTubePoint+;
+#pragma link C++ class DriftTubeHit+;
 
 #endif
 
