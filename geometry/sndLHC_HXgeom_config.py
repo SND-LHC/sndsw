@@ -397,8 +397,8 @@ with ConfigRegistry.register_config("basic") as c:
                 detID  = int(i[0])
                 for j in i[1].items():
                   chanID = int(j[0])
-                  setattr(c.MuFilter,'US_saturation_'+str(detID)+'_'+str(chanID),float(j[1]))
-                  c.MuFilter['US_saturation_'+str(detID)+'_'+str(chanID)] = float(j[1])
+                  setattr(c.MuFilter,'Saturation_'+str(detID)+'_'+str(chanID),float(j[1]))
+                  c.MuFilter['Saturation_'+str(detID)+'_'+str(chanID)] = float(j[1])
 
            else :
 # spatial
