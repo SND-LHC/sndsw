@@ -74,7 +74,7 @@ MuFilterHit::MuFilterHit(Int_t detID, std::vector<MuFilterPoint*> V)
         signals[j] = -1;
         times[j]    =-1;
         if (floor(detID/10000)==2){ // exists for US only for now
-            saturation[j] = MuFilterDet->GetConfParF("MuFilter/US_saturation_"+std::to_string(detID)+"_"+std::to_string(j));
+            saturation[j] = MuFilterDet->GetConfParF("MuFilter/Saturation_"+std::to_string(detID)+"_"+std::to_string(j));
             if (saturation[j]==0) saturation[j] = 1E6; // dummy large value
         }
         else saturation[j] = 1E6; // dummy large value
