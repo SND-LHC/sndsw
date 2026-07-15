@@ -46,6 +46,7 @@ class ConvRawDataPY(ROOT.FairTask):
          if options.path.find('2022')!=-1: fpath = "/eos/experiment/sndlhc/convertedData/physics/2022/"
          elif options.path.find('2023')!=-1: fpath = "/eos/experiment/sndlhc/convertedData/physics/2023/"
          elif options.path.find('2024')!=-1: fpath = "/eos/experiment/sndlhc/convertedData/physics/2024/"
+         elif options.path.find('2025')!=-1: fpath = "/eos/experiment/sndlhc/convertedData/physics/2025/"
          else: fpath = "/eos/experiment/sndlhc/convertedData/commissioning/TI18/"
          fg = ROOT.TFile.Open(options.server+fpath+"/FSdict.root")
          pkl = Unpickler(fg)
@@ -504,6 +505,8 @@ class ConvRawDataPY(ROOT.FairTask):
                   system = self.MufiSystem[board_id][tofpet_id]
                   key = (tofpet_id%2)*1000 + tofpet_channel
                   tmp = self.boardMaps['MuFilter'][board][self.slots[tofpet_id]]
+                  # mini DTs are labelled DS 5V, board is 32
+                  if (tmp == "DS_5Vert"): continue
                   if self.options.debug or not tmp.find('not')<0: print('debug',tmp,system,key,board,tofpet_id,tofpet_id%2,tofpet_channel)
                   sipmChannel = 99
                   if not key in self.TofpetMap[system]:
@@ -639,6 +642,8 @@ class ConvRawDataPY(ROOT.FairTask):
                   system = self.MufiSystem[board_id][tofpet_id]
                   key = (tofpet_id%2)*1000 + tofpet_channel
                   tmp = self.boardMaps['MuFilter'][board][self.slots[tofpet_id]]
+                  # mini DTs are labelled DS 5V, board is 32
+                  if (tmp == "DS_5Vert"): continue
                   if self.options.debug or not tmp.find('not')<0: print('debug',tmp,system,key,board,tofpet_id,tofpet_id%2,tofpet_channel)
                   sipmChannel = 99
                   if not key in self.TofpetMap[system]:
