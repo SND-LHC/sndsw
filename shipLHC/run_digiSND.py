@@ -36,6 +36,7 @@ parser.add_argument("-ss", "--saturationScifi", dest="ss", type=float, help="sat
 parser.add_argument("-tVS", "--thresholdVS", dest="tVS", type=float, help="threshold energy for Veto [GeV]", default=0.0)
 parser.add_argument("-tUS", "--thresholdUS", dest="tUS", type=float, help="threshold energy for US large [GeV]", default=0.0)
 parser.add_argument("-tDS", "--thresholdDS", dest="tDS", type=float, help="threshold energy for DS [GeV]", default=0.0)
+parser.add_argument("-sm", "--signalSmearing", dest="signalSmearing", type=float, help="signal smearing, all MuFilter [fraction of 1.]", default=0.0)
 parser.add_argument("-no-cls", "--noClusterScifi", action='store_true', help="do not make Scifi clusters")
 parser.add_argument("-cpp", "--digiCPP", action='store_true', dest="FairTask_digi", help="perform digitization using DigiTaskSND")
 parser.add_argument("-d", "--Debug", dest="debug", help="debug", default=False)
@@ -77,6 +78,7 @@ scifiDet.SetConfPar("Scifi/nphe_max",options.ss) # saturation
 mufiDet.SetConfPar("MuFilter/VS_dE_min",options.tVS) # Veto(VS) threshold in deposited energy [GeV]
 mufiDet.SetConfPar("MuFilter/US_dE_min",options.tUS) # US threshold in deposited energy [GeV]
 mufiDet.SetConfPar("MuFilter/DS_dE_min",options.tDS) # DS threshold in deposited energy [GeV]
+mufiDet.SetConfPar("MuFilter/SignalSmearing",options.signalSmearing) # MuFilter signal smearing [fraction of 1.]
 
 ####
 # The lines below aim to reproduce the original digitization case, but urge the user to regenerate
