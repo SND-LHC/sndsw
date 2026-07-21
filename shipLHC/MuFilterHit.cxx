@@ -93,6 +93,7 @@ MuFilterHit::MuFilterHit(Int_t detID, std::vector<MuFilterPoint*> V)
      Float_t signalRight = 0;
      Float_t earliestToAL = 1E20;
      Float_t earliestToAR = 1E20;
+     Float_t smearing_factor = 0.25;
      for(auto p = std::begin(V); p!= std::end(V); ++p) {
 
         Double_t signal = (*p)->GetEnergyLoss();
@@ -133,9 +134,13 @@ MuFilterHit::MuFilterHit(Int_t detID, std::vector<MuFilterPoint*> V)
            if (signals[j]>saturation[j]) signals[j] = saturation[j];
            times[j] = gRandom->Gaus(earliestToAL, timeResol);
         }
+        // Gaussian smearing
+        signals[j] = gRandom->Gaus(signals[j], smearing_factor*signals[j]);
         if (nSides>1){ 
             signals[j+nSiPMs] = signalRight/float(nSiPMs) * siPMcalibration;   // most simplest model, divide signal individually.
             if (signals[j+nSiPMs]>saturation[j+nSiPMs]) signals[j+nSiPMs] = saturation[j+nSiPMs];
+            // Gaussian smearing
+            signals[j+nSiPMs] = gRandom->Gaus(signals[j+nSiPMs], smearing_factor*signals[j+nSiPMs]);
             times[j+nSiPMs] = gRandom->Gaus(earliestToAR, timeResol);
         }
      }
