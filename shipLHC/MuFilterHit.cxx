@@ -93,7 +93,7 @@ MuFilterHit::MuFilterHit(Int_t detID, std::vector<MuFilterPoint*> V)
      Float_t signalRight = 0;
      Float_t earliestToAL = 1E20;
      Float_t earliestToAR = 1E20;
-     Float_t smearing_factor = 0.25;
+     Float_t smearing_factor = MuFilterDet->GetConfParF("MuFilter/SignalSmearing");
      for(auto p = std::begin(V); p!= std::end(V); ++p) {
 
         Double_t signal = (*p)->GetEnergyLoss();
