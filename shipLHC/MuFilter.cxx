@@ -44,12 +44,54 @@
 #include <iostream>                     // for operator<<, basic_ostream,etc
 #include <string.h>
 #include <cstring>
+#include <cmath>
 
 using std::cout;
 using std::endl;
 using std::to_string;
 using std::string;
 using namespace ShipUnit;
+
+namespace
+{
+Double_t BirksLaw(float density)
+{
+	const Double_t energyDeposit = gMC->Edep();
+	if (energyDeposit <= 0.) return energyDeposit;
+
+	// Birks quenching applies only to charged particles
+	const Double_t charge = gMC->TrackCharge();
+	if (charge == 0.) return energyDeposit;
+
+	// Avoid division by zero for a zero-length Monte Carlo step.
+	const Double_t stepLength = gMC->TrackStep();
+	if (stepLength <= 0.) return energyDeposit;
+
+	// values from NIM 80 (1970) 239-244, scint. type NE-102 is the closest to SND's EJ-200
+	const Double_t birksUnit = ShipUnit::g /(ShipUnit::MeV * std::pow(ShipUnit::cm, 2));
+	double KB = 0.013 * birksUnit;
+	const double C = 9.6e-6 * std::pow(birksUnit, 2);
+
+	// Charge correction (makes this formula particle-species dependent)
+	if (std::abs(charge) > 1.) {
+		KB *= 7.2 / 12.6;
+	}
+
+	// Mass stopping power. Its ShipUnit dimensions are energy*area/mass.
+	const Double_t dedx =
+		energyDeposit / (stepLength * density);
+
+	// assuming scint. eff = 1 in the following lines
+	const Double_t denominator =
+		1.0
+		+ KB * dedx
+		+ C * dedx * dedx;
+
+	if (denominator <= 0.) return energyDeposit;
+
+	return energyDeposit / denominator;
+}
+}
 
 MuFilter::MuFilter()
 : FairDetector("MuonFilter", "",kTRUE),
@@ -484,9 +526,11 @@ Bool_t  MuFilter::ProcessHits(FairVolume* vol)
 		fLength = gMC->TrackLength();
 		gMC->TrackPosition(fPos);
 		gMC->TrackMomentum(fMom);
+		// extract this value once to use with Birks correction
+		scint_density = gGeoManager->GetMedium("polyvinyltoluene")->GetMaterial()->GetDensity();
 	}
-	// Sum energy loss for all steps in the active volume
-	fELoss += gMC->Edep();
+	// Sum Birks-corrected energy loss for all steps in the active volume
+        fELoss += BirksLaw(scint_density);
 
 	// Create MuFilterPoint at exit of active volume
 	if ( gMC->IsTrackExiting()    ||

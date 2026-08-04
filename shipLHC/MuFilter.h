@@ -17,6 +17,7 @@
 #include "TVector3.h"
 #include "TString.h"
 #include "TLorentzVector.h"
+#include "ShipUnit.h"
 
 class MuFilterPoint;
 class FairVolume;
@@ -93,6 +94,9 @@ class MuFilter : public FairDetector
 		Double32_t     fTime;              //!  time
 		Double32_t     fLength;            //!  length
 		Double32_t     fELoss;             //!  energy loss
+
+                // Parameter needed for Birks Law
+                float scint_density;
 
 		/** container for data points */
 		TClonesArray*  fMuFilterPointCollection;
