@@ -4,6 +4,7 @@ var ShipDetectorList_8h =
       [ "kEmulsionDet", "ShipDetectorList_8h.html#a1806da1a0fbae8ab81f7330906f65680a32370a0aea43651ef82cddf23d38ee74", null ],
       [ "kLHCScifi", "ShipDetectorList_8h.html#a1806da1a0fbae8ab81f7330906f65680ae845bd1622dffef7b06303c124de50cb", null ],
       [ "kMuFilter", "ShipDetectorList_8h.html#a1806da1a0fbae8ab81f7330906f65680a8d02005c803b49ea66bd20c7b64ee114", null ],
+      [ "kDriftTube", "ShipDetectorList_8h.html#a1806da1a0fbae8ab81f7330906f65680acceee079f69cd9d051e70bb27811e445", null ],
       [ "kVETO", "ShipDetectorList_8h.html#a1806da1a0fbae8ab81f7330906f65680aa289a1b27d8c77391b88e9a794da84c2", null ],
       [ "kTimeDet", "ShipDetectorList_8h.html#a1806da1a0fbae8ab81f7330906f65680afd52b7ba84b4518f53baf1a0ef357d87", null ],
       [ "ktauRpc", "ShipDetectorList_8h.html#a1806da1a0fbae8ab81f7330906f65680aaec86bfba5dfd7dc4b46c5a4948071a7", null ],

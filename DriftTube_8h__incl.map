@@ -1,0 +1,9 @@
+<map id="shipLHC/DriftTube.h" name="shipLHC/DriftTube.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="107,5,256,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,117,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="163,33,94,74,92,69,161,28"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="142,79,221,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="184,31,184,65,179,65,179,31"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="245,79,376,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="203,28,278,69,276,74,201,33"/>
+</map>

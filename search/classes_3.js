@@ -9,7 +9,8 @@ var searchData=
   ['configuration_6',['Configuration',['../structsnd_1_1Configuration.html',1,'snd']]],
   ['constants_7',['constants',['../classhnl_1_1constants.html',1,'hnl.constants'],['../classrpvsusy_1_1constants.html',1,'rpvsusy.constants']]],
   ['constfield_8',['ConstField',['../classgenfit_1_1ConstField.html',1,'genfit']]],
-  ['convrawdata_9',['ConvRawData',['../classConvRawData.html',1,'']]],
-  ['convrawdatapy_10',['ConvRawDataPY',['../classConvRawData_1_1ConvRawDataPY.html',1,'ConvRawData']]],
-  ['cosmicsgenerator_11',['CosmicsGenerator',['../classCosmicsGenerator.html',1,'']]]
+  ['convdrifttuberawdata_9',['ConvDriftTubeRawData',['../classConvDriftTubeRawData.html',1,'']]],
+  ['convrawdata_10',['ConvRawData',['../classConvRawData.html',1,'']]],
+  ['convrawdatapy_11',['ConvRawDataPY',['../classConvRawData_1_1ConvRawDataPY.html',1,'ConvRawData']]],
+  ['cosmicsgenerator_12',['CosmicsGenerator',['../classCosmicsGenerator.html',1,'']]]
 ];

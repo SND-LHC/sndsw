@@ -5,7 +5,7 @@ var searchData=
   ['na62_2',['NA62',['../namespacestudy__muEloss.html#a5a45c9f9e8ce3baa2b2a16606ea07d6a',1,'study_muEloss']]],
   ['ncomposite_3',['nComposite',['../classShipCompField.html#a3005035d531de7934d27eb9d8df23d5e',1,'ShipCompField']]],
   ['ndbits_4',['ndbits',['../mpbits_8f90.html#afc3196af7a116ae0050f96c940c03ba3',1,'mpbits.f90']]],
-  ['ndecaywidth_5',['ndecaywidth',['../classrpvsusy_1_1RPVSUSYbranchings.html#a19df3958d4a6e134b77bd25df0991c15',1,'rpvsusy.RPVSUSYbranchings.NdecayWidth()'],['../classhnl_1_1HNLbranchings.html#a16eb7b8877b111b5d25d5a770390cc8d',1,'hnl.HNLbranchings.NDecayWidth()']]],
+  ['ndecaywidth_5',['ndecaywidth',['../classhnl_1_1HNLbranchings.html#a16eb7b8877b111b5d25d5a770390cc8d',1,'hnl.HNLbranchings.NDecayWidth()'],['../classrpvsusy_1_1RPVSUSYbranchings.html#a19df3958d4a6e134b77bd25df0991c15',1,'rpvsusy.RPVSUSYbranchings.NdecayWidth()']]],
   ['neutrongenerator_5ffluka_6',['NeutronGenerator_FLUKA',['../classNeutronGenerator__FLUKA.html#a67d6b8ea2619ee2c5431a43dd5cd2ba7',1,'NeutronGenerator_FLUKA']]],
   ['new_5fclone_7',['new_clone',['../namespacegenfit.html#aefd860a66c9bbf17ac5c72c103c958bd',1,'genfit']]],
   ['newset_8',['newSet',['../classMille.html#af7a121a17423dbee2a1ee917133ebef8',1,'Mille']]],

@@ -1,23 +1,37 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" title=" " alt="" coords="5,228,99,253"/>
-<area shape="rect" id="Node000001" href="$classEmulsionMagnet.html" title=" " alt="" coords="193,5,324,31"/>
-<area shape="poly" id="edge151_Node000000_Node000001" title=" " alt="" coords="55,214,65,175,83,127,108,80,125,59,145,40,168,27,192,19,194,24,170,32,148,44,129,62,113,83,87,130,70,176,61,215"/>
-<area shape="rect" id="Node000002" href="$classMufluxTargetStation.html" title=" " alt="" coords="183,55,335,80"/>
-<area shape="poly" id="edge152_Node000000_Node000002" title=" " alt="" coords="60,214,90,151,115,117,145,89,181,73,184,77,148,94,119,121,95,153,65,216"/>
-<area shape="rect" id="Node000003" href="$classShipCave.html" title=" " alt="" coords="217,104,300,129"/>
-<area shape="poly" id="edge153_Node000000_Node000003" title=" " alt="" coords="67,215,100,175,121,155,145,138,181,124,216,117,217,122,182,129,148,143,125,159,104,179,71,218"/>
-<area shape="rect" id="Node000004" href="$classShipChamber.html" title=" " alt="" coords="204,153,313,179"/>
-<area shape="poly" id="edge154_Node000000_Node000004" title=" " alt="" coords="84,218,146,188,203,172,204,177,148,192,86,223"/>
-<area shape="rect" id="Node000005" href="$classShipGoliath.html" title=" " alt="" coords="210,203,307,228"/>
-<area shape="poly" id="edge155_Node000000_Node000005" title=" " alt="" coords="112,231,210,219,210,224,113,236"/>
-<area shape="rect" id="Node000006" href="$classShipMagnet.html" title=" " alt="" coords="209,252,308,277"/>
-<area shape="poly" id="edge156_Node000000_Node000006" title=" " alt="" coords="113,245,210,256,209,262,112,250"/>
-<area shape="rect" id="Node000007" href="$classShipMuonShield.html" title=" " alt="" coords="195,301,322,327"/>
-<area shape="poly" id="edge157_Node000000_Node000007" title=" " alt="" coords="87,258,148,286,196,300,194,305,146,291,85,263"/>
-<area shape="rect" id="Node000008" href="$classShipTAUMagneticSpectrometer.html" title=" " alt="" coords="147,351,371,376"/>
-<area shape="poly" id="edge158_Node000000_Node000008" title=" " alt="" coords="72,263,104,301,125,320,148,336,177,348,175,353,145,340,122,324,101,305,68,266"/>
-<area shape="rect" id="Node000009" href="$classShipTargetStation.html" title=" " alt="" coords="191,400,327,425"/>
-<area shape="poly" id="edge159_Node000000_Node000009" title=" " alt="" coords="65,265,96,326,119,358,148,385,169,396,191,404,190,409,167,401,145,390,115,362,91,329,60,267"/>
-<area shape="rect" id="Node000010" href="$classpyFairModule.html" title=" " alt="" coords="204,449,313,475"/>
-<area shape="poly" id="edge160_Node000000_Node000010" title=" " alt="" coords="61,266,71,304,88,350,113,396,130,417,148,435,175,449,204,457,203,462,173,454,145,439,126,420,109,399,83,352,66,306,56,267"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,400,104,425"/>
+<area shape="rect" id="Node000001" href="$classDriftTubePoint.html" title=" " alt="" coords="177,5,290,31"/>
+<area shape="poly" id="edge137_Node000000_Node000001" title=" " alt="" coords="57,386,69,307,89,204,116,105,132,67,150,40,175,24,178,29,154,44,137,69,121,107,94,205,74,308,62,386"/>
+<area shape="rect" id="Node000002" href="$classEmulsionDetPoint.html" title=" " alt="" coords="164,55,303,80"/>
+<area shape="poly" id="edge138_Node000000_Node000002" title=" " alt="" coords="53,386,57,326,71,246,83,204,100,163,122,124,150,89,166,78,169,82,154,93,126,127,105,165,88,206,76,247,63,326,59,386"/>
+<area shape="rect" id="Node000003" href="$classHptPoint.html" title=" " alt="" coords="194,104,273,129"/>
+<area shape="poly" id="edge139_Node000000_Node000003" title=" " alt="" coords="55,386,62,334,77,268,106,199,126,167,150,139,170,126,193,118,194,123,173,130,154,143,130,170,110,201,82,269,67,335,60,386"/>
+<area shape="rect" id="Node000004" href="$classMuFilterPoint.html" title=" " alt="" coords="179,153,287,179"/>
+<area shape="poly" id="edge140_Node000000_Node000004" title=" " alt="" coords="57,386,67,343,84,290,111,235,129,210,150,188,178,172,180,177,154,192,133,213,116,238,89,292,72,344,63,387"/>
+<area shape="rect" id="Node000005" href="$classScifiPoint.html" title=" " alt="" coords="192,203,275,228"/>
+<area shape="poly" id="edge141_Node000000_Node000005" title=" " alt="" coords="61,386,73,352,92,312,117,272,150,237,170,226,191,219,193,224,172,231,154,241,122,275,96,315,78,354,66,388"/>
+<area shape="rect" id="Node000006" href="$classShipRpcPoint.html" title=" " alt="" coords="180,252,287,277"/>
+<area shape="poly" id="edge142_Node000000_Node000006" title=" " alt="" coords="67,386,100,336,124,309,151,286,179,273,181,278,153,291,127,313,104,339,71,389"/>
+<area shape="rect" id="Node000007" href="$classTTPoint.html" title=" " alt="" coords="198,301,269,327"/>
+<area shape="poly" id="edge143_Node000000_Node000007" title=" " alt="" coords="78,388,111,361,151,336,197,319,199,324,153,340,114,365,81,392"/>
+<area shape="rect" id="Node000008" href="$classTargetPoint.html" title=" " alt="" coords="186,351,281,376"/>
+<area shape="poly" id="edge144_Node000000_Node000008" title=" " alt="" coords="114,394,185,374,187,379,115,399"/>
+<area shape="rect" id="Node000009" href="$classTimeDetPoint.html" title=" " alt="" coords="178,400,289,425"/>
+<area shape="poly" id="edge145_Node000000_Node000009" title=" " alt="" coords="118,410,178,410,178,415,118,415"/>
+<area shape="rect" id="Node000010" href="$classUpstreamTaggerPoint.html" title=" " alt="" coords="152,449,315,475"/>
+<area shape="poly" id="edge146_Node000000_Node000010" title=" " alt="" coords="115,427,187,447,185,452,114,432"/>
+<area shape="rect" id="Node000011" href="$classecalPoint.html" title=" " alt="" coords="192,499,275,524"/>
+<area shape="poly" id="edge147_Node000000_Node000011" title=" " alt="" coords="82,433,115,459,153,484,193,499,191,504,151,488,112,464,79,437"/>
+<area shape="rect" id="Node000012" href="$classhcalPoint.html" title=" " alt="" coords="192,548,275,573"/>
+<area shape="poly" id="edge148_Node000000_Node000012" title=" " alt="" coords="71,436,105,485,127,511,154,533,172,543,192,550,191,555,170,548,150,538,124,515,101,489,67,439"/>
+<area shape="rect" id="Node000013" href="$classmuonPoint.html" title=" " alt="" coords="187,597,279,623"/>
+<area shape="poly" id="edge149_Node000000_Node000013" title=" " alt="" coords="66,438,79,471,97,510,122,549,154,583,170,593,188,600,186,605,168,597,150,587,118,552,92,513,74,473,61,440"/>
+<area shape="rect" id="Node000014" href="$classpreshowerPoint.html" title=" " alt="" coords="172,647,295,672"/>
+<area shape="poly" id="edge150_Node000000_Node000014" title=" " alt="" coords="63,439,73,481,90,533,116,586,134,611,154,632,173,644,170,649,150,636,130,614,112,589,85,535,67,483,58,440"/>
+<area shape="rect" id="Node000015" href="$classsplitcalPoint.html" title=" " alt="" coords="182,696,285,721"/>
+<area shape="poly" id="edge151_Node000000_Node000015" title=" " alt="" coords="60,439,67,490,83,555,111,623,130,654,154,681,167,691,183,698,181,703,164,696,150,685,126,657,106,625,78,557,62,491,55,439"/>
+<area shape="rect" id="Node000016" href="$classstrawtubesPoint.html" title=" " alt="" coords="170,745,297,771"/>
+<area shape="poly" id="edge152_Node000000_Node000016" title=" " alt="" coords="59,439,63,499,77,577,89,618,105,659,127,697,154,731,171,743,168,747,150,735,122,700,100,661,84,620,71,578,58,499,53,439"/>
+<area shape="rect" id="Node000017" href="$classvetoPoint.html" title=" " alt="" coords="191,795,275,820"/>
+<area shape="poly" id="edge153_Node000000_Node000017" title=" " alt="" coords="62,439,74,517,94,620,121,717,137,755,154,780,171,793,192,800,190,805,169,797,150,784,132,757,116,719,89,621,69,518,57,440"/>
 </map>

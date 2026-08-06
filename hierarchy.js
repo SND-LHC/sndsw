@@ -86,6 +86,7 @@ var hierarchy =
       [ "vetoContFact", "classvetoContFact.html", null ]
     ] ],
     [ "FairDetector", null, [
+      [ "DriftTube", "classDriftTube.html", null ],
       [ "EmulsionDet", "classEmulsionDet.html", null ],
       [ "Floor", "classFloor.html", null ],
       [ "Hpt", "classHpt.html", null ],
@@ -142,6 +143,7 @@ var hierarchy =
       [ "ShipGeoCave", "classShipGeoCave.html", null ]
     ] ],
     [ "FairMCPoint", null, [
+      [ "DriftTubePoint", "classDriftTubePoint.html", null ],
       [ "EmulsionDetPoint", "classEmulsionDetPoint.html", null ],
       [ "HptPoint", "classHptPoint.html", null ],
       [ "MuFilterPoint", "classMuFilterPoint.html", null ],
@@ -178,6 +180,7 @@ var hierarchy =
       [ "ShipFieldPar", "classShipFieldPar.html", null ]
     ] ],
     [ "FairTask", null, [
+      [ "ConvDriftTubeRawData", "classConvDriftTubeRawData.html", null ],
       [ "ConvRawData", "classConvRawData.html", null ],
       [ "DigiTaskSND", "classDigiTaskSND.html", null ],
       [ "MCEventBuilder", "classMCEventBuilder.html", null ],
@@ -281,6 +284,7 @@ var hierarchy =
     [ "genfit::GFRaveVertexFactory", "classgenfit_1_1GFRaveVertexFactory.html", null ],
     [ "ScifiCTR.histStore", "classScifiCTR_1_1histStore.html", null ],
     [ "HitData", "structHitData.html", null ],
+    [ "ConvDriftTubeRawData::HitPoint", "structConvDriftTubeRawData_1_1HitPoint.html", null ],
     [ "hnl.HNLbranchings", "classhnl_1_1HNLbranchings.html", [
       [ "hnl.HNL", "classhnl_1_1HNL.html", null ]
     ] ],
@@ -366,6 +370,7 @@ var hierarchy =
       [ "hcalStructure", "classhcalStructure.html", null ]
     ] ],
     [ "TObject", null, [
+      [ "DriftTubeHit", "classDriftTubeHit.html", null ],
       [ "Hit2MCPoints", "classHit2MCPoints.html", null ],
       [ "PrimaryTrack", "structPrimaryTrack.html", null ],
       [ "ShipHit", "classShipHit.html", [

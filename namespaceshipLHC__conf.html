@@ -173,15 +173,22 @@ Variables</h2></td></tr>
 <div class="line"><span class="lineno">   39</span>    <a class="code hl_function" href="classMuFilter.html#a22f5450eca08fbb5fa466a81fdbe75d9">MuFilter.SetConfPar</a>(<span class="stringliteral">&quot;MuFilter/&quot;</span>+parName, parValue)</div>
 <div class="line"><span class="lineno">   40</span> detectorList.append(MuFilter)</div>
 <div class="line"><span class="lineno">   41</span> </div>
-<div class="line"><span class="lineno">   42</span> detElements = {}</div>
-<div class="line"><span class="lineno">   43</span> <span class="keywordflow">if</span> hasattr(run,<span class="stringliteral">&#39;SetMaterials&#39;</span>):  </div>
-<div class="line"><span class="lineno">   44</span>  <span class="keywordflow">for</span> x <span class="keywordflow">in</span> detectorList:</div>
-<div class="line"><span class="lineno">   45</span>    run.AddModule(x)</div>
-<div class="line"><span class="lineno">   46</span><span class="comment"># return list of detector elements</span></div>
-<div class="line"><span class="lineno">   47</span>  <span class="keywordflow">for</span> x <span class="keywordflow">in</span> run.GetListOfModules(): detElements[x.GetName()]=x</div>
-<div class="line"><span class="lineno">   48</span> <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">   49</span>  <span class="keywordflow">for</span> x <span class="keywordflow">in</span> detectorList: detElements[x.GetName()]=x</div>
-<div class="line"><span class="lineno">   50</span> <span class="keywordflow">return</span> detElements</div>
+<div class="line"><span class="lineno">   42</span> DriftTube = ROOT.DriftTube(<span class="stringliteral">&quot;DriftTube&quot;</span>,ROOT.kTRUE)</div>
+<div class="line"><span class="lineno">   43</span> <span class="keywordflow">for</span> parName <span class="keywordflow">in</span> ship_geo.DriftTube:</div>
+<div class="line"><span class="lineno">   44</span>    parValue = eval(<span class="stringliteral">&#39;ship_geo.DriftTube.&#39;</span>+parName)</div>
+<div class="line"><span class="lineno">   45</span>    <a class="code hl_function" href="classDriftTube.html#a50a337be01102b8c4daa8cd3f48702cc">DriftTube.SetConfPar</a>(<span class="stringliteral">&quot;DriftTube/&quot;</span>+parName, parValue)</div>
+<div class="line"><span class="lineno">   46</span> detectorList.append(DriftTube)</div>
+<div class="line"><span class="lineno">   47</span> </div>
+<div class="line"><span class="lineno">   48</span> detElements = {}</div>
+<div class="line"><span class="lineno">   49</span> <span class="keywordflow">if</span> hasattr(run,<span class="stringliteral">&#39;SetMaterials&#39;</span>):  </div>
+<div class="line"><span class="lineno">   50</span>  <span class="keywordflow">for</span> x <span class="keywordflow">in</span> detectorList:</div>
+<div class="line"><span class="lineno">   51</span>    run.AddModule(x)</div>
+<div class="line"><span class="lineno">   52</span><span class="comment"># return list of detector elements</span></div>
+<div class="line"><span class="lineno">   53</span>  <span class="keywordflow">for</span> x <span class="keywordflow">in</span> run.GetListOfModules(): detElements[x.GetName()]=x</div>
+<div class="line"><span class="lineno">   54</span> <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">   55</span>  <span class="keywordflow">for</span> x <span class="keywordflow">in</span> detectorList: detElements[x.GetName()]=x</div>
+<div class="line"><span class="lineno">   56</span> <span class="keywordflow">return</span> detElements</div>
+<div class="ttc" id="aclassDriftTube_html_a50a337be01102b8c4daa8cd3f48702cc"><div class="ttname"><a href="classDriftTube.html#a50a337be01102b8c4daa8cd3f48702cc">DriftTube::SetConfPar</a></div><div class="ttdeci">void SetConfPar(TString name, Float_t value)</div><div class="ttdef"><b>Definition</b> <a href="DriftTube_8h_source.html#l00028">DriftTube.h:28</a></div></div>
 <div class="ttc" id="aclassEmulsionDet_html_a8798fd4d5e5cd60b37c4035f5694779f"><div class="ttname"><a href="classEmulsionDet.html#a8798fd4d5e5cd60b37c4035f5694779f">EmulsionDet::SetConfPar</a></div><div class="ttdeci">void SetConfPar(TString name, Float_t value)</div><div class="ttdef"><b>Definition</b> <a href="EmulsionDet_8h_source.html#l00067">EmulsionDet.h:67</a></div></div>
 <div class="ttc" id="aclassMuFilter_html_a22f5450eca08fbb5fa466a81fdbe75d9"><div class="ttname"><a href="classMuFilter.html#a22f5450eca08fbb5fa466a81fdbe75d9">MuFilter::SetConfPar</a></div><div class="ttdeci">void SetConfPar(TString name, Float_t value)</div><div class="ttdef"><b>Definition</b> <a href="MuFilter_8h_source.html#l00043">MuFilter.h:43</a></div></div>
 <div class="ttc" id="aclassScifi_html_a5bff0cb8f4f4954629cc85f4e7827afb"><div class="ttname"><a href="classScifi.html#a5bff0cb8f4f4954629cc85f4e7827afb">Scifi::SetConfPar</a></div><div class="ttdeci">void SetConfPar(TString name, Float_t value)</div><div class="ttdef"><b>Definition</b> <a href="Scifi_8h_source.html#l00046">Scifi.h:46</a></div></div>

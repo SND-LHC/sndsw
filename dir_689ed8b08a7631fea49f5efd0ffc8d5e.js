@@ -11,6 +11,7 @@ var dir_689ed8b08a7631fea49f5efd0ffc8d5e =
     [ "Mufi_monitoring.py", "Mufi__monitoring_8py.html", "Mufi__monitoring_8py" ],
     [ "MufiCTR.py", "MufiCTR_8py.html", "MufiCTR_8py" ],
     [ "run_Calibration-rawTimestamp.py", "run__Calibration-rawTimestamp_8py.html", "run__Calibration-rawTimestamp_8py" ],
+    [ "run_DTconv.py", "run__DTconv_8py.html", "run__DTconv_8py" ],
     [ "run_Monitoring.py", "run__Monitoring_8py.html", "run__Monitoring_8py" ],
     [ "run_TrackSelections.py", "run__TrackSelections_8py.html", "run__TrackSelections_8py" ],
     [ "Scifi_monitoring.py", "Scifi__monitoring_8py.html", "Scifi__monitoring_8py" ],
