@@ -111,7 +111,7 @@ class fillingScheme():
        self.fromElogX[4661]=8083
 
    def getNameOfFillingscheme(self,fillnr):
-        tmp = fillnr
+        tmp = fillnr if isinstance(fillnr, int) else int(fillnr)
         alternative = self.alternativeFill(str(fillnr))
         if alternative: tmp = alternative
         Y = "2022"
