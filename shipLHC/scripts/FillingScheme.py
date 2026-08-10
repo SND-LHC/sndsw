@@ -1413,71 +1413,71 @@ class fillingScheme():
             L+=self.runInfo[r]['lumiAtIP1withSNDLHC']
             N+=self.runInfo[r]['Entries']
         lines = []
-        lines.append("\documentclass{beamer}")
-        lines.append("\mode<presentation>")
-        lines.append("{\\usetheme{Singapore}}")
-        lines.append("\\usepackage{graphicx}")
-        lines.append("\\usepackage[space]{grffile}")
-        lines.append("\\usepackage[english]{babel}")
-        lines.append("\\usepackage[latin1]{inputenc}")
-        lines.append("\\usepackage[T1]{fontenc}")
-        lines.append("\\title[Short Paper Title] % (optional, use only with long paper titles)")
+        lines.append(r"\documentclass{beamer}")
+        lines.append(r"\mode<presentation>")
+        lines.append(r"{\usetheme{Singapore}}")
+        lines.append(r"\usepackage{graphicx}")
+        lines.append(r"\usepackage[space]{grffile}")
+        lines.append(r"\usepackage[english]{babel}")
+        lines.append(r"\usepackage[latin1]{inputenc}")
+        lines.append(r"\usepackage[T1]{fontenc}")
+        lines.append(r"\title[Short Paper Title] % (optional, use only with long paper titles)")
         if options.convpath.find('2022')>0:
           lines.append("{SND@LHC Run Summary July - November 2022}")
-          lines.append("\date[Short Occasion] % (optional)")
+          lines.append(r"\date[Short Occasion] % (optional)")
           lines.append("{ 17 November 2022}")
-          lines.append("\\begin{document}")
-          lines.append("\\begin{frame}{}")
+          lines.append(r"\begin{document}")
+          lines.append(r"\begin{frame}{}")
           lines.append("17 November 2022")
-          lines.append("\\newline  ")
-          lines.append("\\newline  ")
+          lines.append(r"\newline  ")
+          lines.append(r"\newline  ")
           lines.append("Run Summary for July - November 2022")
         else:
           lines.append("{SND@LHC Run Summary March - July 2023}")
-          lines.append("\date[Short Occasion] % (optional)")
+          lines.append(r"\date[Short Occasion] % (optional)")
           lines.append("{ 16 July 2023}")
-          lines.append("\\begin{document}")
-          lines.append("\\begin{frame}{}")
+          lines.append(r"\begin{document}")
+          lines.append(r"\begin{frame}{}")
           lines.append("16 July 2023")
-          lines.append("\\newline  ")
-          lines.append("\\newline  ")
+          lines.append(r"\newline  ")
+          lines.append(r"\newline  ")
           lines.append("Run Summary for March - July 2023")
-        nTXT = "$%5.2F\\times 10^9 $"%(N/1E9)
-        lines.append("\\begin{itemize}")
-        lines.append("\item total number of events: "+nTXT)
-        lines.append("\item integrated luminosity (lower limit): $%5.2F\mathrm{fb}^{-1}$"%(L/1E9))
-        lines.append("\end{itemize}")
-        lines.append("\\begin{center}")
-        lines.append("\includegraphics[width = 0.7\\textwidth]{Lumi-time.pdf}")
-        lines.append("\end{center}")
-        lines.append("\end{frame}")
-        lines.append("\\begin{frame}{}")
-        lines.append("\\begin{center}")
+        nTXT = r"$%5.2F\times 10^9 $"%(N/1E9)
+        lines.append(r"\begin{itemize}")
+        lines.append(r"\item total number of events: "+nTXT)
+        lines.append(r"\item integrated luminosity (lower limit): $%5.2F\mathrm{fb}^{-1}$"%(L/1E9))
+        lines.append(r"\end{itemize}")
+        lines.append(r"\begin{center}")
+        lines.append(r"\includegraphics[width = 0.7\textwidth]{Lumi-time.pdf}")
+        lines.append(r"\end{center}")
+        lines.append(r"\end{frame}")
+        lines.append(r"\begin{frame}{}")
+        lines.append(r"\begin{center}")
         elist = list(emulsionReplacements.values())
         elist.sort(reverse=True)
         k=0
         for emulsionNr in elist:
            if k==6:
                 k=0
-                lines.append("\end{center}")
-                lines.append("\end{frame}")
-                lines.append("\\begin{frame}{}")
-                lines.append("\\begin{center}")
+                lines.append(r"\end{center}")
+                lines.append(r"\end{frame}")
+                lines.append(r"\begin{frame}{}")
+                lines.append(r"\begin{center}")
            if "ScifitrackDens"+str(emulsionNr)+".pdf" in os.listdir('.'):
-              lines.append("\includegraphics[width = 0.4\\textwidth]{ScifitrackDens"+str(emulsionNr)+".pdf}")
+              lines.append(r"\includegraphics[width = 0.4\textwidth]{ScifitrackDens"+str(emulsionNr)+".pdf}")
               k+=1
-        lines.append("\end{center}")
-        lines.append("\end{frame}")
+        lines.append(r"\end{center}")
+        lines.append(r"\end{frame}")
 
         R = list(self.runInfo.keys())
         R.sort(reverse=True)
 
-        lines.append("\\begin{frame}{}")
-        lines.append("Overview of  runs \\newline")
-        lines.append("\\scriptsize")
-        lines.append("\\begin{scriptsize}")
-        lines.append("\\begin{tabular}{lcrrrl}")
-        lines.append("  Run &  Fill &  events & mu & Lumi $\mathrm{pb}^{-1}$ & start time \\\\ ")
+        lines.append(r"\begin{frame}{}")
+        lines.append(r"Overview of  runs \newline")
+        lines.append(r"\scriptsize")
+        lines.append(r"\begin{scriptsize}")
+        lines.append(r"\begin{tabular}{lcrrrl}")
+        lines.append(r"  Run &  Fill &  events & mu & Lumi $\mathrm{pb}^{-1}$ & start time \\ ")
         ilines = 0
         for  i in range(len(R)):
            r = R[i]
@@ -1488,19 +1488,19 @@ class fillingScheme():
            if fill == '': fill = ' -- '
            mu = ''
            if 'muAv' in self.runInfo[r]: mu = "%4.1F"%(self.runInfo[r]['muAv'][''])
-           lines.append(" %i & %6s & %10i & %s & $%5.1F$ & %s \\\\"%(r,fill,N,mu,lumi,self.runInfo[r]['StartTimeC']))
+           lines.append(r" %i & %6s & %10i & %s & $%5.1F$ & %s \\"%(r,fill,N,mu,lumi,self.runInfo[r]['StartTimeC']))
            ilines+=1
-           if ilines%19==0: 
-                lines.append("\end{tabular}")
-                lines.append("\\end{scriptsize}")
-                lines.append("\end{frame}")
-                lines.append("\\begin{frame}{}")
-                lines.append("\\begin{scriptsize}")
-                lines.append("\\begin{tabular}{lcrrrl}")
-                lines.append("  Run &  Fill &  events & mu &  Lumi $\mathrm{pb}^{-1}$ & start time \\\\ ")
-        lines.append("\end{tabular}")
-        lines.append("\\end{scriptsize}")
-        lines.append("\end{frame}")
+           if ilines%19==0:
+                lines.append(r"\end{tabular}")
+                lines.append(r"\end{scriptsize}")
+                lines.append(r"\end{frame}")
+                lines.append(r"\begin{frame}{}")
+                lines.append(r"\begin{scriptsize}")
+                lines.append(r"\begin{tabular}{lcrrrl}")
+                lines.append(r"  Run &  Fill &  events & mu &  Lumi $\mathrm{pb}^{-1}$ & start time \\ ")
+        lines.append(r"\end{tabular}")
+        lines.append(r"\end{scriptsize}")
+        lines.append(r"\end{frame}")
 
 #
 # runs with beam present measured
@@ -1514,29 +1514,29 @@ class fillingScheme():
              if self.runInfo[r]['lumiAtIP1withSNDLHC']>0 or withBeam: RwL.append(r)
         RwL.sort(reverse=True)
         R = RwL
-        lines.append("\\begin{frame}{}")
+        lines.append(r"\begin{frame}{}")
         k=0
         for i in range(len(R)):
            print('at run ',R[i])
            r = str(R[i]).zfill(6)
            if not "FS-run"+r+".pdf" in os.listdir('.'): continue
            if "Lumi-run"+r+".pdf" in os.listdir('.'):
-              lines.append("\includegraphics[width = 0.3\\textwidth]{Lumi-run"+r+".pdf}")
+              lines.append(r"\includegraphics[width = 0.3\textwidth]{Lumi-run"+r+".pdf}")
            else:
-             lines.append("\includegraphics[width = 0.3\\textwidth]{noLumi-run"+r+".pdf}")
+             lines.append(r"\includegraphics[width = 0.3\textwidth]{noLumi-run"+r+".pdf}")
            if "FS-run"+r+".pdf" in os.listdir('.'):
-             lines.append("\includegraphics[width = 0.3\\textwidth]{FS-run"+r+".pdf}")
+             lines.append(r"\includegraphics[width = 0.3\textwidth]{FS-run"+r+".pdf}")
            if "run"+r+"Lumi-tracks.pdf" in os.listdir('.'):
-             lines.append("\includegraphics[width = 0.3\\textwidth]{run"+r+"Lumi-tracks.pdf}")
-           lines.append("\\newline")
-           if (3*k+3)%12==0: 
-                lines.append("\end{frame}")
-                lines.append("\\begin{frame}{}")
+             lines.append(r"\includegraphics[width = 0.3\textwidth]{run"+r+"Lumi-tracks.pdf}")
+           lines.append(r"\newline")
+           if (3*k+3)%12==0:
+                lines.append(r"\end{frame}")
+                lines.append(r"\begin{frame}{}")
            k+=1
-        lines.append("\end{frame}")
+        lines.append(r"\end{frame}")
         lines.append(" ")
 #
-        lines.append("\end{document}")
+        lines.append(r"\end{document}")
         outFile = open(os.environ["HOME"]+'/dummy','w')
         for l in lines:
              rc = outFile.write(l+"\n")
