@@ -1285,7 +1285,7 @@ class fillingScheme():
             if fname.find('FS')==0 and fname.find('.root')>0 and fname.find('dict')<0:
                 rname = fname.split('-')[1].split('.')[0]
                 F = ROOT.TFile(fname)
-                h[rname] = F.c1.Clone(rname)
+                h[rname] = F.Get("c1").Clone(rname)
                 h[rname].SetName(rname)
                 h[rname].SetTitle(rname)
         F = ROOT.TFile('BunchStructure.root','recreate')
@@ -1307,7 +1307,7 @@ class fillingScheme():
                 if not F.Get('c1'):
                    print('error file',fname)
                    continue
-                h[rname] = F.c1.Clone(rname)
+                h[rname] = F.Get("c1").Clone(rname)
                 h[rname].SetName(rname)
                 h[rname].SetTitle(rname)
                 Llist.append(rname)
