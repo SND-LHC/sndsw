@@ -118,6 +118,7 @@ class fillingScheme():
         if fillnr > 8500 : Y = "2023"
         if fillnr >= 9323 : Y="2024"
         if fillnr >= 10406 : Y="2025"
+        if fillnr >= 11392 : Y="2026"
         if not self.lpcFillingscheme:
              with urlopen('https://lpc.web.cern.ch/cgi-bin/fillTable.py?year='+Y) as webpage:
                self.lpcFillingscheme = webpage.read().decode()
@@ -179,6 +180,7 @@ class fillingScheme():
      if fillnr>8500: Y = "2023"
      if fillnr>=9323: Y="2024"
      if fillnr>=10406 : Y="2025"
+     if fillnr>=11392 : Y="2026"
      if not fromnxcals and not fromAtlas:
        try:
           with urlopen('https://lpc.web.cern.ch/cgi-bin/fillAnalysis.py?year='+Y+'&action=fillData&exp=ATLAS&fillnr='+str(fillnr)) as webpage:
@@ -2070,6 +2072,11 @@ if __name__ == '__main__':
        em_run = options.rawData[options.rawData.find("run_"):]
        options.convpath = "/eos/experiment/sndlhc/convertedData/physics/2025/"+em_run
        options.rmin = 10919-1 #10587 fillN
+       offline =www+"offline.html"
+    elif options.rawData.find('2026')>0:
+       em_run = options.rawData[options.rawData.find("run_"):]
+       options.convpath = "/eos/experiment/sndlhc/convertedData/physics/2026/"+em_run
+       options.rmin = 12794-1 #11392 fillN
        offline =www+"offline.html"
     FS = fillingScheme()
     FS.Init(options)
