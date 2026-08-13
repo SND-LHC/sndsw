@@ -118,7 +118,7 @@ MuFilterHit::MuFilterHit(Int_t detID, std::vector<MuFilterPoint*> V)
 
      // Apply the signal threshold per bar
      flag = true;
-     if ( signalRight+signalRight < dE_min[int(floor(detID/10000)-1)] ) {
+     if ( signalRight+signalLeft < dE_min[int(floor(detID/10000)-1)] ) {
           flag = false;
      }
 
