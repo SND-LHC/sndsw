@@ -1,0 +1,106 @@
+# =============================================================================
+# Analysis.yaml -- top-level run configuration
+# =============================================================================
+#
+# Controls one run of reweighting_function.py. The per-variant reweighting
+# settings (flux files, binning, cuts, fit range) live in the FluxReweighter
+# configs listed under `fastsim_configs`, not here.
+#
+#   python3 reweighting_function.py -c Analysis.yaml
+#   python3 reweighting_function.py -c Analysis.yaml -rc Config_epos.yaml
+#   python3 reweighting_function.py -m reweight -rc Config_epos.yaml
+#
+# Command-line options (-m, -rc, --reader) override the matching fields below.
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Which stage to run
+# -----------------------------------------------------------------------------
+# compare  -> fit w(E), read the DPMJET energies from ROOT, save the overlay
+# reweight -> only the FluxReweighter diagnostic ratio-fit plots (no ROOT)
+#
+# Start with reweight to check the selection, binning and fit, then switch to
+# compare once w(E) looks right.
+mode: compare
+
+# -----------------------------------------------------------------------------
+# DPMJET ROOT input (SND@LHC cbmsim tree)
+# -----------------------------------------------------------------------------
+# These are the simulated events that w(E) is applied to. The neutrino energy
+# is taken from MCTrack: the primary neutrino, |pdg| matching `flavour` and
+# MotherId == -1.
+root_input:
+  data_dir: ./
+  pattern:  stage2.root
+
+  # Number of per-job files. With indexed: false this no longer selects files,
+  # but it still sets the MC luminosity used by plot.normalization -- keep it
+  # equal to the number of files that went into the merge.
+  number_files: 50
+
+  # true  -> per-job layout, <data_dir>/<i>/<pattern> for i in 0..number_files-1
+  # false -> a single merged file at <data_dir>/<pattern>
+  indexed: false
+
+  tree_name: cbmsim
+  flavour: mu          # e / mu / tau / all -- should match the reweighter config
+
+  # ROOT backend:
+  #   auto   -> pyROOT if importable, otherwise uproot
+  #   pyroot -> requires the SND@LHC environment (source .../setUp.sh)
+  #   uproot -> no ROOT framework needed:  pip install uproot awkward
+  reader: auto
+
+# -----------------------------------------------------------------------------
+# Reweighting fit
+# -----------------------------------------------------------------------------
+# Degree of the polynomial w(E) used in compare mode. The reweighter config's
+# `polynomial_degrees` only controls how many diagnostic plots are produced.
+reweight:
+  degree: 2
+
+# -----------------------------------------------------------------------------
+# Fast-sim variants to overlay
+# -----------------------------------------------------------------------------
+# One FluxReweighter config per curve. Each is fitted separately and its curve
+# is labelled from that config's output.label. Passing -rc on the command line
+# replaces this list (colours are then assigned automatically).
+fastsim_configs:
+  - config: Config_epos.yaml
+    color: "tab:blue"
+    linestyle: "--"
+  # - config: Config_sibyll.yaml
+  #   color: "tab:red"
+  #   linestyle: "--"
+
+# -----------------------------------------------------------------------------
+# Reference curve: DPMJET with no weight applied
+# -----------------------------------------------------------------------------
+reference:
+  label: "DPMJET (reference)"
+  color: "black"
+  linestyle: "-"
+
+# -----------------------------------------------------------------------------
+# Comparison histogram and output
+# -----------------------------------------------------------------------------
+# This binning is independent of the binning used to derive w(E): the weight is
+# evaluated from the polynomial at each event's energy.
+#
+# normalization scales the simulated sample to the target luminosity,
+#     L_data / L_MC = target_luminosity / (number_files * luminosity_per_file)
+# Use "auto" for that formula, or give a number to override it directly.
+plot:
+  bins: 100
+  energy_max: 2000.0                # histogram upper edge [GeV], lower edge 0
+  normalization: auto
+  target_luminosity: 68.6           # [fb^-1] luminosity being scaled to
+  luminosity_per_file: 100          # [fb^-1] represented by each stage2 file
+  title: "Energy Distribution: DPMJET vs fast-sim (light + charm) reweighted"
+  outfile: energy_distribution_comparison_fastsim_reweighted.pdf
+
+# -----------------------------------------------------------------------------
+# Used only by `mode: reweight` when no -rc is given on the command line
+# -----------------------------------------------------------------------------
+reweight_only:
+  config: Config_epos.yaml

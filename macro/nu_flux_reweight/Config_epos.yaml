@@ -1,0 +1,129 @@
+# =============================================================================
+# Reweighting function configuration -- one file per fast-sim variant
+# =============================================================================
+#
+# Defines the reweighting function
+#
+#     w(E) = flux_fastsim(E) / flux_DPMJET(E)
+#
+# where each side is the sum of a light-hadron and a heavy-flavour (charm)
+# sample. Multiplying DPMJET events by w(E) reproduces the fast-sim prediction.
+#
+# To compare several fast-sim variants, copy this file once per variant (e.g.
+# Config_epos.yaml, Config_sibyll.yaml), change `inputs.light_fastsim` and
+# `output.label`, and list them in Analysis.yaml (or pass them with -rc).
+#
+# Run the diagnostic fit with:
+#     python3 reweighting_function.py -m reweight -rc Config_epos.yaml
+#
+# Only the four `inputs` paths are mandatory; every other key has a default.
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Input flux files
+# -----------------------------------------------------------------------------
+# Whitespace-separated, no header, one neutrino per row, columns in this order:
+#   Neutrino  Parent  x[m]  y[m]  z[m]  xang[rad]  yang[rad]  E[GeV]  weight[pb]
+# POWHEG files carry an extra trailing iEvent column (detected from the name).
+#
+#   *_dpm      -> denominator: the reference model being reweighted FROM
+#   *_fastsim  -> numerator:   the target model being reweighted TO
+
+inputs:
+  light_dpm:     /eos/experiment/sndlhc/MonteCarlo/Neutrinos/flux_reweighting/events_sampling_light_DPMJET_13p6TeV_500k_XYnew_downward.txt
+  charm_dpm:     /eos/experiment/sndlhc/MonteCarlo/Neutrinos/flux_reweighting/events_sampling_charm_DPMJET_13p6TeV_100k_XYnew_downward.txt
+  light_fastsim: /eos/experiment/sndlhc/MonteCarlo/Neutrinos/flux_reweighting/events_sampling_light_EPOSLHC_13p6TeV_500k_XYnew_downward.txt
+  charm_fastsim: /eos/experiment/sndlhc/MonteCarlo/Neutrinos/flux_reweighting/events_weighted_charm_POWHEG_13p6TeV_100k_downward.txt
+
+# -----------------------------------------------------------------------------
+# Neutrino flavour entering the ratio
+# -----------------------------------------------------------------------------
+# e / mu / tau -> PDG 12 / 14 / 16. Matched on |pdg|, so nu and nubar together.
+# w(E) is flavour-specific: derive and apply it per flavour.
+flavour: mu
+
+# -----------------------------------------------------------------------------
+# Energy binning of the ratio [GeV]
+# -----------------------------------------------------------------------------
+# mode: uniform   -> `bins` equally spaced EDGES between min and max
+#                    (bins: 51 gives 50 bins of 80 GeV over 0-4000)
+# mode: adaptive  -> start from `fine_bins` equal bins and merge neighbours
+#                    until BOTH sides of the ratio hold at least `min_neff`
+#                    effective entries, N_eff = (sum w)^2 / sum w^2.
+#
+# Tuning: min_neff 10-20 is a good range. Too small (< 5) and the bins are
+# again dominated by single events; too large and the high-energy region
+# collapses into one bin whose centre may fall outside `fit_range`. Judge by
+# the plot's error bars and by whether the coefficients are stable when
+energy_binning:
+  min: 0
+  max: 4000
+  bins: 51            # uniform mode only
+  mode: uniform       # Can change it into adaptive mode
+  fine_bins: 100      # adaptive: starting grid (100 -> 40 GeV resolution)
+  min_neff: 5        # adaptive: minimum effective entries per bin
+
+# -----------------------------------------------------------------------------
+# Energy window the polynomial is fitted over [GeV]
+# -----------------------------------------------------------------------------
+# w(E) is only constrained here; outside it the curve is extrapolating and can
+# turn negative. Set `max` no higher than the last bin that actually holds
+# data, otherwise the fit runs unconstrained into empty space.
+fit_range:
+  min: 1
+  max: 3000
+
+# -----------------------------------------------------------------------------
+# Polynomial degrees -- one diagnostic plot each (reweight mode)
+# -----------------------------------------------------------------------------
+polynomial_degrees: [1, 2, 3]
+
+# -----------------------------------------------------------------------------
+# Quality gates on which bins enter the fit
+# -----------------------------------------------------------------------------
+# rel_err_max: drop bins whose sigma/ratio exceeds this.
+rel_err_max: 1
+
+# ratio_min / ratio_max: optional window on the ratio VALUE.
+ratio_min: 0.0
+ratio_max: 1.5
+
+# -----------------------------------------------------------------------------
+# Selection cut
+# -----------------------------------------------------------------------------
+# enabled: false if not want to use the cut
+#
+# unit_scale multiplies x and y BEFORE the bounds are applied, so cm bounds can
+# be used with columns stored in metres (unit_scale: 100). If the selection
+# report shows "0 survive", it prints the data range next to the cut bounds --
+# a mismatch of ~100x means this value is wrong.
+#
+# These bounds describe the detector geometry. Do not tune them to make the
+# fitted curve match a target: that selects on the outcome rather than
+# measuring it.
+cuts:
+  enabled: true
+  energy_min: 5.0        # minimum neutrino energy [GeV]
+  x_column: "x in m"
+  y_column: "y in m"
+  x_min: -46.0            # bounds in cm (with unit_scale: 100)
+  x_max: -7.0
+  y_min: 15.0
+  y_max: 54.0
+  unit_scale: 100.0       # 100 = metres -> cm; 1 = data already in cut units
+
+# -----------------------------------------------------------------------------------------------------
+# Set it to true if want to applied the weight, Set to false if not want to applied the weight
+# -----------------------------------------------------------------------------------------------------
+weights:
+  dpm: true
+  fastsim: true
+
+# -----------------------------------------------------------------------------
+# Output
+# -----------------------------------------------------------------------------
+# path  : directory for reweight_poly_deg<N>_<flavour>.pdf (created if needed)
+# label : plot title, and the legend entry for this variant in compare mode
+output:
+  path: ./output
+  label: "Fast sim (light+charm): EPOS + POWHEG"
