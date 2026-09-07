@@ -349,35 +349,62 @@ Bool_t DriftTube::ProcessHits(FairVolume *vol)
 void DriftTube::GetPosition(Int_t fDetectorID, TVector3 &A, TVector3 &B)
 {
 
-   // Alignment to be added!
    int plane = int(fDetectorID / 1000) % 10;
    int layer = int(fDetectorID % 1000) / 100;
-   int cell = int(fDetectorID % 100);
+   std::string layer_str = std::to_string(layer);
    double global_pos[3];
-   double local_pos[3] = {0, 0, 0};
    TString path = TString::Format("/cave_1/"
                                   "Detector_0/"
-                                  "volDriftTube_0/"
                                   "volDriftTubePlane_%d/"
                                   "volLayer_%d/"
-                                  "volCell_%d/",
-                                  plane, layer, cell);
+                                  "volCell_%d/"
+                                  "volAnode_2",
+                                  plane, layer, fDetectorID);
    TGeoNavigator *nav = gGeoManager->GetCurrentNavigator();
    if (nav->CheckPath(path)) {
       nav->cd(path);
    } else {
       LOG(FATAL) << path;
    }
+
+   //extract alignment parameter from the geometry
+   Float_t dx =0., dy = 0.;
+   TString orientation;
+   if (plane==0)
+   {
+     orientation = "Y";
+     dy = GetConfParF("DriftTube/YdyL"+layer_str);
+   }
+   else
+   {
+     orientation = "X";
+     dx = GetConfParF("DriftTube/XdxL"+layer_str);
+   }
+   Float_t RotX = GetConfParF("DriftTube/"+orientation+"RotX");
+   Float_t RotY = GetConfParF("DriftTube/"+orientation+"RotY");
+   Float_t RotZ = GetConfParF("DriftTube/"+orientation+"RotZL"+layer_str);
+
    // Get the corresponding node
    TGeoNode *W = nav->GetCurrentNode();
    TGeoBBox *S = dynamic_cast<TGeoBBox *>(W->GetVolume()->GetShape());
-   Double_t top_pos[3] = {0, 0, -(S->GetDZ())}; // left
-   Double_t bot_pos[3] = {0, 0, S->GetDZ()};    // right
-   Double_t global_top_pos[3], global_bot_pos[3];
-   nav->LocalToMaster(top_pos, global_top_pos);
-   nav->LocalToMaster(bot_pos, global_bot_pos);
-   A.SetXYZ(global_top_pos[0], global_top_pos[1], global_top_pos[2]);
-   B.SetXYZ(global_bot_pos[0], global_bot_pos[1], global_bot_pos[2]);
+   Float_t locPosition{};
+   Double_t loc[3] = {0,0,0};
+   Double_t glob[3] = {0,0,0};
+   locPosition -= (dx+dy); // dx or dy is zero for the respective non-measured coordinate
+
+   loc[2] = -S->GetDZ() - (RotZ + RotX)*locPosition;
+   loc[0] = locPosition - S->GetDZ() * (RotZ + RotX);
+   loc[1] = RotY*locPosition;
+   nav->cd(path);
+   nav->LocalToMaster(loc, glob);
+   A.SetXYZ( glob[0], glob[1],glob[2] );
+     
+   loc[0] = locPosition + S->GetDZ() * (RotZ + RotX);
+   loc[1] = - RotY*locPosition;
+   loc[2] = S->GetDZ() - (RotZ + RotX)*locPosition;
+   nav->LocalToMaster(loc, glob);
+   B.SetXYZ( glob[0], glob[1],glob[2] );
+
 }
 
 TVector3 DriftTube::GetLocalPos(Int_t id, TVector3* glob){
