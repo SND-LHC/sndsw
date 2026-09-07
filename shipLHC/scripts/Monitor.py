@@ -759,14 +759,31 @@ class TrackSelector():
 
 # init() tracking tasks
         if self.options.HoughTracking:
-           if self.options.trackType == 'Scifi' or self.options.trackType == 'ScifiDS':
+           if self.options.trackType == 'Scifi' or self.options.trackType == 'ScifiDS' or self.options.trackType == 'all':
               self.muon_reco_task_Sf = options.FairTasks["houghTransform_Sf"]
               self.muon_reco_task_Sf.Init()
               self.genfitTrack = self.muon_reco_task_Sf.genfitTrack
-           if self.options.trackType == 'DS' or self.options.trackType == 'ScifiDS':
+           if self.options.trackType == 'DS' or self.options.trackType == 'ScifiDS' or self.options.trackType == 'all':
               self.muon_reco_task_DS = options.FairTasks["houghTransform_DS"]
               self.muon_reco_task_DS.Init()
               self.genfitTrack = self.muon_reco_task_DS.genfitTrack
+           if self.options.trackType == 'DT' or self.options.trackType == 'all':
+              self.muon_reco_task_DT = options.FairTasks["houghTransform_DT"]
+              self.muon_reco_task_DT.Init()
+              self.genfitTrack = self.muon_reco_task_DT.genfitTrack
+           if self.options.trackType == 'DSDT' or self.options.trackType == 'all':
+              self.muon_reco_task_DSDT = options.FairTasks["houghTransform_DSDT"]
+              self.muon_reco_task_DSDT.Init()
+              self.genfitTrack = self.muon_reco_task_DSDT.genfitTrack
+           if self.options.trackType == 'ScifiDT' or self.options.trackType == 'all':
+              self.muon_reco_task_SfDT = options.FairTasks["houghTransform_SfDT"]
+              self.muon_reco_task_SfDT.Init()
+              self.genfitTrack = self.muon_reco_task_SfDT.genfitTrack
+           if self.options.trackType == 'ScifiWithDS' or self.options.trackType == 'all':
+              self.muon_reco_task_SfDS = options.FairTasks["houghTransform_SfDS"]
+              self.muon_reco_task_SfDS.Init()
+              self.genfitTrack = self.muon_reco_task_SfDS.genfitTrack
+
         if self.options.simpleTracking:
            self.trackTask = options.FairTasks["simpleTracking"]
            if not self.options.HoughTracking:
@@ -843,6 +860,41 @@ class TrackSelector():
               if self.options.simpleTracking:
                  self.trackTask.ExecuteTask(option='DS')
                  track_container_list.append(self.trackTask.fittedTracks)
+
+           elif self.options.trackType == 'DT':
+              if self.options.HoughTracking:
+                 self.muon_reco_task_DT.Exec(0)
+                 track_container_list.append(self.muon_reco_task_DT.kalman_tracks)
+
+           elif self.options.trackType == 'DSDT':
+              if self.options.HoughTracking:
+                 self.muon_reco_task_DSDT.Exec(0)
+                 track_container_list.append(self.muon_reco_task_DSDT.kalman_tracks)
+
+           elif self.options.trackType == 'ScifiDT':
+              if self.options.HoughTracking:
+                 self.muon_reco_task_SfDT.Exec(0)
+                 track_container_list.append(self.muon_reco_task_SfDT.kalman_tracks)
+
+           elif self.options.trackType == 'ScifiWithDS':
+              if self.options.HoughTracking:
+                 self.muon_reco_task_SfDS.Exec(0)
+                 track_container_list.append(self.muon_reco_task_SfDS.kalman_tracks)
+
+           elif self.options.trackType == 'all':
+              if self.options.HoughTracking:
+                 self.muon_reco_task_Sf.Exec(0)
+                 track_container_list.append(self.muon_reco_task_Sf.kalman_tracks)
+                 self.muon_reco_task_DS.Exec(0)
+                 track_container_list.append(self.muon_reco_task_DS.kalman_tracks)
+                 self.muon_reco_task_DT.Exec(0)
+                 track_container_list.append(self.muon_reco_task_DT.kalman_tracks)
+                 self.muon_reco_task_DSDT.Exec(0)
+                 track_container_list.append(self.muon_reco_task_DSDT.kalman_tracks)
+                 self.muon_reco_task_SfDT.Exec(0)
+                 track_container_list.append(self.muon_reco_task_SfDT.kalman_tracks)
+                 self.muon_reco_task_SfDS.Exec(0)
+                 track_container_list.append(self.muon_reco_task_SfDS.kalman_tracks)
 
            i_muon = -1
            for item in track_container_list:

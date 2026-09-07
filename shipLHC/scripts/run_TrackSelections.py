@@ -48,18 +48,43 @@ options.FairTasks = {}
 options.genfitTrack = False
 HT_tasks = []
 if options.HoughTracking:
-   if options.trackType == 'Scifi' or options.trackType == 'ScifiDS':
+   if options.trackType == 'Scifi' or options.trackType == 'ScifiDS' or options.trackType == 'all':
       muon_reco_task_Sf = SndlhcMuonReco.MuonReco()
       muon_reco_task_Sf.SetTrackingCase('passing_mu_Sf')
       muon_reco_task_Sf.SetName("houghTransform_Sf")
       options.FairTasks["houghTransform_Sf"] = muon_reco_task_Sf
       HT_tasks.append(muon_reco_task_Sf)
-   if options.trackType == 'DS' or options.trackType == 'ScifiDS':
+   if options.trackType == 'DS' or options.trackType == 'ScifiDS' or options.trackType == 'all':
       muon_reco_task_DS = SndlhcMuonReco.MuonReco()
       muon_reco_task_DS.SetTrackingCase('passing_mu_DS')
       muon_reco_task_DS.SetName("houghTransform_DS")
       options.FairTasks["houghTransform_DS"] = muon_reco_task_DS
       HT_tasks.append(muon_reco_task_DS)
+   if options.trackType == 'DT' or options.trackType == 'all':
+      muon_reco_task_DT = SndlhcMuonReco.MuonReco()
+      muon_reco_task_DT.SetTrackingCase('passing_mu_DT')
+      muon_reco_task_DT.SetName("houghTransform_DT")
+      options.FairTasks["houghTransform_DT"] = muon_reco_task_DT
+      HT_tasks.append(muon_reco_task_DT)
+   if options.trackType == 'DSDT' or options.trackType == 'all':
+      muon_reco_task_DSDT = SndlhcMuonReco.MuonReco()
+      muon_reco_task_DSDT.SetTrackingCase('passing_mu_DSDT')
+      muon_reco_task_DSDT.SetName("houghTransform_DSDT")
+      options.FairTasks["houghTransform_DSDT"] = muon_reco_task_DSDT
+      HT_tasks.append(muon_reco_task_DSDT)
+   if options.trackType == 'ScifiDT' or options.trackType == 'all':
+      muon_reco_task_SfDT = SndlhcMuonReco.MuonReco()
+      muon_reco_task_SfDT.SetTrackingCase('passing_mu_SfDT')
+      muon_reco_task_SfDT.SetName("houghTransform_SfDT")
+      options.FairTasks["houghTransform_SfDT"] = muon_reco_task_SfDT
+      HT_tasks.append(muon_reco_task_SfDT)
+   if options.trackType == 'ScifiWithDS' or options.trackType == 'all':
+      muon_reco_task_SfDS = SndlhcMuonReco.MuonReco()
+      muon_reco_task_SfDS.SetTrackingCase('passing_mu_SfDS')
+      muon_reco_task_SfDS.SetName("houghTransform_SfDS")
+      options.FairTasks["houghTransform_SfDS"] = muon_reco_task_SfDS
+      HT_tasks.append(muon_reco_task_SfDS)
+
    for ht_task in HT_tasks:
        ht_task.SetParFile(options.parFile)
        ht_task.SetHoughSpaceFormat(options.HspaceFormat)
