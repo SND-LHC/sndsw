@@ -61,6 +61,8 @@ namespace snd3D {
                 glGetShaderInfoLog(geometryShaderId, 512, NULL, infoLog);
                 throw std::runtime_error("ERROR::GEOMETRY::COMPILATION_FAILED\n" + std::string(infoLog));
             }
+
+            delete[] geometrySource;
         }
 
         // --- FRAGMENT SHADER ---
@@ -93,6 +95,9 @@ namespace snd3D {
         glDeleteShader(vertexShaderId); // Clean up shader objects after linking it to the program
         glDeleteShader(fragmentShaderId);
         if (geometryShaderId != 0) glDeleteShader(geometryShaderId);
+
+        delete[] vertexSource;
+        delete[] fragmentSource;
 
         return programId;
     }
