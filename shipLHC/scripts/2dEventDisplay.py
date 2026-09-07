@@ -76,10 +76,12 @@ geo = SndlhcGeo.GeoInterface(options.geoFile)
 lsOfGlobals = ROOT.gROOT.GetListOfGlobals()
 lsOfGlobals.Add(geo.modules['Scifi'])
 lsOfGlobals.Add(geo.modules['MuFilter'])
+lsOfGlobals.Add(geo.modules['DriftTube'])
 
 detSize = {}
 em = geo.snd_geo.EmulsionDet
 si = geo.snd_geo.Scifi
+dt = geo.snd_geo.DriftTube
 detSize[0] =[si.channel_width, si.channel_width, si.scifimat_z ]
 mi = geo.snd_geo.MuFilter
 if hasattr(mi, "Veto3BarX"): vetoXdim = mi.Veto3BarX/2
@@ -87,6 +89,7 @@ else: vetoXdim = mi.VetoBarX/2
 detSize[1] =[vetoXdim, mi.VetoBarY/2, mi.VetoBarZ/2]
 detSize[2] =[mi.UpstreamBarX/2, mi.UpstreamBarY/2, mi.UpstreamBarZ/2]
 detSize[3] =[mi.DownstreamBarX_ver/2,mi.DownstreamBarY/2,mi.DownstreamBarZ/2]
+detSize[4] =[dt.cellWidth/2,dt.cellWidth/2,dt.cellHeight/2]
 withDetector = True  # False is useful when using zoom
 with2Points = False  # plot start and end point of straw/bar
 mc = False
@@ -123,7 +126,11 @@ run.SetSink(sink)
 
 HT_tasks = {'muon_reco_task_Sf':SndlhcMuonReco.MuonReco(),
             'muon_reco_task_DS':SndlhcMuonReco.MuonReco(),
-            'muon_reco_task_nuInt':SndlhcMuonReco.MuonReco()}
+            'muon_reco_task_nuInt':SndlhcMuonReco.MuonReco(),
+            'muon_reco_task_DT':SndlhcMuonReco.MuonReco(),
+            'muon_reco_task_DSDT':SndlhcMuonReco.MuonReco(),
+            'muon_reco_task_SfDT':SndlhcMuonReco.MuonReco(),
+            'muon_reco_task_SfDS':SndlhcMuonReco.MuonReco()}
 for ht_task in HT_tasks.values():
     run.AddTask(ht_task)
 
@@ -146,6 +153,10 @@ for ht_task in HT_tasks.values():
 HT_tasks['muon_reco_task_Sf'].SetTrackingCase('passing_mu_Sf')
 HT_tasks['muon_reco_task_DS'].SetTrackingCase('passing_mu_DS')
 HT_tasks['muon_reco_task_nuInt'].SetTrackingCase('nu_interaction_products')
+HT_tasks['muon_reco_task_DT'].SetTrackingCase('passing_mu_DT')
+HT_tasks['muon_reco_task_DSDT'].SetTrackingCase('passing_mu_DSDT')
+HT_tasks['muon_reco_task_SfDT'].SetTrackingCase('passing_mu_SfDT')
+HT_tasks['muon_reco_task_SfDS'].SetTrackingCase('passing_mu_SfDS')
 
 run.Init()
 OT = sink.GetOutTree()
@@ -371,8 +382,8 @@ def loopEvents(
     h.pop('xz').Delete()
     h.pop('yz').Delete()
  else:
-    h['xmin'],h['xmax'] = xStart,xStart+110.
-    h['ymin'],h['ymax'] = yStart,yStart+110.
+    h['xmin'],h['xmax'] = xStart,xStart+115.
+    h['ymin'],h['ymax'] = yStart,yStart+115.
     h['zmin'],h['zmax'] = zStart,zEnd
     for d in ['xmin','xmax','ymin','ymax','zmin','zmax']: h['c'+d]=h[d]
  ut.bookHist(h,'xz','; z [cm]; x [cm]',500,h['czmin'],h['czmax'],100,h['cxmin'],h['cxmax'])
@@ -425,6 +436,20 @@ def loopEvents(
             HT_tasks['muon_reco_task_DS'].Exec(0)
        elif withHoughTrack==4:
             HT_tasks['muon_reco_task_nuInt'].Exec(0)
+       elif withHoughTrack==5:
+            HT_tasks['muon_reco_task_DT'].Exec(0)
+       elif withHoughTrack==6:
+            HT_tasks['muon_reco_task_DS'].Exec(0)
+            HT_tasks['muon_reco_task_DT'].Exec(0)
+            HT_tasks['muon_reco_task_DSDT'].Exec(0)
+       elif withHoughTrack==7:
+            HT_tasks['muon_reco_task_DS'].Exec(0)
+            HT_tasks['muon_reco_task_DT'].Exec(0)
+            HT_tasks['muon_reco_task_SfDT'].Exec(0)
+            HT_tasks['muon_reco_task_SfDS'].Exec(0)
+       elif withHoughTrack==8:
+            HT_tasks['muon_reco_task_SfDT'].Exec(0)
+            HT_tasks['muon_reco_task_SfDS'].Exec(0)
        # Save the tracks in OT.Reco_MuonTracks object
        for ht_task in HT_tasks.values():
            for trk in ht_task.kalman_tracks:
@@ -441,6 +466,9 @@ def loopEvents(
               trackTask.ExecuteTask("Scifi")
           elif withTrack==3:
               trackTask.ExecuteTask("DS")
+          elif withTrack>3 :
+              print("Simple tracking only supports Scifi and DS tracks,",
+                     "use Hough Transform for DT and combined fits")
           # Save found tracks
           for trk in trackTask.fittedTracks:
               OT.Reco_MuonTracks.Add(trk)
@@ -502,22 +530,24 @@ def loopEvents(
     us_planes = ROOT.snd.analysis_tools.FillUS(configuration, event.Digi_MuFilterHits, geo.modules['MuFilter'])
     if event.FindBranch("Digi_MuFilterHits"): digis.append(event.Digi_MuFilterHits)
     if event.FindBranch("Digi_MuFilterHit"): digis.append(event.Digi_MuFilterHit)
+    if event.FindBranch("Digi_DriftTubeHits"): digis.append(event.Digi_DriftTubeHits)
+    print(len(event.Digi_DriftTubeHits))
     empty = True
     for x in digis:
        if x.GetEntries()>0:
          if empty: print( "event -> %i"%N)
          empty = False
     if empty: continue
-    h['hitCollectionX']= {'Veto':[0,ROOT.TGraphErrors()],'Scifi':[0,ROOT.TGraphErrors()],'DS':[0,ROOT.TGraphErrors()]}
-    h['hitCollectionY']= {'Veto':[0,ROOT.TGraphErrors()],'Scifi':[0,ROOT.TGraphErrors()],'US':[0,ROOT.TGraphErrors()],'DS':[0,ROOT.TGraphErrors()]}
+    h['hitCollectionX']= {'Veto':[0,ROOT.TGraphErrors()],'Scifi':[0,ROOT.TGraphErrors()],'DS':[0,ROOT.TGraphErrors()],'DT':[0,ROOT.TGraphErrors()]}
+    h['hitCollectionY']= {'Veto':[0,ROOT.TGraphErrors()],'Scifi':[0,ROOT.TGraphErrors()],'US':[0,ROOT.TGraphErrors()],'DS':[0,ROOT.TGraphErrors()],'DT':[0,ROOT.TGraphErrors()]}
     if hitColour:
-           h['hitColourX'] = {'Veto': [], 'Scifi': [], 'DS' : []}
-           h['hitColourY'] = {'Veto': [], 'Scifi' : [], 'US' : [], 'DS' : []}
+           h['hitColourX'] = {'Veto': [], 'Scifi': [], 'DS' : [], 'DT' : []}
+           h['hitColourY'] = {'Veto': [], 'Scifi' : [], 'US' : [], 'DS' : [], 'DT' : []}
            h["markerCollection"] = []
 
-    h['firedChannelsX']= {'Veto':[0,0,0,0],'Scifi':[0,0,0],'DS':[0,0,0]}
-    h['firedChannelsY']= {'Veto':[0,0,0,0],'Scifi':[0,0,0],'US':[0,0,0,0],'DS':[0,0,0,0]}
-    systems = {1:'Veto',2:'US',3:'DS',0:'Scifi'}
+    h['firedChannelsX']= {'Veto':[0,0,0,0],'Scifi':[0,0,0],'DS':[0,0,0],'DT':[0,0,0,0]}
+    h['firedChannelsY']= {'Veto':[0,0,0,0],'Scifi':[0,0,0],'US':[0,0,0,0],'DS':[0,0,0,0],'DT':[0,0,0,0]}
+    systems = {1:'Veto',2:'US',3:'DS',0:'Scifi', 4:'DT'}
     for collection in ['hitCollectionX','hitCollectionY']:
        for c in h[collection]:
           rc=h[collection][c][1].SetName(c)
@@ -551,10 +581,22 @@ def loopEvents(
             geo.modules['MuFilter'].GetPosition(detID,A,B)
             sipmMult = len(digi.GetAllSignals(False,False))
             if sipmMult<minSipmMult and (system==1 or system==2): continue
-         else:
+         elif digi.GetName()  == 'sndScifiHit':
             geo.modules['Scifi'].GetSiPMPosition(detID,A,B)
             system = 0
+         else:
+            geo.modules['DriftTube'].GetPosition(detID,A,B)
+            dt_meas_pos = digi.GetPosition()
+            if digi.isVertical():
+               A.SetX(dt_meas_pos.X())
+               B.SetX(A.X())
+            else: 
+               A.SetY(dt_meas_pos.Y())
+               B.SetY(A.Y())
+            system = digi.GetSystem()
          curPath = nav.GetPath()
+         if 'volAnode' in curPath:
+           curPath = curPath[:curPath.rfind('/volAnode')]
          tmp = curPath.rfind('/')
          nav.cd(curPath[:tmp])
          first = True
@@ -587,7 +629,8 @@ def loopEvents(
          if hitColour == "q" :
                 max_QDC = 200 * 16
                 this_qdc = 0
-                ns = max(1,digi.GetnSides())
+                if digi.GetSystem()==4: ns = 0 # exclude DT hits
+                else: ns = max(1,digi.GetnSides())
                 for side in range(ns):
                        for m in  range(digi.GetnSiPMs()):
                               qdc = digi.GetSignal(m+side*digi.GetnSiPMs())
@@ -604,7 +647,8 @@ def loopEvents(
 
          if digi.isVertical():  F = 'firedChannelsX'
          else:                     F = 'firedChannelsY'
-         ns = max(1,digi.GetnSides())
+         if digi.GetDetectorID()//10000==4: ns =0
+         else: ns = max(1,digi.GetnSides())
          for side in range(ns):
              for m in  range(digi.GetnSiPMs()):
                    qdc = digi.GetSignal(m+side*digi.GetnSiPMs())
@@ -616,7 +660,7 @@ def loopEvents(
     h['hitCollectionY']['Scifi'][1].SetMarkerColor(ROOT.kBlue+2 if not darkMode else ROOT.kBlue-4)
     h['hitCollectionX']['Scifi'][1].SetMarkerColor(ROOT.kBlue+2 if not darkMode else ROOT.kBlue-4)
 
-    if hitColour == "q" :
+    if hitColour == "q" and digi.GetSystem()!=4 : # exclude DT hits
        for orientation in ['X', 'Y']:
               max_density = 40
               density = np.clip(0, max_density, getSciFiHitDensity(h['hitCollection'+orientation]['Scifi'][1]))
@@ -740,6 +784,10 @@ def addTrack(OT,scifi=False, darkMode=False):
       if aTrack.GetUniqueID()==3: trackColor = ROOT.kBlack if not darkMode else ROOT.kWhite
       if aTrack.GetUniqueID()==11: trackColor = ROOT.kAzure-2 if not darkMode else ROOT.kAzure-3 # HT scifi track
       if aTrack.GetUniqueID()==13: trackColor = ROOT.kGray+2 if not darkMode else ROOT.kGray # HT ds track
+      if aTrack.GetUniqueID()==14: trackColor = ROOT.kMagenta+3 if not darkMode else ROOT.kMagenta+3 # HT sfds track
+      if aTrack.GetUniqueID()==16: trackColor = ROOT.kOrange-1 if not darkMode else ROOT.kYellow+1 # HT dt track
+      if aTrack.GetUniqueID()==17: trackColor = ROOT.kGreen if not darkMode else ROOT.kGreen # HT sfdt track
+      if aTrack.GetUniqueID()==18: trackColor = ROOT.kOrange+4 if not darkMode else ROOT.kOrange+4 # HT dsdt track
       # HT cross-system track fit
       if aTrack.GetUniqueID()==15: trackColor = ROOT.kOrange+7
       S = aTrack.getFitStatus()
@@ -897,8 +945,14 @@ def drawDetectors(darkMode=False):
       nodes['volMuFilter_1/volFeBlock_{}'.format(i)]=ROOT.kGreen-6 if not darkMode else ROOT.kGreen-2
    for i in range(mi.NVetoPlanes+mi.NUpstreamPlanes,mi.NVetoPlanes+mi.NUpstreamPlanes+mi.NDownstreamPlanes):
       nodes['volMuFilter_1/volFeBlock_{}'.format(i)]=ROOT.kGreen-6 if not darkMode else ROOT.kGreen-2
-   passNodes = {'Block', 'Wall', 'FeTarget'}
+   for i in range(dt.nPlanes): # number of dt planes
+     #nodes['volDriftTubePlane_{}/volFrame'.format(i)]=ROOT.kGray+1 if not darkMode else ROOT.kGray+2
+     for ii in range(dt.nLayers): # number of dt layers
+       for c in range(dt.nCells): # number of cells
+         d = 40000+i*1000+ii*100+c
+         nodes['volDriftTubePlane_{}/volLayer_{}/volCell_{}'.format(i, ii, d)]=ROOT.kBlue+1 if not darkMode else ROOT.kCyan-6
    xNodes = {'UpstreamBar', 'VetoBar', 'hor'}
+   passNodes = {'Block', 'Wall', 'FeTarget'}
    proj = {'X':0,'Y':1}
    for node_ in nodes:
       node = '/cave_1/Detector_0/'+node_
@@ -919,17 +973,31 @@ def drawDetectors(darkMode=False):
             ox,oy,oz = S.GetOrigin()[0],S.GetOrigin()[1],S.GetOrigin()[2]
             P = {}
             M = {}
-            if p=='X' and (not any(xNode in node for xNode in xNodes) or 'VetoBar_ver' in node):
+            # special treatment for drift tubes
+            if 'volDriftTubePlane' in node:
+             if (('volDriftTubePlane_1' in node and p=='X')) :
                P['LeftBottom'] = array('d',[-dx+ox,oy,-dz+oz])
                P['LeftTop'] = array('d',[dx+ox,oy,-dz+oz])
                P['RightBottom'] = array('d',[-dx+ox,oy,dz+oz])
                P['RightTop'] = array('d',[dx+ox,oy,dz+oz])
-            elif p=='Y' and 'ver' not in node:
+             elif ('volDriftTubePlane_0' in node and p=='Y') :
+               P['LeftBottom'] = array('d',[-dx+ox,-dy+oy,oz])
+               P['LeftTop'] = array('d',[dx+ox,-dy+oy,oz])
+               P['RightBottom'] = array('d',[-dx+ox,dy+oy,oz])
+               P['RightTop'] = array('d',[dx+ox,dy+oy,oz])
+             else: continue
+            else:
+             if p=='X' and (not any(xNode in node for xNode in xNodes) or 'VetoBar_ver' in node):
+               P['LeftBottom'] = array('d',[-dx+ox,oy,-dz+oz])
+               P['LeftTop'] = array('d',[dx+ox,oy,-dz+oz])
+               P['RightBottom'] = array('d',[-dx+ox,oy,dz+oz])
+               P['RightTop'] = array('d',[dx+ox,oy,dz+oz])
+             elif p=='Y' and 'ver' not in node: 
                P['LeftBottom'] = array('d',[ox,-dy+oy,-dz+oz])
                P['LeftTop'] = array('d',[ox,dy+oy,-dz+oz])
                P['RightBottom'] = array('d',[ox,-dy+oy,dz+oz])
                P['RightTop'] = array('d',[ox,dy+oy,dz+oz])
-            else: continue
+             else: continue
             for C in P:
                M[C] = array('d',[0,0,0])
                nav.LocalToMaster(P[C],M[C])
@@ -957,6 +1025,9 @@ def drawDetectors(darkMode=False):
             h['simpleDisplay'].cd(c+1)
             if any(passNode in node for passNode in passNodes):
                X.SetFillColorAlpha(nodes[node_], 0.5)
+               if 'volFeBlockEnd_1' in node and \
+                  any('volDriftTubePlane' in aNode for aNode in nodes):
+                  X.SetLineWidth(0)
                X.Draw('f&&same')
             X.Draw('same')
 def zoom(xmin=None,xmax=None,ymin=None,ymax=None,zmin=None,zmax=None):
@@ -1208,20 +1279,23 @@ def dumpChannels(D='Digi_MuFilterHits'):
      for k in keys: print(text[k])
 
 def fillNode(node, color=None, darkMode=False):
-   xNodes = {'UpstreamBar', 'VetoBar', 'hor'}
    proj = {'X':0,'Y':1}
    if color == None :
           hcal_color = ROOT.kBlack if not darkMode else ROOT.kWhite
           veto_color = ROOT.kRed+1 if not darkMode else ROOT.kRed-4
+          dt_color = ROOT.kOrange+7 if not darkMode else ROOT.kYellow
    else :
           hcal_color = color
           veto_color = color
+          dt_color = color
    thick = 5
    for p in proj:
       if node+p in h:
          X = h[node+p]
          if 'Veto' in node:
               color = veto_color
+         elif 'DriftTube' in node:
+             color = dt_color
          else :
               color = hcal_color
        
