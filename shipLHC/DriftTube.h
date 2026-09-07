@@ -30,6 +30,7 @@ public:
    void SetConfPar(TString name, TString value) { conf_strings[name] = value; }
    /** End-point positions of cells, centre line, associated with readout channel **/
    void GetPosition(Int_t detID, TVector3 &A, TVector3 &B);
+   TVector3 GetLocalPos(Int_t id, TVector3* glob);
    Float_t GetConfParF(TString name) { return conf_floats[name]; }
    Int_t GetConfParI(TString name) { return conf_ints[name]; }
    TString GetConfParS(TString name) { return conf_strings[name]; }
