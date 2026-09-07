@@ -380,6 +380,19 @@ void DriftTube::GetPosition(Int_t fDetectorID, TVector3 &A, TVector3 &B)
    B.SetXYZ(global_bot_pos[0], global_bot_pos[1], global_bot_pos[2]);
 }
 
+TVector3 DriftTube::GetLocalPos(Int_t id, TVector3* glob){
+	int plane = int(id / 1000) % 10;
+        int layer = int(id % 1000) / 100;
+        TString path = Form("/Detector_0/volDriftTubePlane_%d/volLayer_%d/volCell_%d/volAnode_2", plane, layer, id);
+	TGeoNavigator* nav = gGeoManager->GetCurrentNavigator();
+	nav->cd(path);
+	Double_t aglob[3];
+	Double_t aloc[3];
+	glob->GetXYZ(aglob);
+	nav->MasterToLocal(aglob,aloc);
+	return TVector3(aloc[0],aloc[1],aloc[2]);
+}
+
 void DriftTube::EndOfEvent()
 {
    fDriftTubePointCollection->Clear();
