@@ -1,3 +1,16 @@
+/**
+ * @file AppSettings.hpp
+ * @brief Manages application settings and UI state toggles.
+ *
+ * AppSettings maintains the state of various UI components and visual options including
+ * camera pivot mode, axis widget visibility, transparency settings, lighting modes,
+ * and other rendering options. Provides toggle methods for each setting and tracks
+ * whether settings have changed since the last frame.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-04-16
+ */
+
 #pragma once
 
 #include <glm/glm.hpp>

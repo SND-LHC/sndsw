@@ -1,3 +1,11 @@
+/**
+ * @file Shader.cpp
+ * @brief Implementation of OpenGL shader program management.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-04-16
+ */
+
 #include "rendering/engine/Shader.hpp"
 
 #include <glm/gtc/type_ptr.hpp>

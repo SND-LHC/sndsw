@@ -1,3 +1,11 @@
+/**
+ * @file Camera.cpp
+ * @brief Implementation of the 3D camera control system.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-04-16
+ */
+
 #include "rendering/camera/Camera.hpp"
 
 #include <cmath>

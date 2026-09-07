@@ -1,3 +1,11 @@
+/**
+ * @file AxisWidget.cpp
+ * @brief Implementation of the 3D axis widget for orientation visualization.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-04-16
+ */
+
 #include "rendering/AxisWidget.hpp"
 
 #include <vector>

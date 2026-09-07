@@ -1,3 +1,11 @@
+/**
+ * @file FixedValueMapper.cpp
+ * @brief Implementation of fixed color mapper.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-05-15
+ */
+
 #include "scene/colors/FixedValueMapper.hpp"
 
 namespace snd3D {

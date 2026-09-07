@@ -1,3 +1,11 @@
+/**
+ * @file DetectorData.cpp
+ * @brief Implementation of detector data structure management.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-05-11
+ */
+
 #include "io/DetectorData.hpp"
 
 namespace snd3D {
@@ -7,7 +15,7 @@ namespace snd3D {
     }
 
     void DetectorData::addHit(HitData* hit) {
-        this->hits.push_back(std::unique_ptr<HitData>(hit));     
+        this->hits.push_back(std::unique_ptr<HitData>(hit));
     }
 
     const std::vector<std::unique_ptr<HitData>>& DetectorData::getHits() const {

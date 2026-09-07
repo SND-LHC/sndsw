@@ -1,3 +1,15 @@
+/**
+ * @file Mesh.hpp
+ * @brief Represents a single mesh within an object in the 3D scene.
+ *
+ * Mesh is a leaf node in the scene graph containing geometry and material properties.
+ * It references a GPU-resident mesh (VBO/VAO) and manages a local model matrix for
+ * transformations. Supports shader assignment and provides interfaces for visualization.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-04-16
+ */
+
 #pragma once
 
 #include <string>

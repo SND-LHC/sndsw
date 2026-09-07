@@ -1,3 +1,16 @@
+/**
+ * @file Object.hpp
+ * @brief Represents a complete 3D model object with scene graph hierarchy.
+ *
+ * Object is the root of a scene graph loaded from an Assimp model file. It manages
+ * a hierarchical tree of nodes and meshes, maintains a global model matrix, and
+ * provides interfaces for rendering and property editing. Supports sorting for
+ * proper handling of transparent geometries.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-04-16
+ */
+
 #pragma once
 
 #include <memory>

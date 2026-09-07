@@ -1,3 +1,17 @@
+/**
+ * @file BasicProjection.hpp
+ * @brief Base class for perspective and orthographic projections.
+ *
+ * BasicProjection is an abstract base class providing common functionality for
+ * projection matrices. It manages field-of-view, aspect ratio, near and far planes,
+ * and supports dynamic updates to projection parameters. Subclasses implement
+ * specific projection types (perspective, orthographic) via the pure virtual
+ * computeProjectionMatrix() method.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-04-16
+ */
+
 #pragma once
 
 #include "Projection.hpp"

@@ -1,3 +1,16 @@
+/**
+ * @file VariableGetter.hpp
+ * @brief Abstract strategy interface for extracting hit properties for color mapping.
+ *
+ * VariableGetter is a strategy interface that defines how to extract numerical values
+ * from detector hits for use in color computation. Different implementations can extract
+ * energy, time, or clock cycle data. Each implementation provides the data range and
+ * unit of measure for its property.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-05-14
+ */
+
 #pragma once
 
 #include <utility>
@@ -5,10 +18,6 @@
 
 #include "io/HitData.hpp"
 
-/*
- * This Strategy interface returns the values of the Hit that need to be mapped.
- * It returns also the unit of measure of the scale, so it can be visualized in the GUI.
- */
 namespace snd3D {
     class VariableGetter {
         public:

@@ -1,3 +1,17 @@
+/**
+ * @file Camera.hpp
+ * @brief Manages 3D camera position, orientation, and movement.
+ *
+ * Camera provides a full 6-DOF camera control system with support for rotation,
+ * translation, and zoom operations. Supports multiple preset viewing directions
+ * (aligned axes, isometric views) for quick navigation. Includes trackball rotation,
+ * parallel and perpendicular movement modes, and tracks whether camera state has
+ * changed to optimize rendering updates.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-04-16
+ */
+
 #pragma once
 
 #include <glm/glm.hpp>

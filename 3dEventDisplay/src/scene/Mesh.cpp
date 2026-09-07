@@ -1,3 +1,11 @@
+/**
+ * @file Mesh.cpp
+ * @brief Implementation of mesh scene node.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-04-16
+ */
+
 #include "scene/Mesh.hpp"
 
 #include <iostream>

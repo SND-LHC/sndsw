@@ -1,3 +1,11 @@
+/**
+ * @file Scene.cpp
+ * @brief Implementation of 3D scene management and rendering.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-04-16
+ */
+
 #include "scene/Scene.hpp"
 
 #include <glm/gtc/matrix_transform.hpp>

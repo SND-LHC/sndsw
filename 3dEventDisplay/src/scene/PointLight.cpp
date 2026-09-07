@@ -1,3 +1,11 @@
+/**
+ * @file PointLight.cpp
+ * @brief Implementation of point light management.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-05-20
+ */
+
 #include "scene/PointLight.hpp"
 
 namespace snd3D {

@@ -1,3 +1,17 @@
+/**
+ * @file Gui.hpp
+ * @brief ImGui interface for application settings and visualization controls.
+ *
+ * Gui manages the entire ImGui-based user interface including menus, dialogs,
+ * settings panels, and visualization controls. Handles event loading, geometry
+ * selection, rendering option toggles, and real-time scene inspection. Integrates
+ * with ImGuiFileDialog for file browsing and provides visual feedback to the user
+ * throughout the application lifecycle.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-04-16
+ */
+
 #pragma once
 
 #include <string>
@@ -49,6 +63,6 @@ namespace snd3D {
             void drawInitializationError();
             void drawEventDetails();
             void drawColorScale();
-            void drawClusterConfiguration(); 
+            void drawClusterConfiguration();
     };
 }

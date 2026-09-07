@@ -1,3 +1,11 @@
+/**
+ * @file EventData.cpp
+ * @brief Implementation of event data structure management.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-04-24
+ */
+
 #include "io/EventData.hpp"
 
 namespace snd3D {

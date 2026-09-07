@@ -1,3 +1,11 @@
+/**
+ * @file LogarithmicValueMapper.cpp
+ * @brief Implementation of logarithmic value-to-color mapping.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-05-14
+ */
+
 #include "scene/colors/LogarithmicValueMapper.hpp"
 
 #include <cmath>

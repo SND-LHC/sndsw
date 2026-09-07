@@ -1,3 +1,11 @@
+/**
+ * @file AppStateManager.cpp
+ * @brief Implementation of the application state manager.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-04-16
+ */
+
 #include "core/state/AppStateManager.hpp"
 
 #include <iostream>

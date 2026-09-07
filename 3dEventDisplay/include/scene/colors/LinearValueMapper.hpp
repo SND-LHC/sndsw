@@ -1,11 +1,19 @@
+/**
+ * @file LinearValueMapper.hpp
+ * @brief Maps values to colors using linear interpolation.
+ *
+ * LinearValueMapper is a concrete implementation of the ValueMapper strategy that
+ * performs linear color interpolation between a minimum and maximum color based on
+ * the normalized value position within the specified range.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-05-14
+ */
+
 #pragma once
 
 #include "ValueMapper.hpp"
 
-/*
- * Concrete Strategy for ValueMapper, it returns the color
- * of the value linearly interpolated in the given range.
- */
 namespace snd3D {
     class LinearValueMapper : public ValueMapper {
         public:

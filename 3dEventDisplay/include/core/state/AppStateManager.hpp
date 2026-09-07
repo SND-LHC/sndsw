@@ -1,3 +1,17 @@
+/**
+ * @file AppStateManager.hpp
+ * @brief Manages the application state and transitions between different states.
+ *
+ * AppStateManager implements a finite state machine that controls the application's
+ * overall flow from initialization through runtime. It maintains the current state,
+ * manages pending state changes, handles data loading callbacks, and provides
+ * user-facing messages. Integrates with the I/O system to load runs, events,
+ * and geometry based on state transitions.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-04-16
+ */
+
 #pragma once
 
 #include <string>

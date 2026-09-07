@@ -1,3 +1,11 @@
+/**
+ * @file ShaderMaker.cpp
+ * @brief Implementation of shader compilation and linking utilities.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-04-16
+ */
+
 #include "rendering/engine/ShaderMaker.hpp"
 
 #include <stdexcept>

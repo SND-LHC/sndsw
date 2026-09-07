@@ -1,3 +1,15 @@
+/**
+ * @file Material.hpp
+ * @brief Manages material properties for 3D objects (colors, lighting parameters).
+ *
+ * Material encapsulates surface properties including base color, ambient, diffuse,
+ * and specular coefficients, as well as shininess for Phong reflection model.
+ * Can be initialized from Assimp material definitions or created with a fixed color.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-04-16
+ */
+
 #pragma once
 
 #include <string>

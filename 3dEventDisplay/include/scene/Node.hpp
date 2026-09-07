@@ -1,3 +1,15 @@
+/**
+ * @file Node.hpp
+ * @brief Represents an internal node in the 3D scene hierarchy tree.
+ *
+ * Node represents a transformable container within the scene graph, capable of holding
+ * child nodes and meshes. Maintains a local model matrix and recursively updates the
+ * global model matrix for all children. Loaded from Assimp scene hierarchies.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-04-16
+ */
+
 #pragma once
 
 #include <memory>

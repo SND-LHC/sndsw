@@ -1,3 +1,16 @@
+/**
+ * @file Callbacks.hpp
+ * @brief Manages GLFW window event callbacks and input handling.
+ *
+ * Callbacks bridges GLFW static callback functions with instance methods through
+ * the GLFW user pointer mechanism. Handles keyboard input, mouse movement and buttons,
+ * window resizing, and scrolling events. Translates these low-level input events
+ * into application-specific actions routed through the App object.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-04-16
+ */
+
 #pragma once
 
 #define GLFW_INCLUDE_NONE // Include only GLFW data types

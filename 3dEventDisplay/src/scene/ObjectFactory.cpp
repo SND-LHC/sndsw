@@ -1,3 +1,11 @@
+/**
+ * @file ObjectFactory.cpp
+ * @brief Implementation of 3D object factory.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-04-16
+ */
+
 #include "scene/ObjectFactory.hpp"
 
 #include <vector>
@@ -67,7 +75,7 @@ namespace snd3D {
         Node* node = new Node("Cube");
         node->addMesh(mesh);
         return new Object(node);
-    } 
+    }
 
     Object* ObjectFactory::getHits(const EventData* event, const std::unique_ptr<ColorPalette>& colorGetter) {
         if (event == nullptr) return nullptr;
@@ -95,5 +103,5 @@ namespace snd3D {
         }
 
         return new Object(hits);
-    } 
+    }
 }

@@ -1,3 +1,17 @@
+/**
+ * @file GpuMesh.hpp
+ * @brief Manages GPU mesh data and rendering with OpenGL VAO/VBO.
+ *
+ * GpuMesh encapsulates OpenGL vertex and index buffer management for 3D mesh rendering.
+ * Stores geometry data (vertices, colors, normals) in GPU-accessible VBOs organized
+ * by a VAO. Supports different render modes (triangles, lines, points) and includes
+ * optional anchor point visualization. Handles memory cleanup and provides simple
+ * rendering interface for the graphics pipeline.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-04-16
+ */
+
 #pragma once
 
 #include <vector>

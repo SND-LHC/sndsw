@@ -1,3 +1,11 @@
+/**
+ * @file ColorPalette.cpp
+ * @brief Implementation of color mapping and palette generation.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-05-14
+ */
+
 #include "scene/colors/ColorPalette.hpp"
 
 namespace snd3D {

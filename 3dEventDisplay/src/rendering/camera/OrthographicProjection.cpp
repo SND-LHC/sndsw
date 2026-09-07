@@ -1,3 +1,11 @@
+/**
+ * @file OrthographicProjection.cpp
+ * @brief Implementation of orthographic projection camera.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-04-16
+ */
+
 #include "rendering/camera/OrthographicProjection.hpp"
 
 #include <cmath>

@@ -1,3 +1,11 @@
+/**
+ * @file TextureMaker.cpp
+ * @brief Implementation of texture loading utilities.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-04-28
+ */
+
 #include "rendering/engine/TextureMaker.hpp"
 
 #include <stb_image.h>

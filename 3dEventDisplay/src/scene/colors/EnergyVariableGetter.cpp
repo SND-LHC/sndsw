@@ -1,3 +1,11 @@
+/**
+ * @file EnergyVariableGetter.cpp
+ * @brief Implementation of energy value extraction for color mapping.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-05-14
+ */
+
 #include "scene/colors/EnergyVariableGetter.hpp"
 
 namespace snd3D {
@@ -7,15 +15,15 @@ namespace snd3D {
         this->energyRange.first = (float)event->energyRange.first;
         this->energyRange.second = (float)event->energyRange.second;
     }
-    
+
     const std::pair<float, float>& EnergyVariableGetter::getMappedRange() {
-        return this->energyRange;    
+        return this->energyRange;
     }
-    
+
     float EnergyVariableGetter::getValueToMap(HitData* hit) {
-        return (float)hit->energy;    
+        return (float)hit->energy;
     }
-    
+
     const std::string& EnergyVariableGetter::getUnitOfMeasure() {
         return this->unit;
     }

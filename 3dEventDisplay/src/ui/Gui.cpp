@@ -1,3 +1,11 @@
+/**
+ * @file Gui.cpp
+ * @brief Implementation of the ImGui-based graphical user interface.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-04-16
+ */
+
 #include "ui/Gui.hpp"
 
 #include <iostream>
@@ -562,7 +570,7 @@ namespace snd3D {
 
         bool isCurrentDisabled = !parentActive;
         ImGui::BeginDisabled(isCurrentDisabled);
-        
+
         bool active = node->active;
         if (ImGui::Checkbox("##nodeActive", &active)) {
             node->setGlobalActive(active);
@@ -878,7 +886,7 @@ namespace snd3D {
                     }
                     ImGui::EndTabItem();
                 }
-                
+
                 if (ImGui::BeginTabItem("SciFi")) {
                     ImGui::InputInt("Min Entries", &this->clusterConfig->sciFiMinHitInCluster);
                     ImGui::InputDouble("Max Gap", &this->clusterConfig->sciFiMaxGap, 0, 0, "%.2f");
@@ -888,7 +896,7 @@ namespace snd3D {
                     }
                     ImGui::EndTabItem();
                 }
-                
+
                 if (ImGui::BeginTabItem("US")) {
                     ImGui::InputInt("Min Entries", &this->clusterConfig->usMinHitInCluster);
                     ImGui::InputDouble("Max Gap", &this->clusterConfig->usMaxGap, 0, 0, "%.2f");
@@ -898,7 +906,7 @@ namespace snd3D {
                     }
                     ImGui::EndTabItem();
                 }
-                
+
                 if (ImGui::BeginTabItem("DS")) {
                     ImGui::InputInt("Min Entries", &this->clusterConfig->dsMinHitInCluster);
                     ImGui::InputDouble("Max Gap", &this->clusterConfig->dsMaxGap, 0, 0, "%.2f");
@@ -1166,7 +1174,7 @@ namespace snd3D {
                 ImVec2(0.0f, 1.0f) // Set bottom-left pivot
             );
 
-            ImGuiWindowFlags windowFlags = 
+            ImGuiWindowFlags windowFlags =
                 ImGuiWindowFlags_NoMove |
                 ImGuiWindowFlags_NoResize |
                 ImGuiWindowFlags_NoCollapse |

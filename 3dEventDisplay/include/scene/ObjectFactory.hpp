@@ -1,3 +1,15 @@
+/**
+ * @file ObjectFactory.hpp
+ * @brief Factory for creating 3D objects (from files, primitives, or hit data).
+ *
+ * ObjectFactory provides factory methods for instantiating 3D objects either from
+ * Assimp-compatible model files or as generated geometric primitives (sphere, cube).
+ * Acts as a centralized point for object creation throughout the application.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-04-16
+ */
+
 #pragma once
 
 #include <memory>

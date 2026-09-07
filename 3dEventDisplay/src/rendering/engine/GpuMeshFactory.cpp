@@ -1,3 +1,11 @@
+/**
+ * @file GpuMeshFactory.cpp
+ * @brief Implementation of GPU mesh factory for creating standard mesh shapes.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-04-16
+ */
+
 #include "rendering/engine/GpuMeshFactory.hpp"
 
 #include <iostream>

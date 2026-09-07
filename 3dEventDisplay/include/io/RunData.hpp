@@ -1,3 +1,15 @@
+/**
+ * @file RunData.hpp
+ * @brief Defines the structure for holding run metadata.
+ *
+ * RunData represents metadata for a single detector run, including run number,
+ * start date, geometry name, and total event count. Used as a container to pass
+ * run information from the I/O system to the visualization system.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-04-24
+ */
+
 #pragma once
 
 #include <string>

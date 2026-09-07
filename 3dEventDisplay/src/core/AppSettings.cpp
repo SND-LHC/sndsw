@@ -1,3 +1,11 @@
+/**
+ * @file AppSettings.cpp
+ * @brief Implementation of application settings management.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-04-16
+ */
+
 #include "core/AppSettings.hpp"
 
 #include <glm/glm.hpp>

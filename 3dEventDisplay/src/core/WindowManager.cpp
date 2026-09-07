@@ -1,3 +1,11 @@
+/**
+ * @file WindowManager.cpp
+ * @brief Implementation of window management using GLFW.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-04-16
+ */
+
 #include "core/WindowManager.hpp"
 
 #include <stdexcept>

@@ -1,3 +1,11 @@
+/**
+ * @file GpuMesh.cpp
+ * @brief Implementation of GPU mesh rendering with VAO/VBO.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-04-16
+ */
+
 #include "rendering/engine/GpuMesh.hpp"
 
 #include <stdexcept>

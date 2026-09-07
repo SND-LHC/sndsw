@@ -1,3 +1,16 @@
+/**
+ * @file GeometryMismatchException.hpp
+ * @brief Exception thrown when geometry configuration mismatches occur.
+ *
+ * GeometryMismatchException is raised when an attempt is made to load event data
+ * that requires a different detector geometry configuration than the one currently
+ * active. Provides detailed error information about both the active and requested
+ * geometry configurations to aid in troubleshooting.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-05-06
+ */
+
 #pragma once
 
 #include <stdexcept>

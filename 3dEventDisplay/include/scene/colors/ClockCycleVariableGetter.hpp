@@ -1,13 +1,22 @@
+/**
+ * @file ClockCycleVariableGetter.hpp
+ * @brief Extracts clock cycle values for hit color mapping.
+ *
+ * ClockCycleVariableGetter is a concrete implementation of the VariableGetter strategy
+ * that extracts temporal information (clock cycle) from detector hits. It provides
+ * the clock cycle range for the current event and retrieves individual hit timing
+ * values, enabling time-based color gradients in the 3D visualization.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-05-14
+ */
+
 #pragma once
 
 #include "scene/colors/VariableGetter.hpp"
 
 #include "io/EventData.hpp"
 
-/*
- * Concrete Strategy for VariableGetter, it returns the time
- * of the HIT and the corresponding unit of measure.
- */
 namespace snd3D {
     class ClockCycleVariableGetter : public VariableGetter {
         public:

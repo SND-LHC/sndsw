@@ -1,3 +1,11 @@
+/**
+ * @file App.cpp
+ * @brief Implementation of the main application class.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-04-16
+ */
+
 #include "core/App.hpp"
 
 #include <iostream>

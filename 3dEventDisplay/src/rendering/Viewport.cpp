@@ -1,3 +1,11 @@
+/**
+ * @file Viewport.cpp
+ * @brief Implementation of viewport and camera/projection management.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-04-16
+ */
+
 #include "rendering/Viewport.hpp"
 
 #include "core/Constants.hpp"

@@ -1,3 +1,17 @@
+/**
+ * @file ColorPalette.hpp
+ * @brief Manages color mapping for hit visualization using strategy pattern.
+ *
+ * ColorPalette combines two strategy patterns: VariableGetter (selects which hit
+ * property to map: energy, time, etc.) and ValueMapper (applies color transformation:
+ * linear, logarithmic, etc.). Generates a pre-computed color scale for GUI display
+ * and provides per-hit color computation. Enables flexible, data-driven coloring of
+ * detector hits in the 3D scene.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-05-14
+ */
+
 #pragma once
 
 #include <utility>
@@ -10,14 +24,6 @@
 #include "io/HitData.hpp"
 #include "scene/colors/VariableGetter.hpp"
 #include "scene/colors/ValueMapper.hpp"
-
-/*  
- * This class uses two Strategy patterns to manage the color of the hits.
- * The first Strategy interface is VariableGetter, used to get the value that
- * needs to be mapped into a color (like energy, time, ecc...).
- * The second Strategy is used to perform the computations, that can be carried out
- * in different ways (like logarithmic, linear, ecc).
- */
 
 namespace snd3D {
     class ColorPalette {

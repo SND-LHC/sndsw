@@ -1,3 +1,15 @@
+/**
+ * @file Shader.hpp
+ * @brief Manages OpenGL shader programs and uniform variable settings.
+ *
+ * Shader wraps OpenGL shader program compilation and provides methods to set
+ * transformation matrices, material properties, lighting parameters, and texture
+ * samplers. Supports optional geometry shaders for advanced rendering techniques.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-04-16
+ */
+
 #pragma once
 
 #include <string>

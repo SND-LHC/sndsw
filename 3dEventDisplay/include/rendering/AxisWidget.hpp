@@ -1,3 +1,17 @@
+/**
+ * @file AxisWidget.hpp
+ * @brief Renders a 3D coordinate axis widget for visual orientation reference.
+ *
+ * AxisWidget displays a small interactive 3D coordinate system (X, Y, Z axes with
+ * corresponding colors: red, green, blue) positioned in the corner of the viewport.
+ * Uses orthographic projection and dynamically computes label positions to maintain
+ * readability from any camera angle. Helps users maintain spatial awareness during
+ * scene navigation and rotation.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-04-16
+ */
+
 #pragma once
 
 #include <memory>

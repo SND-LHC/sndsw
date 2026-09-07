@@ -1,3 +1,16 @@
+/**
+ * @file Scene.hpp
+ * @brief Manages the complete 3D scene hierarchy and rendering state.
+ *
+ * Scene is the central container for all 3D objects, lighting, and rendering state.
+ * It maintains a scene graph of detector geometry, hit data visualization, lighting
+ * configuration, and viewport management. Handles interaction with the state machine
+ * to load event data and update visualization accordingly.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-04-16
+ */
+
 #pragma once
 
 #include <string>

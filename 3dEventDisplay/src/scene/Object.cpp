@@ -1,3 +1,11 @@
+/**
+ * @file Object.cpp
+ * @brief Implementation of 3D model object with hierarchy management.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-04-16
+ */
+
 #include "scene/Object.hpp"
 
 #include <vector>
@@ -43,7 +51,7 @@ namespace snd3D {
 
             return distA > distB;
         });
-    
+
     }
 
     void Object::render(const Viewport& viewport, bool showAnchor, const float ambientLight, const std::vector<std::unique_ptr<PointLight>>& lights, const float edgeAlphaValue, const float faceAlphaValue, const float edgeThickness) {

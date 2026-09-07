@@ -1,3 +1,11 @@
+/**
+ * @file PerspectiveProjection.cpp
+ * @brief Implementation of perspective projection camera.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-04-16
+ */
+
 #include "rendering/camera/PerspectiveProjection.hpp"
 
 #include <glm/gtc/matrix_transform.hpp>

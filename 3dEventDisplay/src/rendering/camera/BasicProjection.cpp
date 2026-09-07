@@ -1,3 +1,11 @@
+/**
+ * @file BasicProjection.cpp
+ * @brief Implementation of the basic projection camera.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-04-16
+ */
+
 #include "rendering/camera/BasicProjection.hpp"
 
 #include <glm/glm.hpp>

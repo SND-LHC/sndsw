@@ -1,3 +1,11 @@
+/**
+ * @file LinearValueMapper.cpp
+ * @brief Implementation of linear value-to-color mapping.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-05-14
+ */
+
 #include "scene/colors/LinearValueMapper.hpp"
 
 namespace snd3D {

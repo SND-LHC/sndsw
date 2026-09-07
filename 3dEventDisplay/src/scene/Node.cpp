@@ -1,3 +1,11 @@
+/**
+ * @file Node.cpp
+ * @brief Implementation of scene graph hierarchy node.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-04-16
+ */
+
 #include "scene/Node.hpp"
 
 namespace snd3D {

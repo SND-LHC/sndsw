@@ -1,3 +1,15 @@
+/**
+ * @file PointLight.hpp
+ * @brief Represents a point light source in the 3D scene.
+ *
+ * PointLight encapsulates a point light with position, color, and power parameters
+ * for scene illumination. Supports dynamic property updates and state reset functionality.
+ * Used in conjunction with shaders to compute Phong-based lighting for the scene.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-05-20
+ */
+
 #pragma once
 
 #include <string>

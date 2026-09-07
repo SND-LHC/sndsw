@@ -1,3 +1,16 @@
+/**
+ * @file Viewport.hpp
+ * @brief Manages the view into the 3D scene with camera and projection.
+ *
+ * Viewport integrates camera control with projection matrix management to define
+ * the user's viewpoint and perspective on the 3D scene. Handles mouse-based camera
+ * manipulation including rotation (trackball and angle-based), panning, and zooming.
+ * Tracks whether the camera has changed to optimize rendering updates.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-04-16
+ */
+
 #pragma once
 
 #include <memory>

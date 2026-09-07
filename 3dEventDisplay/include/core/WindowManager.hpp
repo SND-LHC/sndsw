@@ -1,3 +1,16 @@
+/**
+ * @file WindowManager.hpp
+ * @brief Manages GLFW window creation, configuration, and framebuffer events.
+ *
+ * WindowManager encapsulates all GLFW window operations including creation,
+ * context management, fullscreen toggling, VSync control, and resolution tracking.
+ * Handles framebuffer resize events and provides access to the underlying GLFWwindow.
+ * Integrates with the Callbacks system for event handling.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-04-16
+ */
+
 #pragma once
 
 #define GLFW_INCLUDE_NONE // Include only GLFW data types

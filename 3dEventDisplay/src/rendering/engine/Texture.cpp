@@ -1,3 +1,11 @@
+/**
+ * @file Texture.cpp
+ * @brief Implementation of GPU texture resource management.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-04-28
+ */
+
 #include "rendering/engine/Texture.hpp"
 
 #include <stb_image.h>

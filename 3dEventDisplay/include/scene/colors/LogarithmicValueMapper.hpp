@@ -1,11 +1,19 @@
+/**
+ * @file LogarithmicValueMapper.hpp
+ * @brief Maps values to colors using logarithmic scaling.
+ *
+ * LogarithmicValueMapper is a concrete implementation of the ValueMapper strategy
+ * that applies logarithmic scaling to value-to-color mapping. Useful for data with
+ * large dynamic ranges, compressing high values and emphasizing variations in low values.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-05-14
+ */
+
 #pragma once
 
 #include "ValueMapper.hpp"
 
-/*
- * Concrete Strategy for ValueMapper, it returns the color
- * of the value mapped to a logarithmic scale.
- */
 namespace snd3D {
     class LogarithmicValueMapper : public ValueMapper {
         public:

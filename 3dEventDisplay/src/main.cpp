@@ -1,3 +1,14 @@
+/**
+ * @file main.cpp
+ * @brief Application entry point.
+ *
+ * Initializes the application object and enters the main event loop.
+ * Handles top-level exception catching and graceful error reporting.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-04-16
+ */
+
 #include <cstdlib>
 #include <iostream>
 

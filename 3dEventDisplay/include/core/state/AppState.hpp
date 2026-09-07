@@ -1,3 +1,16 @@
+/**
+ * @file AppState.hpp
+ * @brief Defines the application state enumeration for state machine management.
+ *
+ * AppState enumerates all possible states the application can be in during its lifecycle.
+ * States are organized into initialization states (run/event/geometry loading),
+ * runtime update states (changing geometry or events), and interaction states.
+ * This enumeration drives the AppStateManager's finite state machine logic.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-04-16
+ */
+
 #pragma once
 
 namespace snd3D {
@@ -12,7 +25,7 @@ namespace snd3D {
         GEOMETRY_LOAD_FAILED,
         USER_GEOMETRY_CHOICE,
         USER_GEOMETRY_LOAD,
-        
+
         SHOW_LOADING,
         ERROR,
 

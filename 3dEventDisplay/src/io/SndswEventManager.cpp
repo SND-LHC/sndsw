@@ -1,3 +1,11 @@
+/**
+ * @file SndswEventManager.cpp
+ * @brief Implementation of SNDSW event data loading from ROOT files.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-04-24
+ */
+
 #include "io/SndswEventManager.hpp"
 
 #include <utility>

@@ -1,3 +1,11 @@
+/**
+ * @file Material.cpp
+ * @brief Implementation of material properties management.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-04-16
+ */
+
 #include "rendering/engine/Material.hpp"
 
 #include <assimp/material.h>

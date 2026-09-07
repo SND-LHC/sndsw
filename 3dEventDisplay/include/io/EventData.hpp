@@ -1,3 +1,17 @@
+/**
+ * @file EventData.hpp
+ * @brief Manages event-level data containing detector information.
+ *
+ * EventData represents a single recorded physics event, identified by event ID,
+ * timestamp, and date/time metadata. Contains a collection of DetectorData objects,
+ * one per detector that recorded hits in the event. Maintains global energy and
+ * clock cycle ranges aggregated across all detectors to enable consistent color
+ * mapping and visualization.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-04-24
+ */
+
 #pragma once
 
 #include <vector>

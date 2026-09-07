@@ -1,3 +1,11 @@
+/**
+ * @file Callbacks.cpp
+ * @brief Implementation of GLFW window event callbacks.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-04-16
+ */
+
 #include "core/Callbacks.hpp"
 
 #include "core/App.hpp"

@@ -1,3 +1,16 @@
+/**
+ * @file Constants.hpp
+ * @brief Global constants and configuration values for the application.
+ *
+ * Centralizes all static configuration parameters organized into namespaced groups:
+ * limits (min/max values for UI and rendering), defaults (initial settings),
+ * sizes (GUI and UI dimensions), and other application-wide constants.
+ * Enables easy tuning and consistency across the codebase.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-04-16
+ */
+
 #pragma once
 
 #include <string_view>
