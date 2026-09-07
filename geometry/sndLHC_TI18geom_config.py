@@ -393,8 +393,17 @@ with ConfigRegistry.register_config("basic") as c:
           c.DriftTube.nPlanes = 2
           c.DriftTube.nLayers = 4  # per plane
           c.DriftTube.nCells = 16  # per layer
+          # nominal hit spatial resolution
+          c.DriftTube.spatialResol = 0.025*u.cm
           # survey position of the two drift tube chambers
           c.DriftTube.DT1Dx,  c.DriftTube.DT1Dy,   c.DriftTube.DT1Dz    = 893.8*u.mm, 5505.2*u.mm, 935.7*u.mm 
           c.DriftTube.DT2Dx,  c.DriftTube.DT2Dy,   c.DriftTube.DT2Dz    = 17.34*u.mm, 5511.05*u.mm,  942.27*u.mm
           c.DriftTube.DT1LocX,  c.DriftTube.DT1LocY,   c.DriftTube.DT1LocZ    = -451.9*u.mm, -54.25*u.mm, -20.8*u.mm
           c.DriftTube.DT2LocX,  c.DriftTube.DT2LocY,   c.DriftTube.DT2LocZ    = 38.0*u.mm, 10.775*u.mm,  -394.4*u.mm
+          # first alignment - tests
+          c.DriftTube.XdxL0, c.DriftTube.XdxL1, c.DriftTube.XdxL2, c.DriftTube.XdxL3 = -0.515*u.cm, -0.532*u.cm, -0.530*u.cm, -0.532*u.cm
+          c.DriftTube.XRotX, c.DriftTube.XRotY = 0.00315*u.rad, 0.0*u.rad
+          c.DriftTube.XRotZL0, c.DriftTube.XRotZL1, c.DriftTube.XRotZL2, c.DriftTube.XRotZL3 = -0.602*u.rad, -0.640*u.rad, -0.637*u.rad, -0.580*u.rad
+          c.DriftTube.YdyL0, c.DriftTube.YdyL1, c.DriftTube.YdyL2, c.DriftTube.YdyL3 = -0.651*u.cm, -0.667*u.cm, -0.664*u.cm, -0.681*u.cm
+          c.DriftTube.YRotX, c.DriftTube.YRotY =  0.0*u.rad, 0.00612*u.rad
+          c.DriftTube.YRotZL0, c.DriftTube.YRotZL1, c.DriftTube.YRotZL2, c.DriftTube.YRotZL3 = -0.038*u.rad, -0.051*u.rad, -0.089*u.rad, -0.009*u.rad
