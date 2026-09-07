@@ -862,7 +862,7 @@ namespace snd3D {
 
         ImGui::TableSetColumnIndex(0);
 
-        if (ImGui::CollapsingHeader("Cluster Configuration", ImGuiTreeNodeFlags_DefaultOpen)) {
+        if (ImGui::CollapsingHeader("Cluster Configuration ", ImGuiTreeNodeFlags_DefaultOpen)) {
             // Change tab colors
             ImGui::PushStyleColor(ImGuiCol_Tab,          ImVec4(0.15f, 0.15f, 0.15f, 1.0f));
             ImGui::PushStyleColor(ImGuiCol_TabHovered,   ImVec4(0.25f, 0.40f, 0.65f, 1.0f));
@@ -919,7 +919,7 @@ namespace snd3D {
 
         ImGui::Indent(constants::sizes::TABLE_COLUMN_PADDING);
 
-        if (ImGui::CollapsingHeader("Color Configuration", ImGuiTreeNodeFlags_DefaultOpen)) {
+        if (ImGui::CollapsingHeader("Color Configuration ", ImGuiTreeNodeFlags_DefaultOpen)) {
 
             int currentVariable = (int)this->app.settings.getColorVariable();
 

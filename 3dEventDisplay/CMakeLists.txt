@@ -70,7 +70,7 @@ set(ASSIMP_BUILD_GLTF_IMPORTER ON CACHE BOOL "" FORCE)              # Enable glT
 FetchContent_Declare(
     stb
     GIT_REPOSITORY https://github.com/nothings/stb.git
-    GIT_TAG        master
+    GIT_TAG        2c980bb59875b0d32144a71867fbdebb2f77cd20 # pin: stb has no formal tags/releases
 )
 
 # IMGUI FILE DIALOG
@@ -83,7 +83,59 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(glfw glm assimp stb imguifiledialog)
 
 # --- PROJECT SOURCES ---
-file(GLOB_RECURSE PROJECT_SOURCES "src/*.cpp" "${GLAD_DIR}/src/glad.c")
+set(PROJECT_SOURCES
+    # core
+    src/core/App.cpp
+    src/core/AppSettings.cpp
+    src/core/Callbacks.cpp
+    src/core/WindowManager.cpp
+    src/core/state/AppStateManager.cpp
+
+    # io
+    src/io/DetectorData.cpp
+    src/io/EventData.cpp
+    src/io/GeometryMismatchException.cpp
+    src/io/SndswEventManager.cpp
+
+    # main
+    src/main.cpp
+
+    # rendering
+    src/rendering/AxisWidget.cpp
+    src/rendering/Viewport.cpp
+    src/rendering/camera/BasicProjection.cpp
+    src/rendering/camera/Camera.cpp
+    src/rendering/camera/OrthographicProjection.cpp
+    src/rendering/camera/PerspectiveProjection.cpp
+    src/rendering/engine/GpuMesh.cpp
+    src/rendering/engine/GpuMeshFactory.cpp
+    src/rendering/engine/Material.cpp
+    src/rendering/engine/Shader.cpp
+    src/rendering/engine/ShaderMaker.cpp
+    src/rendering/engine/Texture.cpp
+    src/rendering/engine/TextureMaker.cpp
+
+    # scene
+    src/scene/Mesh.cpp
+    src/scene/Node.cpp
+    src/scene/Object.cpp
+    src/scene/ObjectFactory.cpp
+    src/scene/PointLight.cpp
+    src/scene/Scene.cpp
+    src/scene/colors/ClockCycleVariableGetter.cpp
+    src/scene/colors/ColorPalette.cpp
+    src/scene/colors/EnergyVariableGetter.cpp
+    src/scene/colors/FixedValueMapper.cpp
+    src/scene/colors/LinearValueMapper.cpp
+    src/scene/colors/LogarithmicValueMapper.cpp
+    src/scene/colors/TimeVariableGetter.cpp
+
+    # ui
+    src/ui/Gui.cpp
+
+    # utils
+    src/utils/StbImpl.cpp
+)
 
 set(LINK_DIRECTORIES
     ${ROOT_LIBRARY_DIR}
@@ -97,7 +149,7 @@ link_directories(${LINK_DIRECTORIES})
 
 set(BINARY_NAME "3dEventDisplay")
 
-add_executable(${BINARY_NAME} ${PROJECT_SOURCES})
+add_executable(${BINARY_NAME} ${PROJECT_SOURCES} "${GLAD_DIR}/src/glad.c")
 
 target_include_directories(${BINARY_NAME} PRIVATE
     "include"
