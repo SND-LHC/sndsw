@@ -1,0 +1,79 @@
+/**
+ * @file AppSettings.hpp
+ * @brief Manages application settings and UI state toggles.
+ *
+ * AppSettings maintains the state of various UI components and visual options including
+ * camera pivot mode, axis widget visibility, transparency settings, lighting modes,
+ * and other rendering options. Provides toggle methods for each setting and tracks
+ * whether settings have changed since the last frame.
+ *
+ * @author Enrico Bartocetti
+ * @date 2026-04-16
+ */
+
+#pragma once
+
+#include <glm/glm.hpp>
+
+#include "core/Constants.hpp"
+#include "scene/colors/Modes.hpp"
+
+namespace snd3D {
+    class AppSettings {
+        public:
+            bool isCameraPivotActive();
+            void toggleCameraPivot();
+            bool isAxisWidgetActive();
+            void toggleAxisWidget();
+            bool isSceneInspectorActive();
+            void toggleSceneInspector();
+            bool isRenderOptionsActive();
+            void toggleRenderOptions();
+            bool isEventInfoActive();
+            void toggleEventInfo();
+            bool isClusterConfigInfoActive();
+            void toggleClusterConfigInfo();
+            bool isColorScaleActive();
+            void toggleColorScale();
+            bool isTransparencyEnabled();
+            bool isTransparencyChanged();
+            void toggleTransparency();
+            bool isLightingEnabled();
+            bool isLightingChanged();
+            void toggleLighting();
+            float getAmbientLightPower();
+            void setAmbientLightPower(const float power);
+            float getEdgeAlphaValue();
+            void setEdgeAlphaValue(const float alpha);
+            float getFaceAlphaValue();
+            void setFaceAlphaValue(const float alpha);
+            float getEdgeThickness();
+            void setEdgeThickness(const float thickness);
+            void setBackgroundColor(const glm::vec3& newColor);
+            glm::vec3 getBackgroundColor();
+            bool isBackgroundColorChanged();
+            void setColorVariable(ColorVariable variable);
+            ColorVariable getColorVariable();
+            void setColorScalingMode(ColorScalingMode mode);
+            ColorScalingMode getColorScalingMode();
+
+        private:
+            bool cameraPivotActive = constants::defaults::SHOW_PIVOT;
+            bool axisWidgetActive = constants::defaults::SHOW_AXIS;
+            bool sceneInspectorActive = true;
+            bool renderOptionsActive = true;
+            bool eventInfoActive = true;
+            bool clusterConfigInfoActive = false;
+            bool colorScaleActive = true;
+            bool transparency = constants::defaults::TRANSPARENCY, transparencyChanged = true;
+            bool lighting = constants::defaults::LIGHTING, lightingChanged = true; 
+            float ambientLightPower = constants::defaults::AMBIENT_LIGHT_POWER;
+            float edgeAlphaValue = constants::defaults::EDGE_ALPHA_VALUE;
+            float faceAlphaValue = constants::defaults::FACE_ALPHA_VALUE;
+            float edgeThickness = constants::defaults::EDGE_THICKNESS;
+            glm::vec3 backgroundColor = glm::vec3(constants::defaults::colors::BACKGROUND_R, constants::defaults::colors::BACKGROUND_G, constants::defaults::colors::BACKGROUND_B);
+            bool backgroundColorChanged = true;
+            ColorVariable colorVariable = ColorVariable::ENERGY;
+            ColorScalingMode colorScalingMode = ColorScalingMode::LINEAR;
+    };
+}

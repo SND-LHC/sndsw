@@ -6,6 +6,7 @@
 #include "MuFilter.h"
 #include "MuFilterHit.h"
 #include "sndConfiguration.h"
+#include "Math/Point3D.h"
 
 namespace snd {
     namespace analysis_tools {
@@ -37,6 +38,7 @@ namespace snd {
             bool is_right;
 
             void Print() const;
+            inline ROOT::Math::XYZPoint HitPosition() const {return ROOT::Math::XYZPoint(x, y, z);};
         };
 
         DSPlane(std::vector<MuFilterHit*> snd_hits, const Configuration &configuration, MuFilter *muon_filter_geometry, int station);

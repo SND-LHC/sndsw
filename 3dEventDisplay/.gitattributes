@@ -1,0 +1,25 @@
+* text=auto eol=lf
+
+*.cpp      text diff=cpp
+*.h        text diff=cpp
+*.hpp      text diff=cpp
+*.tpp      text diff=cpp
+*.c        text diff=cpp
+
+*.cmake    text
+CMakeLists.txt text
+*.sh       text eol=lf
+.gitignore text
+
+*.md       text
+LICENSE    text
+
+*.vert     text
+*.frag     text
+*.glsl     text
+
+*.obj      binary
+*.gltf     binary
+
+external/** linguist-vendored
+include/ui/JetBrainsMono.h binary linguist-vendored
