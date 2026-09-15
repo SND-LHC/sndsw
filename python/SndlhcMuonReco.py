@@ -244,20 +244,22 @@ class MuonReco(ROOT.FairTask) :
         if sink:   eventTree = sink.GetOutTree()
         if eventTree:
             self.MuFilterHits = eventTree.Digi_MuFilterHits
-            self.ScifiHits       = eventTree.Digi_ScifiHits
-            self.DTHits       = eventTree.Digi_DriftTubeHits
-            self.EventHeader        = eventTree.EventHeader
+            self.ScifiHits = eventTree.Digi_ScifiHits
+            if self.dtDet:
+              self.DTHits = eventTree.Digi_DriftTubeHits
+            self.EventHeader = eventTree.EventHeader
         else:
             # Use standard ROOT to access branches and not the FairRoot way
             # of getting objects from the i/o manager. The latter was initially
             # broken in v19 and fixed in a patch release.
             self.MuFilterHits = self.ioman.GetInTree().Digi_MuFilterHits
             self.ScifiHits = self.ioman.GetInTree().Digi_ScifiHits
-            self.DTHits = self.ioman.GetInTree().Digi_DriftTubeHits
+            if self.dtDet:
+              self.DTHits = self.ioman.GetInTree().Digi_DriftTubeHits
             self.EventHeader = self.ioman.GetInTree().EventHeader
 
-        if self.DTHits == None :
-            raise RuntimeError("Digi_DriftTubeHits not found in input file.")
+        if self.dtDet and self.DTHits == None :
+            raise RuntimeError("Digi_DriftTubeHits not found in input file, but geofile supports the detector.")
         if self.MuFilterHits == None :
             raise RuntimeError("Digi_MuFilterHits not found in input file.")
         if self.ScifiHits == None :
@@ -371,10 +373,11 @@ class MuonReco(ROOT.FairTask) :
         self.Scifi_dy = self.scifiDet.GetConfParF("Scifi/channel_width")
         self.Scifi_dz = self.scifiDet.GetConfParF("Scifi/epoxymat_z") # From Scifi.cxx This is the variable used to define the z dimension of SiPM channels, so seems like the right dimension to use.
 
-        self.DT_res = self.dtDet.GetConfParF("DriftTube/spatialResol")
-        self.DT_dx = 3*self.DT_res
-        self.DT_dy = 3*self.DT_res
-        self.DT_dz = self.dtDet.GetConfParF("DriftTube/cellHeight")
+        if self.dtDet:
+          self.DT_res = self.dtDet.GetConfParF("DriftTube/spatialResol")
+          self.DT_dx = 3*self.DT_res
+          self.DT_dy = 3*self.DT_res
+          self.DT_dz = self.dtDet.GetConfParF("DriftTube/cellHeight")
 
         # Get number of readout channels
         self.MuFilter_us_nSiPMs = self.mufiDet.GetConfParI("MuFilter/UpstreamnSiPMs")*self.mufiDet.GetConfParI("MuFilter/UpstreamnSides")
@@ -382,13 +385,14 @@ class MuonReco(ROOT.FairTask) :
         self.MuFilter_ds_nSiPMs_vert = self.mufiDet.GetConfParI("MuFilter/DownstreamnSiPMs")
 
         self.Scifi_nPlanes    = self.scifiDet.GetConfParI("Scifi/nscifi")
-        self.DS_nPlanes       = self.mufiDet.GetConfParI("MuFilter/NDownstreamPlanes")
-        self.DT_nPlanes       = self.dtDet.GetConfParI("DriftTube/nPlanes")
-        self.DT_nLayers       = self.dtDet.GetConfParI("DriftTube/nLayers")
         self.max_n_hits_plane = 3
         self.max_n_Scifi_hits = self.max_n_hits_plane*2*self.Scifi_nPlanes
+        self.DS_nPlanes       = self.mufiDet.GetConfParI("MuFilter/NDownstreamPlanes")
         self.max_n_DS_hits    = self.max_n_hits_plane*(2*self.DS_nPlanes-1)
-        self.max_n_DT_hits    = self.max_n_hits_plane*self.DT_nLayers*self.DT_nPlanes
+        if self.dtDet:
+          self.DT_nPlanes       = self.dtDet.GetConfParI("DriftTube/nPlanes")
+          self.DT_nLayers       = self.dtDet.GetConfParI("DriftTube/nLayers")
+          self.max_n_DT_hits    = self.max_n_hits_plane*self.DT_nLayers*self.DT_nPlanes
 
         # get the distance between 1st and last detector planes to be used in the track fit.
         # a z_offset is used to shift detector hits so to have smaller Hough parameter space
@@ -485,7 +489,8 @@ class MuonReco(ROOT.FairTask) :
         self.kalman_sigmaScifi_spatial = self.Scifi_dx / 12**0.5
         self.kalman_sigmaMufiUS_spatial = self.MuFilter_us_dy / 12**0.5
         self.kalman_sigmaMufiDS_spatial = self.MuFilter_ds_dy/ 12**0.5
-        self.kalman_sigmaDT_spatial = self.DT_res
+        if self.dtDet:
+          self.kalman_sigmaDT_spatial = self.DT_res
 
         # Init() MUST return int
         return 0
