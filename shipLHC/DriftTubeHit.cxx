@@ -93,7 +93,7 @@ TVector3 DriftTubeHit::GetPosition() {
    }
    Float_t RotX = DriftTubeDet->GetConfParF("DriftTube/"+orientation+"RotX");
    Float_t RotY = DriftTubeDet->GetConfParF("DriftTube/"+orientation+"RotY");
-   Float_t RotZ = DriftTubeDet->GetConfParF("DriftTube/"+orientation+"RotZL"+layer_str);
+   Float_t RotZ = DriftTubeDet->GetConfParF("DriftTube/"+orientation+"RotZ");
 
    if (gGeoManager->cd(node.c_str())) {
       TGeoShape *shape = gGeoManager->GetCurrentNode()->GetVolume()->GetShape();

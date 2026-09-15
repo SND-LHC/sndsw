@@ -382,7 +382,7 @@ void DriftTube::GetPosition(Int_t fDetectorID, TVector3 &A, TVector3 &B)
    }
    Float_t RotX = GetConfParF("DriftTube/"+orientation+"RotX");
    Float_t RotY = GetConfParF("DriftTube/"+orientation+"RotY");
-   Float_t RotZ = GetConfParF("DriftTube/"+orientation+"RotZL"+layer_str);
+   Float_t RotZ = GetConfParF("DriftTube/"+orientation+"RotZ");
 
    // Get the corresponding node
    TGeoNode *W = nav->GetCurrentNode();
@@ -392,9 +392,9 @@ void DriftTube::GetPosition(Int_t fDetectorID, TVector3 &A, TVector3 &B)
    Double_t glob[3] = {0,0,0};
    locPosition -= (dx+dy); // dx or dy is zero for the respective non-measured coordinate
 
-   loc[2] = -S->GetDZ() - (RotZ + RotX)*locPosition;
    loc[0] = locPosition - S->GetDZ() * (RotZ + RotX);
    loc[1] = RotY*locPosition;
+   loc[2] = -S->GetDZ() - (RotZ + RotX)*locPosition;
    nav->cd(path);
    nav->LocalToMaster(loc, glob);
    A.SetXYZ( glob[0], glob[1],glob[2] );
