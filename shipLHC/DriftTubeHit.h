@@ -29,7 +29,6 @@ public:
    bool isValid() const { return flag; }
    Double_t GetTimestamp() {return timestamp; }
    Int_t GetSystem() { return floor(fDetectorID / 10000); }
-   Int_t GetStation() { return 1; } // do we need such a method? FIXME
    Int_t GetPlane() { return int(fDetectorID / 1000) % 10; }
    Int_t GetLayer() { return int(fDetectorID % 1000) / 100; }
    Int_t GetCell() { return int(fDetectorID % 100); }
