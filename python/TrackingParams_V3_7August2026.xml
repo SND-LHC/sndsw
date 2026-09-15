@@ -312,7 +312,7 @@
            to start pattern recognition.
            Also, the required minimum number of planes intersected by
            the Hough line prediction to proceed to track fitting. -->
-     <min_planes_hit> 3 </min_planes_hit>
+     <min_planes_hit> 4 </min_planes_hit>
      <!--  Mask a detector plane if its number of hits is larger than Nhits_per_plane.
            Masking is only applied to detectors used for Hough transform.
            Plane masking always leaves at least <min_planes_hit> active planes
