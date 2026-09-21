@@ -36,7 +36,7 @@ parser.add_argument("--nTracks", dest="nTracks",default=0,type=int)
 parser.add_argument("--save", dest="save", action='store_true',default=False)
 
 parser.add_argument("-ht", "--HoughTracking", dest="HoughTracking", action='store_true', default=False)
-parser.add_argument("-par", "--parFile", dest="parFile", help="parameter file", default=os.environ['SNDSW_ROOT']+"/python/TrackingParams.xml")
+parser.add_argument("-par", "--parFile", dest="parFile", help="parameter file", default=os.environ['SNDSW_ROOT']+"/python/TrackingParams.yml")
 parser.add_argument("-hf", "--HoughSpaceFormat", dest="HspaceFormat", help="Hough space representation. Should match the 'Hough_space_format' name in parFile, use quotes", default='linearSlopeIntercept')
 
 parser.add_argument("-sc", "--scale",dest="scaleFactor",  help="Randomly run reconstruction.", required=False,  default=1, type=int)
@@ -66,7 +66,7 @@ if options.HoughTracking:
 if options.simpleTracking:
    trackTask = SndlhcTracking.Tracking()
    trackTask.SetName("simpleTracking")
-   # If HT task is also used, pass the track format from its xml
+   # If HT task is also used, pass the track format from its input yaml file
    # else consult with the command line genfitFormat option
    if options.HoughTracking: pass
    else: options.genfitTrack = options.genfitFormat

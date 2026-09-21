@@ -47,7 +47,7 @@ parser.add_argument("--rootbatch", help="Run ROOT in batch mode.", action="store
 
 parser.add_argument("--collision_axis", dest="drawCollAxis", help="Draw collision axis", action="store_true")
 
-parser.add_argument("-par", "--parFile", dest="parFile", help="parameter file", default=os.environ['SNDSW_ROOT']+"/python/TrackingParams.xml")
+parser.add_argument("-par", "--parFile", dest="parFile", help="parameter file", default=os.environ['SNDSW_ROOT']+"/python/TrackingParams.yml")
 parser.add_argument("-hf", "--HoughSpaceFormat", dest="HspaceFormat", help="Hough space representation. Should match the 'Hough_space_format' name in parFile, use quotes", default='linearSlopeIntercept')
 
 parser.add_argument("--shower_dir", dest="drawShowerDir", help="Draw shower direction if a shower is found", action="store_true")
