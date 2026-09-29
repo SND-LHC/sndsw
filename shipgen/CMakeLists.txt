@@ -16,7 +16,9 @@ ${PYTHIA8_INCLUDE_DIR}/..
 ${HEPMC_INCLUDE_DIR}
 ${EVTGEN_INCLUDE_DIR}
 ${EVTGEN_INCLUDE_DIR}/..
-$ENV{GENIE_ROOT}/genie/src 
+$ENV{GENIE_ROOT}/genie/src
+$ENV{LOG4_ROOT}/include
+$ENV{LIBXML2_ROOT}/include/libxml2
 )
 
 include_directories(${INCLUDE_DIRECTORIES} ${VMC_INCLUDE_DIRS} ${FAIRROOT_INCLUDE_DIR} ${FairLogger_INCDIR} ${FMT_INCLUDE_DIR})
@@ -59,6 +61,8 @@ GENERATE_LIBRARY()
 
 add_executable(sndlhcGSimpleNtpConverter sndlhcGSimpleNtpConverter.cxx)
 add_executable(addAuxiliaryToGST addAuxiliaryToGST.cxx)
+add_executable(gevgen_snd gFNALExptEvGen.cxx)
 
 target_link_libraries(sndlhcGSimpleNtpConverter -Wl,--allow-shlib-undefined -L$ENV{GENIE_ROOT}/lib/ -lGFwMsg -lGFwReg -lGFwAlg -lGFwInt -lGFwGHEP -lGFwNum -lGFwUtl -lGFwParDat -lGFwEG -lGFwNtp -lGTlFlx ${ROOT_LIBRARIES} -lEGPythia6 -L$ENV{LIBXML2_ROOT}/lib -lxml2 -L$ENV{LOG4_ROOT}/lib -llog4cpp -L$ENV{LHAPDF_ROOT}/lib -lLHAPDF)
 target_link_libraries(addAuxiliaryToGST -Wl,--allow-shlib-undefined -L$ENV{GENIE_ROOT}/lib/ -lGFwMsg -lGFwReg -lGFwAlg -lGFwInt -lGFwGHEP -lGFwNum -lGFwUtl -lGFwParDat -lGFwEG -lGFwNtp -lGTlFlx ${ROOT_LIBRARIES} -lEGPythia6 -L$ENV{LIBXML2_ROOT}/lib -lxml2 -L$ENV{LOG4_ROOT}/lib -llog4cpp -L$ENV{LHAPDF_ROOT}/lib -lLHAPDF)
+target_link_libraries(gevgen_snd -Wl,--allow-shlib-undefined -L$ENV{GENIE_ROOT}/lib/ -lGFwMsg -lGFwReg -lGFwAlg -lGFwInt -lGFwGHEP -lGFwNum -lGFwUtl -lGFwParDat -lGFwEG -lGFwNtp -lGPhXSIg -lGPhPDF -lGPhNuclSt -lGPhCmn -lGPhDcy -lGPhHadTransp -lGPhHadnz -lGPhDeEx -lGPhAMNGXS -lGPhAMNGEG -lGPhChmXS -lGPhCohXS -lGPhCohEG -lGPhDISXS -lGPhDISEG -lGPhDfrcXS -lGPhDfrcEG -lGPhHELptnXS -lGPhHELptnEG -lGPhIBDXS -lGPhIBDEG -lGPhHadTens -lGPhMNucXS -lGPhMNucEG -lGPhMEL -lGPhNuElXS -lGPhNuElEG -lGPhQELXS -lGPhQELEG -lGPhResXS -lGPhResEG -lGPhStrXS -lGPhStrEG -lGPhHEDISXS -lGPhHEDISEG -lGPhBDMXS -lGPhBDMEG -lGPhNHL -lGTlGeo -lGTlFlx ${ROOT_LIBRARIES} -lGeom -lEG -lEGPythia6 -L$ENV{PYTHIA6_ROOT}/lib -lPythia6 -L$ENV{LIBXML2_ROOT}/lib -lxml2 -L$ENV{LOG4_ROOT}/lib -llog4cpp -L$ENV{LHAPDF_ROOT}/lib -lLHAPDF)
