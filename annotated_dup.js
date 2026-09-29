@@ -205,6 +205,9 @@ var annotated_dup =
     [ "reverseMapping", "namespacereverseMapping.html", [
       [ "reversChannelMapping", "classreverseMapping_1_1reversChannelMapping.html", "classreverseMapping_1_1reversChannelMapping" ]
     ] ],
+    [ "reweighting_function", "namespacereweighting__function.html", [
+      [ "FluxReweighter", "classreweighting__function_1_1FluxReweighter.html", "classreweighting__function_1_1FluxReweighter" ]
+    ] ],
     [ "rootpyPickler", "namespacerootpyPickler.html", [
       [ "IO_Wrapper", "classrootpyPickler_1_1IO__Wrapper.html", "classrootpyPickler_1_1IO__Wrapper" ],
       [ "Pickler", "classrootpyPickler_1_1Pickler.html", "classrootpyPickler_1_1Pickler" ],

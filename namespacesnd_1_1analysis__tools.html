@@ -730,7 +730,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  334</span>      }</div>
 <div class="line"><span class="lineno">  335</span> </div>
 <div class="line"><span class="lineno">  336</span>      <span class="comment">// This is overwriting the previous arrays with the newest one</span></div>
-<div class="line"><span class="lineno">  337</span>      <span class="keywordflow">for</span> (<span class="keyword">auto</span> station : ROOT::MakeSeq(1, ScifiStations + 1)) {</div>
+<div class="line"><span class="lineno">  337</span>      <span class="keywordflow">for</span> (<span class="keyword">auto</span> station : <a class="code hl_variable" href="namespacereweighting__function.html#a6c80bcdb956642f0a8028a7aafe9443d">ROOT</a>::MakeSeq(1, ScifiStations + 1)) {</div>
 <div class="line"><span class="lineno">  338</span>         <span class="keywordflow">for</span> (<span class="keyword">auto</span> orientation : {<span class="keyword">false</span>, <span class="keyword">true</span>}) {</div>
 <div class="line"><span class="lineno">  339</span> </div>
 <div class="line"><span class="lineno">  340</span>            <span class="keyword">auto</span> supportArray_p = <a class="code hl_function" href="namespacesnd_1_1analysis__tools.html#ac24087a94e7ae37f910b9482ddf021b0">selectScifiHits</a>(digiHits, station, orientation, selection_parameters, <span class="keyword">true</span>, isMC);</div>
@@ -750,6 +750,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  354</span>   }</div>
 <div class="line"><span class="lineno">  355</span>   <span class="keywordflow">return</span> filteredHits;</div>
 <div class="line"><span class="lineno">  356</span>}</div>
+<div class="ttc" id="anamespacereweighting__function_html_a6c80bcdb956642f0a8028a7aafe9443d"><div class="ttname"><a href="namespacereweighting__function.html#a6c80bcdb956642f0a8028a7aafe9443d">reweighting_function.ROOT</a></div><div class="ttdeci">ROOT</div><div class="ttdef"><b>Definition</b> <a href="reweighting__function_8py_source.html#l00084">reweighting_function.py:84</a></div></div>
 <div class="ttc" id="anamespacesnd_1_1analysis__tools_html_ac24087a94e7ae37f910b9482ddf021b0"><div class="ttname"><a href="namespacesnd_1_1analysis__tools.html#ac24087a94e7ae37f910b9482ddf021b0">snd::analysis_tools::selectScifiHits</a></div><div class="ttdeci">std::unique_ptr&lt; TClonesArray &gt; selectScifiHits(const TClonesArray &amp;digiHits, int station, bool orientation, int bins_x=52, float min_x=0.0, float max_x=26.0, float time_lower_range=1E9/(2 *ShipUnit::snd_freq/ShipUnit::hertz), float time_upper_range=1.2E9/(ShipUnit::snd_freq/ShipUnit::hertz), bool make_selection=true, bool isMC=false)</div><div class="ttdef"><b>Definition</b> <a href="sndSciFiTools_8cxx_source.html#l00195">sndSciFiTools.cxx:195</a></div></div>
 </div><!-- fragment -->
 </div>

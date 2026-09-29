@@ -8,5 +8,6 @@ var searchData=
   ['fitstatus_5',['FitStatus',['../classgenfit_1_1FitStatus.html',1,'genfit']]],
   ['fixedtargetgenerator_6',['FixedTargetGenerator',['../classFixedTargetGenerator.html',1,'']]],
   ['floor_7',['Floor',['../classFloor.html',1,'']]],
-  ['fullmeasurement_8',['FullMeasurement',['../classgenfit_1_1FullMeasurement.html',1,'genfit']]]
+  ['fluxreweighter_8',['FluxReweighter',['../classreweighting__function_1_1FluxReweighter.html',1,'reweighting_function']]],
+  ['fullmeasurement_9',['FullMeasurement',['../classgenfit_1_1FullMeasurement.html',1,'genfit']]]
 ];

@@ -2720,6 +2720,7 @@ var namespaces_dup =
       [ "val", "namespacereadMilleBinary.html#aa5029fee38de108bb42ce94c75edcf2f", null ]
     ] ],
     [ "reverseMapping", "namespacereverseMapping.html", "namespacereverseMapping" ],
+    [ "reweighting_function", "namespacereweighting__function.html", "namespacereweighting__function" ],
     [ "rootpyPickler", "namespacerootpyPickler.html", "namespacerootpyPickler" ],
     [ "rootUtils", "namespacerootUtils.html", "namespacerootUtils" ],
     [ "rpvsusy", "namespacerpvsusy.html", "namespacerpvsusy" ],

@@ -246,6 +246,7 @@ var hierarchy =
     [ "genfit::FitStatus", "classgenfit_1_1FitStatus.html", [
       [ "genfit::KalmanFitStatus", "classgenfit_1_1KalmanFitStatus.html", null ]
     ] ],
+    [ "reweighting_function.FluxReweighter", "classreweighting__function_1_1FluxReweighter.html", null ],
     [ "G4UserEventAction", null, [
       [ "g4Ex.MyEventAction", "classg4Ex_1_1MyEventAction.html", null ],
       [ "g4Ex_args.MyEventAction", "classg4Ex__args_1_1MyEventAction.html", null ],

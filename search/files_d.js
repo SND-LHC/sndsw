@@ -2,7 +2,7 @@ var searchData=
 [
   ['magneticspectrometer_2ecxx_0',['MagneticSpectrometer.cxx',['../MagneticSpectrometer_8cxx.html',1,'']]],
   ['magneticspectrometer_2eh_1',['MagneticSpectrometer.h',['../MagneticSpectrometer_8h.html',1,'']]],
-  ['main_2ecc_2',['main.cc',['../fitterTests_2main_8cc.html',1,'(Global Namespace)'],['../measurementFactoryExample_2main_8cc.html',1,'(Global Namespace)'],['../minimalFittingExample_2main_8cc.html',1,'(Global Namespace)'],['../streamerTest_2main_8cc.html',1,'(Global Namespace)'],['../vertexingTest_2main_8cc.html',1,'(Global Namespace)'],['../unitTests_2main_8cc.html',1,'(Global Namespace)']]],
+  ['main_2ecc_2',['main.cc',['../measurementFactoryExample_2main_8cc.html',1,'(Global Namespace)'],['../fitterTests_2main_8cc.html',1,'(Global Namespace)'],['../minimalFittingExample_2main_8cc.html',1,'(Global Namespace)'],['../streamerTest_2main_8cc.html',1,'(Global Namespace)'],['../vertexingTest_2main_8cc.html',1,'(Global Namespace)'],['../unitTests_2main_8cc.html',1,'(Global Namespace)']]],
   ['mainspectrometerfield_2etxt_3',['MainSpectrometerField.txt',['../MainSpectrometerField_8txt.html',1,'']]],
   ['makealpacaevents_2epy_4',['makeALPACAEvents.py',['../makeALPACAEvents_8py.html',1,'']]],
   ['makecascade_2epy_5',['makeCascade.py',['../makeCascade_8py.html',1,'']]],
@@ -14,7 +14,7 @@ var searchData=
   ['makerunlistdb_2epy_11',['makeRunListDB.py',['../makeRunListDB_8py.html',1,'']]],
   ['makesndgenieevents_2epy_12',['makeSNDGenieEvents.py',['../makeSNDGenieEvents_8py.html',1,'']]],
   ['materialeffects_2ecc_13',['MaterialEffects.cc',['../MaterialEffects_8cc.html',1,'']]],
-  ['materialeffects_2eh_14',['materialeffects.h',['../trackReps_2include_2MaterialEffects_8h.html',1,'(Global Namespace)'],['../include_2genfit_2MaterialEffects_8h.html',1,'(Global Namespace)']]],
+  ['materialeffects_2eh_14',['materialeffects.h',['../include_2genfit_2MaterialEffects_8h.html',1,'(Global Namespace)'],['../trackReps_2include_2MaterialEffects_8h.html',1,'(Global Namespace)']]],
   ['materialproperties_2ecc_15',['MaterialProperties.cc',['../MaterialProperties_8cc.html',1,'']]],
   ['materialproperties_2eh_16',['MaterialProperties.h',['../MaterialProperties_8h.html',1,'']]],
   ['mceventbuilder_2ecxx_17',['MCEventBuilder.cxx',['../MCEventBuilder_8cxx.html',1,'']]],
