@@ -6,8 +6,13 @@
 #include "TGeoNavigator.h"
 #include "TGeoManager.h"
 #include "TGeoBBox.h"
+#include "SiPMqdcCalibrationConstants.h"
 #include <TRandom.h>
 #include <iomanip> 
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+
 
 // -----   Default constructor   -------------------------------------------
 MuFilterHit::MuFilterHit()
@@ -152,23 +157,35 @@ bool MuFilterHit::isShort(Int_t i){
 }
 
 // -----   Public method Get List of signals   -------------------------------------------
-std::map<Int_t,Float_t> MuFilterHit::GetAllSignals(Bool_t mask,Bool_t positive,Bool_t use_small_sipms)
+std::map<Int_t,Float_t> MuFilterHit::GetAllSignals(Bool_t mask, Bool_t positive, Bool_t use_small_sipms, Bool_t use_calibration)
 {
-          std::map<Int_t,Float_t> allSignals;
-          for (unsigned int s=0; s<nSides; ++s){
-              for (unsigned int j=0; j<nSiPMs; ++j){
-               unsigned int channel = j+s*nSiPMs;
-               if (signals[channel]<-900){continue;}
-               if (signals[channel]> 0 || !positive){
-                 if (!fMasked[channel] || !mask){
-                   if (!isShort(channel) || use_small_sipms){
-                    allSignals[channel] = signals[channel];
+    std::map<Int_t,Float_t> allSignals;
+ 
+    for (unsigned int s=0; s<nSides; ++s){
+        for (unsigned int j=0; j<nSiPMs; ++j){
+            unsigned int channel = j+s*nSiPMs;
+            if (signals[channel]<-900){continue;}
+            if (signals[channel]> 0 || !positive){
+                if (!fMasked[channel] || !mask){
+                    if (!isShort(channel) || use_small_sipms){
+                        if (!use_calibration){  // no calibration: raw signals
+                            allSignals[channel] = signals[channel];
+                        }
+                        else{  // with calibration: divide signals by SiPM-specific calibration constants
+                            float calibrationConstant = SiPM_qdc_calibration_constants[fDetectorID*100+channel];
+                            if (calibrationConstant <= 0.){
+                                allSignals[channel] = 0.;
+                            }
+                            else {
+                                allSignals[channel] = signals[channel]/calibrationConstant;
+                            }
+                        }
                     }
-                 }
                 }
-              }
-          }
-          return allSignals;
+            }
+        }
+    }
+    return allSignals;
 }
 
 // -----   Public method Get List of time measurements   -------------------------------------------
