@@ -157,7 +157,7 @@ bool MuFilterHit::isShort(Int_t i){
 }
 
 // -----   Public method Get List of signals   -------------------------------------------
-std::map<Int_t,Float_t> MuFilterHit::GetAllSignals(Bool_t mask, Bool_t positive, Bool_t use_small_sipms, Bool_t use_calibration)
+std::map<Int_t,Float_t> MuFilterHit::GetAllSignals(Bool_t mask, Bool_t positive, Bool_t use_small_sipms, Bool_t use_calibration, Bool_t calibration_with_offset)
 {
     std::map<Int_t,Float_t> allSignals;
  
@@ -173,11 +173,14 @@ std::map<Int_t,Float_t> MuFilterHit::GetAllSignals(Bool_t mask, Bool_t positive,
                         }
                         else{  // with calibration: divide signals by SiPM-specific calibration constants
                             float calibrationConstant = SiPM_qdc_calibration_constants[fDetectorID*100+channel];
-                            if (calibrationConstant <= 0.){
-                                allSignals[channel] = 0.;
-                            }
-                            else {
-                                allSignals[channel] = signals[channel]/calibrationConstant;
+                            if (calibrationConstant > 0.){  // for a non-positive constant, there is something wrong and no signal is returned for that SiPM (just like for small, masked, or negative-signal SiPMs depending on the chosen options)
+                                if (calibration_with_offset){
+                                    float constantOffset = SiPM_qdc_calibration_constants[fDetectorID/10000];  // dividing the int fDetectorID by 10000 gives the first digit of the detector ID, which is the number of the corresponding subsytem used to get the system-wide offset (1-VS, 2-US, 3-DS)
+                                    allSignals[channel] = (signals[channel]/calibrationConstant + constantOffset) / (1 + constantOffset);
+                                }
+                                else{
+                                    allSignals[channel] = signals[channel]/calibrationConstant;
+                                }
                             }
                         }
                     }
