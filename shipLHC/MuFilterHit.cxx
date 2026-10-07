@@ -157,7 +157,7 @@ bool MuFilterHit::isShort(Int_t i){
 }
 
 // -----   Public method Get List of signals   -------------------------------------------
-std::map<Int_t,Float_t> MuFilterHit::GetAllSignals(Bool_t mask, Bool_t positive, Bool_t use_small_sipms, Bool_t use_calibration, Bool_t calibration_with_offset)
+std::map<Int_t,Float_t> MuFilterHit::GetAllSignals(Bool_t mask, Bool_t positive, Bool_t use_small_sipms, Bool_t use_calibration)
 {
     std::map<Int_t,Float_t> allSignals;
  
@@ -168,20 +168,17 @@ std::map<Int_t,Float_t> MuFilterHit::GetAllSignals(Bool_t mask, Bool_t positive,
             if (signals[channel]> 0 || !positive){
                 if (!fMasked[channel] || !mask){
                     if (!isShort(channel) || use_small_sipms){
-                        if (!use_calibration){  // no calibration: raw signals
-                            allSignals[channel] = signals[channel];
-                        }
-                        else{  // with calibration: divide signals by SiPM-specific calibration constants
+                        if (use_calibration){
+                           // With calibration: divide signals by SiPM-specific calibration constants, apply sub-system wide constant offset, then rescale to align the signal of 1 MIP with a value of 1
+                           // To disregard the constant offset, either supply a constants file where it is set to 0, or use the followign formula: allSignals[channel] = signals[channel]/calibrationConstant;
                             float calibrationConstant = SiPM_qdc_calibration_constants[fDetectorID*100+channel];
+                            float constantOffset = SiPM_qdc_calibration_constants[fDetectorID/10000];  // dividing the (int) fDetectorID by 10000 gives the first digit of the detector ID, which is the number of the corresponding subsytem used to get the system-wide offset (1-VS, 2-US, 3-DS)
                             if (calibrationConstant > 0.){  // for a non-positive constant, there is something wrong and no signal is returned for that SiPM (just like for small, masked, or negative-signal SiPMs depending on the chosen options)
-                                if (calibration_with_offset){
-                                    float constantOffset = SiPM_qdc_calibration_constants[fDetectorID/10000];  // dividing the int fDetectorID by 10000 gives the first digit of the detector ID, which is the number of the corresponding subsytem used to get the system-wide offset (1-VS, 2-US, 3-DS)
                                     allSignals[channel] = (signals[channel]/calibrationConstant + constantOffset) / (1 + constantOffset);
-                                }
-                                else{
-                                    allSignals[channel] = signals[channel]/calibrationConstant;
-                                }
                             }
+                        }
+                        else{  // no calibration: raw signals
+                            allSignals[channel] = signals[channel];
                         }
                     }
                 }

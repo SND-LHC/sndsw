@@ -30,7 +30,7 @@ class MuFilterHit : public SndlhcHit
     void Print() const;
     Float_t GetEnergy(Bool_t use_small_sipms=kFALSE);
     std::map<TString,Float_t> SumOfSignals(Bool_t mask=kTRUE);
-    std::map<Int_t,Float_t> GetAllSignals(Bool_t mask=kTRUE, Bool_t positive=kTRUE, Bool_t use_small_sipms=kFALSE, Bool_t use_calibration=kFALSE, Bool_t calibration_with_offset=kTRUE);
+    std::map<Int_t,Float_t> GetAllSignals(Bool_t mask=kTRUE, Bool_t positive=kTRUE, Bool_t use_small_sipms=kFALSE, Bool_t use_calibration=kFALSE);
     std::map<Int_t,Float_t> GetAllTimes(Bool_t mask=kTRUE,Bool_t positive=kTRUE,Bool_t use_small_sipms=kFALSE);
     Float_t  GetDeltaT(Bool_t mask=kTRUE,Bool_t positive=kTRUE,Bool_t use_small_sipms=kFALSE);
     Float_t  GetFastDeltaT(Bool_t mask=kTRUE,Bool_t positive=kTRUE,Bool_t use_small_sipms=kFALSE);

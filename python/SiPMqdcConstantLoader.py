@@ -15,8 +15,12 @@ def loadConstants(runNumberOrJSONpath=None, csvPath=None, MC=False):
         If an integer is provided, it is interpreted as a run number and used
         to select the corresponding JSON file from ``csvPath`` (or the default
         mapping). Any negative run number loads the default constants for MC.
-        If a string is provided, it is interpreted as the path to a
-        JSON constants file, and ``csvPath`` is ignored.
+        If a string is provided, it is interpreted as the path to a JSON
+        constants file, and ``csvPath`` is ignored. The JSON constants files
+        contain subsystem-wide constant offsets (for VS, US, DS) as well as
+        calibration constants for each individual SiPM. For the default files,
+        see their paths in
+        /eos/experiment/sndlhc/calibration/MuFilter/SiPMqdcCalibration/SiPMqdcCalibrationConstantsPaths.csv.
     csvPath : str, optional
         Path to a CSV file containing run-number ranges and JSON file paths.
         The CSV is expected to contain a header followed by rows of the form::
