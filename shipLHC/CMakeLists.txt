@@ -33,6 +33,7 @@ EmulsionDetPoint.cxx
 EmulsionDetContFact.cxx
 Scifi.cxx
 ScifiPoint.cxx
+SiPMqdcCalibrationConstants.cxx
 MuFilter.cxx
 MuFilterPoint.cxx
 MuFilterHit.cxx
