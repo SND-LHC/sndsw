@@ -5,6 +5,7 @@
 #include "MuFilterPoint.h"
 #include "TObject.h"
 #include "TVector3.h"
+#include "MuFilter.h"
 #include <map>
 
 class MuFilterHit : public SndlhcHit
@@ -29,7 +30,7 @@ class MuFilterHit : public SndlhcHit
     void Print() const;
     Float_t GetEnergy(Bool_t use_small_sipms=kFALSE);
     std::map<TString,Float_t> SumOfSignals(Bool_t mask=kTRUE);
-    std::map<Int_t,Float_t> GetAllSignals(Bool_t mask=kTRUE,Bool_t positive=kTRUE,Bool_t use_small_sipms=kFALSE);
+    std::map<Int_t,Float_t> GetAllSignals(Bool_t mask=kTRUE, Bool_t positive=kTRUE, Bool_t use_small_sipms=kFALSE, Bool_t use_calibration=kFALSE);
     std::map<Int_t,Float_t> GetAllTimes(Bool_t mask=kTRUE,Bool_t positive=kTRUE,Bool_t use_small_sipms=kFALSE);
     Float_t  GetDeltaT(Bool_t mask=kTRUE,Bool_t positive=kTRUE,Bool_t use_small_sipms=kFALSE);
     Float_t  GetFastDeltaT(Bool_t mask=kTRUE,Bool_t positive=kTRUE,Bool_t use_small_sipms=kFALSE);
@@ -42,14 +43,13 @@ class MuFilterHit : public SndlhcHit
     int GetPlane(){return int(fDetectorID/1000)%10;}
     bool isVertical();
     bool isShort(Int_t);// short==small sipm
+
   private:
 
     Float_t flag;   ///< flag
     Float_t fMasked[16];  /// masked signal
 
     ClassDef(MuFilterHit, 6);
-    
-
 };
 
 #endif
