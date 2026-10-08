@@ -1,5 +1,14 @@
 var NAVTREEINDEX61 =
 {
+"fitterTests_2main_8cc.html#a3c2348f39cf58c5c0f48742b32b15d83":[14,0,5,9,0,0,3],
+"fitterTests_2main_8cc.html#a48dad8951dbb742965a65b06321c38b3":[14,0,5,9,0,0,6],
+"fitterTests_2main_8cc.html#a5065b9931e76d8a6b721afec8677c356":[14,0,5,9,0,0,5],
+"fitterTests_2main_8cc.html#ac34d3574285d6c509b41451369b72779":[14,0,5,9,0,0,0],
+"fitterTests_2main_8cc.html#ad1b5bf0145aab69f582b8d0bb0f3bf4c":[14,0,5,9,0,0,2],
+"fitterTests_2main_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4":[14,0,5,9,0,0,4],
+"fitterTests_2main_8cc_source.html":[14,0,5,9,0,0],
+"fittersLinkDef_8h.html":[14,0,5,4,1,2],
+"fittersLinkDef_8h_source.html":[14,0,5,4,1,2],
 "flux__map_8py.html":[14,0,8,10],
 "flux__map_8py.html#a0a534466aad410c85e90044a42a9fa87":[14,0,8,10,1],
 "flux__map_8py.html#a1e7a8c61a88a7cbb36c21af7285ca627":[14,0,8,10,2],
@@ -240,14 +249,5 @@ var NAVTREEINDEX61 =
 "g4Ex__gap__mergeFiles_8py.html#a6cc1c7e0382927b54da3e68abfb3e59d":[14,0,11,9,25],
 "g4Ex__gap__mergeFiles_8py.html#a6ea5fea2de017f0b639ccc3bc2e74fa1":[14,0,11,9,26],
 "g4Ex__gap__mergeFiles_8py.html#a7476ba2e67b1127eb1c1de262c5ff876":[14,0,11,9,18],
-"g4Ex__gap__mergeFiles_8py.html#a7ec28bacbdf4bb7bdded39edb8744475":[14,0,11,9,4],
-"g4Ex__gap__mergeFiles_8py.html#a837f1e4d78049ceaaa8445095c8de6f5":[14,0,11,9,22],
-"g4Ex__gap__mergeFiles_8py.html#a8544223a30d45a0c9dcb939452e8a56d":[14,0,11,9,11],
-"g4Ex__gap__mergeFiles_8py.html#a90d63457e06ce862b83379f7aa671c8c":[14,0,11,9,23],
-"g4Ex__gap__mergeFiles_8py.html#a9ce168a6d589cb926251658d1563f8bc":[14,0,11,9,28],
-"g4Ex__gap__mergeFiles_8py.html#a9db6de354e37e10cd7840c56a404dfa5":[14,0,11,9,24],
-"g4Ex__gap__mergeFiles_8py.html#a9f6d4cfe7b47eb0c08381f5ced6837f5":[14,0,11,9,13],
-"g4Ex__gap__mergeFiles_8py.html#aae067114d26712c0dfa8ef37ff4317ce":[14,0,11,9,3],
-"g4Ex__gap__mergeFiles_8py.html#abe825bb5752a5388554ef0be6c90b1ea":[14,0,11,9,9],
-"g4Ex__gap__mergeFiles_8py.html#adcaa46350fd5a35f4399ea92f71a7867":[14,0,11,9,7]
+"g4Ex__gap__mergeFiles_8py.html#a7ec28bacbdf4bb7bdded39edb8744475":[14,0,11,9,4]
 };

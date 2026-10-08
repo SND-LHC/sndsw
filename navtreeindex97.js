@@ -1,5 +1,16 @@
 var NAVTREEINDEX97 =
 {
+"neutrinoFilterGoldenSample__stage2_8py.html#a00223a7024718ccfca07a6428706ef86":[14,0,0,4,30],
+"neutrinoFilterGoldenSample__stage2_8py.html#a02036c42366697178bfc3c7e93cfbb9f":[14,0,0,4,11],
+"neutrinoFilterGoldenSample__stage2_8py.html#a035a7423765606a7771f4c9fa754c74a":[14,0,0,4,14],
+"neutrinoFilterGoldenSample__stage2_8py.html#a0827be96cab73f071d7e30b4164af224":[14,0,0,4,33],
+"neutrinoFilterGoldenSample__stage2_8py.html#a09e55492463354e46e230ee9ab0c848e":[14,0,0,4,69],
+"neutrinoFilterGoldenSample__stage2_8py.html#a10d0bb8254177ee5cfa90b582fa81df0":[14,0,0,4,3],
+"neutrinoFilterGoldenSample__stage2_8py.html#a1448f489854d9560362c7c568837d172":[14,0,0,4,12],
+"neutrinoFilterGoldenSample__stage2_8py.html#a189e66acba9a6512a273db8781c18fa7":[14,0,0,4,4],
+"neutrinoFilterGoldenSample__stage2_8py.html#a1908f00794a646d0d606ede132770303":[14,0,0,4,56],
+"neutrinoFilterGoldenSample__stage2_8py.html#a19540e911ffd225f6586720e7d10cac3":[14,0,0,4,61],
+"neutrinoFilterGoldenSample__stage2_8py.html#a2e36de455ff1d280270019390d5f34de":[14,0,0,4,49],
 "neutrinoFilterGoldenSample__stage2_8py.html#a3395ddf5febef970a2ae5b8ad8e3477c":[14,0,0,4,58],
 "neutrinoFilterGoldenSample__stage2_8py.html#a39980e1c5923c2aea72c3d7d16aebcca":[14,0,0,4,13],
 "neutrinoFilterGoldenSample__stage2_8py.html#a3a4390fdd9fed04c99f59668cf4df0f7":[14,0,0,4,48],
@@ -238,16 +249,5 @@ var NAVTREEINDEX97 =
 "pyFairModule_8cxx.html":[14,0,11,14],
 "pyFairModule_8cxx.html#a4890f669326884bda5880d3fd27e9a76":[14,0,11,14,0],
 "pyFairModule_8cxx_source.html":[14,0,11,14],
-"pyFairModule_8h.html":[14,0,11,15],
-"pyFairModule_8h.html#a4890f669326884bda5880d3fd27e9a76":[14,0,11,15,2],
-"pyFairModule_8h.html#ae19630c1f4ca6d5236b30719d9140013":[14,0,11,15,1],
-"pyFairModule_8h_source.html":[14,0,11,15],
-"pythia8__conf_8py.html":[14,0,17,28],
-"pythia8__conf_8py.html#a3721e6b50652c3d4e23a219fa6627ecc":[14,0,17,28,0],
-"pythia8__conf_8py.html#ab07a0d848feb83df22d2d5b6e85fb374":[14,0,17,28,2],
-"pythia8__conf_8py.html#ac024ed5419c98ac0c0035f86e490471b":[14,0,17,28,3],
-"pythia8__conf_8py.html#afb2e623d52589f186d49f773cdb940cc":[14,0,17,28,1],
-"pythia8__conf_8py_source.html":[14,0,17,28],
-"pythia8__conf__utils_8py.html":[14,0,17,29],
-"pythia8__conf__utils_8py.html#a003a7b7b33c31525a1c34eaa06ce1883":[14,0,17,29,5]
+"pyFairModule_8h.html":[14,0,11,15]
 };

@@ -1,5 +1,14 @@
 var NAVTREEINDEX60 =
 {
+"ecalLightMap_8cxx_source.html":[14,0,3,24],
+"ecalLightMap_8h.html":[14,0,3,25],
+"ecalLightMap_8h_source.html":[14,0,3,25],
+"ecalLinkDef_8h.html":[14,0,3,26],
+"ecalLinkDef_8h_source.html":[14,0,3,26],
+"ecalMatch_8cxx.html":[14,0,3,27],
+"ecalMatch_8cxx_source.html":[14,0,3,27],
+"ecalMatch_8h.html":[14,0,3,28],
+"ecalMatch_8h_source.html":[14,0,3,28],
 "ecalMaximumLocator_8cxx.html":[14,0,3,31],
 "ecalMaximumLocator_8cxx_source.html":[14,0,3,31],
 "ecalMaximumLocator_8h.html":[14,0,3,32],
@@ -240,14 +249,5 @@ var NAVTREEINDEX60 =
 "fields_2include_2BellField_8h_source.html":[14,0,5,2,0,0],
 "files.html":[14,0],
 "fitterTests_2main_8cc.html":[14,0,5,9,0,0],
-"fitterTests_2main_8cc.html#a351dc37e5af31c772235fd37900d50b3":[14,0,5,9,0,0,1],
-"fitterTests_2main_8cc.html#a3c2348f39cf58c5c0f48742b32b15d83":[14,0,5,9,0,0,3],
-"fitterTests_2main_8cc.html#a48dad8951dbb742965a65b06321c38b3":[14,0,5,9,0,0,6],
-"fitterTests_2main_8cc.html#a5065b9931e76d8a6b721afec8677c356":[14,0,5,9,0,0,5],
-"fitterTests_2main_8cc.html#ac34d3574285d6c509b41451369b72779":[14,0,5,9,0,0,0],
-"fitterTests_2main_8cc.html#ad1b5bf0145aab69f582b8d0bb0f3bf4c":[14,0,5,9,0,0,2],
-"fitterTests_2main_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4":[14,0,5,9,0,0,4],
-"fitterTests_2main_8cc_source.html":[14,0,5,9,0,0],
-"fittersLinkDef_8h.html":[14,0,5,4,1,2],
-"fittersLinkDef_8h_source.html":[14,0,5,4,1,2]
+"fitterTests_2main_8cc.html#a351dc37e5af31c772235fd37900d50b3":[14,0,5,9,0,0,1]
 };

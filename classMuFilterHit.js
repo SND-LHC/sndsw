@@ -7,7 +7,7 @@ var classMuFilterHit =
     [ "MuFilterHit", "classMuFilterHit.html#a2190f0d10669979a39c2af969b1754be", null ],
     [ "~MuFilterHit", "classMuFilterHit.html#a9b72c70bf758fe6c920794c9a8e44604", null ],
     [ "ClassDef", "classMuFilterHit.html#ab4982b5440134c130d0e7a921b9d3674", null ],
-    [ "GetAllSignals", "classMuFilterHit.html#a95a551295451bb1946c62f42a3369152", null ],
+    [ "GetAllSignals", "classMuFilterHit.html#ade70a2d88e112d23c307668bbc87660b", null ],
     [ "GetAllTimes", "classMuFilterHit.html#a564d20db2cc0c684756b3bc6aa077671", null ],
     [ "GetDeltaT", "classMuFilterHit.html#ad28e8e5e5405c568162d836ff0bb70b4", null ],
     [ "GetEnergy", "classMuFilterHit.html#adb8530a2dee00161c0f4cbed21406331", null ],

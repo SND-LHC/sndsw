@@ -4092,6 +4092,9 @@ var namespaces_dup =
     ] ],
     [ "shipVertex", "namespaceshipVertex.html", "namespaceshipVertex" ],
     [ "shipVeto", "namespaceshipVeto.html", "namespaceshipVeto" ],
+    [ "SiPMqdcConstantLoader", "namespaceSiPMqdcConstantLoader.html", [
+      [ "loadConstants", "namespaceSiPMqdcConstantLoader.html#a2c57c655f0ef1dab58cd6ca607b13f54", null ]
+    ] ],
     [ "snd", "namespacesnd.html", "namespacesnd" ],
     [ "sndLHC_H4geom_config", "namespacesndLHC__H4geom__config.html", [
       [ "Acrylic_width", "namespacesndLHC__H4geom__config.html#ac561d81e51bfacee3a3b55e776539411", null ],

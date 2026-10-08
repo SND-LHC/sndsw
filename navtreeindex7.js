@@ -1,5 +1,14 @@
 var NAVTREEINDEX7 =
 {
+"UpstreamTagger_8cxx.html":[14,0,26,0],
+"UpstreamTagger_8cxx_source.html":[14,0,26,0],
+"UpstreamTagger_8h.html":[14,0,26,1],
+"UpstreamTagger_8h_source.html":[14,0,26,1],
+"VMatrix_8cc.html":[14,0,5,5,1,7],
+"VMatrix_8cc_source.html":[14,0,5,5,1,7],
+"VMatrix_8h.html":[14,0,5,5,0,7],
+"VMatrix_8h_source.html":[14,0,5,5,0,7],
+"WireMeasurement_8cc.html":[14,0,5,8,1,10],
 "WireMeasurement_8cc_source.html":[14,0,5,8,1,10],
 "WireMeasurement_8h.html":[14,0,5,8,0,9],
 "WireMeasurement_8h_source.html":[14,0,5,8,0,9],
@@ -240,14 +249,5 @@ var NAVTREEINDEX7 =
 "cfortran_8h.html#a0e8f06224e7da1ca3ecc94a325191070":[14,0,9,1,7],
 "cfortran_8h.html#a0ebbe06e5caa8e72d846701b581b7398":[14,0,9,1,565],
 "cfortran_8h.html#a0ec7bc37685f2ef287f361532b1a64db":[14,0,9,1,732],
-"cfortran_8h.html#a0ecce5e00c4ca3f4202354da75329b6e":[14,0,9,1,591],
-"cfortran_8h.html#a0ece7924c16a99663ee37f0ea85ce672":[14,0,9,1,774],
-"cfortran_8h.html#a0ee3a1183b92983e8de901548d54364f":[14,0,9,1,631],
-"cfortran_8h.html#a0ef9d69a0c48f4f648ce4c833e2355da":[14,0,9,1,499],
-"cfortran_8h.html#a0f18f5def2f935bb23771f8967137aed":[14,0,9,1,298],
-"cfortran_8h.html#a0f6833dc2ef7ed5aa1145f9e8da5b78b":[14,0,9,1,753],
-"cfortran_8h.html#a0f7b5eb7b0499479124a0532ac7f9801":[14,0,9,1,530],
-"cfortran_8h.html#a0fc5d8293cbd2498026f78b900835103":[14,0,9,1,381],
-"cfortran_8h.html#a0fdf996de7b2eb8bda29375b71178251":[14,0,9,1,229],
-"cfortran_8h.html#a11277b58b17d59a1241ebd2259a95a95":[14,0,9,1,719]
+"cfortran_8h.html#a0ecce5e00c4ca3f4202354da75329b6e":[14,0,9,1,591]
 };

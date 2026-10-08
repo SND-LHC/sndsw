@@ -40,6 +40,8 @@ var dir_2816adeb6e7b93146cc0980bde45ae79 =
     [ "ScifiPoint.cxx", "ScifiPoint_8cxx.html", null ],
     [ "ScifiPoint.h", "ScifiPoint_8h.html", "ScifiPoint_8h" ],
     [ "shipLHCLinkDef.h", "shipLHCLinkDef_8h.html", null ],
+    [ "SiPMqdcCalibrationConstants.cxx", "SiPMqdcCalibrationConstants_8cxx.html", "SiPMqdcCalibrationConstants_8cxx" ],
+    [ "SiPMqdcCalibrationConstants.h", "SiPMqdcCalibrationConstants_8h.html", "SiPMqdcCalibrationConstants_8h" ],
     [ "sndCluster.cxx", "sndCluster_8cxx.html", null ],
     [ "sndCluster.h", "sndCluster_8h.html", "sndCluster_8h" ],
     [ "SNDLHCEventHeader.cxx", "SNDLHCEventHeader_8cxx.html", "SNDLHCEventHeader_8cxx" ],

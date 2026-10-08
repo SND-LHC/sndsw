@@ -58,6 +58,7 @@ var dir_7837fde3ab9c1fb2fc5be7b717af8d79 =
     [ "shipunit.py", "shipunit_8py.html", "shipunit_8py" ],
     [ "shipVertex.py", "shipVertex_8py.html", "shipVertex_8py" ],
     [ "shipVeto.py", "shipVeto_8py.html", "shipVeto_8py" ],
+    [ "SiPMqdcConstantLoader.py", "SiPMqdcConstantLoader_8py.html", "SiPMqdcConstantLoader_8py" ],
     [ "SndlhcDigi.py", "SndlhcDigi_8py.html", "SndlhcDigi_8py" ],
     [ "SndlhcGeo.py", "SndlhcGeo_8py.html", "SndlhcGeo_8py" ],
     [ "SndlhcMuonReco.py", "SndlhcMuonReco_8py.html", "SndlhcMuonReco_8py" ],

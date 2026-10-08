@@ -58,7 +58,7 @@ var searchData=
   ['getadvnoisefilters_55',['GetAdvNoiseFilters',['../classSNDLHCEventHeader.html#a8da6b1d175fb0deb6e312206447c35bd',1,'SNDLHCEventHeader']]],
   ['getalldata_56',['getAllData',['../classgbl_1_1GblData.html#a58ff36842c2a7c762848fb1bc4fe9c09',1,'gbl::GblData']]],
   ['getallfields_57',['getAllFields',['../classShipFieldMaker.html#accaa26ec666c64a954749a452268730d',1,'ShipFieldMaker']]],
-  ['getallsignals_58',['GetAllSignals',['../classMuFilterHit.html#a95a551295451bb1946c62f42a3369152',1,'MuFilterHit']]],
+  ['getallsignals_58',['GetAllSignals',['../classMuFilterHit.html#ade70a2d88e112d23c307668bbc87660b',1,'MuFilterHit']]],
   ['getalltimes_59',['GetAllTimes',['../classMuFilterHit.html#a564d20db2cc0c684756b3bc6aa077671',1,'MuFilterHit']]],
   ['getanglexz_60',['getAngleXZ',['../classsndRecoTrack.html#a2e5e9c26bfeaf7b8d80cc61977116886',1,'sndRecoTrack']]],
   ['getangleyz_61',['getAngleYZ',['../classsndRecoTrack.html#a1c6802464d46db94fd60db4737cc6b1a',1,'sndRecoTrack']]],
