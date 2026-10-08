@@ -6,8 +6,13 @@
 #include "TGeoNavigator.h"
 #include "TGeoManager.h"
 #include "TGeoBBox.h"
+#include "SiPMqdcCalibrationConstants.h"
 #include <TRandom.h>
 #include <iomanip> 
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+
 
 // -----   Default constructor   -------------------------------------------
 MuFilterHit::MuFilterHit()
@@ -152,23 +157,40 @@ bool MuFilterHit::isShort(Int_t i){
 }
 
 // -----   Public method Get List of signals   -------------------------------------------
-std::map<Int_t,Float_t> MuFilterHit::GetAllSignals(Bool_t mask,Bool_t positive,Bool_t use_small_sipms)
+std::map<Int_t,Float_t> MuFilterHit::GetAllSignals(Bool_t mask, Bool_t positive, Bool_t use_small_sipms, Bool_t use_calibration)
 {
-          std::map<Int_t,Float_t> allSignals;
-          for (unsigned int s=0; s<nSides; ++s){
-              for (unsigned int j=0; j<nSiPMs; ++j){
-               unsigned int channel = j+s*nSiPMs;
-               if (signals[channel]<-900){continue;}
-               if (signals[channel]> 0 || !positive){
-                 if (!fMasked[channel] || !mask){
-                   if (!isShort(channel) || use_small_sipms){
-                    allSignals[channel] = signals[channel];
+    std::map<Int_t,Float_t> allSignals;
+ 
+    for (unsigned int s=0; s<nSides; ++s){
+        for (unsigned int j=0; j<nSiPMs; ++j){
+            unsigned int channel = j+s*nSiPMs;
+            if (signals[channel]<-900){continue;}
+            if (signals[channel]> 0 || !positive){
+                if (!fMasked[channel] || !mask){
+                    if (!isShort(channel) || use_small_sipms){
+                        if (use_calibration){
+                           /* 
+                            * With calibration: divide signals by SiPM-specific calibration constants,
+                            * apply sub-system wide constant offset,
+                            * then rescale to align the signal of 1 MIP with a value of 1.
+                            * To disregard the constant offset, either supply a constants file where it is set to 0,
+                            * or use the followign formula: allSignals[channel] = signals[channel]/calibrationConstant;
+                            */
+                            float calibrationConstant = SiPM_qdc_calibration_constants[fDetectorID*100+channel];
+                            float constantOffset = SiPM_qdc_calibration_constants[fDetectorID/10000];  // get sub-system wide offset (1-VS, 2-US, 3-DS)
+                            if (calibrationConstant > 0.){  // non-positive constant = problem
+                                    allSignals[channel] = (signals[channel]/calibrationConstant + constantOffset) / (1 + constantOffset);
+                            }
+                        }
+                        else{  // no calibration: raw signals
+                            allSignals[channel] = signals[channel];
+                        }
                     }
-                 }
                 }
-              }
-          }
-          return allSignals;
+            }
+        }
+    }
+    return allSignals;
 }
 
 // -----   Public method Get List of time measurements   -------------------------------------------
