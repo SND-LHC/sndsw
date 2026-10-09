@@ -98,7 +98,9 @@ MuFilterHit::MuFilterHit(Int_t detID, std::vector<MuFilterPoint*> V)
      Float_t signalRight = 0;
      Float_t earliestToAL = 1E20;
      Float_t earliestToAR = 1E20;
-     Float_t smearing_factor = MuFilterDet->GetConfParF("MuFilter/SignalSmearing");
+     Float_t smearing_factor;
+     Float_t smearing_factor_no_satur = MuFilterDet->GetConfParF("MuFilter/SignalSmearingNoSaturation");
+     Float_t smearing_factor_satur = MuFilterDet->GetConfParF("MuFilter/SignalSmearingSaturation");
      for(auto p = std::begin(V); p!= std::end(V); ++p) {
 
         Double_t signal = (*p)->GetEnergyLoss();
@@ -138,7 +140,9 @@ MuFilterHit::MuFilterHit(Int_t detID, std::vector<MuFilterPoint*> V)
            signals[j] = signalLeft/float(nSiPMs) * siPMcalibration;   // most simplest model, divide signal individually. 
            // SiPM pixels' saturation formula
            signals[j] = (1 - TMath::Exp(-signals[j]/saturation[j]))*saturation[j];
-           // Gaussian smearing of signal
+           // Gaussian smearing of signal for non-saturation and saturation regions
+           if (signals[j]>0.9*saturation[j]) smearing_factor = smearing_factor_satur;
+           else smearing_factor = smearing_factor_no_satur;
            signals[j] = gRandom->Gaus(signals[j], smearing_factor*signals[j]);
            times[j] = gRandom->Gaus(earliestToAL, timeResol);
         }
@@ -147,6 +151,8 @@ MuFilterHit::MuFilterHit(Int_t detID, std::vector<MuFilterPoint*> V)
             // SiPM pixels' saturation
             signals[j+nSiPMs] = (1 - TMath::Exp(-signals[j+nSiPMs]/saturation[j+nSiPMs]))*saturation[j+nSiPMs];
             // Gaussian smearing of signal
+            if (signals[j+nSiPMs]>0.9*saturation[j+nSiPMs]) smearing_factor = smearing_factor_satur;
+            else smearing_factor = smearing_factor_no_satur;
             signals[j+nSiPMs] = gRandom->Gaus(signals[j+nSiPMs], smearing_factor*signals[j+nSiPMs]);
             times[j+nSiPMs] = gRandom->Gaus(earliestToAR, timeResol);
         }
