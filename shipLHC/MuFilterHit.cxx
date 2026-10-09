@@ -136,15 +136,17 @@ MuFilterHit::MuFilterHit(Int_t detID, std::vector<MuFilterPoint*> V)
            times[j] = gRandom->Gaus(earliestToAL, timeResol);
         }else{
            signals[j] = signalLeft/float(nSiPMs) * siPMcalibration;   // most simplest model, divide signal individually. 
-           if (signals[j]>saturation[j]) signals[j] = saturation[j];
+           // SiPM pixels' saturation formula
+           signals[j] = (1 - TMath::Exp(-signals[j]/saturation[j]))*saturation[j];
+           // Gaussian smearing of signal
+           signals[j] = gRandom->Gaus(signals[j], smearing_factor*signals[j]);
            times[j] = gRandom->Gaus(earliestToAL, timeResol);
         }
-        // Gaussian smearing
-        signals[j] = gRandom->Gaus(signals[j], smearing_factor*signals[j]);
         if (nSides>1){ 
             signals[j+nSiPMs] = signalRight/float(nSiPMs) * siPMcalibration;   // most simplest model, divide signal individually.
-            if (signals[j+nSiPMs]>saturation[j+nSiPMs]) signals[j+nSiPMs] = saturation[j+nSiPMs];
-            // Gaussian smearing
+            // SiPM pixels' saturation
+            signals[j+nSiPMs] = (1 - TMath::Exp(-signals[j+nSiPMs]/saturation[j+nSiPMs]))*saturation[j+nSiPMs];
+            // Gaussian smearing of signal
             signals[j+nSiPMs] = gRandom->Gaus(signals[j+nSiPMs], smearing_factor*signals[j+nSiPMs]);
             times[j+nSiPMs] = gRandom->Gaus(earliestToAR, timeResol);
         }
