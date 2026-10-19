@@ -210,6 +210,7 @@ void snd::analysis_tools::ScifiPlane::TimeFilter(double min_timestamp, double ma
                                [&](auto &hit)
                                { return hit.timestamp < min_timestamp || hit.timestamp > max_timestamp; }),
                 hits_.end());
+    
 }
 
 snd::analysis_tools::ScifiPlane::xy_pair<double> snd::analysis_tools::ScifiPlane::GetPointQdc(const ROOT::Math::XYZPoint &point, double radius) const

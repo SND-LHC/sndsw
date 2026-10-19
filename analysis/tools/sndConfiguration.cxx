@@ -42,13 +42,27 @@ snd::Configuration::Configuration(Option option, Scifi *scifi_geometry, MuFilter
 
     // Common parameters not present in geometry
     veto_min_hit_on_bar = 0;
+    veto_min_cluster_radius_x = muon_filter_geometry->GetConfParF("MuFilter/VetoBarX") / std::sqrt(12);  //geometrical resolution
+    veto_min_cluster_radius_y = muon_filter_geometry->GetConfParF("MuFilter/VetoBarY") / std::sqrt(12);  //geometrical resolution
+    veto3_min_cluster_radius_x = muon_filter_geometry->GetConfParF("MuFilter/Veto3BarX") / std::sqrt(12);  //geometrical resolution
+    veto3_min_cluster_radius_y = muon_filter_geometry->GetConfParF("MuFilter/Veto3BarY") / std::sqrt(12);  //geometrical resolution
+
     scifi_min_timestamp = std::nan("");
     scifi_max_timestamp = std::nan("");
+    scifi_min_cluster_radius_x = scifi_centroid_error_x;    //geometrical resolution
+    scifi_min_cluster_radius_y = scifi_centroid_error_y;    //geometrical resolution
+
     us_min_timestamp = std::nan("");
     us_max_timestamp = std::nan("");
     us_min_n_hits_for_centroid = 15;
     us_qdc_to_gev = 0.0151;
     us_min_hit_on_bar = 5;
+    us_min_cluster_radius_x = us_centroid_error_x; //geometrical resolution
+    us_min_cluster_radius_y = us_centroid_error_y; //geometrical resolution
+
+
+    ds_min_cluster_radius_x = ds_hor_spatial_resolution_y; //geometrical resolution
+    ds_min_cluster_radius_y = ds_ver_spatial_resolution_x; //geometrical resolution
 
     // Ad hoc parameters not present in geometry
     if (option == Option::ti18_2024_2025)

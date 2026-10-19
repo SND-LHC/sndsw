@@ -1,0 +1,23 @@
+# --- Build System ---
+build/
+bin/
+lib/
+out/
+
+# --- IDE & Editor ---
+.vscode/
+.vs/
+.idea/
+*.swp
+*~
+.DS_Store
+
+# --- C++ Temporaries ---
+*.o
+*.a
+*.so
+*.out
+*.d
+
+# --- Geometries ---
+assets/geometries/

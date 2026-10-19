@@ -45,6 +45,7 @@ namespace snd {
             bool is_right;
 
             void Print() const;
+            inline ROOT::Math::XYZPoint HitPosition() const {return ROOT::Math::XYZPoint(x, y, z);};
         };
 
         USPlane(std::vector<MuFilterHit*> snd_hits, const Configuration &configuration, MuFilter *muon_filter_geometry, int station, bool use_small_sipms=false);

@@ -267,6 +267,7 @@ add_subdirectory (field)
 add_subdirectory (genfit)
 add_subdirectory (millepede)
 add_subdirectory (analysis)
+add_subdirectory (3dEventDisplay)
 
 FIND_PATH(TEvePath NAMES TEveEventManager.h PATHS
   ${SIMPATH}/tools/root/include

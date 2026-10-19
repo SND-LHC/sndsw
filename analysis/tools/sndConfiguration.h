@@ -22,6 +22,8 @@ namespace snd {
     double scifi_centroid_error_z;
     double scifi_min_timestamp;
     double scifi_max_timestamp;
+    double scifi_min_cluster_radius_x;
+    double scifi_min_cluster_radius_y;
     // For plots
     double scifi_x_min;
     double scifi_x_max;
@@ -36,6 +38,8 @@ namespace snd {
     double us_centroid_error_z;
     double us_min_timestamp;
     double us_max_timestamp;
+    double us_min_cluster_radius_x;
+    double us_min_cluster_radius_y;
     // For plots
     double us_x_min;
     double us_x_max;
@@ -53,10 +57,16 @@ namespace snd {
     double ds_ver_spatial_resolution_x;
     double ds_ver_spatial_resolution_y;
     double ds_ver_spatial_resolution_z;
+    double ds_min_cluster_radius_x;
+    double ds_min_cluster_radius_y;
 
     int veto_n_stations;
     int veto_bar_per_station;
     int veto_min_hit_on_bar;
+    double veto_min_cluster_radius_x;
+    double veto_min_cluster_radius_y;
+    double veto3_min_cluster_radius_x;
+    double veto3_min_cluster_radius_y;
     
     int scifi_n_stations;
     int scifi_n_channels_per_plane;
