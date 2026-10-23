@@ -1,7 +1,16 @@
-void DecayConfigPythia8(){
+#include "G4ParticleTable.hh"
 
+void DecayConfigPythia8(){
   // Decay heavy hadrons and taus with Pythia8
+
+  // Particles to skip. These are not in the default Geant4 table.
+  std::vector<int> to_skip = {413, 415, 423, 425, 433, 435, 440, 445, 513, 515,
+  523, 525, 533, 535, 543, 545, 551, 555, 4114, 4214, 4224, 4324, 4314, 4334,
+  4414, 4424, 4434, 4312, 4322, 4412, 4422, 4432, 4444, 5114, 5214, 5224, 5312,
+  5322, 5314, 5324, 5334, 5412, 5422, 5414, 5424, 5432, 5434, 5444, 5514, 5524,
+  5534, 5544, 5142, 5242, 5342, 5442, 5512, 5522, 5532, 5542, 5554};
   
+  // Get particle database
   TDatabasePDG *db= TDatabasePDG::Instance();
 
   // Create a new external decayer instance
@@ -10,6 +19,9 @@ void DecayConfigPythia8(){
   
   TVirtualMC::GetMC()->SetExternalDecayer(decayer);
 
+  // Need the Geant4 Particle table to use Geant4 naming convention
+  G4ParticleTable* particleTable = G4ParticleTable::GetParticleTable();
+  
   // Set list of particles to decay with external decayer via geant4 command
   std::string g4cmd = "/mcPhysics/setExtDecayerSelection";
 
@@ -32,7 +44,12 @@ void DecayConfigPythia8(){
 
     if (isCharm or isBeauty){
       g4cmd += " ";
-      g4cmd += p->GetName();
+
+      // Skip particles Geant4 doesn't know about
+      if (std::find(to_skip.begin(), to_skip.end(), abs(p->PdgCode())) != to_skip.end()){
+	continue;
+      }
+      g4cmd += particleTable->FindParticle(p->PdgCode())->GetParticleName();
     }
   }
   
