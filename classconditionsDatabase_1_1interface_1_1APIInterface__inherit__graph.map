@@ -1,7 +1,7 @@
 <map id="conditionsDatabase.interface.APIInterface" name="conditionsDatabase.interface.APIInterface">
-<area shape="rect" id="Node000001" title="Conditions Database Interface definition." alt="" coords="99,79,317,119"/>
-<area shape="rect" id="Node000003" href="$classconditionsDatabase_1_1databases_1_1mongodb_1_1mongodbadapter_1_1MongoToCDBAPIAdapter.html" title=" " alt="" coords="5,167,411,207"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="211,133,211,166,205,166,205,133"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="180,5,236,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="211,44,211,79,205,79,205,44"/>
+<area shape="rect" id="Node000001" title="Conditions Database Interface definition." alt="" coords="99,81,316,126"/>
+<area shape="rect" id="Node000003" href="$classconditionsDatabase_1_1databases_1_1mongodb_1_1mongodbadapter_1_1MongoToCDBAPIAdapter.html" title=" " alt="" coords="5,174,410,218"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="209,139,210,175,205,172,206,143"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="180,5,235,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="209,47,210,81,205,79,206,51"/>
 </map>

@@ -1,7 +1,7 @@
 var searchData=
 [
   ['f2clogical_0',['F2CLOGICAL',['../cfortran_8h.html#a060e7803cdd6a6df433f56db53d56add',1,'cfortran.h']]],
-  ['f2clogicalv_1',['f2clogicalv',['../cfortran_8h.html#adef3f2c1f004077fc3487c1ee4b02e79',1,'F2CLOGICALV:&#160;cfortran.h'],['../cfortran_8h.html#adef3f2c1f004077fc3487c1ee4b02e79',1,'F2CLOGICALV:&#160;cfortran.h']]],
+  ['f2clogicalv_1',['F2CLOGICALV',['../cfortran_8h.html#adef3f2c1f004077fc3487c1ee4b02e79',1,'F2CLOGICALV:&#160;cfortran.h'],['../cfortran_8h.html#abc8536e551becec3764a1f3264da663d',1,'F2CLOGICALV:&#160;cfortran.h']]],
   ['fcallsc_2',['fcallsc',['../cfortran_8h.html#ac95986b8359ffa54c093a2cc33054f28',1,'cfortran.h']]],
   ['fcallsc_5fqualifier_3',['FCALLSC_QUALIFIER',['../cfortran_8h.html#abd50d9cf9ad96275c1ed5ad69d3287ea',1,'cfortran.h']]],
   ['fcallscfun0_4',['FCALLSCFUN0',['../cfortran_8h.html#a793d30c1d55daf739176dc153bc7431b',1,'cfortran.h']]],

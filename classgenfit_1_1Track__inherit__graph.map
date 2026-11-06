@@ -1,5 +1,5 @@
 <map id="genfit::Track" name="genfit::Track">
-<area shape="rect" id="Node000001" title="Collection of TrackPoint objects, AbsTrackRep objects and FitStatus objects." alt="" coords="5,79,107,104"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="20,5,92,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="59,44,59,79,53,79,53,44"/>
+<area shape="rect" id="Node000001" title="Collection of TrackPoint objects, AbsTrackRep objects and FitStatus objects." alt="" coords="5,81,106,109"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="20,5,91,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="57,47,58,81,53,80,54,51"/>
 </map>

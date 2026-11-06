@@ -1,7 +1,7 @@
 <map id="nutaudet/TargetPoint.h" name="nutaudet/TargetPoint.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="92,5,261,31"/>
-<area shape="rect" id="Node000002" href="$Target_8cxx.html" title=" " alt="" coords="5,79,156,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,41,98,81,95,76,149,37"/>
-<area shape="rect" id="Node000003" href="$TargetPoint_8cxx.html" title=" " alt="" coords="181,79,365,104"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="205,37,259,76,255,81,202,41"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="91,5,259,33"/>
+<area shape="rect" id="Node000002" href="$Target_8cxx.html" title=" " alt="" coords="5,81,156,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="149,42,99,83,96,78,144,43"/>
+<area shape="rect" id="Node000003" href="$TargetPoint_8cxx.html" title=" " alt="" coords="180,81,363,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="205,40,257,81,251,81,204,45"/>
 </map>

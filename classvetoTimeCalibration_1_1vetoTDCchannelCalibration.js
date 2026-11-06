@@ -7,5 +7,5 @@ var classvetoTimeCalibration_1_1vetoTDCchannelCalibration =
     [ "options", "classvetoTimeCalibration_1_1vetoTDCchannelCalibration.html#a55fac15e23277bc8f1707d2307c62028", null ],
     [ "tag", "classvetoTimeCalibration_1_1vetoTDCchannelCalibration.html#a7f43e877064eaa00ddb2362b82185230", null ],
     [ "tdcVetoCalib", "classvetoTimeCalibration_1_1vetoTDCchannelCalibration.html#a8affd00965a7247187f7d0339809c236", null ],
-    [ "xCheck", "classvetoTimeCalibration_1_1vetoTDCchannelCalibration.html#ab00865fe451f717ecbc5e4c7edea909e", null ]
+    [ "xCheck", "classvetoTimeCalibration_1_1vetoTDCchannelCalibration.html#ab45fb8aa0df38681ff44558aebb24bf0", null ]
 ];

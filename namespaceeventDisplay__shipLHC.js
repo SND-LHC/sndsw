@@ -1,8 +1,8 @@
 var namespaceeventDisplay__shipLHC =
 [
     [ "DrawTracks", "classeventDisplay__shipLHC_1_1DrawTracks.html", "classeventDisplay__shipLHC_1_1DrawTracks" ],
-    [ "EventLoop", "classeventDisplay__shipLHC_1_1EventLoop.html", "classeventDisplay__shipLHC_1_1EventLoop" ],
     [ "IO", "classeventDisplay__shipLHC_1_1IO.html", "classeventDisplay__shipLHC_1_1IO" ],
+    [ "EventLoop", "classeventDisplay__shipLHC_1_1EventLoop.html", "classeventDisplay__shipLHC_1_1EventLoop" ],
     [ "Rulers", "classeventDisplay__shipLHC_1_1Rulers.html", "classeventDisplay__shipLHC_1_1Rulers" ],
     [ "debugStraw", "namespaceeventDisplay__shipLHC.html#aee0ea505e267d4f64a2ad38c3ad0c244", null ],
     [ "DisplayNuDetector", "namespaceeventDisplay__shipLHC.html#a1b1f4fdd0f838b286bddac4ae36e9a02", null ],

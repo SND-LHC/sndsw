@@ -1,7 +1,7 @@
 var namespacevetoTimeCalibration =
 [
-    [ "vetoTDCchannelCalibration", "classvetoTimeCalibration_1_1vetoTDCchannelCalibration.html", "classvetoTimeCalibration_1_1vetoTDCchannelCalibration" ],
     [ "vetoTDCplaneCalibration", "classvetoTimeCalibration_1_1vetoTDCplaneCalibration.html", "classvetoTimeCalibration_1_1vetoTDCplaneCalibration" ],
+    [ "vetoTDCchannelCalibration", "classvetoTimeCalibration_1_1vetoTDCchannelCalibration.html", "classvetoTimeCalibration_1_1vetoTDCchannelCalibration" ],
     [ "vetoTimeWalk", "classvetoTimeCalibration_1_1vetoTimeWalk.html", "classvetoTimeCalibration_1_1vetoTimeWalk" ],
     [ "FCN", "namespacevetoTimeCalibration.html#ae77ec11a3dd7ed6736eff4890c21da81", null ],
     [ "A", "namespacevetoTimeCalibration.html#af90cbca7ca9d62a401d1156d0173b101", null ],

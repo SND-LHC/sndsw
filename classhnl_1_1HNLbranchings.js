@@ -20,10 +20,10 @@ var classhnl_1_1HNLbranchings =
     [ "Width_quarks_lepton", "classhnl_1_1HNLbranchings.html#a929aef61fbd9de655b41bd107e410623", null ],
     [ "Width_quarks_neutrino", "classhnl_1_1HNLbranchings.html#aa2843aaf92a74910417913bb22350179", null ],
     [ "CKM", "classhnl_1_1HNLbranchings.html#a3c9a00b61f6d63bc24ff826ff8fd9fd6", null ],
-    [ "CKMelemSq", "classhnl_1_1HNLbranchings.html#a82d1ecb0efc6a7dbbd3fbc0a50a426b8", null ],
+    [ "CKMelemSq", "classhnl_1_1HNLbranchings.html#a28ba76148129a066f48da57b72473ea3", null ],
     [ "decays", "classhnl_1_1HNLbranchings.html#ad0ccc66b383a2a6509655b371fe6555f", null ],
     [ "MN", "classhnl_1_1HNLbranchings.html#a37b3fe11bb2e531d8ca1ff9f7b9ce826", null ],
     [ "QCD_corr", "classhnl_1_1HNLbranchings.html#a17ed7ac6840f3cc5b7c05587de9c735a", null ],
-    [ "U", "classhnl_1_1HNLbranchings.html#a89cbb6c5120602cde4f7a23dd0427927", null ],
+    [ "U", "classhnl_1_1HNLbranchings.html#a20f61f65b1741c7af38c85f05e6b63db", null ],
     [ "U2", "classhnl_1_1HNLbranchings.html#a8b66ab769a15c0d3730f621fb6be268c", null ]
 ];

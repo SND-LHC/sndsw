@@ -1,7 +1,5 @@
 <map id="genfit::GoliathField" name="genfit::GoliathField">
-<area shape="rect" id="Node000001" title="Constant Magnetic field." alt="" coords="62,93,207,119"/>
-<area shape="rect" id="Node000002" href="$classgenfit_1_1AbsBField.html" title="Abstract Interface to magnetic fields in GENFIT." alt="" coords="5,5,136,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="90,40,128,91,124,94,85,43"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="161,5,239,31"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="185,43,146,94,142,91,181,40"/>
+<area shape="rect" id="Node000001" title="Constant Magnetic field." alt="" coords="5,81,150,109"/>
+<area shape="rect" id="Node000002" href="$classgenfit_1_1AbsBField.html" title="Abstract Interface to magnetic fields in GENFIT." alt="" coords="12,5,143,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="79,47,80,81,75,80,76,51"/>
 </map>

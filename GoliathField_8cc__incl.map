@@ -1,22 +1,22 @@
 <map id="genfit/fields/src/GoliathField.cc" name="genfit/fields/src/GoliathField.cc">
-<area shape="rect" id="Node000001" title=" " alt="" coords="381,5,553,45"/>
-<area shape="rect" id="Node000002" href="$GoliathField_8h.html" title=" " alt="" coords="5,93,117,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="381,46,132,94,131,89,380,41"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="63,240,153,265"/>
-<area shape="poly" id="edge8_Node000001_Node000004" title=" " alt="" coords="380,30,331,36,279,47,227,67,182,95,165,118,147,153,119,228,114,226,143,151,160,115,178,91,225,62,277,42,330,30,380,25"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="192,93,323,119"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="417,48,302,91,300,86,416,43"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="347,93,450,119"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="452,47,420,84,416,81,448,44"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="474,93,598,119"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="485,44,518,81,514,84,481,47"/>
-<area shape="rect" id="Node000008" title=" " alt="" coords="622,93,725,119"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="517,43,631,86,629,91,515,48"/>
-<area shape="rect" id="Node000009" title=" " alt="" coords="749,93,824,119"/>
-<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="544,43,737,90,736,95,543,48"/>
-<area shape="rect" id="Node000010" title=" " alt="" coords="848,93,928,119"/>
-<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="554,39,835,90,834,96,553,44"/>
-<area shape="rect" id="Node000003" href="$AbsBField_8h.html" title=" " alt="" coords="16,167,115,192"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="65,119,67,153,61,153,59,119"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="75,191,96,227,92,230,70,194"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="379,5,551,50"/>
+<area shape="rect" id="Node000002" href="$GoliathField_8h.html" title=" " alt="" coords="5,98,117,126"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="378,49,133,99,131,94,380,44"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="62,249,153,277"/>
+<area shape="poly" id="edge8_Node000001_Node000004" title=" " alt="" coords="377,31,330,39,278,51,227,71,181,100,165,123,147,158,119,236,114,233,143,156,160,120,178,96,224,66,276,46,329,34,382,29"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="192,98,322,126"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="407,52,306,94,303,90,412,49"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="346,98,448,126"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="449,49,419,88,416,84,445,52"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="471,98,595,126"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="484,48,515,86,510,85,482,53"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="618,98,720,126"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="519,48,625,91,619,92,519,53"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="744,98,818,126"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="549,48,732,97,727,98,549,53"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="841,98,921,126"/>
+<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="551,41,828,96,823,98,551,47"/>
+<area shape="rect" id="Node000003" href="$AbsBField_8h.html" title=" " alt="" coords="16,174,114,201"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="62,124,66,158,61,158,61,129"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="74,200,95,236,90,236,71,204"/>
 </map>

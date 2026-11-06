@@ -1,18 +1,18 @@
 <map id="UpstreamTagger/UpstreamTagger.h" name="UpstreamTagger/UpstreamTagger.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="104,5,355,31"/>
-<area shape="rect" id="Node000002" href="$UpstreamTagger_8cxx.html" title=" " alt="" coords="115,262,381,287"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="184,38,118,67,84,86,52,107,28,130,12,154,9,179,21,205,44,222,83,237,176,259,175,265,81,242,42,227,17,208,4,180,7,152,24,126,49,102,81,81,116,62,182,33"/>
-<area shape="rect" id="Node000003" href="$UpstreamTaggerHit_8cxx.html" title=" " alt="" coords="31,167,271,207"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="208,42,192,60,178,80,162,126,155,167,150,166,157,124,174,77,188,57,204,39"/>
-<area shape="rect" id="Node000004" href="$UpstreamTaggerHit_8h.html" title=" " alt="" coords="188,79,428,119"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="253,39,291,77,287,80,249,42"/>
-<area shape="rect" id="Node000005" href="$UpstreamTaggerPoint_8h.html" title=" " alt="" coords="345,167,585,207"/>
-<area shape="poly" id="edge10_Node000001_Node000005" title=" " alt="" coords="365,32,406,50,442,77,456,98,464,122,469,166,464,167,459,123,451,100,438,80,403,54,362,37"/>
-<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="305,133,285,208,257,263,253,261,280,206,300,132"/>
-<area shape="poly" id="edge5_Node000004_Node000003" title=" " alt="" coords="263,128,186,169,184,164,260,123"/>
-<area shape="poly" id="edge6_Node000004_Node000005" title=" " alt="" coords="348,123,425,164,422,169,346,128"/>
-<area shape="poly" id="edge7_Node000005_Node000002" title=" " alt="" coords="406,214,278,264,276,259,404,209"/>
-<area shape="poly" id="edge8_Node000005_Node000004" title=" " alt="" coords="425,162,349,121,351,116,428,157"/>
-<area shape="rect" id="Node000006" href="$UpstreamTaggerPoint_8cxx.html" title=" " alt="" coords="405,255,645,295"/>
-<area shape="poly" id="edge9_Node000005_Node000006" title=" " alt="" coords="489,216,514,253,510,256,484,219"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="105,5,355,33"/>
+<area shape="rect" id="Node000002" href="$UpstreamTagger_8cxx.html" title=" " alt="" coords="116,275,381,302"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="179,41,115,73,82,93,51,115,27,139,12,164,9,190,21,217,40,237,63,253,89,265,118,276,113,277,87,270,61,258,37,241,17,220,4,191,7,162,23,136,48,111,79,88,113,68,182,37"/>
+<area shape="rect" id="Node000003" href="$UpstreamTaggerHit_8cxx.html" title=" " alt="" coords="31,174,271,218"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="203,46,179,82,162,130,155,174,150,172,157,129,174,80,206,42"/>
+<area shape="rect" id="Node000004" href="$UpstreamTaggerHit_8h.html" title=" " alt="" coords="189,81,428,126"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="253,42,290,80,285,81,253,47"/>
+<area shape="rect" id="Node000005" href="$UpstreamTaggerPoint_8h.html" title=" " alt="" coords="346,174,585,218"/>
+<area shape="poly" id="edge10_Node000001_Node000005" title=" " alt="" coords="370,35,409,53,442,79,457,101,465,126,469,175,465,172,460,128,452,104,439,83,407,58,370,41"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="305,139,286,219,258,276,254,273,281,217,301,143"/>
+<area shape="poly" id="edge5_Node000004_Node000003" title=" " alt="" coords="256,135,190,176,187,171,260,132"/>
+<area shape="poly" id="edge6_Node000004_Node000005" title=" " alt="" coords="352,131,423,173,418,173,351,137"/>
+<area shape="poly" id="edge7_Node000005_Node000002" title=" " alt="" coords="403,224,281,277,279,272,397,225"/>
+<area shape="poly" id="edge8_Node000005_Node000004" title=" " alt="" coords="421,166,354,129,354,124,426,165"/>
+<area shape="rect" id="Node000006" href="$UpstreamTaggerPoint_8cxx.html" title=" " alt="" coords="405,266,644,311"/>
+<area shape="poly" id="edge9_Node000005_Node000006" title=" " alt="" coords="489,229,513,267,508,265,487,234"/>
 </map>

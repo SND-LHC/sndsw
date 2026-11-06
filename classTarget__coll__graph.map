@@ -1,8 +1,6 @@
 <map id="Target" name="Target">
-<area shape="rect" id="Node000001" title=" " alt="" coords="91,108,154,133"/>
-<area shape="poly" id="edge2_Node000001_Node000001" title=" " alt="" coords="169,110,177,113,181,121,172,131,155,133,154,127,170,126,175,120,173,117,167,115"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,107,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="74,41,117,107,113,109,69,44"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="131,5,250,31"/>
-<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="177,44,133,109,128,106,173,41"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="25,82,86,110"/>
+<area shape="poly" id="edge2_Node000001_Node000001" title=" " alt="" coords="102,87,113,96,104,104,87,106,86,101,102,99,108,96,101,93"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,106,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="57,47,58,83,53,81,54,50"/>
 </map>

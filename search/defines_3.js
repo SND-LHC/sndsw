@@ -2,7 +2,7 @@ var searchData=
 [
   ['c2fcbstr_0',['C2FCBSTR',['../cfortran_8h.html#a6a61133b6f32c8d11213c9a684328e4d',1,'cfortran.h']]],
   ['c2flogical_1',['C2FLOGICAL',['../cfortran_8h.html#af3c1954630d98f15054a9dd29796ec3c',1,'cfortran.h']]],
-  ['c2flogicalv_2',['c2flogicalv',['../cfortran_8h.html#a7a36c7fea5345f44638ed4678a0a1376',1,'C2FLOGICALV:&#160;cfortran.h'],['../cfortran_8h.html#a7a36c7fea5345f44638ed4678a0a1376',1,'C2FLOGICALV:&#160;cfortran.h']]],
+  ['c2flogicalv_2',['C2FLOGICALV',['../cfortran_8h.html#a7a36c7fea5345f44638ed4678a0a1376',1,'C2FLOGICALV:&#160;cfortran.h'],['../cfortran_8h.html#a16fb1a6cf64e6ee01bca0bd39527e3c8',1,'C2FLOGICALV:&#160;cfortran.h']]],
   ['c_5ffunction_3',['C_FUNCTION',['../cfortran_8h.html#ad919e2e696890436b5aea6e6638a8a6d',1,'cfortran.h']]],
   ['callgrind_5fdump_5fstats_4',['CALLGRIND_DUMP_STATS',['../fitterTests_2main_8cc.html#ac34d3574285d6c509b41451369b72779',1,'main.cc']]],
   ['callgrind_5fstart_5finstrumentation_5',['CALLGRIND_START_INSTRUMENTATION',['../fitterTests_2main_8cc.html#a351dc37e5af31c772235fd37900d50b3',1,'main.cc']]],

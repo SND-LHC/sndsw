@@ -1,9 +1,9 @@
 <map id="online/ShipOnlineDataFormat.h" name="online/ShipOnlineDataFormat.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="18,5,243,31"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,72,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="118,33,66,72,63,68,114,29"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="96,79,165,104"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="133,31,133,65,128,65,128,31"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="189,79,269,104"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="148,29,204,68,201,73,145,33"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="16,5,241,33"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,81,71,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="115,33,68,73,64,69,110,34"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="94,81,163,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="130,32,131,66,126,64,127,36"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="186,81,266,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="147,31,200,71,194,72,145,36"/>
 </map>

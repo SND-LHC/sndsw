@@ -13,5 +13,6 @@ var searchData=
   ['geomgeant4_10',['geomGeant4',['../namespacegeomGeant4.html',1,'']]],
   ['getgeoinformation_11',['getGeoInformation',['../namespacegetGeoInformation.html',1,'']]],
   ['getinteractionandradiationlength_12',['getInteractionAndRadiationLength',['../namespacegetInteractionAndRadiationLength.html',1,'']]],
-  ['goliath2root_13',['goliath2root',['../namespacegoliath2root.html',1,'']]]
+  ['global_5fvariables_13',['global_variables',['../namespaceglobal__variables.html',1,'']]],
+  ['goliath2root_14',['goliath2root',['../namespacegoliath2root.html',1,'']]]
 ];

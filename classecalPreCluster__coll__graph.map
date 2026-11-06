@@ -1,11 +1,11 @@
 <map id="ecalPreCluster" name="ecalPreCluster">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,256,121,281"/>
-<area shape="rect" id="Node000002" href="$classecalCell.html" title=" " alt="" coords="87,80,162,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="98,116,75,140,56,169,51,192,52,216,62,255,56,256,47,216,46,191,52,167,71,136,95,113"/>
-<area shape="rect" id="Node000004" href="$classecalMaximum.html" title=" " alt="" coords="142,168,257,193"/>
-<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="134,117,148,142,177,166,174,170,144,146,129,119"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="126,5,198,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="152,45,133,81,128,78,147,42"/>
-<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="170,43,199,167,194,169,165,45"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="171,203,83,258,80,253,168,198"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,284,121,311"/>
+<area shape="rect" id="Node000002" href="$classecalCell.html" title=" " alt="" coords="90,82,164,110"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="97,123,75,150,56,184,50,210,51,238,61,283,56,283,46,238,45,210,51,182,71,147,100,118"/>
+<area shape="rect" id="Node000004" href="$classecalMaximum.html" title=" " alt="" coords="144,183,259,211"/>
+<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="131,123,139,142,147,157,160,170,176,182,171,183,156,174,143,161,134,144,130,128"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="129,5,200,33"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="152,44,136,83,131,81,150,49"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="172,47,202,183,196,183,169,51"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="173,221,83,285,80,281,169,218"/>
 </map>

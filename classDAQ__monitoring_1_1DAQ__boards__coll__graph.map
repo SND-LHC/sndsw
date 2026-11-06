@@ -1,5 +1,5 @@
 <map id="DAQ_monitoring.DAQ_boards" name="DAQ_monitoring.DAQ_boards">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,79,168,119"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="29,5,144,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,44,89,79,84,79,84,44"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,81,167,126"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="29,5,143,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="88,47,89,81,83,80,84,51"/>
 </map>

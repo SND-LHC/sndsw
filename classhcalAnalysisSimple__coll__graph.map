@@ -1,14 +1,14 @@
 <map id="hcalAnalysisSimple" name="hcalAnalysisSimple">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,256,155,281"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="21,168,96,193"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="67,206,80,255,74,256,62,207"/>
-<area shape="rect" id="Node000003" href="$classhcalStructure.html" title=" " alt="" coords="121,168,229,193"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="153,205,95,257,91,253,150,201"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="101,80,179,105"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="152,117,172,166,167,168,147,119"/>
-<area shape="rect" id="Node000005" href="$classhcalInf.html" title=" " alt="" coords="203,80,269,105"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="222,118,185,169,181,166,217,115"/>
-<area shape="poly" id="edge6_Node000005_Node000005" title=" " alt="" coords="285,84,296,93,287,101,270,102,269,97,285,96,291,93,282,89"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="200,5,272,31"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="239,45,239,80,233,80,233,45"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,284,154,311"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="22,183,95,211"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="66,224,79,283,74,283,62,228"/>
+<area shape="rect" id="Node000003" href="$classhcalStructure.html" title=" " alt="" coords="119,183,226,211"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="153,222,94,285,90,281,148,222"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="100,82,176,110"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="149,122,171,183,166,182,147,127"/>
+<area shape="rect" id="Node000005" href="$classhcalInf.html" title=" " alt="" coords="200,82,266,110"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="219,122,183,184,179,181,215,125"/>
+<area shape="poly" id="edge6_Node000005_Node000005" title=" " alt="" coords="281,87,292,96,284,104,267,106,265,101,282,99,287,96,281,93"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="197,5,268,33"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="234,46,235,83,230,81,232,51"/>
 </map>

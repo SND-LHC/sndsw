@@ -1,8 +1,8 @@
 <map id="genfit::FieldManager" name="genfit::FieldManager">
-<area shape="rect" id="Node000001" title="Singleton which provides access to magnetic field maps." alt="" coords="72,93,227,119"/>
-<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="242,98,253,106,245,113,227,116,227,111,243,108,248,106,239,103"/>
-<area shape="rect" id="Node000002" href="$classgenfit_1_1AbsBField.html" title="Abstract Interface to magnetic fields in GENFIT." alt="" coords="5,5,136,31"/>
-<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="92,39,140,91,136,95,88,43"/>
-<area shape="rect" id="Node000003" href="$structgenfit_1_1fieldCache.html" title="Cache B field at a position. Used by FieldManager." alt="" coords="161,5,295,31"/>
-<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="210,43,162,95,158,91,206,39"/>
+<area shape="rect" id="Node000001" title="Singleton which provides access to magnetic field maps." alt="" coords="71,106,225,134"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="241,111,252,120,244,128,226,131,225,126,241,123,246,120,240,116"/>
+<area shape="rect" id="Node000002" href="$classgenfit_1_1AbsBField.html" title="Abstract Interface to magnetic fields in GENFIT." alt="" coords="5,5,136,33"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="91,43,140,105,135,106,89,48"/>
+<area shape="rect" id="Node000003" href="$structgenfit_1_1fieldCache.html" title="Cache B field at a position. Used by FieldManager." alt="" coords="159,5,294,33"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="209,44,160,107,157,103,204,46"/>
 </map>

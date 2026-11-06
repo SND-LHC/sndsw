@@ -12,7 +12,7 @@ var searchData=
   ['test_5fshipgeoconfig_2epy_9',['test_shipGeoConfig.py',['../test__shipGeoConfig_8py.html',1,'']]],
   ['testbeam_5funpack_2epy_10',['testbeam_unpack.py',['../testbeam__unpack_8py.html',1,'']]],
   ['tgeomaterialinterface_2ecc_11',['TGeoMaterialInterface.cc',['../TGeoMaterialInterface_8cc.html',1,'']]],
-  ['tgeomaterialinterface_2eh_12',['tgeomaterialinterface.h',['../include_2genfit_2TGeoMaterialInterface_8h.html',1,'(Global Namespace)'],['../trackReps_2include_2TGeoMaterialInterface_8h.html',1,'(Global Namespace)']]],
+  ['tgeomaterialinterface_2eh_12',['TGeoMaterialInterface.h',['../include_2genfit_2TGeoMaterialInterface_8h.html',1,'(Global Namespace)'],['../trackReps_2include_2TGeoMaterialInterface_8h.html',1,'(Global Namespace)']]],
   ['thermalneutrons_2epy_13',['thermalNeutrons.py',['../thermalNeutrons_8py.html',1,'']]],
   ['thinscatterer_2ecc_14',['ThinScatterer.cc',['../ThinScatterer_8cc.html',1,'']]],
   ['thinscatterer_2eh_15',['ThinScatterer.h',['../ThinScatterer_8h.html',1,'']]],

@@ -1,7 +1,7 @@
 <map id="genfit/GBL/include/GFGbl.h" name="genfit/GBL/include/GFGbl.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="117,5,257,45"/>
-<area shape="rect" id="Node000002" href="$GFGbl_8cc.html" title=" " alt="" coords="5,101,180,126"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="158,57,108,102,104,98,154,53"/>
-<area shape="rect" id="Node000003" href="$fitterTests_2main_8cc.html" title=" " alt="" coords="204,93,360,133"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="220,53,263,91,259,95,217,57"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="116,5,255,50"/>
+<area shape="rect" id="Node000002" href="$GFGbl_8cc.html" title=" " alt="" coords="5,106,179,134"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="155,60,107,108,104,104,150,61"/>
+<area shape="rect" id="Node000003" href="$fitterTests_2main_8cc.html" title=" " alt="" coords="202,98,358,143"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="220,58,260,98,255,98,218,63"/>
 </map>

@@ -20,10 +20,10 @@ var classSndlhcDigi_1_1SndlhcDigi =
     [ "fibresSiPM", "classSndlhcDigi_1_1SndlhcDigi.html#aeebeaff930c6a0714597618209eaac47", null ],
     [ "fn", "classSndlhcDigi_1_1SndlhcDigi.html#aa9576de391cc926c02f185fc3cb7dfbb", null ],
     [ "header", "classSndlhcDigi_1_1SndlhcDigi.html#a192c95e13ca44120ada106f9406a541d", null ],
-    [ "iEvent", "classSndlhcDigi_1_1SndlhcDigi.html#a42c8a46cb3d1e3d317cc8745dcd1ad85", null ],
+    [ "iEvent", "classSndlhcDigi_1_1SndlhcDigi.html#a1080cffc39102d73a83151b5a852f2c5", null ],
     [ "makeClusterScifi", "classSndlhcDigi_1_1SndlhcDigi.html#af561c7abde6e4a220dbf53900391665c", null ],
     [ "mufiDet", "classSndlhcDigi_1_1SndlhcDigi.html#ad8b09fcd07b9cf044fedb014e0af2a77", null ],
     [ "scifiDet", "classSndlhcDigi_1_1SndlhcDigi.html#a38aff7cd8642367805dac1603c870196", null ],
-    [ "siPMFibres", "classSndlhcDigi_1_1SndlhcDigi.html#a70e27ef03e398567e2fce28c130416f9", null ],
+    [ "siPMFibres", "classSndlhcDigi_1_1SndlhcDigi.html#ad10f3beac5a4c4c949dee7628be1a24a", null ],
     [ "sTree", "classSndlhcDigi_1_1SndlhcDigi.html#a9bfc80636f85b61c19e24178c72e4a94", null ]
 ];

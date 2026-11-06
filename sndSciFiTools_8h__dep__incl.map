@@ -1,11 +1,11 @@
 <map id="analysis/tools/sndSciFiTools.h" name="analysis/tools/sndSciFiTools.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="316,5,531,31"/>
-<area shape="rect" id="Node000002" href="$sndMinSciFiConsecutivePlanes_8cxx.html" title=" " alt="" coords="5,79,193,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="364,36,178,81,177,76,362,31"/>
-<area shape="rect" id="Node000003" href="$sndMinSciFiHitsCut_8cxx.html" title=" " alt="" coords="217,79,405,119"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="397,41,340,81,337,76,394,36"/>
-<area shape="rect" id="Node000004" href="$sndSciFiStationCut_8cxx.html" title=" " alt="" coords="430,79,641,119"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="453,36,510,76,507,81,450,41"/>
-<area shape="rect" id="Node000005" href="$sndSciFiTools_8cxx.html" title=" " alt="" coords="665,86,894,111"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="489,31,728,83,727,89,488,36"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="315,5,528,33"/>
+<area shape="rect" id="Node000002" href="$sndMinSciFiConsecutivePlanes_8cxx.html" title=" " alt="" coords="5,81,193,126"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="353,38,185,83,184,78,358,37"/>
+<area shape="rect" id="Node000003" href="$sndMinSciFiHitsCut_8cxx.html" title=" " alt="" coords="217,81,405,126"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="395,41,342,83,339,78,389,43"/>
+<area shape="rect" id="Node000004" href="$sndSciFiStationCut_8cxx.html" title=" " alt="" coords="429,81,638,126"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="453,40,507,81,501,80,451,45"/>
+<area shape="rect" id="Node000005" href="$sndSciFiTools_8cxx.html" title=" " alt="" coords="662,90,890,117"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="494,34,722,89,717,89,493,40"/>
 </map>

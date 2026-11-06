@@ -24,8 +24,8 @@ var hierarchy =
       ] ],
       [ "genfit::GFGbl", "classgenfit_1_1GFGbl.html", null ]
     ] ],
-    [ "genfit::AbsMeasurementProducer< measurement_T >", "classgenfit_1_1AbsMeasurementProducer.html", null ],
-    [ "genfit::AbsMeasurementProducer< genfit::AbsMeasurement >", "classgenfit_1_1AbsMeasurementProducer.html", [
+    [ "genfit::AbsMeasurementProducer&lt; measurement_T &gt;", "classgenfit_1_1AbsMeasurementProducer.html", null ],
+    [ "genfit::AbsMeasurementProducer&lt; genfit::AbsMeasurement &gt;", "classgenfit_1_1AbsMeasurementProducer.html", [
       [ "genfit::MeasurementProducer< hit_T, measurement_T >", "classgenfit_1_1MeasurementProducer.html", null ]
     ] ],
     [ "conditionsDatabase.factory.APIFactory", "classconditionsDatabase_1_1factory_1_1APIFactory.html", null ],
@@ -68,10 +68,17 @@ var hierarchy =
       [ "ShipGeoConfig.ConfigRegistry", "classShipGeoConfig_1_1ConfigRegistry.html", null ],
       [ "rootUtils.PyListOfLeaves", "classrootUtils_1_1PyListOfLeaves.html", null ]
     ] ],
+    [ "Document", null, [
+      [ "conditionsDatabase.databases.mongodb.models.detectorWrapper.DetectorWrapper", "classconditionsDatabase_1_1databases_1_1mongodb_1_1models_1_1detectorWrapper_1_1DetectorWrapper.html", null ]
+    ] ],
     [ "snd::analysis_tools::DSPlane::DSHit", "structsnd_1_1analysis__tools_1_1DSPlane_1_1DSHit.html", null ],
     [ "snd::analysis_tools::DSPlane", "classsnd_1_1analysis__tools_1_1DSPlane.html", null ],
     [ "ecalDrawerItem", "classecalDrawerItem.html", null ],
     [ "ecalPreCluster", "classecalPreCluster.html", null ],
+    [ "EmbeddedDocument", null, [
+      [ "conditionsDatabase.databases.mongodb.models.condition.Condition", "classconditionsDatabase_1_1databases_1_1mongodb_1_1models_1_1condition_1_1Condition.html", null ],
+      [ "conditionsDatabase.databases.mongodb.models.detector.Detector", "classconditionsDatabase_1_1databases_1_1mongodb_1_1models_1_1detector_1_1Detector.html", null ]
+    ] ],
     [ "genfit::ExtrapStep", "structgenfit_1_1ExtrapStep.html", null ],
     [ "FairContFact", null, [
       [ "EmulsionDetContFact", "classEmulsionDetContFact.html", null ],
@@ -301,7 +308,7 @@ var hierarchy =
     ] ],
     [ "genfit::MaterialEffects", "classgenfit_1_1MaterialEffects.html", null ],
     [ "genfit::MatStep", "structgenfit_1_1MatStep.html", null ],
-    [ "genfit::MeasurementFactory< measurement_T >", "classgenfit_1_1MeasurementFactory.html", null ],
+    [ "genfit::MeasurementFactory&lt; measurement_T &gt;", "classgenfit_1_1MeasurementFactory.html", null ],
     [ "Mille", "classMille.html", null ],
     [ "gbl::MilleBinary", "classgbl_1_1MilleBinary.html", null ],
     [ "Monitor.Monitoring", "classMonitor_1_1Monitoring.html", null ],
@@ -328,9 +335,9 @@ var hierarchy =
     [ "regression", "structregression.html", null ],
     [ "reverseMapping.reversChannelMapping", "classreverseMapping_1_1reversChannelMapping.html", null ],
     [ "genfit::RKStep", "structgenfit_1_1RKStep.html", null ],
-    [ "snd::analysis_tools::DSPlane::rl_pair< T >", "structsnd_1_1analysis__tools_1_1DSPlane_1_1rl__pair.html", null ],
-    [ "snd::analysis_tools::USPlane::rl_pair< T >", "structsnd_1_1analysis__tools_1_1USPlane_1_1rl__pair.html", null ],
-    [ "snd::analysis_tools::VetoPlane::rl_pair< T >", "structsnd_1_1analysis__tools_1_1VetoPlane_1_1rl__pair.html", null ],
+    [ "snd::analysis_tools::DSPlane::rl_pair&lt; T &gt;", "structsnd_1_1analysis__tools_1_1DSPlane_1_1rl__pair.html", null ],
+    [ "snd::analysis_tools::USPlane::rl_pair&lt; T &gt;", "structsnd_1_1analysis__tools_1_1USPlane_1_1rl__pair.html", null ],
+    [ "snd::analysis_tools::VetoPlane::rl_pair&lt; T &gt;", "structsnd_1_1analysis__tools_1_1VetoPlane_1_1rl__pair.html", null ],
     [ "Pythia8::RndmEngine", null, [
       [ "PyTr1Rng", "classPyTr1Rng.html", null ],
       [ "PyTr3Rng", "classPyTr3Rng.html", null ]
@@ -346,7 +353,7 @@ var hierarchy =
     [ "snd::analysis_tools::ScifiPlane", "classsnd_1_1analysis__tools_1_1ScifiPlane.html", null ],
     [ "shipDigiReco.ShipDigiReco", "classshipDigiReco_1_1ShipDigiReco.html", null ],
     [ "ShipGeo.ShipGeo", "classShipGeo_1_1ShipGeo.html", null ],
-    [ "snd::analysis_tools::USPlane::sl_pair< T >", "structsnd_1_1analysis__tools_1_1USPlane_1_1sl__pair.html", null ],
+    [ "snd::analysis_tools::USPlane::sl_pair&lt; T &gt;", "structsnd_1_1analysis__tools_1_1USPlane_1_1sl__pair.html", null ],
     [ "SndlhcDigi.SndlhcDigi", "classSndlhcDigi_1_1SndlhcDigi.html", null ],
     [ "genfit::StepLimits", "classgenfit_1_1StepLimits.html", null ],
     [ "shipPid.Task", "classshipPid_1_1Task.html", null ],
@@ -486,15 +493,8 @@ var hierarchy =
     [ "gbl::VMatrix", "classgbl_1_1VMatrix.html", null ],
     [ "gbl::VSymMatrix", "classgbl_1_1VSymMatrix.html", null ],
     [ "gbl::VVector", "classgbl_1_1VVector.html", null ],
-    [ "snd::analysis_tools::ScifiPlane::xy_pair< T >", "structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html", null ],
-    [ "Document", null, [
-      [ "conditionsDatabase.databases.mongodb.models.detectorWrapper.DetectorWrapper", "classconditionsDatabase_1_1databases_1_1mongodb_1_1models_1_1detectorWrapper_1_1DetectorWrapper.html", null ]
-    ] ],
-    [ "EmbeddedDocument", null, [
-      [ "conditionsDatabase.databases.mongodb.models.condition.Condition", "classconditionsDatabase_1_1databases_1_1mongodb_1_1models_1_1condition_1_1Condition.html", null ],
-      [ "conditionsDatabase.databases.mongodb.models.detector.Detector", "classconditionsDatabase_1_1databases_1_1mongodb_1_1models_1_1detector_1_1Detector.html", null ]
-    ] ],
     [ "with_metaclass", null, [
       [ "ShipGeoConfig.ConfigRegistry", "classShipGeoConfig_1_1ConfigRegistry.html", null ]
-    ] ]
+    ] ],
+    [ "snd::analysis_tools::ScifiPlane::xy_pair&lt; T &gt;", "structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html", null ]
 ];

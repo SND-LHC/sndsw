@@ -1,5 +1,5 @@
 <map id="sndCluster" name="sndCluster">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,79,96,104"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="15,5,87,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="53,44,53,79,48,79,48,44"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,81,96,109"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="15,5,86,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="52,47,53,81,48,80,49,51"/>
 </map>

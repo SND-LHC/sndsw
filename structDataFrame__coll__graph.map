@@ -1,7 +1,7 @@
 <map id="DataFrame" name="DataFrame">
-<area shape="rect" id="Node000001" title=" " alt="" coords="101,93,195,119"/>
-<area shape="rect" id="Node000002" href="$structDataFrameHeader.html" title=" " alt="" coords="5,5,147,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="96,39,140,91,136,95,92,43"/>
-<area shape="rect" id="Node000003" href="$structRawDataHit.html" title=" " alt="" coords="171,5,271,31"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="205,43,160,95,156,91,201,39"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="101,106,194,134"/>
+<area shape="rect" id="Node000002" href="$structDataFrameHeader.html" title=" " alt="" coords="5,5,146,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,43,140,105,135,106,92,48"/>
+<area shape="rect" id="Node000003" href="$structRawDataHit.html" title=" " alt="" coords="170,5,269,33"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="205,45,180,84,160,108,157,103,176,80,201,48"/>
 </map>

@@ -24,6 +24,6 @@ var classeventDisplay_1_1EventLoop =
     [ "transparentMode", "classeventDisplay_1_1EventLoop.html#a528689275b7e29effe564fa505bec41c", null ],
     [ "update", "classeventDisplay_1_1EventLoop.html#a7c934db12cdf289aac05699e8a478457", null ],
     [ "digi", "classeventDisplay_1_1EventLoop.html#af00eff1c90cb22936027e04d476ee405", null ],
-    [ "first", "classeventDisplay_1_1EventLoop.html#a71a9f421aa20178e0b9d9f4eb15a7bcf", null ],
-    [ "n", "classeventDisplay_1_1EventLoop.html#afd394b0902b31831d24db81cee5ab585", null ]
+    [ "first", "classeventDisplay_1_1EventLoop.html#a420dec13779ee2d9961971964aa2c396", null ],
+    [ "n", "classeventDisplay_1_1EventLoop.html#a3de8634e405e32b5225454cd895b6de4", null ]
 ];

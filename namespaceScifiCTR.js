@@ -1,8 +1,8 @@
 var namespaceScifiCTR =
 [
-    [ "histStore", "classScifiCTR_1_1histStore.html", null ],
     [ "Scifi_CTR", "classScifiCTR_1_1Scifi__CTR.html", "classScifiCTR_1_1Scifi__CTR" ],
     [ "Scifi_TimeOfTracks", "classScifiCTR_1_1Scifi__TimeOfTracks.html", "classScifiCTR_1_1Scifi__TimeOfTracks" ],
+    [ "histStore", "classScifiCTR_1_1histStore.html", null ],
     [ "FCN", "namespaceScifiCTR.html#a0d13e50a99136eab316923e7c345e38f", null ],
     [ "FCNS", "namespaceScifiCTR.html#a8ccb73ec9320782a29e6826ee19e602c", null ],
     [ "pyExit", "namespaceScifiCTR.html#addb4492534fcc98706bcc847209ec011", null ],

@@ -1,7 +1,7 @@
 <map id="nutaudet/HptPoint.h" name="nutaudet/HptPoint.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="85,5,237,31"/>
-<area shape="rect" id="Node000002" href="$HPT_8cxx.html" title=" " alt="" coords="5,79,141,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="138,41,89,81,86,76,135,37"/>
-<area shape="rect" id="Node000003" href="$HptPoint_8cxx.html" title=" " alt="" coords="166,79,333,104"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="188,37,237,76,233,81,184,41"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="84,5,235,33"/>
+<area shape="rect" id="Node000002" href="$HPT_8cxx.html" title=" " alt="" coords="5,81,141,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,43,90,83,87,78,130,44"/>
+<area shape="rect" id="Node000003" href="$HptPoint_8cxx.html" title=" " alt="" coords="164,81,331,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="188,41,235,81,229,80,186,46"/>
 </map>

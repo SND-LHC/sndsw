@@ -1,7 +1,5 @@
 <map id="ALPACAGenerator" name="ALPACAGenerator">
-<area shape="rect" id="Node000001" title=" " alt="" coords="45,93,183,119"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,116,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="77,41,109,91,104,94,73,44"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="141,5,194,31"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="155,44,124,94,119,91,151,41"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,81,142,109"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="19,5,128,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="75,47,76,81,71,80,72,51"/>
 </map>

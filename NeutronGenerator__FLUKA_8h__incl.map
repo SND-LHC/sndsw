@@ -1,9 +1,9 @@
 <map id="shipgen/NeutronGenerator_FLUKA.h" name="shipgen/NeutronGenerator_FLUKA.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="71,5,266,45"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,84,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="140,48,76,88,73,84,137,43"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="108,93,229,119"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="171,46,171,79,166,79,166,46"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="254,93,323,119"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="199,43,261,84,258,88,196,48"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="70,5,263,50"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,98,83,126"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="137,50,78,91,75,87,132,51"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="106,98,227,126"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="168,48,169,84,164,81,165,52"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="251,98,320,126"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="199,48,257,89,251,89,197,53"/>
 </map>

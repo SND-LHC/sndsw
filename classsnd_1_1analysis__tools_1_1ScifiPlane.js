@@ -1,7 +1,7 @@
 var classsnd_1_1analysis__tools_1_1ScifiPlane =
 [
-    [ "ScifiHit", "structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit.html", "structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit" ],
     [ "xy_pair", "structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair.html", "structsnd_1_1analysis__tools_1_1ScifiPlane_1_1xy__pair" ],
+    [ "ScifiHit", "structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit.html", "structsnd_1_1analysis__tools_1_1ScifiPlane_1_1ScifiHit" ],
     [ "ScifiPlane", "classsnd_1_1analysis__tools_1_1ScifiPlane.html#a557185478b2f239f681a544a3b3045c0", null ],
     [ "FindCentroid", "classsnd_1_1analysis__tools_1_1ScifiPlane.html#a9eb1d5f28f06a0ac3f8ab07ab250a5d0", null ],
     [ "GetCentroid", "classsnd_1_1analysis__tools_1_1ScifiPlane.html#adc26836f906e436a914a9df41f3803e0", null ],

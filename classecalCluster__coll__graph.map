@@ -1,11 +1,11 @@
 <map id="ecalCluster" name="ecalCluster">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,256,100,281"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="46,5,118,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="79,45,59,168,55,256,50,256,54,168,74,44"/>
-<area shape="rect" id="Node000003" href="$classecalMaximum.html" title=" " alt="" coords="69,168,183,193"/>
-<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="91,43,125,167,120,169,86,45"/>
-<area shape="rect" id="Node000004" href="$classecalCell.html" title=" " alt="" coords="119,80,194,105"/>
-<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="106,38,146,78,143,81,102,42"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="109,206,65,257,61,254,105,202"/>
-<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="150,119,133,168,128,167,145,117"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,284,100,311"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="46,5,118,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="79,47,59,183,55,284,50,283,54,183,74,50"/>
+<area shape="rect" id="Node000003" href="$classecalMaximum.html" title=" " alt="" coords="69,183,183,211"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="90,46,125,183,120,183,87,50"/>
+<area shape="rect" id="Node000004" href="$classecalCell.html" title=" " alt="" coords="120,82,193,110"/>
+<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="105,41,146,81,141,83,106,47"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="110,223,64,285,60,281,105,223"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="150,122,132,184,128,181,146,127"/>
 </map>

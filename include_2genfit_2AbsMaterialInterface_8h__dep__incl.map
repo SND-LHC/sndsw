@@ -1,7 +1,7 @@
 <map id="genfit/include/genfit/AbsMaterialInterface.h" name="genfit/include/genfit/AbsMaterialInterface.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="89,5,264,45"/>
-<area shape="rect" id="Node000002" href="$include_2genfit_2MaterialEffects_8h.html" title=" " alt="" coords="5,93,156,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="147,57,104,95,100,91,143,53"/>
-<area shape="rect" id="Node000003" href="$include_2genfit_2TGeoMaterialInterface_8h.html" title=" " alt="" coords="181,93,365,133"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="210,53,253,91,250,95,207,57"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="88,5,262,50"/>
+<area shape="rect" id="Node000002" href="$include_2genfit_2MaterialEffects_8h.html" title=" " alt="" coords="5,98,156,143"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="144,60,104,100,101,96,139,62"/>
+<area shape="rect" id="Node000003" href="$include_2genfit_2TGeoMaterialInterface_8h.html" title=" " alt="" coords="180,98,363,143"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="210,58,251,98,246,98,208,63"/>
 </map>

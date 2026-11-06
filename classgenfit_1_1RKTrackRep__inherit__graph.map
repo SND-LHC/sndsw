@@ -1,8 +1,8 @@
 <map id="genfit::RKTrackRep" name="genfit::RKTrackRep">
-<area shape="rect" id="Node000001" title="AbsTrackRep with 5D track parameterization in plane coordinates: (q/p, u&#39;, v&#39;, u, v)" alt="" coords="9,152,152,177"/>
-<area shape="rect" id="Node000002" href="$classgenfit_1_1AbsTrackRep.html" title="Abstract base class for a track representation." alt="" coords="5,79,156,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="75,118,76,152,71,152,69,118"/>
-<area shape="poly" id="edge3_Node000001_Node000002" title=" " alt="" coords="92,118,90,152,85,152,87,118"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="45,5,117,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="83,44,83,79,78,79,78,44"/>
+<area shape="rect" id="Node000001" title="AbsTrackRep with 5D track parameterization in plane coordinates: (q/p, u&#39;, v&#39;, u, v)." alt="" coords="9,157,151,184"/>
+<area shape="rect" id="Node000002" href="$classgenfit_1_1AbsTrackRep.html" title="Abstract base class for a track representation." alt="" coords="5,81,155,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="73,122,75,157,70,155,69,126"/>
+<area shape="poly" id="edge3_Node000001_Node000002" title=" " alt="" coords="91,122,90,157,85,155,87,126"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="44,5,116,33"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="81,46,83,81,77,80,79,51"/>
 </map>

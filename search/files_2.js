@@ -10,7 +10,7 @@ var searchData=
   ['abshmatrix_2eh_7',['AbsHMatrix.h',['../AbsHMatrix_8h.html',1,'']]],
   ['abskalmanfitter_2ecc_8',['AbsKalmanFitter.cc',['../AbsKalmanFitter_8cc.html',1,'']]],
   ['abskalmanfitter_2eh_9',['AbsKalmanFitter.h',['../AbsKalmanFitter_8h.html',1,'']]],
-  ['absmaterialinterface_2eh_10',['absmaterialinterface.h',['../trackReps_2include_2AbsMaterialInterface_8h.html',1,'(Global Namespace)'],['../include_2genfit_2AbsMaterialInterface_8h.html',1,'(Global Namespace)']]],
+  ['absmaterialinterface_2eh_10',['AbsMaterialInterface.h',['../include_2genfit_2AbsMaterialInterface_8h.html',1,'(Global Namespace)'],['../trackReps_2include_2AbsMaterialInterface_8h.html',1,'(Global Namespace)']]],
   ['absmeasurement_2ecc_11',['AbsMeasurement.cc',['../AbsMeasurement_8cc.html',1,'']]],
   ['absmeasurement_2eh_12',['AbsMeasurement.h',['../AbsMeasurement_8h.html',1,'']]],
   ['abstrackrep_2ecc_13',['AbsTrackRep.cc',['../AbsTrackRep_8cc.html',1,'']]],

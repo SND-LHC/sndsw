@@ -1,8 +1,8 @@
 <map id="genfit::StateOnPlane" name="genfit::StateOnPlane">
-<area shape="rect" id="Node000001" title="A state with arbitrary dimension defined in a DetPlane." alt="" coords="5,168,160,193"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="41,5,113,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="81,44,85,168,80,168,76,45"/>
-<area shape="rect" id="Node000003" href="$classgenfit_1_1AbsTrackRep.html" title="Abstract base class for a track representation." alt="" coords="99,80,250,105"/>
-<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="106,37,160,77,157,82,103,41"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="154,117,97,169,94,166,150,113"/>
+<area shape="rect" id="Node000001" title="A state with arbitrary dimension defined in a DetPlane." alt="" coords="5,183,160,211"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="41,5,113,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="81,48,85,183,79,182,76,49"/>
+<area shape="rect" id="Node000003" href="$classgenfit_1_1AbsTrackRep.html" title="Abstract base class for a track representation." alt="" coords="98,82,248,110"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="106,40,159,81,154,83,105,45"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="154,121,96,184,93,180,149,121"/>
 </map>

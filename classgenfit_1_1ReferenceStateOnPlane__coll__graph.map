@@ -1,10 +1,10 @@
 <map id="genfit::ReferenceStateOnPlane" name="genfit::ReferenceStateOnPlane">
-<area shape="rect" id="Node000001" title="StateOnPlane with linearized transport to that ReferenceStateOnPlane from previous and next Reference..." alt="" coords="5,243,191,283"/>
-<area shape="rect" id="Node000002" href="$classgenfit_1_1StateOnPlane.html" title="A state with arbitrary dimension defined in a DetPlane." alt="" coords="21,168,175,193"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="101,207,101,243,95,243,95,207"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="57,5,129,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="96,44,100,168,95,168,91,45"/>
-<area shape="rect" id="Node000004" href="$classgenfit_1_1AbsTrackRep.html" title="Abstract base class for a track representation." alt="" coords="115,80,265,105"/>
-<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="121,37,176,77,172,82,118,41"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="169,117,113,169,109,166,166,113"/>
+<area shape="rect" id="Node000001" title="StateOnPlane with linearized transport to that ReferenceStateOnPlane from previous and next Reference..." alt="" coords="5,260,190,305"/>
+<area shape="rect" id="Node000002" href="$classgenfit_1_1StateOnPlane.html" title="A state with arbitrary dimension defined in a DetPlane." alt="" coords="20,183,175,211"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="99,224,100,260,95,259,96,228"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="56,5,128,33"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="95,47,100,183,94,182,91,50"/>
+<area shape="rect" id="Node000004" href="$classgenfit_1_1AbsTrackRep.html" title="Abstract base class for a track representation." alt="" coords="114,82,263,110"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="121,40,174,81,169,83,121,45"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="165,123,112,184,108,181,168,119"/>
 </map>

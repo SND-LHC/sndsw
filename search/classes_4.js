@@ -12,7 +12,7 @@ var searchData=
   ['dppythia8generator_9',['DPPythia8Generator',['../classDPPythia8Generator.html',1,'']]],
   ['drawdigi_10',['DrawDigi',['../classeventDisplay_1_1DrawDigi.html',1,'eventDisplay']]],
   ['drawecalcluster_11',['DrawEcalCluster',['../classeventDisplay_1_1DrawEcalCluster.html',1,'eventDisplay']]],
-  ['drawtracks_12',['drawtracks',['../classeventDisplay_1_1DrawTracks.html',1,'eventDisplay.DrawTracks'],['../classeventDisplay__shipLHC_1_1DrawTracks.html',1,'eventDisplay_shipLHC.DrawTracks']]],
+  ['drawtracks_12',['DrawTracks',['../classeventDisplay_1_1DrawTracks.html',1,'eventDisplay.DrawTracks'],['../classeventDisplay__shipLHC_1_1DrawTracks.html',1,'eventDisplay_shipLHC.DrawTracks']]],
   ['drawvetodigi_13',['DrawVetoDigi',['../classeventDisplay_1_1DrawVetoDigi.html',1,'eventDisplay']]],
   ['drifttube_14',['DriftTube',['../classDriftTube.html',1,'']]],
   ['drifttubehit_15',['DriftTubeHit',['../classDriftTubeHit.html',1,'']]],

@@ -1,5 +1,5 @@
 <map id="conditionsDatabase.databases.mongodb.models.detector.Detector" name="conditionsDatabase.databases.mongodb.models.detector.Detector">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,79,405,119"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="126,5,285,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="208,44,208,79,203,79,203,44"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,81,405,126"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="126,5,284,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="207,47,207,82,203,79,203,51"/>
 </map>

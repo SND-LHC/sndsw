@@ -15,7 +15,7 @@ var classMufluxDigi_1_1MufluxDigi =
     [ "fn", "classMufluxDigi_1_1MufluxDigi.html#ae4488d95cbf561e0e3b5db2da3dc3c30", null ],
     [ "gMan", "classMufluxDigi_1_1MufluxDigi.html#af8d68f0c10993030f6c5b89425962025", null ],
     [ "header", "classMufluxDigi_1_1MufluxDigi.html#a0ff213898597f7c56cbcb64d956f4ba7", null ],
-    [ "iEvent", "classMufluxDigi_1_1MufluxDigi.html#a418b8f7680cb20a3a1be64d9e623d01c", null ],
+    [ "iEvent", "classMufluxDigi_1_1MufluxDigi.html#a196505a9c84e7b7d7bf93bdfb31c52be", null ],
     [ "PDG", "classMufluxDigi_1_1MufluxDigi.html#a7c71cdef9ac73eb272a52eccccab496d", null ],
     [ "sigma_spatial", "classMufluxDigi_1_1MufluxDigi.html#aa48e7914696e40a14a27d15d6b36cfe4", null ],
     [ "sTree", "classMufluxDigi_1_1MufluxDigi.html#ae9a1bcae43ca7162d9662826016354e3", null ],

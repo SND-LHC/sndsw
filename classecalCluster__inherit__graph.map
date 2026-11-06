@@ -1,5 +1,5 @@
 <map id="ecalCluster" name="ecalCluster">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,79,100,104"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="17,5,89,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="55,44,55,79,50,79,50,44"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,81,100,109"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="17,5,88,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="54,47,55,81,50,80,51,51"/>
 </map>

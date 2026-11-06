@@ -10,9 +10,9 @@ var mpqldec_8f90 =
     [ "qlpssq", "mpqldec_8f90.html#ad17a81bead455e51aebb6039b8adcf4b", null ],
     [ "qlsmq", "mpqldec_8f90.html#a2a6fa1e90fb70d72e067e5c392bc81df", null ],
     [ "qlssq", "mpqldec_8f90.html#aa0f6421c25ca5714b735175aa045e15b", null ],
-    [ "matl", "mpqldec_8f90.html#ab922086d9b2809e1ea353fdb30d21387", null ],
-    [ "matv", "mpqldec_8f90.html#ab37f4989c6c6a2b3abaa062480d31d84", null ],
-    [ "ncon", "mpqldec_8f90.html#a116954a28e44fcb2d14ad5596a83d0b9", null ],
-    [ "npar", "mpqldec_8f90.html#ad2424430ff9c643a003dd586b16a0721", null ],
-    [ "vecn", "mpqldec_8f90.html#ac5f4117b71fa7405be0ec26a4e95c331", null ]
+    [ "mpqldec::matl", "namespacempqldec.html#ab922086d9b2809e1ea353fdb30d21387", null ],
+    [ "mpqldec::matv", "namespacempqldec.html#ab37f4989c6c6a2b3abaa062480d31d84", null ],
+    [ "mpqldec::ncon", "namespacempqldec.html#a116954a28e44fcb2d14ad5596a83d0b9", null ],
+    [ "mpqldec::npar", "namespacempqldec.html#ad2424430ff9c643a003dd586b16a0721", null ],
+    [ "mpqldec::vecn", "namespacempqldec.html#ac5f4117b71fa7405be0ec26a4e95c331", null ]
 ];

@@ -1,5 +1,5 @@
 <map id="test_shipGeoConfig.TestInheritance" name="test_shipGeoConfig.TestInheritance">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,79,256,104"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="61,5,200,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="133,44,133,79,128,79,128,44"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,81,256,109"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="62,5,199,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="132,47,133,82,128,79,129,51"/>
 </map>

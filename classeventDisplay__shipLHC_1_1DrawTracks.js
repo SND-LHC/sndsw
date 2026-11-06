@@ -12,6 +12,6 @@ var classeventDisplay__shipLHC_1_1DrawTracks =
     [ "evscene", "classeventDisplay__shipLHC_1_1DrawTracks.html#a96f1f676b752ce9897e4c0e8b7aafad0", null ],
     [ "niter", "classeventDisplay__shipLHC_1_1DrawTracks.html#a789c5a128f329d917dc2dda296f7aa29", null ],
     [ "Targetz", "classeventDisplay__shipLHC_1_1DrawTracks.html#ac83b1e45a034bffbcecbac97d3013024", null ],
-    [ "trackColors", "classeventDisplay__shipLHC_1_1DrawTracks.html#ad6d210efb21af09fa212545336ef9073", null ],
-    [ "z_start", "classeventDisplay__shipLHC_1_1DrawTracks.html#aa9a5cd282f4e715c3532ca875cfc5402", null ]
+    [ "trackColors", "classeventDisplay__shipLHC_1_1DrawTracks.html#a60194e27347c59cfac2e1e9903801aff", null ],
+    [ "z_start", "classeventDisplay__shipLHC_1_1DrawTracks.html#a55cc043480fc7a698f37dc60ae2d1912", null ]
 ];

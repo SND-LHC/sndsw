@@ -1,19 +1,19 @@
 <map id="genfit::AbsMeasurement" name="genfit::AbsMeasurement">
-<area shape="rect" id="Node000001" title="Contains the measurement and covariance in raw detector coordinates." alt="" coords="125,80,307,105"/>
-<area shape="rect" id="Node000003" href="$classgenfit_1_1FullMeasurement.html" title="Measurement class implementing a measurement of all track parameters." alt="" coords="379,5,559,31"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="260,72,354,39,399,28,401,33,355,45,261,77"/>
-<area shape="rect" id="Node000004" href="$classgenfit_1_1PlanarMeasurement.html" title="Measurement class implementing a planar hit geometry (1 or 2D)." alt="" coords="370,55,569,80"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="320,80,369,75,370,80,321,85"/>
-<area shape="rect" id="Node000005" href="$classgenfit_1_1SpacepointMeasurement.html" title="Class for measurements implementing a space point hit geometry." alt="" coords="355,104,584,129"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="321,100,355,103,354,108,320,105"/>
-<area shape="rect" id="Node000008" href="$classgenfit_1_1WireMeasurement.html" title="Class for measurements in wire detectors (Straw tubes and drift chambers) which do not measure the co..." alt="" coords="376,153,563,179"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="263,108,355,139,401,151,400,156,354,145,261,113"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,80,77,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="91,90,125,90,125,95,91,95"/>
-<area shape="rect" id="Node000006" href="$classgenfit_1_1ProlateSpacepointMeasurement.html" title="Class for measurements implementing a space point hit geometry with a very prolate form of the covari..." alt="" coords="665,39,850,79"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="547,99,664,75,665,80,548,104"/>
-<area shape="rect" id="Node000007" href="$classgenfit_1_1mySpacepointMeasurement.html" title="Example class for a spacepoint measurement which can be created from mySpacepointDetectorHit via the ..." alt="" coords="632,104,883,129"/>
-<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="598,114,632,114,632,119,598,119"/>
-<area shape="rect" id="Node000009" href="$classgenfit_1_1WirePointMeasurement.html" title="Class for measurements in wire detectors (Straw tubes and drift chambers) which can measure the coord..." alt="" coords="647,153,867,179"/>
-<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="576,163,647,163,647,169,576,169"/>
+<area shape="rect" id="Node000001" title="Contains the measurement and covariance in raw detector coordinates." alt="" coords="125,84,305,112"/>
+<area shape="rect" id="Node000003" href="$classgenfit_1_1FullMeasurement.html" title="Measurement class implementing a measurement of all track parameters." alt="" coords="378,5,557,33"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="263,75,352,43,401,33,396,34,354,48,265,80"/>
+<area shape="rect" id="Node000004" href="$classgenfit_1_1PlanarMeasurement.html" title="Measurement class implementing a planar hit geometry (1 or 2D)." alt="" coords="368,57,566,85"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="320,84,371,81,366,82,321,89"/>
+<area shape="rect" id="Node000005" href="$classgenfit_1_1SpacepointMeasurement.html" title="Class for measurements implementing a space point hit geometry." alt="" coords="353,109,581,137"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="321,106,355,111,350,112,321,111"/>
+<area shape="rect" id="Node000008" href="$classgenfit_1_1WireMeasurement.html" title="Class for measurements in wire detectors (Straw tubes and drift chambers) which do not measure the co..." alt="" coords="374,161,560,189"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="266,115,354,146,401,161,396,161,352,151,265,120"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,84,77,112"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="91,95,126,97,122,99,93,100"/>
+<area shape="rect" id="Node000006" href="$classgenfit_1_1ProlateSpacepointMeasurement.html" title="Class for measurements implementing a space point hit geometry with a very prolate form of the covari..." alt="" coords="662,41,846,86"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="551,103,659,83,664,82,552,108"/>
+<area shape="rect" id="Node000007" href="$classgenfit_1_1mySpacepointMeasurement.html" title="Example class for a spacepoint measurement which can be created from mySpacepointDetectorHit via the ..." alt="" coords="629,109,879,137"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="596,121,631,123,626,123,597,126"/>
+<area shape="rect" id="Node000009" href="$classgenfit_1_1WirePointMeasurement.html" title="Class for measurements in wire detectors (Straw tubes and drift chambers) which can measure the coord..." alt="" coords="644,161,864,189"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="576,173,647,175,641,175,576,178"/>
 </map>

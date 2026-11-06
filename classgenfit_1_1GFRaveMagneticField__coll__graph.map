@@ -1,5 +1,5 @@
 <map id="genfit::GFRaveMagneticField" name="genfit::GFRaveMagneticField">
-<area shape="rect" id="Node000001" title="GFRaveMagneticField class Uses the FieldManager to provide a magnetic field to rave." alt="" coords="5,79,215,104"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="35,5,185,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="113,44,113,79,107,79,107,44"/>
+<area shape="rect" id="Node000001" title="GFRaveMagneticField class Uses the FieldManager to provide a magnetic field to rave." alt="" coords="5,81,214,109"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="35,5,184,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,47,112,82,107,79,108,51"/>
 </map>

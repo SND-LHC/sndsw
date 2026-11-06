@@ -1,5 +1,5 @@
 <map id="ScalarFrame" name="ScalarFrame">
-<area shape="rect" id="Node000001" title=" " alt="" coords="25,93,127,119"/>
-<area shape="rect" id="Node000002" href="$structDataFrameHeader.html" title=" " alt="" coords="5,5,147,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="79,45,79,93,73,93,73,45"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="24,106,127,134"/>
+<area shape="rect" id="Node000002" href="$structDataFrameHeader.html" title=" " alt="" coords="5,5,146,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="78,47,78,106,73,105,73,50"/>
 </map>

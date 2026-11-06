@@ -1,7 +1,7 @@
 var classsnd_1_1analysis__tools_1_1DSPlane =
 [
-    [ "DSHit", "structsnd_1_1analysis__tools_1_1DSPlane_1_1DSHit.html", "structsnd_1_1analysis__tools_1_1DSPlane_1_1DSHit" ],
     [ "rl_pair", "structsnd_1_1analysis__tools_1_1DSPlane_1_1rl__pair.html", "structsnd_1_1analysis__tools_1_1DSPlane_1_1rl__pair" ],
+    [ "DSHit", "structsnd_1_1analysis__tools_1_1DSPlane_1_1DSHit.html", "structsnd_1_1analysis__tools_1_1DSPlane_1_1DSHit" ],
     [ "DSPlane", "classsnd_1_1analysis__tools_1_1DSPlane.html#a173485f91cae6c8f65c0b751599ce0e6", null ],
     [ "GetBarNHits", "classsnd_1_1analysis__tools_1_1DSPlane.html#a875b0d19fe14012404add36990a64fef", null ],
     [ "GetHits", "classsnd_1_1analysis__tools_1_1DSPlane.html#aa547436a99923e316b1df0dc9bde2ab7", null ],

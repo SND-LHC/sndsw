@@ -1,9 +1,9 @@
 <map id="genfit/core/src/MaterialProperties.cc" name="genfit/core/src/MaterialProperties.cc">
-<area shape="rect" id="Node000001" title=" " alt="" coords="67,5,239,45"/>
-<area shape="rect" id="Node000002" href="$MaterialProperties_8h.html" title=" " alt="" coords="5,93,160,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="138,47,104,85,100,81,134,44"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="184,93,264,119"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="172,44,206,81,202,85,168,47"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="41,167,125,192"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="85,119,85,153,80,153,80,119"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="66,5,237,50"/>
+<area shape="rect" id="Node000002" href="$MaterialProperties_8h.html" title=" " alt="" coords="5,98,159,126"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="131,52,105,87,101,84,135,48"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="182,98,262,126"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="171,48,203,86,198,86,169,53"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="40,174,124,201"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="84,124,85,159,79,157,80,128"/>
 </map>

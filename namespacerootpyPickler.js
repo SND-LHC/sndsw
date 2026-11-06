@@ -1,8 +1,8 @@
 var namespacerootpyPickler =
 [
     [ "IO_Wrapper", "classrootpyPickler_1_1IO__Wrapper.html", "classrootpyPickler_1_1IO__Wrapper" ],
-    [ "Pickler", "classrootpyPickler_1_1Pickler.html", "classrootpyPickler_1_1Pickler" ],
     [ "ROOT_Proxy", "classrootpyPickler_1_1ROOT__Proxy.html", "classrootpyPickler_1_1ROOT__Proxy" ],
+    [ "Pickler", "classrootpyPickler_1_1Pickler.html", "classrootpyPickler_1_1Pickler" ],
     [ "Unpickler", "classrootpyPickler_1_1Unpickler.html", "classrootpyPickler_1_1Unpickler" ],
     [ "_protect", "namespacerootpyPickler.html#aec9f077aa17669ddfedbfee4a177545d", null ],
     [ "_restore", "namespacerootpyPickler.html#a618d62255f3e4040cf414045275d9a43", null ],

@@ -16,7 +16,7 @@ var searchData=
   ['scifipoint_13',['ScifiPoint',['../classScifiPoint.html',1,'']]],
   ['scifistationcut_14',['sciFiStationCut',['../classsnd_1_1analysis__cuts_1_1sciFiStationCut.html',1,'snd::analysis_cuts']]],
   ['scifiunpack_15',['SciFiUnpack',['../classSciFiUnpack.html',1,'']]],
-  ['scoresd_16',['scoresd',['../classg4Ex__args_1_1ScoreSD.html',1,'g4Ex_args.ScoreSD'],['../classg4Ex__gap_1_1ScoreSD.html',1,'g4Ex_gap.ScoreSD'],['../classg4Ex_1_1ScoreSD.html',1,'g4Ex.ScoreSD']]],
+  ['scoresd_16',['ScoreSD',['../classg4Ex_1_1ScoreSD.html',1,'g4Ex.ScoreSD'],['../classg4Ex__args_1_1ScoreSD.html',1,'g4Ex_args.ScoreSD'],['../classg4Ex__gap_1_1ScoreSD.html',1,'g4Ex_gap.ScoreSD']]],
   ['shipbellfield_17',['ShipBellField',['../classShipBellField.html',1,'']]],
   ['shipbfieldmap_18',['ShipBFieldMap',['../classShipBFieldMap.html',1,'']]],
   ['shipcave_19',['ShipCave',['../classShipCave.html',1,'']]],

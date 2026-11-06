@@ -1,11 +1,11 @@
 <map id="genfit::SpacepointMeasurement" name="genfit::SpacepointMeasurement">
-<area shape="rect" id="Node000001" title="Class for measurements implementing a space point hit geometry." alt="" coords="105,152,334,177"/>
-<area shape="rect" id="Node000004" href="$classgenfit_1_1ProlateSpacepointMeasurement.html" title="Class for measurements implementing a space point hit geometry with a very prolate form of the covari..." alt="" coords="5,225,191,265"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="191,187,129,227,126,223,188,183"/>
-<area shape="rect" id="Node000005" href="$classgenfit_1_1mySpacepointMeasurement.html" title="Example class for a spacepoint measurement which can be created from mySpacepointDetectorHit via the ..." alt="" coords="215,233,466,258"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="251,183,324,230,321,235,248,187"/>
-<area shape="rect" id="Node000002" href="$classgenfit_1_1AbsMeasurement.html" title="Contains the measurement and covariance in raw detector coordinates." alt="" coords="129,79,310,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="222,118,222,152,217,152,217,118"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="183,5,255,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="222,44,222,79,217,79,217,44"/>
+<area shape="rect" id="Node000001" title="Class for measurements implementing a space point hit geometry." alt="" coords="103,157,332,184"/>
+<area shape="rect" id="Node000004" href="$classgenfit_1_1ProlateSpacepointMeasurement.html" title="Class for measurements implementing a space point hit geometry with a very prolate form of the covari..." alt="" coords="5,232,190,277"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="188,192,131,234,128,229,183,194"/>
+<area shape="rect" id="Node000005" href="$classgenfit_1_1mySpacepointMeasurement.html" title="Example class for a spacepoint measurement which can be created from mySpacepointDetectorHit via the ..." alt="" coords="214,241,464,268"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="250,191,322,240,317,240,248,196"/>
+<area shape="rect" id="Node000002" href="$classgenfit_1_1AbsMeasurement.html" title="Contains the measurement and covariance in raw detector coordinates." alt="" coords="127,81,308,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="219,122,220,157,215,155,216,127"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="182,5,253,33"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="219,46,220,81,215,80,216,51"/>
 </map>

@@ -1,11 +1,11 @@
 <map id="genfit/measurements/src/WireTrackCandHit.cc" name="genfit/measurements/src/WireTrackCandHit.cc">
-<area shape="rect" id="Node000001" title=" " alt="" coords="59,5,241,45"/>
-<area shape="rect" id="Node000002" href="$WireTrackCandHit_8h.html" title=" " alt="" coords="5,93,156,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,47,102,84,98,81,131,44"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="181,93,261,119"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="169,44,203,81,199,85,165,47"/>
-<area shape="rect" id="Node000003" href="$TrackCandHit_8h.html" title=" " alt="" coords="21,167,141,192"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="83,119,83,153,78,153,78,119"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="39,240,123,265"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="83,192,83,226,78,226,78,192"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="58,5,240,50"/>
+<area shape="rect" id="Node000002" href="$WireTrackCandHit_8h.html" title=" " alt="" coords="5,98,155,126"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="130,53,103,87,99,84,133,48"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="179,98,258,126"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="168,48,200,85,195,86,167,53"/>
+<area shape="rect" id="Node000003" href="$TrackCandHit_8h.html" title=" " alt="" coords="20,174,140,201"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="81,124,83,158,77,157,79,129"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="38,249,122,277"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="82,200,83,234,77,233,78,204"/>
 </map>

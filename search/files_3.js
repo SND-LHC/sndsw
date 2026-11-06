@@ -2,7 +2,7 @@ var searchData=
 [
   ['basiclibs_2epy_0',['basiclibs.py',['../basiclibs_8py.html',1,'']]],
   ['bellfield_2ecc_1',['BellField.cc',['../BellField_8cc.html',1,'']]],
-  ['bellfield_2eh_2',['bellfield.h',['../fields_2include_2BellField_8h.html',1,'(Global Namespace)'],['../include_2genfit_2BellField_8h.html',1,'(Global Namespace)']]],
+  ['bellfield_2eh_2',['BellField.h',['../fields_2include_2BellField_8h.html',1,'(Global Namespace)'],['../include_2genfit_2BellField_8h.html',1,'(Global Namespace)']]],
   ['benchmark_5fapi_2epy_3',['benchmark_api.py',['../benchmark__api_8py.html',1,'']]],
   ['boardmappingparser_2ecxx_4',['boardMappingParser.cxx',['../boardMappingParser_8cxx.html',1,'']]],
   ['boardmappingparser_2eh_5',['boardMappingParser.h',['../boardMappingParser_8h.html',1,'']]],

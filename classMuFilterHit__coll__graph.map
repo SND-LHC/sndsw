@@ -1,7 +1,7 @@
 <map id="MuFilterHit" name="MuFilterHit">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,152,100,177"/>
-<area shape="rect" id="Node000002" href="$classSndlhcHit.html" title=" " alt="" coords="11,79,95,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="55,118,55,152,50,152,50,118"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="17,5,89,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="55,44,55,79,50,79,50,44"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,157,99,184"/>
+<area shape="rect" id="Node000002" href="$classSndlhcHit.html" title=" " alt="" coords="10,81,94,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="54,123,55,157,49,156,50,126"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="16,5,88,33"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="53,46,55,81,49,80,51,51"/>
 </map>

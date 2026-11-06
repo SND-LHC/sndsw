@@ -1,13 +1,13 @@
 <map id="shipgen/MuonBackGenerator.h" name="shipgen/MuonBackGenerator.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="178,5,399,31"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,84,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="250,33,98,77,96,72,249,28"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="108,79,229,104"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="271,33,202,74,199,69,268,28"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="254,79,323,104"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="291,31,291,65,286,65,286,31"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="348,79,467,104"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="309,28,377,69,375,74,306,33"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="491,79,591,104"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="330,28,487,72,486,77,328,33"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="175,5,396,33"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,81,83,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="243,36,99,80,97,75,241,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="106,81,227,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="267,33,201,75,199,70,262,34"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="251,81,320,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="287,32,288,67,283,64,283,35"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="344,81,461,109"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="307,31,372,73,367,73,306,36"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="485,81,584,109"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="330,31,478,76,473,77,330,36"/>
 </map>

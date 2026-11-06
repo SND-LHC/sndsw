@@ -1,17 +1,17 @@
 <map id="ecalReco" name="ecalReco">
-<area shape="rect" id="Node000001" title=" " alt="" coords="85,256,166,281"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,80,80,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="35,119,26,155,26,174,32,192,45,212,63,229,101,254,98,258,60,233,41,216,27,194,21,175,21,155,29,118"/>
-<area shape="rect" id="Node000007" href="$classecalClusterCalibration.html" title=" " alt="" coords="42,168,209,193"/>
-<area shape="poly" id="edge8_Node000007_Node000002" title=" " alt="" coords="65,114,116,166,112,169,61,117"/>
-<area shape="rect" id="Node000003" href="$classecalStructure.html" title=" " alt="" coords="233,168,341,193"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="254,202,149,258,146,253,251,198"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="213,80,291,105"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="264,117,284,166,279,168,259,119"/>
-<area shape="rect" id="Node000005" href="$classecalInf.html" title=" " alt="" coords="315,80,381,105"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="334,118,297,169,293,166,329,115"/>
-<area shape="poly" id="edge6_Node000005_Node000005" title=" " alt="" coords="397,84,408,93,399,101,382,102,381,97,397,96,403,93,394,89"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="312,5,384,31"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="351,45,351,80,345,80,345,45"/>
-<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="128,207,128,255,123,255,123,207"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="83,284,164,311"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,82,79,110"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="31,127,25,167,25,189,31,210,45,232,63,252,102,282,97,284,59,256,41,235,26,212,20,189,20,166,32,122"/>
+<area shape="rect" id="Node000007" href="$classecalClusterCalibration.html" title=" " alt="" coords="41,183,206,211"/>
+<area shape="poly" id="edge8_Node000007_Node000002" title=" " alt="" coords="63,119,115,181,110,183,61,124"/>
+<area shape="rect" id="Node000003" href="$classecalStructure.html" title=" " alt="" coords="230,183,337,211"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="252,219,146,285,144,281,247,219"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="210,82,287,110"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="259,122,281,183,276,182,257,127"/>
+<area shape="rect" id="Node000005" href="$classecalInf.html" title=" " alt="" coords="311,82,376,110"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="330,122,293,184,289,181,325,125"/>
+<area shape="poly" id="edge6_Node000005_Node000005" title=" " alt="" coords="392,87,403,96,394,104,377,106,376,101,392,99,397,96,391,93"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="308,5,379,33"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="345,46,346,83,341,81,342,51"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="125,225,126,284,121,282,121,228"/>
 </map>

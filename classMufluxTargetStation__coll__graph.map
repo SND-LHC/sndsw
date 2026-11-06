@@ -1,6 +1,6 @@
 <map id="MufluxTargetStation" name="MufluxTargetStation">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,80,157,105"/>
-<area shape="poly" id="edge2_Node000001_Node000001" title=" " alt="" coords="172,85,184,93,176,99,158,102,157,97,174,95,179,93,170,90"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="35,5,128,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="84,45,84,80,79,80,79,45"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,82,157,110"/>
+<area shape="poly" id="edge2_Node000001_Node000001" title=" " alt="" coords="173,89,183,96,175,103,157,106,157,100,173,98,178,96,171,94"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="35,5,127,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="83,47,84,83,78,81,79,50"/>
 </map>

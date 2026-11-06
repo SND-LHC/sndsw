@@ -6,7 +6,7 @@ var classrootpyPickler_1_1Unpickler =
     [ "persistent_load", "classrootpyPickler_1_1Unpickler.html#a7f7cf561a28a0ba6547849a0fbaefe69", null ],
     [ "__file", "classrootpyPickler_1_1Unpickler.html#a29667e18ca538c5e28e079088751d954", null ],
     [ "__io", "classrootpyPickler_1_1Unpickler.html#a80b2bfa6e4681d2f978f1c5342571c7e", null ],
-    [ "__n", "classrootpyPickler_1_1Unpickler.html#a4764b1fb4bd43a127d3fefd924bc634d", null ],
-    [ "__serial", "classrootpyPickler_1_1Unpickler.html#ab4f03cde4f594ff0eca7ca672ed88b17", null ],
+    [ "__n", "classrootpyPickler_1_1Unpickler.html#a432b9f9094a15a4f9cea12e8f04ce89d", null ],
+    [ "__serial", "classrootpyPickler_1_1Unpickler.html#a1fc07bddc89361afd40bf24ad6226141", null ],
     [ "__use_proxy", "classrootpyPickler_1_1Unpickler.html#a06f0f2651888747c0c02b8a6c4a59ada", null ]
 ];

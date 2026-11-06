@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['s_0',['-s',['../option_page.html#opt-s',1,'']]],
+  ['scaleerrors_1',['scaleerrors',['../option_page.html#cmd-scaleerrors',1,'']]],
+  ['scifi_20tracking_2',['simple 2d event display with Scifi tracking',['../md_README.html#autotoc_md59',1,'']]],
+  ['scripts_20for_20accessing_20the_20raw_20data_20and_20making_20histograms_3',['Example scripts for accessing the raw data and making histograms',['../md_README.html#autotoc_md58',1,'']]],
+  ['see_20test_20coverage_4',['How to see test coverage',['../dir_967baa16482a407bbc236db3be481674.html#autotoc_md45',1,'']]],
+  ['showertoolsandp8decayer_5',['v1.3.0+2025-11-showerToolsAndP8Decayer',['../md_CHANGELOG.html#autotoc_md6',1,'']]],
+  ['simple_202d_20event_20display_20with_20scifi_20tracking_6',['simple 2d event display with Scifi tracking',['../md_README.html#autotoc_md59',1,'']]],
+  ['size_7',['Read buffer size',['../changes_page.html#ch-readbuf',1,'']]],
+  ['skipemptycons_8',['skipemptycons',['../option_page.html#cmd-skipemptycons',1,'']]],
+  ['sndsw_9',['sndsw',['../md_README.html',1,'']]],
+  ['sndsw_20class_20reference_10',['SNDSW Class Reference',['../index.html',1,'']]],
+  ['sndsw_20format_11',['Converting raw data to sndsw format',['../md_README.html#autotoc_md57',1,'']]],
+  ['solution_20methods_12',['Solution methods',['../changes_page.html#ch-methods',1,'']]],
+  ['sparse_20matrix_13',['Compressed sparse matrix',['../changes_page.html#ch-compression',1,'']]],
+  ['steering_20file_20commands_3a_14',['Steering file commands:',['../option_page.html#sec-cmd',1,'']]],
+  ['storage_20back_20ends_15',['Storage back-ends',['../dir_770bfa4223d4b493c128cdd3c0a418a1.html#autotoc_md36',1,'']]],
+  ['storage_20back_20ends_16',['Supported storage back-ends',['../dir_770bfa4223d4b493c128cdd3c0a418a1.html#autotoc_md32',1,'']]],
+  ['structure_17',['structure',['../dir_26b5711a5e2a69bf023972b562e33198.html#autotoc_md41',1,'Directory structure'],['../dir_770bfa4223d4b493c128cdd3c0a418a1.html#autotoc_md33',1,'Package structure']]],
+  ['subito_18',['subito',['../option_page.html#cmd-subito',1,'']]],
+  ['supported_20python_20version_19',['Supported Python version',['../dir_770bfa4223d4b493c128cdd3c0a418a1.html#autotoc_md39',1,'']]],
+  ['supported_20storage_20back_20ends_20',['Supported storage back-ends',['../dir_770bfa4223d4b493c128cdd3c0a418a1.html#autotoc_md32',1,'']]],
+  ['systems_20with_20cvmfs_21',['On lxplus or systems with CVMFS',['../md_README.html#autotoc_md52',1,'']]],
+  ['systems_20without_20access_20to_20cvmfs_22',['On systems without access to CVMFS',['../md_README.html#autotoc_md53',1,'']]]
+];

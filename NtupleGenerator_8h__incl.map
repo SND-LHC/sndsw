@@ -1,11 +1,11 @@
 <map id="shipgen/NtupleGenerator.h" name="shipgen/NtupleGenerator.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="131,5,327,31"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,84,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="200,33,89,76,87,71,198,28"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="108,79,229,104"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="221,33,189,70,185,66,217,29"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="254,79,323,104"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="241,29,272,66,268,70,237,33"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="348,79,448,104"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="257,28,359,71,357,76,255,33"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="128,5,323,33"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,81,83,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="194,36,91,77,89,72,192,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="106,81,227,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="217,32,188,71,185,67,212,35"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="251,81,320,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="237,31,268,69,262,68,235,36"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="344,81,443,109"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="256,31,352,74,347,75,255,36"/>
 </map>

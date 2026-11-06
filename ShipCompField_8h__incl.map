@@ -1,9 +1,9 @@
 <map id="field/ShipCompField.h" name="field/ShipCompField.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="121,5,284,31"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,149,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="184,33,111,74,108,69,181,28"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="173,79,232,104"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="205,31,205,65,200,65,200,31"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="257,79,319,104"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="218,29,265,68,262,72,215,33"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="121,5,284,33"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,81,149,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="183,33,113,76,111,71,177,34"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="173,81,232,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="204,32,205,67,200,64,201,35"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="255,81,318,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="218,31,263,71,257,70,216,36"/>
 </map>

@@ -1,13 +1,13 @@
 <map id="muonShieldOptimization/pyFairModule.cxx" name="muonShieldOptimization/pyFairModule.cxx">
-<area shape="rect" id="Node000001" title=" " alt="" coords="77,5,260,45"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,84,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="140,48,76,88,73,84,137,43"/>
-<area shape="rect" id="Node000003" href="$pyFairModule_8h.html" title=" " alt="" coords="108,93,229,119"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="171,46,171,79,166,79,166,46"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="253,93,337,119"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="201,43,267,84,264,88,198,48"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="56,167,161,192"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="161,121,129,158,125,154,157,117"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="185,167,272,192"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="181,117,212,154,208,158,177,121"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="77,5,260,50"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,98,84,126"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="134,53,78,91,75,87,137,48"/>
+<area shape="rect" id="Node000003" href="$pyFairModule_8h.html" title=" " alt="" coords="108,98,229,126"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="170,48,171,83,166,81,167,53"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="252,98,336,126"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="202,48,264,89,259,90,201,53"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="56,174,161,201"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="160,125,131,163,127,159,155,127"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="184,174,270,201"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="180,124,210,162,205,161,178,129"/>
 </map>

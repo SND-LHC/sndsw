@@ -1,7 +1,7 @@
 var searchData=
 [
   ['kbox1_0',['kBox1',['../ShipDetectorList_8h.html#a1806da1a0fbae8ab81f7330906f65680ac719833827d431f14ca4ace326c62076',1,'ShipDetectorList.h']]],
-  ['kdonebit_1',['kDoneBit',['../ShipStack_8h.html#a99fb83031ce9923c84392b4e92f956b5a12781c855b259e1c96ca6cc950606ffb',1,'ShipStack.h']]],
+  ['kdonebit_1',['kDoneBit',['../ShipStack_8h.html#a685cdc11ae62308f69e926397c690251a12781c855b259e1c96ca6cc950606ffb',1,'ShipStack.h']]],
   ['kdrifttube_2',['kDriftTube',['../ShipDetectorList_8h.html#a1806da1a0fbae8ab81f7330906f65680acceee079f69cd9d051e70bb27811e445',1,'ShipDetectorList.h']]],
   ['kecal_3',['kecal',['../ShipDetectorList_8h.html#a1806da1a0fbae8ab81f7330906f65680aea305633b330b30cb1743acc5d49addf',1,'ShipDetectorList.h']]],
   ['kemulsiondet_4',['kEmulsionDet',['../ShipDetectorList_8h.html#a1806da1a0fbae8ab81f7330906f65680a32370a0aea43651ef82cddf23d38ee74',1,'ShipDetectorList.h']]],

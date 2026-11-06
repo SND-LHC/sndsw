@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['channelid_0',['channelid',['../structChannelId.html',1,'ChannelId'],['../structDriftTubes_1_1ChannelId.html',1,'DriftTubes::ChannelId']]],
+  ['channelid_0',['ChannelId',['../structChannelId.html',1,'ChannelId'],['../structDriftTubes_1_1ChannelId.html',1,'DriftTubes::ChannelId']]],
   ['ckmmatrix_1',['CKMmatrix',['../classhnl_1_1CKMmatrix.html',1,'hnl']]],
   ['co3rng_2',['Co3Rng',['../classCo3Rng.html',1,'']]],
   ['condition_3',['Condition',['../classconditionsDatabase_1_1databases_1_1mongodb_1_1models_1_1condition_1_1Condition.html',1,'conditionsDatabase::databases::mongodb::models::condition']]],

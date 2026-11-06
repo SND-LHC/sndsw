@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['list_20of_20exit_20codes_0',['List of exit codes',['../exit_code_page.html',1,'index']]],
-  ['list_20of_20options_20and_20commands_1',['List of options and commands',['../option_page.html',1,'index']]]
+  ['3_200_202025_2011_20showertoolsandp8decayer_0',['v1.3.0+2025-11-showerToolsAndP8Decayer',['../md_CHANGELOG.html#autotoc_md6',1,'']]]
 ];

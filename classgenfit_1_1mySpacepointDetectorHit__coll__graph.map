@@ -1,7 +1,5 @@
 <map id="genfit::mySpacepointDetectorHit" name="genfit::mySpacepointDetectorHit">
-<area shape="rect" id="Node000001" title="Example class for a spacepoint detector hit." alt="" coords="5,93,240,119"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="37,5,109,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,41,118,91,113,94,84,44"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="134,5,213,31"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="162,44,132,94,127,91,157,41"/>
+<area shape="rect" id="Node000001" title="Example class for a spacepoint detector hit." alt="" coords="5,81,240,109"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="87,5,158,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="124,47,125,82,120,79,121,51"/>
 </map>

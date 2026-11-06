@@ -1,7 +1,7 @@
 var classsnd_1_1analysis__tools_1_1USPlane =
 [
-    [ "rl_pair", "structsnd_1_1analysis__tools_1_1USPlane_1_1rl__pair.html", "structsnd_1_1analysis__tools_1_1USPlane_1_1rl__pair" ],
     [ "sl_pair", "structsnd_1_1analysis__tools_1_1USPlane_1_1sl__pair.html", "structsnd_1_1analysis__tools_1_1USPlane_1_1sl__pair" ],
+    [ "rl_pair", "structsnd_1_1analysis__tools_1_1USPlane_1_1rl__pair.html", "structsnd_1_1analysis__tools_1_1USPlane_1_1rl__pair" ],
     [ "USHit", "structsnd_1_1analysis__tools_1_1USPlane_1_1USHit.html", "structsnd_1_1analysis__tools_1_1USPlane_1_1USHit" ],
     [ "USPlane", "classsnd_1_1analysis__tools_1_1USPlane.html#a98e1b4304afc802907ccadc01a11a7b6", null ],
     [ "FindCentroid", "classsnd_1_1analysis__tools_1_1USPlane.html#a3e588f3136b0ab28bb6ae32ae414ced9", null ],
