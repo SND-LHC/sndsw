@@ -597,7 +597,7 @@ $(function(){initNavTree('ConvRawData_8cxx_source.html','',''); });
 <div class="line"><a id="l00493" name="l00493"></a><span class="lineno">  493</span>                                             <span class="keywordtype">int</span>((eventTime%(4*3564))/8+0.5))))-&gt;GetString().Data()));</div>
 <div class="line"><a id="l00494" name="l00494"></a><span class="lineno">  494</span>      }</div>
 <div class="line"><a id="l00495" name="l00495"></a><span class="lineno">  495</span>      <span class="comment">// proton runs</span></div>
-<div class="line"><a id="l00496" name="l00496"></a><span class="lineno">  496</span>      <span class="keywordflow">else</span>{</div>
+<div class="line"><a id="l00496" name="l00496"></a><span class="lineno">  496</span>      <span class="keywordflow">if</span> (<a class="code hl_variable" href="classConvRawData.html#aaa0cb1d23a585d8686d376deee080662">fSNDLHCEventHeader</a>-&gt;GetAccMode()== 11){</div>
 <div class="line"><a id="l00497" name="l00497"></a><span class="lineno">  497</span>         <a class="code hl_variable" href="classConvRawData.html#aaa0cb1d23a585d8686d376deee080662">fSNDLHCEventHeader</a>-&gt;SetBunchType(stoi(((TObjString*)<a class="code hl_variable" href="classConvRawData.html#a5d23f034006fc99212387d87508f20c5">FSmap</a>-&gt;GetValue(Form(<span class="stringliteral">&quot;%d&quot;</span>,</div>
 <div class="line"><a id="l00498" name="l00498"></a><span class="lineno">  498</span>                                             <span class="keywordtype">int</span>((eventTime%(4*3564))/4))))-&gt;GetString().Data()));</div>
 <div class="line"><a id="l00499" name="l00499"></a><span class="lineno">  499</span>      }</div>

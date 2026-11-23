@@ -229,25 +229,25 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00335">335</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  335</span>   <span class="keyword">def </span>calibrationReport(self):</div>
-<div class="line"><span class="lineno">  336</span>      qdc_cal = self.qdc_cal</div>
-<div class="line"><span class="lineno">  337</span>      report = {}</div>
-<div class="line"><span class="lineno">  338</span>      TDC = 0</div>
-<div class="line"><span class="lineno">  339</span>      <span class="keywordflow">for</span> b <span class="keywordflow">in</span> qdc_cal:</div>
-<div class="line"><span class="lineno">  340</span>           <span class="keywordflow">for</span> t <span class="keywordflow">in</span>  qdc_cal[b]:</div>
-<div class="line"><span class="lineno">  341</span>                <span class="keywordflow">for</span> c <span class="keywordflow">in</span> qdc_cal[b][t]:</div>
-<div class="line"><span class="lineno">  342</span>                     <span class="keywordflow">for</span> tac <span class="keywordflow">in</span> qdc_cal[b][t][c]:</div>
-<div class="line"><span class="lineno">  343</span>                               par    = qdc_cal[b][t][c][tac]</div>
-<div class="line"><span class="lineno">  344</span>                               <span class="keywordflow">if</span> <span class="stringliteral">&#39;chi2Ndof&#39;</span> <span class="keywordflow">in</span> par:                             chi2 = par[<span class="stringliteral">&#39;chi2Ndof&#39;</span>]</div>
-<div class="line"><span class="lineno">  345</span>                               <span class="keywordflow">else</span>: chi2=-1</div>
-<div class="line"><span class="lineno">  346</span>                               parT = qdc_cal[b][t][c][tac][TDC]</div>
-<div class="line"><span class="lineno">  347</span>                               <span class="keywordflow">if</span> <span class="stringliteral">&#39;chi2Ndof&#39;</span> <span class="keywordflow">in</span> parT:   chi2T = parT[<span class="stringliteral">&#39;chi2Ndof&#39;</span>]</div>
-<div class="line"><span class="lineno">  348</span>                               <span class="keywordflow">else</span>: chi2T=-1</div>
-<div class="line"><span class="lineno">  349</span>                               key = tac +10*c + t*10*100 + b*10*100*100</div>
-<div class="line"><span class="lineno">  350</span>                               <span class="keywordflow">if</span> <span class="keywordflow">not</span> key <span class="keywordflow">in</span> report: report[key]=[chi2,chi2T]</div>
-<div class="line"><span class="lineno">  351</span>      <span class="keywordflow">return</span> report</div>
-<div class="line"><span class="lineno">  352</span> </div>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00336">336</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  336</span>   <span class="keyword">def </span>calibrationReport(self):</div>
+<div class="line"><span class="lineno">  337</span>      qdc_cal = self.qdc_cal</div>
+<div class="line"><span class="lineno">  338</span>      report = {}</div>
+<div class="line"><span class="lineno">  339</span>      TDC = 0</div>
+<div class="line"><span class="lineno">  340</span>      <span class="keywordflow">for</span> b <span class="keywordflow">in</span> qdc_cal:</div>
+<div class="line"><span class="lineno">  341</span>           <span class="keywordflow">for</span> t <span class="keywordflow">in</span>  qdc_cal[b]:</div>
+<div class="line"><span class="lineno">  342</span>                <span class="keywordflow">for</span> c <span class="keywordflow">in</span> qdc_cal[b][t]:</div>
+<div class="line"><span class="lineno">  343</span>                     <span class="keywordflow">for</span> tac <span class="keywordflow">in</span> qdc_cal[b][t][c]:</div>
+<div class="line"><span class="lineno">  344</span>                               par    = qdc_cal[b][t][c][tac]</div>
+<div class="line"><span class="lineno">  345</span>                               <span class="keywordflow">if</span> <span class="stringliteral">&#39;chi2Ndof&#39;</span> <span class="keywordflow">in</span> par:                             chi2 = par[<span class="stringliteral">&#39;chi2Ndof&#39;</span>]</div>
+<div class="line"><span class="lineno">  346</span>                               <span class="keywordflow">else</span>: chi2=-1</div>
+<div class="line"><span class="lineno">  347</span>                               parT = qdc_cal[b][t][c][tac][TDC]</div>
+<div class="line"><span class="lineno">  348</span>                               <span class="keywordflow">if</span> <span class="stringliteral">&#39;chi2Ndof&#39;</span> <span class="keywordflow">in</span> parT:   chi2T = parT[<span class="stringliteral">&#39;chi2Ndof&#39;</span>]</div>
+<div class="line"><span class="lineno">  349</span>                               <span class="keywordflow">else</span>: chi2T=-1</div>
+<div class="line"><span class="lineno">  350</span>                               key = tac +10*c + t*10*100 + b*10*100*100</div>
+<div class="line"><span class="lineno">  351</span>                               <span class="keywordflow">if</span> <span class="keywordflow">not</span> key <span class="keywordflow">in</span> report: report[key]=[chi2,chi2T]</div>
+<div class="line"><span class="lineno">  352</span>      <span class="keywordflow">return</span> report</div>
+<div class="line"><span class="lineno">  353</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -280,11 +280,11 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00306">306</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  306</span>   <span class="keyword">def </span>channel(self,tofpet_id,tofpet_channel,position):</div>
-<div class="line"><span class="lineno">  307</span>      <span class="keywordflow">return</span> (64 * tofpet_id + 63 - tofpet_channel + 512*position) <span class="comment"># 512 channels per mat, 1536 channels per plane</span></div>
-<div class="line"><span class="lineno">  308</span>                                                                                                                                     <span class="comment"># one channel covers all 6 layers of fibres</span></div>
-<div class="line"><span class="lineno">  309</span> </div>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00307">307</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  307</span>   <span class="keyword">def </span>channel(self,tofpet_id,tofpet_channel,position):</div>
+<div class="line"><span class="lineno">  308</span>      <span class="keywordflow">return</span> (64 * tofpet_id + 63 - tofpet_channel + 512*position) <span class="comment"># 512 channels per mat, 1536 channels per plane</span></div>
+<div class="line"><span class="lineno">  309</span>                                                                                                                                     <span class="comment"># one channel covers all 6 layers of fibres</span></div>
+<div class="line"><span class="lineno">  310</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -352,20 +352,20 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00322">322</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  322</span>   <span class="keyword">def </span>comb_calibration(self,board_id,tofpet_id,channel,tac,v_coarse,v_fine,t_coarse,t_fine,GQDC = 1.0, TDC=0): <span class="comment"># max gain QDC = 3.6</span></div>
-<div class="line"><span class="lineno">  323</span>      qdc_cal = self.qdc_cal</div>
-<div class="line"><span class="lineno">  324</span>      par  = qdc_cal[board_id][tofpet_id][channel][tac]</div>
-<div class="line"><span class="lineno">  325</span>      parT = par[TDC]</div>
-<div class="line"><span class="lineno">  326</span>      x    = t_fine</div>
-<div class="line"><span class="lineno">  327</span>      ftdc = (-parT[<span class="stringliteral">&#39;b&#39;</span>]-ROOT.TMath.Sqrt(parT[<span class="stringliteral">&#39;b&#39;</span>]**2-4*parT[<span class="stringliteral">&#39;a&#39;</span>]*(parT[<span class="stringliteral">&#39;c&#39;</span>]-x)))/(2*parT[<span class="stringliteral">&#39;a&#39;</span>]) <span class="comment">#   Ettore 28/01/2022 +parT[&#39;d&#39;]</span></div>
-<div class="line"><span class="lineno">  328</span>      timestamp = t_coarse + ftdc</div>
-<div class="line"><span class="lineno">  329</span>      tf = timestamp - t_coarse</div>
-<div class="line"><span class="lineno">  330</span>      x = v_coarse - tf</div>
-<div class="line"><span class="lineno">  331</span>      fqdc = -par[<span class="stringliteral">&#39;c&#39;</span>]*ROOT.TMath.Log(1+ROOT.TMath.Exp( par[<span class="stringliteral">&#39;a&#39;</span>]*(x-par[<span class="stringliteral">&#39;e&#39;</span>])**2-par[<span class="stringliteral">&#39;b&#39;</span>]*(x-par[<span class="stringliteral">&#39;e&#39;</span>]) )) + par[<span class="stringliteral">&#39;d&#39;</span>]</div>
-<div class="line"><span class="lineno">  332</span>      value = (v_fine-fqdc)/GQDC</div>
-<div class="line"><span class="lineno">  333</span>      <span class="keywordflow">return</span> timestamp,value,max(par[<span class="stringliteral">&#39;chi2Ndof&#39;</span>],parT[<span class="stringliteral">&#39;chi2Ndof&#39;</span>]),v_fine/par[<span class="stringliteral">&#39;d&#39;</span>]</div>
-<div class="line"><span class="lineno">  334</span> </div>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00323">323</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  323</span>   <span class="keyword">def </span>comb_calibration(self,board_id,tofpet_id,channel,tac,v_coarse,v_fine,t_coarse,t_fine,GQDC = 1.0, TDC=0): <span class="comment"># max gain QDC = 3.6</span></div>
+<div class="line"><span class="lineno">  324</span>      qdc_cal = self.qdc_cal</div>
+<div class="line"><span class="lineno">  325</span>      par  = qdc_cal[board_id][tofpet_id][channel][tac]</div>
+<div class="line"><span class="lineno">  326</span>      parT = par[TDC]</div>
+<div class="line"><span class="lineno">  327</span>      x    = t_fine</div>
+<div class="line"><span class="lineno">  328</span>      ftdc = (-parT[<span class="stringliteral">&#39;b&#39;</span>]-ROOT.TMath.Sqrt(parT[<span class="stringliteral">&#39;b&#39;</span>]**2-4*parT[<span class="stringliteral">&#39;a&#39;</span>]*(parT[<span class="stringliteral">&#39;c&#39;</span>]-x)))/(2*parT[<span class="stringliteral">&#39;a&#39;</span>]) <span class="comment">#   Ettore 28/01/2022 +parT[&#39;d&#39;]</span></div>
+<div class="line"><span class="lineno">  329</span>      timestamp = t_coarse + ftdc</div>
+<div class="line"><span class="lineno">  330</span>      tf = timestamp - t_coarse</div>
+<div class="line"><span class="lineno">  331</span>      x = v_coarse - tf</div>
+<div class="line"><span class="lineno">  332</span>      fqdc = -par[<span class="stringliteral">&#39;c&#39;</span>]*ROOT.TMath.Log(1+ROOT.TMath.Exp( par[<span class="stringliteral">&#39;a&#39;</span>]*(x-par[<span class="stringliteral">&#39;e&#39;</span>])**2-par[<span class="stringliteral">&#39;b&#39;</span>]*(x-par[<span class="stringliteral">&#39;e&#39;</span>]) )) + par[<span class="stringliteral">&#39;d&#39;</span>]</div>
+<div class="line"><span class="lineno">  333</span>      value = (v_fine-fqdc)/GQDC</div>
+<div class="line"><span class="lineno">  334</span>      <span class="keywordflow">return</span> timestamp,value,max(par[<span class="stringliteral">&#39;chi2Ndof&#39;</span>],parT[<span class="stringliteral">&#39;chi2Ndof&#39;</span>]),v_fine/par[<span class="stringliteral">&#39;d&#39;</span>]</div>
+<div class="line"><span class="lineno">  335</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -398,18 +398,18 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00353">353</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  353</span>   <span class="keyword">def </span>debugMapping(self,board,tofpet_id,tofpet_channel):</div>
-<div class="line"><span class="lineno">  354</span>                  key = (tofpet_id%2)*1000 + tofpet_channel</div>
-<div class="line"><span class="lineno">  355</span>                  tmp = boardMaps[<span class="stringliteral">&#39;MuFilter&#39;</span>][board][self.slots[tofpet_id]]</div>
-<div class="line"><span class="lineno">  356</span>                  sipmChannel = TofpetMap[system][key]-1</div>
-<div class="line"><span class="lineno">  357</span>                  nSiPMs =   abs(offMap[tmp][1])</div>
-<div class="line"><span class="lineno">  358</span>                  nSides =   abs(offMap[tmp][2])</div>
-<div class="line"><span class="lineno">  359</span>                  direction            = int(offMap[tmp][1]/nSiPMs)</div>
-<div class="line"><span class="lineno">  360</span>                  detID                   = offMap[tmp][0] + direction*(sipmChannel//(nSiPMs))</div>
-<div class="line"><span class="lineno">  361</span>                  sipm_number = sipmChannel%(nSiPMs)</div>
-<div class="line"><span class="lineno">  362</span>                  print(sipmChannel,nSiPMs,nSides,detID,sipm_number)</div>
-<div class="line"><span class="lineno">  363</span> </div>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00354">354</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  354</span>   <span class="keyword">def </span>debugMapping(self,board,tofpet_id,tofpet_channel):</div>
+<div class="line"><span class="lineno">  355</span>                  key = (tofpet_id%2)*1000 + tofpet_channel</div>
+<div class="line"><span class="lineno">  356</span>                  tmp = boardMaps[<span class="stringliteral">&#39;MuFilter&#39;</span>][board][self.slots[tofpet_id]]</div>
+<div class="line"><span class="lineno">  357</span>                  sipmChannel = TofpetMap[system][key]-1</div>
+<div class="line"><span class="lineno">  358</span>                  nSiPMs =   abs(offMap[tmp][1])</div>
+<div class="line"><span class="lineno">  359</span>                  nSides =   abs(offMap[tmp][2])</div>
+<div class="line"><span class="lineno">  360</span>                  direction            = int(offMap[tmp][1]/nSiPMs)</div>
+<div class="line"><span class="lineno">  361</span>                  detID                   = offMap[tmp][0] + direction*(sipmChannel//(nSiPMs))</div>
+<div class="line"><span class="lineno">  362</span>                  sipm_number = sipmChannel%(nSiPMs)</div>
+<div class="line"><span class="lineno">  363</span>                  print(sipmChannel,nSiPMs,nSides,detID,sipm_number)</div>
+<div class="line"><span class="lineno">  364</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -432,10 +432,10 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00418">418</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  418</span>   <span class="keyword">def </span>executeEvent(self,eventNumber):</div>
-<div class="line"><span class="lineno">  419</span>       <span class="keywordflow">if</span> self.newFormat: self.executeEvent1(eventNumber)</div>
-<div class="line"><span class="lineno">  420</span>       <span class="keywordflow">else</span>:              self.executeEvent0(eventNumber)</div>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00419">419</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  419</span>   <span class="keyword">def </span>executeEvent(self,eventNumber):</div>
+<div class="line"><span class="lineno">  420</span>       <span class="keywordflow">if</span> self.newFormat: self.executeEvent1(eventNumber)</div>
+<div class="line"><span class="lineno">  421</span>       <span class="keywordflow">else</span>:              self.executeEvent0(eventNumber)</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -458,81 +458,81 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00567">567</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  567</span>   <span class="keyword">def </span>executeEvent0(self,eventNumber):</div>
-<div class="line"><span class="lineno">  568</span>     <span class="keywordflow">if</span> self.options.FairTask_convRaw:</div>
-<div class="line"><span class="lineno">  569</span>          <span class="comment"># update source and run conversion starting from a custom eventN </span></div>
-<div class="line"><span class="lineno">  570</span>          <span class="keywordflow">if</span> self.auto:              </div>
-<div class="line"><span class="lineno">  571</span>             self.run.GetTask(<span class="stringliteral">&quot;ConvRawData&quot;</span>).UpdateInput(eventNumber)</div>
-<div class="line"><span class="lineno">  572</span>          self.run.Run(self.options.nStart, self.nEvents)</div>
-<div class="line"><span class="lineno">  573</span>          Fout = self.outfile.GetRootFile()</div>
-<div class="line"><span class="lineno">  574</span>          self.sTree = Fout.Get(<span class="stringliteral">&#39;cbmsim&#39;</span>)</div>
-<div class="line"><span class="lineno">  575</span>          <span class="keywordflow">return</span>   </div>
-<div class="line"><span class="lineno">  576</span>     <span class="keywordflow">if</span> eventNumber%self.options.heartBeat==0 <span class="keywordflow">or</span> self.debug:</div>
-<div class="line"><span class="lineno">  577</span>               print(<span class="stringliteral">&#39;run &#39;</span>,self.options.runNumber, <span class="stringliteral">&#39; event&#39;</span>,eventNumber,<span class="stringliteral">&quot; &quot;</span>,time.ctime())</div>
-<div class="line"><span class="lineno">  578</span>     event = self.fiN.Get(<span class="stringliteral">&quot;event&quot;</span>)</div>
-<div class="line"><span class="lineno">  579</span>     rc = event.GetEvent(eventNumber)</div>
-<div class="line"><span class="lineno">  580</span>     self.header.SetEventTime(event.timestamp)</div>
-<div class="line"><span class="lineno">  581</span>     self.header.SetRunId( self.options.runNumber )</div>
-<div class="line"><span class="lineno">  582</span>     self.header.SetInputFileId(self.geoVersion)</div>
-<div class="line"><span class="lineno">  583</span> </div>
-<div class="line"><span class="lineno">  584</span>     indexSciFi=0</div>
-<div class="line"><span class="lineno">  585</span>     self.digiSciFi.Delete()</div>
-<div class="line"><span class="lineno">  586</span>     digiSciFiStore = {}</div>
-<div class="line"><span class="lineno">  587</span>     indexMuFilter = 0</div>
-<div class="line"><span class="lineno">  588</span>     self.digiMuFilter.Delete()</div>
-<div class="line"><span class="lineno">  589</span>     digiMuFilterStore = {}</div>
-<div class="line"><span class="lineno">  590</span> </div>
-<div class="line"><span class="lineno">  591</span>     <span class="keywordflow">for</span> board <span class="keywordflow">in</span> self.boards:</div>
-<div class="line"><span class="lineno">  592</span>        board_id = int(board.split(<span class="stringliteral">&#39;_&#39;</span>)[1])</div>
-<div class="line"><span class="lineno">  593</span>        scifi = <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">  594</span>        <span class="keywordflow">if</span> board <span class="keywordflow">in</span> self.boardMaps[<span class="stringliteral">&#39;Scifi&#39;</span>]:</div>
-<div class="line"><span class="lineno">  595</span>            station,mat = self.boardMaps[<span class="stringliteral">&#39;Scifi&#39;</span>][board]</div>
-<div class="line"><span class="lineno">  596</span>        <span class="keywordflow">elif</span> board <span class="keywordflow">in</span> self.boardMaps[<span class="stringliteral">&#39;MuFilter&#39;</span>]:</div>
-<div class="line"><span class="lineno">  597</span>            scifi = <span class="keyword">False</span></div>
-<div class="line"><span class="lineno">  598</span>        <span class="keywordflow">else</span>: </div>
-<div class="line"><span class="lineno">  599</span>             print(board+<span class="stringliteral">&#39; not known. Serious error, stop&#39;</span>)</div>
-<div class="line"><span class="lineno">  600</span>             1/0</div>
-<div class="line"><span class="lineno">  601</span>        bt = self.boards[board]</div>
-<div class="line"><span class="lineno">  602</span>        rc  = bt.GetEvent(eventNumber)</div>
-<div class="line"><span class="lineno">  603</span>        <span class="keywordflow">for</span> n <span class="keywordflow">in</span> range(bt.n_hits):</div>
-<div class="line"><span class="lineno">  604</span>           mask = <span class="keyword">False</span></div>
-<div class="line"><span class="lineno">  605</span>           tofpet_id = bt.tofpet_id[n]</div>
-<div class="line"><span class="lineno">  606</span>           tofpet_channel = bt.tofpet_channel[n]</div>
-<div class="line"><span class="lineno">  607</span>           <span class="keywordflow">if</span> self.options.makeCalibration:</div>
-<div class="line"><span class="lineno">  608</span>               <span class="keywordflow">if</span> self.options.debug:</div>
-<div class="line"><span class="lineno">  609</span>                    print(scifi,board_id,bt.tofpet_id[n],bt.tofpet_channel[n],bt.tac[n],bt.t_coarse[n],bt.t_fine[n],bt.v_coarse[n],bt.v_fine[n])</div>
-<div class="line"><span class="lineno">  610</span>               tac = bt.tac[n]</div>
-<div class="line"><span class="lineno">  611</span>               TDC,QDC,Chi2ndof,satur = self.comb_calibration(board_id,tofpet_id,tofpet_channel,tac,bt.v_coarse[n],bt.v_fine[n],bt.t_coarse[n],bt.t_fine[n])</div>
-<div class="line"><span class="lineno">  612</span>           <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  613</span>               TDC = bt.timestamp[n]</div>
-<div class="line"><span class="lineno">  614</span>               QDC = bt.value[n]</div>
-<div class="line"><span class="lineno">  615</span>               Chi2ndof = 1</div>
-<div class="line"><span class="lineno">  616</span>               satur = 0.</div>
-<div class="line"><span class="lineno">  617</span>           <span class="keywordflow">if</span> Chi2ndof &gt; self.options.chi2Max:</div>
-<div class="line"><span class="lineno">  618</span>                         <span class="keywordflow">if</span> QDC&gt;1E20:    QDC = 997.   <span class="comment"># checking for inf</span></div>
-<div class="line"><span class="lineno">  619</span>                         <span class="keywordflow">if</span> QDC != QDC:  QDC = 998.   <span class="comment"># checking for nan</span></div>
-<div class="line"><span class="lineno">  620</span>                         <span class="keywordflow">if</span> QDC&gt;0: QDC = -QDC</div>
-<div class="line"><span class="lineno">  621</span>                         mask = <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">  622</span>           <span class="keywordflow">elif</span> satur  &gt; self.options.saturationLimit <span class="keywordflow">or</span> QDC&gt;1E20 <span class="keywordflow">or</span> QDC != QDC:</div>
-<div class="line"><span class="lineno">  623</span>                         <span class="keywordflow">if</span> QDC&gt;1E20:    QDC = 987.   <span class="comment"># checking for inf</span></div>
-<div class="line"><span class="lineno">  624</span>                         <span class="keywordflow">if</span> self.options.debug: </div>
-<div class="line"><span class="lineno">  625</span>                                print(<span class="stringliteral">&#39;inf&#39;</span>,board_id,bt.tofpet_id[n],bt.tofpet_channel[n],bt.tac[n],bt.v_coarse[n],bt.v_fine[n],TDC-bt.t_coarse[n],eventNumber,Chi2ndof)</div>
-<div class="line"><span class="lineno">  626</span>                         <span class="keywordflow">if</span> QDC != QDC:  QDC = 988.   <span class="comment"># checking for nan</span></div>
-<div class="line"><span class="lineno">  627</span>                         <span class="keywordflow">if</span> self.options.debug: </div>
-<div class="line"><span class="lineno">  628</span>                                 print(<span class="stringliteral">&#39;nan&#39;</span>,board_id,bt.tofpet_id[n],bt.tofpet_channel[n],bt.tac[n],bt.v_coarse[n],bt.v_fine[n],\</div>
-<div class="line"><span class="lineno">  629</span>                                          TDC-bt.t_coarse[n],TDC,bt.t_coarse[n],eventNumber,Chi2ndof)</div>
-<div class="line"><span class="lineno">  630</span>                         A = int(min( QDC,1000))</div>
-<div class="line"><span class="lineno">  631</span>                         B = min(satur,999)/1000.</div>
-<div class="line"><span class="lineno">  632</span>                         QDC = A+B</div>
-<div class="line"><span class="lineno">  633</span>                         mask = <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">  634</span>           <span class="keywordflow">elif</span> Chi2ndof &gt; self.options.chi2Max:</div>
-<div class="line"><span class="lineno">  635</span>                         <span class="keywordflow">if</span> QDC&gt;0: QDC = -QDC</div>
-<div class="line"><span class="lineno">  636</span>                         mask = <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">  637</span>           <span class="keywordflow">if</span> self.options.debug:</div>
-<div class="line"><span class="lineno">  638</span>                    print(<span class="stringliteral">&#39;calibrated: tdc = &#39;</span>,TDC,<span class="stringliteral">&#39;  qdc = &#39;</span>,QDC)  <span class="comment"># TDC clock cycle = 160 MHz or 6.25ns</span></div>
-<div class="line"><span class="lineno">  639</span> </div>
-<div class="line"><span class="lineno">  640</span>           <span class="keywordflow">if</span> <span class="keywordflow">not</span> scifi:</div>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00568">568</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  568</span>   <span class="keyword">def </span>executeEvent0(self,eventNumber):</div>
+<div class="line"><span class="lineno">  569</span>     <span class="keywordflow">if</span> self.options.FairTask_convRaw:</div>
+<div class="line"><span class="lineno">  570</span>          <span class="comment"># update source and run conversion starting from a custom eventN </span></div>
+<div class="line"><span class="lineno">  571</span>          <span class="keywordflow">if</span> self.auto:              </div>
+<div class="line"><span class="lineno">  572</span>             self.run.GetTask(<span class="stringliteral">&quot;ConvRawData&quot;</span>).UpdateInput(eventNumber)</div>
+<div class="line"><span class="lineno">  573</span>          self.run.Run(self.options.nStart, self.nEvents)</div>
+<div class="line"><span class="lineno">  574</span>          Fout = self.outfile.GetRootFile()</div>
+<div class="line"><span class="lineno">  575</span>          self.sTree = Fout.Get(<span class="stringliteral">&#39;cbmsim&#39;</span>)</div>
+<div class="line"><span class="lineno">  576</span>          <span class="keywordflow">return</span>   </div>
+<div class="line"><span class="lineno">  577</span>     <span class="keywordflow">if</span> eventNumber%self.options.heartBeat==0 <span class="keywordflow">or</span> self.debug:</div>
+<div class="line"><span class="lineno">  578</span>               print(<span class="stringliteral">&#39;run &#39;</span>,self.options.runNumber, <span class="stringliteral">&#39; event&#39;</span>,eventNumber,<span class="stringliteral">&quot; &quot;</span>,time.ctime())</div>
+<div class="line"><span class="lineno">  579</span>     event = self.fiN.Get(<span class="stringliteral">&quot;event&quot;</span>)</div>
+<div class="line"><span class="lineno">  580</span>     rc = event.GetEvent(eventNumber)</div>
+<div class="line"><span class="lineno">  581</span>     self.header.SetEventTime(event.timestamp)</div>
+<div class="line"><span class="lineno">  582</span>     self.header.SetRunId( self.options.runNumber )</div>
+<div class="line"><span class="lineno">  583</span>     self.header.SetInputFileId(self.geoVersion)</div>
+<div class="line"><span class="lineno">  584</span> </div>
+<div class="line"><span class="lineno">  585</span>     indexSciFi=0</div>
+<div class="line"><span class="lineno">  586</span>     self.digiSciFi.Delete()</div>
+<div class="line"><span class="lineno">  587</span>     digiSciFiStore = {}</div>
+<div class="line"><span class="lineno">  588</span>     indexMuFilter = 0</div>
+<div class="line"><span class="lineno">  589</span>     self.digiMuFilter.Delete()</div>
+<div class="line"><span class="lineno">  590</span>     digiMuFilterStore = {}</div>
+<div class="line"><span class="lineno">  591</span> </div>
+<div class="line"><span class="lineno">  592</span>     <span class="keywordflow">for</span> board <span class="keywordflow">in</span> self.boards:</div>
+<div class="line"><span class="lineno">  593</span>        board_id = int(board.split(<span class="stringliteral">&#39;_&#39;</span>)[1])</div>
+<div class="line"><span class="lineno">  594</span>        scifi = <span class="keyword">True</span></div>
+<div class="line"><span class="lineno">  595</span>        <span class="keywordflow">if</span> board <span class="keywordflow">in</span> self.boardMaps[<span class="stringliteral">&#39;Scifi&#39;</span>]:</div>
+<div class="line"><span class="lineno">  596</span>            station,mat = self.boardMaps[<span class="stringliteral">&#39;Scifi&#39;</span>][board]</div>
+<div class="line"><span class="lineno">  597</span>        <span class="keywordflow">elif</span> board <span class="keywordflow">in</span> self.boardMaps[<span class="stringliteral">&#39;MuFilter&#39;</span>]:</div>
+<div class="line"><span class="lineno">  598</span>            scifi = <span class="keyword">False</span></div>
+<div class="line"><span class="lineno">  599</span>        <span class="keywordflow">else</span>: </div>
+<div class="line"><span class="lineno">  600</span>             print(board+<span class="stringliteral">&#39; not known. Serious error, stop&#39;</span>)</div>
+<div class="line"><span class="lineno">  601</span>             1/0</div>
+<div class="line"><span class="lineno">  602</span>        bt = self.boards[board]</div>
+<div class="line"><span class="lineno">  603</span>        rc  = bt.GetEvent(eventNumber)</div>
+<div class="line"><span class="lineno">  604</span>        <span class="keywordflow">for</span> n <span class="keywordflow">in</span> range(bt.n_hits):</div>
+<div class="line"><span class="lineno">  605</span>           mask = <span class="keyword">False</span></div>
+<div class="line"><span class="lineno">  606</span>           tofpet_id = bt.tofpet_id[n]</div>
+<div class="line"><span class="lineno">  607</span>           tofpet_channel = bt.tofpet_channel[n]</div>
+<div class="line"><span class="lineno">  608</span>           <span class="keywordflow">if</span> self.options.makeCalibration:</div>
+<div class="line"><span class="lineno">  609</span>               <span class="keywordflow">if</span> self.options.debug:</div>
+<div class="line"><span class="lineno">  610</span>                    print(scifi,board_id,bt.tofpet_id[n],bt.tofpet_channel[n],bt.tac[n],bt.t_coarse[n],bt.t_fine[n],bt.v_coarse[n],bt.v_fine[n])</div>
+<div class="line"><span class="lineno">  611</span>               tac = bt.tac[n]</div>
+<div class="line"><span class="lineno">  612</span>               TDC,QDC,Chi2ndof,satur = self.comb_calibration(board_id,tofpet_id,tofpet_channel,tac,bt.v_coarse[n],bt.v_fine[n],bt.t_coarse[n],bt.t_fine[n])</div>
+<div class="line"><span class="lineno">  613</span>           <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  614</span>               TDC = bt.timestamp[n]</div>
+<div class="line"><span class="lineno">  615</span>               QDC = bt.value[n]</div>
+<div class="line"><span class="lineno">  616</span>               Chi2ndof = 1</div>
+<div class="line"><span class="lineno">  617</span>               satur = 0.</div>
+<div class="line"><span class="lineno">  618</span>           <span class="keywordflow">if</span> Chi2ndof &gt; self.options.chi2Max:</div>
+<div class="line"><span class="lineno">  619</span>                         <span class="keywordflow">if</span> QDC&gt;1E20:    QDC = 997.   <span class="comment"># checking for inf</span></div>
+<div class="line"><span class="lineno">  620</span>                         <span class="keywordflow">if</span> QDC != QDC:  QDC = 998.   <span class="comment"># checking for nan</span></div>
+<div class="line"><span class="lineno">  621</span>                         <span class="keywordflow">if</span> QDC&gt;0: QDC = -QDC</div>
+<div class="line"><span class="lineno">  622</span>                         mask = <span class="keyword">True</span></div>
+<div class="line"><span class="lineno">  623</span>           <span class="keywordflow">elif</span> satur  &gt; self.options.saturationLimit <span class="keywordflow">or</span> QDC&gt;1E20 <span class="keywordflow">or</span> QDC != QDC:</div>
+<div class="line"><span class="lineno">  624</span>                         <span class="keywordflow">if</span> QDC&gt;1E20:    QDC = 987.   <span class="comment"># checking for inf</span></div>
+<div class="line"><span class="lineno">  625</span>                         <span class="keywordflow">if</span> self.options.debug: </div>
+<div class="line"><span class="lineno">  626</span>                                print(<span class="stringliteral">&#39;inf&#39;</span>,board_id,bt.tofpet_id[n],bt.tofpet_channel[n],bt.tac[n],bt.v_coarse[n],bt.v_fine[n],TDC-bt.t_coarse[n],eventNumber,Chi2ndof)</div>
+<div class="line"><span class="lineno">  627</span>                         <span class="keywordflow">if</span> QDC != QDC:  QDC = 988.   <span class="comment"># checking for nan</span></div>
+<div class="line"><span class="lineno">  628</span>                         <span class="keywordflow">if</span> self.options.debug: </div>
+<div class="line"><span class="lineno">  629</span>                                 print(<span class="stringliteral">&#39;nan&#39;</span>,board_id,bt.tofpet_id[n],bt.tofpet_channel[n],bt.tac[n],bt.v_coarse[n],bt.v_fine[n],\</div>
+<div class="line"><span class="lineno">  630</span>                                          TDC-bt.t_coarse[n],TDC,bt.t_coarse[n],eventNumber,Chi2ndof)</div>
+<div class="line"><span class="lineno">  631</span>                         A = int(min( QDC,1000))</div>
+<div class="line"><span class="lineno">  632</span>                         B = min(satur,999)/1000.</div>
+<div class="line"><span class="lineno">  633</span>                         QDC = A+B</div>
+<div class="line"><span class="lineno">  634</span>                         mask = <span class="keyword">True</span></div>
+<div class="line"><span class="lineno">  635</span>           <span class="keywordflow">elif</span> Chi2ndof &gt; self.options.chi2Max:</div>
+<div class="line"><span class="lineno">  636</span>                         <span class="keywordflow">if</span> QDC&gt;0: QDC = -QDC</div>
+<div class="line"><span class="lineno">  637</span>                         mask = <span class="keyword">True</span></div>
+<div class="line"><span class="lineno">  638</span>           <span class="keywordflow">if</span> self.options.debug:</div>
+<div class="line"><span class="lineno">  639</span>                    print(<span class="stringliteral">&#39;calibrated: tdc = &#39;</span>,TDC,<span class="stringliteral">&#39;  qdc = &#39;</span>,QDC)  <span class="comment"># TDC clock cycle = 160 MHz or 6.25ns</span></div>
+<div class="line"><span class="lineno">  640</span> </div>
+<div class="line"><span class="lineno">  641</span>           <span class="keywordflow">if</span> <span class="keywordflow">not</span> scifi:</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -555,90 +555,90 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00421">421</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  421</span>   <span class="keyword">def </span>executeEvent1(self,eventNumber):</div>
-<div class="line"><span class="lineno">  422</span>     <span class="keywordflow">if</span> self.options.FairTask_convRaw:</div>
-<div class="line"><span class="lineno">  423</span>          <span class="comment"># update source and run conversion starting from a custom eventN </span></div>
-<div class="line"><span class="lineno">  424</span>          <span class="keywordflow">if</span> self.auto:              </div>
-<div class="line"><span class="lineno">  425</span>             self.run.GetTask(<span class="stringliteral">&quot;ConvRawData&quot;</span>).UpdateInput(eventNumber)</div>
-<div class="line"><span class="lineno">  426</span>          self.run.Run(self.options.nStart, self.nEvents)</div>
-<div class="line"><span class="lineno">  427</span>          Fout = self.outfile.GetRootFile()</div>
-<div class="line"><span class="lineno">  428</span>          self.sTree = Fout.Get(<span class="stringliteral">&#39;cbmsim&#39;</span>)</div>
-<div class="line"><span class="lineno">  429</span>          <span class="keywordflow">return</span>   </div>
-<div class="line"><span class="lineno">  430</span>     <span class="keywordflow">if</span> eventNumber%self.options.heartBeat==0 <span class="keywordflow">or</span> self.debug:</div>
-<div class="line"><span class="lineno">  431</span>               print(<span class="stringliteral">&#39;run &#39;</span>,self.options.runNumber, <span class="stringliteral">&#39; event&#39;</span>,eventNumber,<span class="stringliteral">&quot; &quot;</span>,time.ctime())</div>
-<div class="line"><span class="lineno">  432</span> </div>
-<div class="line"><span class="lineno">  433</span>     event = self.fiN.Get(<span class="stringliteral">&quot;data&quot;</span>)</div>
-<div class="line"><span class="lineno">  434</span>     event.GetEvent(eventNumber)</div>
-<div class="line"><span class="lineno">  435</span>     self.header.SetEventTime(event.evt_timestamp)</div>
-<div class="line"><span class="lineno">  436</span>     self.header.SetUTCtimestamp(int(event.evt_timestamp*6.23768*1e-9 + self.run_startUTC))</div>
-<div class="line"><span class="lineno">  437</span>     self.header.SetEventNumber(event.evt_number) <span class="comment">#   for new event header</span></div>
-<div class="line"><span class="lineno">  438</span>     self.header.SetFlags(event.evt_flags)</div>
-<div class="line"><span class="lineno">  439</span>     self.header.SetRunId( self.options.runNumber )</div>
-<div class="line"><span class="lineno">  440</span>     <span class="keywordflow">if</span> self.FSmap.GetEntries()&gt;1:</div>
-<div class="line"><span class="lineno">  441</span>          <span class="keywordflow">if</span> self.header.GetAccMode()== 12: <span class="comment"># ion runs</span></div>
-<div class="line"><span class="lineno">  442</span>            self.header.SetBunchType(int(str(self.FSmap.GetValue(str(int((event.evt_timestamp%(4*3564))/8))))))</div>
-<div class="line"><span class="lineno">  443</span>          <span class="keywordflow">else</span>: <span class="comment"># proton runs</span></div>
-<div class="line"><span class="lineno">  444</span>            self.header.SetBunchType(int(str(self.FSmap.GetValue(str(int((event.evt_timestamp%(4*3564))/4))))))</div>
-<div class="line"><span class="lineno">  445</span>     <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  446</span>          self.header.SetBunchType(int(str(self.FSmap.GetValue(<span class="stringliteral">&quot;0&quot;</span>))))</div>
-<div class="line"><span class="lineno">  447</span> </div>
-<div class="line"><span class="lineno">  448</span>     indexSciFi=0</div>
-<div class="line"><span class="lineno">  449</span>     self.digiSciFi.Delete()</div>
-<div class="line"><span class="lineno">  450</span>     digiSciFiStore = {}</div>
-<div class="line"><span class="lineno">  451</span>     indexMuFilter = 0</div>
-<div class="line"><span class="lineno">  452</span>     self.digiMuFilter.Delete()</div>
-<div class="line"><span class="lineno">  453</span>     digiMuFilterStore = {}</div>
-<div class="line"><span class="lineno">  454</span> </div>
-<div class="line"><span class="lineno">  455</span>     <span class="keywordflow">for</span> n <span class="keywordflow">in</span> range(event.n_hits):</div>
-<div class="line"><span class="lineno">  456</span>           board_id = event.boardId[n]</div>
-<div class="line"><span class="lineno">  457</span>           board = <span class="stringliteral">&#39;board_&#39;</span>+str(board_id)</div>
-<div class="line"><span class="lineno">  458</span>           scifi = <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">  459</span>           <span class="keywordflow">if</span> board <span class="keywordflow">in</span> self.boardMaps[<span class="stringliteral">&#39;Scifi&#39;</span>]:</div>
-<div class="line"><span class="lineno">  460</span>              station,mat = self.boardMaps[<span class="stringliteral">&#39;Scifi&#39;</span>][board]</div>
-<div class="line"><span class="lineno">  461</span>           <span class="keywordflow">elif</span> board <span class="keywordflow">in</span> self.boardMaps[<span class="stringliteral">&#39;MuFilter&#39;</span>]:</div>
-<div class="line"><span class="lineno">  462</span>              scifi = <span class="keyword">False</span></div>
-<div class="line"><span class="lineno">  463</span>           <span class="keywordflow">else</span>: </div>
-<div class="line"><span class="lineno">  464</span>             print(board+<span class="stringliteral">&#39; not known. Serious error, stop&#39;</span>)</div>
-<div class="line"><span class="lineno">  465</span>             1/0</div>
-<div class="line"><span class="lineno">  466</span>           mask = <span class="keyword">False</span></div>
-<div class="line"><span class="lineno">  467</span>           tofpet_id = event.tofpetId[n]</div>
-<div class="line"><span class="lineno">  468</span>           tofpet_channel = event.tofpetChannel[n]</div>
-<div class="line"><span class="lineno">  469</span>           <span class="keywordflow">if</span> self.options.makeCalibration:</div>
-<div class="line"><span class="lineno">  470</span>               <span class="keywordflow">if</span> self.options.debug:</div>
-<div class="line"><span class="lineno">  471</span>                    tac = event.tac[n]</div>
-<div class="line"><span class="lineno">  472</span>                    print(scifi,board_id,tofpet_id,tofpet_channel,tac,event.tCoarse[n],event.tFine[n],event.vCoarse[n],event.vFine[n])</div>
-<div class="line"><span class="lineno">  473</span>               TDC,QDC,Chi2ndof,satur = self.comb_calibration(board_id,tofpet_id,tofpet_channel,tac,event.vCoarse[n],event.vFine[n],event.tCoarse[n],event.tFine[n])</div>
-<div class="line"><span class="lineno">  474</span>           <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  475</span>               TDC = event.timestamp[n]</div>
-<div class="line"><span class="lineno">  476</span>               QDC = event.value[n]</div>
-<div class="line"><span class="lineno">  477</span>               QDCchi2N = event.valueCalChi2[n]/event.valueCalDof[n]</div>
-<div class="line"><span class="lineno">  478</span>               TDCchi2N = event.timestampCalChi2[n]/event.timestampCalDof[n]</div>
-<div class="line"><span class="lineno">  479</span>               Chi2ndof = max( QDCchi2N,TDCchi2N )</div>
-<div class="line"><span class="lineno">  480</span>               satur = event.value_saturation[n]</div>
-<div class="line"><span class="lineno">  481</span>           <span class="keywordflow">if</span> Chi2ndof &gt; self.options.chi2Max:</div>
-<div class="line"><span class="lineno">  482</span>                         <span class="keywordflow">if</span> QDC&gt;1E20:    QDC = 997.   <span class="comment"># checking for inf</span></div>
-<div class="line"><span class="lineno">  483</span>                         <span class="keywordflow">if</span> QDC != QDC:  QDC = 998.   <span class="comment"># checking for nan</span></div>
-<div class="line"><span class="lineno">  484</span>                         <span class="keywordflow">if</span> QDC&gt;0: QDC = -QDC</div>
-<div class="line"><span class="lineno">  485</span>                         mask = <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">  486</span>           <span class="keywordflow">elif</span> satur  &gt; self.options.saturationLimit <span class="keywordflow">or</span> QDC&gt;1E20 <span class="keywordflow">or</span> QDC != QDC:</div>
-<div class="line"><span class="lineno">  487</span>                         <span class="keywordflow">if</span> QDC&gt;1E20:    QDC = 987.   <span class="comment"># checking for inf</span></div>
-<div class="line"><span class="lineno">  488</span>                         <span class="keywordflow">if</span> self.options.debug: </div>
-<div class="line"><span class="lineno">  489</span>                                print(<span class="stringliteral">&#39;inf&#39;</span>,board_id,tofpet_id,tofpet_channel,event.tac[n],event.vCoarse[n],event.vFine[n],TDC-event.tCoarse[n],eventNumber,Chi2ndof)</div>
-<div class="line"><span class="lineno">  490</span>                         <span class="keywordflow">if</span> QDC != QDC:  QDC = 988.   <span class="comment"># checking for nan</span></div>
-<div class="line"><span class="lineno">  491</span>                         <span class="keywordflow">if</span> self.options.debug: </div>
-<div class="line"><span class="lineno">  492</span>                                 print(<span class="stringliteral">&#39;nan&#39;</span>,board_id,tofpet_id,tofpet_channel,event.tac[n],event.vCoarse[n],event.vFine[n],TDC-event.tCoarse[n],eventNumber,Chi2ndof)</div>
-<div class="line"><span class="lineno">  493</span>                         A = int(min( QDC,1000))</div>
-<div class="line"><span class="lineno">  494</span>                         B = min(satur,999)/1000.</div>
-<div class="line"><span class="lineno">  495</span>                         QDC = A+B</div>
-<div class="line"><span class="lineno">  496</span>                         mask = <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">  497</span>           <span class="keywordflow">elif</span> Chi2ndof &gt; self.options.chi2Max:</div>
-<div class="line"><span class="lineno">  498</span>                         <span class="keywordflow">if</span> QDC&gt;0: QDC = -QDC</div>
-<div class="line"><span class="lineno">  499</span>                         mask = <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">  500</span>           <span class="keywordflow">if</span> self.options.debug:</div>
-<div class="line"><span class="lineno">  501</span>                    print(<span class="stringliteral">&#39;calibrated: tdc = &#39;</span>,TDC,<span class="stringliteral">&#39;  qdc = &#39;</span>,QDC)  <span class="comment"># TDC clock cycle = 160 MHz or 6.25ns</span></div>
-<div class="line"><span class="lineno">  502</span> </div>
-<div class="line"><span class="lineno">  503</span>           <span class="keywordflow">if</span> <span class="keywordflow">not</span> scifi:</div>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00422">422</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  422</span>   <span class="keyword">def </span>executeEvent1(self,eventNumber):</div>
+<div class="line"><span class="lineno">  423</span>     <span class="keywordflow">if</span> self.options.FairTask_convRaw:</div>
+<div class="line"><span class="lineno">  424</span>          <span class="comment"># update source and run conversion starting from a custom eventN </span></div>
+<div class="line"><span class="lineno">  425</span>          <span class="keywordflow">if</span> self.auto:              </div>
+<div class="line"><span class="lineno">  426</span>             self.run.GetTask(<span class="stringliteral">&quot;ConvRawData&quot;</span>).UpdateInput(eventNumber)</div>
+<div class="line"><span class="lineno">  427</span>          self.run.Run(self.options.nStart, self.nEvents)</div>
+<div class="line"><span class="lineno">  428</span>          Fout = self.outfile.GetRootFile()</div>
+<div class="line"><span class="lineno">  429</span>          self.sTree = Fout.Get(<span class="stringliteral">&#39;cbmsim&#39;</span>)</div>
+<div class="line"><span class="lineno">  430</span>          <span class="keywordflow">return</span>   </div>
+<div class="line"><span class="lineno">  431</span>     <span class="keywordflow">if</span> eventNumber%self.options.heartBeat==0 <span class="keywordflow">or</span> self.debug:</div>
+<div class="line"><span class="lineno">  432</span>               print(<span class="stringliteral">&#39;run &#39;</span>,self.options.runNumber, <span class="stringliteral">&#39; event&#39;</span>,eventNumber,<span class="stringliteral">&quot; &quot;</span>,time.ctime())</div>
+<div class="line"><span class="lineno">  433</span> </div>
+<div class="line"><span class="lineno">  434</span>     event = self.fiN.Get(<span class="stringliteral">&quot;data&quot;</span>)</div>
+<div class="line"><span class="lineno">  435</span>     event.GetEvent(eventNumber)</div>
+<div class="line"><span class="lineno">  436</span>     self.header.SetEventTime(event.evt_timestamp)</div>
+<div class="line"><span class="lineno">  437</span>     self.header.SetUTCtimestamp(int(event.evt_timestamp*6.23768*1e-9 + self.run_startUTC))</div>
+<div class="line"><span class="lineno">  438</span>     self.header.SetEventNumber(event.evt_number) <span class="comment">#   for new event header</span></div>
+<div class="line"><span class="lineno">  439</span>     self.header.SetFlags(event.evt_flags)</div>
+<div class="line"><span class="lineno">  440</span>     self.header.SetRunId( self.options.runNumber )</div>
+<div class="line"><span class="lineno">  441</span>     <span class="keywordflow">if</span> self.FSmap.GetEntries()&gt;1:</div>
+<div class="line"><span class="lineno">  442</span>          <span class="keywordflow">if</span> self.header.GetAccMode()== 12: <span class="comment"># ion runs</span></div>
+<div class="line"><span class="lineno">  443</span>            self.header.SetBunchType(int(str(self.FSmap.GetValue(str(int((event.evt_timestamp%(4*3564))/8))))))</div>
+<div class="line"><span class="lineno">  444</span>          <span class="keywordflow">else</span>: <span class="comment"># proton runs</span></div>
+<div class="line"><span class="lineno">  445</span>            self.header.SetBunchType(int(str(self.FSmap.GetValue(str(int((event.evt_timestamp%(4*3564))/4))))))</div>
+<div class="line"><span class="lineno">  446</span>     <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  447</span>          self.header.SetBunchType(int(str(self.FSmap.GetValue(<span class="stringliteral">&quot;0&quot;</span>))))</div>
+<div class="line"><span class="lineno">  448</span> </div>
+<div class="line"><span class="lineno">  449</span>     indexSciFi=0</div>
+<div class="line"><span class="lineno">  450</span>     self.digiSciFi.Delete()</div>
+<div class="line"><span class="lineno">  451</span>     digiSciFiStore = {}</div>
+<div class="line"><span class="lineno">  452</span>     indexMuFilter = 0</div>
+<div class="line"><span class="lineno">  453</span>     self.digiMuFilter.Delete()</div>
+<div class="line"><span class="lineno">  454</span>     digiMuFilterStore = {}</div>
+<div class="line"><span class="lineno">  455</span> </div>
+<div class="line"><span class="lineno">  456</span>     <span class="keywordflow">for</span> n <span class="keywordflow">in</span> range(event.n_hits):</div>
+<div class="line"><span class="lineno">  457</span>           board_id = event.boardId[n]</div>
+<div class="line"><span class="lineno">  458</span>           board = <span class="stringliteral">&#39;board_&#39;</span>+str(board_id)</div>
+<div class="line"><span class="lineno">  459</span>           scifi = <span class="keyword">True</span></div>
+<div class="line"><span class="lineno">  460</span>           <span class="keywordflow">if</span> board <span class="keywordflow">in</span> self.boardMaps[<span class="stringliteral">&#39;Scifi&#39;</span>]:</div>
+<div class="line"><span class="lineno">  461</span>              station,mat = self.boardMaps[<span class="stringliteral">&#39;Scifi&#39;</span>][board]</div>
+<div class="line"><span class="lineno">  462</span>           <span class="keywordflow">elif</span> board <span class="keywordflow">in</span> self.boardMaps[<span class="stringliteral">&#39;MuFilter&#39;</span>]:</div>
+<div class="line"><span class="lineno">  463</span>              scifi = <span class="keyword">False</span></div>
+<div class="line"><span class="lineno">  464</span>           <span class="keywordflow">else</span>: </div>
+<div class="line"><span class="lineno">  465</span>             print(board+<span class="stringliteral">&#39; not known. Serious error, stop&#39;</span>)</div>
+<div class="line"><span class="lineno">  466</span>             1/0</div>
+<div class="line"><span class="lineno">  467</span>           mask = <span class="keyword">False</span></div>
+<div class="line"><span class="lineno">  468</span>           tofpet_id = event.tofpetId[n]</div>
+<div class="line"><span class="lineno">  469</span>           tofpet_channel = event.tofpetChannel[n]</div>
+<div class="line"><span class="lineno">  470</span>           <span class="keywordflow">if</span> self.options.makeCalibration:</div>
+<div class="line"><span class="lineno">  471</span>               <span class="keywordflow">if</span> self.options.debug:</div>
+<div class="line"><span class="lineno">  472</span>                    tac = event.tac[n]</div>
+<div class="line"><span class="lineno">  473</span>                    print(scifi,board_id,tofpet_id,tofpet_channel,tac,event.tCoarse[n],event.tFine[n],event.vCoarse[n],event.vFine[n])</div>
+<div class="line"><span class="lineno">  474</span>               TDC,QDC,Chi2ndof,satur = self.comb_calibration(board_id,tofpet_id,tofpet_channel,tac,event.vCoarse[n],event.vFine[n],event.tCoarse[n],event.tFine[n])</div>
+<div class="line"><span class="lineno">  475</span>           <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  476</span>               TDC = event.timestamp[n]</div>
+<div class="line"><span class="lineno">  477</span>               QDC = event.value[n]</div>
+<div class="line"><span class="lineno">  478</span>               QDCchi2N = event.valueCalChi2[n]/event.valueCalDof[n]</div>
+<div class="line"><span class="lineno">  479</span>               TDCchi2N = event.timestampCalChi2[n]/event.timestampCalDof[n]</div>
+<div class="line"><span class="lineno">  480</span>               Chi2ndof = max( QDCchi2N,TDCchi2N )</div>
+<div class="line"><span class="lineno">  481</span>               satur = event.value_saturation[n]</div>
+<div class="line"><span class="lineno">  482</span>           <span class="keywordflow">if</span> Chi2ndof &gt; self.options.chi2Max:</div>
+<div class="line"><span class="lineno">  483</span>                         <span class="keywordflow">if</span> QDC&gt;1E20:    QDC = 997.   <span class="comment"># checking for inf</span></div>
+<div class="line"><span class="lineno">  484</span>                         <span class="keywordflow">if</span> QDC != QDC:  QDC = 998.   <span class="comment"># checking for nan</span></div>
+<div class="line"><span class="lineno">  485</span>                         <span class="keywordflow">if</span> QDC&gt;0: QDC = -QDC</div>
+<div class="line"><span class="lineno">  486</span>                         mask = <span class="keyword">True</span></div>
+<div class="line"><span class="lineno">  487</span>           <span class="keywordflow">elif</span> satur  &gt; self.options.saturationLimit <span class="keywordflow">or</span> QDC&gt;1E20 <span class="keywordflow">or</span> QDC != QDC:</div>
+<div class="line"><span class="lineno">  488</span>                         <span class="keywordflow">if</span> QDC&gt;1E20:    QDC = 987.   <span class="comment"># checking for inf</span></div>
+<div class="line"><span class="lineno">  489</span>                         <span class="keywordflow">if</span> self.options.debug: </div>
+<div class="line"><span class="lineno">  490</span>                                print(<span class="stringliteral">&#39;inf&#39;</span>,board_id,tofpet_id,tofpet_channel,event.tac[n],event.vCoarse[n],event.vFine[n],TDC-event.tCoarse[n],eventNumber,Chi2ndof)</div>
+<div class="line"><span class="lineno">  491</span>                         <span class="keywordflow">if</span> QDC != QDC:  QDC = 988.   <span class="comment"># checking for nan</span></div>
+<div class="line"><span class="lineno">  492</span>                         <span class="keywordflow">if</span> self.options.debug: </div>
+<div class="line"><span class="lineno">  493</span>                                 print(<span class="stringliteral">&#39;nan&#39;</span>,board_id,tofpet_id,tofpet_channel,event.tac[n],event.vCoarse[n],event.vFine[n],TDC-event.tCoarse[n],eventNumber,Chi2ndof)</div>
+<div class="line"><span class="lineno">  494</span>                         A = int(min( QDC,1000))</div>
+<div class="line"><span class="lineno">  495</span>                         B = min(satur,999)/1000.</div>
+<div class="line"><span class="lineno">  496</span>                         QDC = A+B</div>
+<div class="line"><span class="lineno">  497</span>                         mask = <span class="keyword">True</span></div>
+<div class="line"><span class="lineno">  498</span>           <span class="keywordflow">elif</span> Chi2ndof &gt; self.options.chi2Max:</div>
+<div class="line"><span class="lineno">  499</span>                         <span class="keywordflow">if</span> QDC&gt;0: QDC = -QDC</div>
+<div class="line"><span class="lineno">  500</span>                         mask = <span class="keyword">True</span></div>
+<div class="line"><span class="lineno">  501</span>           <span class="keywordflow">if</span> self.options.debug:</div>
+<div class="line"><span class="lineno">  502</span>                    print(<span class="stringliteral">&#39;calibrated: tdc = &#39;</span>,TDC,<span class="stringliteral">&#39;  qdc = &#39;</span>,QDC)  <span class="comment"># TDC clock cycle = 160 MHz or 6.25ns</span></div>
+<div class="line"><span class="lineno">  503</span> </div>
+<div class="line"><span class="lineno">  504</span>           <span class="keywordflow">if</span> <span class="keywordflow">not</span> scifi:</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -657,9 +657,9 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00706">706</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  706</span>   <span class="keyword">def </span>Finalize(self):</div>
-<div class="line"><span class="lineno">  707</span>      <span class="keywordflow">if</span> self.options.FairTask_convRaw:</div>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00707">707</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  707</span>   <span class="keyword">def </span>Finalize(self):</div>
+<div class="line"><span class="lineno">  708</span>      <span class="keywordflow">if</span> self.options.FairTask_convRaw:</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -678,22 +678,22 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00386">386</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  386</span>   <span class="keyword">def </span>getStartTime(self):</div>
-<div class="line"><span class="lineno">  387</span>      runNr = str( abs(self.options.runNumber) ).zfill(6)</div>
-<div class="line"><span class="lineno">  388</span>      path  = self.options.path+<span class="stringliteral">&#39;run_&#39;</span>+ runNr+<span class="stringliteral">&#39;/&#39;</span></div>
-<div class="line"><span class="lineno">  389</span>      jname = <span class="stringliteral">&quot;run_timestamps.json&quot;</span></div>
-<div class="line"><span class="lineno">  390</span>      <span class="keyword">from</span> XRootD <span class="keyword">import</span> client</div>
-<div class="line"><span class="lineno">  391</span>      <span class="keyword">with</span> client.File() <span class="keyword">as</span> f:</div>
-<div class="line"><span class="lineno">  392</span>               f.open(self.options.server+path+jname)</div>
-<div class="line"><span class="lineno">  393</span>               status, jsonStr = f.read()</div>
-<div class="line"><span class="lineno">  394</span>               f.close()</div>
-<div class="line"><span class="lineno">  395</span>      date = json.loads(jsonStr)</div>
-<div class="line"><span class="lineno">  396</span>      time_str = date[<span class="stringliteral">&#39;start_time&#39;</span>].replace(<span class="stringliteral">&#39;Z&#39;</span>,<span class="stringliteral">&#39;&#39;</span>)</div>
-<div class="line"><span class="lineno">  397</span>      time_obj = time.strptime(time_str, <span class="stringliteral">&#39;%Y-%m-%dT%H:%M:%S&#39;</span>)</div>
-<div class="line"><span class="lineno">  398</span>      startTimeOfRun = calendar.timegm(time_obj)</div>
-<div class="line"><span class="lineno">  399</span>      <span class="keywordflow">return</span> startTimeOfRun</div>
-<div class="line"><span class="lineno">  400</span> </div>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00387">387</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  387</span>   <span class="keyword">def </span>getStartTime(self):</div>
+<div class="line"><span class="lineno">  388</span>      runNr = str( abs(self.options.runNumber) ).zfill(6)</div>
+<div class="line"><span class="lineno">  389</span>      path  = self.options.path+<span class="stringliteral">&#39;run_&#39;</span>+ runNr+<span class="stringliteral">&#39;/&#39;</span></div>
+<div class="line"><span class="lineno">  390</span>      jname = <span class="stringliteral">&quot;run_timestamps.json&quot;</span></div>
+<div class="line"><span class="lineno">  391</span>      <span class="keyword">from</span> XRootD <span class="keyword">import</span> client</div>
+<div class="line"><span class="lineno">  392</span>      <span class="keyword">with</span> client.File() <span class="keyword">as</span> f:</div>
+<div class="line"><span class="lineno">  393</span>               f.open(self.options.server+path+jname)</div>
+<div class="line"><span class="lineno">  394</span>               status, jsonStr = f.read()</div>
+<div class="line"><span class="lineno">  395</span>               f.close()</div>
+<div class="line"><span class="lineno">  396</span>      date = json.loads(jsonStr)</div>
+<div class="line"><span class="lineno">  397</span>      time_str = date[<span class="stringliteral">&#39;start_time&#39;</span>].replace(<span class="stringliteral">&#39;Z&#39;</span>,<span class="stringliteral">&#39;&#39;</span>)</div>
+<div class="line"><span class="lineno">  398</span>      time_obj = time.strptime(time_str, <span class="stringliteral">&#39;%Y-%m-%dT%H:%M:%S&#39;</span>)</div>
+<div class="line"><span class="lineno">  399</span>      startTimeOfRun = calendar.timegm(time_obj)</div>
+<div class="line"><span class="lineno">  400</span>      <span class="keywordflow">return</span> startTimeOfRun</div>
+<div class="line"><span class="lineno">  401</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -752,59 +752,60 @@ Static Public Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   47</span>         <span class="keywordflow">elif</span> options.path.find(<span class="stringliteral">&#39;2023&#39;</span>)!=-1: fpath = <span class="stringliteral">&quot;/eos/experiment/sndlhc/convertedData/physics/2023/&quot;</span></div>
 <div class="line"><span class="lineno">   48</span>         <span class="keywordflow">elif</span> options.path.find(<span class="stringliteral">&#39;2024&#39;</span>)!=-1: fpath = <span class="stringliteral">&quot;/eos/experiment/sndlhc/convertedData/physics/2024/&quot;</span></div>
 <div class="line"><span class="lineno">   49</span>         <span class="keywordflow">elif</span> options.path.find(<span class="stringliteral">&#39;2025&#39;</span>)!=-1: fpath = <span class="stringliteral">&quot;/eos/experiment/sndlhc/convertedData/physics/2025/&quot;</span></div>
-<div class="line"><span class="lineno">   50</span>         <span class="keywordflow">else</span>: fpath = <span class="stringliteral">&quot;/eos/experiment/sndlhc/convertedData/commissioning/TI18/&quot;</span></div>
-<div class="line"><span class="lineno">   51</span>         fg = ROOT.TFile.Open(options.server+fpath+<span class="stringliteral">&quot;/FSdict.root&quot;</span>)</div>
-<div class="line"><span class="lineno">   52</span>         pkl = Unpickler(fg)</div>
-<div class="line"><span class="lineno">   53</span>         FSdict = pkl.load(<span class="stringliteral">&#39;FSdict&#39;</span>)</div>
-<div class="line"><span class="lineno">   54</span>         fg.Close()</div>
-<div class="line"><span class="lineno">   55</span>         <span class="keywordflow">if</span> options.runNumber <span class="keywordflow">in</span> FSdict: </div>
-<div class="line"><span class="lineno">   56</span>             <span class="keywordflow">if</span> <span class="stringliteral">&#39;B1&#39;</span> <span class="keywordflow">in</span> FSdict[options.runNumber]: self.fsdict = FSdict[options.runNumber]</div>
-<div class="line"><span class="lineno">   57</span>      <span class="keywordflow">except</span>:</div>
-<div class="line"><span class="lineno">   58</span>         print(<span class="stringliteral">&#39;continue without knowing filling scheme&#39;</span>,options.server+options.path)</div>
-<div class="line"><span class="lineno">   59</span>      </div>
-<div class="line"><span class="lineno">   60</span>      <span class="comment"># put the run&#39;s FS in format to be passed to FairTasks as input</span></div>
-<div class="line"><span class="lineno">   61</span>      self.FSmap = ROOT.TMap()</div>
-<div class="line"><span class="lineno">   62</span>      <span class="keywordflow">if</span> self.fsdict:   </div>
-<div class="line"><span class="lineno">   63</span>         <span class="comment"># For LHC ion runs the phase shift of beam 2 could not be</span></div>
-<div class="line"><span class="lineno">   64</span>         <span class="comment"># determined and is assigned 0 or 1718(=1782-64) in the FS dict</span></div>
-<div class="line"><span class="lineno">   65</span>         <span class="comment"># For pp runs phase2 is 3564-129.</span></div>
-<div class="line"><span class="lineno">   66</span>         <span class="keywordflow">if</span> self.fsdict[<span class="stringliteral">&#39;phaseShift2&#39;</span>] == 0 <span class="keywordflow">or</span> self.fsdict[<span class="stringliteral">&#39;phaseShift2&#39;</span>] == 1718:</div>
-<div class="line"><span class="lineno">   67</span>             Nbunches = 1782</div>
-<div class="line"><span class="lineno">   68</span>         <span class="keywordflow">else</span>: Nbunches = 3564 <span class="comment"># proton runs</span></div>
-<div class="line"><span class="lineno">   69</span>         <span class="keywordflow">for</span> bunchNumber <span class="keywordflow">in</span> range (0, Nbunches):</div>
-<div class="line"><span class="lineno">   70</span>             nb1 = (Nbunches + bunchNumber - self.fsdict[<span class="stringliteral">&#39;phaseShift1&#39;</span>])%Nbunches</div>
-<div class="line"><span class="lineno">   71</span>             nb2 = (Nbunches + bunchNumber - self.fsdict[<span class="stringliteral">&#39;phaseShift1&#39;</span>]- self.fsdict[<span class="stringliteral">&#39;phaseShift2&#39;</span>])%Nbunches</div>
-<div class="line"><span class="lineno">   72</span>             b1 = nb1 <span class="keywordflow">in</span> self.fsdict[<span class="stringliteral">&#39;B1&#39;</span>]</div>
-<div class="line"><span class="lineno">   73</span>             b2 = nb2 <span class="keywordflow">in</span> self.fsdict[<span class="stringliteral">&#39;B2&#39;</span>]</div>
-<div class="line"><span class="lineno">   74</span>             IP1 = <span class="keyword">False</span></div>
-<div class="line"><span class="lineno">   75</span>             IP2 = <span class="keyword">False</span></div>
-<div class="line"><span class="lineno">   76</span>             <span class="keywordflow">if</span> b1:</div>
-<div class="line"><span class="lineno">   77</span>                IP1 =  self.fsdict[<span class="stringliteral">&#39;B1&#39;</span>][nb1][<span class="stringliteral">&#39;IP1&#39;</span>]</div>
-<div class="line"><span class="lineno">   78</span>             <span class="keywordflow">if</span> b2:</div>
-<div class="line"><span class="lineno">   79</span>                IP2 =  self.fsdict[<span class="stringliteral">&#39;B2&#39;</span>][nb2][<span class="stringliteral">&#39;IP2&#39;</span>]</div>
-<div class="line"><span class="lineno">   80</span>             self.FSmap.Add(ROOT.TObjString(str(bunchNumber)), ROOT.TObjString(str(int(IP2))+str(int(IP1))+str(int(b2))+str(int(b1))))</div>
-<div class="line"><span class="lineno">   81</span>      <span class="keywordflow">else</span>: self.FSmap.Add(ROOT.TObjString(<span class="stringliteral">&quot;0&quot;</span>), ROOT.TObjString(<span class="stringliteral">&quot;-1&quot;</span>))</div>
-<div class="line"><span class="lineno">   82</span> </div>
-<div class="line"><span class="lineno">   83</span>      self.run     = ROOT.FairRunAna()</div>
-<div class="line"><span class="lineno">   84</span>      self.ioman = ROOT.FairRootManager.Instance()</div>
-<div class="line"><span class="lineno">   85</span>      ioman = self.ioman</div>
-<div class="line"><span class="lineno">   86</span><span class="comment"># open input file</span></div>
-<div class="line"><span class="lineno">   87</span>      <span class="keywordflow">if</span> options.auto:</div>
-<div class="line"><span class="lineno">   88</span>           mpath = options.path+options.monitorTag+<span class="stringliteral">&#39;run_&#39;</span>+ runNr+<span class="stringliteral">&#39;/&#39;</span></div>
-<div class="line"><span class="lineno">   89</span>           self.fiN=ROOT.TFile.Open(server+mpath+inFile)</div>
-<div class="line"><span class="lineno">   90</span>      <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">   91</span>           self.fiN=ROOT.TFile.Open(server+path+inFile)</div>
-<div class="line"><span class="lineno">   92</span>      self.nEvents = 1</div>
-<div class="line"><span class="lineno">   93</span>      self.newFormat = <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">   94</span>      <span class="keywordflow">if</span> self.fiN.Get(<span class="stringliteral">&#39;event&#39;</span>):   self.newFormat = <span class="keyword">False</span> <span class="comment"># old format</span></div>
-<div class="line"><span class="lineno">   95</span>      <span class="keywordflow">if</span> <span class="keywordflow">not</span> self.monitoring:</div>
-<div class="line"><span class="lineno">   96</span>        <span class="keywordflow">if</span> self.newFormat:</div>
-<div class="line"><span class="lineno">   97</span>           <span class="keywordflow">if</span> options.nEvents&lt;0:  self.nEvents = self.fiN.Get(<span class="stringliteral">&quot;data&quot;</span>).GetEntries()</div>
-<div class="line"><span class="lineno">   98</span>           <span class="keywordflow">else</span>: self.nEvents = min(options.nEvents,self.fiN.Get(<span class="stringliteral">&quot;data&quot;</span>).GetEntries())</div>
-<div class="line"><span class="lineno">   99</span>        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  100</span>           <span class="keywordflow">if</span> options.nEvents&lt;0:  self.nEvents = self.fiN.Get(<span class="stringliteral">&quot;event&quot;</span>).GetEntries()</div>
-<div class="line"><span class="lineno">  101</span>           <span class="keywordflow">else</span>: self.nEvents = min(options.nEvents,self.fiN.Get(<span class="stringliteral">&quot;event&quot;</span>).GetEntries())</div>
-<div class="line"><span class="lineno">  102</span>      print(<span class="stringliteral">&#39;converting &#39;</span>,self.nEvents,<span class="stringliteral">&#39; events &#39;</span>,<span class="stringliteral">&#39; of run&#39;</span>,options.runNumber)</div>
+<div class="line"><span class="lineno">   50</span>         <span class="keywordflow">elif</span> options.path.find(<span class="stringliteral">&#39;2026&#39;</span>)!=-1: fpath = <span class="stringliteral">&quot;/eos/experiment/sndlhc/convertedData/physics/2026/&quot;</span></div>
+<div class="line"><span class="lineno">   51</span>         <span class="keywordflow">else</span>: fpath = <span class="stringliteral">&quot;/eos/experiment/sndlhc/convertedData/commissioning/TI18/&quot;</span></div>
+<div class="line"><span class="lineno">   52</span>         fg = ROOT.TFile.Open(options.server+fpath+<span class="stringliteral">&quot;/FSdict.root&quot;</span>)</div>
+<div class="line"><span class="lineno">   53</span>         pkl = Unpickler(fg)</div>
+<div class="line"><span class="lineno">   54</span>         FSdict = pkl.load(<span class="stringliteral">&#39;FSdict&#39;</span>)</div>
+<div class="line"><span class="lineno">   55</span>         fg.Close()</div>
+<div class="line"><span class="lineno">   56</span>         <span class="keywordflow">if</span> options.runNumber <span class="keywordflow">in</span> FSdict: </div>
+<div class="line"><span class="lineno">   57</span>             <span class="keywordflow">if</span> <span class="stringliteral">&#39;B1&#39;</span> <span class="keywordflow">in</span> FSdict[options.runNumber]: self.fsdict = FSdict[options.runNumber]</div>
+<div class="line"><span class="lineno">   58</span>      <span class="keywordflow">except</span>:</div>
+<div class="line"><span class="lineno">   59</span>         print(<span class="stringliteral">&#39;continue without knowing filling scheme&#39;</span>,options.server+options.path)</div>
+<div class="line"><span class="lineno">   60</span>      </div>
+<div class="line"><span class="lineno">   61</span>      <span class="comment"># put the run&#39;s FS in format to be passed to FairTasks as input</span></div>
+<div class="line"><span class="lineno">   62</span>      self.FSmap = ROOT.TMap()</div>
+<div class="line"><span class="lineno">   63</span>      <span class="keywordflow">if</span> self.fsdict:   </div>
+<div class="line"><span class="lineno">   64</span>         <span class="comment"># For LHC ion runs the phase shift of beam 2 could not be</span></div>
+<div class="line"><span class="lineno">   65</span>         <span class="comment"># determined and is assigned 0 or 1718(=1782-64) in the FS dict</span></div>
+<div class="line"><span class="lineno">   66</span>         <span class="comment"># For pp runs phase2 is 3564-129.</span></div>
+<div class="line"><span class="lineno">   67</span>         <span class="keywordflow">if</span> self.fsdict[<span class="stringliteral">&#39;phaseShift2&#39;</span>] == 0 <span class="keywordflow">or</span> self.fsdict[<span class="stringliteral">&#39;phaseShift2&#39;</span>] == 1718:</div>
+<div class="line"><span class="lineno">   68</span>             Nbunches = 1782</div>
+<div class="line"><span class="lineno">   69</span>         <span class="keywordflow">else</span>: Nbunches = 3564 <span class="comment"># proton runs</span></div>
+<div class="line"><span class="lineno">   70</span>         <span class="keywordflow">for</span> bunchNumber <span class="keywordflow">in</span> range (0, Nbunches):</div>
+<div class="line"><span class="lineno">   71</span>             nb1 = (Nbunches + bunchNumber - self.fsdict[<span class="stringliteral">&#39;phaseShift1&#39;</span>])%Nbunches</div>
+<div class="line"><span class="lineno">   72</span>             nb2 = (Nbunches + bunchNumber - self.fsdict[<span class="stringliteral">&#39;phaseShift1&#39;</span>]- self.fsdict[<span class="stringliteral">&#39;phaseShift2&#39;</span>])%Nbunches</div>
+<div class="line"><span class="lineno">   73</span>             b1 = nb1 <span class="keywordflow">in</span> self.fsdict[<span class="stringliteral">&#39;B1&#39;</span>]</div>
+<div class="line"><span class="lineno">   74</span>             b2 = nb2 <span class="keywordflow">in</span> self.fsdict[<span class="stringliteral">&#39;B2&#39;</span>]</div>
+<div class="line"><span class="lineno">   75</span>             IP1 = <span class="keyword">False</span></div>
+<div class="line"><span class="lineno">   76</span>             IP2 = <span class="keyword">False</span></div>
+<div class="line"><span class="lineno">   77</span>             <span class="keywordflow">if</span> b1:</div>
+<div class="line"><span class="lineno">   78</span>                IP1 =  self.fsdict[<span class="stringliteral">&#39;B1&#39;</span>][nb1][<span class="stringliteral">&#39;IP1&#39;</span>]</div>
+<div class="line"><span class="lineno">   79</span>             <span class="keywordflow">if</span> b2:</div>
+<div class="line"><span class="lineno">   80</span>                IP2 =  self.fsdict[<span class="stringliteral">&#39;B2&#39;</span>][nb2][<span class="stringliteral">&#39;IP2&#39;</span>]</div>
+<div class="line"><span class="lineno">   81</span>             self.FSmap.Add(ROOT.TObjString(str(bunchNumber)), ROOT.TObjString(str(int(IP2))+str(int(IP1))+str(int(b2))+str(int(b1))))</div>
+<div class="line"><span class="lineno">   82</span>      <span class="keywordflow">else</span>: self.FSmap.Add(ROOT.TObjString(<span class="stringliteral">&quot;0&quot;</span>), ROOT.TObjString(<span class="stringliteral">&quot;-1&quot;</span>))</div>
+<div class="line"><span class="lineno">   83</span> </div>
+<div class="line"><span class="lineno">   84</span>      self.run     = ROOT.FairRunAna()</div>
+<div class="line"><span class="lineno">   85</span>      self.ioman = ROOT.FairRootManager.Instance()</div>
+<div class="line"><span class="lineno">   86</span>      ioman = self.ioman</div>
+<div class="line"><span class="lineno">   87</span><span class="comment"># open input file</span></div>
+<div class="line"><span class="lineno">   88</span>      <span class="keywordflow">if</span> options.auto:</div>
+<div class="line"><span class="lineno">   89</span>           mpath = options.path+options.monitorTag+<span class="stringliteral">&#39;run_&#39;</span>+ runNr+<span class="stringliteral">&#39;/&#39;</span></div>
+<div class="line"><span class="lineno">   90</span>           self.fiN=ROOT.TFile.Open(server+mpath+inFile)</div>
+<div class="line"><span class="lineno">   91</span>      <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">   92</span>           self.fiN=ROOT.TFile.Open(server+path+inFile)</div>
+<div class="line"><span class="lineno">   93</span>      self.nEvents = 1</div>
+<div class="line"><span class="lineno">   94</span>      self.newFormat = <span class="keyword">True</span></div>
+<div class="line"><span class="lineno">   95</span>      <span class="keywordflow">if</span> self.fiN.Get(<span class="stringliteral">&#39;event&#39;</span>):   self.newFormat = <span class="keyword">False</span> <span class="comment"># old format</span></div>
+<div class="line"><span class="lineno">   96</span>      <span class="keywordflow">if</span> <span class="keywordflow">not</span> self.monitoring:</div>
+<div class="line"><span class="lineno">   97</span>        <span class="keywordflow">if</span> self.newFormat:</div>
+<div class="line"><span class="lineno">   98</span>           <span class="keywordflow">if</span> options.nEvents&lt;0:  self.nEvents = self.fiN.Get(<span class="stringliteral">&quot;data&quot;</span>).GetEntries()</div>
+<div class="line"><span class="lineno">   99</span>           <span class="keywordflow">else</span>: self.nEvents = min(options.nEvents,self.fiN.Get(<span class="stringliteral">&quot;data&quot;</span>).GetEntries())</div>
+<div class="line"><span class="lineno">  100</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  101</span>           <span class="keywordflow">if</span> options.nEvents&lt;0:  self.nEvents = self.fiN.Get(<span class="stringliteral">&quot;event&quot;</span>).GetEntries()</div>
+<div class="line"><span class="lineno">  102</span>           <span class="keywordflow">else</span>: self.nEvents = min(options.nEvents,self.fiN.Get(<span class="stringliteral">&quot;event&quot;</span>).GetEntries())</div>
+<div class="line"><span class="lineno">  103</span>      print(<span class="stringliteral">&#39;converting &#39;</span>,self.nEvents,<span class="stringliteral">&#39; events &#39;</span>,<span class="stringliteral">&#39; of run&#39;</span>,options.runNumber)</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -823,18 +824,18 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00364">364</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  364</span>   <span class="keyword">def </span>printChannelInfo(self):</div>
-<div class="line"><span class="lineno">  365</span>         runNr   = str( abs(self.options.runNumber) ).zfill(6)</div>
-<div class="line"><span class="lineno">  366</span>         path    = self.options.path+<span class="stringliteral">&#39;run_&#39;</span>+ runNr+<span class="stringliteral">&#39;/&#39;</span></div>
-<div class="line"><span class="lineno">  367</span>         <span class="keyword">from</span> XRootD <span class="keyword">import</span> client</div>
-<div class="line"><span class="lineno">  368</span>         <span class="keyword">with</span> client.File() <span class="keyword">as</span> f:</div>
-<div class="line"><span class="lineno">  369</span>               f.open(self.options.server+path+<span class="stringliteral">&quot;/channels.csv&quot;</span>)</div>
-<div class="line"><span class="lineno">  370</span>               status, L = f.read()</div>
-<div class="line"><span class="lineno">  371</span>               self.Lchannel = L.decode().split(<span class="stringliteral">&#39;\n&#39;</span>)</div>
-<div class="line"><span class="lineno">  372</span>               f.close()</div>
-<div class="line"><span class="lineno">  373</span>         <span class="keywordflow">for</span> l <span class="keywordflow">in</span> self.Lchannel: print(l)</div>
-<div class="line"><span class="lineno">  374</span> </div>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00365">365</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  365</span>   <span class="keyword">def </span>printChannelInfo(self):</div>
+<div class="line"><span class="lineno">  366</span>         runNr   = str( abs(self.options.runNumber) ).zfill(6)</div>
+<div class="line"><span class="lineno">  367</span>         path    = self.options.path+<span class="stringliteral">&#39;run_&#39;</span>+ runNr+<span class="stringliteral">&#39;/&#39;</span></div>
+<div class="line"><span class="lineno">  368</span>         <span class="keyword">from</span> XRootD <span class="keyword">import</span> client</div>
+<div class="line"><span class="lineno">  369</span>         <span class="keyword">with</span> client.File() <span class="keyword">as</span> f:</div>
+<div class="line"><span class="lineno">  370</span>               f.open(self.options.server+path+<span class="stringliteral">&quot;/channels.csv&quot;</span>)</div>
+<div class="line"><span class="lineno">  371</span>               status, L = f.read()</div>
+<div class="line"><span class="lineno">  372</span>               self.Lchannel = L.decode().split(<span class="stringliteral">&#39;\n&#39;</span>)</div>
+<div class="line"><span class="lineno">  373</span>               f.close()</div>
+<div class="line"><span class="lineno">  374</span>         <span class="keywordflow">for</span> l <span class="keywordflow">in</span> self.Lchannel: print(l)</div>
+<div class="line"><span class="lineno">  375</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -853,18 +854,18 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00375">375</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  375</span>   <span class="keyword">def </span>printCurrentRun(self):</div>
-<div class="line"><span class="lineno">  376</span>         filename = <span class="stringliteral">&quot;currently_processed_file.txt&quot;</span></div>
-<div class="line"><span class="lineno">  377</span>         path    = self.options.path</div>
-<div class="line"><span class="lineno">  378</span>         <span class="keyword">from</span> XRootD <span class="keyword">import</span> client</div>
-<div class="line"><span class="lineno">  379</span>         <span class="keyword">with</span> client.File() <span class="keyword">as</span> f:</div>
-<div class="line"><span class="lineno">  380</span>               f.open(self.options.server+path+filename)</div>
-<div class="line"><span class="lineno">  381</span>               status, L = f.read()</div>
-<div class="line"><span class="lineno">  382</span>               self.Lcrun = L.decode().split(<span class="stringliteral">&#39;\n&#39;</span>)</div>
-<div class="line"><span class="lineno">  383</span>               f.close()</div>
-<div class="line"><span class="lineno">  384</span>         <span class="keywordflow">for</span> l <span class="keywordflow">in</span> self.Lcrun: print(l)</div>
-<div class="line"><span class="lineno">  385</span> </div>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00376">376</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  376</span>   <span class="keyword">def </span>printCurrentRun(self):</div>
+<div class="line"><span class="lineno">  377</span>         filename = <span class="stringliteral">&quot;currently_processed_file.txt&quot;</span></div>
+<div class="line"><span class="lineno">  378</span>         path    = self.options.path</div>
+<div class="line"><span class="lineno">  379</span>         <span class="keyword">from</span> XRootD <span class="keyword">import</span> client</div>
+<div class="line"><span class="lineno">  380</span>         <span class="keyword">with</span> client.File() <span class="keyword">as</span> f:</div>
+<div class="line"><span class="lineno">  381</span>               f.open(self.options.server+path+filename)</div>
+<div class="line"><span class="lineno">  382</span>               status, L = f.read()</div>
+<div class="line"><span class="lineno">  383</span>               self.Lcrun = L.decode().split(<span class="stringliteral">&#39;\n&#39;</span>)</div>
+<div class="line"><span class="lineno">  384</span>               f.close()</div>
+<div class="line"><span class="lineno">  385</span>         <span class="keywordflow">for</span> l <span class="keywordflow">in</span> self.Lcrun: print(l)</div>
+<div class="line"><span class="lineno">  386</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -907,13 +908,13 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00311">311</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  311</span>   <span class="keyword">def </span>qdc_chi2(self,board_id,tofpet_id,channel,tac,TDC=0):</div>
-<div class="line"><span class="lineno">  312</span>      qdc_cal = self.qdc_cal</div>
-<div class="line"><span class="lineno">  313</span>      par    = qdc_cal[board_id][tofpet_id][channel][tac]</div>
-<div class="line"><span class="lineno">  314</span>      parT = qdc_cal[board_id][tofpet_id][channel][tac][TDC]</div>
-<div class="line"><span class="lineno">  315</span>      <span class="keywordflow">return</span> max(par[<span class="stringliteral">&#39;chi2Ndof&#39;</span>],parT[<span class="stringliteral">&#39;chi2Ndof&#39;</span>])</div>
-<div class="line"><span class="lineno">  316</span> </div>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00312">312</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  312</span>   <span class="keyword">def </span>qdc_chi2(self,board_id,tofpet_id,channel,tac,TDC=0):</div>
+<div class="line"><span class="lineno">  313</span>      qdc_cal = self.qdc_cal</div>
+<div class="line"><span class="lineno">  314</span>      par    = qdc_cal[board_id][tofpet_id][channel][tac]</div>
+<div class="line"><span class="lineno">  315</span>      parT = qdc_cal[board_id][tofpet_id][channel][tac][TDC]</div>
+<div class="line"><span class="lineno">  316</span>      <span class="keywordflow">return</span> max(par[<span class="stringliteral">&#39;chi2Ndof&#39;</span>],parT[<span class="stringliteral">&#39;chi2Ndof&#39;</span>])</div>
+<div class="line"><span class="lineno">  317</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -956,12 +957,12 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00317">317</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  317</span>   <span class="keyword">def </span>qdc_sat(self,board_id,tofpet_id,channel,tac,v_fine):</div>
-<div class="line"><span class="lineno">  318</span>      qdc_cal = self.qdc_cal</div>
-<div class="line"><span class="lineno">  319</span>      par = qdc_cal[board_id][tofpet_id][channel][tac]</div>
-<div class="line"><span class="lineno">  320</span>      <span class="keywordflow">return</span> v_fine/par[<span class="stringliteral">&#39;d&#39;</span>]</div>
-<div class="line"><span class="lineno">  321</span>    </div>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00318">318</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  318</span>   <span class="keyword">def </span>qdc_sat(self,board_id,tofpet_id,channel,tac,v_fine):</div>
+<div class="line"><span class="lineno">  319</span>      qdc_cal = self.qdc_cal</div>
+<div class="line"><span class="lineno">  320</span>      par = qdc_cal[board_id][tofpet_id][channel][tac]</div>
+<div class="line"><span class="lineno">  321</span>      <span class="keywordflow">return</span> v_fine/par[<span class="stringliteral">&#39;d&#39;</span>]</div>
+<div class="line"><span class="lineno">  322</span>    </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -980,15 +981,15 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00410">410</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  410</span>   <span class="keyword">def </span>Run(self):</div>
-<div class="line"><span class="lineno">  411</span>      <span class="keywordflow">if</span> self.options.FairTask_convRaw:</div>
-<div class="line"><span class="lineno">  412</span>          self.run.Run(self.options.nStart, self.nEvents)</div>
-<div class="line"><span class="lineno">  413</span>      <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  414</span>          <span class="keywordflow">for</span> eventNumber <span class="keywordflow">in</span> range(self.options.nStart,self.nEvents):</div>
-<div class="line"><span class="lineno">  415</span>             self.executeEvent(eventNumber)</div>
-<div class="line"><span class="lineno">  416</span>          <span class="comment"># fill TTree</span></div>
-<div class="line"><span class="lineno">  417</span>             self.sTree.Fill()</div>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00411">411</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  411</span>   <span class="keyword">def </span>Run(self):</div>
+<div class="line"><span class="lineno">  412</span>      <span class="keywordflow">if</span> self.options.FairTask_convRaw:</div>
+<div class="line"><span class="lineno">  413</span>          self.run.Run(self.options.nStart, self.nEvents)</div>
+<div class="line"><span class="lineno">  414</span>      <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  415</span>          <span class="keywordflow">for</span> eventNumber <span class="keywordflow">in</span> range(self.options.nStart,self.nEvents):</div>
+<div class="line"><span class="lineno">  416</span>             self.executeEvent(eventNumber)</div>
+<div class="line"><span class="lineno">  417</span>          <span class="comment"># fill TTree</span></div>
+<div class="line"><span class="lineno">  418</span>             self.sTree.Fill()</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1013,7 +1014,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00557">557</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00558">558</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -1037,7 +1038,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00558">558</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00559">559</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -1077,7 +1078,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00293">293</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00294">294</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -1101,7 +1102,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00179">179</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00180">180</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -1125,7 +1126,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00243">243</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00244">244</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -1149,7 +1150,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00275">275</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00276">276</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -1173,7 +1174,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00539">539</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00540">540</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -1197,7 +1198,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00183">183</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00184">184</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -1237,7 +1238,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00520">520</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00521">521</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -1261,7 +1262,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00289">289</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00290">290</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -1285,7 +1286,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00290">290</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00291">291</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -1309,7 +1310,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00287">287</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00288">288</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -1333,7 +1334,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00288">288</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00289">289</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -1357,7 +1358,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00519">519</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00520">520</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -1381,7 +1382,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00285">285</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00286">286</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -1405,7 +1406,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00709">709</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00710">710</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -1429,7 +1430,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00181">181</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00182">182</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -1445,7 +1446,7 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00089">89</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00090">90</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -1469,7 +1470,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00158">158</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00159">159</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -1509,7 +1510,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00149">149</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00150">150</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -1525,7 +1526,7 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00061">61</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00062">62</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -1549,7 +1550,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00160">160</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00161">161</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -1573,7 +1574,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00291">291</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00292">292</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -1597,7 +1598,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00284">284</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00285">285</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -1621,7 +1622,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00224">224</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00225">225</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -1637,7 +1638,7 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00084">84</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00085">85</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -1661,7 +1662,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00237">237</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00238">238</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -1685,7 +1686,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00506">506</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00507">507</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -1709,7 +1710,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00221">221</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00222">222</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -1733,7 +1734,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00165">165</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00166">166</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -1749,7 +1750,7 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00371">371</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00372">372</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -1765,7 +1766,7 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00382">382</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00383">383</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -1789,7 +1790,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00121">121</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00122">122</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -1813,7 +1814,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00159">159</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00160">160</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -1837,7 +1838,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00161">161</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00162">162</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -1877,7 +1878,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00247">247</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00248">248</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -1901,7 +1902,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00277">277</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00278">278</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -1917,7 +1918,7 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00092">92</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00093">93</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -1933,7 +1934,7 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00093">93</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00094">94</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -1957,7 +1958,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00518">518</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00519">519</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -1981,7 +1982,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00517">517</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00518">518</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -2005,7 +2006,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00259">259</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00260">260</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -2029,7 +2030,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00118">118</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00119">119</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -2053,7 +2054,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00540">540</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00541">541</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -2093,7 +2094,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00136">136</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00137">137</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -2117,7 +2118,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00173">173</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00174">174</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -2141,7 +2142,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00228">228</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00229">229</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -2165,7 +2166,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00233">233</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00234">234</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -2181,7 +2182,7 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00083">83</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00084">84</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -2205,7 +2206,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00302">302</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00303">303</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -2229,7 +2230,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00253">253</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00254">254</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -2253,7 +2254,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00521">521</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00522">522</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -2277,7 +2278,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00511">511</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00512">512</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -2301,7 +2302,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00543">543</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00544">544</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -2325,7 +2326,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00542">542</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00543">543</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -2349,7 +2350,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00219">219</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00220">220</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -2373,7 +2374,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00245">245</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00246">246</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -2397,7 +2398,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00222">222</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00223">223</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -2421,7 +2422,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00165">165</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00166">166</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -2445,7 +2446,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00282">282</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00283">283</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -2469,7 +2470,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00505">505</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00506">506</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -2493,7 +2494,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00710">710</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00711">711</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -2517,7 +2518,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00185">185</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00186">186</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -2541,7 +2542,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00208">208</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00209">209</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -2565,7 +2566,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00526">526</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00527">527</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -2589,7 +2590,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00177">177</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00178">178</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -2613,7 +2614,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00220">220</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00221">221</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -2637,7 +2638,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00187">187</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00188">188</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
@@ -2661,7 +2662,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00143">143</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ConvRawData_8py_source.html#l00144">144</a> of file <a class="el" href="ConvRawData_8py_source.html">ConvRawData.py</a>.</p>
 
 </div>
 </div>
