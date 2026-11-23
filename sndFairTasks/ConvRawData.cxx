@@ -493,7 +493,7 @@ void ConvRawData::Process1()
                                              int((eventTime%(4*3564))/8+0.5))))->GetString().Data()));
       }
       // proton runs
-      else{
+      if (fSNDLHCEventHeader->GetAccMode()== 11){
          fSNDLHCEventHeader->SetBunchType(stoi(((TObjString*)FSmap->GetValue(Form("%d",
                                              int((eventTime%(4*3564))/4))))->GetString().Data()));
       }
