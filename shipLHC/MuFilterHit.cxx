@@ -165,7 +165,6 @@ std::map<Int_t,Float_t> MuFilterHit::GetAllSignals(Bool_t mask, Bool_t positive,
         for (unsigned int j=0; j<nSiPMs; ++j){
             unsigned int channel = j+s*nSiPMs;
             if (signals[channel]<-900){continue;}
-            if (signals[channel]> 0 || !positive){
                 if (!fMasked[channel] || !mask){
                     if (!isShort(channel) || use_small_sipms){
                         if (use_calibration){
@@ -176,18 +175,22 @@ std::map<Int_t,Float_t> MuFilterHit::GetAllSignals(Bool_t mask, Bool_t positive,
                             * To disregard the constant offset, either supply a constants file where it is set to 0,
                             * or use the followign formula: allSignals[channel] = signals[channel]/calibrationConstant;
                             */
-                            float calibrationConstant = SiPM_qdc_calibration_constants[fDetectorID*100+channel];
-                            float constantOffset = SiPM_qdc_calibration_constants[fDetectorID/10000];  // get sub-system wide offset (1-VS, 2-US, 3-DS)
-                            if (calibrationConstant > 0.){  // non-positive constant = problem
-                                    allSignals[channel] = (signals[channel]/calibrationConstant + constantOffset) / (1 + constantOffset);
-                            }
+                           float calibrationConstant = SiPM_qdc_calibration_constants[fDetectorID*100+channel];
+                           float constantOffset = SiPM_qdc_calibration_constants[fDetectorID/10000];  // get sub-system wide offset (1-VS, 2-US, 3-DS)
+                           if (calibrationConstant > 0.){  // non-positive constant = problem
+                              float calibratedSignal = (signals[channel]/calibrationConstant + constantOffset) / (1 + constantOffset);
+                              if (calibratedSignal > 0. || !positive){
+                                 allSignals[channel] = calibratedSignal;
+                              }
+                           }
                         }
                         else{  // no calibration: raw signals
-                            allSignals[channel] = signals[channel];
+                           if (signals[channel]> 0 || !positive){
+                              allSignals[channel] = signals[channel];
+                           }
                         }
                     }
                 }
-            }
         }
     }
     return allSignals;
